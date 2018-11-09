@@ -1,0 +1,172 @@
+ .infobox{
+        	width:52rem;
+        	height:38rem;
+        	background:#fff;
+        	margin:2rem auto 0;
+        	min-width:45rem;
+        	text-align:center;
+        	padding-top:3.7rem;
+        	position:relative;
+        }
+        .infobox .contentbox{
+        	width:80%;
+        	margin:0 auto;
+        }
+        .contentbox ul{
+        	
+        	padding-left:12rem;
+        }
+        .contentbox ul li{
+        	width: 100%;
+		    clear: both;
+		    display: inline-block;
+		    margin-bottom: 0.8rem;
+		    vertical-align: middle;
+        }
+        .contentbox .portraitbox{
+        	border-radius:50%;
+        }
+        .contentbox .portrait{
+        	width:5rem;
+        	height:5rem;
+        	opacity:0;
+        	margin:0 auto;
+        	border:0;
+        	border-radius:50%;
+        }
+        .contentbox .portraitForm{
+        	display:none;
+        	width:5rem;
+        	height:5rem;
+        	margin:0rem auto;
+        	/*border:1px solid rgba(0,0,0,0.8); */
+        	position:relative;
+        	border-radius:50%;
+        }
+        .contentbox .portraitForm input{
+        	width:5rem;
+        	height:5rem;
+        	padding:0;
+        	left:0;
+        	top:0;
+        	position:absolute;
+        	z-index:3;
+        }
+        .contentbox .portraitStyle{
+        	width:5rem;
+        	height:5rem;
+        	position:absolute;
+        	left:0;
+        	top:0;
+        	border-radius:50%;
+        }
+        .contentbox .username{
+        	line-height:3.7rem;
+        	height:3.7rem;
+        }
+        .contentbox .left{
+        	width:8rem;
+        	text-align:center;
+        	font-weight:bold;
+        }
+        .contentbox input{
+        	padding-left:1rem;
+        }
+.edit{
+     	width:3.2rem;
+     	height:1.7rem;
+     	background:#47B390 100%;
+     	text-align:center;
+     	line-height:1.7rem;
+     	border-radius:2px;
+     	color:#fff;
+     	position:absolute;
+     	right:2.5rem;
+     	top:1rem;
+     	cursor:pointer;
+     }
+     .edit-pass{
+        width:5rem;
+     	height:1.7rem;
+     	background:#47B390 100%;
+     	text-align:center;
+     	line-height:1.7rem;
+     	border-radius:2px;
+     	color:#fff;
+     	position:absolute;
+     	right:6.5rem;
+     	top:1rem;
+     	cursor:pointer;
+     }
+     .edit-back{
+        width:5rem;
+     	height:1.7rem;
+     	background:#47B390 100%;
+     	text-align:center;
+     	line-height:1.7rem;
+     	border-radius:2px;
+     	color:#fff;
+     	position:absolute;
+     	left:3.2rem;
+     	top:1rem;
+     	cursor:pointer;
+     	display:none;
+     }
+     .contentbox .value{
+     	margin-left:0.2rem;
+     }
+     .ui.grid .ui.vertical.menu {
+     	border-radius:0;
+     }
+     .ecode{
+     	margin-left:5.2rem;
+     	margin-top:1rem;
+     }
+     .hidden{
+     	display:none;
+     }
+     .eportrait{
+     	opacity:0;
+     }
+     .myform input{
+     	width:15rem;
+     }
+     .dynamicValue{
+     	margin-left:0.2rem;
+     }
+     .dynamicValue input{
+     	background: #F2F2F2;
+border: 1px solid #979797;
+border-radius: 4px;
+padding-left:0.2rem;
+
+     }
+     .dynamicValue .eportrait{
+     	border:none;
+     }
+     .mainleft{
+     	width:60px;
+        
+     }
+   .ui.divider{
+     	background:#47b391;
+     }
+     .ui.divider:not(.vertical):not(.horizontal){
+     	border-top:none;
+     	
+     }
+     .submitBtn{
+     	width:8.6rem;
+     	height:2rem;
+     	background:#47b391;
+     	color:#fff;
+     	border-radius:100px;
+     	text-align:center;
+     	line-height:2rem;
+     	margin:0 auto;
+     	display:none;
+     	cursor:pointer;
+     }
+     .ui.vertical.menu .item>i.icon{
+     	float:left;
+     }

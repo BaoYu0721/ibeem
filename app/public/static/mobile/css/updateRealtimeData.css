@@ -1,0 +1,67 @@
+body{
+		background:#f0f0f0;
+	}
+	.title{
+		font-size:1.8rem;
+		line-height:2.5rem;
+		margin-top:1rem;
+		margin-bottom:1.35rem;
+		color:#5d5d5d;
+		text-align:center;
+	}
+	.title2{
+		font-size:1.35rem;
+		text-align:center;
+		line-height:1.9rem;
+		margin-bottom:0.75rem;
+		color:#666;
+	}	
+	.paramItem li{
+		width:28.6rem;
+		height:2.4rem;
+		background:#fff;
+		border:1px solid #fff;
+		border-radius:5rem;
+		margin:1rem auto 0;
+		line-height:2.4rem;
+		padding:0 2rem;
+		overflow:hidden;
+	}
+	.paramItem li .left{
+		width:2.8rem;
+	}
+	.paramItem .heating ¡£title3{
+		line-height:2rem;
+	}
+	.paramItem .on{
+		border:1px solid #3fb493;
+	}
+	.paramItem .on input{
+	    height:2rem;
+		border-bottom:1px solid #979797;
+	}
+	.paramItem .homesize input{
+		width:18.5rem;
+	}
+	.paramItem input {
+		text-align:right;
+		line-height:2.4rem;
+		height:2.4rem;
+		background:#fff;
+		width:20.5rem;
+	}
+	.paramItem .heating{
+		height:6.2rem; 
+		border-radius:0.9rem;
+		display:none;
+	}
+	.paramItem .heating .item span{
+		margin-left:3rem;
+		line-height:1.9rem;
+		height:1.9rem;
+	}
+	.paramItem .heating .item .current{
+		border-bottom:1px solid #3fb493;
+		box-sizing:border-box;
+		color:#3fb493;
+	}

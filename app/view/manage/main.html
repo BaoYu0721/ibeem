@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>数据概览</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/public/static/manage/css/main.css">
+    
+	<!-- <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script> -->
+	<script src="/public/static/common/js/jquery.min.js"></script> 
+	<script src="/public/static/common/js/jquery.cookie.js"></script>
+	<script src="/public/static/common/js/semantic.new.min.js"></script>
+	<script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+	<script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+	<script src="/public/static/common/js/tools.js"></script>
+</head>
+<body>
+<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on" style="margin-left:0;">数据概览</a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-map">
+                	<div id="button_group" style="display:none">
+	                	<button class="top-button building active">建筑</button>
+	                	<button class="top-button point">设备</button>
+	                	<button class="top-button survey">问卷</button>
+                	</div>
+                	<div class="ui toggle checkbox mytoggle" id="mytoggle">
+					  <input type="checkbox" name="public">
+					  <label id="toogleLabel"></label>
+					  <span class="toogle-tip hidden" id="toogle_tip">123</span>
+					</div>
+					
+                	<div id="chart_top_left"  class="chart-in-map" style=""></div>
+                	<div id="chart_bottom_left" class="chart-in-map"></div>
+                	<div id="chart_medium_left" class="chart-in-map"></div>
+                	<div class="map_list_div" id="map_list_div" style="display:none">
+	                	
+                	</div>
+               		
+                	<div id="countNum" class="countNum"><span></span></div>
+                	<!-- <div class="ui vertical right menu" id="filter"></div> -->
+                	<div class="ui floating labeled icon  dropdown button clickme" id="filter" style="display:none;">
+					  <i class="dropdown icon clickme"></i>
+					  <span class="text clickme">筛选</span>
+					  <div class="menu" id="filter_menu">
+					  </div>
+					</div>
+					
+					
+                	<!-- highmaps地图只需要一个div -->
+                	<div id="container" style="visible:hidden"></div>
+                	<!-- <div id="drag"></div>
+					<div id="drop"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/mainInit.js"></script>
+<script src="/public/static/manage/js/team/selectCity.js"></script>
+
+<script>
+//添加loading	
+addLoading();
+//去掉左侧导航栏active
+$("#team").removeClass("active");
+</script>
+<!-- 地图相关开始 -->
+	<!-- 图表基础文件 -->
+	<!-- <script src="/static/common/js/plotly.min.js"></script> -->
+	<!-- 地图基础文件 -->
+	<script src="/public/static/common/js/highmaps.js"></script> 
+	
+	
+	<!-- 有下跳时需要引入 -->
+	<!-- <script src="https://img.hcharts.cn/highcharts/modules/drilldown.js"></script> -->
+	<!-- 应该是加高亮的 -->
+	<!-- <script src="https://img.hcharts.cn/highcharts/themes/grid-light.js"></script> -->
+	<!-- mappoint描点必须引入（经纬度转换成坐标） -->
+	<script src="/public/static/common/js/proj4.js"></script> 
+	<!-- 引入后右上角出现导出按钮，可以进行导出打印等操作 -->
+	<!-- <script src="https://code.highcharts.com/maps/modules/exporting.js"></script> -->
+	<!-- data.js -->
+	<script src="/public/static/common/js/highchartdata.js"></script>
+	<!-- hicharts插件 -->
+	<script src="/public/static/common/js/highcharts-zh_CN.js"></script>
+	<!-- 中国地图json文件 -->
+	<script src="/public/static/common/js/jianshuChina.js"></script>
+	<!-- 欧洲地图json文件 -->
+	<!-- <script src="https://img.hcharts.cn/mapdata/custom/europe.js"></script> -->
+	<!-- 中国城市json信息 -->
+	<!-- <script src="https://img.hcharts.cn/mapdata/chinaCitys.js"></script> -->
+	<!-- point地图初始化配置 -->	
+	<script src="/public/static/manage/js/myMapHighchart.js"></script>
+	<!-- <script src="/static/manage/js/myChartHighchart.js"></script>  -->
+<!-- 地图相关结束 -->
+<!-- 获取数据，拼成data并调用myMap进行初始化 -->
+<!-- <script src="/static/common/js/require.js" data-main="/static/manage/js/main.js"></script> --> 
+<script src="/public/static/manage/js/main.js"></script>  
+
+</body>
+</html>

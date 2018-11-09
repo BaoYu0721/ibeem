@@ -1,0 +1,81 @@
+/* 页面左侧导航栏和内容分布 */
+body{min-height:0;}
+.main .ui.sidebar.menu.top{z-index:1498;}
+.content{overflow-x:auto;overflow-y:hidden;left:0;}
+.content-team{overflow:auto;height:100%;}
+.content .ui.grid .two.wide.column{height:100%;}
+.ui.divider{background:#d0d0d0;}
+.ui.grid .ui.vertical.menu{position:absolute;top:0;}
+.ui.grid>.column:not(.row){padding:0; }
+.ui.vertical.menu .item:not(.dropdown)>.menu>.item{padding:.5rem 1.5rem .5rem .5rem;}
+.ui.table tbody tr:hover{
+	background:transparent;
+}
+.main .ui.inverted.icon.menu .item{margin-left:6.5rem;}
+.main .ui.inverted.icon.menu .item.alone{margin-left:0;}
+.ui.dimmer{z-index:1500;}
+.mainleft  .ui.sidebar{z-index:1499}
+.ui.form .field, .ui.form .fields .field{margin:0 0 2rem;}
+/* 左上角标题文字 */
+
+.teamTitleTit{
+			padding-left:1.2rem;
+       		font-size:1.3rem;
+       		position:absolute;
+       		left:60px;
+       		width:auto;
+       		top:0rem;
+       		color:#47b391;
+       		text-align:center;
+       }
+.titleTit{
+			padding-left:1.2rem;
+       		font-size:1.3rem;
+       		position:absolute;
+       		left:60px;
+       		width:auto;
+       		top:0rem;
+       		color:#47b391;
+       		text-align:center;
+       }
+.titleTit a{width:100%;text-align:center;line-height:1.7142rem;
+	width:auto;
+	font-size: 1.2142rem;
+	color: #171717;	
+	padding:0 .7142rem;
+	border-right:1px solid #979797;}
+.titleTit a:first-child{padding-left:0;}
+/* 分析问卷 container */
+.btn{border:none;border-radius:.2857rem;display:inline-block;margin-left:1rem;line-height:1.7142rem;width:7rem;background-color:#47B390;padding:0;color:white;}
+.btn.add{float:right;margin-right:2.7857rem;}
+.content .container{width:68rem;height:auto;padding-top:5.7142rem;}
+.content .container>.top{position:absolute;top:2px;left:0;z-index:1497;height:5.7142rem;width:68rem;;background: #E7E7E7;}
+.content .container>.top span{position: absolute;font-size: 1rem;color: #4A4A4A;top:1.3571rem;left:2.7857rem;}
+.top-form{margin-top:3.2rem;margin-left:2.7857rem;}
+.top-form label{line-height:1.2142em}
+.top-form .field{height:1.7142rem;min-width:7rem;width:auto;display:inline-block;margin-left:2rem;}
+/* 添加分析 */
+#addAnalysis .top{background-color:#EBEBEB;height:3.2857rem;border-top-right-radius:.2857rem;border-top-left-radius:.2857rem;text-align:center;}
+#addAnalysis .top span{line-height:3.2857rem;font-size:1.7142rem;color:#4A4A4A;}
+#addAnalysis .bottom{background-color:white;padding:1rem;border-bottom-right-radius:.2857rem;border-bottom-left-radius:.2857rem;}
+#addAnalysis .bottom .ui.form{position:relative;}
+#addAnalysis .bottom .ui.form .field label{display:inline-block;margin-right:1rem;min-width:9.5rem;line-height:2.8rem;text-align:center;}
+#addAnalysis .bottom .ui.form .field .ui.dropdown{display:inline-block;width:60%;}
+#addAnalysis .bottom .ui.form .field input{width:60%;display:inline-block;}
+#addAnalysis .bottom .ui.form .field.btn-group{text-align:center;}
+#addAnalysis .bottom .ui.form .ui.button{background-color:#47b391;color:white;margin:0 4rem;width:8rem;}
+.error{color:red;padding-left:11rem;display:none;position:absolute;}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current{background:#47b391;box-shadow:#47b391 0 1px 3px 0 inset}
+/* 分析模块 */
+#container .analysis{min-height:30rem;width:100%;background-color:white;margin-bottom:1rem;overflow:hidden;}
+#container .analysis .top{border-bottom:1px solid #F0F0F0;width:90%;margin:0 auto;height:3rem;}
+#container .analysis .top span{line-height:3rem;color:#666666;font-size:1.5rem;}
+#container .analysis .bottom{width:90%;margin:0 auto;}
+#container .analysis .bottom>span{font-size:1rem;line-height:2rem;padding-right:1rem;}
+#container .analysis .bottom>.chart{width: 100%;height:24rem;}
+#container .analysis .bottom>.chart>.small-chart{width: 50%;height:18rem;float:left;}
+#container .analysis .bottom>.chart>.small-chart-1{width: 50%;height:22rem;float:left;}
+#container .analysis .bottom>.table-container{margin-top:-3.7rem;}
+
+.optionSelect{position:relative;z-index:100;width:50%;}
+.dataTables_wrapper .ui.grid>.column:not(.row),.dataTables_wrapper .ui.grid>.row>.column{padding:0;}

@@ -1,0 +1,26 @@
+/* 建筑列表 */
+.delete{width:auto;height:1.7rem;float:right;}
+.delete button{padding:0 .5rem;margin:0 6px;width:100%;height:100%;border-radius:7.1428rem;box-shadow:none;border: 1px solid #9B9B9B;background-color:white;color: #737373;}
+.add{width:auto;height:1.7rem;float:right;margin-right:0.5rem;}
+.add button{padding:0 .5rem;margin:0 6px;width:100%;height:100%;border-radius:7.1428rem;box-shadow:none;border: 1px solid #9B9B9B;background-color:white;color: #737373;}
+.upload{width:auto;height:1.7rem;float:right;margin-right:0.5rem;}
+.upload button{padding:0 .5rem;margin:0 6px;width:100%;height:100%;border-radius:7.1428rem;box-shadow:none;border: 1px solid #9B9B9B;background-color:white;color: #737373;}
+.div-group-base{max-height:100%;height:auto;}
+.div-group-base .div-content{height:auto;}
+.div-group-base.table .div-content{max-height:40rem;overflow:auto;}
+.div-group-base.table .div-content .ui.table{border-radius:0;border:none;}
+/* 新增建筑 */
+.ui.modal.addbuilding-modal{height:42.3571rem;width:58.7857rem;position:absolute;left:50%;margin-left:-29.3928rem;}
+.ui.modal.addbuilding-modal .container{width:58.7857rem;margin:0 auto;}
+.ui.basic.modal>.close{top:0.5rem;right:2rem;}
+.ui.modal.addbuilding-modal .container .top{height:3.2857rem;background-color:#EBEBEB;text-align:center;color:#4A4A4A;border-top-right-radius: .2857rem;border-top-left-radius: .2857rem;}
+.ui.modal.addbuilding-modal .container .top span{line-height:3.2857rem;font-size:1.7142rem;}
+.ui.modal.addbuilding-modal .container .bottom{padding-bottom:30px;background: #FFFFFF;border-bottom-left-radius: .2857rem;border-bottom-left-radius: .2857rem;}
+.addbuilding{width:25.142rem;height:100%;margin:0 auto;padding:0;padding-top:3.2142rem;position:relative;}
+.addbuilding .title{line-height:1.857rem;font-size: 1.3571rem;color: #7C7C7C;text-align:center;}
+.addbuilding .name input{width:25.285rem;height:2.642rem;}
+.addbuilding .select tr .title-td{color:black}
+.addbuilding .select tr .select-td{padding:1.2857rem 0;}
+.addbuilding .select tr .select-td select{height:2.6428rem;}
+.addbuilding .error{font-size:1.5rem; height:20px;}/* position:absolute;top:28rem;left:0; */
+.addbuilding .ui.button{margin-top:2rem;}

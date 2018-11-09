@@ -1,0 +1,132 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="building.homepage" /></title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingContent.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+    <style>
+	.building-box{padding:3rem; background-color:#ffffff; border:1px solid #e7e7e7;}
+	.building-box .b-pic{overflow:hidden; margin-bottom:2rem;margin-top:2rem;}
+	.building-box .b-pic .b-pic-img{width:32%; height:10rem; margin-right:2%; float:left; border-radius:4px; -webkit-border-radius:4px;}
+	.building-box .b-pic .b-pic-img:nth-child(3n){margin-right:0;}
+	.building-box .b-pic .b-pic-img img{width:100%; height:100%;}
+	
+	.building-box .part-result-ok{display:block; margin:3rem auto 0 auto!important; width:8rem; text-align:center;opacity:0.7;filter:alpha(opacity=70);}
+	.building-box .part-result-ok:hover{cursor:pointer; opacity:1;filter:alpha(opacity=100);}
+	
+	.ui.label-2, .ui.labels .label-2 {background-color: transparent!important;border-color: #00b5ad!important;color: #333!important;padding: 0!important;}
+	.ui.label-2:hover, .ui.labels .label-2:hover{background-color: transparent!important;color: #333!important;}
+	.building-slider{padding:2rem; background-color:#ffffff; border:1px solid #e7e7e7;}
+	.building-slider .slider-3d{height:20rem; margin-top:2rem; background-color:#efefef;}
+	</style>
+</head>
+<body >
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
+        <div class="teamTitleTit">
+        	<a class="tit-teamname" href="/redirect?url=manage/teamContent.jsp"></a>
+        	<a class="tit-buildingname" href="/redirect?url=manage/teamBuildingContent.jsp" style="border:none;color:#47B390;"></a>
+        </div>
+            <a class="item" href="/redirect?url=manage/teamBuildingData.jsp"><spring:message code="building.information" /></a>
+            <a class="item" href="/redirect?url=manage/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
+            <a class="item" href="/redirect?url=manage/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
+            <a class="item" href="/redirect?url=manage/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team">
+                	<div class="buildinglist">
+                		<div class="ui grid">
+	                		<div class="eleven wide column mainright">
+	                			
+			                	<div class="building-box">
+									<div class="ui label huge label-2" id="buildingname"></div>
+									<div class="b-pic" id="b-pic">
+					                		<!-- <div class="ui left floated image b-pic-img">
+											  		<img src="http://www.ibeem.cn/file/image/1494754915058.jpg">
+											</div>
+					                		<div class="ui left floated image b-pic-img">
+											  		<img src="http://www.ibeem.cn/file/image/1494754915058.jpg">
+											</div> -->
+			                		</div>
+			                		<style>
+			                		.building-info{/* font-weight:normal; */}
+			                		.building-info table .str{font-weight:bold;}
+			                	
+			                		</style>
+			                		<div class="building-info">
+										  <table class="ui very basic table">
+											 
+												   <tr>
+												      <td class="str" style="width:15%"><spring:message code="building.name" /></td>
+												      <td id="name" style="width:35%"></td>
+												      <td class="str" style="width:15%"><spring:message code="building.city" /></td>
+												      <td id="citys" style="width:35%"></td>
+												    </tr>
+												    <tr>
+												      <td class="str"><spring:message code="building.area" /></td>
+												      <td id="area"></td>
+												      <td class="str"><spring:message code="building.height" /></td>
+												      <td id="height"></td>
+												    </tr>
+												    <tr>
+												      <td class="str"><spring:message code="building.wwr" /></td>
+												      <td id="proportion"></td>
+												      <td class="str"><spring:message code="building.point_count" /></td>
+												      <td id="pointnum"></td>
+												    </tr>
+												    <tr>
+												      <td class="str"><spring:message code="building.evaluate" /></td>
+												      <td id="comment"></td>
+												      <td class="str"><spring:message code="building.power_consumption" /></td>
+												      <td id="consumption"></td>
+												    </tr>
+											  
+										</table>
+									</div>
+			                		<div class="ui teal label huge part-result-ok" id="part-result-ok"><spring:message code="btn.update" /></div>
+			                	</div>
+		                	</div>
+		                	<!-- 右侧三维模型 -->
+		                	<div class="five wide column mainright">
+		                		<div class="building-slider">
+			                		<div class="ui label huge label-2"><spring:message code="building.3_d_model" /></div>
+			                		<div id="" class="slider-3d"></div>
+			                	</div>
+		                	</div>
+	                	</div>	
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 选择城市 -->
+<script src="/static/manage/js/team/selectCity.js"></script>
+<script src="/static/manage/js/team/teamCommon.js"></script>
+<script src="/static/manage/js/team/teamBuildingContent.js"></script>
+</body>
+</html>

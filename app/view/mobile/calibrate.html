@@ -1,0 +1,439 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>参数校准</title>
+<base href="<%=basePath%>" />
+<meta name="viewport" content="user-scalable=no"/>
+<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
+<style>
+	body{
+		width:100%;
+	}
+	
+	
+	#banner{
+		background:black;
+		height:0%;
+		width:100%;
+	}
+	#content{
+		height:100%;
+		width:100%;
+	}
+	
+	#cover{
+		width:100%;
+		height:100%;
+		z-index:1000;
+	}
+	
+	
+	#tip_row{
+		width:100%;
+	}
+	.row{
+		width:88%;
+		margin-left:9%;
+		padding-top:50px;
+		padding-bottom:50px;
+		height:80px;
+		display:none;
+	}
+	
+	.row .input_box{
+		position:relative;
+		width:50%;
+		float:left;
+		font-family: .HelveticaNeueDeskInterface-Regular;
+		font-size: 80px;
+		color: #666666;
+		letter-spacing: 0px;
+		margin-bottom:10px;
+	}
+	
+	.row .input_box input{
+		width: 250px;
+		height:80px;
+		font-family: .HelveticaNeueDeskInterface-Regular;
+		font-size: 50px;
+		color: #666666;
+		margin-top:-40px;
+		border-bottom:2px solid #979797;
+		border-top:none;
+		border-left:none;
+		border-right:none;
+	}
+	
+	.triangle_blue{  
+		width:0;   
+		height:0;   
+		border-left:20px solid transparent;   
+		border-right:20px solid transparent;   
+		border-top:20px solid #4A90E2;
+		position:absolute;
+		left:49%;
+		margin-top:-51px;
+	}
+	
+	.triangle_green{  
+		width:0;   
+		height:0;   
+		border-left:20px solid transparent;   
+		border-right:20px solid transparent;   
+		border-top:20px solid #51D0B3;
+		position:absolute;
+		left:49%;
+		margin-top:-51px;
+	}
+	
+	.blue_row{
+		width:100%;
+		background: #4A90E2;
+		position:relative;
+	}
+	
+	.green_row{
+		width:100%;
+		background: #51D0B3;
+		position:relative;
+	}
+	
+	.green_row img, .blue_row img{
+		position:absolute;
+		vertical-align: middle;
+	}
+	
+	.left{
+		height:160px;
+		width:35%;
+		margin-left:8%;
+		position:absolute;
+	}
+	
+	.left .title{
+		/* 温度: */
+		font-family: STHeitiSC-Light;
+		font-size: 40px;
+		color: #FFFFFF;
+		letter-spacing: 0px;
+		position:absolute;
+		left:140px;
+		top:20px;
+	}
+	
+	.left .value{
+		font-family: .HelveticaNeueDeskInterface-Regular;
+		font-size: 55px;
+		color: #FFFFFF;
+		letter-spacing: 0px;
+		position:absolute;
+		left:140px;
+		bottom:10px;
+	}
+	
+	.left .value span{
+		font-size: 35px;
+	}
+	
+	.right{
+		width:50%;
+		position:absolute;
+		left:50%;
+		font-family: .HelveticaNeueDeskInterface-Regular;
+		font-size: 80px;
+		color: #E4E4E4;
+		letter-spacing: 0px;
+	}
+	
+	.right span{
+		color: white;
+	}
+	
+	.small_line{
+		font-size:40px;
+	}
+	
+	#tem_row img{
+		height:160px;
+	}
+	#hum_row img{
+		height:120px;
+		top:20px;
+	}
+	#sun_row img{
+		height:110px;
+		top:25px;
+	}
+	#co2_row img{
+		height:90px;
+		top:35px;
+	}
+	#pm25_row img{
+		height:100px;
+		top:30px;
+	}
+	
+	#tip_row{
+		background: #F5F5F5;
+		font-family: STHeitiSC-Light;
+		font-size: 40px;
+		color: #9B9B9B;
+		letter-spacing: 0px;
+		text-align:center;
+		padding-top:20px;
+		padding-bottom:20px;
+		postion:relative;
+	}
+	
+	#tip_row img{
+		position:absolute;
+		right:4%;
+		width:30px;
+	}
+	
+	button{
+		border-radius: 8px;
+		width:72%;
+		left:14%;
+		/* 扫码登录: */
+		font-family: STHeitiSC-Light;
+		font-size: 50px;
+		letter-spacing: 0px;
+		color: #FFFFFF;
+		cursor:pointer;
+		position:absolute;
+		background:#4A90E2;
+	}
+	
+</style>
+</head>
+<body>
+<div id="banner"></div>
+<div id="content">
+	<div id="tip_row">
+		点击参数修改数值
+		<img  src="img/cross.png">
+	</div>
+	<div class="green_row data_row off" id="tem_row" >
+		<div class="left">
+			<img src="img/temperature.png">
+			<div class="title">温度</div>
+			<div class="value">21<span>℃</span></div>
+		</div>
+		<div class="right">
+			y=<span>K</span>x+<span>L</span>
+		</div>
+		
+	</div>
+	<div class="row" id="tem_input_row">
+		<div class="triangle_green"></div>
+		<div class="input_box">K:&nbsp;<input  id="cali_K"  type="text" value=""></div>
+		<div class="input_box">L:&nbsp;<input  id="cali_L" type="text" value=""></div>
+	</div>
+	<div class="blue_row data_row off" id="hum_row">
+		<div class="left">
+			<img src="img/humandity.png">
+			<div class="title">湿度</div>
+			<div class="value">45<span>%</span></div>
+		</div>
+		<div class="right">
+			y=<span>M</span>x+<span>N</span>
+		</div>
+	</div>
+	<div class="row" id="hum_input_row">
+		<div class="triangle_blue"></div>
+		<div class="input_box">M:&nbsp;<input style="width:220px;" type="text" value=""  id="cali_M" ></div>
+		<div class="input_box">N:&nbsp;<input type="text" value=""  id="cali_N" ></div>
+	</div>
+	<div class="green_row data_row off" id="sun_row">
+		<div class="left">
+			<img src="img/sun.png">
+			<div class="title">光照强度</div>
+			<div class="value">300<span>lux</span></div>
+		</div>
+		<div class="right">
+			y=<span>R</span>x<sup>2</sup>+<span>S</span>x+<span>T</span>
+		</div>
+	</div>
+	<div class="row" id="sun_input_row" style="height:220px;">
+		<div class="triangle_green"></div>
+		<div class="input_box">R:&nbsp;<input type="text" value="" id="cali_R" ></div>
+		<div class="input_box">S:&nbsp;<input type="text" value="" id="cali_S" ></div>
+		<div class="input_box">T:&nbsp;<input type="text" value="" id="cali_T" ></div>
+	</div>
+	<div class="blue_row data_row off" id="co2_row">
+		<div class="left">
+			<img src="img/co2.png">
+			<div class="title">CO<sub>2</sub></div>
+			<div class="value">350<span>ppm</span></div>
+		</div>
+		<div class="right">
+			y=<span>P</span>x+<span>Q</span>
+		</div>
+	</div>
+	<div class="row" id="co2_input_row">
+		<div class="triangle_blue"></div>
+		<div class="input_box">P:&nbsp;<input type="text" value=""  id="cali_P" ></div>
+		<div class="input_box">Q:&nbsp;<input type="text" value=""  id="cali_Q" ></div>
+	</div>
+	<div class="green_row data_row off" id="pm25_row">
+		<div class="left">
+			<img src="img/pm25.png">
+			<div class="title">PM2.5</div>
+			<div class="value">300<span>ug/m<sup>3</sup></span></div>
+		</div>
+		<div class="right">
+			<div class="small_line">(X&lt;<span>A</span>)</div>
+			y=<span>C</span>x<sup>2</sup>+<span>D</span>x+<span>E</span>
+			<div style="height:50px;width:100px;"></div>
+			<div class="small_line">(X≥<span>A</span>)</div>
+			y=<span>G</span>x<sup>2</sup>+<span>H</span>x+<span>I</span>
+		</div>
+	</div>
+	<div class="row" id="pm25_input_row" style="height:350px;">
+		<div class="triangle_green"></div>
+		<div class="input_box">A:&nbsp;<input type="text" value=""  id="cali_A" ></div>
+		<div class="input_box">C:&nbsp;<input type="text" value=""  id="cali_C" ></div>
+		<div class="input_box">D:&nbsp;<input type="text" value=""  id="cali_D" ></div>
+		<div class="input_box">E:&nbsp;<input type="text" value=""  id="cali_E" ></div>
+		<div class="input_box">G:&nbsp;<input type="text" value=""  id="cali_G" ></div>
+		<div class="input_box">H:&nbsp;<input type="text" value=""  id="cali_H" ></div>
+		<div class="input_box">I:&nbsp;<input type="text" value=""  id="cali_I" ></div>
+	</div>
+	
+	<button id="update_btn">更新</button>
+	<div id="cover"></div>
+</div>
+
+<script type="text/javascript">
+	var device_id = 0;
+	var deviceOnline = false;
+	
+	function loadCloudCalibratData(){
+		
+		$.ajax({
+	        type: "post",
+	        dataType: "json",
+	        url: '/device/readCloudCalibrat',
+	        data:{
+	        	deviceId:device_id
+	        },
+	        success: function (result) {
+	        	if(result.state == 0){
+	        		//显示校准数据
+	        		$.each(result.caliData,function(key,value) { 
+	        			$("#cali_"+key).val(value);
+	        		});
+	        		
+	        		deviceOnline = true;
+	        	}else{ 
+	        		//校准数据读取失败，进行提示
+	        		alert("设备不在线！");
+	        		deviceOnline = false;
+	        		$("#update_btn").attr('disabled','disabled');
+	        	}
+	        },
+	        error:function (XMLHttpRequest, textStatus, errorThrown) 
+	        { 
+	        	alert("设备不在线！");
+	        	deviceOnline = false;
+	        	$("#update_btn").attr('disabled','disabled');
+	        } 
+	    });
+	}
+
+	$(document).ready(function(){ 
+		var windowHeight = $(window).height();
+		$("body").css("height",windowHeight);
+		var contentHeight = $("#content").height();
+		$("#tem_row").css("height",contentHeight*0.18);
+	
+		$("#hum_row").css("height",contentHeight*0.18);
+		
+		$("#sun_row").css("height",contentHeight*0.18);
+
+		$("#co2_row").css("height",contentHeight*0.18);
+
+		$("#pm25_row").css("height",contentHeight*0.35);
+		
+		$(".left").css("top",(contentHeight*0.18 - 160)/2);
+		$(".right").css("top",(contentHeight*0.18 - 80)/2);
+		$("#pm25_row .left").css("top",(contentHeight*0.28 - 160)/2);
+		$("#pm25_row .right").css("margin-top",-25);
+		
+		$("button").css("height",contentHeight*0.067);
+		$("#update_btn").css("margin-top",contentHeight*0.08);
+		
+		var url = window.location.pathname;
+		var params = url.split('/');
+		device_id =  params[params.length-1] * 1;
+		
+		loadCloudCalibratData();
+		
+		$("#update_btn").click(function(){
+			if(deviceOnline){
+				var caliParams = "";
+				var tempId;
+				$(".input_box input").each(function(){
+					if($(this).attr("caliChanged") == "true"){
+						tempId = $(this).attr("id");
+						tempId = tempId.substr(5,6);
+						caliParams += tempId + ":" +  $(this).val() + ",";
+						$(this).attr("caliChanged",false); 
+					}
+				});
+				if(caliParams == ""){
+					alert("参数值没有改变！");
+					return;
+				}
+				//调用云校正
+				$.ajax({
+			        type: "post",
+			        dataType: "json",
+			        url: '/device/cloudCalibrat',
+			        data:{
+			        	deviceId:device_id,
+			        	caliParams:caliParams
+			        },
+			        success: function (result) {
+			        	alert(result.msg);
+			        },
+			        error:function (XMLHttpRequest, textStatus, errorThrown) 
+			        { 
+			        	alert("校准失败！");        
+			        } 
+			    });
+			}else{
+				alert("设备不在线，无法校准！");
+			}
+		});
+		
+		$(".input_box input").change(function(){
+			$(this).attr("caliChanged",true);
+		});
+		
+		$("#tip_row img").click(function(){
+			$("#tip_row").slideUp("normal"); 
+		});
+		
+		$(".data_row").click(function(){
+			if($(this).hasClass("off")){  
+                $(this).removeClass("off").addClass("on");  
+                $(this).next().slideDown("normal");
+            }  
+            else if($(this).hasClass("on")){  
+                $(this).removeClass("on").addClass("off");  
+                $(this).next().slideUp("normal"); 
+            }
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/*字体不能小于28px */
+/*loading*/
+i.huge.icon{font-size:1rem;}
+.loding-icon{width:1rem;height:1rem;margin-left:-0.5rem;margin-top:-0.5rem;}
+
+/*标题*/
+.surveytitle{min-height:2.24rem;background-color:#47B390;text-align: center;}
+.surveytitle span{line-height:2.24rem;color:white;font-size: .68rem;font-weight:bold;}
+.surveyintro{padding:.8rem 1.8rem;text-align: center;background-color: #F5F5F5;border-bottom: 1px solid #979797;}
+.surveyintro span{font-size: 0.55rem;font-weight: 400;}
+/*答题部分*/
+h4.ui.header{font-size:0.48rem;}
+.survercontent{width:13rem; margin:0 auto;}
+.survercontent .container{width:100%;}
+.question {padding:0.32rem 0; }
+.question .title{font-size: 0.6rem;font-weight:500;}
+.question .content{padding-top:0.32rem;overflow:auto;}
+.ui.checkbox .box:before, .ui.checkbox label:before{width:0.52rem;height:0.52rem;}
+.ui.checkbox .box:after, .ui.checkbox label:after{width:0.52rem;height:0.52rem;content:'';background:#47B390;border-radius: .25em;}
+.ui.checkbox{line-height:0.53rem;min-height:0.53rem;width:0.53rem;vertical-align:top;}
+.ui.checkbox input{line-height:0.8rem;height:0.8rem;width:0.8rem;}
+.question .option img{height:6.4rem;width:auto;margin-left:0.2rem;}
+.question .option .text-input{font-size:0.5rem;padding-left:0.2rem;width:10	rem;height:0.8rem;margin-left:0.2rem;border:1px solid #979797;border-radius:.2857rem;}
+/* 段落样式 */
+.container>.dl{font-size:0.7rem;font-weight:500;line-height:2rem;}
+/* 分页部分 */
+.paging{margin-bottom:0.4rem;}
+.paging>ul{margin:0;list-style:none;padding:0;}
+.paging>ul>li{display:inline-block;margin-right:0.2rem;margin-top:0.1rem;padding:0 0.1rem;border-radius:.1rem;text-align:center;line-height:0.9rem;min-width:2.2rem;border:1px solid grey;}
+.paging>ul>li.active{background-color:#47B390;color:white;border:1px solid #47B390;}
+.paging>ul>li.disable{color:#D4D4D4;}
+/*单选题样式*/
+.question.dx .option{min-height:1.56rem;border:1px solid #979797;border-bottom:none;padding:0.46rem 0.84rem;background-color: white;font-size: 0;}
+.question.dx .option:first-child{border-top-left-radius:0.08rem;border-top-right-radius:0.08rem;}
+.question.dx .option:last-child{border-bottom:1px solid #979797;border-bottom-left-radius:0.08rem;border-bottom-right-radius:0.08rem;}
+.question.dx .option span{font-size: 0.48rem;padding-left:0.64rem;display:inline-block;}
+/*多选题样式*/
+.question.ddx .option{min-height:1.56rem;border:1px solid #979797;border-bottom:none;padding:0.46rem 0.84rem;background-color: white;font-size: 0;}
+.question.ddx .option:first-child{border-top-left-radius:0.08rem;border-top-right-radius:0.08rem;}
+.question.ddx .option:last-child{border-bottom:1px solid #979797;border-bottom-left-radius:0.08rem;border-bottom-right-radius:0.08rem;}
+.question.ddx .option span{font-size: 0.48rem;padding-left:0.64rem;display:inline-block;}
+/*填空题样式*/
+.question.tk .option input{height:1.62rem;width:100%;background: #FFFFFF;border-radius: .2857rem;border:1px solid #979797;font-size:0.48rem;padding-left:0.66rem;color:#47B390;}
+/*量表题样式*/
+.question.lb .content{border:1px solid #979797;border-radius: 0.08rem;background:#fff;}
+.question.lb .content table{width:100%;height:auto;border:none;}
+.question.lb .content table .left-title{text-align:left;}
+.question.lb .content table .right-title{text-align:left;}
+.ui.table tr td{border-top:none;border-right:none;border-bottom: none;border-left: none;font-size:0.6rem;text-align:center;}
+.ui.celled.table tr td, .ui.celled.table tr th{border-top:none;border-right:none;border-bottom: none;border-left: none;}
+.ui.radio.checkbox{min-height:0.53rem;}
+.ui.radio.checkbox .box:before, .ui.radio.checkbox label:before{width:0.8rem;height:0.8rem;}
+.ui.radio.checkbox .box:after, .ui.radio.checkbox label:after{width:0.8rem;height:0.8rem;transform: none;-webkit-transform:none;background-color:#47B390;}
+/*折线题样式*/
+.question.zx .content table .left-title{width:2rem;font-size:0.6rem;}
+.question.zx .content table .num{width:1rem;}
+.question.zx .content table .num input{width:1rem;border:none;border:1px solid #979797;width:1.5rem;height:1.2rem;font-size:0.6rem;text-align:center;}
+.question.zx .content table .slider{padding-left:0.8rem;padding-right:0.3rem;}
+.question.zx .content table .right-title{width:2rem;text-align:right;font-size:0.6rem;}
+.question.zx .content table tr td{padding:0.2rem 0;}
+.nstSlider{width:auto;}
+/* .ui-slider-horizontal{height:0.6rem;}
+.ui-slider-horizontal .ui-slider-handle{top:-.2rem;margin-left:-0.5rem;}
+.ui-slider .ui-slider-handle{width:1rem;height:1rem;border-radius:50%;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{background:white;}
+.ui-widget-content{background:#47B390;} */
+.nstSlider{background:#979797;height:0.6rem;}
+.nstSlider .bar{background:#47B390;height:0.6rem;top:0;}
+.nstSlider .leftGrip, .nstSlider .rightGrip{height:0.6rem;width:0.6rem;backgroun-ground:background: #FFFFFF;border: 1px solid #979797;}
+
+/*提交*/
+.submit{
+	width:100%;height:1.5rem;font-size:0.8rem;text-align:center;background-color:#47B390;border:none;border-radius:.1425rem;color:white;margin:0.5rem auto;
+}

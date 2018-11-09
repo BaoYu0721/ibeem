@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="team_member.title" /></title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamMember.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+    
+     <!--地图渲染的核心文件 必须引用  -->
+	<script src="static/common/js/highmap/highmaps.js"></script>
+	<!--地图数据拼接及解析的核心文件 必须引用  --> 
+	<script src="static/common/js/data.js"></script>
+	<!--地图 展开明细的核心插件，若需要点击显示省市则需要引用，反之则不需要引用  -->
+	<script src="static/common/js/drilldown.js"></script>
+	<!--中国地图主要省会的坐标及相关数据插件 必须引用  -->
+	<script src="static/common/js/cn-china.js"></script>
+	
+	<script src="static/common/js/exporting.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.2/proj4.js"></script>
+	<!-- 所有地图数据详情见：https://img.hcharts.cn/mapdata/index.html -->
+	<script src="//img.hcharts.cn/mapdata/countries/gb/gb-all.js"></script>
+    <script src="static/manage/js/team/map.js" ></script>
+</head>
+<body >
+
+<div class="ui basic test modal addmember-modal">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+			<div class="bottom">
+				<div class="addMember">
+	                	<div class="ui grid" style="width:100%;height:100%;margin:0;">
+	                		<div class="four wide column" style="border-right:1px solid #DADADA;">
+	                			<div class="searchAddMember">
+	                				<div class="ui left icon input">
+									  <input placeholder="<spring:message code="team_member.add_messg" />" type="text" class="searchmember" id="searchAddMember">
+									  <i class="search icon"></i>
+									</div>
+	                			</div>
+	                			<button class="button-add"><spring:message code="team_member.add" /></button>
+	                		</div>
+	                		<div class="twelve wide column" style="overflow:auto">
+	                			<div class="showMember">
+	                				<div style="clear:both"></div>
+	                			</div>
+	                		</div>
+	                	</div>
+                	</div>
+			</div>
+		</div>
+	</div>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item" href="/redirect?url=administrator/teamBuilding.jsp"><spring:message code="project.building" /></a>
+            <a class="item" href="/redirect?url=administrator/teamDevice.jsp"><spring:message code="project.device" /></a>
+            <a class="item" href="/redirect?url=administrator/surveyListTeam.jsp"><spring:message code="project.survey" /></a>
+            <a class="item on" href="/redirect?url=administrator/teamMember.jsp"><spring:message code="project.member" /></a>
+            <a class="teamTitleTit" href="/redirect?url=administrator/teamContent.jsp" style="display:block;"></a>
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="legend">
+	                	<span><i class='green user icon'></i>创建者</span>
+	                	<span><i class='red user icon'></i>管理员</span>
+	                </div>
+                	<div class="memberList">
+                		<div class="searchMember">
+                			<div class="ui left icon input" style="float:left;">
+							  <input placeholder="<spring:message code="project.search_member" />" type="text" class="searchmember" id="searchMember">
+							  <i class="search icon"></i>
+							 <!--  <h4 class="ui header title"></h4> -->
+							</div>
+							<div class="add btn-classic">
+								<button id="addMember-button"><spring:message code="team_member.add" /></button>
+							</div>
+							<div class="addrole btn-classic">
+								<button id="addrole-button"><spring:message code="team_member.set_administrator" /></button>
+							</div>
+							<div class="deleterole btn-classic">
+								<button id="deleterole-button"><spring:message code="team_member.revocation_administrator" /></button>
+							</div>
+							<div class="delete btn-classic">
+								<button id="deleteMember"><spring:message code="team_member.delete" /></button>
+							</div>
+							<div class="export btn-classic">
+								<button id="export-button"><spring:message code="team_member.export_invitation" /></button>
+							</div>
+                		</div>
+                		<div class="showMember">
+                			<div style="clear:both"></div>
+                		</div>
+                	</div>
+                	
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/manage/js/team/teamCommon_manage.js"></script>
+<script src="/static/manage/js/team/teamMember_manage.js"></script>
+</body>
+</html>

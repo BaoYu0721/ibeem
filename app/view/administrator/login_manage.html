@@ -1,0 +1,172 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员登录</title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.md5.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/common/js/tools.js"></script>
+    <style>
+    	body{
+    		background:#4c4c4c;
+    		
+    	}
+    	.head{
+    		height:4rem;
+    	}
+    	.head .ui.top{
+    		background:#47b391;
+    		font-size:1.85rem;
+    	}
+    	.loginbox{
+    		width:25.3rem;
+    		margin:0 auto;
+    		
+    	}
+    	.ui.button.loginbtn{
+    		width:100%;
+    		background:#47b391;
+    		color:#fff;
+    		margin-top:1rem;
+    		margin-bottom:1rem;
+    		height:3.1rem;
+    	}
+    	.loginbox .name{
+    		margin:7.5rem 0 6.2rem;
+    		text-align:center;
+    		font-size:2rem;
+    		color:#fff;
+    	}
+    	.forgepassAndRegister a{
+    		color:#fff;
+    	}
+    	.ui.icon.menu  .language{
+    	    display:block;
+    		width:1.6rem;
+    		height:1.6rem;
+    		background:url("/public/static/manage/img/language.png") no-repeat center;
+    		background-size:1.6rem 1.6rem;
+    		position:absolute;
+    		right:1rem;
+    		top:50%;
+    		margin-top:-0.8rem;
+    	}
+    	.head .ui.menu{
+    		position:relative;
+    	}
+    </style>
+</head>
+<body>
+	<div class="head">
+	    <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  ">
+            <a class="item left  float">iBEM</a>
+            <!-- <a class="language"></a> -->
+        </div>
+	</div>
+	<div class="main">
+		<div class="loginbox">
+			  <div class="name">iBEM(管理员)</div>
+			  <form class="ui form">
+				  <div class="field">
+				    <input type="text"  placeholder="用户名" id="username">
+				  </div>
+				  <div class="field">
+				    <input type="password"  placeholder="密码" id="password">
+				  </div>
+				  <button class="ui button loginbtn" type="button" id="login-submit-btn">登录</button>
+			 </form>
+		</div>
+	</div>
+</body>
+<script>
+	$(function(){
+		$.cookie("Language","zh_CN");
+		
+		/* 在html尾端加入language.js ，拼接时间戳 */
+		function p(s) {
+		    return s < 10 ? '0' + s: s;
+		}
+		var myDate = new Date();
+		//获取当前年
+		var year=myDate.getFullYear();
+		//获取当前月
+		var month=myDate.getMonth()+1;
+		//获取当前日
+		var date=myDate.getDate(); 
+		var h=myDate.getHours();       //获取当前小时数(0-23)
+		var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+		var s=myDate.getSeconds();  
+		
+		var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s);
+		var langScript = $("<scri"+"pt>"+"</scr"+"ipt>").attr({src:"/public/static/manage/js/language.js?time="+now,type:'text/javascript',id:'load'}); 
+		$("html").append(langScript);
+		
+		$('#username').bind('keypress',function(event){  
+		    if(event.keyCode == "13")      
+		    {  
+		    	$('#password').focus();
+		    }  
+		});
+		$('#password').bind('keypress',function(event){  
+		    if(event.keyCode == "13")      
+		    {  
+		    	doLogin();
+		    }  
+		});
+		$("#login-submit-btn").click(function(){
+			doLogin();
+		});
+	});
+	function doLogin(){
+		var username = $("#username").val();
+		var password;
+		password = $("#password").val();
+		if(username==""){
+			alert("请输入用户名");
+		}else if(password==""){
+			alert("请输入密码");
+		}else{
+			
+			// localStorage.setItem("LocalName",username);
+			
+			$.ajax({
+		        type: "post",
+		        dataType: "json",
+		        url: '/user/adminLogin',
+		        data: {
+		        	"username":username,
+		        	"password":password
+		        },
+		        success: function (data) {
+		        	console.log(data);
+		        	if(data.status==0){
+		        		//alert("登录成功");
+		        		window.location.href="/views/administrator/index.jsp";
+		        		//window.location.href="/redirect?url=administrator/deviceList_manage.jsp";
+		        		
+		        	}else{
+		        		alertokMsg(data.messg,"确定");
+		        	}
+	            	
+		        },
+		        error:function (data) 
+		        { 
+		        	alert("登录失败，请检查用户名和密码！");
+		          //alert(textStatus);
+		        } 
+		    });
+		}
+	}
+</script>
+</html>

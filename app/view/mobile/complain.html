@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>房间分区</title>
+    <base href="<%=basePath%>" />
+    <link rel="stylesheet" href="static/common/css/base.css" />
+    <link rel="stylesheet" href="static/mobile/css/complain.css" />
+</head>
+<body>
+
+    <h2 class="tip">请选择抱怨内容</h2>
+    <div class="complainTab clearfix">
+        <div class="fl item on">
+            <img src=""/>
+            <div class="txt">温度</div>
+        </div>
+        <div class="fl item">
+            <img src=""/>
+            <div class="txt">照度</div>
+        </div>
+        <div class="fl item air">
+            <img src=""/>
+            <div class="txt">空气品质</div>
+        </div>
+    </div>
+    <div class="complainContent">
+       <ul class="temperature celarfix on">
+           <li class="fl checkbox " value="3">热</li>
+           <li class="fl checkbox" value="2">暖</li>
+           <li class="fl checkbox" value="1">稍暖</li>
+           <li class="fl checkbox" value="0">中性</li>
+           <li class="fl checkbox" value="-1">稍凉</li>
+           <li class="fl checkbox" value="-2">凉</li>
+           <li class="fl checkbox" value="-3">冷</li>
+       </ul>
+        <ul class="illumination celarfix ">
+            <li class="fl checkbox" value="2">非常明亮</li>
+            <li class="fl checkbox" value="1">比较明亮</li>
+            <li class="fl checkbox" value="0">适中</li>
+            <li class="fl checkbox" value="-1">比较阴暗</li>
+            <li class="fl checkbox" value="-2">非常阴暗</li>
+        </ul>
+        <ul class="airCondition celarfix ">
+            <li class="fl checkbox" value="2">非常新鲜</li>
+            <li class="fl checkbox" value="1">比较新鲜</li>
+            <li class="fl checkbox" value="0">适中</li>
+            <li class="fl checkbox" value="-1">比较不新鲜</li>
+            <li class="fl checkbox" value="-2">非常不新鲜</li>
+        </ul>
+    </div>
+    <div class="submitBtn">提交</div>
+    <div class="opacity" id="cancelOrConfirm">
+	    <div class="alert">
+	    	<div class="tit">提交成功</div>
+	    	<div class="clearfix btn">
+	    		<span class="cancel fl">继续抱怨</span>
+	    		<span class="confirm fr ">结束</span>
+	    	</div>
+	    </div>
+    </div>
+    <div class="opacity" id="alertOk">
+	    <div class="alert">
+	    	<div class="tit">请先选择抱怨内容</div>
+	    	<div class="clearfix btn">
+	    		<span class="confirm2 confirm" >确定</span>
+	    	</div>
+	    </div>
+    </div>
+<script src="static/common/js/jquery.min.js"></script>
+<script src="static/common/js/tools.js"></script>
+<script src="static/mobile/js/complain.js"></script>
+</body>
+</html>

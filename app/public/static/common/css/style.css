@@ -1,0 +1,111 @@
+
+body{
+	font-family:Microsoft Yahei;
+	font-size:10px;
+	}
+*{
+	margin:0;
+	padding:0;
+	
+}
+input,textarea{
+	border:none;
+	outline:none;
+	resize:none;
+	
+}
+#main-container{
+	margin: 50px 0px 0px 0px;
+	padding: 10px 30px;
+}
+
+.wrap{
+	width: 100%;
+}
+
+circle {
+  fill: green;
+  fill-opacity: .8;
+}
+
+circle:hover{
+	fill: red;
+}
+
+.tooltip{
+	font-family:simsun;
+	font-size:16px;
+	width:120;
+	height:auto;
+	position:absolute; 
+	text-align:center;
+	border-style:solid;
+	border-width:1px;
+	background-color:white;
+	border-radius:5px;	
+}
+
+.row-2{
+	color: blue;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: white;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.panel{
+	cursor: pointer;
+}
+
+#addArchitect{
+	text-align: center;
+	color: #bce8f1;
+}
+
+#addArchitect:hover{
+	color: #337AB7;
+}
+
+#architect-show iframe{
+	border: none;
+}
+
+#sensor-number{
+	text-align: center;
+	color:#337AB7;
+}
+
+#sensor-chart{
+	
+}
+
+#time-select-switch{
+	text-align: center;
+	cursor: pointer;
+}
+
+#loginModal .modal-dialog{
+	text-align:center;
+	width:280px;
+	/*position:absolute;*/
+}
+
+#loginModal img{
+	margin-left:auto;
+	margin-right:auto;
+	width:100px;
+	border:1px solid gray;
+}
+
+#factor-check-list .cali_setting label{
+	width:20px;
+}
+
+

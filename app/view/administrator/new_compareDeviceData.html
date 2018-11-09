@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+    <link href="/public/static/common/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/public/static/common/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css">
+	<link rel="stylesheet" href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/deviceList.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/compareDeviceDataNew.css"/>
+    <style>
+    	.item .downloadData{
+    		background:url("/public/static/manage/img/download.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.item.on .downloadData{
+    		background-image:url("/public/static/manage/img/downloadActive.png");
+    	}
+    	.item .devicelist{
+    		background:url("/public/static/manage/img/list.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+	    }
+	    .item.on .deviceList{
+    		background-image:url("/public/static/manage/img/listActive.png");
+    	}
+		.border-r{ border-right:1px solid #cccccc;}
+		.ui.menu .item:before{ width:0!important;}
+		.input-group-addon{position:absolute;left:0;bottom:0;}
+		.deviceNameTit {left: 6.5rem;}
+		#tit{margin-bottom:1rem;}
+		#tit2{font-size: 1.3rem;color: #171717;padding-left: 29px;padding-bottom: 0; margin-bottom:1rem;}
+		#download_history a{ color:#333333;}
+		#download_history a:hover{ text-decoration:none; color:#ffffff;}
+		#queshizhi_result{height: 10.5rem;overflow: auto; padding-left:2rem; padding-right:2rem;}
+		#queshizhi_result p{ border-bottom:1px solid #eeeeee;line-height:2; margin-bottom:0;}
+		#queshizhi_result p:last-child{ border-bottom:none;}
+		#queshizhi_result span{ color:#ff0000;}
+		#topmenu .item{margin-left:0;}
+		.content{padding-top:0;margin-top:55px;overflow:auto;}
+    	.ui.segment.attached{border-bottom:1px solid #7c7c7c;}
+    	.ui.grid>.column:not(.row), .ui.grid>.row>.column{padding-left: 0.5rem;padding-right: 0.5rem;}
+    	.ui.grid>.column:not(.row){padding-top:0.5rem}
+    	.ui.segment[class*="bottom attached"]{border-radius:0;}
+    	#deviceData_wrapper .sixteen.wide.column{padding:0;}
+    	#downloadlist_wrapper .sixteen.wide.column{padding:0;}
+    	.ui.column.grid>[class*="ten wide"].column, .ui.grid>.column.row>[class*="ten wide"].column, .ui.grid>.row>[class*="ten wide"].column, .ui.grid>[class*="ten wide"].column {width: 67.5%!important;}
+		.charts_nodata{background-color:#efefef;padding-top:120px;text-align:center;color:#666666}
+
+   		.dt-table .ui.grid>.column:not(.row), .ui.grid>.row>.column {padding-left: 0!important;padding-right: 0!important;}
+   		#downloadhistory_box_wrapper .ui.pagination.menu .paginate_button {border: 1px solid #ccc;text-align:center;line-height:2rem;margin:0.5rem;min-width:0;}
+       	#downloadhistory_box_wrapper .ui.pagination.menu .active.item{background:#47b391;padding:0 0.2rem;color:#fff;}
+       	#downloadhistory_box_next,#downloadhistory_box_previous{width:auto!important;padding:0 5px;}
+        #downloadhistory_box_paginate .ui.menu{background:#f0f0f0;box-shadow:0 0 0 0;border-radius:0;}
+    </style>
+</head>
+
+<body>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+     <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu">
+            <a class="item on" href="/device"><spring:message code="deviceList.title" /></a>
+        </div>
+        <!--内容区-->
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column" id="contentRight">
+                	<div class="contentTab deviceInfoTab" style="display:block;">
+                		<div class="ui grid">
+                			 <div class="ten wide column middleContent">
+                			    <div class="" id="result_charts">
+	                			 	<div class="clearfix toprow">
+	                			 		<div class='fl deviceName'>
+	                			 			<span class="fl"><spring:message code="devicedata_view" />：</span>
+	                			 			<div class="fl namelist"></div>
+	                			 		</div>
+	                			 	</div>
+	                			 	<div class='tabbox tab_chart_box'>
+	                			 	
+	                			 		<div class="params ui top attached tabular menu "></div>
+										
+										<div class="ui bottom attached tab segment active" data-tab="first">
+											<ul id="result_charts_nav">
+													<li><span></span> </li>
+													<!-- 
+													<li><span></span> L00001</li>
+													<li><span></span> L00002</li>
+													<li><span></span> L00003</li>
+													<li><span></span> L00004</li>
+													 -->
+											</ul>										
+											<div id="tempartureChart" class="svgbox2"></div>
+											<div id="humidityChart" class="svgbox2"></div>
+											<div id="beamChart" class="svgbox2"></div>
+											<div id="co2Chart" class="svgbox2"></div>
+											<div id="pmChart" class="svgbox2"></div>
+										</div>	
+									</div>
+									<!-- 设备在线率 -->
+									<div class="tab_chart_box tab_chart_box_1" style="border-bottom:none!important; overflow:hidden;" id="shebei_online_box">
+										<div class="clearfix toprow toprow_new">
+		                			 		<div class='fl deviceName deviceName_new'>
+		                			 			<span class="fl">设备在线率：</span>
+		                			 			<div class="fl namelist"></div>
+		                			 		</div>
+		                			 	</div>
+		                			 	
+										<div class="params ui top attached tabular menu" id="shebei_online_nav">
+										</div>
+										
+									</div>
+									<div class="clearfix"></div>				
+                			 	</div>
+	                			<!--图表  -->
+                			 	<div class="realtimedata">
+                			 		<div class='clearfix head'>
+                			 			<div class="fl"><spring:message code="devicedata_datalatest" />：</div>
+               			 				<div class="ui  inline  dropdown fr">
+               			 					<div class="text current" id="deviceName"></div> <i class="dropdown icon"></i>
+               			 				  	<div class="menu"></div>
+										</div>
+                			 		</div>
+                			 	</div>
+                			 	<div class=""></div>
+                			 </div>
+                			 <div class="five wide column" style="position:fixed; top:4.5rem;">
+                			 	<div class="download l_tab_title">
+				                	<div class="map" style="height:23rem;">
+				                		<h6><spring:message code="devicedata_loading" /></h6>
+				                			<div class="params ui top attached tabular menu l_menu l_tab_content">
+											  <a class="item active" data-tab="tab3"><spring:message code="devicedata_time1" /></a>
+											 <%--  <a class="item" data-tab="tab4"><spring:message code="devicedata_time2" /></a> --%>
+											</div>
+											<div class="ui bottom attached tab segment l_segment active l_tab_content" data-tab="tab3">
+												<table class="ui table">
+													<tr>
+														<td rowspan="6" width="30%" style="padding-left:1.8rem;">
+															<div class="ui checkbox" id="workday_zz">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time3" /></span>
+														</td>
+														<td width="70%">
+															<span class="fl"><spring:message code="devicedata_time4" />：</span>
+															<div id="startTime" class="fl input-group date">
+																<input class="fl form-control form_datetime_m" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span class="fl"><spring:message code="devicedata_time5" />：</span>
+															<div id="endTime" class="fl input-group date">
+																<input class="fl form-control form_datetime_m" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td>
+															<span class="fl"><spring:message code="devicedata_time6" />：</span>
+															<div id="startTime_hour" class="fl input-group date" data-date="">
+																<input class="fl form-control form_datetime_hour_m" type="text" value="" >
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span class="fl"><spring:message code="devicedata_time7" />：</span>
+															<div id="endTime_hour" class="fl input-group date" data-date="">
+																<input class="fl form-control form_datetime_hour_m" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td rowspan="2" style="padding-left:1.8rem;">
+															<div class="ui checkbox" id="workday_nn">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time8" /></span>
+														</td>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td></td>
+													</tr>
+													<tr><td colspan="2"><div class="timeBtn" id="refreshData"><spring:message code="devicedata_loading" /></div></td></tr>
+												</table>
+											</div>
+											<%-- <div class="ui bottom attached tab segment l_segment two" data-tab="tab4">
+												<table class="ui table">
+													<tr>
+														<td rowspan="4" width="40%" style="padding-left:4rem;vertical-align:top;">
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time9" /></span>
+														</td>
+														<td width="60%">
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time10" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time11" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time12" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													
+													<tr>
+														<td rowspan="3" style="padding-left:4rem;vertical-align:top;">
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="">
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time13" /></span>
+														</td>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time13" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time14" /></span>
+														</td>
+													</tr>
+												</table>
+											</div> --%>
+				                	</div>
+			                	</div>
+                			 
+                			 <div class="download l_tab_title">
+                			 	<div class="map" style="height:23rem;">
+                			 			<h6><spring:message code="decicedata_btn_1" /></h6>
+			                			<div class="params ui top attached tabular menu l_tab_content">
+											  <a class="item active" data-tab="tab5"><spring:message code="decicedata_btn_2" /></a>
+											  <a class="item" data-tab="tab6"><spring:message code="decicedata_btn_3" /></a>
+											  <a class="item " data-tab="tab7"><spring:message code="decicedata_btn_4" /></a>
+											  <a class="item " data-tab="tab8"><spring:message code="decicedata_btn_5" /></a>
+										</div>
+										<div class="ui bottom attached tab segment active l_tab_content" data-tab="tab5">
+											<table class="ui compact celled definition table tab1">
+											  <thead class="full-width">
+											    <tr>
+											      <th><spring:message code="decicedata_fun_1" /></th>
+											      <th class='center'><spring:message code="decicedata_fun_2" /></th>
+											      <th class='center'><spring:message code="decicedata_fun_3" /></th>
+											    </tr>
+											  </thead>
+											  <tbody>
+											  	<tr>
+											      <td><spring:message code="tem" />（℃）</td>
+											      <td><input type='text' value="20" id="min_tem_yc"/></td>
+											  	  <td><input type='text' value="25" id="max_tem_yc"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="hum" />（％）</td>
+											      <td><input type='text' value="40" id="min_hum_yc"/></td>
+											  	  <td><input type='text' value="60" id="max_hum_yc"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="lig_s" />（lux）</td>
+											      <td><input type='text' value="300" id="min_sun_yc"/></td>
+											  	  <td><input type='text' value="500" id="max_sun_yc"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="co2_s" />（ppm）</td>
+											      <td><input type='text' value="0" id="min_co2_yc" readonly /></td>
+											  	  <td><input type='text' value="1000" id="max_co2_yc"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="pm25_s" />（ug/m³）</td>
+											      <td><input type='text' value="0" id="min_pm25_yc" readonly /></td>
+											  	  <td><input type='text' value="50" id="max_pm25_yc" /></td>
+											  	</tr>
+											  </tbody>
+											  <tfoot></tfoot>
+											</table>
+										 	<div class="deleteBtn" id="delete_yc"><spring:message code="decicedata_fun_4" /></div>
+										</div>
+										<div class="ui bottom attached tab segment two" data-tab="tab6">
+											<table class="ui compact celled definition table" >
+											  <thead class="full-width">
+
+											  </thead>
+											  <tbody >
+											  	<tr>
+											      <td><spring:message code="decicedata_fun_5" />(min)</td>
+											      <td><input type='text' value="1" id="duiqi_value" /></td>
+											  	</tr>
+											  </tbody>
+											  <tfoot></tfoot>
+											</table>
+										 	<div class="deleteBtn" id="data_duiqi"><spring:message code="decicedata_fun_6" /></div>
+
+										 </div>
+										<div class="ui bottom attached tab segment two" data-tab="tab7">
+											<table class="ui compact celled definition table" >
+											  <thead class="full-width">
+
+											  </thead>
+											  <tbody >
+											  	<tr>
+											      <td><spring:message code="decicedata_fun_7" />（min）</td>
+											      <td><input type='text' id="queshizhi_value" value="5"/></td>
+											  	</tr>
+											  </tbody>
+											  <tfoot></tfoot>
+											</table>
+											<div class="deleteBtn" id="queshizhi_check"><spring:message code="decicedata_fun_8" /></div>
+											<div id="queshizhi_result"></div>
+										</div>
+										<div class="ui bottom attached tab segment two" data-tab="tab8">
+											<table class="ui compact celled definition table">
+											  <thead class="full-width">
+											    <tr>
+											      <th><spring:message code="decicedata_fun_1" /></th>
+											      <th class='center'><spring:message code="decicedata_fun_9" /></th>
+											    </tr>
+											  </thead>
+											  <tbody >
+											  	<tr>
+											      <td><spring:message code="tem" />（℃）</td>
+											      <td><input type='text' id="tem_py" value="0" /></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="hum" />（％）</td>
+											      <td><input type='text' id="hum_py" value="0"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="lig_s" />（lux）</td>
+											      <td><input type='text' id="sun_py" value="0"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="co2_s" />（ppm）</td>
+											      <td><input type='text' id="co2_py" value="0"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="pm25_s" />（ug/m³）</td>
+											      <td><input type='text' id="pm25_py" value="0"/></td>
+											  	</tr>
+											  </tbody>
+											  <tfoot></tfoot>
+											</table>
+										 	<div class="deleteBtn" id="pianyi_check"><spring:message code="decicedata_fun_10" /></div>
+										</div>
+			                		</div>
+								</div>
+								
+								
+								<div class="download l_download l_tab_title">
+                			 		<div class="map" style="height:23rem;">
+                			 			<h6><spring:message code="decicedata_btn_6" /></h6>
+			                			<div class="params ui top attached tabular menu l_tab_content">
+										  <a class="item active" data-tab="tab9" style="width: 50%;"><spring:message code="decicedata_btn_7" /></a>
+										  <a class="item" data-tab="tab12" style="width: 50%;"><spring:message code="decicedata_btn_10" /></a>
+										</div>
+
+										<div class="ui bottom attached tab segment active l_tab_content" data-tab="tab9">
+											<table class="ui compact celled definition table tab1">
+											  <thead class="full-width">
+											    <tr>
+											      <th><spring:message code="decicedata_fun_1" /></th>
+											      <th class='center'><spring:message code="decicedata_fun_2" /></th>
+											      <th class='center'><spring:message code="decicedata_fun_3" /></th>
+											    </tr>
+											  </thead>
+											  <tbody>
+											  	<tr>
+											      <td><spring:message code="tem" />（℃）</td>
+											      <td><input type='text' id="min_tem" value="20"/></td>
+											  	  <td><input type='text' id="max_tem" value="25"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="hum" />（％）</td>
+											      <td><input type='text' id="min_hum" value="40"/></td>
+											  	  <td><input type='text' id="max_hum" value="60"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="lig_s" />（lux）</td>
+											      <td><input type='text' id="min_sun" value="300"/></td>
+											  	  <td><input type='text' id="max_sun" value="500"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="co2_s" />（ppm）</td>
+											      <td><input type='text' id="min_co2" readonly value="0"/></td>
+											  	  <td><input type='text' id="max_co2" value="1000"/></td>
+											  	</tr>
+											  	<tr>
+											      <td><spring:message code="pm25_s" />（ug/m³）</td>
+											      <td><input type='text' id="min_pm25" readonly value="0"/></td>
+											  	  <td><input type='text' id="max_pm25" value="50"/></td>
+											  	</tr>
+											  </tbody>
+											  <tfoot></tfoot>
+											</table>
+										 	<div class="deleteBtn" id="update_dblchart"><spring:message code="decicedata_fun_11" /></div>
+										</div>
+										
+										<div class="ui bottom attached tab segment two" data-tab="tab12">
+											<table class="ui compact celled definition table">
+											  <thead class="full-width">
+											    <tr>
+											      <td><spring:message code="decicedata_fun_18" /></td>
+											    </tr>
+											  </thead>
+											  
+											</table>
+										 	
+										</div>
+			                		</div>
+								</div>
+								<div class="download">
+                			 		<div class="map" style="height:auto;">
+                			 			<h6><spring:message code="decicedata_fun_19" /></h6>
+                			 			<div style="background-color:#ffffff; padding:0.6rem 0;"><div class="timeBtn downloadData_this"><spring:message code="decicedata_fun_19" /></div></div>
+                			 		</div>
+                			 	</div>
+								
+                			 </div>
+                		</div>
+                	</div>
+
+                	<div class="contentTab downloadTab" style="display:none;">
+                		<div class="ui grid" id="">
+                			 <div class="ten wide column contentmainleft">
+			                	<div class="" >
+			                		<div class="topmenu2">
+				                		<div class="row column eight" id="tit" style="margin-bottom:0!important;padding-bottom:1rem;"><spring:message code="devicedata_download" /></div>
+							        </div>
+			                		<table class="ui compact celled definition table"  id="downloadlist">
+									  <thead class="full-width">
+									    <tr>
+                                                <th class="firstColumn"></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_name" />
+                                                        <div class="sortArrow fr">
+                                                                <p><i class="caret up icon"></i><i class="caret down icon"></i></p>
+                                                        </div>
+                                                </th>
+                                                <th class="normalColumn"><spring:message code="deviceList.owner" /></th>
+                                                <th class="normalColumn"><spring:message code="deviceList.concern" /></th>
+                                                <th class="normalColumn"><spring:message code="deviceList.type" /></th>
+									      </tr>
+									  </thead>
+									  <tbody></tbody>
+									  <tfoot></tfoot>
+									</table>
+			                	</div>
+			                	<div class="downloadBtn" id="export_data_btn"><spring:message code="deviceList.download" /></div>
+			                	<div class="topmenu2">
+				                		<div class="row column eight " id="tit2"><spring:message code="devicedata_downloadHistory" /></div>
+				                		<div class="column right aligned clearfix"></div>
+							        </div>
+			                	<!-- 下载工单 -->
+			                	<table class="ui compact celled definition table" id="downloadhistory_box" style="border:1px solid #7c7c7c;">
+									  <thead class="full-width">
+									      <tr>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_1" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_2" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_3" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_4" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_7" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_8" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_5" /></th>
+                                                <th class="normalColumn"><spring:message code="devicedata_down_6" /></th>
+									      </tr>
+									  </thead>
+									  <tbody id="download_history"></tbody>
+									</table>
+			                </div>
+			                <div class="five wide column mainright" id="device_list_map">
+			                	<div class="download">
+				                	<div class="map">
+				                		<h6><spring:message code="devicedata_loading" /></h6>
+				                		<div class="params ui top attached tabular menu l_menu">
+											  <a class="item active" data-tab="tab1"><spring:message code="devicedata_time1" /></a>
+											  <%-- <a class="item" data-tab="tab2"><spring:message code="devicedata_time2" /></a> --%>
+											</div>
+											<div class="ui bottom attached tab segment l_segment active" data-tab="tab1">
+												<table class="ui table">
+													<tr>
+														<td rowspan="6" width="30%" style="padding-left:1.8rem;">
+															<div class="ui checkbox" id="workday_y">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time3" /></span>
+														</td>
+														<td width="70%">
+															<span class="fl"><spring:message code="devicedata_time4" />：</span>
+															<div id="startTime_d" class="fl input-group date">
+																<input class="fl form-control form_datetime" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span class="fl"><spring:message code="devicedata_time5" />：</span>
+															<div id="endTime_d" class="fl input-group date">
+																<input class="fl form-control form_datetime" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td>
+															<span class="fl"><spring:message code="devicedata_time6" />：</span>
+															<div id="startTime_hour_d" class="fl input-group date">
+																<input class="fl form-control form_datetime_hour" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span class="fl"><spring:message code="devicedata_time7" />：</span>
+															<div id="endTime_hour_d" class="fl input-group date">
+																<input class="fl form-control form_datetime_hour" type="text" value="">
+																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td rowspan="2" style="padding-left:1.8rem;">
+															<div class="ui checkbox" id="workday_n">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time8" /></span>
+														</td>
+														<td>&nbsp;</td>
+													</tr>
+													<tr>
+														<td></td>
+													</tr>
+												</table>
+											</div>
+											<%-- <div class="ui bottom attached tab segment l_segment two" data-tab="tab2">
+												<table class="ui table">
+													<tr>
+														<td rowspan="4" width="40%" style="padding-left:4rem;vertical-align:top;">
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time9" /></span>
+														</td>
+														<td width="60%">
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time10" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time11" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time12" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													
+													<tr>
+														<td rowspan="3" style="padding-left:4rem;vertical-align:top;">
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time13" /></span>
+														</td>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" checked="checked" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time13" /></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="ui checkbox" id="">
+																  <input type="checkbox" name="" >
+																  <label></label>
+															</div>
+															<span><spring:message code="devicedata_time14" /></span>
+														</td>
+													</tr>
+												</table>
+											</div> --%>
+				                	</div>
+			                	</div>
+			                	<div class="download l_download clearfix">
+			                		<div class="tit"><spring:message code="devicedata_canshu" /></div>
+									<div class="data_params">
+										<ul class="clearfix downloadparams">
+											<li class="clearfix">
+												<div class="ui checkbox fl" id="sun">
+												  <input type="checkbox" checked="checked"  id="sun_s" name="d1" value="1">
+												  <label></label>
+												</div>
+												<span class="fl"><spring:message code="lig" /></span>
+											</li>
+											<li class="clearfix">
+												<div class="ui checkbox fl" id="tem">
+												  <input type="checkbox" checked="checked" id="tem_s" name="d5" value="1">
+												  <label></label>
+												</div>
+												<span class="fl"><spring:message code="tem" /></span>
+											</li>
+											<li class="clearfix">
+												<div class="ui checkbox fl" id="pm25">
+												  <input type="checkbox" checked="checked" id="pm25_s" name="d3" value="1">
+												  <label></label>
+												</div>
+												<span class="fl"><spring:message code="pm25_s" /></span>
+											</li>
+											<li class="clearfix">
+												<div class="ui checkbox fl" id="hum">
+												  <input type="checkbox" checked="checked" id="hum_s" name="d2" value="1">
+												  <label></label>
+												</div>
+												<span class="fl"><spring:message code="hum" /></span>
+											</li>
+											<li class="clearfix">
+												<div class="ui checkbox fl" id="co2">
+												  <input type="checkbox" checked="checked" id="co2_s" name="d4" value="1">
+												  <label></label>
+												</div>
+												<span class="fl"><spring:message code="co2_s" /></span>
+											</li>
+										</ul>
+									</div>
+			                	</div>
+			                	<div class="download clearfix l_download">
+			                		<div class="tit"><spring:message code="devicedata_duiqi" /></div>
+									<div class="data_align"><span class="fl"><spring:message code="devicedata_duiqiNum" />&nbsp;&nbsp;&nbsp;</span><input class="fl form-control" type="text" value="1" name="step" id="step"><span class="fl">&nbsp;<spring:message code="devicedata_duiqiBranch" /></span></div>
+			                	</div>
+			                </div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script src="/public/static/common/js/jquery.min.js"></script>
+<script src="/public/static/common/js/tools.js"></script>
+<script src="/public/static/common/js/highcharts.js"></script>
+<script src="/public/static/common/js/highcharts-more.js"></script>
+<script src="/public/static/common/js/jquery-ui-1.10.1.min.js"></script>
+<script src="/public/static/common/js/bootstrap.min.js"></script>
+<script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script> 
+<script src="/public/static/common/js/semantic.min.js"></script>
+<script src="/public/static/common/js/jquery.md5.js"></script>
+<script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+<script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+<script src="/public/static/manage/js/jquery.form.js"></script>
+<script src="/public/static/manage/js/inputFoucs.js"></script>
+<script src="/public/static/manage/js/customFrame.js"></script>
+<script src="/public/static/common/js/sheetjs.all.min.js"></script>
+<script src="/public/static/common/js/excelplus-2.3.min.js"></script>
+<script src="/public/static/manage/js/new_compareDeviceData_manage.js"></script>
+</body>
+</html>

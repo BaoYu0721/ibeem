@@ -1,0 +1,48 @@
+        <div class="ui left demo vertical inverted sidebar labeled icon menu visible">
+                <a class="item" id="sjgl" style="font-weight:bold" href="/">IBEM</a>
+                <a class="item mainpanel  leftmenu icon devicepage" id="mainpanel" href="/device">
+                    <i class="device" style="width:26px;height:24px;"></i><span style="word-wrap:break-word;word-break:break-all;"></span>
+                </a>
+                <a class="item mainpanel  leftmenu icon surveypanel" id="surveypanel" href="/survey">
+                    <i class="survey" style="width:28px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;"></span>
+                </a>
+                <a class="item leftmenu icon teampage" id="team" href="/project">
+                   <i class="team" style="width:26px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;"></span>
+                </a>
+                <a class="item leftmenu  personalpage" href="/manage" id="usermenu">
+                   <i class="page" style="width:25px;height:26px;"></i><span id="loginUserName" style="word-wrap:break-word;word-break:break-all;"></span>
+                </a>
+                <a class="item leftmenu" id="button_signout"  onclick="logOut_center()">                 
+                   <span style="word-wrap:break-word;word-break:break-all;"></span>
+                </a>
+        </div>
+		<script>
+		if(window.localStorage.getItem("language")=="en"){
+			$(".mainleft .ui.inverted.icon.menu .item span").css("font-size","1.2rem");
+		}
+		$("#mainpanel>span").html(getLangStr("leftpanel_device"));
+		$("#surveypanel>span").html(getLangStr("leftpanel_survey"));
+		$("#team>span").html(getLangStr("leftpanel_project"));
+		$("#button_signout>span").html(getLangStr("leftpanel_signout"));
+			function logOutOk(){
+				$.ajax({
+					type:"post",
+					dataType:"json",
+					url:"/user/logout",
+					data:{},
+					success:function(data){  
+						console.log(data)
+						if(data.code==200){
+							//alertokMsg(getLangStr("logout_successfully"),getLangStr("alert_ok"));
+							window.location.href="/";
+						}
+					},
+					error:function(){}
+				});
+			}
+			function logOut_center(){
+				alertMsg(getLangStr("sign_out_ask"),getLangStr("alert_no"),getLangStr("alert_yes"), "logOutOk");
+			}
+			
+
+		</script>

@@ -1,0 +1,83 @@
+html,body{height:100%;}
+body{padding-top:35px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;position:relative;}
+/* ::-webkit-scrollbar { display: none; } */
+/* .main_box::scrollbar,.main_box::-webkit-scrollbar,.main_box::-moz-scrollbar,.main_box::-o-scrollbar,.main_box::-ms-scrollbar {
+  display: none
+ 隐藏滚动条，但依旧具备可以滚动的功能
+} */
+/* 锟斤拷锟斤拷 */
+.logo_nav{position:absolute;top:0;left:0;width:100%;height:35px;z-index:200;}
+.logo_nav a{float:right;font-size:12px;height:35px;line-height:35px;text-decoration:underline; padding-right:10px;}
+.logo_nav>img{height:80%;width:auto;margin-left:20px;margin-top:5px;}
+.main_nav .num{ width:auto; margin:10px;font-weight:500;font-size:20px;}
+.main_nav{position:absolute;left: 10px;top: 45px; width: 230px;height: auto;} 
+.main_nav .res_check>ul{width:100%;padding:0;margin:0;list-style:none;}
+.main_nav .res_check>ul>li{height:36px;line-height:36px;position:relative;z-index:2;} 
+.main_nav .res_check>ul>li .list_nav{padding:0 10px;cursor:pointer;}
+.main_nav .res_check>ul>li:first-child{border:0;}
+.main_nav .res_check>ul>li .glyphicon_l,
+.main_nav .res_check>ul>li .glyphicon_r{width: 20px;height: 34px;line-height: 32px;}
+.main_nav .res_check>ul>li .glyphicon_l{float:left;visibility:hidden;}
+.main_nav .res_check>ul>li .glyphicon_r{float:right;transition:.5s;-wenkit-transition:.5s;}
+.main_nav .res_check>ul>li .glyphicon_select{position:absolute;display:none;left:230px;top:-1px;width:420px;/* min-height:100px; */padding:20px;border-left:none;z-index:3000;}
+.main_nav .res_check>ul>li .glyphicon_select .label{float: left;cursor:pointer;padding:5px 12px!important;font-size:13px;font-weight:normal;position:relative;margin-right:8px;margin-top:8px;}
+.main_nav .res_check>ul>li .glyphicon_select .label i{position:absolute;right:-4px;top:-6px;font-size:14px;width:14px;height:14px;line-height:14px;text-align:center;border-radius:50%;-webkit-border-radius:50%;}
+.main_nav .res_check>ul>li:hover .glyphicon_r{margin-right:-10px;transition:.5s;-wenkit-transition:.5s;}
+
+.modal-list{padding: 5px 15px 10px!important}
+.modal-list .row .col-list{overflow:hidden;padding:7px 10px 0;}
+.modal-list .row .col-list .col-title{float:left;width:20%;}
+.modal-list .row .col-list .col-title label{ display:inline;}
+.modal-list .row .col-list .col-box{float:left;width:80%;}
+.modal-list .row .col-list .col-box .col-float{float:left; margin-right:10px;margin-bottom:6px;}
+.modal-list .row .col-list .col-box label{font-weight:normal;}
+
+button.close{opacity:0.5;filter:alpha(opacity=50);}
+button.close:hover{opacity:1;filter:alpha(opacity=100);}
+
+.filter_50{opacity:0.5!important;filter:alpha(opacity=50)!important;}
+.filter_100{opacity:1!important;filter:alpha(opacity=100)!important;}
+
+.line_change_h{transition:.5s;-webkit-transition:.5s;}
+
+.modal{overflow:hidden;}
+.modal-dialog {width: 800px!important;}
+/* .modal-content::-webkit-scrollbar {width:8px;background:#cccccc} 弹出层滚动条样式 
+.modal-content::-webkit-scrollbar-thumb {background:#009999} */
+.modal-content{border-radius:0;overflow-y:auto;height:600px;}
+.modal-content .close_modal{font-size:14px;padding:4px 8px;color:#ffffff;background-color:#009999;font-weight:normal; text-shadow: 0 0 0 #fff;}
+
+/* chart锟斤拷锟斤拷 */
+.main_box{padding:0 10px 20px 250px;height:100%;overflow:auto;}
+/* .main_box::-webkit-scrollbar { display: none; } */
+.chart-item{margin-top:20px;border-radius:4px;}
+.chart-item:first-child{margin-top:10px;}
+.chart-item>.top{height:40px;border-top-left-radius:3px;border-top-right-radius:3px;}
+.chart-item>.top.show{cursor:pointer;border-bottom-left-radius:3px;border-bottom-right-radius:3px;}
+.chart-item>.top>.title{line-height:40px;padding-left:20px;}
+.chart-item>.top>.hide-btn,.chart-item>.top>.show-btn{line-height:36px;font-weight:500;float:right;padding-right:10px;padding-left:20px;font-size:30px;cursor:pointer;}
+.chart-item>.top>.show-btn{display:block;}
+.chart-item>.top>.show-btn{display:none;}
+.chart-item>.top.show>.hide-btn{display:none;}
+.chart-item>.top.show>.show-btn{display:block;}
+.chart-item>.bottom{padding:20px;}
+.chart-item>.bottom>.chart{min-height:250px}
+
+/* 锟斤拷锟斤拷锟斤拷锟� */
+.control-group{height:50px;margin-top:10px;}
+.control-group>span{display:inline-block;float:left;padding:0 5px;line-height:30px;margin-left:20px;}
+.control-group>.btn-group{float:left;}
+.control-group>.btn-group>.btn{padding:0;padding-right:10px;}
+.control-group>.btn-group>.btn>.button-txt{line-height:30px;padding:0 10px;}
+
+/*图表样式*/
+.highcharts-container {overflow:visible!important;}
+.chart svg:not(:root){overflow:visible}
+.blank{
+	min-height:250px;
+	width:100%;
+	display:inline-block;
+	line-height:250px;
+	text-align:center;
+	background-color:#F0F0F0;
+}

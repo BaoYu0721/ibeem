@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册</title>
+<link rel="icon" href="/public/static/common/img/favicon.ico">
+<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
+<link rel="stylesheet" href="/public/static/common/css/base.css">
+<link rel="stylesheet" href="/public/static/manage/css/register.css">
+</head>
+<body>
+	<div class="head">
+	    <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  ">
+            <a class="item left  float">iBEM</a>
+            <!-- <div class="language ui dropdown">
+	             <div class="menu">
+					    <div class="item" data-value="language_ch"><a href="global/language?language=zh_CN"><i class="china flag"></i><spring:message code="i18n.zh_CN" /></a></div>
+					    <div class="item" data-value="language_en"><a href="global/language?language=en"><i class="us flag"></i><spring:message code="i18n.en" /></a></div>
+				  </div>
+            </div> -->
+        </div>
+	</div>
+	<div class="main">
+		<div class="loginbox">
+			  <div class='tit'>注册</div>
+		  	  <form action="imageupload" method="post" class="upload portraitForm" ENCTYPE="multipart/form-data">
+		  	  	<input type="file" id="file" name="file" class="portrait"/>
+		  	  	<div class="upload-img-style portraitStyle"></div>
+		  	  	<img src="" />
+		  	  	<span class="warning"></span>
+		  	  </form>
+			  <form class="ui form">
+
+				  <div class="field username">
+				    <input type="text"  placeholder='用户名' id="username">
+				    <span class="warning"></span>
+				    <span class="required"> *</span>
+				  </div>
+				  <div class="field password">
+				    <input type="password"  placeholder='密码' id="password1">
+				    <span class="warning"></span>
+				    <span class="required"> *</span>
+				  </div>
+				  <div class="field confirmPassword">
+				    <input type="password"  placeholder='确认密码' id="confirmPassword">
+				    <span class="warning"></span>
+				    <span class="required"> *</span>
+				  </div>
+                    <div class="field name">
+                        <input type="text"  placeholder='姓名' id="name">
+                        <span class="warning"></span>
+                        <span class="required"> *</span>
+                    </div>
+				  <div class="field company">
+				    <input type="text"  placeholder='单位' id="company">
+				  </div>
+				  <div class="field professor">
+				    <input type="text"  placeholder='职称' id="professor">
+				  </div>
+				  <div class="field email">
+				    <input type="text"  placeholder='邮箱' id="email">
+				    <span class="warning"></span>
+				    <span class="required"> *</span>
+				  </div>
+				  <div class="field telephone">
+				    <input type="text"  placeholder='手机' id="telephone">
+				    <span class="warning"></span>
+				  </div>
+				  <div class="clearfix register">
+				  		<span class=" button return-btn fl" type="button" id="return-btn"><i class="long arrow left icon"></i>返回主页</span>
+				  		<span class=" button register-btn  fr" type="button" id="register-btn">注册</span>
+				  </div>
+			</form>
+		</div>
+	</div>
+</body>
+
+  <script src="/public/static/common/js/jquery.min.js"></script>
+	<script src="/public/static/manage/js/jquery.form.js"></script>
+	<script src="/public/static/common/js/tools.js"></script>
+	<script src="/public/static/common/js/semantic.min.js"></script>
+	<script src="/public/static/common/js/jquery.md5.js"></script>
+	<script src="/public/static/manage/js/regularExpression.js"></script>
+	<script src="/public/static/manage/js/customMethod.js"></script>
+	<script src="/public/static/manage/js/register.js"></script>
+	<script>
+	$(function(){
+		// 选择语言
+		$('.language.ui.dropdown').dropdown();
+	});
+	</script>	
+</html>

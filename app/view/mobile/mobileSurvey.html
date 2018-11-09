@@ -1,0 +1,75 @@
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	Long dateStr = new Date().getTime();
+%>
+<!DOCTYPE html>
+<html style="font-size: 50px;">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+	<title>问卷</title>
+	<base href="<%=basePath%>" />
+	<!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" />   -->
+	<link rel="stylesheet" href="/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="/static/common/css/jquery.nstSlider.min.css">
+	<link rel="stylesheet"  href="/static/mobile/css/mobileSurvey.css" />
+    <!--[if IE]>
+    <link rel="stylesheet"  href="/static/mobile/css/mobileSurvey_ie.css" />
+    <script src="/static/mobile/js/json2.js"></script> 
+    
+    <![endif]--> 
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/common/js/jquery.nstSlider.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <script type="text/javascript" src="/static/common/js/tools.js"></script>
+    <script src="/static/manage/js/language.js"></script>
+     <style>
+     body{padding:0;margin:0;}
+     .submit{cursor:pointer;}
+     h4.ui.header{color:red;}
+     .chooseLanguage{position:absolute;top:.2em;right:.2em;font-size:.6em;color:white;}
+     .chooseLanguage>a{padding:0 .5em;text-decoration:underline;color:white;}
+     </style>
+</head>
+<body>
+<div id="chooseLanguage" class="chooseLanguage">
+<a href="javascript:void(0)" data-value="language_ch">中文</a>|<a href="javascript:void(0)" data-value="language_en">English</a></div>
+<div class="head">
+	<div class="surveytitle" id="surveytitle"><span></span></div>
+	<div class="surveyintro" id="surveyintro"><span></span></div>
+</div>
+<div class="survercontent">
+	<div class="container">
+	</div> 	
+	<div class="paging">
+		<!-- <ul>
+			<li data-page="1">首页</li>
+			<li data-page="1" class="disable">上一页</li>
+			<li data-page="1">1</li>
+			<li data-page="2" class="active">2</li>
+			<li data-page="3">3</li>
+			<li data-page="3">下一页</li>
+			<li data-page="3">末页</li>
+		</ul> -->
+		<!-- <ul>
+			<li data-page="1" class="disable">上一页</li>
+			<li data-page="3">下一页</li>
+		</ul> -->
+	</div>
+	<div class="error">
+		<h4 class="ui red header"></h4>
+	</div>	
+	<button class="submit" id="submit"></button>
+	<!-- 提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交 -->
+</div>
+<script src="/static/mobile/js/mobileSurvey.js?time=<%=dateStr%>"></script>
+		
+</body>
+</html>

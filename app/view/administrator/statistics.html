@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>统计跳转</title>
+<base href="<%=basePath%>" /> 
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamList.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+	<style>
+	.content>.item{width:100%;height:50%;position:relative;}
+	.content>.item:last-child{border-top:1px solid #A3A3A3;}
+	.content>.item>button{font-size:1.2rem;width:20%;height:20%;border:none;border-radius:.2857rem;position:absolute;top:50%;margin-top:-5%;left:20%;background-color:#47b891;color:white;}
+	.content>.item>table{table-layout:fixed; width:30%;height:40%;position:absolute;top:50%;margin-top:-8.5%;margin-left:50%;text-align:left;font-size:1.4rem;}
+	</style>
+    
+</head>
+<body >
+	<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on" style="margin-left:0;">统计跳转</a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="item">
+            	<button class="button-redirect" data-url="https://tongji.baidu.com/web/welcome/ico?s=7741df31404af44f50c784e72eb35b8e">跳转百度统计</button>
+            	<table>
+            		<tr><td width="30%">用户名：</td><td>清创建科</td></tr>
+            		<tr><td>密码：</td><td>qcjk2017</td></tr>
+            	</table>
+            </div>
+            <div class="item">
+            	<button class="button-redirect" data-url="https://account.tingyun.com/cas/login?service=https%3A%2F%2Fsaas.tingyun.com%2Fj_acegi_cas_security_check%3FloginView%3DcasLoginTingyun">跳转听云</button>
+            	<table>
+            		<tr><td width="30%">用户名：</td><td>qingchuangjianke@163.com</td></tr>
+            		<tr><td>密码：</td><td>qcjk2017</td></tr>
+            	</table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/static/manage/js/team/teamCommon_manage.js"></script>
+<script>
+$(".button-redirect").click(function(){
+	var url = $(this).data("url");
+	window.location.href=url;
+});
+$("#team").removeClass("active");
+$("#statistics").addClass("active");
+</script>
+<script src="/public/static/manage/js/team/teamList_manage.js"></script>
+
+</body>
+</html>

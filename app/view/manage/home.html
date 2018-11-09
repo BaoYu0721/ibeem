@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>个人主页</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css">
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css">
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+
+    <style>
+    	.personalpage{
+    		background:url("/public/static/manage/img/home.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.updatePassword{
+    		background:url("/public/static/manage/img/updatePassword.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.item.on .personalpage{
+    		background-image:url("/public/static/manage/img/homeactive.png");
+    	}
+    	.item.on .updatePassword{
+    		background-image:url("/public/static/manage/img/updatePasswordActive.png");
+    	}
+    </style>
+</head>
+<body>
+<div class="clearfix" style="height:100%;">
+     <div class="fl mainleft"></div>
+    <div class="fl main" style="left:0">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  "  style="padding-left:0;">
+            <a class="item on">个人主页</a>
+        </div>
+        <!--内容区-->
+        <div class="content">
+            <div class="ui grid">
+
+                <div class="sixteen wide column" >
+						<div class="infobox">
+							<div class="edit-back" id="editBack">返回主页</div>
+							<div class="edit-pass" id="changePassword">修改密码</div>
+							<div class="edit" id="editPersonalInfo">编辑</div>
+							<div class="contentbox">
+								<div>
+									<div>
+										<form action="imageupload" id="formntwo" class="hidden dynamicValue portraitForm"
+										ENCTYPE="multipart/form-data" method="post">
+											<input type="file" id="file" name="file" class="eportrait "> 
+											<img class="portraitStyle" src=""/>
+										</form>
+										<img src="" class="portrait staticValue"/>
+									</div>
+									<div>
+										<div class="username "></div>
+										<div class="hidden "><input type="text"  class="eusername"/></div>
+									</div>
+								</div>
+								<div class="ui divider" ></div>
+								<ul class="myform myform_01">
+									<!-- <li class="clearfix">
+										<span class="fl left">密码</span>
+										<span class="fl">:</span>
+										<span class="value fl password "></span>
+										<div class="fl hidden "><input type="text" class="epassword "/></div>
+									</li> -->
+									<li class="clearfix">
+										<span class="fl left">姓名</span>
+										<span class="fl">:</span>
+										<span class="value fl name staticValue"></span>
+										<div class="fl hidden dynamicValue"><input type="text" class="ename"/></div>
+									</li>
+									<li class="clearfix">
+										<span class="fl left">单位</span>
+										<span class="fl">:</span>
+										<span class="value fl unit staticValue"></span>
+										<div class="fl hidden dynamicValue"><input type="text" class="eunit"/></div>
+									</li>
+									<li class="clearfix">
+										<span class="fl left">职称</span>
+										<span class="fl">:</span>
+										<span class="value fl position staticValue"></span>
+										<div class="fl hidden dynamicValue"><input type="text" class="eposition"/></div>
+									</li>
+									<li class="clearfix">
+										<span class="fl left">邮箱</span>
+										<span class="fl">:</span>
+										<span class="value fl email staticValue"></span>
+										<div class="fl hidden dynamicValue"><input type="text" class="e_email"/></div>
+									</li>
+									<li class="clearfix">
+										<span class="fl left">手机</span>
+										<span class="fl">:</span>
+										<span class="value fl phonenum staticValue"></span>
+										<div class="fl hidden dynamicValue"><input type="text" class="ephonenum"/></div>
+									</li>
+									<!-- <li class="clearfix">
+										<span class="fl left">关联微信号</span>
+										<span class="fl">:</span>
+										<span class="value fl wechat "></span>
+										<div class="fl hidden "><input type="text" class="ewechat"/></div>
+									</li> -->
+									<li class="clearfix">
+										<span class="fl left"></span>
+										<span class="fl"></span>
+										<span class="value fl "></span>
+										<img src="" class="fl ecode qrcode" width="100" height="100"/>
+									</li> 
+								</ul>
+									<div class="submitBtn" id="submitPersonalInfo">确认</div>
+									<!-- 修改密码 -->
+									<ul class="myform myform_02 hidden">
+										<li class="clearfix">
+											<span class="fl left">原密码</span>
+											<span class="fl">:</span>
+											<div class="fl dynamicValue"><input id="" type="text" class="password_reset"/></div>
+											<span class="fl">&nbsp;&nbsp;&nbsp;</span>
+										</li>
+										<br>
+										<li class="clearfix">
+											<span class="fl left">新密码</span>
+											<span class="fl">:</span>
+											<div class="fl dynamicValue"><input type="text" class="password_1" /></div>
+											<span class="fl">&nbsp;&nbsp;&nbsp;</span>
+										</li>
+										<br>
+										<li class="clearfix">
+											<span class="fl left">再次输入</span>
+											<span class="fl">:</span>
+											<div class="fl dynamicValue"><input type="text" class="password_2"/></div>
+											<span class="fl">&nbsp;&nbsp;&nbsp;<span id="pass_error_message" style="color:#ff0000"></span></span>
+										</li>
+										<div class="submitBtn hidden" id="submitPassChange" style="width:6rem;margin-left:11rem;">保存</div>
+									</ul>
+									
+							</div>
+						</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.md5.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/manage/js/regularExpression.js"></script>
+    <script src="/public/static/manage/js/customMethod.js"></script>
+    <script src="/public/static/manage/js/customFrame.js"></script>
+    <script src="/public/static/manage/js/home.js"></script>
+    <script src="/public/static/common/js/tools.js"></script>
+    <script>
+	  //添加左侧导航栏
+	    getComponent("/common/leftpanel",
+	    		function(result){
+	    			$(".fl.mainleft").html(result);
+	    			/*左侧导航的选中效果*/
+	    			$( ".leftmenu").click(function(){
+	    			    $(this).addClass("active").siblings(".leftmenu").removeClass("active");
+	    			});
+	    			$("#usermenu").addClass("active");
+	    		});
+    	/* // 退出登录
+		function logOut_center(){
+			$.ajax({
+          			type:"post",
+          			dataType:"json",
+          			url:"/user/logout",
+          			data:{},
+          			success:function(data){  
+          				console.log(data)
+          				if(data.code==200){
+          					alertokMsg("退出成功","确定");
+          					setTimeout(function(){
+          						window.location.href="/";
+          					},2000);
+          					
+          				}
+          			},
+          			error:function(){}
+          		});
+		} */
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+html,body{background-color:#f8f8f8;}
+body{
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
+    background: -webkit-linear-gradient(-135deg, rgb(226, 240, 239) ,rgb(226, 240, 239), rgb(143, 167, 145)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-135deg, rgb(226, 240, 239),rgb(226, 240, 239), rgb(143, 167, 145)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(-135deg, rgb(226, 240, 239),rgb(226, 240, 239), rgb(143, 167, 145)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(-135deg, rgb(226, 240, 239),rgb(226, 240, 239), rgb(143, 167, 145)); /* 标准的语法（必须放在最后）*/ 
+}
+/* 导航 */
+.logo_nav{background-color:#1a3531;}
+.logo_nav a{color:#f8f8f8;}
+.main_nav .num{color:#1a3531;}
+.main_nav{ background:#fcfffe;color: #dddddd; box-shadow: 0 0 3px #333333; -webkit-box-shadow: 0 0 3px #333333;} 
+.main_nav .res_check>ul>li{border-top:1px solid #dddddd;color:#f8f8f8;background-color:#8ba9a4;}
+.main_nav .res_check>ul>li .glyphicon_select{background-color:#f8f8f8;border:1px solid #cccccc;}
+.main_nav .res_check>ul>li .glyphicon_select .label i{background-color:#009999;}
+.main_nav .res_check>ul>li .glyphicon_select .label i:hover{background-color:#ff0000;}
+.main_nav .res_check>ul>li .glyphicon_select .label-color{background-color:#33CCCC;}
+.main_nav .res_check>ul>li .glyphicon_select .label-color:hover{background-color:#009999;}
+.main_nav .res_check>ul>li:hover{background-color:#f8f8f8;color:#006699;}
+
+.modal-list .row{border-bottom:1px solid #E5E5E5;}
+.line_change{color:#333333;background-color:#eeeeee;}
+.line_change_h{color:#333333;background-color:transparent;}
+
+/* chart部分 */
+.chart-item{background-color:white;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#C0C0C0')";  /* For IE 8 */
+			filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#C0C0C0');  /* For IE 5.5 - 7 */
+			-moz-box-shadow: 1px 1px 5px #C0C0C0;/* for firefox */
+			-webkit-box-shadow: 1px 1px 5px #C0C0C0;/* for safari or chrome */
+			box-shadow:1px 1px 5px #C0C0C0;/* for opera or ie9 */
+}
+.chart-item>.top{background-color:#009999;color:white;}

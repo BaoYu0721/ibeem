@@ -1,0 +1,123 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>建筑测点</title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingPoint.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+     <script src="static/common/js/jquery.dataTables.min.js"></script>
+    <script src="static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+    
+</head>
+<body >
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item" href="/views/manage/teamBuilding.jsp">项目建筑</a>
+            <a class="item" href="/views/manage/teamDevice.jsp">项目设备</a>
+            <a class="item on" href="/views/manage/teamQuestion.jsp">项目问卷</a>
+            <a class="item" href="/views/manage/teamMember.jsp">项目成员</a>
+            <a class="teamTitleTit" href="/views/manage/teamContent.jsp" style="display:block;">项目名称</a>
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="two wide column">
+                    <div class="ui vertical menu">
+                        <div class="item" style="position:relative;">
+                            <div class="menu" id="submenu">
+                                <a class="item redirecttolist" href="/views/manage/teamList.jsp"><i class="home icon"></i>项目列表</a>
+                                <div class="ui divider"></div>
+                                <a class="item on" href="/views/manage/teamQuestion.jsp"><i class="list layout icon"></i>问卷列表</a>
+                                <a class="item redirecttoadd"  href="javascript:void(0)"><i class="add circle icon"></i>添加问卷</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fourteen wide column content-team" >
+                	<div class="pointlist">
+                		<div class="div-group-base table questionnaire datatables" id="pointlist">
+                		<div class="title">
+                			<span class="title-content">查看建筑测点列表</span>
+                		</div>
+                		<div class="div-content">
+                			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
+                			<thead> 
+                			<tr> <th>名称</th> 
+                				<th>位置描述</th> 
+                				<th>数据来源</th> 
+               				</tr> 
+               				</thead> 
+             				<tbody id="datatable_body"> 
+             				</tbody>
+             				</table>
+                		</div>
+                		</div>
+                	</div>
+                	<div class="addpoint"   style="display:none;">
+                		<h4 class="title">创建测点</h4>
+                		<hr>
+                		<div class="ui form">
+						  <div class="field name">
+						    <input type="text" name="name" placeholder="测点名称">
+						  </div>
+						  <div class="field position">
+						    <input type="text" name="position" placeholder="位置">
+						  </div>
+						  <div class="field datasource">
+						     <div class="top" id="setDataSource"> <span>设定数据源</span><i class="large angle down icon"></i></div>
+						     <div class="bottom" id="dataSource" style="display:none;">
+						     	<a href="javascript:void(0)">关联设备</a><a href="javascript:void(0)">手动上传</a><div style="clear:both"></div>
+						     </div>
+						  </div>
+						</div>
+						
+						  <div class="addlogo">
+						  	<img class="addicon" alt="添加图片" src="/static/manage/img/team/addlogo.png">
+						  	<span>图片添加</span>
+						  	<div class="contentbox">
+							  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
+									<input type="file" id="file" name="file" class="eportrait "> 
+									<img class="portraitStyle" src=""/>
+								</form>
+							</div>
+						  </div>
+						  <div class="error"><h4 class="ui red header"></h4></div>
+						  <button class="ui button" id="submit" >创建</button>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/manage/js/team/teamCommon.js"></script>
+<script src="/static/manage/js/team/teamQuestion.js"></script>
+<script>
+$(function(){
+	/*存放缓存中的，项目name*/
+	var teamname = $.cookie("teamname");
+	$(".teamTitleTit").html(teamname);
+})
+</script>
+</body>
+</html>

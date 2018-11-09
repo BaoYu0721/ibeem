@@ -1,0 +1,109 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="project.list" /></title>
+<base href="<%=basePath%>" /> 
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamList.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+
+    
+</head>
+<body >
+	<div class="ui basic test modal addteam-modal">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+			
+			<div class="top">
+				<span>创建项目</span>
+			</div>
+			<div class="bottom">
+				<div class="addteam">
+					<div class="ui form">
+						<div class="field name">
+							<input type="text" name="team-name" placeholder="<spring:message code="project.name" />">
+						</div>
+						<div class="field intro" style="position:relative;width:100%;height:8rem;">
+							<span class="tit" style="position:absolute;bottom:0.3rem;right:1.1rem;color:grey;font-size:.8rem;z-index:100;">剩余<span id="restNum">60</span>字</span>
+							<textarea placeholder="<spring:message code="project.description" />" id="teamintro_textarea" style="position:absolute;top:0;left:0;"></textarea>
+						</div>
+					</div>
+
+					<div class="addlogo">
+						<img class="addicon" alt="添加logo"
+							src="/public/static/manage/img/team/addlogo.png"> <span>添加logo</span>
+						<div class="contentbox">
+							<form action="/imageupload" id="formntwo"
+								class="hidden dynamicValue portraitForm"
+								ENCTYPE="multipart/form-data" method="post">
+								<input type="file" id="file" name="file" class="eportrait ">
+								<img class="portraitStyle" src="" />
+							</form>
+						</div>
+					</div>
+					<div class="error">
+						<h4 class="ui red header"></h4>
+					</div>
+					<button class="ui button" id="submit"><span>创建</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on" style="margin-left:0;"><spring:message code="project.list" /></a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team content-teamlist">
+                	<div class="teamList">
+                		<div class="searchTeam">
+                			<div class="ui left icon input">
+							  <input placeholder="<spring:message code="project.search" />" type="text" class="searchteam" id="searchTeam">
+							  <i class="search icon"></i>
+							  <h4 class="ui header title"><spring:message code="project.total" /></h4>
+							</div>
+							
+							<%-- <button class="addTeamButton showaddteam"><spring:message code="project.create" /></button> --%>
+                		</div>
+                		<div class="showTeam">
+                			<!-- <div class="team-item team-item-add">
+                				<div class="item-panel showaddteam">
+                					<img class="add" src="/static/manage/img/team/addteam.png">
+                				</div>
+                			</div> -->
+                			<div style="clear:both"></div>
+                		</div>
+                	</div>
+                	
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/manage/js/team/teamCommon_manage.js"></script>
+<script src="/static/manage/js/team/teamList_manage.js"></script>
+</body>
+</html>

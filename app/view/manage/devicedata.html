@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="/public/static/common/img/favicon.ico">
+<title>项目名称 · 设备数据</title>
+<!-- Bootstrap core CSS -->
+<link href="/public/static/common/css/bootstrap.min.css" rel="stylesheet">
+<link href="/public/static/common/css/bootstrap-table.min.css" rel="stylesheet">
+<link href="/public/static/common/css/bootstrap.vertical-tabs.min.css" rel="stylesheet">
+<link href="/public/static/common/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<!-- Website common CSS -->
+<link href="/public/static/manage/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container" style="margin-left: 0px;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">导航条开关</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">IBEEM</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="page/index">首页</a></li>
+					<li class="active"><a href="page/devicelist">数据</a></li>
+					<li><a href="page/teamManage">管理</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li id="user-profile" class="dropdown"><a id="user-name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span
+							class="caret"
+						></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">个人设置</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a id="logout-submit-btn" href="#">退出系统</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div id="main-container">
+		<ol class="breadcrumb">
+			<li><a href="page/index">首页</a></li>
+			<li><a href="page/devicelist">设备列表</a></li>
+			<li><a href="#">设备数据</a></li>
+		</ol>
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-home" aria-hidden="true">基本信息</span>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>设备ID：</li>
+							<li>物理ID：</li>
+							<li>设备名称：</li>
+							<li>产品型号：</li>
+						</ul>
+					</div>
+					<ul id="factor-check-list" class="list-group">
+						<li class="list-group-item"><label> <input id="tem" type="checkbox" value="" checked> 温度
+						</label></li>
+						<li class="list-group-item"><label> <input id="hum" type="checkbox" value=""> 湿度
+						</label></li>
+						<li class="list-group-item"><label> <input id="pm25" type="checkbox" value=""> PM2.5
+						</label></li>
+						<li class="list-group-item"><label> <input id="co2" type="checkbox" value=""> CO2浓度
+						</label></li>
+						<li class="list-group-item"><label> <input id="sun" type="checkbox" value=""> 光照
+						</label></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div id="time-select" class="row collapse">
+					<div class="col-lg-2">
+						<!-- required for floating -->
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs tabs-left">
+							<li class="active"><a href="#absolute-time" data-toggle="tab">绝对时间</a></li>
+							<li><a href="#relative-time" data-toggle="tab">相对时间</a></li>
+							<li><a href="#always-time" data-toggle="tab">快速选择</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-10">
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div class="tab-pane active" id="absolute-time">
+								<div class="row">
+									<form action="" class="form-horizontal" role="form">
+										<fieldset>
+											<div class="col-lg-5">
+												<div class="form-group">
+													<label for="dtp_input1" class="col-md-3 control-label">开始时间</label>
+													<div id="startTime" class="input-group date form_datetime col-md-8" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+														<input class="form-control" size="30" type="text" value="" readonly> <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+													</div>
+													<input type="hidden" id="dtp_input1" value="" /><br />
+												</div>
+											</div>
+											<div class="col-lg-5">
+												<div class="form-group">
+													<label for="dtp_input2" class="col-md-3 control-label">结束时间</label>
+													<div id="endTime" class="input-group date form_datetime col-md-8" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input2">
+														<input class="form-control" size="30" type="text" value="" readonly> <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+													</div>
+													<input type="hidden" id="dtp_input2" value="" /><br />
+												</div>
+											</div>
+											<div class="col-lg-2">
+												<button id="abs-time-btn" type="button" class="btn btn-primary">更新</button>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+							<div class="tab-pane" id="relative-time">
+								<div class="input-group" style="width: 200px;">
+									<span class="input-group-addon" id="basic-addon"> 最近 </span> <input type="text" class="form-control" aria-describedby="basic-addon"> <span class="input-group-addon" id="basic-addon">
+										小时 </span>
+								</div>
+								<!-- /input-group -->
+							</div>
+							<div class="tab-pane" id="always-time">
+								<ul>
+									<li>今天</li>
+									<li>最近24小时</li>
+									<li>过去一周</li>
+									<li>过去一月</li>
+									<li>过去一年</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="time-select-switch" data-toggle="collapse" data-target="#time-select">
+					<span class="glyphicon glyphicon-chevron-down"></span>&nbsp;&nbsp;选择时间
+				</div>
+				<div class="row">
+					<div id="device-data-chart" class="col-lg-12"></div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 table-responsive">
+						<table id="devicedata-table" class="table table-hover" data-toggle="table" data-pagination="true" data-page-size="20" data-pagination-first-text="第一页" data-pagination-pre-text="上一页"
+							data-pagination-next-text="下一页" data-pagination-last-text="最后一页" data-search="true"
+						>
+							<thead>
+								<tr>
+									<th data-field="time">时间</th>
+									<th data-field="d1">温度(<sup>o</sup>C)
+									</th>
+									<th data-field="d2">湿度(%)</th>
+									<th data-field="d3">PM2.5(ug/m<sup>3</sup>)
+									</th>
+									<th data-field="d4">CO2(ppm)</th>
+									<th data-field="d5">光照(lux)</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/public/static/common/js/jquery.min.js"></script>
+	<script src="/public/static/common/js/jquery.cookie.js"></script>
+	<script src="/public/static/common/js/bootstrap.min.js"></script>
+	<script src="/public/static/common/js/bootstrap-table.min.js"></script>
+	<script src="/public/static/common/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/public/static/common/js/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script src="/public/static/common/js/highstock.js"></script>
+	<script src="/public/static/manage/js/user.js"></script>
+	<script src="/public/static/manage/js/devicedata.js"></script>
+</body>
+</html>

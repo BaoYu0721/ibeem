@@ -1,0 +1,129 @@
+html{
+            background:url("../img/background.png") ;
+            background-size:100%;
+            height:100%;
+            color:#fff;
+
+        }
+        body{
+            padding:1rem;
+            font-size:1.2rem;
+        }
+        .checkbox{
+            background: url("../img/checkbox.png") no-repeat top center;
+            background-size:1rem 1rem;
+            padding-top:1.5rem;
+            cursor: pointer;
+        }
+        .checkbox.checked{
+            background-image:url("../img/checked.png");
+        }
+        .temperature li{
+            width:14%;
+            text-align:center;
+            cursor: pointer;
+        }
+        .complainTab .item{
+            width:33%;
+            text-align:center;
+            opacity:0.7;
+            font-size:1rem;
+        }
+        .complainTab .item.air{
+            margin-right:0;
+        }
+        .tip{
+            margin-bottom:8rem;
+            margin-top:2rem;
+        }
+        .complainTab{
+            margin-bottom:16rem;
+        }
+        .complainContent ul{
+            display:none;
+        }
+        .complainContent ul li{
+            font-size:0.8rem;
+        }
+        .complainContent .on{
+            display:block;
+        }
+        .illumination li{
+            width:20%;
+            text-align:center;
+        }
+        .airCondition li{
+            width:20%;
+            text-align:center;
+        }
+        .submitBtn{
+           position:absolute;
+            left:50%;
+            margin-left:-2.5rem;
+            bottom:5rem;
+            width:5rem;
+            height:2rem;
+            background:#08ccfc;
+            color:#fff;
+            text-align:center;
+            line-height:2rem;
+            border-radius: 20px;
+            font-size:1rem;
+        }
+        .complainTab .item.on{
+            opacity:1;
+        }
+        .tip{
+        	font-size:1rem;
+        }
+        .opacity{
+        	width:100%;
+        	height:100%;
+        	background:rgba(0,0,0,0.5);
+        	position:absolute;
+        	left:0;
+        	top:0;
+        	display:none;
+        }
+        .alert{
+        	position:fixed;
+        	left:50%;
+        	top:50%;
+        	margin-top:-4rem;
+        	margin-left:-9rem;
+        	width:18rem;
+        	height:8rem;
+        	background:#ccc;
+        	border:1px solid #ccc;
+        	border-radius:5px;
+        }
+        .alert .tit{
+        	text-align:center;
+        	line-height:4rem;
+        	color:#4A4A4A;
+        	font-size:1.2rem;
+        }
+        .alert .btn{
+        	width:75%;
+        	margin:0.5rem auto;
+        }
+        .alert .btn span{
+        	color:#47B390;
+        	border:1px solid #47B390;
+        	font-size:1rem;
+        	border-radius:10px;
+        	width:5rem;
+        	height:1.5rem;
+        	line-height:1.5rem;
+        	text-align:center;
+        }
+        .alert .btn span:active{
+        	background:#47B390;
+        	color:#fff;
+        }
+        .confirm2{
+        	display:block;
+        	margin:0 auto;
+        	width:2rem;
+        	text-align:center;
+        }

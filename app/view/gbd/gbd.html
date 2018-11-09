@@ -1,0 +1,247 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>全文检索</title>
+	<link href="/static/common/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<style>
+		html,body{height:100%;}
+	
+		/* 导航 */
+		.main_nav{overflow:auto;position:fixed;left: 0;top: 0;padding:0 30px; background:url("/static/manage/img/bg_map.png") #281524 no-repeat center bottom;color: #dddddd;width: 335px;height: 100%; box-shadow: 0 0 3px #333333; -webkit-box-shadow: 0 0 3px #333333;}
+		.main_nav .logo{ width: 80px; margin:40px auto 30px;} 
+		.main_nav .logo img{width: 100%;}
+		.main_nav .res_search{margin-bottom: 60px;overflow: hidden;}
+		.main_nav .res_search .search_text{ float:left;width: 190px;height: 32px; line-height: 32px; background-color:transparent;border: none; border-bottom: 1px solid #dddddd; border-radius: 2px; -webkit-border-radius: 2px;outline: none;  padding: 0 8px;}
+		.main_nav .res_search .search_btn{ float: right;width:60px; border:1px solid #dddddd; font-size: 14px; text-align: center;height: 32px; line-height: 32px;border-radius: 2px; -webkit-border-radius: 2px;}
+		.main_nav .res_search .search_btn:hover{border:1px solid #ffffff;color: #ffffff; transition: .5s; -webkit-transition: .5s; cursor: pointer;}
+		.main_nav .res_check .check_item{overflow: hidden; margin-top: 10px;}
+		.main_nav .res_check .check_item .check_title{ float: left; width: 100px; text-align:right; font-size: 14px; height: 28px;padding: 4px 8px;}
+		.main_nav .res_check .check_item .form-control{ float: right; width: 150px; height: 28px; line-height:28px;padding: 4px 8px;}
+		.main_nav .res_check .check_button{width:70%;height: 32px; line-height: 32px;border-radius: 2px; -webkit-border-radius: 2px; font-size: 18px; font-weight: bold; background-color: #eeeeee;color: #333333; text-align: center; margin: 40px auto;}
+		.main_nav .res_check .check_button:hover{ cursor: pointer; color: #000000;background-color: #ffffff;}
+
+		/* 搜索结果 */
+		.main_box{ margin: 50px 50px 20px 385px; box-sizing: border-box; -webkit-box-sizing: border-box;}
+		.main_box .item_nav ul{ overflow: hidden; padding: 0; float: right;}
+		.main_box .item_nav ul li{float:left; color: #666666; cursor: pointer;padding:0 3px 1px; display: inline-block; margin-left: 5px;}
+		.main_box .item_nav ul li.active{color: #ac2925; border-bottom: 2px solid #ac2925; }
+		.main_box .item_nav h4{margin: 0 0 20px; font-size: 16px;}
+
+		/* 图文样式 */
+		.main_box .item_list .items{overflow: hidden; margin-bottom: 20px; cursor: pointer;}
+		.main_box .item_list .items .item_pic{border:1px solid #cccccc; padding:4px;/* opacity:0.5; filter:alpha(opacity=50); */float:left;width: 100px; height: 100px; margin-right: 10px;}
+		/* .main_box .item_list .items:hover .item_pic{ opacity:0.9; filter:alpha(opacity=90);} */
+		.main_box .item_list .items .item_intro h4{margin-top: 0!important; font-weight: bold!important; margin-bottom: 6px;}
+		.main_box .item_list .items .item_intro p{ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical; text-overflow: ellipsis; overflow: hidden;}
+		.main_box .item_list .items .item_intro .btn-item{float: left;color: #ac2925; border: 1px solid #ac2925;}
+
+		/* 列表样式 */
+		.main_box .item_list_2.row{margin: 0;}
+		.main_box .item_list_2 .items{overflow: hidden; margin-bottom: 0; border-bottom: 1px solid #999999; width: 100%; padding: 12px 18px;}
+		.main_box .item_list_2 .items:hover{ background-color: #eeeeee;cursor: pointer;}
+		.main_box .item_list_2 .items .item_pic{display: none;}
+		.main_box .item_list_2 .items .item_intro h4{ float:left;margin-top: 0!important; margin-bottom: 0!important; margin-right: 16px; font-weight: bold!important;}
+		.main_box .item_list_2 .items .item_intro p{ margin-bottom: 0; display: inline-block;}
+		.main_box .item_list_2 .items .item_intro .btn-item{display: none;}
+		
+		.loading{text-decoration:underline;margin-top:20px;}
+	</style>
+		
+<script src="/static/common/js/jquery.min.js"></script>
+<script src="/static/common/js/bootstrap.min.js"></script>
+<script src="/static/common/js/jquery.cookie.js"></script>
+<script src="/static/manage/js/gbd.js"></script>
+<!--[if lte IE 9]>
+	<script src="/static/common/js/respond.1.4.2.min.js"></script>
+	<script src="/static/common/js/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<!-- 建筑详情弹出框 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      	<iframe src="" style="height:500px;width:100%;border:none;" scrolling="no"  frameBorder="0" id="iframe_url"></iframe>
+    </div>
+  </div>
+</div>
+<button style="display:none;" id="btn_turn" data-toggle="modal" data-target=".bs-example-modal-lg"></button>
+
+
+<div class="main_nav">
+	<div class="logo"><img src="/static/manage/img/logo_w.png"></div>
+	<div class="res_search">
+		<input type="text" placeholder="请输入关键字..." class="search_text" id="searchText">
+		<div class="search_btn" id="searchBtn">搜索</div>
+	</div>
+	<div class="res_check">
+		<!--<h4 class="text-center"><strong>条件筛选</strong></h4>-->
+		<div class="check_item">
+			<div class="check_title">建筑类型</div>
+			<select class="form-control" id="buildingClass">
+				<option value="" selected>默认值</option>
+				<option value="1">公共建筑</option>
+				<option value="2">居住建筑</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">气候区</div>
+			<select class="form-control" id="climaticProvince">
+				<option value="" selected>默认值</option>
+				<option value="严寒">严寒</option>
+				<option value="寒冷">寒冷</option>
+				<option value="夏热冬暖">夏热冬暖</option>
+				<option value="夏热冬冷">夏热冬冷</option>
+				<option value="温和">温和</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">地理位置</div>
+			<select class="form-control" id="city">
+				<option value="" selected>默认值</option>
+				<option value="北京">北京</option>
+				<option value="天津">天津</option>
+				<option value="河北">河北</option>
+				<option value="山西">山西</option>
+				<option value="内蒙古">内蒙古</option>
+				<option value="辽宁">辽宁</option>
+				<option value="吉林">吉林</option>
+				<option value="黑龙江">黑龙江</option>
+				<option value="上海">上海</option>
+				<option value="江苏">江苏</option>
+				<option value="浙江">浙江</option>
+				<option value="安徽">安徽</option>
+				<option value="福建">福建</option>
+				<option value="江西">江西</option>
+				<option value="山东">山东</option>
+				<option value="河南">河南</option>
+				<option value="湖北">湖北</option>
+				<option value="湖南">湖南</option>
+				<option value="广东">广东</option>
+				<option value="广西">广西</option>
+				<option value="海南">海南</option>
+				<option value="重庆">重庆</option>
+				<option value="四川">四川</option>
+				<option value="贵州">贵州</option>
+				<option value="云南">云南</option>
+				<option value="西藏">西藏</option>
+				<option value="陕西">陕西</option>
+				<option value="甘肃">甘肃</option>
+				<option value="青海">青海</option>
+				<option value="宁夏">宁夏</option>
+				<option value="新疆">新疆</option>
+				<option value="香港">香港</option>
+				<option value="澳门">澳门</option>
+				<option value="台湾">台湾</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">标志类型</div>
+			<select class="form-control" id="identifying">
+				<option value="" selected>默认值</option>
+				<option value="设计">设计</option>
+				<option value="运行">运行</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">星级</div>
+			<select class="form-control" id="level">
+				<option value="" selected>默认值</option>
+				<option value="无星级">无星级</option>
+				<option value="LEED金级">LEED金级</option>
+				<option value="LEED银级">LEED银级</option>
+				<option value="LEED认证级">LEED认证级</option>
+				<option value="非绿建">非绿建</option>
+				<option value="一星级">一星级</option>
+				<option value="二星级">二星级</option>
+				<option value="三星级">三星级</option>
+				<option value="设计一星级">设计一星级</option>
+				<option value="设计二星级">设计二星级</option>
+				<option value="设计三星级">设计三星级</option>
+				<option value="运行一星级">运行一星级</option>
+				<option value="运行二星级">运行二星级</option>
+				<option value="运行三星级">运行三星级</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">竣工时间</div>
+			<select class="form-control" id="completionTime">
+				<option value="" selected>默认值</option>
+				<!-- <option value="">2016-现在</option> -->
+				<option value="2011-2015">2011-2015</option>
+				<option value="2006-2010">2006-2010</option>
+				<option value="2001-2005">2001-2005</option>
+				<option value="1970-2000">2000年之前</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">建筑面积</div>
+			<select class="form-control" id="buildingArea">
+				<option value="" selected>默认值</option>
+				<option value="0-100">100平米以下</option>
+				<option value="101-500">101平米 - 500平米</option>
+				<option value="501-1000">501平米 - 1000平米</option>
+				<option value="1001-999999999">1001平米以上</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">建筑朝向</div>
+			<select class="form-control" id="buildingOrientation">
+				<option value="" selected>默认值</option>
+				<option value="东">东</option>
+				<option value="南">南</option>
+				<option value="西">西</option>
+				<option value="北">北</option>
+				<option value="东南">东南</option>
+				<option value="西南">西南</option>
+				<option value="东北">东北</option>
+				<option value="西北">西北</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">建筑使用人数</div>
+			<select class="form-control" id="cun">
+				<option value="" selected>默认值</option>
+				<option value="0-5">0-5</option>
+				<option value="6-10">6-10</option>
+				<option value="11-20">11-20</option>
+				<option value="21-30">21-30</option>
+				<option value="31-9999999">31人以上</option>
+			</select>
+		</div>
+		<div class="check_item">
+			<div class="check_title">ER达标</div>
+			<select class="form-control" id="erStandard">
+				<option value="" selected>默认值</option>
+				<option value="1">达标</option>
+				<option value="0">未达标</option>
+			</select>
+		</div>
+		<div class="check_button" id="checkButton">按条件筛选</div>
+	</div>
+</div>
+
+<div class="main_box">
+	<div class="item_nav">
+		<ul id="itemStyle">
+			<li class="active" data-style="1">图文模式</li>
+			<li data-style="2">列表模式</li>
+		</ul>
+		<div class="clearfix"></div>
+		<h4>共有 <span class="text-danger" id="maxCount"></span> 条搜索结果：</h4>
+	</div>
+	<div class="item_list row" id="itemList"></div><!-- item_list_2 默认图片、隐藏列表样式 -->
+	
+	<div class="text-center loading" id="loading"><img src="/static/manage/img/loading_2.gif"></div>
+</div>
+
+</body>
+</html>

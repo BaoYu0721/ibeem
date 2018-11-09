@@ -1,0 +1,139 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+	<script src="/static/common/js/jquery.min.js"></script>
+	<script src="/static/common/js/semantic.min.js"></script>
+	<script src="/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/static/common/js/tools.js"></script>
+		<style>
+			body{overflow-x:hidden;}
+			#mytab {table-layout:fixed;}
+			#mytab tr td{text-align:center;word-break:break-all; word-wrap:break-word;font-size:12px;padding:3px 4px!important;}
+			.ui.grid>.row{padding:1rem;}
+		</style>
+		<script>
+		
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+		$(document).ready(function(){
+			var param = GetQueryString("userID");
+			addLoading();
+			 $.ajax({
+		           	type:"post",
+		           	datatype:"json",
+		           	url:"/device/myDevice?userID="+param,
+		           	data:{},
+		           	success:function(data){
+		           		if(data.code==200){
+		           			$("#databody").empty();
+		           			var deviceList = data.list;
+		           			for(var i in deviceList){
+		           				var device = deviceList[i];
+		           				var devicename = device.name;
+		           				var onlineRate = device.onlineRate;
+		           				
+		           				var tem = device.tem;
+		           				var hum = device.hum;
+		           				var light = device.light;
+		           				var co2 = device.co2;
+		           				var pm25= device.pm25;
+		           				
+		           				var onlineStatus = device.onlineStatus=="true"?"在线":"离线";
+		           				$("#databody").append("<tr>"+
+			        					"<td><font><font>"+devicename+"</font></font></td>"+
+			        					"<td><font><font>"+onlineRate+"</font></font></td>"+
+			        					"<td><font><font>"+onlineStatus+"</font></font></td>"+
+			        					"<td><font><font>"+tem+"</font></font></td>"+
+			        					"<td><font><font>"+hum+"</font></font></td>"+
+			        					"<td><font><font>"+light+"</font></font></td>"+
+			        					"<td><font><font>"+co2+"</font></font></td>"+
+			        					"<td><font><font>"+pm25+"</font></font></td>"+
+			        					"</tr>");
+		           			}
+		           			var table =$("#mytab").DataTable({
+		           				"lengthChange": false,
+		           				"info": false,
+		           				"pagingType": "full",
+		           				"language":{
+		           					"paginate": {
+		           			        "first":      "首页",
+		           			        "last":       "最后一页",
+		           			        "next":       "下一页",
+		           			        "previous":   "末页",
+		           			     	"search":     "搜索:"
+		           			    	}
+		           				}
+		           			});
+		           			$("#mytab_filter").parent().removeClass("eight");
+		           			$("#mytab_filter").parent().removeClass("wide");
+		           			$("#mytab_filter").parent().removeClass("column");
+		           			$("#mytab_filter").parent().addClass("sixteen");
+		           			$("#mytab_filter").parent().addClass("wide");
+		           			$("#mytab_filter").parent().addClass("column");
+		           			$("#mytab_paginate").parent().removeClass("nine");
+		           			$("#mytab_paginate").parent().removeClass("wide");
+		           			$("#mytab_paginate").parent().removeClass("column");
+		           			$("#mytab_paginate").parent().addClass("sixteen");
+		           			$("#mytab_paginate").parent().addClass("wide");
+		           			$("#mytab_paginate").parent().addClass("column");
+		           			removeLoading();
+		           			$("#mytab").css({"width":"92%","margin":"1em auto"})
+		           		}
+		           	},
+		           	error:function(){
+		           		//alert("请求失败,请稍后重试");
+		           	}
+		     });
+		});
+		</script>
+	</head>
+	<body>
+		<div style="margin:2rem auto;">
+			<table id="mytab" class="ui celled unstackable table t1">
+				<thead>
+					<tr>
+						<th style="text-align:center;" rowspan="2">名<br>称</th>
+						<th style="text-align:center;" rowspan="2">在<br>线<br>率<br>(%)</th>
+						<th style="text-align:center;" rowspan="2">状<br>态</th>
+						<th colspan="5" style="text-align:center;">达<br>标<br>率<br>(%)</th>
+					</tr>
+					<tr>
+						<th style="text-align:center;;border-left:1px solid #d4d4d5;">温<br>度</th>
+						<th style="text-align:center;">湿<br>度</th>
+						<th style="text-align:center;">光<br>照</th>
+						<th style="text-align:center;">co2</th>
+						<th style="text-align:center;">pm<br>25</th>
+					</tr>
+				</thead>
+				<tbody id="databody">
+
+				<tr>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+					<td><font><font></font></font></td>
+				</tr>  
+
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>

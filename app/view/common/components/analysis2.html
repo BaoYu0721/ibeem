@@ -1,0 +1,35 @@
+<div class="analysis" id="analysis_-id-">
+    <div class="top"><span>-title-</span></div>
+     <div class="bottom">
+     <span class="title-zi"></span>
+     <span class="title-yin"></span>
+     <div class="field optionSelect">
+  	<label></label>
+    <div class="ui selection dropdown" id="chartDropdown_-id-">
+         <input type="hidden" name="gender">
+         <i class="dropdown icon"></i>
+         <div class="default text"></div>
+         <div class="menu">
+         </div>
+    </div>
+  </div>
+  <div class="table-container">
+	<table id="datatable_-id-" class="ui celled table datatables" cellspacing="0"> 
+           			<thead> 
+           			
+          			</thead>
+        			<tbody id="datatable_body_-id-"> 
+        					 
+        			</tbody>
+         		</table>
+		</div>
+	</div>
+</div>
+<script>
+$("#analysis_-id->.bottom>.title-zi").html(getLangStr("surveyAna_zi")+"：-zi-");
+$("#analysis_-id->.bottom>.title-yin").html(getLangStr("surveyAna_yin")+"：-yin-");
+$("#analysis_-id->.bottom>.optionSelect>label").html(getLangStr("surveyAna_messg8")+":");
+$("#chartDropdown_-id-").find(".default.text").html(getLangStr("surveyAna_messg9"));
+$("#datatable_-id->thead").html("<tr> <th>"+getLangStr("surveyAna_th1")+"</th><th>"+getLangStr("surveyAna_th2")+"</th><th>"+getLangStr("surveyAna_th3")+"</th></tr> ");
+
+</script>

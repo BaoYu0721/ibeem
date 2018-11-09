@@ -1,0 +1,352 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="static/common/img/favicon.ico">
+<base href="<%=basePath %>" />
+<title><spring:message code="pagetitle.data" /></title>
+<!-- Bootstrap core CSS -->
+<link href="static/common/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/common/css/bootstrap-table.min.css" rel="stylesheet">
+<link href="static/common/css/bootstrap.vertical-tabs.min.css" rel="stylesheet">
+<link href="static/common/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<!-- Website common CSS -->
+<link href="static/manage/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container" style="margin-left: 0px;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">导航条开关</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">IBEEM</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="page/index"><spring:message code="menu.home" /></a></li>
+					<li><a href="page/teamManage"><spring:message code="menu.dashboard" /></a></li>
+					<li class="active"><a href="#"><spring:message code="menu.data" /></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li id="login-btn" class="hidden"><a href="#" data-toggle="modal" data-target="#loginModal"><spring:message code="btn.login" /></a></li>
+					<li id="user-profile" class="dropdown"><a id="user-name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span
+							class="caret"
+						></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="page/homeManage"><spring:message code="link.profile" /></a></li>
+							<li role="separator" class="divider"></li>
+							<li><a id="logout-submit-btn" href="#"><spring:message code="btn.logout" /></a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div id="main-container">
+		<ol class="breadcrumb">
+			<li><a href="page/index"><spring:message code="menu.home" /></a></li>
+			<li><a href="page/deviceManage"><spring:message code="menu.dashboard" /></a></li>
+			<li><a href="#"><spring:message code="menu.devicedata" /></a></li>
+		</ol>
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"><spring:message code="basicinfo" /></span>
+					</div>
+					<div class="panel-body">
+						<ul style="padding-left: 10px;">
+							<li><spring:message code="name" />：<span id="device_name">--</span></li>
+							<li>ID：<span id="device_id">--</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="" aria-hidden="true"><spring:message code="tem" /></span>
+					</div>
+					<div class="panel-body text-center" style="font-size: 25px;">
+						<span id="temperature_val" style="font-size: 40px;">--</span>&nbsp;℃
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="" aria-hidden="true"><spring:message code="hum" /></span>
+					</div>
+					<div class="panel-body text-center" style="font-size: 25px;">
+						<span id="humandity_val" style="font-size: 40px;">--</span>&nbsp;%
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="" aria-hidden="true"><spring:message code="pm25" /></span>
+					</div>
+					<div class="panel-body text-center" style="font-size: 25px;">
+						<span id="pm25_val" style="font-size: 40px;">--</span>&nbsp;ug/m<sup>3</sup>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="" aria-hidden="true"><spring:message code="co2" /></span>
+					</div>
+					<div class="panel-body text-center" style="font-size: 25px;">
+						<span id="co2_val" style="font-size: 40px;">--</span>&nbsp;ppm
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<span class="" aria-hidden="true"><spring:message code="lig" /></span>
+					</div>
+					<div class="panel-body text-center" style="font-size: 25px;">
+						<span id="light_val" style="font-size: 40px;">--</span>&nbsp;lux
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"><spring:message code="selectParameter" /></span>
+					</div>
+					<ul id="factor-check-list" class="list-group">
+						<li class="list-group-item"><label> <input id="tem" type="checkbox" value="" checked> <spring:message code="tem" />
+						</label> <br>
+							<div class="cali_setting" style="margin-top: 10px;" id="cali_tem">
+								<pre style="font-size: 0.5em; height: 3em;">y=Kx+L
+							   	</pre>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="cali_K">K:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_K" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_L">L:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_L" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+								</form>
+								<div style="height: 20px;">
+									<button id="cali_tem_btn" type="button" class="cali_btn btn btn-primary btn-xs pull-right">
+										<spring:message code="cloudCalibrate" />
+									</button>
+								</div>
+							</div></li>
+						<li class="list-group-item"><label> <input id="hum" type="checkbox" value=""> <spring:message code="hum" />
+						</label> <br>
+							<div class="cali_setting hidden" style="margin-top: 10px;" id="cali_hum">
+								<pre style="font-size: 0.5em; height: 3em;">y=Mx+N
+							   	</pre>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="cali_M">M:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_M" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_N">N:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_N" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+								</form>
+								<div style="height: 20px;">
+									<button id="cali_hum_btn" type="button" class="cali_btn btn btn-primary btn-xs pull-right">
+										<spring:message code="cloudCalibrate" />
+									</button>
+								</div>
+							</div></li>
+						<li class="list-group-item"><label> <input id="pm25" type="checkbox" value=""> <spring:message code="pm25" />
+						</label> <br>
+							<div class="cali_setting hidden" style="margin-top: 10px;" id="cali_pm25">
+								<pre style="font-size: 0.5em; height: 4em;">y=Cx<sup>2</sup>+Dx+E(x&lt;A)<br>y=Gx<sup>2</sup>+Hx+I
+							   	</pre>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="cali_A">A:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_A" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_C">C:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_C" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_D">D:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_D" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_E">E:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_E" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_G">G:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_G" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_H">H:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_H" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_I">I&nbsp;:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_I" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+								</form>
+								<div style="height: 20px;">
+									<button id="cali_pm25_btn" type="button" class="cali_btn btn btn-primary btn-xs pull-right">
+										<spring:message code="cloudCalibrate" />
+									</button>
+								</div>
+							</div></li>
+						<li class="list-group-item"><label> <input id="co2" type="checkbox" value=""> <spring:message code="co2" />
+						</label> <br>
+							<div class="cali_setting hidden" style="margin-top: 10px;" id="cali_co2">
+								<pre style="font-size: 0.5em; height: 3em;">y=Px+Q
+							   	</pre>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="cali_P">P:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_P" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_Q">Q:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_Q" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+								</form>
+								<div style="height: 20px;">
+									<button id="cali_co2_btn" type="button" class="cali_btn btn btn-primary btn-xs pull-right">
+										<spring:message code="cloudCalibrate" />
+									</button>
+								</div>
+							</div></li>
+						<li class="list-group-item"><label> <input id="sun" type="checkbox" value=""> <spring:message code="lig" />
+						</label> <br>
+							<div class="cali_setting  hidden" style="margin-top: 10px;" id="cali_sun">
+								<pre style="font-size: 0.5em; height: 3em;">y=Rx<sup>2</sup>+Sx+T
+							   	</pre>
+								<form class="form-inline">
+									<div class="form-group">
+										<label for="cali_R">R:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_R" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_S">S:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_S" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+									<div class="form-group">
+										<label for="cali_T">T:&nbsp;&nbsp;</label> <input class="cali_input" id="cali_T" type="text" class="form-control" style="width: 80px; height: 20px;">
+									</div>
+								</form>
+								<div style="height: 20px;">
+									<button id="cali_sun_btn" type="button" class="cali_btn btn btn-primary btn-xs pull-right">
+										<spring:message code="cloudCalibrate" />
+									</button>
+								</div>
+							</div></li>
+					</ul>
+				</div>
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<span class="glyphicon glyphicon-cog" aria-hidden="true"><spring:message code="data.datahandling" /></span>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<button id="export_data_btn" type="button" class="btn btn-primary">
+								<spring:message code="data.dataexport" />
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-10">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="time-select" class="row">
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label for="dtp_input1" class="col-md-3 control-label"><spring:message code="time.start" /></label>
+									<div id="startTime" class="input-group date form_datetime col-md-8" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+										<input class="form-control" size="30" type="text" value="" readonly> <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+									</div>
+									<input type="hidden" id="dtp_input1" value="" /><br />
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="form-group">
+									<label for="dtp_input2" class="col-md-3 control-label"><spring:message code="time.finish" /></label>
+									<div id="endTime" class="input-group date form_datetime col-md-8" data-date="" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input2">
+										<input class="form-control" size="30" type="text" value="" readonly> <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+									</div>
+									<input type="hidden" id="dtp_input2" value="" /><br />
+								</div>
+							</div>
+							<div class="col-lg-1">
+								<button id="abs-time-btn" type="button" class="btn btn-primary">
+									<spring:message code="update" />
+								</button>
+							</div>
+							<div class="col-lg-3">
+								<div class="dropdown">
+									<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<spring:message code="quickSelectTime" />
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<li><a href="#" onclick="quickTimeSelect(1);"><spring:message code="qt.10min" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(2);"><spring:message code="qt.20min" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(3);"><spring:message code="qt.30min" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(4);"><spring:message code="qt.1hour" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(5);"><spring:message code="qt.6hour" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(6);"><spring:message code="qt.12hour" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(7);"><spring:message code="qt.1day" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(8);"><spring:message code="qt.2day" /></a></li>
+										<li><a href="#" onclick="quickTimeSelect(9);"><spring:message code="qt.1week" /></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div id="device-data-chart" class="col-lg-12"></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12 table-responsive">
+								<table id="devicedata-table" class="table table-hover" data-toggle="table" data-pagination="true" data-page-size="20" data-pagination-first-text="<spring:message code="page.first"/>"
+									data-pagination-pre-text="<spring:message code="page.prev"/>" data-pagination-next-text="<spring:message code="page.next"/>" data-pagination-last-text="<spring:message code="page.last"/>"
+									data-search="true"
+								>
+									<thead>
+										<tr>
+											<th data-field="time"><spring:message code="time" /></th>
+											<th data-field="d1"><spring:message code="tem_s" />(<sup>o</sup>C)</th>
+											<th data-field="d2"><spring:message code="hum_s" />(%)</th>
+											<th data-field="d3"><spring:message code="pm25_s" /><br>(ug/m<sup>3</sup>)</th>
+											<th data-field="d4"><spring:message code="co2_s" />(ppm)</th>
+											<th data-field="d5"><spring:message code="lig_s" />(lux)</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="static/common/js/jquery.min.js"></script>
+		<script src="static/common/js/jquery.cookie.js"></script>
+		<script src="static/common/js/bootstrap.min.js"></script>
+		<script src="static/common/js/bootstrap-table.min.js"></script>
+		<script src="static/common/js/bootstrap-datetimepicker.min.js"></script>
+		<script src="static/common/js/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script src="static/common/js/highstock.js"></script>
+		<script src="static/common/js/sheetjs.all.min.js"></script>
+		<script src="static/common/js/excelplus-2.3.min.js"></script>
+		<script src="static/manage/js/user.js"></script>
+		<script src="static/manage/js/environmentdata.js"></script>
+</body>
+</html>

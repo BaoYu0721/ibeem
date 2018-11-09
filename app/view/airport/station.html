@@ -1,0 +1,167 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="<%=basePath%>" />
+    <link rel="icon" href="static/common/img/favicon.ico">
+
+    <title>布点数据查看</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/common/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/common/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Website common CSS -->
+    <link href="static/airport/css/style.css" rel="stylesheet">
+    <style>
+		.fixed-table-loading{
+			visibility:hidden;
+		}
+	</style>
+
+  </head>
+
+  <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container" style="margin-left:0px;">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航条开关</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">项目名称</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">首页</a></li>
+                <li class="active"><a href="/page/airport/overview">数据</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+        <div id="main-container">
+	        <ol class="breadcrumb">
+	              <li><a href="/page/airport/overview">数据总览</a></li>
+	              <li><a href="#" id="buildingName"></a></li>
+	              <li><a href="#" id="stationName"></a></li>
+	        </ol>
+	        
+	        <div class="row">
+				<div class="col-lg-2">
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true">布点信息</span>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">
+							类型：<span id="stype"></span><br>
+							数据量：<span id="scount"></span><br>
+							描述：<span id="sdesc"></span><br>
+							</li>
+						</ul>
+					</div>
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"><spring:message code="selectParameter"/></span>
+						</div>
+						<ul id="factor-check-list" class="list-group">
+							<li class="list-group-item">
+								<label> 
+									<input id="tem" type="checkbox" value="" checked> 温度
+								</label>
+							</li>
+							<li class="list-group-item">
+								<label> 
+									<input id="hum" type="checkbox" value=""> 湿度
+								</label>
+							</li>
+							<li class="list-group-item">
+								<label> 
+									<input id="co2" type="checkbox" value="">CO2
+								</label>
+							</li>
+							<li class="list-group-item">
+								<label> 
+									<input id="hq" type="checkbox" value=""> 黑球温度
+								</label>
+							</li>
+						</ul>
+					</div>
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"><spring:message code="data.datahandling"/></span>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">
+								<button  id="export_data_btn" type="button" class="btn btn-primary"><spring:message code="data.dataexport"/></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<div class="row">
+						<div class="col-lg-12">
+						
+							<div class="row">
+								<div id="device-data-chart" class="col-lg-12"></div>
+							</div>
+	
+							<div class="row">
+								<div class="col-lg-12 table-responsive">
+									<table id="devicedata-table" class="table table-hover"
+										data-toggle="table" data-pagination="true" data-page-size="20"
+										data-pagination-first-text="<spring:message code="page.first"/>" data-pagination-pre-text="<spring:message code="page.prev"/>"
+										data-pagination-next-text="<spring:message code="page.next"/>"
+										data-pagination-last-text="<spring:message code="page.last"/>" data-search="true">
+										<thead>
+											<tr>
+												<th data-field="time">时间</th>
+												<th data-field="tem">温度(<sup>o</sup>C)
+												</th>
+												<th data-field="hum">湿度(%)</th>
+												<th data-field="co2">CO2(ppm)</th>
+												<th data-field="hqTem">黑球温度(<sup>o</sup>C)</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+	
+						</div>
+	
+					</div>
+				</div>
+
+			</div>
+		
+        </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/common/js/jquery.min.js"></script>
+    <script src="static/common/js/bootstrap.min.js"></script>
+    <script src="static/common/js/bootstrap-table.min.js"></script>
+    <script src="static/common/js/highstock.js"></script>
+    <script src="static/common/js/sheetjs.all.min.js"></script>
+	<script src="static/common/js/excelplus-2.3.min.js"></script>
+	 <script src="static/airport/js/station.js"></script>
+  </body>
+</html>

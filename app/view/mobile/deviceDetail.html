@@ -1,0 +1,823 @@
+<%@page import="edu.thu.ibeem.third.WeixinJsAPI,java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	Long dateStr = new Date().getTime();
+%>
+<%
+	String JsapiTicket = WeixinJsAPI.JsapiTicket;
+	String AccessToken = WeixinJsAPI.AccessToken;
+	if(JsapiTicket==null||"".equals(JsapiTicket)){
+		WeixinJsAPI.workAtTime();
+		JsapiTicket = WeixinJsAPI.JsapiTicket;
+	}
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="mobiledetail_title" /></title>
+<base href="<%=basePath%>" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<!-- 不缓存 -->
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+
+
+<link rel="stylesheet" href="static/mobile/css/base.css"/>
+<!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" /> -->
+<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.md5.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.sha1.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="static/manage/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/common/js/highcharts.js"></script>
+<script type="text/javascript" src="static/common/js/highcharts-more.js"></script>
+<script type="text/javascript" src="static/common/js/solid-gauge.js"></script>
+<script type="text/javascript" src="static/common/js/toolsMobile.js"></script>
+<script type="text/javascript" src="static/mobile/js/common.js"></script>
+<!-- <script type="text/javascript" src="static/common/js/ajaxfileupload.js"></script> -->
+<!-- <script type="text/javascript" src="static/common/js/tools.js"></script> -->
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="static/common/js/weixin/weixin.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA&amp;services=&amp;t=20170220193356"></script>
+<style>
+	body{
+		background:#f4f4f4;
+	}
+	.devicedetail li {
+		width:90%;
+		height:2.35rem;
+		background:#ffffff;
+		margin:1rem auto 0;
+		border-radius:0.25rem;
+		padding-left:1.05rem;
+		padding-right:0.5rem;
+		font-size:0.675rem;
+		line-height:2.35rem;
+		color:#979797;
+		overflow:hidden;
+	}
+	.devicedetail li input{
+		font-size:0.675rem;
+		line-height:2.35rem;
+		color:#979797;
+	}
+	.devicedetail li img{
+		width:0.75rem;
+		height:0.75rem;
+		margin-top:.8rem;
+	}
+	.devicedetail .address img{
+		width:0.55rem;
+		height:0.9rem;
+	}
+	.devicedetail .name{
+		height:4.125rem;
+	}
+	.devicedetail .name .txt{
+		line-height:1.25rem;
+	}
+	.devicedetail .name input{
+	    width:15rem;
+		font-size:1.8rem;
+		color:#3fb493;
+	}
+	
+	#description, #address{
+		width:11rem;
+	}
+	
+	.classify{
+		margin-top:0.75rem;
+	}
+	.classify span{
+		height:1rem;
+		padding-right:0.25rem;
+		line-height:1rem;
+	}
+	.classify em{
+		padding-right:0.25rem;
+		line-height:1rem;
+	}
+	.switch{
+		background:#ffffff;
+		border:1px solid rgba(0,0,0,0.10);
+		border-radius:1rem;
+		width:38px;
+		height:21px;
+		margin-top:0.8rem;
+		position:relative;
+	}
+	.switch span{
+		width:20px;
+		height:20px;
+		border:1px solid rgba(0,0,0,0.10);
+		position:absolute;
+		left:-1px;
+		top:0;
+		border-radius:50%;
+		background:#ffffff;
+	}
+	.devicedetail .uploadimg{
+		width:100%;
+		height:auto;
+		text-align:center;
+		font-size:1.2rem;
+		line-height:1.75rem;
+		position:static;
+		padding-left:0;
+		margin:0;
+		padding-right:0;
+		margin-top:0.5rem;
+		background:#f4f4f4;
+	}
+	.uploadimg .camera{
+		width:1.03rem;
+		height:1rem;
+		margin:0 auto ;
+	}
+	.uploadimg input{
+		opacity:0;
+		width:100%;
+		height:100%;
+	}
+	.devicedetail li img.upload_img
+	{
+		width:100%;
+		height:100%;
+		margin-top:0rem;
+	}
+	.uploadimg .img{
+		position:absolute;
+		left:2.5rem;
+		top:.75rem;
+	}
+	.refresh{
+		width:6.75rem;
+		height:1.2rem;
+		border-radius:5rem;
+		background:#3fb493;
+		margin:0 auto 3.7rem;
+		font-size:0.675rem;
+		color:#ffffff;
+		text-align:center;
+		line-height:1.2rem;
+	}
+	/* .devicedetail .on{
+		border:1px solid #3fb493;
+	} */
+	.selectitem{
+		display:none;
+	}
+	.selectitem .list span{
+		width:3rem;
+		margin-left:1rem;
+		margin-bottom:0.45rem;
+		font-size:0.675rem;
+		color:#9b9b9b;
+	}
+	#house{
+		height:100%;
+	}
+	#house_box{
+	    width:100%;
+		height:2.5rem;
+	} 
+	.selectitem .list span{
+		margin-bottom:0;
+		margin-left:1rem;
+	}
+	.list2,.list3{
+		display:none;
+	}
+	#house .classify .on{
+		border-bottom:1px solid #3fb493;
+		color:#3fb493;
+		line-height:1rem;
+	}
+	#house .list .on{
+		color:#3fb493;
+	}
+	.portraitForm input{
+		position:absolute;
+		left:0;
+		top:0;
+		z-index:2;
+	}
+	.portraitForm .upload_img{
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.img-panel{width:47.5%;float:left;height:4.5rem;position:relative;}
+	.img-panel .close{width:0.75rem; height:0.75rem;position:absolute;z-index:10;top:0;right:0;left:none;margin-top:0;}
+	.img-container{width:90%;auto;margin:0 auto 1rem;}	
+	.portraitForm{width:100%;height:100%;}
+
+</style>
+<script>
+	
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+
+function getObjectURL(file) {
+	  var url = null ; 
+	  if (window.createObjectURL!=undefined) { // basic
+	    url = window.createObjectURL(file) ;
+	  } else if (window.URL!=undefined) { // mozilla(firefox)
+	    url = window.URL.createObjectURL(file) ;
+	  } else if (window.webkitURL!=undefined) { // webkit or chrome
+	    url = window.webkitURL.createObjectURL(file) ;
+	  }
+	  return url ;
+}
+
+function getLocation(){
+	var geolocation = new BMap.Geolocation();
+	if (geolocation){
+	  geolocation.getCurrentPosition(function(r){
+		  if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			  $(".address").attr("lat",r.point.lat+"");
+			  $(".address").attr("lon",r.point.lng+"");
+			  getBaiduAddress(r.point.lat,r.point.lng);
+		  }else{
+			  
+		  }
+	    },{enableHighAccuracy: true});
+	  }
+	 else{
+		  //$("#locationText").html("浏览器不支持定位!");
+	 }
+  
+}
+
+function getBaiduAddress(lat,lon){
+   var baiduGeocodingApi = 'http://api.map.baidu.com/geocoder/v2/?ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA&callback=showAddress&location='+lat+','+lon+'&output=json';
+   var script = document.createElement('script');
+   script.type = 'text/javascript';
+   script.src = baiduGeocodingApi;
+   document.body.appendChild(script);
+}
+
+function showAddress(data){
+	if(data.status == 0){
+		dAddress = data.result.formatted_address;
+		city = data.result.addressComponent.city;
+		province = data.result.addressComponent.province;
+		$("#address").attr("val",dAddress);
+		$("#address").html(dAddress>15?dAddress.substring(0,14)+"..":dAddress);
+	}else{
+		
+	}
+}
+
+//上传图片方法2
+function uploadImg(obj,okFun){
+	var getFile=obj.children("input").val();
+  	var fileName=getFileName(getFile)
+	function getFileName(o){
+	    var pos=o.lastIndexOf(".");
+	    return o.substring(pos+1);  
+	}
+	var te=/jpg|jpeg|png|JPG|PNG/g;
+	if(te.test(fileName)==false){
+		alert(getLangStr("image_error"))
+	}else{
+		obj.ajaxSubmit(function(json) {
+			console.log(json);
+			if(json.code != 200) {
+				alert(getLangStr("image_failed"),getLangStr("alert_ok"));
+				return;
+			}
+			var uploadImg=json.imageList[0].imageurl;
+			obj.children(".upload_img").attr("src",uploadImg);
+		})
+}};
+function ajaxFileUpload(fileid) {
+    $.ajaxFileUpload
+    (
+        {
+            url: '<%=request.getContextPath() %>/imageupload', //用于文件上传的服务器端请求地址
+            secureuri: false, //一般设置为false
+            fileElementId: fileid, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+            dataType: 'json', //返回值类型 一般设置为json
+            success: function (data, status)  //服务器成功响应处理函数
+            {
+            	alert("success");
+            },
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+            	alert("data:"+data);
+                var responsetext = data.responseText;
+                
+                alert("responsetext:"+responsetext);
+                $pre = $(responsetext);
+                json = JSON.parse($pre.html());
+                
+                if(json.code =='200'){
+                	$("#"+fileid).siblings(".upload_img").attr("src", json.imageList[0].imageurl);
+                }else{
+                	alert(data.msg);
+                }
+            }
+        }
+    )
+    return false;
+}
+	$(function(){
+		
+		/*当前编辑项  */
+		$(".devicedetail li").click(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			
+		});	
+		/*告警开关  */
+		$(".notify").click(function(){
+			var left=parseInt($(".switch span").css("left"));
+			if(left>0){ //关闭
+				$(".switch span").css("left","0px");
+				$(".switch").css("background","#ffffff");
+				$(".notify").attr("warning","false");
+			}else{  //开启
+				//检查设备是否绑定微信号，如果未绑定，应该进行如下操作：
+				//1.获得用户授权；2.获取微信号信息；3.在更新设备信息的时候更新绑定信息
+				var thisUrl = window.location.href;  //是一个可以接收返回的code的url，可以是本页面
+				window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx472e78d4295c4091"
+								+"&redirect_uri="+encodeURIComponent(thisUrl)
+								+"&response_type=code&scope=snsapi_userinfo&state=BindingWechat#wechat_redirect";
+			}
+		});
+		/*住宅筛选  */
+		$("#house").click(function(){
+			var first=$(".classify span").eq(0).html();
+			var second=$(".classify span").eq(1).html();
+			var third=$(".classify span").eq(2).html();
+			$(".selectitem").css("display","block");
+			$("#list1").css("display","block");
+			$(".classify span").eq(0).addClass("on");
+			$(".list1 span").each(function(){
+				if($(this).html()==first){
+					$(this).addClass("on").siblings().removeClass("on");
+				}
+			});
+			$(".list2 span").each(function(){
+				if($(this).html()==second){
+					$(this).addClass("on").siblings().removeClass("on");
+				}
+			});
+			$(".list3 span").each(function(){
+				if($(this).html()==third){
+					$(this).addClass("on").siblings().removeClass("on");
+				}
+			});
+			
+		});
+		$("#list1 span").click(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			$(".classify span").eq(0).html($(this).html());
+			$(".classify span").removeClass("on");
+			$(".classify span").eq(1).addClass("on");
+			$("#list1").css("display","none");
+			$("#list2").css("display","block");
+			$("#list3").css("display","none");
+			return false;
+		});
+		$("#list2 span").click(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			$(".classify span").eq(1).html($(this).html());
+			$(".classify span").removeClass("on");
+			$(".classify span").eq(2).addClass("on");
+			$("#list1").css("display","none");
+			$("#list2").css("display","none");
+			$("#list3").css("display","block");
+			return false;
+		});
+		$("#list3 span").click(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			$(".classify span").eq(2).html($(this).html());
+			$(".classify span").removeClass("on");
+			$("#list1").css("display","none");
+			$("#list2").css("display","none");
+			$("#list3").css("display","none");
+			return false;
+		});
+		
+		
+		var device_id = localStorage.getItem("device_id");
+		$.ajax({
+	        type: "post",
+	        dataType: "json",
+	        url: '/device/getDeviceByID',
+	        timeout : 60000, //超时时间设置，单位毫秒
+	        data: {deviceID:device_id
+	        },
+	        success: function (data) {
+	            if (data.code == 200) {
+	            	var device = data.device;
+	            	$("#device_name").val(device.name);
+	            	$("#description").val(device.describe);
+	            	$("#memo").val(device.memo);
+	            	$("#address").attr("val",device.address);
+	            	$("#address").html(device.address);
+	            	$(".address").attr("lat",device.latitude+"");
+	            	$(".address").attr("lon",device.longitude+"");
+	            	var imgList = device.imageList;
+	            	for(var i=0;i<imgList.length;i++){
+	            		var imgUrl = device.imageList[i].img;
+	            		if($.trim(imgUrl)!=""){
+	            			$(".upload_img_"+i).attr("src",device.imageList[i].img);
+	            			$(".upload_img_"+i).attr("data-hasimg","has");
+	            			$(".upload_img_"+i).siblings(".close").css("display","block");
+	            		}
+	            	}
+	            	$(".notify").attr("warning",device.warnning);
+	            	if(device.warnning == "false"){
+	            		$(".switch span").css("left","0px");
+	    				$(".switch").css("background","#ffffff");
+	            	}else{
+	            		$(".switch span").css("left","19px");
+	    				$(".switch").css("background","#44db5e");
+	            	}
+	            	removeLoading();
+	            }
+	    },
+	    complete : function(XMLHttpRequest,status){ 
+	    	if(status=='timeout'){//超时,status还有success,error等值的情况
+	    		removeLoading();
+	    	  alert(getLangStr("mobilehistory_msg_3"));
+			}
+	    } 
+		});
+		
+		var urlStateParam = getUrlParam("state");
+		//state 为BindingWechat，本页面的打开时先检测STATE参数，然后获取code，传递到后台获取用户信息
+		if(urlStateParam == "BindingWechat"){
+			var code = getUrlParam("code");
+			//获取用户信息
+			$.ajax({
+		        type: "post",
+		        dataType: "json",
+		        url: '/weixin/getUser',
+		        data:{
+		        	code:code
+		        },
+		        success: function (data) {
+		        	//更新设备对应的微信绑定信息
+		        	var openid = data.openid;
+		        	var wechatName = data.nickname;
+		        	var device_id = localStorage.getItem("device_id")*1.0;
+		        	$.ajax({
+		    	        type: "post",
+		    	        dataType: "json",
+		    	        url: '/device/bindWechat',
+		    	        data:{
+		    	        	  deviceId:device_id,
+	        				   openid:openid,
+	        				   wechatName:wechatName
+	        			   },
+		    	        success: function (data) {
+		    	        	if(data.code == 200){
+		    	        		$(".switch span").css("left","19px");
+		    					$(".switch").css("background","#44db5e");
+		    					$(".notify").attr("warning","true");
+		    					alert(getLangStr("mobilelist_6"));
+		    	        	}else{
+		    	        		alert(getLangStr("mobilelist_7"));
+		    	        	}
+		    	        },
+		    	        error:function (XMLHttpRequest, textStatus, errorThrown) 
+		    	        { 
+		    	        	
+		    	       	} 
+		    	    });
+		        },
+		        error:function (XMLHttpRequest, textStatus, errorThrown) 
+		        { 
+		        	alert(getLangStr("mobilelist_9"));
+		       	} 
+		    });
+		}
+		
+		//更新设备信息
+		$(".refresh").click(function(){
+			addMobileLoading();
+			var device_id = localStorage.getItem("device_id")*1.0;
+			var desc = $("#description").val();
+			var lat = $(".address").attr("lat") * 1.0;
+			var lon = $(".address").attr("lon") * 1.0;
+			var address = $("#address").attr("val");
+			var memo = $("#memo").val();
+			var warning = $(".notify").attr("warning");
+			if(!warning){
+				warning ="";
+			}
+			var imgurl = "";
+			$(".upload_img").each(function(){
+				if($(this).attr("data-hasimg")=="has"){
+					imgurl += $(this).attr("src")+","
+				}
+			});
+			//更新微信绑定信息
+			$.ajax({
+		        type: "post",
+		        dataType: "json",
+		        url: '/device/updateDevice',
+		        data: {
+		        	id:device_id,
+		        	longitude:lon,
+		        	latitude:lat,
+		        	address:address,
+		        	describe:desc,
+		        	warning_sign:warning,
+		        	image:imgurl,
+		        	memo:memo
+		        },
+		        success: function (data) {
+		        	removeLoading();
+		            if (data.code == 200) {
+						alert(getLangStr("mobiledetail_1"));        	
+		            }else{
+		            	alert(data.messg);
+		            }
+		    }});
+		});
+		
+		 //上传照片
+		/*$(".portraitForm input").change(function(){
+       		uploadImg($(this).parent()); 
+       		 /* ajaxFileUpload($(this).attr("id")) */ 
+       		 /* 添加关闭按钮 */
+       		 /*
+       	 }); */
+       	if(localStorage.getItem("login_type") == "user" && $.cookie("login_type") == "user"  ){
+       		$(".img-panel").click(function(event){
+    			if($(event.target).hasClass("close")){
+    				return;
+    			}
+    			$this = $(this);
+    			wx.chooseImage({  
+    	               count: 1,  
+    	               needResult: 1,  
+    	               sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+    	               sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
+    	               success: function (data) {  
+    	                   localIds = data.localIds[0].toString(); // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片  
+    	                   wxuploadImage(localIds,$this);  
+    	               },  
+    	               fail: function (res) {  
+    	                   alert(getLangStr("mobiledetail_2"));
+    	               }  
+    	  
+    	           });  
+    		});
+    		$(".img-panel .close").click(function(){
+    			$(this).css("display","none");
+    			$(this).siblings(".upload_img").attr("src","../static/mobile/img/upload_image.jpg");
+    			$(this).siblings(".upload_img").attr("data-hasimg","false");
+    		});
+       	}else{
+       		$("#memo").attr("readonly","");
+       		$("#description").attr("readonly","");
+       	}
+		function wxuploadImage(localIds,$this){
+       		wx.uploadImage({  
+                localId: localIds, // 需要上传的图片的本地ID，由chooseImage接口获得  
+                isShowProgressTips: 1, // 默认为1，显示进度提示  
+                success: function (res) {  
+                    var mediaId = res.serverId; // 返回图片的服务器端ID  
+                    var url="/weixin/downloadMediaFromWx";
+                	var json={"mediaId":mediaId};
+                	var successFunc = function(data){
+                		/* alert("getImageUrl:"+data.url);  */
+                		var imgurl = data.url;
+                		$this.children(".upload_img").attr("src", imgurl); 
+                        $this.children(".close").css("display","block");
+                        $this.children(".upload_img").attr("data-hasimg","has");
+                	}
+                	var errorFunc = function(data){
+                		alert(data.messg);
+                		/* alert("upload error! url:"+data.messg); */
+                	}
+                	sentJson(url,json,successFunc,errorFunc);
+                },  
+                fail: function (error) {  
+                	alert(getLangStr("image_failed"));
+                }  
+  
+            });  
+       	 }
+		/* $("#upload_img").click(function(){
+			$("#upload_img_input").click();
+		});
+		
+		$('#upload_img_input').on('change',function() {
+		    if(typeof this.files == 'undefined'){
+		      return;
+		    }
+		    var img		 = this.files[0];//获取图片信息
+		    var type		 = img.type;//获取图片类型，判断使用
+		    var url		 = getObjectURL(this.files[0]);//使用自定义函数，获取图片本地url
+		    var fd			 = new FormData();//实例化表单，提交数据使用
+		    fd.append('img',img);//将img追加进去
+		   
+		    if(type.substr(0,5) != 'image'){//无效的类型过滤
+		      alert('请选择图片！');
+		      return;
+		    }
+		
+		    $.ajax({
+		      type	 : 'post',
+		      url	 : '/imageupload',
+		      data	 : fd,
+		      processData: false,  // tell jQuery not to process the data  ，这个是必须的，否则会报错
+		     // contentType: false,   // tell jQuery not to set contentType  
+		     // dataType : 'text',
+		      success: function (data) {
+		    	  
+		    	  if(data.code == 200){
+		    		  $("#upload_img").attr("src",data.imageList[0].imageurl);
+		    	  }else{
+		    		  
+		    		  alert(data.messg);
+		    	  }
+		    	  
+		         //更新设备信息
+		    	  //imgUrl = url;
+		         /*
+		         if(imgList.length >= 5){
+		        	 imgList[0] = url;
+		         }else{
+		        	 imgList.push(url);
+		         }
+		         imgUrl = imgList.join(";");
+		         showImage(imgUrl);
+		      },
+		     /*  error:function (XMLHttpRequest, textStatus, errorThrown) 
+		      { 
+		      	alert(textStatus);
+		      }
+		    });
+		    
+		 }); */ 
+		
+		//更新地理位置
+		$(".address").click(getLocation);
+		//如果是否为扫描设备登录，刷新按钮隐藏
+		var login_type = localStorage.getItem("login_type");
+		if(!login_type || $.trim(login_type)==''){
+			login_type = $.cookie("login_type");
+		}
+		if(login_type=="device"){
+			$(".refresh").css("display","none");
+		}
+		
+	});
+</script>
+</head>
+
+<body>
+<ul class="devicedetail" style="display:none;">
+	<li class=" name on">
+		<div class="txt"> <spring:message code="mobilehistory_nav1" /></div>
+		<div class="clearfix">
+			<input type="text" id="device_name" class="fl" value="" readOnly="true" disabled/>
+			<img class="icon fr" src="../static/mobile/img/device00.png" style="display:none;"/>
+		</div>
+	</li>
+	<li class="clearfix">
+		<input type="text" class="fl" id="memo" value="" placeholder="<spring:message code='mobiledetail_msg_1' />"/>
+	</li>
+	<li class="clearfix address" lat="" lon="">
+		<span class="fl" id="address" value=""  readonly ><spring:message code='mobiledetail_msg_2' /></span>
+		<img class="icon fr" src="../static/mobile/img/map00.png"/>
+	</li>
+	<li class="clearfix">
+		<input type="text" class="fl" id="description" value="" placeholder="<spring:message code='mobiledetail_msg_3' />"/>
+		<img class="icon fr" src="../static/mobile/img/address00.png"/>
+	</li>
+<!-- 	<li class="clearfix " id="house"> -->
+<!-- 		<div class="house_box" id="house_box"> -->
+<!-- 			<div class="clearfix fl classify"> -->
+<!-- 				<span class="fl">公共建筑</span> -->
+<!-- 				<em class="fl">|</em> -->
+<!-- 				<span class="fl">住宅</span> -->
+<!-- 				<em class="fl">|</em> -->
+<!-- 				<span class="fl">客厅</span> -->
+<!-- 			</div> -->
+<!-- 			<img class="icon fr" src="../static/mobile/img/address00.png"/> -->
+<!-- 		</div> -->
+<!-- 		<div class="selectitem"> -->
+<!-- 			<div class="list1 list clearfix" id="list1"> -->
+<!-- 				<span class="fl">公共建筑</span> -->
+<!-- 			</div> -->
+<!-- 			<div class="list2 list clearfix" id="list2"> -->
+<!-- 				<span class="fl">办公</span> -->
+<!-- 				<span class="fl">医院</span> -->
+<!-- 				<span class="fl">商场</span> -->
+<!-- 			</div> -->
+<!-- 			<div class="list3 list clearfix" id="list3"> -->
+<!-- 				<span class="fl">多人办公室</span> -->
+<!-- 				<span class="fl">单人办公室</span> -->
+<!-- 				<span class="fl">会议室</span> -->
+<!-- 				<span class="fl">前台</span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</li> -->
+<!-- 	<li class="clearfix notify" warning="false"> -->
+<!-- 		<input type="text" class="fl" value="告警设置"/> -->
+<!-- 		<div class="switch fr"> -->
+<!-- 			<span></span> -->
+<!-- 		</div> -->
+<!-- 	</li> -->
+	<li class="uploadimg">
+	<div class="img-container">
+		<div class="img-panel" style="margin-right:5%;">
+				<img class="upload_img upload_img_0" src="../static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
+				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+		</div>
+		<div class="img-panel">
+				<img class="upload_img upload_img_1" src="../static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
+				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+		</div>
+		<div class="img-panel" style="margin-top:1rem;">
+				<img class="upload_img upload_img_2" src="../static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
+				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+		</div>
+		<%-- <div class="img-panel">
+		<form action="<%=request.getContextPath() %>/imageupload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
+			<input type="file" id="file2" name="file" class="image2"  accept="image/*;capture=camera"  >
+			<img class="upload_img upload_img_1" src="../static/mobile/img/upload_image.jpg" data-hasimg='false'/> 
+			<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+		</form>
+		</div>
+		<div class="img-panel" style="margin-top:1rem">
+		<form action="<%=request.getContextPath() %>/imageupload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
+			<input type="file" id="file3" name="file" class="image3"  accept="image/*;capture=camera"  >
+			<img class="upload_img upload_img_2" src="../static/mobile/img/upload_image.jpg" data-hasimg='false'/> 
+			<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+		</form>
+		</div> --%>
+		<div style="clear:both"></div>
+	</div>
+	</li>
+</ul>
+<div class="refresh" style="display:none;"><spring:message code='mobiledetail_msg_4' /></div>
+<!--底部导航  -->
+<ul class="footer clearfix">
+	<li class="current" id="devicetab">
+		<!-- <div class="icons"><img src="../static/mobile/img/device.png"/></div> -->
+		<div class="icons"></div>
+		<div class="txt"><spring:message code='mobilehistory_nav1' /></div>
+	</li>
+	<li class="realtime" id="realtimetab">
+		<!-- <div class="icons"><img src="../static/mobile/img/realtime.png"/></div> -->
+		<div class="icons realtimeicon"></div>
+		<div class="txt"><spring:message code='mobilehistory_nav2' /></div>
+	</li>
+	<li class="history" id="historytab">
+		<!-- <div class="icons"><img src="../static/mobile/img/history.png"/><span class="arrow"></span></div> -->
+		<div class="icons historyicon"><span class="arrow"></span></div>
+		<div class="txt"><spring:message code='mobilehistory_nav3' /></div>
+	</li>
+	<li class="evaluation" id="evaluationtab">
+		<div class="icons evaluationicon"></div>
+		<div class="txt">评估</div>
+	</li>	
+	<li class="home" id="hometab">
+		<!-- <div class="icons"><img src="../static/mobile/img/home.png"/><span class="arrow"></span></div> -->
+		<div class="icons homeicon"><span class="arrow"></span></div>
+		<div class="txt"><spring:message code='mobilehistory_nav4' /></div>
+	</li>
+</ul>
+<!-- 悬浮返回 -->
+<div class="return_to_list_float_btn"></div>
+
+<script>
+if(localStorage.getItem("language")=="en"){
+	$(".return_to_list_float_btn").addClass("en");
+}
+addMobileLoading();
+/*动态设置图片区域panel的高度  */
+$(".uploadimg .img-container .img-panel").each(function(){
+	var imgpanelwidth = $(this).width();
+	$(this).height(imgpanelwidth/0.45);
+})
+/*  位置加载完毕再显示devicedetail  */
+$(".devicedetail").css("display","block");
+$(".refresh").css("display","block"); 
+</script>
+
+<div style="visibility:hidden;" id="weixin_api_ticket" key="<%=JsapiTicket%>" data-val="<%=AccessToken%>">	
+</div>
+</body>
+</html>

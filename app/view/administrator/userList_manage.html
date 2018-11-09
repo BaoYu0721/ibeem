@@ -1,0 +1,229 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户列表</title>
+<base href="<%=basePath%>" />
+<link rel="stylesheet"  href="static/common/css/semantic.min.css" />
+<link rel="stylesheet" href="static/common/css/base.css" />
+<link rel="stylesheet" href="static/common/css/dataTables.semanticui.min.css"/>
+<link rel="stylesheet" href="static/manage/css/frameStyle.css" />
+<style>
+.user_head{background-color:#ffffff; margin-top:20px; font-size:14px; margin-right:20px; margin-bottom:30px;}
+.user_head table th,.user_head table td{text-align:center!important;}
+#user_data tr:hover {color:#ffffff;}
+#user_data tr .change_password{cursor:pointer;text-decoration:underline;}
+#newPass{margin:20px; padding:10px; border:1px solid #cccccc;}
+</style>
+</head>
+
+<body>
+
+<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu">
+           	<a class="item on">用户列表    </a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="fourteen wide" id="contentRight">
+					<div>用户列表</div>
+					<div class="user_head">
+							<table class="ui table celled"  id="user_box">
+								  <thead>
+								    	<th>姓名</th>
+								    	<th>用户名</th>
+								    	<th>职位</th>
+								    	<th>电话</th>
+								    	<th>微信昵称</th>
+								    	<th>邮箱</th>
+								    	<th>操作</th>
+								  </thead>
+								  <tbody id="user_data"></tbody>
+							</table>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 修改密码弹窗 -->
+<div class="ui modal small" id="changePassPopover">
+	  <i class="close icon"></i>
+	  <div class="header">修改密码</div>
+      <input type="text" id="newPass" placeholder="请输入新密码..." />
+	  <div class="actions">
+	    	<div class="ui red button" id="changePassButton" >修改</div>  
+	  </div>
+</div>
+
+<script src="static/common/js/jquery.min.js"></script>
+<script src="static/common/js/tools.js"></script>
+<script>
+	    getComponent("/static/manage/components/leftpanel_manage.html",
+	  		function(result){
+	  			$(".fl.mainleft").html(result);
+	  			/*左侧导航的选中效果*/
+	  			$( ".leftmenu").click(function(){
+	  			    $(this).addClass("active").siblings(".leftmenu").removeClass("active");
+	  			});
+	  			/*添加active效果*/
+	  			$( ".leftmenu").each(function(){
+	  				$(this).removeClass("active");
+	  			});
+	  			$(".leftmenu.personalpage").addClass("active");
+	  			
+	  	});
+	  	//获取浏览器包括滚动条在内的宽度
+	    window.getWidth= function(){
+	      if(window.innerWidth!= undefined){
+	          return window.innerWidth;
+	      }  
+	      else{  
+	          var scrollWidth = getScrollWidth();
+	          return $(window).width()+scrollWidth;
+	      }  
+	    } 
+	    //获取浏览器滚动条宽度
+	    function getScrollWidth() {  
+	    var noScroll, scroll, oDiv = document.createElement("DIV");  
+	    oDiv.style.cssText = "position:absolute; top:-1000px; width:100px; height:100px; overflow:hidden;";  
+	    noScroll = document.getElementsByTagName("body")[0].appendChild(oDiv).clientWidth;  
+	    oDiv.style.overflowY = "scroll";  
+	    scroll = oDiv.clientWidth;  
+	    document.getElementsByTagName("body")[0].removeChild(oDiv);  
+	    return noScroll-scroll;  
+	    }
+	    //设置页面高度宽度
+	    function init(){
+	    	//初始化时，将右侧content高度设置为屏幕高度减导航栏高度
+	    	var window_height = $(window).height();
+	    	var window_width = window.getWidth();
+	    	var nav_height = $(".main .ui.inverted.menu").height();
+	    	//var content_height = window_height - nav_height;
+	    	//右侧content是absolute，距离上侧55px，直接减去55
+	    	$("#content").css("height",window_height-55);
+	    	//main的宽度是，屏幕宽度减去左侧导航栏宽度
+	    	$('#content').css("width",window_width-60);
+	    	$('.fl.main').css("width",window_width-60);
+//	    	$('.ui.grid').css("min-width",1200);
+	    }
+	    $(window).resize(function(){
+	    	/*动态设置内容区高度  */
+	    	init();
+	    });
+	    $(function(){
+	    	init();
+	    })
+    </script>
+    
+  <script src="static/common/js/semantic.min.js"></script>
+  <script src="static/common/js/jquery.md5.js"></script>
+  <script src="static/common/js/jquery.dataTables.min.js"></script>
+  <script src="static/common/js/dataTables.semanticui.min.js"></script>
+  <script src="static/manage/js/jquery.form.js"></script>
+  <script src="static/manage/js/inputFoucs.js"></script>
+  <script src="static/manage/js/customFrame.js"></script>
+<script>
+$(function(){
+  	
+  	var changePassID;
+  	addLoading();
+
+  	$.ajax({
+  		url:"/admin/getAllUserByAdmin",
+  		type:"POST",
+  		dataType:"JSON",
+  		success:function(data){	
+  			// console.log(data);
+		removeLoading();
+		
+  			var str = '';
+  			if(data.code==200){
+  				for(var i=0;i<data.userList.length;i++){
+  					
+  					var $this_user = data.userList[i]; 
+  					
+  	   				str += "<tr>"+
+	    					"<td>"+ ($this_user.name==null?"":$this_user.name) +"</td>"+
+	    					"<td>"+ ($this_user.username==null?"":$this_user.username) +"</td>"+
+	    					"<td>"+ ($this_user.position==null?"":$this_user.position) +"</td>"+
+	    					"<td>"+ ($this_user.phone==null?"":$this_user.phone) +"</td>"+
+	    					"<td>"+ ($this_user.wechat==null?"":$this_user.wechat) +"</td>"+
+	    					"<td>"+ ($this_user.email==null?"":$this_user.email) +"</td>"+
+	    					"<td class='change_password' data-uid="+ $this_user.id +">修改密码</td>"+
+	    				"</tr>";
+  				}
+  				
+  				$("#user_data").html(str);
+  				
+  				// 数据分页
+  				$("#user_box").DataTable({
+   			        "lengthMenu": [20], 
+   			        "bPaginate": true, //翻页功能  
+   			        "bLengthChange": false, //改变每页显示数据数量  
+   			        "bFilter": true, //过滤功能  
+   			        "bSort": false, //排序功能  
+   			        "bInfo": false,//页脚信息  
+   			        "bAutoWidth": true//自动宽度  
+   			    });
+  				
+  				// 修改密码
+  				$("body").on("click",".change_password",function(){
+  					changePassID = $(this).data("uid"); // 需要修改密码的ID
+  					$("#newPass").val(""); 
+  					$("#changePassPopover").modal('show');	
+  				});
+  				
+  				$("#changePassButton").click(function(){
+  					var newPassW = $("#newPass").val();
+  					
+  					if(newPassW==""){
+  						alertokMsg("新密码不能为空","确定"); 
+  						return false;
+  					}else{
+      					//console.log($("#newPass").val());
+      					//console.log(changePassID);	
+      					
+      					addLoading();
+      					var $newPassWord = $.md5(newPassW);
+      					
+      					$.ajax({
+      				  		url:"/admin/changheUserPasswordByAdmin",
+      				  		type:"POST",
+      				  		dataType:"JSON",
+      				  		data:{userID:changePassID,password:$newPassWord},
+      				  		success:function(data){
+      				  			removeLoading();
+      				  			if(data.code==200){
+      				  				alertokMsg("修改密码成功，新密码为"+newPassW,"确定"); 
+      				  			}else{
+      				  				alertokMsg("系统繁忙，请稍后重试！","确定");
+      				  			}
+      				  		},
+      				  		error:function(){
+      				  			removeLoading();
+      				  			alertokMsg("系统繁忙，请稍后重试！","确定");
+      				  		}
+      				  	});
+      					
+  					}    				
+  				});
+  			}
+  		}
+  	});
+
+});
+</script>
+</body>
+</html>

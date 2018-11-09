@@ -1,0 +1,194 @@
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	Long dateStr = new Date().getTime();
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="deviceList.title" /></title>
+<base href="<%=basePath%>" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<!-- 不缓存 -->
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+
+
+
+<link rel="stylesheet" href="static/mobile/css/base.css"/>
+<!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" /> -->
+<link rel="stylesheet" href="static/mobile/css/homeSetting.css"/>
+<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="static/mobile/js/common.js"></script>
+<script type="text/javascript" src="static/common/js/toolsMobile.js"></script>
+<script type="text/javascript" src="static/mobile/js/homeSetting.js"></script>
+<style>
+
+ 
+</style>
+</head>
+
+<body>
+	<div id="main">
+		<div class="">
+			<p class="title"><spring:message code="mobilehome_1" /></p>
+			<ul class="paramItem">
+				<li class="shape">
+					<span class="fl"><spring:message code="mobilehome_2" /></span>
+					<span class="fr value" id="shape"></span>
+				</li>
+				<li class="shape_items" >
+					<div class="clearfix item">
+						<div class="item-div">
+							<span class="fl " value="1"><spring:message code="mobilehome_3" /></span>
+							<img alt="" src="/static/mobile/img/jx.jpg">	
+						</div>
+						<div class="item-div">
+							<span class="fl" value="2"><spring:message code="mobilehome_4" /></span>
+							<img alt="" src="/static/mobile/img/lx.jpg">	
+						</div>
+						<div class="item-div">
+							<span class="fl" value="3"><spring:message code="mobilehome_5" /></span>
+							<img alt="" src="/static/mobile/img/ax.jpg">	
+						</div>
+						<div class="item-div">
+							<span class="fl" value="4"><spring:message code="mobilehome_6" /></span>
+							<img alt="" src="/static/mobile/img/tx.jpg">	
+						</div>
+					</div>
+				</li>
+				<li class="homesize">
+					<span class="fl left"><spring:message code="mobilehome_7" /></span>
+					<span class="fr"><spring:message code="mobilehome_8" /></span>
+					<input type="text" value="" class="fl value" id="floor_area"/>
+				</li>
+				<li class="peoplecount">
+					<span class="fl left"><spring:message code="mobilehome_9" /></span>
+					<span class="fr"><spring:message code="mobilehome_17" /></span>
+					<input type="text" value="" class="fl value"  id="people_number"/>
+				</li>
+				<li class="windowcount">
+					<span class="fl left"><spring:message code="mobilehome_10" /></span>
+					<span class="fr"><spring:message code="mobilehome_18" /></span>
+					<input type="text" value="" class="fl value" id="window_number"/>
+				</li>
+				<li class="windowclass">
+					<span class="fl left"><spring:message code="mobilehome_11" /></span>
+					<span class="fr value" id="window_class"></span>
+				</li>
+				<li class="windowclass_items" style="display:none;" >
+					<div class="clearfix item">
+						<div class="item-div">
+							<span class="fl " value="1"><spring:message code="mobilehome_12" /></span>
+							<img alt="" src="/static/mobile/img/pkc.jpg">	
+						</div>
+						<div class="item-div">
+							<span class="fl" value="2"><spring:message code="mobilehome_13" /></span>
+							<img alt="" src="/static/mobile/img/sxtlc.jpg">	
+						</div>
+						<div class="item-div">
+							<span class="fl" value="3"><spring:message code="mobilehome_14" /></span>
+							<img alt="" src="/static/mobile/img/zytlc.jpg">	
+						</div>
+						<div class="item-div">
+							<span class="fl" value="4"><spring:message code="mobilehome_15" /></span>
+							<img alt="" src="/static/mobile/img/sxc.jpg">	
+						</div>
+						<div class="item-div" style="margin-left:1.5%;">
+							<span class="fl" value="5"><spring:message code="mobilehome_16" /></span>
+							<img alt="" src="/static/mobile/img/xxc.jpg">	
+						</div>
+					</div>
+				</li>
+				<li class="windowarea">
+					<span class="fl left"><spring:message code="mobilehome_19" /></span>
+					<span class="fr"><spring:message code="mobilehome_20" /></span>
+					<input type="text" value="" class="fl value" id="window_area"/>
+				</li>
+				<li class="domecount">
+					<span class="fl left"><spring:message code="mobilehome_21" /></span>
+					<span class="fr"><spring:message code="mobilehome_18" /></span>
+					<input type="text" value="" class="fl value" id="ceil_light_number"/>
+				</li>
+				<li class="lampcount">
+					<span class="fl left"><spring:message code="mobilehome_22" /></span>
+					<span class="fr"><spring:message code="mobilehome_18" /></span>
+					<input type="text" value="" class="fl value" id="desk_light_number"/>
+				</li>
+				<li>
+					<span class="fl"><spring:message code="mobilehome_23" /></span>
+					<em class="fr value" id="has_air_cleaner"></em>
+				</li>
+				<li class="">
+					<span class="fl"><spring:message code="mobilehome_24" /></span>
+					<em class="fr" class="value" id="has_air_new"></em>
+				</li>
+				<li class="heatmethod">
+					<span class="fl"><spring:message code="mobilehome_25" /></span>
+					<span class="fr value" id="ac_form"></span>
+				</li>
+				<li class="heating" >
+					<div class="title3"><spring:message code="mobilehome_25" /></div>
+					<div class="clearfix item">
+						<span class="fl" value="1"><spring:message code="mobilehome_26" /></span>
+						<span class="fl" value="2"><spring:message code="mobilehome_27" /></span>
+						<span class="fl" value="3"><spring:message code="mobilehome_28" /></span>
+						<span class="fl" value="4"><spring:message code="mobilehome_29" /></span>
+					</div>
+				</li>
+				<li class="coldmethod">
+					<span class="fl"><spring:message code="mobilehome_30" /></span>
+					<span class="fr value" id="ac_form_leng"></span>
+				</li>
+				<li class="cold" style="display:none;">
+					<div class="title3"><spring:message code="mobilehome_30" /></div>
+					<div class="clearfix item">
+						<span class="fl" value="1"><spring:message code="mobilehome_31" /></span>
+						<span class="fl" value="2"><spring:message code="mobilehome_32" /></span>
+						<span class="fl" value="3"><spring:message code="mobilehome_33" /></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!--底部导航  -->
+<ul class="footer clearfix">
+	<li class="current" id="devicetab">
+		<!-- <div class="icons"><img src="../static/mobile/img/device.png"/></div> -->
+		<div class="icons"></div>
+		<div class="txt"><spring:message code="mobilehistory_nav1" /></div>
+	</li>
+	<li class="realtime" id="realtimetab">
+		<!-- <div class="icons"><img src="../static/mobile/img/realtime.png"/></div> -->
+		<div class="icons realtimeicon"></div>
+		<div class="txt"><spring:message code="mobilehistory_nav2" /></div>
+	</li>
+	<li class="history" id="historytab">
+		<!-- <div class="icons"><img src="../static/mobile/img/history.png"/><span class="arrow"></span></div> -->
+		<div class="icons historyicon"><span class="arrow"></span></div>
+		<div class="txt"><spring:message code="mobilehistory_nav3" /></div>
+	</li>
+	<li class="evaluation" id="evaluationtab">
+		<div class="icons evaluationicon"></div>
+		<div class="txt">评估</div>
+	</li>	
+	<li class="home" id="hometab">
+		<!-- <div class="icons"><img src="../static/mobile/img/home.png"/><span class="arrow"></span></div> -->
+		<div class="icons homeicon"><span class="arrow"></span></div>
+		<div class="txt"><spring:message code="mobilehistory_nav4" /></div>
+	</li>
+</ul>
+<!-- 悬浮返回 -->
+<div class="return_to_list_float_btn"></div>
+
+</body>
+</html>

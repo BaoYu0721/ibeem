@@ -1,0 +1,825 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="building.information" /></title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingData.css">
+    <link rel="stylesheet" href="static/common/css/jquery.datetimepicker.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <script src="static/common/js/jquery.datetimepicker.full.min.js"></script> 
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+    <style>
+	.building-box{padding:3rem; background-color:#ffffff; border:1px solid #e7e7e7;position:relative}
+	.building-box .building-type{position:absolute;right:10px;top:10px;color:#47b391;border:1px solid #47b391;padding:3px 10px;}
+	.building-box .ui.pointing.secondary.menu{margin-top:2rem;}
+	.building-box .b-pic{overflow:hidden; margin-bottom:2rem;}
+	.building-box .b-pic .b-pic-img{width:32%; height:10rem; margin-right:2%; float:left; border-radius:4px; -webkit-border-radius:4px;}
+	.building-box .b-pic .b-pic-img:nth-child(3n){margin-right:0;}
+	.building-box .b-pic .b-pic-img img{width:100%; height:100%;}
+	.building-box .b-pic .b-pic-add{text-align:center; background-color:#cccccc; padding-top:4rem;}
+	
+	.building-box .b-list{/* overflow:hidden; */border:1px solid #e8e8e8;}
+	.building-box .b-title{clear:both;padding:20px 0 10px 10px;}
+	.building-box .b-title .ui.teal.label.large{background-color: transparent!important;border-color: #00b5ad!important;color: #333!important;padding: 0!important; font-size:16px!important;}
+	.building-box .b-title .ui.teal.label.large:hover{background-color: transparent!important;color: #333!important;}
+
+	.building-box .b-list .ui.labeled.input{ float:left;margin:0; width:50%;}
+	.building-box .b-list .ui.labeled.input a.ui.label{border:1px solid #e8e8e8;background-color: transparent!important;text-align: center;border-radius: 0;padding-top:1rem; font-size:14px; width:45%;height:3.2rem; float:left;}
+	.building-box .b-list .ui.labeled.input a.ui.label.label-max{padding-top: 0.2rem!important;}
+	.building-box .b-list .ui.labeled.input input,
+	.building-box .b-list .ui.labeled.input .dropdown{ float:left;width:55%;border:1px solid #e8e8e8;border-radius:0; height:3.2rem!important;line-height: 1rem;padding-right: 1em!important;font-size:14px;}
+	.building-box .b-list .ui.labeled.input select{ float:right; padding-left:10px;width:55%;border:1px solid #e8e8e8;border-radius:0; height:3.2rem!important;line-height: 1rem;padding-right: 1em!important;font-size:14px;}
+	
+	.building-box .part-result-ok{display:block; margin:30px auto 0!important; width:6rem; text-align:center;opacity:0.7;filter:alpha(opacity=70);}
+	.building-box .part-result-ok:hover{cursor:pointer; opacity:1;filter:alpha(opacity=100);}
+	.building-slider{padding:2rem; background-color:#ffffff; border:1px solid #e7e7e7;}
+	.building-slider .slider-3d{height:20rem; margin-top:2rem; background-color:#efefef;}
+	
+	.ui.secondary.pointing.menu>.item, .ui.secondary.pointing.menu>.menu>.item{padding:.6em 0.7em!important}
+	.ui.secondary.pointing.menu>.item.active, .ui.secondary.pointing.menu>.menu>.item.active {border-color:#47b391!important ;color:#47b391!important;}
+	.ui.teal.label, .ui.teal.labels .label {background-color: #47b391!important;border-color: #47b391!important;color: #fff!important;}
+	
+ 	.ui.label-2, .ui.labels .label-2 {background-color: transparent!important;border-color: #00b5ad!important;color: #333!important;padding: 0!important;}
+	.ui.label-2:hover, .ui.labels .label-2:hover{background-color: transparent!important;color: #333!important;}
+	.change-status{margin-top:0px;}
+	.open_select_box{text-decoration:underline;color:#333333;}
+	.input_disabled{background-color:#f8f8f8!important;}
+	.list_gg,.list_jz{display:none;}
+	
+	#fileUpLoad{margin:30px;}
+	.clearfix{overflow:hidden;clear:both;}
+	
+	.tr_more{display:none;}
+	.tr_click{cursor:pointer;}
+	#roomBox a{color:#101524;text-decoration:underline;cursor:pointer}
+	</style>
+</head>
+<body>
+<!-- 添加图片弹窗 -->
+<div class="ui modal small" id="picUploadPopover">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    	<spring:message code="image.upload" />
+	  </div>
+   	  <form id="fileUpLoad" enctype="multipart/form-data" class="inline fields">
+       	    <input type="file" name="file" />
+	  </form>
+	  <div class="actions">
+	    	<div class="ui red button" id="UpLoadFileButton" ><spring:message code="btn.submit" /></div>  
+	  </div>
+</div>
+
+<div class="clearfix" style="height:100%;">
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu" style="padding-left:10rem;">
+            <div class="teamTitleTit">
+		        	<a class="tit-teamname" href="/redirect?url=manage/teamContent.jsp"></a>
+		        	<a class="tit-buildingname" href="/redirect?url=manage/teamBuildingContent.jsp" style="border:none;"></a>
+	        </div>
+            <a class="item on" href="/redirect?url=manage/teamBuildingData.jsp" id="teamBuildingLoad"><spring:message code="building.information" /></a>
+            <a class="item" href="/redirect?url=manage/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
+            <a class="item" href="/redirect?url=manage/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
+            <a class="item" href="/redirect?url=manage/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+        </div>
+ 
+        <!--内容区--> 
+        <div class="content" id="content" style="overflow:scroll;">
+            <div class="ui grid" style="height: auto!important;">
+                <div class="sixteen wide column content-team" >
+                	<div class="buildinglist">
+                		<div class="ui grid">
+	                		<div class="eleven wide column mainright">
+			                	<div class="building-box">
+			                		<div class="building-type">TOP</div>
+			                		<div class="ui label huge label-2" id="buildingname"></div>
+
+									<div class="ui pointing secondary menu" id="build-menu">
+										  <a class="active item" data-tab="first"><spring:message code="t.Organisation" /></a>
+										  <a class="item" data-tab="second"><spring:message code="t.Site" /></a>
+										  <a class="item" data-tab="third"><spring:message code="t.Building" /></a>
+										  <a class="item" data-tab="four"><spring:message code="t.Room" /></a>
+										  <a class="item" data-tab="six"><spring:message code="t.Equipment" /></a>
+										  <a class="item" data-tab="seven"><spring:message code="t.EnergyUse" /></a>
+									</div>
+									<div class="ui bottom attached active tab segment" data-tab="first">
+											<div class="b-list">
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.OrganisationName" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a1">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline1" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a2">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline2" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a8">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline3" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a9">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline4" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a10">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.City" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="a3_hide">
+														        <div class="text" id="a3"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">London</div>
+																        <!-- <div class="item">中国~ 英国~</div> -->
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Postcode" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a4">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Country" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="a5_hide">
+														        <div class="text" id="a5"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">United Kingdom</div>
+																        <!-- <div class="item"></div> -->
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.SectorType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="a6_hide">
+														        <div class="text" id="a6"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Higher Education</div>
+																        <!-- <div class="item"></div> -->
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.SiteNumber" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="a7_hide">
+														        <div class="text" id="a7"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">45</div>
+																        <!-- <div class="item">46</div> -->
+														        </div>
+													      </div>
+													</div>
+													
+											</div>
+											<div class="clearfix"></div>
+											<div class="ui teal label huge part-result-ok" id="submit_sheet_1"><spring:message code="btn.save" /></div>
+									</div>
+									
+									<div class="ui tab segment" data-tab="second">
+											<div class="b-list">
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline1s" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b1">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline2s" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b9">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline3s" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b10">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Addressline4s" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b11">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Citys" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="b2_hide">
+														        <div class="text" id="b2"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">London</div>
+																        <!-- <div class="item"></div> -->
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Postcodes" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b3">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Countrys" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="b4_hide">
+														        <div class="text" id="b4"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">United Kingdom</div>
+																        <!-- <div class="item"></div> -->
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.NumberofBuildings" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b5">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.UrbanContext" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="b6_hide">
+														        <div class="text" id="b6"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Sheltered</div>
+																        <div class="item">Semi-sheltered</div>
+																        <div class="item">Exposed</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.SwimmingPool" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="b7_hide">
+														        <div class="text" id="b7"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">yes</div>
+																        <div class="item">no</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.PoolType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="b8_hide">
+														        <div class="text" id="b8"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Indoor</div>
+																        <div class="item">Outdoor</div>
+														        </div>
+													      </div>
+													</div>
+													
+											</div>
+											<div class="clearfix"></div>
+											<div class="ui teal label huge part-result-ok" id="submit_sheet_2"><spring:message code="btn.save" /></div>
+									</div>
+
+									<div class="ui tab segment" data-tab="third">
+											<div class="b-list">
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.PrimaryActivityType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c1_hide">
+														        <div class="text" id="c1"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">office</div>
+																        <div class="item">school</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Tenancytype" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c2_hide">
+														        <div class="text" id="c2"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Single building</div>
+																        <div class="item">Part building</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ArchitecturalDrawingAvailability" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c3_hide">
+														        <div class="text" id="c3"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Yes</div>
+																        <div class="item">No</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ConstructionPhase" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c4_hide">
+														        <div class="text" id="c4"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Design</div>
+																        <div class="item">Construction</div>
+																        <div class="item">Complete</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ConstructionDate" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c5">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.RefurbishmentDate" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c6">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.RefurbishmentDetails" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c7">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.StructureType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c8_hide">
+														        <div class="text" id="c8"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">reinforced concrete</div>
+																        <div class="item">steel frame</div>
+																        <div class="item">timber frame</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.GrossInternalArea" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c9">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.BuildingFootprintArea" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c10">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.AverageHeight" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c11">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.NumberofStoreys" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c12">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.PerimeterLengths" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c13">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ExposedPerimeterLengths" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c14">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.AirPermeability" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c15">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.GlazingtoExternalWallPercentage" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c16">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.DoortoExternalWallPercentage" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c17">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.RoofType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c18_hide">
+														        <div class="text" id="c18"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">flat</div>
+																        <div class="item">pitched</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.PrimaryVentilationStrategy" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c19_hide">
+														        <div class="text" id="c19"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Natural ventilation</div>
+																        <div class="item">Mixed-mode</div>
+																        <div class="item">Air-conditioning</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.PrimaryHeatingType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c20_hide">
+														        <div class="text" id="c20"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">radiator</div>
+																        <div class="item">stove</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.MainHeatingFuel" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c21_hide">
+														        <div class="text" id="c21"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">gas</div>
+																        <div class="item">oil</div>
+																        <div class="item">electricity</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.MainHeatingSystemEfficiency" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c22">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.LightingCapacity" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c23">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.LightingControlType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c24_hide">
+														        <div class="text" id="c24"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Day light sensors</div>
+																        <div class="item">PIR sensors</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Chillers" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c25">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.CoolingType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c26_hide">
+														        <div class="text" id="c26"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Chilled beams</div>
+																        <div class="item">Air-conditioning</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.AnnualOccupancyHours" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c27">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.NumberofOccupants" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c28">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ActivityType1" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c29_hide">
+														        <div class="text" id="c29"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">office</div>
+																        <div class="item">cafeteria</div>
+																        <div class="item">gym</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ActivityType1FloorArea" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c30">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ActivityType2" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c38_hide">
+														        <div class="text" id="c38"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">office</div>
+																        <div class="item">cafeteria</div>
+																        <div class="item">gym</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ActivityType2FloorArea" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c39">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Serverroom" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c31">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.SustainabilityCertificationType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c32_hide">
+														        <div class="text" id="c32"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">BREAM</div>
+																        <div class="item">LEED</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.SustainabilityCertificationRating" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c33_hide">
+														        <div class="text" id="c33"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">BREEAM Excellent</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.CateringKitchen" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c34_hide">
+														        <div class="text" id="c34"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Yes</div>
+																        <div class="item">No</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Numberofmealsserved" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c35">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Numberoflifts" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c36">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.LiftType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="c37_hide">
+														        <div class="text" id="c37"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Goods</div>
+																        <div class="item">general</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ChillerCapacity" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c40">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.subMetering" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c41">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.deleted" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c42">
+													</div>
+											</div>
+											
+											<div class="clearfix"></div>
+											<div class="ui teal label huge part-result-ok" id="submit_sheet_3"><spring:message code="btn.save" /></div>
+									</div>
+
+									<div class="ui tab segment" data-tab="four">
+											
+										
+											<table class="ui table celled center" id="roomBox">
+													<thead>
+														<tr>
+															<th style=" width:50px"> </th>
+															<th><spring:message code="t.RoomTyped" /></th>
+															<th><spring:message code="t.FloorLocationd" /></th>
+															<th><spring:message code="t.GrossInternalAread" /></th>
+															<th><a data-type='addRoom'><spring:message code="btn.add" /></a></th>
+														</tr>
+													</thead>
+													<tbody id="roomList">
+															
+													</tbody>
+											</table>
+											<div class="clearfix"></div>
+									</div>
+
+									<div class="ui tab segment" data-tab="six">
+											<div class="b-list">
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.ParameterTyper" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="f1_hide">
+														        <div class="text" id="f1"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Air Quality</div>
+																        <div class="item">Lighting</div>
+																        <div class="item">Environment</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.Supplier" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f2">
+													</div>
+											</div>
+											<div class="clearfix"></div>
+											<div class="ui teal label huge part-result-ok" id="submit_sheet_6"><spring:message code="btn.save" /></div>
+									</div>
+									
+									<div class="ui tab segment" data-tab="seven">
+											<div class="b-list">
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.RecordTyped" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g1_hide">
+														        <div class="text" id="g1"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">meter reading</div>
+																        <div class="item">certification</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.MeteringLevel" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g2_hide">
+														        <div class="text" id="g2"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Site</div>
+																        <div class="item">building</div>
+																        <div class="item">sub-meter reading</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.MonitoringPeriod" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g3_hide">
+														        <div class="text" id="g3"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">annual</div>
+																        <div class="item">monthly</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.MonitoringStartDate" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="g4">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.MonitoringEndDate" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="g5">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.FuelType1" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g6_hide">
+														        <div class="text" id="g6"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">electricity</div>
+																        <div class="item">gas</div>
+																        <div class="item">renewables</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.FuelType1Unit" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g7_hide">
+														        <div class="text" id="g7"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">kWh/yr</div>
+																        <div class="item">kWh/m2/yr</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.FuelType1Consumption" /></a>
+														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="g8">
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.EndUseType" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g9_hide">
+														        <div class="text" id="g9"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">heating</div>
+																        <div class="item">lighting</div>
+																        <div class="item">cooling</div>
+														        </div>
+													      </div>
+													</div>
+													<div class="ui labeled input">
+														  <a class="ui label"><spring:message code="t.BMS" /></a>
+														  <div class="ui selection dropdown">
+														        <input type="hidden" id="g10_hide">
+														        <div class="text" id="g10"><spring:message code="information.select" /></div>
+														        <i class="dropdown icon" style="border:none"></i>
+														        <div class="menu">
+														          		<div class="item">Yes</div>
+																        <div class="item">No</div>
+														        </div>
+													      </div>
+													</div>
+											</div>
+											<div class="clearfix"></div>
+											<div class="ui teal label huge part-result-ok" id="submit_sheet_7"><spring:message code="btn.save" /></div>
+									</div>
+							
+			                	</div>
+		                	</div>
+		                	<!-- 右侧三维模型 -->
+		                	<div class="five wide column mainright">
+		                		<div class="building-slider">
+			                		<div class="ui label huge label-2"><spring:message code="building.3_d_model" /></div>
+			                		<div id="" class="slider-3d"></div>
+			                	</div>
+			                	<br />
+			                	<div class="building-slider">
+			                		<a class="ui teal label huge part-result-ok" id="buildTempOut" style="width:100%;text-align:center;"><spring:message code="Export_building_information" /></a>
+			                	</div>
+		                	</div>
+	                	</div>	
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- room & ele add -->
+<div class="ui modal" id="roomContent">
+  <i class="close icon"></i>
+  <div class="header" id='r_0'></div>
+  <div class="ui form" style="padding:20px;">
+  	<div class="fields">
+	    <div class="five wide field">
+	      <label id='r_1'></label>
+	      <input type="text" id='r_1_v'>
+	    </div>
+	    <div class="five wide field">
+	      <label id='r_2'></label>
+	      <input type="text" id='r_2_v'>
+	    </div>
+	    <div class="five wide field">
+	      <label id='r_3'></label>
+	      <input type="text" id='r_3_v'>
+	    </div>
+	    <input type="hidden" id="rid">
+	    <input type="hidden" id="rtype">
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button" style="margin-left:0;padding-left:0!important;padding-right:0!important;" id="subRoom"><spring:message code="btn.submit" /></div>
+  </div>
+</div>
+
+<div class="ui modal" id="delRoomOk">
+  <i class="close icon"></i>
+  <div class="header">
+  		  <spring:message code="btn.submit_top" />
+  </div>
+
+  <div class="actions">
+    <div id="removeRoom" class="ui positive right labeled icon button" style="width:100px!important;padding-left:0!important;padding-right:0!important;"><spring:message code="btn.submit" /></div>
+  </div>
+</div>
+
+<script src="/static/manage/js/team/teamCommon.js"></script>
+<script src="/static/manage/js/team/teamBuildingTop.js"></script>
+</body>
+</html>

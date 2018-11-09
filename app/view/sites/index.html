@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>项目集成</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="/public/sites/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--  jquery plguin -->
+<script type="text/javascript" src="/public/sites/js/jquery.min.js"></script>
+<!-- start gallery -->
+	<script type="text/javascript" src="/public/sites/js/jquery.easing.min.js"></script>	
+	<script type="text/javascript" src="/public/sites/js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+
+		var objList = [
+			["http://www.ibeem.cn/","pic1","ibeem-用户界面"],
+			["http://www.ibeem.cn/admin","pic2","ibeem-管理员界面"],
+			["http://www.ibeem.cn/promotion","pic3","ibeem-推广页"],
+			["http://www.ibeem.cn/gbd","pic4","ibeem-建筑检索"],
+			["http://www.ibeem.cn/bpd","pic5","ibeem-建筑性能数据库"],
+			["http://www.moosas.cn/bps","pic6","moosas-建筑绿色性能模拟分析工具"],
+			["http://www.moosas.cn/db/epw/","pic7","moosas-气象数据"],
+			["http://www.moosas.cn/db/constructions/","pic8","moosas-建筑构件库"],
+			["http://www.moosas.cn/3dmap","pic9","moosas-3dmap"]
+		]
+
+		// 添加的内容
+		var $str = '';
+		for(var i=0;i<objList.length;i++){
+			var $this = objList[i];
+			$str +=	'<a class="popup-with-zoom-anim" href="'+ $this[0] +'" target="_blank">'+
+						'<div class="portfolio logo1" data-cat="logo">'+
+							'<div class="portfolio-wrapper">'+				
+								'<img src="/public/sites/images/'+ $this[1] +'.jpg" />'+
+								'<div class="label">'+
+									'<div class="label-text">'+
+										'<span class="text-category">'+ $this[2] +'</span>'+
+									'</div>'+
+									'<div class="label-bg"></div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+					'</a>';
+		}
+
+		$("#portfoliolist").html($str);
+		
+
+		var filterList = {
+
+			init: function () {
+			
+				// MixItUp plugin
+				// http://mixitup.io
+				$('#portfoliolist').mixitup({
+					targetSelector: '.portfolio',
+					filterSelector: '.filter',
+					effects: ['fade'],
+					easing: 'snap',
+					// call the hover effect
+					onMixEnd: filterList.hoverEffect()
+				});				
+			
+			},
+			
+			hoverEffect: function () {
+			
+				// Simple parallax effect
+				$('#portfoliolist .portfolio').hover(
+					function () {
+						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+					},
+					function () {
+						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+					}		
+				);				
+			
+			}
+
+		};
+		
+		filterList.init();
+	});	
+	</script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg">
+<div class="wrap">
+	<div class="header_btm">
+		<div class="h_left">
+			<h2>项目集成</h2>
+			<h3>Project integration ibeem && moosas</h3>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+<!-- start main -->
+<div class="main_bg">
+<div class="wrap">
+	<div class="main">
+		<!-- start gallery  -->
+		<div class="container">
+			<div id="portfoliolist">
+
+<!-- 				<a class="popup-with-zoom-anim" href="#">
+					<div class="portfolio logo1" data-cat="logo">
+						<div class="portfolio-wrapper">				
+							<img src="images/pic2.jpg"  alt="Image 2" />
+							<div class="label">
+								<div class="label-text">
+									<span class="text-category">Logo</span>
+								</div>
+								<div class="label-bg"></div>
+							</div>
+						</div>
+					</div>		
+				</a> -->
+
+			</div>
+		</div><!-- end container -->
+	</div>
+</div>
+</div>
+<div class="footer_bg">
+<div class="wrap">
+	<div class="footer">
+		<div class="footer_top">
+			<div class="copy">
+				<p class="link">Copyright by Tsinghua Building Technology Co. All Rights Reserved. 京ICP备15040251号-1.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

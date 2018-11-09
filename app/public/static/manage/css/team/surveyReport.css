@@ -1,0 +1,105 @@
+/* 页面左侧导航栏和内容分布 */
+body{min-height:0;}
+a:hover{color:#47b391}
+.mainleft  .ui.sidebar{z-index:300;}
+.main .ui.sidebar.menu.top{z-index:298;}
+.content{overflow-x:auto;overflow-y:hidden;left:0;top:55px;padding:0;}
+.content-team{overflow:auto;height:100%;}
+.content .ui.grid .two.wide.column{height:100%;}
+.ui.divider{background:#d0d0d0;}
+.ui.grid .ui.vertical.menu{position:absolute;top:0;}
+.ui.grid>.column:not(.row){padding:0; }
+.ui.vertical.menu .item:not(.dropdown)>.menu>.item{padding:.5rem 1.5rem .5rem .5rem;}
+.ui.table tbody tr:hover{
+	background:transparent;
+}
+.main .ui.inverted.icon.menu .item{margin-left:6.5rem;}
+.main .ui.inverted.icon.menu .item.alone{margin-left:0;} 
+.ui.dimmer{z-index:299;}
+	/* datatimepicker颜色修改 */
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today{color:#47b391;}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current{background:#47b391;box-shadow:#47b391 0 1px 3px 0 inset;color:white;}
+
+.main .ui.sidebar.menu.top{padding-left:10rem;}
+/* 左上角标题文字 */
+.teamTitleTit{
+			padding-left:1.2rem;
+       		font-size:1.3rem;
+       		position:absolute;
+       		left:60px;
+       		width:auto;
+       		top:0rem;
+       		color:#47b391;
+       		text-align:center;
+       }
+.titleTit{
+			padding-left:1.2rem;
+       		font-size:1.3rem;
+       		position:absolute;
+       		left:60px;
+       		width:auto;
+       		top:0rem;
+       		color:#47b391;
+       		text-align:center;
+       }
+.titleTit a{width:100%;text-align:center;line-height:1.7142rem;
+	width:auto;
+	font-size: 1.2142rem;
+	color: #171717;	
+	padding:0 .7142rem;
+	border-right:1px solid #979797;}
+.titleTit a:first-child{padding-left:0;}
+/* common */
+.ui.table thead th{background:#e7e7e7;text-align:center;}
+.ui.table tfoot th{background:#e7e7e7;}
+/*问卷统计container */
+.content .container{width:78rem;height:auto;background-color:white;margin: 0 auto;margin-top:1.2857rem;margin-bottom:1.2857rem;}
+.content .container .top{height:5.7142rem;width:100%;;background: #E7E7E7;}
+.content .container .top span{font-size: 1rem;color: #4A4A4A;display:block;padding-top:1.3571rem;margin-left:2.7857rem;}
+.content .container .bottom{padding-bottom:2rem;}
+.content .container .bottom .bottom-container{width:57.3571rem;margin:0 auto;padding-top:6rem;position:relative;}
+.question{border-top:1px solid #979797;padding-bottom:1.7857rem;padding-top:1.07rem;}
+.question:first-child{border-top:none;}
+.question .title{font-size: 1.2142rem;color: #262626;padding-left:0.6rem;font-weight:500;}
+.top-form{top:1rem;left:2.1428rem;}
+.top-form .field{height:1.7142rem;min-width:7rem;width:auto;display:inline-block;margin-left:2rem;}
+.refresh{border:none;border-radius:.2857rem;display:inline-block;margin-left:1rem;line-height:1.7142rem;width:7rem;background-color:#47B390;padding:0;color:white;}
+.top-form .field:first-child{margin-left:0;}
+.top-form .field.team{margin-left:3.5rem;}
+.top-form .field.periodStart{width:9.5rem;}
+.top-form .field.periodEnd{width:9.5rem;}
+.top-form .field .ui.selection.dropdown{min-width:0;width:100%;padding:.2857rem .7142rem;}
+.top-form .field .ui.selection.dropdown .menu img{margin:0 auto;width:1.5rem;height:1.5rem;}
+.top-form .field .ui.selection.dropdown>.text{margin-right:1.5rem;}
+/* 段落 */
+.question.dl>span{font-size:1.2rem;font-weight:500;color:#6a6a6a;}
+/* 填空题 */
+.question.tk .intro{color:#47B390;font-size: 1.2142rem;line-height:1.9rem;}
+.ui.modal.tk-modal{height:36.3571rem;width:58.7857rem;position:absolute;left:50%;margin-left:-29.3928rem;}
+.ui.modal.tk-modal .container{position:relative;width:58.7857rem;height:100%;margin:0 auto;background: #FFFFFF;border: 2px solid #47B390;border-radius: .2857rem;}
+.ui.basic.modal>.close{top:0.5rem;right:1rem;}
+.ui.modal.tk-modal .container .top{position:absolute;top:0;left:2.8928rem;;height:3.2857rem;width:53rem;text-align:left;border-bottom: 1px solid #979797;color:#4A4A4A;border-top-right-radius: .2857rem;border-top-left-radius: .2857rem;}
+.ui.modal.tk-modal .container .top span{line-height:3.2857rem;font-size:1.7142rem;}
+.ui.modal.tk-modal .container .bottom{position:absolute;top:3.2857rem;left:0rem;width:100%;background: #FFFFFF;border-bottom-left-radius: .2857rem;border-bottom-left-radius: .2857rem;}
+.ui.modal.tk-modal .container .bottom .table-container{width:53rem;margin:0 auto;}
+.ui.modal.tk-modal .container .bottom .dataTables_wrapper{width:100%;margin-top:0;height:33.0714rem;position:relative;}
+.ui.modal.tk-modal .container .bottom .dataTables_wrapper .ui.grid{margin:0;}
+.ui.modal.tk-modal .container .bottom .dataTables_wrapper .dataTables_filter {display:none;}
+.ui.modal.tk-modal .container .bottom .dataTables_wrapper .row:last-child{position:absolute;bottom:0;left:0;width:100%!important;}
+.ui.modal.tk-modal .container .bottom .dataTables_wrapper .ui.grid>.row>[class*="nine wide"].column{width:100%!important;}
+/* 单选多选题 */
+.question.dx .ui.table thead th.td1{width:38%;}
+.question.dx .ui.table thead th.td2{width:10%;}
+.question.dx .ui.progress{padding:0;}
+.question.dx .ui.progress:last-child{margin:0;}
+.question.dx .zzt{width:25.1428rem;height:14.6428rem;margin-top:2.8571rem;float:left;}
+.question.dx .bzt{width:25.1428rem;height:14.6428rem;margin-top:2.8571rem;float:right;}
+.question.dx .ui.celled.table tr td img{max-width:15rem;height:auto;}
+/* 量表题 */
+.question.lb .lbzxt{width:50rem;height:14.6428rem;margin-top:2.8571rem;float:left;}
+.question.lb .ui.table tfoot th{text-align:right;}
+/* 滑块题 */
+.question.hk .hkzxt{width:28rem;height:14.6428rem;margin-top:2.8571rem;float:left;}
+.question.hk .ui.table tfoot th{text-align:right;padding:.7em 4rem ;}
+/* 下载报告按钮 */	
+.downloadReport{position:absolute;top:2.0714rem;right:0;width:7.6428rem;height:2.5rem;border:0;background-color:#47B390;color:white;border-radius:.2857rem;}

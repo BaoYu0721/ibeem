@@ -1,0 +1,186 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="surveyListDevice.title" /></title>
+<base href="<%=basePath%>" />
+<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+     <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+     <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+     <link rel="stylesheet" href="/public/static/manage/css/team/surveyList.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.qrcode.min.js"></script>
+    <script src="/public/static/common/js/excellentexport.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+    <style>
+    	.qr-container{width:17rem;height:19rem;background-color:transparent;position:absolute;top:8rem;left:1rem;}
+    	.qr-container>span{display:inline-block;width:100%;line-height:1.4rem;color:white;position:absolute;bottom:0.5rem;left:0;text-align:center;}
+    	.qrcode-weidu-container{width:14rem;height:14rem;position:absolute;top:1.5rem;left:1.5rem;background-color:white;border-radius:.2857rem;}
+    	.qrcode-weidu-container>.qrcode-weidu{width:12.5rem;height:12.5rem;position:absolute;top:.75rem;left:.75rem;}
+    	.gotoReport{width:13rem;height:4rem;background-color:#47b391;border:none;border-radius:.2857rem;
+    	font-weight:500;position:absolute;top:15rem;right:5rem;}
+    	.release-to-wx{position:relative;}
+    	.release-to-wx>span{display:inline-block;width:100%;line-height:100%;height:100%;
+    	background-color:transparent;
+    	color:transparent;
+    	vertical-align:center;
+    	text-align:center;
+    	position:absolute;top:0;left:0;
+    	background-color:rgba(0,0,0,0.8);
+    	color:white;
+    	transition: background-color 1s;
+		-moz-transition: background-color 1s; /* Firefox 4 */
+		-webkit-transition: background-color 1s; /* Safari 和 Chrome */
+		-o-transition: background-color 1s; /* Opera */
+		transition: color 1s;
+		-moz-transition: color 1s; /* Firefox 4 */
+		-webkit-transition: color 1s; /* Safari 和 Chrome */
+		-o-transition: color 1s; /* Opera */
+    	}
+    	
+    	.release-to-wx.hoveractive{
+    	background-color:rgba(0,0,0,0.8);
+    	color:white;
+    	text-decoration:underline;
+    	cursor:pointer;
+    	}
+    	
+    </style>
+</head>
+<body >
+<div class="ui basic test modal showqr">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+		<div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
+			<button id="downloadqr"><spring:message code="surveyListDevice.downloadqr" /></button>
+		</div>
+	</div>
+<div class="ui basic test modal export">
+	<i class="green close icon"></i>
+	<div class="container">
+	<span class="export-title"><spring:message code="surveyListDevice.select" /></span>
+		<span class="starttime-span"><spring:message code="surveyListDevice.starttime" /></span>
+		<input id="startTime" class="some_class starttime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
+		<span class="endtime-span"><spring:message code="surveyListDevice.endtime" /></span>
+		<input id="endTime" class="some_class endtime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
+		<a download="surveyExport.xls" class="export-button" id="exportExcel" href="javascript:void(0)"><spring:message code="surveyListDevice.downloadexcel" /></a>
+	</div>
+</div>
+
+<div class="ui basic test modal tree">
+	<i class="green huge close icon"></i>
+	<div class="qr-container transition hidden" >
+		<div class="qrcode-weidu-container">>
+			<div id="qrcode_weidu" class="qrcode-weidu"></div>
+		</div>
+		<span><spring:message code="surveyListDevice.scan" /></span>
+	</div>
+	<button class="gotoReport transition hidden" id="gotoReport"><spring:message code="surveyListDevice.gotoReport" /></button>
+	<div class="container " style="width:20rem;height:35rem;margin:0 auto;padding-top:1rem;position:relative;background-color:white;border-radius:.2857rem;">
+		<div class="ui left icon input treesearch" >
+		  <input placeholder="<spring:message code="surveyListDevice.search" />" type="search" class="search" id="search">
+		  <i class="search icon"></i>
+		</div>
+		<div class="ui list" id="projectList" style="height:30rem;overflow:auto;">
+		</div>
+	</div>
+	
+</div>
+<table id="exceltable" style="display:none;">
+	    <!-- <tr>
+	        <td>100</td> <td>200</td> <td>300</td>
+	    </tr>
+	    <tr>
+	        <td>400</td> <td>500</td> <td>600</td>
+	    </tr> -->
+</table>
+
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on alone" href="/redirect?url=administrator/surveyListDevice_manage.jsp"><spring:message code="surveyListDevice.mysurvey" /></a>
+            <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="surveylist">
+                		<div class="div-group-base table questionnaire datatables" id="pointlist">
+                		<div class="title">
+                			<span class="title-content"><spring:message code="surveyListDevice.surveylist" /></span>
+                			<div class="survey-button">
+								<button id="surveyDelete"><spring:message code="surveyListDevice.deletesurvey" /></button>
+							</div>
+                			<div class="survey-button">
+								<button id="surveyExport"><spring:message code="surveyListDevice.downloadsurvey" /></button>
+							</div>
+							<div class="survey-button">
+								<button id="editSurvey"><spring:message code="surveyListDevice.editsurvey" /></button>
+							</div>
+                			<%-- <div class="survey-button">
+								<button id="surveyLibrary"><spring:message code="surveyListDevice.downloadLibrary" /></button>
+							</div>
+                			<div class="survey-button">
+								<button id="addSurvey"><spring:message code="surveyListDevice.addsurvey" /></button>
+							</div> --%>
+							<div class="survey-button">
+								<button id="surveyReport"><spring:message code="surveyListDevice.surveyreport" /></button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyAnalysis"><spring:message code="surveyListDevice.surveyanaly" /></button>
+							</div>
+                		</div>
+                		<div class="div-content">
+                			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
+                			<thead> 
+                			<tr> 
+                				<th></th>
+                				<th><spring:message code="survey.tdTitle" /></th> 
+                				<th><spring:message code="survey.tdIntro" /></th> 
+                				<th><spring:message code="survey.tdCreator" /></th>
+                				<th><spring:message code="survey.tdNum" /></th> 
+                				<th><spring:message code="survey.tdPath" /></th> 
+                				<th><spring:message code="survey.tdQR" /></th>
+                				<th><spring:message code="survey.tdLink" /></th>
+                				<th><spring:message code="survey.tdWx" /></th>
+                				<th><spring:message code="survey.tdFinish" /></th>
+               				</tr> 
+               				</thead> 
+             				<tbody id="datatable_body"> 
+             				</tbody>
+             				</table>
+                		</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/team/surveyListDevice_manage.js"></script>
+</body>
+</html>

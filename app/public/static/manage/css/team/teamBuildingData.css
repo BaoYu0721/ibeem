@@ -1,0 +1,26 @@
+.edit{width:10rem;}
+.contentbox .portraitStyle{border-radius:0;}
+.div-group-base.showcontent .div-content .buildingContent{position:relative;padding-top:3.5rem;}
+.addlogo.readonly{display:none;}
+
+.readonly{background-color:transparent;}
+.ui.table{margin:0.5rem 0;}
+.ui.table td{padding:0.5rem 1.5714rem;height:2.3571rem;font-size:1rem;width:auto;min-width:0;}
+.ui.table td.td-title{font-size:1.2142rem;text-align:center;}
+.ui.table td input{width:100%;min-width:0;border:1px solid #47B390;border-radius:.2857rem;}
+.ui.table td input.readonly{border:none;}
+
+.ui.dropdown>.dropdown.icon{text-align:right;}
+
+#climaticRegionInput{display:none;} 
+#climaticRegionInput.readonly{display:block;}
+#climaticRegion{display:block;}
+#climaticRegion.readonly{display:none;}
+#typeInput{display:none;} 
+#typeInput.readonly{display:block;}
+#type{display:block}
+#type.readonly{display:none;}
+#levelInput{display:none;} 
+#levelInput.readonly{display:block;}
+#level{display:block}
+#level.readonly{display:none;}

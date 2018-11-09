@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>微信绑定</title>
+    <link rel="stylesheet" href="/public/static/mobile/css/base.css">
+    <style>
+        .bindWechat{
+            width:24rem;
+            height:6rem;
+            text-align:center;
+            line-height:6rem;
+            border:1px solid #ccc;
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin-left:-12rem;
+            margin-top:-3rem;
+            background:#2F9833;
+            color:#fff;
+            font-size:1.5rem;
+            border-radius:5rem;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="bindWechat" id="bind-wechat">绑定微信</div>
+        <script src="/public/static/common/js/jquery.min.js"></script>
+        <script>
+        function getUrlParam(name) {
+    	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    	    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    	    if (r != null) return unescape(r[2]); return null; //返回参数值
+    	}
+        
+            $(function(){
+            	
+            	var userID= getUrlParam("userID");
+            	
+                $("#bind-wechat").click(function(){
+                    	//绑定微信号
+                        var thisUrl = window.location.href;  //是一个可以接收返回的code的url，可以是本页面
+                        
+                        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx472e78d4295c4091"
+                                +"&redirect_uri="+encodeURIComponent(thisUrl)
+                                +"&response_type=code&scope=snsapi_userinfo&userID="+ userID +"&state=BindingWechat#wechat_redirect";
+
+                });
+                 
+                var urlStateParam = getUrlParam("state");
+        		//state 为BindingWechat，本页面的打开时先检测STATE参数，然后获取code，传递到后台获取用户信息
+        		if(urlStateParam == "BindingWechat"){
+        			console.log(code);
+        			var code = getUrlParam("code");
+        			//获取用户信息
+        			$.ajax({
+        		        type: "post",
+        		        dataType: "json",
+        		        url: '/weixin/getUser',
+        		        data:{
+        		        	code:code
+        		        },
+        		        success: function (data) {
+        		        	// console.log(data);
+
+       		        		var openid = data.openid;
+       			        	var wechatName = data.nickname;
+       			        	$("#profile_wechat").html("已绑定"+wechatName+"微信");
+       			        	
+       			        	$.ajax({
+       	        		        type: "post",
+       	        		        dataType: "json",
+       	        		        url: '/user/bindWechatByQRcode',
+       	        		        data:{
+       	        		        	nickname:wechatName,
+       	        		        	openid:openid,
+       	        		        	userID:userID
+       	        		        },
+       	        		        success: function (data) {
+       	        		        	// console.log(data);
+       	        		        	if(data.code==200){
+       	        		        		alert("绑定成功！");
+       	        		        		window.location.href = "http://www.ibeem.cn/views/mobile/list.jsp";
+       	        		        	}
+       	        		        },
+       	        		        error:function (XMLHttpRequest, textStatus, errorThrown) 
+       	        		        { 
+       	        		        	alert("获取微信用户信息失败！");
+       	        		       	} 
+       	        		    });        			        	
+       			        	        		        	
+        		        },
+        		        error:function (XMLHttpRequest, textStatus, errorThrown) 
+        		        { 
+        		        	alert("获取微信用户信息失败！");
+        		       	} 
+        		    });
+        			
+        		}
+                
+            });
+        </script>
+</body>
+</html>

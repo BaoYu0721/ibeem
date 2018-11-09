@@ -1,0 +1,179 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="surveyAdd.title" /></title>
+    <base href="<%=basePath%>" />
+	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/survey.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+    <style>
+    .content .container{width:100%;min-width:60rem;}
+    .content .container .top{width:100%;}
+    .content .container .bottom{min-width:60rem; max-width:68rem;margin:0 auto;}
+    .content .container .top .button-group-add{position:static;margin-top:1.6rem;text-align:center;}
+    .survey-title input{margin-left:0;width:100%;margin-top:.8rem;}
+    .survey-title span{margin-right:1.3571rem;}
+    .survey-desc textarea{margin-left:0;width:100%;margin-top:.8rem;}
+    .survey-desc span{margin-right:1.3571rem;}
+    .paging>.paging-container{margin-left:0;width:100%;margin-top:.8rem;}
+    .paging span{margin-right:1.3571rem;}
+    .survey-title{padding:1.1428rem 0 1.3571rem 0;min-width:56.7142rem;max-width:95%;width:100%;margin:0 auto;}
+    .survey-desc{padding:1.1428rem 0 1.3571rem 0;min-width:56.7142rem;max-width:95%;width:100%;margin:0 auto;}
+    .paging{padding:1.1428rem 0 1.3571rem 0;min-width:56.7142rem;max-width:95%;width:100%;margin:0 auto;}
+    .question{margin-left:auto;margin-right:auto;max-width:95%;min-width:56.7142rem;width:100%;}
+    .pagingnum-input{top:4.2rem;left:12.3rem;}
+    /* 左侧列表样式 */
+    .left-container{position:absolute;width:100%;height:100%;background-color:white;left:0;top:0;border:1px solid #DEDEDE;overflow:auto;}
+    .table-container{position:absolute;width:100%;height:85%;background-color:white;left:0;top:0;overflow:auto;overflow-x:hidden;} 
+    .table-container .ui.table{border:none;}
+    .addfromlibrary{position:absolute;width:50%;height:6%;bottom:2%;left:50%;margin-left:-25%;}
+    .ui.table thead tr:first-child>th:last-child{border-radius:none;}
+    .ui.grid>.row>.column{padding-left:0;padding-right:0;}
+    #library_filter{margin-left:1.5rem;width:100%;}
+    div.dataTables_wrapper div.dataTables_filter input{height:.5rem;width:65%;margin-left:.5rem;}
+    .ui.table thead tr:first-child>th:first-child{border-radius:0;}
+    .ui.table thead tr:first-child>th:last-child{border-radius:0;}
+    #library_filter>label{color:black;width:100%;}
+    #library tbody tr:hover >td:not(.check-td){
+    background-color:#47b391;
+    color:white;
+    }
+    .type-tab{height:5%;position:absolute;left:0;top:85%;width:100%;}
+    .type-tab>button{width:20%;height:100%;border:none;border-left:1px solid #DEDEDE;border-top:1px solid #DEDEDE;border-bottom:1px solid #DEDEDE;background-color:#f0f0f0;border-radius:0;}
+    .type-tab>button:first-child{border-left:none;}
+    .type-tab>button.active{background-color:#47b391;color:white;}
+    </style>
+</head>
+<body>
+<div class="ui basic test modal questionlibrary">
+	<i class="big green close icon"></i>
+		<div class="container">
+			<div class="top">
+				<span><spring:message code="surveyAdd.chooseModal" /></span>
+			</div>
+			<div class="bottom">
+				<%-- <div class="table-container">
+					<table id="library" class="ui celled table" cellspacing="0" width="100%">
+						<thead> <tr> <th><spring:message code="surveyAdd.questiontype" /></th> <th><spring:message code="surveyAdd.questiontitle" /></th> <th><spring:message code="surveyAdd.mustanswer" /></th></thead>
+					    <tbody ></tbody> </table>
+				</div> --%>
+				
+			</div>
+		</div>
+	</div>
+
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item on" href="/redirect?url=manage/surveyListDevice.jsp"><spring:message code="survey.mysurvey" /></a>
+            <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content" >
+            <div class="ui grid">
+            	<div class="four wide column content-team" overflow-y:scroll">
+            	<div class="left-container">
+	            	<div class="table-container">
+						<table id="library" class="ui celled table" cellspacing="0" width="100%">
+						<thead> <tr> <th  width="30%"><spring:message code="surveyAdd.questiontype" /></th> <th><spring:message code="surveyAdd.questiontitle" /></th>
+						 <%-- <th><spring:message code="surveyAdd.mustanswer" /></th> --%>
+						 </thead>
+					    <tbody ></tbody> </table>
+					</div>
+					<div class="type-tab" id="type_tab"><button data-val="单选">单选</button><button data-val="多选">多选</button><button data-val="填空">填空</button><button data-val="量表">量表</button><button data-val="滑条">滑条</button></div>
+					<button class="addfromlibrary" id="addfromlibrary"><spring:message code="surveyAdd.addfrombank" /></button>
+            	</div>
+            	</div>
+                <div class="twelve wide column content-team" overflow-y:scroll">
+             	   
+                	<%-- <a href="javascript:void(0)" class="question-library" id="questionLibrary"><spring:message code="surveyAdd.questionbank" /></a> --%>
+    				<div class="container" style="position:static">
+                		<div class="top">
+                			<%-- <span href="javascript:void(0)"><spring:message code="surveyAdd.create" /></span> --%>
+                			<div class="button-group-add">
+                				<button class="ui basic button dx"><i class="green plus icon"></i><font><font><spring:message code="survey.question2" /></font></font></button>
+                				<button class="ui basic button ddx"><i class="green plus icon"></i><font><font><spring:message code="survey.question3" /></font></font></button>
+                				<button class="ui basic button tk"><i class="green plus icon"></i><font><font><spring:message code="survey.question1" /></font></font></button>
+                				<button class="ui basic button lb"><i class="green plus icon"></i><font><font><spring:message code="survey.question4" /></font></font></button>
+                				<button class="ui basic button ht"><i class="green plus icon"></i><font><font><spring:message code="survey.question5" /></font></font></button>
+                				<button class="ui basic button dl"><i class="green plus icon"></i><font><font> <spring:message code="survey.paragraph" /> </font></font></button>
+                			</div>
+                		</div>
+                		<div class="bottom">
+                			<div class="survey-title">
+                				<span><spring:message code="surveyAdd.questiontitle" /></span><input type="text"/>
+                			</div>
+                			<div class="survey-desc">
+                				<span><spring:message code="surveyAdd.questionintro" /></span><textarea rows="" cols=""></textarea>
+                			</div>
+                			<div class="question-container">
+                			</div>
+                			<div class="paging" >
+                				<span><spring:message code="surveyAdd.pagingtype" /></span>
+                				<div class="paging-container">
+                				<div class="ui checkbox option" id="nopaging">
+									<input type="checkbox" name="paging" class="hidden">
+									<label><spring:message code="surveyAdd.nopaging" /></label>
+								</div>
+								<div class="ui checkbox option" id="limitpaging">
+									<input type="checkbox" name="paging" class="hidden" >
+									<label style="padding-left:6rem;"><spring:message code="surveyAdd.numpaging" /></label>
+								</div>
+								<input type="text" name="pagenum" class="pagingnum-input" id="pagingnum_input">
+								<div class="ui checkbox option" id="dlpaging">
+									<input type="checkbox" name="paging" class="hidden">
+									<label><spring:message code="surveyAdd.paragraphpaging" /></label>
+								</div>
+                				</div>
+                			</div>
+                			<div class="error" style="text-align:center">
+								<h4 class="ui red header"></h4>
+							</div>
+                			<div class="bottom-button " id="wjcz">
+                			<button class="ui button wjyl" id="wjyl">
+                			<i class="unhide icon"></i><spring:message code="surveyAdd.preview" /></button>
+                			<button class="ui button wjyl" id="wjzc"><spring:message code="surveyAdd.tempsave" /></button>
+                			<button class="ui button wcbj" id="wcbj"><spring:message code="surveyAdd.done" /></button></div>
+                			<div class="bottom-button " id="wjcz_update" style="display:none;">
+                			<%-- <button class="ui button wjyl" id="wjyl">
+                			<i class="unhide icon"></i><spring:message code="surveyAdd.preview" /></button> --%>
+                			<button class="ui button wjyl" id="wjzc_update"><spring:message code="surveyAdd.tempsave" /></button>
+                			<button class="ui button wcbj" id="wcbj_update"><spring:message code="surveyAdd.done" /></button></div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/static/manage/js/team/surveyAdd_manage.js"></script>
+<script src="/public/static/manage/js/team/surveyEdit.js"></script>
+</body>
+</html>

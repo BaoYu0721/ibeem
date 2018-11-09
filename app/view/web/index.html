@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员登录</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+       .main{
+            width:100%;
+            position:fixed;
+            left:66px;
+            height:100%;
+        }
+        .content{
+            position:absolute;
+            top:55px;
+            width:100%;
+            height:100%;
+        }
+        .content .ui.grid{
+            margin:0;
+            height:100%!important;
+        }
+        .content .ui.grid .three.wide.column{
+            padding:0;
+            height:100%!important;
+            background:#fff;
+        }
+        .content .ui.vertical.menu{
+            width:100%;
+        }
+        .main{
+            width:100%;
+            position:relative;
+        }
+        .main .ui.inverted.menu{
+            background:#fff;
+            line-height:55px;
+            position:absolute;
+        }
+        .main .ui.inverted.icon.menu .item{
+            color:#000;
+            padding-top:0;
+            padding-bottom:0;
+            line-height:54px;
+        }
+       .ui.inverted.icon.menu .item.on{
+           color:#47b391;
+           border-bottom:1px solid #47b391;
+           box-sizing: border-box;
+       }
+       /*左侧导航*/
+
+       .mainleft  .ui.sidebar{
+           width:66px;
+           z-index: 113;
+           top:0;
+           overflow-x:hidden;
+       }
+       .mainleft .ui.labeled.icon.menu{
+           width:66px;
+           text-align:center;
+       }
+       .mainleft .ui.inverted.icon.menu .item{
+           display:block;
+           width: 66px;
+           padding:18px 13px 25px;
+           text-align:center;
+           word-break: normal;
+            line-height:20px;
+       }
+       .mainleft .ui.inverted.icon.menu .item.active{
+           background:#47b391;
+       }
+       .mainleft .ui.inverted.icon.menu .item.mainpanel{
+           min-width: 66px;
+       }
+       .ui.labeled.icon.menu>.item{
+            min-width: 66px;
+
+       }
+        .subpanel{
+            position:absolute;
+            left:66px;
+            top:66px;
+            display:none;
+        }
+        .menuname{
+            position:absolute;
+            left:20px;
+            color:#000;
+        }
+        .mainright{
+            width:100%;
+            height:100%;
+            background:pink;
+        }
+        .mainleft .ui.inverted.icon.menu .item.personalpage{
+            position: fixed;
+            bottom:0px;
+            left:0;
+            box-shadow: none!important;
+        }
+        .main .ui.sidebar.menu{
+
+        }
+        .main .ui.sidebar.menu.top{
+            position:fixed;
+        }
+        .main .ui.sidebar.menu.top .menuname{
+            position:fixed;
+            left:100px;
+            top:0;
+            z-index:1000;
+        width:80px;;
+        }
+    </style>
+    <script>
+        jQuery.fn.extend({
+            slideRightShow: function() {
+                return this.each(function() {
+                    $(this).show('slide', {direction: 'right'}, 1000);
+                });
+            },
+            slideLeftHide: function() {
+                return this.each(function() {
+                    $(this).hide('slide', {direction: 'left'}, 1000);
+                });
+            },
+            slideRightHide: function() {
+                return this.each(function() {
+                    $(this).hide('slide', {direction: 'right'}, 1000);
+                });
+            },
+            slideLeftShow: function() {
+                return this.each(function() {
+                    $(this).show('slide', {direction: 'left'}, 1000);
+                });
+            }
+        });
+        $(function(){
+            $(".main .ui.inverted.icon.menu .item").click(function(){
+                $(this).addClass("on").siblings().removeClass("on");
+            });
+            /*展开导航*/
+            $("#mainpanel").click(function(){
+                $(".subpanel").toggle();
+            });
+
+            /*左侧导航的选中效果*/
+            $( ".leftmenu").click(function(){
+                $(this).addClass("active").siblings(".leftmenu").removeClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft">
+        <!--左侧导航-->
+        <div class="ui left demo vertical inverted sidebar labeled icon menu visible  ">
+                <a class="item" style="font-weight:bold">
+                    <!--<i class="home icon"></i>-->
+                    IBEM
+                </a>
+                <a class="item mainpanel  leftmenu active" id="mainpanel">
+                    <!--<i class="home icon"></i>-->
+                    主面板
+                </a>
+                <a class="item leftmenu">
+                   <!-- <i class="block layout icon"></i>-->
+                    我的资产
+                </a>
+                <a class="item leftmenu">
+                    <!--<i class="smile icon"></i>-->
+                    我的团队
+                </a>
+                <a class="item leftmenu">
+                    <!--<i class="smile icon"></i>-->
+                    建筑
+                </a>
+                <a class="item leftmenu bottom personalpage">
+                    <!--<i class="smile icon"></i>-->
+                    个人主页
+                </a>
+            </div>
+          <!--  <div class="subpanel">
+                <div class="ui vertical menu">
+                    <div class="item">
+                        <div class="header">Products</div>
+                        <div class="menu">
+                            <a class="item">Enterprise</a>
+                            <a class="item">Consumer</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">CMS Solutions</div>
+                        <div class="menu">
+                            <a class="item">Rails</a>
+                            <a class="item">Python</a>
+                            <a class="item">PHP</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Hosting</div>
+                        <div class="menu">
+                            <a class="item">Shared</a>
+                            <a class="item">Dedicated</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Support</div>
+                        <div class="menu">
+                            <a class="item">E-mail Support</a>
+                            <a class="item">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+    </div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  ">
+            <a class="item on">
+                我的设备
+            </a>
+            <a class="item">
+                我的问卷
+            </a>
+            <div class="menuname">我的资产</div>
+        </div>
+        <!--内容区-->
+        <div class="content">
+            <div class="ui grid">
+                <div class="three wide column">
+
+                    <div class="ui vertical menu">
+                        <div class="item">
+                            <div class="header">Products</div>
+                            <div class="menu">
+                                <a class="item">Enterprise</a>
+                                <a class="item">Consumer</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">CMS Solutions</div>
+                            <div class="menu">
+                                <a class="item">Rails</a>
+                                <a class="item">Python</a>
+                                <a class="item">PHP</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">Hosting</div>
+                            <div class="menu">
+                                <a class="item">Shared</a>
+                                <a class="item">Dedicated</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">Support</div>
+                            <div class="menu">
+                                <a class="item">E-mail Support</a>
+                                <a class="item">FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thirteen wide column mainright">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

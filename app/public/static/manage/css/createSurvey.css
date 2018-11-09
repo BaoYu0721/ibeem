@@ -1,0 +1,36 @@
+.template{
+    display: none;
+}
+.fillblank{
+    border: none;
+    border-bottom: 1px solid #dfdfdf;
+    color: #666;
+    width: 90%;
+    height: 32px;
+    background: #f8f8f8;
+    outline-style: none;
+    display: block;
+}
+
+.edited .editedtitle{
+    margin-top:31px;
+}
+.edited .edittool{
+    display: none;
+}
+
+.edited :hover .edittool{
+    display: block;
+}
+.edited :hover .editedtitle{
+    margin-top:0px;
+}
+.number{
+    color:green;
+}
+.requiredflag{
+    color:green;
+}
+.editedtitle{
+    font-size:20px;
+}

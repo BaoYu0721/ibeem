@@ -1,0 +1,35 @@
+/* 成员列表 */
+.ui.grid>.column:not(.row){padding:0;}
+.container{background-color:#EBEBEB;height:41rem;}
+.bottom{height:100%;}
+.searchMember{padding-top:2.7242rem;padding-left:7.5rem;padding-right:4.5rem;}
+.ui.header:last-child{margin-top:0;margin-left:1.428rem;}
+.searchMember .ui.input input{border:none;border-radius:3.5714rem;height:1.714rem;width:15.142rem;padding-top:0;padding-bottom:0;}
+.btn-classic {min-width:8.5rem;height:1.8571rem;margin-right:0rem;}
+.btn-classic button{padding:0 1rem;width:100%;height:100%;border-radius:7.1428rem;box-shadow:none;border: 1px solid #47B390;background-color:white;color: #737373;}
+.delete {float:right;}
+.add{float:left;margin-left:1rem;}
+.addrole{float:left;margin-left:1rem;}
+.deleterole{float:left;margin-left:1rem;}
+.export{float:right;margin-right:1rem;}
+.showMember{margin:2.1429rem 4.7858rem;}
+.showMember .member-item{width:11.8571rem;height:11.8571rem;float:left;margin:1.3rem;background-color:white;position:relative;border-radius: .2857rem;}
+.showMember .member-item a{display:block;background-color: white;width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;}
+.showMember .member-item a.click{border: 1px solid #47B390;}
+.showMember .member-item img{width:5.6428rem;height:5.6428rem;display:block;margin:0 auto; margin-top:1.5714rem;}
+.showMember .member-item span{width:100%;display:block;text-align:center;padding:0 1rem;margin-top:1rem;font-size: 1.2142rem;color: #4A4A4A;}
+.showMember .member-item.searchmember-empty{padding:2rem;display:block;color:#333333;font-weight:500;background-color:transparent;width:100%;}
+.showMember .member-name{font-size: 1rem;}
+.showMember .member-intro{font-size: 1.2142rem;;}
+.showMember .content-panel{width:10rem;height:7rem;position: absolute; top:2.571rem;left:11.285rem;}
+.showMember .content-panel .ui.divider{margin-top:.4285rem;margin-bottom:.8571rem;;}
+.showMember .member-item span.member-role{position:absolute;width:1.5rem;line-height:1.5rem;;top:.3rem;right:.3rem;padding:0;margin-top:0;z-index:100;font-weight:300;color:white;border-radius:50%;}
+.showMember .member-item .click span.member-role{top:.31rem;right:.31rem;}
+.legend{position:absolute;top:2.2rem;left:1rem;background-color:#F0F0F0;width:6rem;height:3rem;color:#737373;}
+/* 添加成员 */
+
+.addMember{height:100%;}
+.addMember .showMember{margin:0;}
+.addMember .searchAddMember{padding-top:2.7242rem;padding-left:1rem;}
+
+.button-add{width:8.5rem;height:1.8571rem;border:none;margin-left:1rem;margin-top:3rem;border-radius:7.1428rem;box-shadow:none;background-color:#47B390;color:white;}

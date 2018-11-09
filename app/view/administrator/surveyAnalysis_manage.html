@@ -1,0 +1,112 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="surveyAna.title" /></title>
+<base href="<%=basePath%>" />
+	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/team/surveyAnalysis.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+     <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/plotly.min.js"></script>
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+</head>
+<body >
+<div class="ui small modal add" id="addAnalysis">
+		<div class="container">
+			<div class="top">
+				<span><spring:message code="surveyAna.addAnalysis" /></span>
+			</div>
+			<div class="bottom">
+			<form class="ui form">
+			  <div class="field">
+			    <label><spring:message code="surveyAna.anatitle" /></label>
+			    <input type="text" name="title" placeholder="<spring:message code="surveyAna.anatitleTit" />" id="title_input">
+			  </div>
+			  <div class="error title_error" id="title_error" style="top:3.5rem;left:0;"></div>
+			  <div class="field">
+			  	<label><spring:message code="surveyAna.anazi" />:</label>
+			    <div class="ui selection dropdown" id="dropdownZi">
+		          <input type="hidden" name="gender">
+		          <i class="dropdown icon"></i>
+		          <div class="default text"><spring:message code="surveyAna.anazi" /></div>
+		          <div class="menu">
+		          </div>
+			    </div>
+			  </div>
+			  <div class="error title_zi" id="title_zi" style="top:8.3rem;left:0;"></div>
+			  <div class="field">
+			  	<label><spring:message code="surveyAna.anayin" />:</label>
+			    <div class="ui selection dropdown" id="dropdownYin">
+		          <input type="hidden" name="gender">
+		          <i class="dropdown icon"></i>
+		          <div class="default text"><spring:message code="surveyAna.anayin" /></div>
+		          <div class="menu">
+		          </div>
+			    </div>
+			  </div>
+			  <div class="error title_yin" id="title_yin" style="top:13rem;left:0;"></div>
+			  <div class="field btn-group">
+			  	<button class="ui button" type="button" id="cancelAdd"><spring:message code="btn.cancel" /></button>
+			    <button class="ui button" type="button" id="confirmAdd"><spring:message code="btn.confirm" /></button>
+			  </div>
+			</form>
+				
+			</div>
+		</div>
+	</div>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item on alone" href="/redirect?url=administrator/surveyListDevice_manage.jsp"><spring:message code="surveyListDevice.mysurvey" /></a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content" >
+            <div class="ui grid" style="position:relative;">
+                <div class="sixteen wide column content-team" style="position:static;overflow-y:scroll">
+                	<div class="container" style="position:static;">
+                		<div class="top">
+                			<span id="headtitle"><spring:message code="surveyAna.title" />:</span>
+                			<div class="ui form top-form">
+                			  <label><spring:message code="survey.starttime" />:</label>
+							  <input id="startTime" class="some_class" style="width:12rem;height:1.7142rem;" placeholder="<spring:message code="survey.starttime" />"/>
+							  <label style="margin-left:1rem;"><spring:message code="survey.endtime" />:</label>
+							  <input id="endTime" class="some_class" style="width:12rem;height:1.7142rem;" placeholder="<spring:message code="survey.endtime" />"/>
+							  <button class="btn add" id="add"><spring:message code="surveyAna.addAnalysis" /></button>
+							 </div>
+                		</div>
+                		<div class="bottom" id="container">
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/team/surveyAnalysis_manage.js"></script>
+<script>
+$("#surveypanel").addClass("active");
+</script>
+</body>
+</html>

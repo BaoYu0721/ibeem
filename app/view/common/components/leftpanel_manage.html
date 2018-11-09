@@ -1,0 +1,49 @@
+        <div class="ui left demo vertical inverted sidebar labeled icon menu visible">
+                <a class="item" id="sjgl" style="font-weight:bold" href="/views/administrator/index.jsp">iBEM</a>
+                <a class="item mainpanel  leftmenu icon devicepage" id="mainpanel" href="/views/administrator/deviceList_manage.jsp">
+                    <i class="device" style="width:26px;height:24px;"></i><span>设备</span>
+                </a>
+                <a class="item mainpanel  leftmenu icon surveypanel" id="surveypanel" href="/redirect?url=administrator/surveyListDevice_manage.jsp">
+                    <i class="survey" style="width:28px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">问卷</span>
+                </a>
+                <a class="item leftmenu icon teampage" id="team" href="/redirect?url=administrator/teamList.jsp">
+                   <i class="team" style="width:26px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">项目</span>
+                </a>
+                <a class="item leftmenu  personalpage" href="/views/administrator/userList_manage.jsp" id="usermenu">
+                   <i class="page" style="width:25px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">用户</span>
+                </a>
+                <a class="item leftmenu  statistics" href="/views/administrator/statistics.jsp" id="statistics">
+                   <i class="statistics" style="width:25px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">统计</span>
+                </a>
+                 <a class="item leftmenu output_download" href="/views/administrator/output.jsp" id="output">
+                   <i class="output" style="width:30px;height:31px;"></i><span style="word-wrap:break-word;word-break:break-all;">导出</span>
+                </a>
+                <a class="item leftmenu" onclick="logOut_center()"> <!-- style="position:absolute;left:0;bottom:0;"  -->
+                   <span>退出</span>
+                </a>
+        </div>
+        <style>
+        .mainleft .ui.inverted.icon.menu .item{margin-bottom:0;}
+        .ui.sidebar{/* overflow:hidden!important; */}
+        </style>
+		<script>
+			function logOut_center(){
+				alertMsg("是否确认退出","否","是","logOutOk");
+			}
+		
+			function logOutOk(){
+				$.ajax({
+           			type:"post",
+           			dataType:"json",
+           			url:"/user/logout",
+           			data:{},
+           			success:function(data){  
+           				if(data.code==200){
+           					window.location.href="/admin";
+           				}
+           			},
+           			error:function(){}
+           		});
+			}
+
+		</script>

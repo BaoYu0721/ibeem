@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>设备问卷列表</title>
+<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+     <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+     <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+     <link rel="stylesheet" href="/public/static/manage/css/team/surveyList.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.qrcode.min.js"></script>
+    <script src="/public/static/common/js/excellentexport.min.js"></script>
+    
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+    <style>
+    	.qr-container{width:17rem;height:19rem;background-color:transparent;position:absolute;top:8rem;left:1rem;}
+    	.qr-container>span{display:inline-block;width:100%;line-height:1.4rem;color:white;position:absolute;bottom:0.5rem;left:0;text-align:center;}
+    	.qrcode-weidu-container{width:14rem;height:14rem;position:absolute;top:1.5rem;left:1.5rem;background-color:white;border-radius:.2857rem;}
+    	.qrcode-weidu-container>.qrcode-weidu{width:12.5rem;height:12.5rem;position:absolute;top:.75rem;left:.75rem;}
+    	.gotoReport{width:13rem;height:4rem;background-color:#47b391;border:none;border-radius:.2857rem;
+    	font-weight:500;position:absolute;top:15rem;right:5rem;}
+    </style>
+</head>
+<body >
+<div class="ui basic test modal showqr">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+		<div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
+			<button id="downloadqr"><spring:message code="surveyListDevice.downloadqr" /></button>
+		</div>
+	</div>
+<div class="ui basic test modal export">
+	<i class="green close icon"></i>
+	<div class="container">
+	<span class="export-title">选择时间段进行下载</span>
+		<span class="starttime-span">问卷开始时间</span>
+		<input id="startTime" class="some_class starttime" placeholder=""/>
+		<span class="endtime-span">问卷结束时间</span>
+		<input id="endTime" class="some_class endtime" placeholder=""/>
+		<a download="surveyExport.xls" class="export-button" id="exportExcel" href="javascript:void(0)">下载Excel</a>
+	</div>
+</div>
+
+<div class="ui basic test modal tree">
+	<i class="green huge close icon"></i>
+	<div class="qr-container transition hidden" >
+		<div class="qrcode-weidu-container">>
+			<div id="qrcode_weidu" class="qrcode-weidu"></div>
+		</div>
+		<span><spring:message code="surveyListDevice.scan" /></span>
+	</div>
+	<button class="gotoReport transition hidden" id="gotoReport"><spring:message code="surveyListDevice.gotoReport" /></button>
+	<div class="container " style="width:20rem;height:35rem;margin:0 auto;padding-top:1rem;position:relative;background-color:white;border-radius:.2857rem;">
+		<div class="ui left icon input treesearch" >
+		  <input placeholder="<spring:message code="surveyListDevice.search" />" type="search" class="search" id="search">
+		  <i class="search icon"></i>
+		</div>
+		<div class="ui list" id="projectList" style="height:30rem;overflow:auto;">
+		</div>
+	</div>
+	
+</div>
+<table id="exceltable" style="display:none;">
+	    <!-- <tr>
+	        <td>100</td> <td>200</td> <td>300</td>
+	    </tr>
+	    <tr>
+	        <td>400</td> <td>500</td> <td>600</td>
+	    </tr> -->
+</table>
+
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on alone" href="/survey">我的问卷</a>
+            <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="surveylist">
+                		<div class="div-group-base table questionnaire datatables" id="pointlist">
+                		<div class="title">
+                			<span class="title-content">问卷列表</span>
+                			<div class="survey-button">
+								<button id="surveyDelete">删除问卷</button>
+							</div>
+                			<div class="survey-button">
+								<button id="surveyLibrary">问卷题库</button>
+							</div>
+							<div class="survey-button">
+								<button id="editSurvey">修改问卷</button>
+							</div>
+                			<div class="survey-button">
+								<button id="addSurvey">新建问卷</button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyReport">统计问卷</button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyAnalysis">分析问卷</button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyExport">下载答卷</button>
+							</div>
+                		</div>
+                		<div class="div-content">
+                			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
+                			<thead> 
+                			<tr> 
+                				<th></th>
+                				<th>标题</th> 
+                				<th>介绍</th> 
+                				<th>创建者名称</th>
+                				<th>有效答卷数</th> 
+                				<th>路径</th> 
+                				<th>二维码</th>
+                				<th>关联</th>
+                				<th>状态</th>
+               				</tr> 
+               				</thead> 
+             				<tbody id="datatable_body"> 
+             				</tbody>
+             				</table>
+                		</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/team/surveyListDevice.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>项目建筑主页</title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingContent.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+    
+</head>
+<body >
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
+        <div class="teamTitleTit">
+        	<a class="tit-teamname" href="/views/manage/teamContent.jsp"></a>
+        	<a class="tit-buildingname" href="/views/manage/teamBuildingContent.jsp" style="border:none;color:#47B390;"></a>
+        </div>
+            <a class="item" href="/views/manage/teamBuildingData.jsp">建筑信息</a>
+            <a class="item" href="/views/manage/teamBuildingPoint.jsp">建筑测点</a>
+            <a class="item" href="/views/manage/surveyListBuilding.jsp">建筑问卷</a>
+            <a class="item" href="/views/manage/teamBuildingConsumption.jsp">建筑能耗</a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="buildinglist">
+                		<div class="ui grid">
+	                		<div class="nine wide column mainright">
+			                	<div class="div-group-base showcontent" >
+			                		<div class="title">
+			                			<span class="title-content" id="buildingname">建筑名称</span>
+			                			<div class="edit">编辑</div>
+			                		</div>
+			                		<div class="div-content" >
+			                			  <div class="addlogo">
+										  	<i class="huge plus icon addicon"></i>
+										  	<div class="contentbox">
+											  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
+													<input type="file" id="file" name="file" class="eportrait change-status  readonly"> 
+													<img class="portraitStyle" src=""/>
+													<img src="/static/manage/img/team/close.png" id="deleteImg" class="deleteImg change-status readonly"/>
+												</form>
+											</div>
+										  </div>
+										  <div class="addlogo">
+										  	<i class="huge plus icon addicon"></i>
+										  	<div class="contentbox">
+											  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
+													<input type="file" id="file" name="file" class="eportrait change-status  readonly"> 
+													<img class="portraitStyle" src=""/>
+													<img src="/static/manage/img/team/close.png" id="deleteImg" class="deleteImg change-status readonly"/>
+												</form>
+											</div>
+										  </div>
+										  <div class="addlogo">
+										  	<i class="huge plus icon addicon"></i>
+										  	<div class="contentbox">
+											  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
+													<input type="file" id="file" name="file" class="eportrait change-status  readonly"> 
+													<img class="portraitStyle" src=""/>
+													<img src="/static/manage/img/team/close.png" id="deleteImg" class="deleteImg change-status readonly"/>
+												</form>
+											</div>
+										  </div>
+										  <div style="clear:both"></div>
+										  <div class="buildingContent">
+											  <div class="div-table">
+											  <div class="div-tr"><div class="div-td name">建筑名称</div><div class="div-td">:</div><div class="div-td input"><input class=" change-status readonly" id="name" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">所在城市</div><div class="div-td">:</div><div class="div-td input"><input class=" change-status readonly" id="city" readonly="" type="text"/>
+											  	<select id="selectProvince" class=" change-status readonly">  
+									                    <option value="-1">请选择省份</option>  
+									            </select>
+									            <select id="selectCity" class=" change-status readonly">  
+									                    <option value="-1">请选择城市</option>  
+									            </select>
+											  </div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">总面积</div><div class="div-td">:</div><div class="div-td input"><input class=" change-status readonly" id="area" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">高度</div><div class="div-td">:</div><div class="div-td input"><input class=" change-status readonly" id="height" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">层数</div><div class="div-td">:</div><div class="div-td input"><input class=" change-status readonly" id="floor" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">窗墙比</div><div class="div-td">:</div><div class="div-td input"><input class=" change-status readonly" id="proportion" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  </div>
+											  <div class="ui divider"></div>
+											  <div class="div-table">
+											  <div class="div-tr"><div class="div-td name">建筑测点数</div><div class="div-td">:</div><div class="div-td input"><input class="readonly" id="pointnum" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">建筑主观评价</div><div class="div-td">:</div><div class="div-td input"><input class="readonly" id="comment" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  <div class="div-tr"><div class="div-td name">建筑年度电耗</div><div class="div-td">:</div><div class="div-td input"><input class="readonly" id="consumption" readonly="" type="text"/></div><div style="clear:both"></div></div>
+											  </div>
+											  <div class="error"><h4 class="ui red header"></h4></div>
+										  </div>
+										  
+										  <div class="update  change-status readonly"><button id="commitTeamUpdate">提交</button></div>
+			                		</div>
+			                	</div>
+		                	</div>
+		                	<div class="seven wide column mainright">
+		                		<div class="div-group-base map" id="map">
+			                		<div class="title">
+			                			<span class="title-content">建筑三维模型</span>
+			                		</div>
+			                		<div class="div-content" style="height:20rem">
+			                			<!-- <div class="map-panel">
+			                				<div class="mapdata" id="container"></div>
+			                			</div> -->
+			                		</div>
+			                	</div>
+		                	</div>
+	                	</div>	
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 选择城市 -->
+<script src="/static/manage/js/team/selectCity.js"></script>
+<script src="/static/manage/js/team/teamCommon.js"></script>
+<script src="/static/manage/js/team/teamBuildingContent.js"></script>
+</body>
+</html>

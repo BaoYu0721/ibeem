@@ -1,0 +1,529 @@
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	Long dateStr = new Date().getTime();
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="mobilehistory_title" /></title>
+<base href="<%=basePath%>" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<!-- 不缓存 -->
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+
+<link rel="stylesheet" href="static/mobile/css/base.css"/>
+<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="static/common/js/highcharts.js"></script>
+<script type="text/javascript" src="static/common/js/map.js"></script>
+<script type="text/javascript" src="static/common/js/toolsMobile.js"></script>
+<script type="text/javascript" src="static/mobile/js/common.js"></script>
+<style>
+	body{
+
+		background:#3fb493;
+	}
+	
+	#param_logo_box,#param_txt_box,#param_select_line,#param_select_index,#bottom_line,#current_time_range,#time_range_list,#history_chart,#stastics_box{
+		position:absolute;
+	}
+	
+	#param_logo_box .param_logo{
+		position:relative;
+		float:left;
+		background-repeat:no-repeat;
+		background-position:center;
+	}
+	
+	#tem_logo{
+		background-image:url(static/mobile/img/temperature.png);
+	}
+	#hum_logo{
+		background-image:url(static/mobile/img/wet.png);
+	}
+	#sun_logo{
+		background-image:url(static/mobile/img/sun.png);
+	}
+	#co2_logo{
+		background-image:url(static/mobile/img/air.png);
+	}
+	#p25_logo{
+		background-image:url(static/mobile/img/PM2.5.png);
+	}
+	
+	#param_txt_box .param_txt{
+		position:relative;
+		float:left;
+		text-align:center;
+		font-size:.5rem;
+		color:#ffffff;
+	}
+	
+	#param_select_line,#bottom_line{
+		background:#ffffff;
+		width:100%;
+		height:1px;
+	}
+	
+	#param_select_index{
+		background:#ffffff;
+		height:3px;
+		top:-1px;
+	}
+	
+	#current_time_range{
+		background:#ffffff;
+		border:1px solid #979797;
+		font-size:0;
+		color:#4a4a4a;
+		text-align:center;
+		z-index:100;
+		height:1.3rem;
+		border-radius:.65rem;
+	}
+	#current_time_range span{line-height:1.3rem;font-size:.8rem;}
+	#time_range_list{
+		background:#ffffff;
+		z-index:90;
+		overflow:hidden;
+	}
+	
+	.time_range{
+		position:relative;
+		font-size:.8rem;
+		color:#4a4a4a;
+		text-align:center;
+		text-decoration:underline;
+		display:none;
+	}
+	
+	.selected_time_range{
+		text-decoration:none;
+		color:#3fb493;
+	}
+	
+	#history_chart{
+		width:90%;
+		left:5%;
+	}
+	
+	#stastics_box{
+		width:90%;
+		left:5%;
+	}
+	
+	.stastics{
+		position:relative;
+		width:33.3%;
+		float:left;
+		font-size:.9rem;
+		color:#ffffff;
+		text-align:center;
+	}
+	
+	.stastics span{
+		font-size:1.2rem;
+	}
+	
+</style>
+
+</head>
+<body>
+<div id="mainContainer" style="display:none;">
+<!-- 参数选择模块 -->
+<div id="param_logo_box">
+	<div class="param_logo" id="tem_logo" order="0"></div>
+	<div class="param_logo" id="hum_logo" order="1"></div>
+	<div class="param_logo" id="sun_logo" order="2"></div>
+	<div class="param_logo" id="co2_logo" order="3"></div>
+	<div class="param_logo" id="p25_logo" order="4"></div>
+</div>
+<div id="param_txt_box">
+	<div class="param_txt" id="tem_txt" order="0"><spring:message code="tem_ss" /></div>
+	<div class="param_txt" id="hum_txt" order="1"><spring:message code="hum" /></div>
+	<div class="param_txt" id="sun_txt" order="2"><spring:message code="lig_s" /></div>
+	<div class="param_txt" id="co2_txt" order="3"><spring:message code="co2_s" /></div>
+	<div class="param_txt" id="p25_txt" order="4"><spring:message code="pm25_s" /></div>
+</div>
+<div id="param_select_line">
+	<div id="param_select_index"></div>
+</div>
+<!--  图表部分  -->
+<div id="current_time_range"><span><spring:message code="mobilehistory_time1" /></span></div>
+<div id="time_range_list">
+	<div class="time_range selected_time_range" hour="2"><span><spring:message code="mobilehistory_time1" /></span></div>
+	<div class="time_range" hour="6"><span><spring:message code="mobilehistory_time2" /></span></div>
+	<div class="time_range" hour="12"><span><spring:message code="mobilehistory_time3" /></span></div>
+	<div class="time_range" hour="24"><span><spring:message code="mobilehistory_time4" /></span></div>
+</div>
+
+<div id="history_chart">	
+</div>
+
+<!--  评价部分  -->
+<div id="bottom_line"></div>
+<div id="stastics_box">
+	<div class="stastics">
+		<spring:message code="mobilehistory_num_min" />
+		<br>
+		<span id="min_value">-</span>
+	</div>
+	<div class="stastics">
+		<spring:message code="mobilehistory_num_ave" />
+		<br>
+		<span id="ave_value">-</span>
+	</div>
+	<div class="stastics">
+		<spring:message code="mobilehistory_num_max" />
+		<br>
+		<span id="max_value">-</span>
+	</div>
+</div>
+
+<!--  底部导航  -->
+<ul class="footer clearfix">
+	<li class="current" id="devicetab">
+		<!-- <div class="icons"><img src="../static/mobile/img/device.png"/></div> -->
+		<div class="icons"></div>
+		<div class="txt"><spring:message code="mobilehistory_nav1" /></div>
+	</li>
+	<li class="realtime" id="realtimetab">
+		<!-- <div class="icons"><img src="../static/mobile/img/realtime.png"/></div> -->
+		<div class="icons realtimeicon"></div>
+		<div class="txt"><spring:message code="mobilehistory_nav2" /></div>
+	</li>
+	<li class="history" id="historytab">
+		<!-- <div class="icons"><img src="../static/mobile/img/history.png"/><span class="arrow"></span></div> -->
+		<div class="icons historyicon"><span class="arrow"></span></div>
+		<div class="txt"><spring:message code="mobilehistory_nav3" /></div>
+	</li>
+	<li class="evaluation" id="evaluationtab">
+		<div class="icons evaluationicon"></div>
+		<div class="txt">评估</div>
+	</li>		
+	<li class="home" id="hometab">
+		<!-- <div class="icons"><img src="../static/mobile/img/home.png"/><span class="arrow"></span></div> -->
+		<div class="icons homeicon"><span class="arrow"></span></div>
+		<div class="txt"><spring:message code="mobilehistory_nav4" /></div>
+	</li>
+</ul>
+<!-- 悬浮返回 -->
+<div class="return_to_list_float_btn"></div>
+</div>
+
+<script type="text/javascript">
+
+	var currentParameter = "tem";
+	var endTimeStamp = new Date().getTime();
+	var startTimeStamp = endTimeStamp - 1000* 60 * 60 * 2 + 5000;
+	var dataMap = new Map();
+	var timeRangeListExpaned = false;
+
+	function changeParam(){
+		var order = $(this).attr("order") * 1;
+		$("#param_select_index").animate({"left":$(document).width() * (0.1117 + order * 0.1552) + "px"});
+		
+		currentParameter  = ["tem","hum","sun","co2","pm25"][order];
+		//显示数据
+		showHistoryData(dataMap[currentParameter]);
+		//计算统计值
+		getStastics();
+	}
+	
+	function changeTimeRange(){
+		$("#current_time_range").html($(this).html());
+		$(".time_range").removeClass("selected_time_range");
+		$(this).addClass("selected_time_range");
+		$(".time_range").hide();
+		$("#time_range_list").animate({"height":$("#current_time_range").css("height")});
+		timeRangeListExpaned = false;
+		
+		endTimeStamp = new Date().getTime();
+		var hour = $(this).attr("hour") * 1;
+		startTimeStamp = endTimeStamp - 1000* 60 * 60 * hour + 5000;
+		loadHistoryData();
+	}
+	
+	
+	function extractData(data){	
+		data.sort(function(a,b){
+			return a.time * 1 - b.time * 1;
+		});
+		var i, len= data.length;
+		var datum;
+		var time;
+		var newDate = new Date();
+		
+		var temperature=[],humidity=[],pm25=[],co2=[],sunshine=[];
+		
+		var d=new Date(); //创建一个Date对象 
+		localOffset=d.getTimezoneOffset()*60000; //获得当地时间偏移的毫秒数 
+		
+		for(i = 0; i < len; i++){
+			datum = data[i];
+			time = datum.time * 1 -localOffset;
+			datum.d1 = (datum.tem * 1).toFixed(1);
+			temperature.push([time,datum.tem * 1]);
+			//datum.d2 = Math.round(datum.d2 * 0.85);
+			datum.d2 = (datum.hum * 1).toFixed(1);
+			humidity.push([time,datum.hum * 1]);
+			pm25.push([time,datum.pm * 1]);
+			co2.push([time,datum.co2* 1]);
+			//datum.d5 = Math.round(datum.d5 * 0.1);
+			sunshine.push([time,datum.lightIntensity * 1]);
+		}
+		
+		dataMap["tem"]=temperature;
+		dataMap["hum"]=humidity;
+		dataMap["pm25"]=pm25;
+		dataMap["co2"]=co2;
+		dataMap["sun"]=sunshine;		
+	}
+	
+	function showHistoryData(data){
+		 Highcharts.chart('history_chart', {
+		        chart: {
+		            type: 'spline',
+		            backgroundColor:"#3fb493"
+		        },
+		        title: {
+		            text: ''
+		        },
+		        xAxis: {
+		            type: 'datetime',
+		            dateTimeLabelFormats: { // don't display the dummy year
+		                month: '%e. %b',
+		                year: '%b'
+		            },
+		            title: {
+		                text: ''
+		            },
+		            labels: {
+		            	style: { "color": "#FFFFFF" }
+		            }
+		        },
+		        yAxis: {
+		            title: {
+		                text: ''
+		            },
+		            labels: {
+		            	style: { "color": "#FFFFFF" }
+		            }
+		        },
+		        plotOptions: {
+		            spline: {
+		            	lineColor:"#FFFFFF",
+		            	lineWidth: 1
+		            }
+		        },
+		        credits:{
+		        	enabled:false
+		        },
+	            legend: {
+	                enabled: false
+	            },
+		        series: [{
+		            name: '',
+		            // Define the data points. All series have a dummy year
+		            // of 1970/71 in order to be compared on the same x axis. Note
+		            // that in JavaScript, months start at 0 for January, 1 for February etc.
+		            data: data
+		        }]
+		    });
+	}
+	
+	function getStastics(){
+		var data = dataMap[currentParameter];
+		var datum = 0;
+		var min = 99999999;
+		var max = -9999999;
+		var sum = 0;
+		var rate = 0;
+		var ave = 0;
+		
+		for(var i = 0; i < data.length; i++){
+			datum = data[i][1];
+			if(datum < min){
+				min = datum;
+			}
+			if(datum > max){
+				max = datum;
+			}
+			sum += datum;
+		}
+			
+		
+		if(min == 99999999) {min = 0;}
+		if(max == 99999999) {max = 0;}
+		
+		if(data.length != 0){
+			ave = Math.round(sum / data.length);
+		}
+		
+		$("#max_value").html(max);
+		$("#min_value").html(min);
+		$("#ave_value").html(ave);
+	}
+	
+	
+	function loadHistoryData(){
+		addMobileLoading();
+		var device_id = localStorage.getItem("device_id");
+		$.ajax({
+	        type: "post",
+	        dataType: "json",
+	        url: '/device/environmentdata',
+	        /* timeout : 20000, //超时时间设置，单位毫秒 */
+	        data:{
+	        	deviceId:device_id,
+	        	startTime:Math.round(startTimeStamp/1000),
+				endTime:Math.round(endTimeStamp/1000)
+	        },
+	        success: function (result) {
+	        	if(result.result == "success"){
+	        		if(result.data != null){
+	        			if(result.data.length == 0){
+	        				alert(getLangStr("mobilehistory_msg_1"));
+	        				removeLoading();
+	        				return;
+	        			}
+	        			//整理数据
+	        			extractData(result.data);
+
+	        			//显示数据
+	        			showHistoryData(dataMap[currentParameter]);
+	        			
+	        			//计算统计值
+	        			getStastics();
+	        		}
+	        	}else{
+	        		alert(getLangStr("mobilehistory_msg_2"));
+	        	}
+	        	removeLoading();
+	        },
+	        error:function (XMLHttpRequest, textStatus, errorThrown) 
+	        { 
+	        	removeLoading();
+	        },
+	        complete : function(XMLHttpRequest,status){ 
+		    	if(status=='timeout'){//超时,status还有success,error等值的情况
+		    	  removeLoading();
+		    	  alert(getLangStr("mobilehistory_msg_3"));
+				}
+		    	removeLoading();
+		    } 
+	    });
+	}
+	
+
+	$(document).ready(function(){ 
+		addMobileLoading();
+		
+		if(localStorage.getItem("language")=="en"){
+			$(".return_to_list_float_btn").addClass("en");
+		}	
+		
+		var docHeight = $(document).height();
+		var docWidth = $(document).width();
+		
+		$("#param_logo_box").css("width",docWidth * 0.7765);
+		$("#param_logo_box").css("height",docHeight * 0.0609);
+		$("#param_logo_box").css("left",docWidth * 0.1117);
+		$("#param_logo_box").css("top",docHeight * 0.0341);
+		
+		$(".param_logo").css("width",docWidth * 0.1552);
+		$(".param_logo").css("height",docHeight * 0.0608);
+		$(".param_logo").css("background-size-y",docHeight * 0.0608);
+		
+		$("#param_txt_box").css("width",docWidth * 0.7765);
+		$("#param_txt_box").css("height",docHeight * 0.0316);
+		$("#param_txt_box").css("left",docWidth * 0.1117);
+		$("#param_txt_box").css("top",docHeight * 0.1066);
+		
+		$(".param_txt").css("width",docWidth * 0.1552);
+		$(".param_txt").css("height",docHeight * 0.0315);
+		
+		$("#param_select_line").css("top",docHeight * 0.1418);
+		
+		$("#param_select_index").css("width",docWidth * 0.1552);
+		var his_target = localStorage.getItem("his_target");
+		if(his_target != null  && his_target != ""){
+			var order = his_target * 1;
+			currentParameter  = ["tem","hum","sun","co2","pm25"][order];
+			$("#param_select_index").css("left",docWidth * (0.1117 + order * 0.1552));
+		}else{
+			$("#param_select_index").css("left",docWidth * 0.1117);
+		}
+		
+		
+		
+		$(".param_logo").click(changeParam);
+		
+		//$("#current_time_range").css("height",20);
+		$("#current_time_range").css("width",docWidth * 0.4);
+		$("#current_time_range").css("top",docHeight * 0.18);
+		$("#current_time_range").css("left",docWidth * 0.3);
+		//$("#current_time_range").css("paddingTop",docHeight * 0.032-10);
+		//$("#current_time_range").css("paddingBottom",docHeight * 0.032-10);
+		//$("#current_time_range").css("borderRadius",docHeight * 0.032 + 10);
+		//$("#current_time_range").css("background-position-x",docWidth * 0.7611);
+		//$("#current_time_range").css("background-position-y",(docHeight * 0.0516 - 40)/2);
+		
+		
+		$("#time_range_list").css("width",docWidth * 0.4);
+		$("#time_range_list").css("top",docHeight * 0.18);
+		$("#time_range_list").css("left",docWidth * 0.3);
+		$("#time_range_list").css("height",$("#current_time_range").css("height"));
+		$("#time_range_list").css("paddingTop",$("#current_time_range").css("paddingTop"));
+		$("#time_range_list").css("paddingBottom",$("#current_time_range").css("paddingBottom"));
+		$("#time_range_list").css("borderRadius",$("#current_time_range").css("borderRadius"));
+		
+		$(".time_range").css("paddingBottom",docHeight * 0.016);
+		
+		$("#time_range_list div:first-child").css("marginTop","1.5rem");//docHeight * 0.042+15);
+		$("#time_range_list div:last-child").css("marginBottom","0.25rem");//docHeight * 0.01);
+		
+		$("#history_chart").css("top",docHeight * 0.264);
+		$("#history_chart").css("height",docHeight * 0.372);
+		
+		$("#bottom_line").css("top",docHeight * 0.6658);
+		
+		$("#current_time_range").click(function(){
+			if(timeRangeListExpaned){
+				$(".time_range").hide();
+				$("#time_range_list").animate({"height":$("#current_time_range").css("height")});
+				timeRangeListExpaned = false;
+			}else{
+				$("#time_range_list").animate({"height":"7rem"},  function() {
+					$("#time_range_list").css("height","auto");});//docHeight * 0.2866 + "px"});
+				$(".time_range").show();
+				timeRangeListExpaned = true;
+			}
+		});
+		
+		
+		$(".time_range").click(changeTimeRange);
+		
+		$("#stastics_box").css("top",docHeight * 0.7058);
+		$("#stastics_box").css("height",docHeight * 0.1783);
+		$("#mainContainer").css("display","block");
+		showHistoryData([]);
+		
+		loadHistoryData();
+		
+	});
+</script>
+
+</body>
+</html>

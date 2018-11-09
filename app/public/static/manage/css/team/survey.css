@@ -1,0 +1,124 @@
+/* 页面左侧导航栏和内容分布 */
+body{min-height:0;}
+.main .ui.sidebar.menu.top{z-index:298;}
+.content{overflow-x:auto;overflow-y:hidden;left:0;}
+.content-team{overflow:auto;height:100%;}
+.content .ui.grid .two.wide.column{height:100%;}
+.ui.divider{background:#d0d0d0;}
+.ui.grid .ui.vertical.menu{position:absolute;top:0;}
+.ui.grid>.column:not(.row){padding:0; }
+.ui.vertical.menu .item:not(.dropdown)>.menu>.item{padding:.5rem 1.5rem .5rem .5rem;}
+.ui.table tbody tr:hover{
+	background:transparent;
+}
+.ui.dimmer{z-index:300;}
+.mainleft  .ui.sidebar{z-index:299}
+/* 新增问卷container */
+.question-library{
+transition:background 0.5s;
+-moz-transition:background 0.5s; /* Firefox 4 */
+-webkit-transition:background 0.5s; /* Safari and Chrome */
+-o-transition:background 0.5s; /* Opera */
+	width:6rem;line-height:4rem;text-align:center;border-radius:.2857rem;font-size:1.5rem;position:fixed;top:6rem;right:2rem;color:white;border:1px solid #47b391;background-color:#47b391;}
+.question-library.en{line-height:3rem;font-size:1.2rem;}
+.question-library:hover{background-color:white;color:#47b391;}
+.questionlibrary>.container>.top{height:3rem;width:100%;position:absolute;top:0;left:0;}
+.questionlibrary>.container>.top span{line-height:3rem;}
+.ui.basic.modal.questionlibrary>.close{position:fixed;top:-2rem;right:-4rem;font-size:2rem;}
+#library_filter>label{color:white;}
+#library_filter>input{color:black;}
+.addfromlibrary{margin:2rem auto 0;color:#47b391;width:10rem;height:3rem;display:block;border:1px solid #47b391;border-radius:.2857rem;background-color:white;}
+.content .container{width:68rem;height:auto;background-color:white;margin: 0 auto;padding-top:5.7142rem;}
+.content .container .top{position:absolute;top:2px;left:0;z-index:297;height:5.7142rem;width:68rem;;background: #E7E7E7;}
+.content .container .top span{position: absolute;font-size: 1rem;color: #4A4A4A;top:1.3571rem;left:2.7857rem;}
+.content .container.en .top span{top:.6rem}
+.content .container .top .button-group-add{position:absolute;top:2.2rem;left:10rem;}
+.content .container.en .top .button-group-add{left:1.5rem;}
+.content .container .top button{background:white;margin-left:1rem;}
+.content .container .bottom{padding-bottom:2rem;}
+.content .container .bottom .bottom-button{text-align:center;margin-top:4rem;}
+.content .container .bottom .bottom-button .ui.button.wjyl{width:12rem;height:2.3571rem;font-weight:400;padding-top:0.65rem;margin-right:5rem;background:white;color:#47B390;border: 1px solid #47B390;}
+.content .container .bottom .bottom-button .ui.button.wcbj{width:12rem;height:2.3571rem;font-weight:400;padding-top:0.65rem;background: #47B390;color:white;}
+.survey-title{padding:1.5rem 2.1428rem 1.2857rem 2.1428rem;}
+.survey-title span{font-size: 1.2142rem;color: #262626;}
+.content .container.en .survey-title span{display:block;width:100%;}
+.content .container.en .survey-title input{margin-left:0;margin-top:.5rem;width:100%;}
+.paging{padding:1.5rem 2.1428rem 1.2857rem 2.1428rem;position:relative;}
+.paging span{font-size: 1.2142rem;color: #262626;}
+.paging>.paging-container{display:inline-block;padding:0.5rem 0.5rem;background: #F9F9F9;border: 1px solid #979797;margin-left:1.3571rem;height:3rem;width:56.7142rem;}
+.content .container.en .paging>.paging-container{margin-left:0;width:100%;margin-top:.5rem;}
+.content .container.en .pagingnum-input{top:4.3rem;left:16.5rem;}
+.paging>.paging-container>.option{margin-left:2rem;}
+.pagingnum-input{position:absolute;z-index:10;width:4rem;top:2.2rem;left:21rem;border:1px solid #F0F0F0;line-height:15px;}
+.survey-title input{background: #F9F9F9;border: 1px solid #979797;margin-left:1.3571rem;height:2.7857rem;width:56.7142rem;padding:0 0.5rem;}
+.survey-desc{padding:0 2.1428rem 1.1428rem 2.1428rem;}
+.survey-desc span{vertical-align:top; font-size: 1.2142rem;color: #262626;}
+.survey-desc textarea{padding:0.5rem 0.5rem;background: #F9F9F9;border: 1px solid #979797;margin-left:1.3571rem;height:9.2142rem;width:56.7142rem;}
+.content .container.en .survey-desc span{display:block;width:100%;}
+.content .container.en .survey-desc textarea{margin-left:0;margin-top:.5rem;width:100%;}
+.content .container.en .paging span{}
+.content .container.en .question-container{padding:0 2.1428rem 0 2.1428rem}
+/* 问题 */
+.ui.form .field, .ui.form .fields .field{margin:0 0 .5714rem}
+.ui.checkbox label{font-size: 1.2142rem;color: #262626;line-height:1.2142rem;}
+.question{width:56.7142rem;margin-left:8.4rem;margin-bottom:0.5rem;padding:1.1428rem 1.7142rem 1.3571rem 1.7142rem;background: #F9F9F9;}
+.question.on{border: 1px solid #47B390;}
+.content .container.en .question{width:100%;margin-left:0;}
+.question .question-title{font-size: 1.2142rem;color: #262626;}
+.question .question-title span{line-height:1.6rem;}
+.question .question-title span.bold{font-weight:500;color:grey;}
+.question .question-content{padding:0.2142rem 2.3571rem;}
+.question .question-content .option-img label img{height:22.2142rem;width:auto;}
+.question .question-content .ui.divider{width:55.5rem;margin-left:-2.6rem;margin-bottom:.4285rem;margin-top:.3571rem;color:#DBDBDB;background-color:#DBDBDB;}
+.content .container.en .question .question-content .ui.divider{width:100%;margin-left:0;}
+.question .question-content .button-group{padding-left:25.1428rem;}
+.question .question-content .button-group button{width:3rem;height:1.4285rem;padding:0;background: #F9F9F9;border: 1px solid #47B390;border-radius: 4px;font-weight: 300;}
+.question .question-content .button-group button.on{background: #47B390;border: 1px solid #47B390;border-radius: 4px;color:white;}
+.question .question-content .ui.table{border:1px solid #D8D8D8;border-radius:0;width:100%;}
+.question .question-content .ui.table thead tr:first-child>th:only-child{border-radius:0;}
+.question .question-content .ui.table thead tr:first-child>th:first-child{border-radius:0;}
+.question .question-content .ui.table thead tr:first-child>th:last-child{border-radius:0;}
+.question .question-content .ui.table thead th{background:#D8D8D8;height:1.7857rem;padding:.2rem .8rem;}
+.question .question-content .ui.table tbody td{height:2.4285rem;border:none;padding:.2rem .8rem;text-align:center;}
+.question .question-content .ui.table tbody td a:hover{color:#47B390;}
+.question .question-content .ui.table.title tbody td{height:3.5714rem;padding:0;border:none;text-align:center;}
+.question .question-content .ui.table tbody td textarea{height:100%;width:100%;padding:.5rem .5rem;}
+.question .question-content .ui.table input{background: #FFFFFF;border: 1px solid #DBDBDB;padding-left:0.5rem;margin-left:.5rem;width:100%;height:1.4285rem;}
+.question .question-content .error{text-align:left;}
+.question .question-content i.link.icon{line-height:1.4285rem;height:1.4285rem;font-size:1.2rem;inline-block;}
+.editover{width:12rem;height:2.3571rem;margin:0 auto;background: #47B390;border-radius: 4px;color:white;box-shadow:none;border:none;display:block;}
+.ui.form input[type=text].question-input{width:15rem;height:2rem;margin-left:-0.5rem;}
+/* 弹出图片选择框样式 ，跟framestyle冲突了*/
+.scrolling.dimmable>.dimmer{z-index:1002;}
+.ui.modal .header{padding-top:.5714rem;padding-bottom:.5714rem;text-align:center;background-color:#EBEBEB;}
+.ui.modal .header font{line-height:2.3571rem;}
+.ui.modal .content{position:static;min-height:10rem;padding:.2857rem 0 2.2857rem 0;}
+.ui.modal .content .addimgoption{width:77%;margin:0 auto;min-height:33rem;position:relative;} 
+.ui.modal .content .addimgoption  .tip{display:block;font-size: 1rem;color: #47B390;}
+.ui.modal .content .addimgoption .ui.form .field{margin-top:.5rem;margin-bottom:0;}
+.ui.modal .content .addimgoption .ui.form .field label{font-size: 1.2142rem;color: #000000;}
+.ui.modal .content .addimgoption .ui.form .field input{background: #FFFFFF;border: 1px solid #979797;border-radius: .2857rem;height:2rem;width:26.5714rem;}
+.ui.modal .content .addimgoption .ui.form .field button.ok{background: #47B390;border-radius: .2857rem; border:none;height:2rem;width:5.2857rem;color:white;}
+.ui.modal .content .addimgoption .ui.form .field button.cancel{background:white;border-radius: .2857rem; border: 1px solid #1C1C1C;height:2rem;width:5.2857rem;}
+.contentbox{position:absolute;background: #FFFFFF;border: 1px solid #979797;border-radius: .2857rem;height:2rem;width:26.5714rem;top:3.4rem;}
+.contentbox .portraitStyle{top:4rem;left:-6.3rem;background: #FFFFFF;border-radius:0;width:44.7857rem;height:23rem;}
+.contentbox .eportrait{height:2rem;opacity:0;position:absolute;left:0;top:0;}
+
+/* 多选题 */
+.question.ddx .question-content .ui.table input.fw{background: #D8D8D8;border: 1px solid #979797;width:3.5714rem;height:1.01rem;}
+/* 量表题 */
+.question.lb .question-content .edit-container-bottom{padding-top:1rem;}
+.question.lb .question-content .ui.table{margin-top:0;}
+.question.lb .question-content .ui.table tbody td textarea.title-textarea{width:7.5rem;height:7.5rem;min-height:0;margin-top:0.5rem;border: 1px solid grey;}
+.question.lb .question-content .lb-content{width:100%;}
+.question.lb .question-content .lb-content .ui.checkbox{min-width:10px;width:15px;}
+.question.lb .question-content .ui.table tr td input{margin-left:0;}
+.question.lb .question-content .lb-content tr td{padding:0.2rem 1rem;text-align:center;}
+.question.lb .question-content .lb-content tr td.left-title{width:7rem;padding:0.2rem 0;text-align:left;}
+.question.lb .question-content .lb-content tr td.right-title{width:8rem;text-align:right;padding:0.2rem 0;}
+.question.lb .question-content .error{margin-top:0.5rem;}
+.question.lb .question-content .editover{display:block;margin:0 auto;}
+/* 折线题 */
+.question.zx .question-content .ui.form table tr td{padding-top:0.5rem;padding-bottom:0.5rem;}
+.question.zx .question-content .ui.table input{margin-left:0;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{background:#47B390;border:1px solid #47B390;}

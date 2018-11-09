@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理员登录</title>
+	<link rel="icon" href="/public/static/common/img/favicon.ico">
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <style>
+    	body{
+    		background:#4c4c4c;
+    	}
+    	.head{
+    		height:4rem;
+    	}
+    	.head .ui.top{
+    		background:#47b391;
+    		font-size:1.85rem;
+    	}
+    	.loginbox{
+    		width:25.3rem;
+    		margin:0 auto;
+    		
+    	}
+    	.ui.button.loginbtn{
+    		width:100%;
+    		background:#47b391;
+    		color:#fff;
+    		margin-top:1rem;
+    		margin-bottom:1rem;
+    		height:3.1rem;
+    	}
+    	.loginbox .name{
+    		margin:7.5rem 0 6.2rem;
+    		text-align:center;
+    		font-size:2rem;
+    		color:#fff;
+    	}
+    	.forgepassAndRegister a{
+    		color:#fff;
+    	}
+    </style>
+</head>
+<body>
+	<div class="head">
+	    <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  ">
+            <a class="item left  float">IBEM</a>
+            <a class="item right float">语言</a>
+        </div>
+	</div>
+	<div class="main">
+		<div class="loginbox">
+			  <div class="name">IEBM</div>
+			  <form class="ui form">
+			  <div class="field">
+			    <input type="text"  placeholder="用户名" id="device_name">
+			  </div>
+			  <div class="field">
+			    <input type="password"  placeholder="密码" id="device_password">
+			  </div>
+			  <button class="ui button loginbtn" type="submit" id="device_login_btn">登录</button>
+			</form>
+			<div class="ui divider"></div>
+			<div class="forgepassAndRegister">
+				<a href="forgetPassword" class="fl forgetPass">忘记密码</a>
+				<a href="register" class="fr toRegister">注册帐号</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(function(){
+		$("#device_login_btn").click(function(){
+					var devicename = $("#device_name").val();
+					var password = $("#device_password").val();
+					console.log(devicename);
+					console.log(password);
+					$.ajax({
+				        type: "post",
+				        dataType: "json",
+				        url: '/user/login',
+				        data: {devicename:devicename,
+				        	   password:password},
+				        success: function (data) {
+				        	
+				            if (data.status == 0) {
+				        		/*存储device的id*/
+				            	localStorage.setItem("device_id",data.deviceId);
+				            	window.location.href = "/views/web/index.html";
+				            }else{  //失败
+				            	alert("登录失败，请重新尝试！");
+				            }
+				        },
+				        error:function (XMLHttpRequest, textStatus, errorThrown) 
+				        { 
+				          alert(textStatus);
+				         
+				        } 
+				    });
+				});
+	});
+</script>
+</html>

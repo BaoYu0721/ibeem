@@ -1,0 +1,199 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="building.point" /></title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/static/common/css/base.css" />
+    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="static/common/css/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/static/manage/css/home.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingPoint.css">
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/static/manage/js/jquery.form.js"></script>
+    <script src="static/common/js/jquery.datetimepicker.full.min.js"></script> 
+     <script src="static/common/js/jquery.dataTables.min.js"></script>
+    <script src="static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/static/common/js/tools.js"></script>
+    <style>
+    .ui.form input[type=search].searchDevice{padding-left: 1rem;font-size:0.8rem; padding-right:1rem; height: 2rem; border:1px solid #cccccc; margin:1rem 5%; border-radius: 100px; width:90%; box-sizing:border-box!important;margin-top:0;}
+    /* 设置滚动条的样式 */.addPointListBox ::-webkit-scrollbar {width: 12px;}/* 滚动槽 */.addPointListBox ::-webkit-scrollbar-track {     border-radius: 10px;}/* 滚动条滑块 */.addPointListBox ::-webkit-scrollbar-thumb {    border-radius: 10px;    background: #47B390;}.addPointListBox ::-webkit-scrollbar-thumb:window-inactive {    background: #47B390;}
+    .ui.form input[type=search].searchSurvey{padding-left: 1rem;font-size:0.8rem; padding-right:1rem; height: 2rem; border:1px solid #cccccc; margin:1rem 5%; border-radius: 100px; width:90%; box-sizing:border-box!important;margin-top:0;}
+    .div-group-base .title-content{width:auto;}
+    .form_date_box{ margin-top:1rem;padding-bottom:1px}
+    .form_date_box .form_control{display: inline;width: 47%!important;height: 3rem;text-align: center;background-color: #ffffff;padding: 0;margin-right: 0.42rem!important;}
+    .title_box{ overflow:hidden; background-color:#fefefe; padding:1rem; margin-bottom:1rem}
+    .ui.buttons{ padding: 4px 12px;background: #FFFFFF;border: 1px solid #9B9B9B;border-radius: 2px;font-size: 1rem;font-weight: 300;color: #4A4A4A;letter-spacing: 0;margin-top:0.3rem;float: left;}
+    .ui.buttons:hover{background-color:#47B391; border: 1px solid #47B391;color:#ffffff; cursor:pointer;}
+    .ui.card{float:left; height:36rem; width:30%;margin-right:2rem;}
+    .ui.card:hover{ box-shadow:0 0 6px #888888; -webkit-box-shadow:0 0 6px #888888;}
+    .ui.card .content_tz{ cursor:pointer;}
+    .ui.card:first-child {margin-top: 1em;}
+    .ui.card .content {position: static!important;height: auto!important;min-height: auto!important;}
+    .ui.card>.image{overflow:hidden; padding:1rem;}
+    .ui.card>.image>img, .ui.cards>.card>.image>img {float:right;width: 10rem;height: 6.5rem; border:1px solid #dddddd; padding:2px;}
+    .ui.card .uc_image_intro{ float:left; width:50%;}
+    .ui.card .uc_image_intro h5{margin-top:0; padding:0.5rem; line-height:1.5; border:1px dashed #999999; color:#999999; font-weight:normal;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;}
+    .ui.card .uc_image_intro h3{overflow: hidden;text-overflow:ellipsis;white-space: nowrap; margin-bottom:1.3rem;}
+	.ui.card .uc_time{margin:1.5rem 0;  height:2rem;}
+	.ui.card .uc_time .uc_time_nav{ float:left; margin:0 1%;width:48%;}
+	.ui.card .uc_time .uc_time_nav span{border:1px solid #cccccc; color:#cccccc; border-radius:2px; -webkit-border-radius:2px; padding:0.1rem 0.5rem; width:95%;}
+	.ui.card .description{ overflow:hidden;}
+	.ui.card .description .description_list{ float:left; width:48%; margin:0 1% 0.3rem; height:4.4rem; background-color:#f8f8f8; padding:0.5rem;}
+	.ui.card .description .description_list h5{margin:0; color:#cccccc; font-weight:normal;}
+	.ui.card .description .description_list h3{margin:0; text-align:center; font-weight:normal;}
+	.extra_del{float:right;padding:4px 12px;color:#ffffff;background-color:#ff0000;opacity:0.7;filter:alpha(opacity=70); border-radius:4px;-webkit-border-radius:4px;}
+    .extra_del:hover{opacity:1;filter:alpha(opacity=100);cursor:pointer;}
+    </style>
+</head>
+<body >
+<div class="ui basic test modal addpoint-modal">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+			
+			<div class="top">
+				<span><spring:message code="point.add" /></span>
+			</div>
+			<div class="bottom">
+				<div class="addpoint">
+               		<div class="ui form">
+	               	   <div class="addlogo">
+					  	<img class="addicon" alt="<spring:message code="ponit.add_image" />" src="/static/manage/img/team/addlogo.png">
+					  	<span><spring:message code="ponit.add_image" /></span>
+					  	<div class="contentbox">
+						  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
+								<input type="file" id="file" name="file" class="eportrait "> 
+								<img class="portraitStyle" src=""/>
+							</form>
+						</div>
+					  </div>
+					  <div class="field name">
+					    <input type="text" name="name" placeholder="<spring:message code="ponit.name" />">
+					  </div>
+					  <div class="field position">
+					    <input type="text" name="position" placeholder="<spring:message code="ponit.location_describe" />">
+					  </div>
+					  <!-- <div class="field datasource">
+					     <div class="top" id="setDataSource"> <span>设定数据源</span><i class="large angle down icon"></i></div>
+					     <div class="bottom" id="dataSource" style="display:none;">
+					     	<a href="javascript:void(0)">关联设备</a><a href="javascript:void(0)">手动上传</a><div style="clear:both"></div>
+					     </div>
+					  </div> -->
+
+					  <div class="field datasource">
+					  	<div class="clearfix form_date_box">
+							<input class="form_control form_datetime" type="text" value="" placeholder="<spring:message code="ponit.start_time" />" id="start_t">
+					  		<input class="form_control form_datetime" type="text" value="" placeholder="<spring:message code="ponit.end_time" />" id="end_t">
+					  	</div>
+					  
+	               		<div class="datasource-option" id="link-device"><a href="javascript:void(0)"><spring:message code="ponit.device" /></a><a id="glsb"></a>
+	               			<div class="addPointListBox" >
+		     	                    <div class="tit"><spring:message code="deviceList.title" /></div>
+	     	                   	    <img src="/static/manage/img/team/loding.gif"  id="loadingm"/>  	
+		     	                    <input type="search" class="searchDevice" placeholder="<spring:message code="search" />" id="searchDevice">
+		     	                    <div class="box" id="box">  
+		     	                        <ul class="addDeviceList child" id="child">
+		     	                            <li class="clearfix">  
+		     	                                <!-- <div class="ui checkbox fl">  
+				     	                           <input type="checkbox" name="example">  
+				     	                           <label></label>  
+				     	                         </div>  
+		     	                                <span class="fl">设备名</span>   -->
+		     	                            </li>
+		     	                        </ul>  
+		     	                        <div class="progress" id="progress">  
+		     	                            <div class="bar" id="bar"></div>  
+		     	                        </div>  
+		     	                    </div>  
+		     	                    <button class="ui button confirmBtn"><spring:message code="btn.confirm" /></button>  
+		     	                </div>
+	               		</div>
+	               		
+	               		<!-- <div class="datasource-option on" id="input-device"><a href="javascript:void(0)">手动上传</a></div> -->
+	               		<div class="datasource-option" id="link-survey"><a href="javascript:void(0)"><spring:message code="point.survey" /></a><a id="glwj"></a>
+	               			<div class="addSurveyListBox" >  
+		     	                    <div  class="tit"><spring:message code="surveyListDevice.surveylist" /></div>  
+	     	                   	    <img src="/static/manage/img/team/loding.gif"  id="loadingmSurvey"/>  	
+		     	                    <input type="search" class="searchSurvey" placeholder="<spring:message code="search" />" id="searchSurvey">
+		     	                    <div class="box" id="boxSurvey">  
+		     	                        <ul class="addSurveyList child" id="childSurvey">  
+		     	                            <li class="clearfix">  
+		     	                                <!-- <div class="ui checkbox fl">  
+				     	                           <input type="checkbox" name="example">  
+				     	                           <label></label>  
+				     	                         </div>  
+		     	                                <span class="fl">设备名</span>   -->
+		     	                            </li>  
+		     	                        </ul>  
+		     	                    </div>  
+		     	                    <button class="ui button confirmBtnSurvey"><spring:message code="btn.confirm" /></button>  
+		     	                </div>
+	               		</div>
+	               	  </div>
+					</div>
+					  <div class="error"><h4 class="ui red header"></h4></div>
+					  <button class="ui button" id="submit" ><spring:message code="btn.add" /></button>
+               	</div>
+			</div>
+		</div>
+	</div>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
+         <div class="teamTitleTit">
+	        	<a class="tit-teamname" href="/redirect?url=administrator/teamContent.jsp"></a>
+	        	<a class="tit-buildingname" href="/redirect?url=administrator/teamBuildingContent.jsp" style="border:none;"></a>
+	        </div>
+            <a class="item" href="/redirect?url=administrator/teamBuildingData.jsp"><spring:message code="building.information" /></a>
+            <a class="item on" href="/redirect?url=administrator/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
+            <a class="item" href="/redirect?url=administrator/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
+            <a class="item" href="/redirect?url=administrator/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="pointlist">
+                		
+                		<div class="title_box">
+                			<div class="fl ui mini icon input">
+                				<i class="search icon"></i>
+							 	<input type="text" placeholder="<spring:message code="search" />" id="search_result">
+							</div>
+							<!-- 隐藏添加测点
+							<div class="fr">
+	                			<div class='ui buttons ' id='button_add'><i class="plus icon"></i><spring:message code="btn.add" /></div>
+                			</div>
+                			 -->
+                		</div>
+           				<div id="datatable_body">
+           				
+						
+           				</div>                		
+                		
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/manage/js/team/teamCommon_manage.js"></script>
+<script src="/static/manage/js/team/teamBuildingPoint_manage.js"></script>
+</body>
+</html>

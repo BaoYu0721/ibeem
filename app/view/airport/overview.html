@@ -1,0 +1,245 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="<%=basePath%>" />
+    <link rel="icon" href="static/common/img/favicon.ico">
+
+    <title>机场数据总览</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/common/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Website common CSS -->
+    <link href="static/airport/css/style.css" rel="stylesheet">
+    <style>
+		.progress {
+		  width:100%;
+		  height:20px;
+		  border:1px solid #ccc;
+		  margin:3px 0;
+		}
+		.bgpro {
+		  display:block;
+		  width:1%;
+		  background:green;
+		  height:20px;
+		  color:#fff;
+		}
+	</style>
+
+  </head>
+
+  <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container" style="margin-left:0px;">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航条开关</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">项目名称</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">首页</a></li>
+                <li class="active"><a href="#">数据</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+        <div id="main-container">
+
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <i class="fa fa-bar-chart-o fa-fw"></i> 机场航站楼分布
+                      
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div id="china-map" class="panel-body">
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+              </div>
+
+              <div class="col-lg-6">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <i class="fa fa-bar-chart-o fa-fw"></i> 机场航站楼列表
+						<div class="pull-right">
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#addBuildingModal">
+                                  添加建筑
+                                 
+                              </button>
+                          </div>
+                      </div>
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div class="panel-body">
+                       <table class="table table-condensed"  id="buildingListTable">
+	                      <tr><th>名称</th><th>描述</th><th>布点总数</th><th>温湿布点数</th><th>黑球布点数</th><th>CO2布点数</th></tr>
+	                    </table>
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-lg-2">
+                <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <i class="fa fa-bar-chart-o fa-fw"></i> 数据库概述
+
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div class="panel-body row-2">
+                        <div class="row">
+                          <div class="col-lg-12 col-xs-12">
+                             <span class="glyphicon glyphicon-home" aria-hidden="true">航站楼</span>
+                             <span id="buildingCount"></span>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                        	<div class="col-lg-12 col-xs-12">
+	                            &nbsp;<span class="glyphicon glyphicon-object-align-horizontal"  aria-hidden="true">布点</span>
+	                            <span id="stationCount"></span>
+                          	</div>
+                        </div>
+                         <br>
+                        <div class="row">
+                        	<div class="col-lg-12 col-xs-12">
+                        	基于清华大学建筑技术系多年的机场航站楼建筑性能测试获得的数据，建立了这个数据库,目前共有6972160条数据记录。欢迎大家使用数据，但必须经过清华建筑技术系项目管理人员的许可。
+                        	</div>
+                        </div>
+                          
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <i class="fa fa-bar-chart-o fa-fw"></i> 航站楼布点个数概览
+
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div id="buildingStationCountChart" class="panel-body  row-2">
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <i class="fa fa-bar-chart-o fa-fw"></i> 各类布点个数概览
+                      </div>
+                      <!-- /.panel-heading -->
+                      <div id="stationCountChart" class="panel-body  row-2">
+                      </div>
+                      <!-- /.panel-body -->
+                  </div>
+            </div>
+          </div>
+
+
+
+        </div><!-- /.container -->
+        
+        <!-- 添加建筑模态框（Modal） -->
+		<div class="modal fade" id="addBuildingModal" tabindex="-1" role="dialog"  aria-labelledby="addBuildingLabel" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="addBuildingLabel">
+		               添加建筑
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		            <form class="form-horizontal">
+					  <div class="form-group">
+					    <label for="buildingName" class="col-sm-2 control-label">建筑名称</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="buildingName" placeholder="">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="buildingDescription" class="col-sm-2 control-label">建筑描述</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="buildingDescription" placeholder="">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="buildingLatitude" class="col-sm-2 control-label">经度</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="buildingLatitude" placeholder="">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="buildingLontitude" class="col-sm-2 control-label">纬度</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="buildingLontitude" placeholder="">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label for="buildingImage" class="col-sm-2 control-label">上传照片</label>
+					    <div class="col-sm-10">
+					      <input type="file" class="form-control" id="buildingImage" name="pic" accept="image/*" capture="camera"/>
+					       <div class="progress"><span class="bgpro"></span></div>
+					       <br>
+					       <img src="" width="400px" alt="" style="display:none" class="pic_show"/>
+					    </div>
+					  
+					  
+					       
+		   			  </div>
+					  
+					</form>
+		         </div>
+		         <div class="modal-footer">
+		            <button type="button" class="btn btn-default" 
+		               data-dismiss="modal">关闭
+		            </button>
+		            <button type="button" class="btn btn-primary" id="addBuildingBtn">
+		               添加
+		            </button>
+		         </div>
+		      </div><!-- /.modal-content -->
+			</div>
+		</div><!-- /.modal -->
+        
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/common/js/jquery.min.js"></script>
+    <script src="static/common/js/bootstrap.min.js"></script>
+    <script src="static/common/js/d3.min.js"></script>
+    <script src="static/common/js/highcharts.js"></script>
+	 <script src="static/airport/js/overview.js"></script>
+  </body>
+</html>

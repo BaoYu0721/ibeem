@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="surveyListBuilding.title" /></title>
+<base href="<%=basePath%>" />
+<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+     <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+     <link rel="stylesheet" href="/public/static/manage/css/team/surveyList.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/publicstatic/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/jquery.qrcode.min.js"></script>
+    <script src="/public/static/common/js/excellentexport.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+</head>
+<body >
+<div class="ui basic test modal showqr">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+		<div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
+			<button id="downloadqr"><spring:message code="surveyListDevice.downloadqr" /></button>
+		</div>
+	</div>
+<div class="ui basic test modal export">
+	<i class="green close icon"></i>
+	<div class="container">
+	<span class="export-title"><spring:message code="surveyListDevice.select" /></span>
+		<span class="starttime-span"><spring:message code="surveyListDevice.starttime" /></span>
+		<input id="startTime" class="some_class starttime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
+		<span class="endtime-span"><spring:message code="surveyListDevice.endtime" /></span>
+		<input id="endTime" class="some_class endtime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
+		<a download="surveyExport.xls" class="export-button" id="exportExcel" href="javascript:void(0)"><spring:message code="surveyListDevice.downloadexcel" /></a>
+	</div>
+</div>
+<table id="exceltable" style="display:none;"></table>
+<div class="ui basic test modal addteam-modal">
+	<i class="green close icon"></i>
+		<div class="container">
+			<div class="bindListBox">
+ 	           <span  class="tit"><spring:message code="surveyListTeam.surveylisttitle" /></span>  
+ 	           <input type="search" class="search" placeholder="<spring:message code="surveyListDevice.search" />.." id="search"><br>
+ 	           <!-- <img src="/static/manage/img/team/loding.gif"  id="loadingm"/> -->
+ 	           <div class="box" id="box">  
+ 	              <ul class="bindList child" id="child">  
+ 	                     
+ 	              </ul>  
+ 	        	</div>
+ 	        <button class="ui button confirmBtn" id="confirmBtn" style="margin-top:1rem;"><spring:message code="survey.ok" /></button>  
+ 	       </div>
+		</div>
+	</div>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
+             <div class="teamTitleTit">
+	        	<a class="tit-teamname" href="/redirect?url=administrator/teamContent.jsp"></a>
+	        	<a class="tit-buildingname" href="/redirect?url=administrator/teamBuildingContent.jsp" style="border:none;"></a>
+	        </div>
+            <a class="item" href="/redirect?url=administrator/teamBuildingData.jsp"><spring:message code="surveyListBuilding.navinfo" /></a>
+            <a class="item" href="/redirect?url=administrator/teamBuildingPoint.jsp"><spring:message code="surveyListBuilding.navpoint" /></a>
+            <a class="item on" href="/redirect?url=administrator/surveyListBuilding.jsp"><spring:message code="surveyListBuilding.navsurvey" /></a>
+            <a class="item" href="/redirect?url=administrator/teamBuildingConsumption.jsp"><spring:message code="surveyListBuilding.navconsume" /></a>
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="surveylist">
+                		<div class="div-group-base table questionnaire datatables" id="pointlist">
+                		<div class="title">
+                			<span class="title-content"><spring:message code="surveyListDevice.surveylist" /></span>
+							<div class="survey-button">
+								<button id="surveyExport"><spring:message code="surveyListDevice.downloadsurvey" /></button>
+							</div>
+						    <div class="survey-button">
+								<button id="bindSurvey"><spring:message code="survey.bindSruvey" /></button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyReport"><spring:message code="surveyListDevice.surveyreport" /></button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyAnalysis"><spring:message code="surveyListDevice.surveyanaly" /></button>
+							</div>
+                		</div>
+                		<div class="div-content">
+                			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
+                			<thead> 
+                			<tr> 
+                				<th></th>
+                				<th><spring:message code="survey.tdTitle" /></th> 
+                				<th><spring:message code="survey.tdIntro" /></th> 
+                				<th><spring:message code="survey.tdCreator" /></th>
+                				<th><spring:message code="survey.tdNum" /></th> 
+                				<th><spring:message code="survey.tdPath" /></th> 
+                				<th><spring:message code="survey.tdQR" /></th>
+               				</tr> 
+               				</thead> 
+             				<tbody id="datatable_body"> 
+             				</tbody>
+             				</table>
+                		</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/team/surveyListBuilding_manage.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>问卷统计</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/team/surveyReport.css">
+    
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>    
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+     <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/highcharts.js"></script>
+    <!-- <script src="/static/common/js/exporting.js"></script> -->
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script> 
+</head>
+<body>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on alone" href="/survey">我的问卷</a>
+            <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content" >
+            <div class="ui grid" style="position:relative;">
+                <div class="sixteen wide column content-team" style="position:static;overflow-y:scroll">
+                	<div class="container" style="position:static;">
+                		<div class="top">
+                			<span id="headtitle">问卷统计:</span>
+                			<div class="ui form top-form">
+							  <input id="startTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷开始时间"/>
+							  <input id="endTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷结束时间"/>
+							  <div class="field team">
+							      <div class="ui selection dropdown" id="dropdownTeam">
+							          <input type="hidden" name="gender">
+							          <i class="dropdown icon"></i>
+							          <div class="default text">来源项目</div>
+							          <div class="menu">
+							          </div>
+							      </div>
+							  </div>
+							  <div class="field building" >
+							      <div class="ui selection dropdown" id="dropdownBuilding">
+							          <input type="hidden" name="gender">
+							          <i class="dropdown icon"></i>
+							          <div class="default text">来源建筑</div>
+							          <div class="menu">
+							          </div>
+							      </div>
+							  </div>
+							  <div class="field point" >
+							      <div class="ui selection dropdown" id="dropdownPoint">
+							          <input type="hidden" name="gender">
+							          <i class="dropdown icon"></i>
+							          <div class="default text">来源测点</div>
+							          <div class="menu">
+							          </div>
+							      </div>
+							  </div>
+							  <button class="refresh" id="refresh">更新报告</button>
+							</div>
+                		</div>
+                		<div class="bottom">
+                			<div class="bottom-container">
+                				<button id="downloadReport" class="downloadReport">下载报告</button>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/team/teamCommon.js"></script>
+<script src="/public/static/manage/js/team/surveyReport.js"></script>
+<script>
+$("#surveypanel").addClass("active");
+</script>
+</body>
+</html>

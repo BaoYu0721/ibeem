@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>问卷题库</title>
+	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/survey.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+    <style>
+    #content .container .bottom{padding-top:2rem;}
+    .question{margin:0 auto 0.5rem;}
+    #content .scoll-container{width:100%;height:100%;overflow-y:scroll;position:absolute;}
+    /* #content .container{position:absolute;width:60rem;left:50%;margin-left:-30rem;height:auto;} */
+    #content .container{position:absolute;width:100%;left:0;height:auto;}
+    /* #content .top{position:absolute;left:50%;margin-left:-30rem;width:60rem;top:0;z-index:297;height:5.7142rem;background: #E7E7E7;} */
+    #content .top{position:absolute;left:0;width:100%;top:0;z-index:297;height:5.7142rem;background: #E7E7E7;}
+	#content .top span{position: absolute;font-size: 1rem;color: #4A4A4A;top:1.3571rem;left:2.7857rem;}
+	#content.en .top span{top:.8rem;}
+	#content .top .button-group-add{position:absolute;top:2.2rem;left:10rem;}
+	#content.en .top .button-group-add{top:2.4rem;left:1.7857rem;}
+	#content .top button{background:white;margin-left:1rem;}
+    /* .librarylist-container{position:absolute;width:17rem;background-color:white;left:12.5px;top:22.5px;border:2px solid #c1c1c1;border-radius:.4rem;overflow:auto;} */
+    .librarylist-container{position:absolute;width:100%;height:100%;background-color:white;left:0;top:0;border:1px solid grey;overflow:auto;} 
+    .librarylist-container .ui.table{border:none;}
+    .ui.table thead tr:first-child>th:last-child{border-radius:none;}
+    .ui.grid>.row>.column{padding-left:0;padding-right:0;}
+    #libraryList_filter{margin-left:1.5rem;}
+    div.dataTables_wrapper div.dataTables_filter input{height:.5rem;max-width:8rem;margin-left:.5rem;}
+    .ui.table thead tr:first-child>th:first-child{border-radius:0;}
+    .ui.table thead tr:first-child>th:last-child{border-radius:0;}
+    #libraryList tbody tr:hover >td:not(.sorting_1){
+    background-color:#47b391;
+    color:white;
+    }
+    </style>
+</head>
+<body>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item on" href="/survey">我的问卷</a>
+            <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content" style="overflow:hidden;">
+            <div class="ui grid" style="position:static;">
+                <div class="sixteen wide column content-team">
+                <div class="ui grid" style="position:static;">
+                	<div class="four wide column content-team">
+                		<div class="librarylist-container">
+                		<table class="ui celled striped table" id="libraryList">
+						  <thead>
+						    <tr><th>标题名</th><th width="25%">类型</th>
+						  </tr></thead>
+						  <tbody id="librarylist_tbody">
+						    
+						  </tbody>
+						</table>
+                	</div>
+                	</div>
+                	<div class="twelve wide column content-team" style="position:relative;overflow:hidden;">
+	                	<div class="top">
+	               			<span href="javascript:void(0)">创建题库</span>
+	               			<div class="button-group-add">
+	               				<button class="ui basic button dx"><i class="green plus icon"></i><font><font>单选题</font></font></button>
+	               				<button class="ui basic button ddx"><i class="green plus icon"></i><font><font>多选题</font></font></button>
+	               				<button class="ui basic button tk"><i class="green plus icon"></i><font><font>填空题</font></font></button>
+	               				<button class="ui basic button lb"><i class="green plus icon"></i><font><font>量表题</font></font></button>
+	               				<button class="ui basic button ht"><i class="green plus icon"></i><font><font>滑条题</font></font></button>
+	               				<!-- <button class="ui basic button dl"><i class="green plus icon"></i><font><font> 段落 </font></font></button> -->
+	               			</div>
+	               		</div>
+	               		<div class="scoll-container">
+	               			<div class="container">
+		                		<div class="bottom">
+		                			<div class="question-container" style="min-height:20rem;">
+		                			</div>
+		                			<div class="error" style="text-align:center">
+										<h4 class="ui red header"></h4>
+									</div>
+		                			<div class="bottom-button " id="wjcz">
+		                			<button class="ui button wcbj" id="wcbj" style="margin:0;">完成编辑</button></div>
+		                		</div>
+	                		</div>
+	               		</div>
+                	</div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/manage/js/team/surveyLibrary.js"></script>
+</body>
+</html>

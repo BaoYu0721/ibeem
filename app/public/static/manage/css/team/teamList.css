@@ -1,0 +1,40 @@
+
+/*项目列表页teamList.jsp  */
+.teamList{margin-left:2.1rem;}
+.searchTeam{padding:1.85rem 1.5rem;}
+.ui.header:last-child{margin-top:0;margin-left:1.428rem;}
+.content-teamlist{height:100%;}
+.searchTeam .ui.input input{border:none;border-radius:3.5714rem;height:1.714rem;width:15.142rem;padding-top:0;padding-bottom:0;}
+.showTeam{margin-top:3.214rem;margin-left:-1rem;}
+.showTeam .team-item{width:27.6rem;height:15.784rem;padding:1.928rem 2.5rem; float:left;}
+.showTeam .team-item a{background-color: white;width:100%;height:100%;}
+.showTeam .item-panel{width:100%;height:100%;position: relative;background-color: white;}
+.showTeam .item-panel.showaddteam{cursor:pointer}
+.showTeam .item-panel .userdefault{position: absolute;height:5.714rem;width:5.714rem;top:2.571rem;left:3.214rem;}
+.showTeam .item-panel .add{position: absolute;height:7.928rem;width:7.928rem;top:50%;left:50%;margin-top:-3.964rem;margin-left:-3.964rem;}
+.showTeam .team-name{font-size: 1rem;}
+.showTeam .team-intro{font-size: 1.2142rem;;}
+.showTeam .content-panel{width:10rem;height:7rem;position: absolute; top:2.571rem;left:11.285rem;}
+.showTeam .content-panel .ui.divider{margin-top:.4285rem;margin-bottom:.6571rem;;}
+/*--新增项目 */
+.ui.modal.addteam-modal{height:36.3571rem;width:58.7857rem;position:absolute;left:50%;margin-left:-29.3928rem;}
+.ui.modal.addteam-modal .container{width:58.7857rem;margin:0 auto;}
+.ui.basic.modal>.close{top:0.5rem;right:1.5rem;}
+.ui.modal.addteam-modal .container .top{height:3.2857rem;background-color:#EBEBEB;text-align:center;color:#4A4A4A;border-top-right-radius: .2857rem;border-top-left-radius: .2857rem;}
+.ui.modal.addteam-modal .container .top span{line-height:3.2857rem;font-size:1.7142rem;}
+.ui.modal.addteam-modal .container .bottom{margin-top:-0.2rem;height:33rem;background: #FFFFFF;border-bottom-left-radius: .2857rem;border-bottom-left-radius: .2857rem;}
+.addTeamButton{float:right;width:7.6428rem;height:2.5rem;margin-right:3.5rem;background: #47B390;border:none;border-radius: 4px;color:white;}
+.addteam{width:25.142rem;height:100%;margin:0 auto;padding:0;}
+.addteam h4{margin-bottom:0.5rem;}
+.addteam .title{line-height:1.857rem;font-size: 1.3571rem;color: #7C7C7C;text-align:center;}
+.addteam .ui.form{padding-top:3.428rem;}
+.addteam .name input{width:25.285rem;height:2.642rem;}
+.addteam .intro textarea{width:25.285rem;height:5rem;}
+.addteam .addlogo{position:relative; width:8.428rem;height:8rem;margin-top:1rem;background: #FFFFFF;border: 1px solid #7C7C7C;border-radius:  .2857rem;;}
+.addteam .addlogo .addicon{position:absolute;width:3.214rem;height:3.214rem;top:1.642rem;left:50%;margin-left:-1.607rem;}
+.addteam .addlogo span{position:absolute;width:100%;height:1.714rem;font-size:1.214rem;color:#737373;text-align:center;left:0;top:5.0714rem;}
+.addteam .error{margin-top:1rem;font-size:1.5rem;}
+.addteam .ui.button{margin-top:2rem;}
+
+ 
+

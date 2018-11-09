@@ -1,0 +1,1020 @@
+<%@page import="edu.thu.ibeem.third.WeixinJsAPI,java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String JsapiTicket = WeixinJsAPI.JsapiTicket;
+	if(JsapiTicket==null||"".equals(JsapiTicket)){
+		WeixinJsAPI.workAtTime();
+		JsapiTicket = WeixinJsAPI.JsapiTicket;
+	}
+	Long dateStr = new Date().getTime();
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title><spring:message code="deviceList.title" /></title>
+<base href="<%=basePath%>" />
+<meta name="viewport" content="user-scalable=no"/>
+<!-- 不缓存 -->
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+<link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+
+<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.md5.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.sha1.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="static/common/js/weixin/weixin.js"></script>
+<script type="text/javascript" src="static/common/js/map.js"></script>
+<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<%-- <script type="text/javascript" src="static/common/js/tools.js?time=<%=dateStr%>"></script> --%>
+<script type="text/javascript" src="static/common/js/tools.js"></script>
+<script type="text/javascript" src="static/common/js/highmap/proj4.js"></script>
+<script type="text/javascript" src="static/common/js/highmap/highmaps.js"></script>
+<script type="text/javascript" src="static/common/js/highmap/cn-all-sar-taiwan.js"></script>
+<script src="static/common/js/jquery.dataTables.min.js"></script>
+<script src="/static/common/js/dataTables.semanticui.min.js"></script>
+<script src="/static/common/js/semantic.min.js"></script>
+
+<style>
+
+	body{
+		font-size: 12px;
+		width:100%;
+		overflow:scroll-y;
+		position:relative;
+		width:100%;
+	    height:100%;
+	    background:#efefef;
+	}
+	
+	#mainPanel{
+		position: absolute;   
+	    top: 0px;   
+	    left: 0px;   
+	    width:100%;
+	    height:auto;
+	    z-index: 1000;
+	}
+	
+	#profile{
+		position: absolute;   
+	    top: 0px;   
+	    left: 0px;   
+	    width:100%;
+		background:#ffffff;
+		border:1px solid #ffffff;
+	}
+	
+	#profile_potrait{
+		position: absolute;  
+		border:none; 
+	}
+	
+	#profile_name{
+		position: absolute; 
+		width:50%;
+		left:25%;
+		font-size:35px;
+		color:#424242;
+		text-align:center;
+	}
+	
+	#profile_wechat{
+		position: absolute; 
+		width:auto;
+		right:5%;
+		font-size:35px;
+		color:#424242;
+		text-align:right;
+		text-decoration:underline;
+	}
+	
+	.search_input{
+		position: absolute; 
+		background:#ffffff;
+		border:none;
+		font-size:3rem;
+		color:#d9d9d9;
+		text-align:center;
+		height:6.1rem;
+		border-radius:3.5rem;
+	}
+	
+	.search_input:hover{
+		border:1px solid #3fb493;
+	}
+	
+	.search_input_logo{
+		position: absolute;   
+		z-index:100;
+	}
+	
+	#add_device_logo{
+		border:none;
+		position: absolute;  
+		height:5rem;
+		border-radius:2.5rem; 
+	}
+	
+	#add_device_logo:hover{
+		border:1px solid #3fb493;
+	}
+	
+	#total_number_line{
+		position:absolute;
+		font-size:35px;
+		color:#424242;
+		text-align:center;
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;	
+	}
+	
+	#online_number{
+		
+	}
+	
+	#map_box{
+		position:absolute;
+		width:86%;
+		left:7%;
+		background:#ffffff;
+	}
+	
+	.list_box{
+		position:absolute;
+		width:100%;
+		/* padding-top:50px; */
+	}
+	
+	.list_box .address{
+		width:100%;
+		font-size:35px;
+		color:#9b9b9b;
+		text-align:center;
+		padding-top:10px;
+		padding-bottom:20px;
+		
+	}
+	
+	.list_box .device{
+		background:#ffffff;
+		font-size:3rem;
+		height:7rem;
+		padding:1.2rem 2rem;
+		margin:0 auto 2rem;
+		border-radius:3.2rem;
+		text-align:left;
+		background-repeat:no-repeat;
+		background-size:3rem 3.3rem;
+		
+	}
+
+	.list_box .online{
+		color:#3fb493;
+		background-image:url(static/mobile/img/right_arrow.png); 
+		background-position:93% 1.7rem;
+	}
+	
+	.offline{
+		color:#9b9b9b;
+		
+	}
+	
+	.list_box .device:hover{
+		border:1px solid #3fb493;
+	}
+	
+	.list_box .device img{
+		height:40px;
+		margin-right:0px;
+	}
+	
+	#searchPanel{   
+	    position: absolute;   
+	    top: 0px;   
+	    left: 0px;   
+	    z-index: 10001;   
+		display:none;
+	    background:#efefef;    
+	    width:100%;
+	    height:100%;
+	}   
+	
+	#search_box{
+		position:absolute;
+		width:100%;
+		background:#e6e6e6;
+		border-bottom:1px solid #ababab;
+	}
+	
+	#return_to_main_panel{
+		position:absolute;
+		font-size:3rem;
+		color:#4fba9c;
+		text-align:left;
+		z-index:40000;
+	}
+	
+	#list_box_search{
+		display:none;
+	}
+	
+	#add_device_box{
+		position:absolute;
+		width:100%;
+	}
+	
+	#add_device_title{
+		position:absolute;
+		width:100%;
+		font-size:35px;
+		color:#9b9b9b;
+		text-align:center;
+		padding-top:10px;
+		padding-bottom:20px;
+	}
+	
+	#add_device_box .add_device_input{
+		position:absolute;
+		background:#ffffff;
+		border:1px solid #ffffff;
+		font-size:3rem;
+		height:4rem;
+		border-radius:3.5rem;
+		color:#959595;
+		text-align:center;
+		border-top:none;
+	}
+	
+	.add_device_input_logo{
+		position:absolute;
+	}
+	
+	.add_device_btn{
+		position:absolute;
+		font-size:3rem;
+		height:4rem;
+		padding-top:1.5rem;
+		padding-bottom:1.5rem;
+		border-radius:3.5rem;
+		color:#ffffff;
+		text-align:center;
+		background:#4cd3b4;
+	}
+	#list_box_main{width:95%;margin:80rem auto 0;position:relative;}
+	#map_box{top:19rem;}
+	#qrcode_bind_btn{top:70rem;}
+	#viewOnlineStatus{position:absolute;top:1rem;right:0;border:1px solid #47b391;background-color:white;color:#47b391;width:6.5em;height:2.5em;border-radius:.2857rem;}
+	#datatable_paginate .ui.menu .item{font-size:3rem;}
+	#datatable_body a{text-decoration:underline;color:rgba(0,0,0,.8)}
+	</style>
+</head>
+<body>
+    <!-- 主界面DIV --> 
+	<div id="mainPanel" style="display:none;">
+		<div id="profile">
+			<img id="profile_potrait" src="static/mobile/img/profile_potrait.png">
+			<span id="profile_name"></span>
+			<a id="profile_wechat"><spring:message code="mobilelist_bindChat" /></a>
+		</div>
+		<!-- <img id="search_input_logo_main" class="search_input_logo" src="static/mobile/img/search_logo.png"> -->
+		<!-- <input type="text" id="search_input_main" class="search_input" placeholder="<spring:message code='mobilelist_searchDevice' />"> -->
+<!-- 		<img id="add_device_logo" src="static/mobile/img/add_device_logo.png" onclick="showSearchPanel()"> -->
+		<div id="total_number_line">
+			<span id="online_number"><spring:message code='mobilelist_checkOnline' /></span><spring:message code='mobilelist_tot_1' />&nbsp;<span id="total_number"></span>&nbsp;<spring:message code='mobilelist_tot_2' />
+		</div>
+		<div id="map_box"></div>
+		<a id="qrcode_bind_btn" style="text-align:center;border:1px solid #47b391;background-color:white;color: #47b391;position:absolute;left:50%;"><spring:message code='mobilelist_tot_sos' /></a>
+		<div id="list_box_main" class="list_box" style="display:none;">
+		
+			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
+                			<thead> 
+                			<tr> 
+                				<th><spring:message code="mobilelist_deviceName" /></th>
+                				<th><spring:message code="mobilelist_deviceAddr" /></th> 
+                				<th id="status_th"><spring:message code="mobilelist_deviceStatus" /></th> 
+               				</tr> 
+               				</thead> 
+             				<tbody id="datatable_body"> </tbody>
+             </table>
+		</div>
+	</div>
+
+	<!-- 查找界面DIV -->  
+	<div id="searchPanel">
+<!-- 		<div id="search_box"> -->
+<!-- 			<input type="text" id="search_input_search" class="search_input" placeholder="查找设备" onclick="showSearchResult()"> -->
+<!-- 			<img id="search_input_logo_search" class="search_input_logo" src="static/mobile/img/search_logo.png"> -->
+<!-- 			<div id="return_to_main_panel">取消</div> -->
+<!-- 		</div> -->
+		<div id="return_to_main_panel"><spring:message code='btn.cancel' /></div>
+		<div id="list_box_search" class="list_box">
+<!-- 			<div class="address">朝阳区</div> -->
+<!-- 			<div class="device">CF6A9C</div> -->
+<!-- 			<div class="device">CF6A9C</div> -->
+<!-- 			<div class="address">朝阳区</div> -->
+<!-- 			<div class="device">CF6A9C</div> -->
+<!-- 			<div class="device">CF6A9C</div> -->
+<!-- 			<div class="address">朝阳区</div> -->
+<!-- 			<div class="device">CF6A9C</div> -->
+<!-- 			<div class="device">CF6A9C</div> -->
+		</div>	
+		<div id="add_device_box">
+			<div id="add_device_title"><spring:message code='mobilelist_tot_3' /></div>
+			<input type="text" class="add_device_input" id="device_name" placeholder="<spring:message code='devicedata_name' />">
+			<img id="device_name_logo" class="add_device_input_logo" src="static/mobile/img/device_name.png">
+			<input type="text" class="add_device_input" id="device_password" placeholder="<spring:message code='mobilelist_pass' />">
+			<img id="device_password_logo" class="add_device_input_logo" src="static/mobile/img/device_password.png">
+			
+			<div id="add_device_from_name" class="add_device_btn"><spring:message code='mobilelist_add' /></div>
+			<div id="add_device_from_qrcode" class="add_device_btn"><img src="static/mobile/img/scan_qrcode.png">&nbsp;<spring:message code='mobilelist_add_2' /></div>
+		</div>
+		
+		
+	</div>
+	<div style="visibility:hidden;" id="weixin_api_ticket" key="<%=JsapiTicket%>">	
+<script type="text/javascript">
+
+	function getUrlParam(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	    if (r != null) return unescape(r[2]); return null; //返回参数值
+	}
+
+	/**  
+	 * 显示查找界面遮罩层  
+	 */  
+	function showSearchPanel() {   
+		//$("#list_box_search").html("");
+		//$("#list_box_search").hide();
+		//$("#add_device_box").show();
+	    $('#searchPanel').show();   
+	} 
+	
+	function hideSearchPanel() {   
+	    $('#searchPanel').hide();   
+	} 
+	
+	function showSearchResult(){
+		//$("#add_device_box").hide();
+		//$("#list_box_search").show();
+	}
+	
+	var datatable;
+	var addressMap;
+	var locationMap;
+	var docHeight = $(document).height();
+	var docWidth = $(document).width();
+	var onlineNumber =0;
+	function getTrFromData(list){
+		var devicelist = list;
+		var html = "";
+		var onineList = [];
+		var offlineList = [];
+		for(var n in devicelist){
+			var deviceItem = devicelist[n];
+			if(deviceItem.onlineStatus=="false"){
+				offlineList.push(deviceItem);
+			}else{
+				onineList.push(deviceItem);
+			}
+		}
+		for(var n in list){
+			var deviceItem = list[n];
+			var id = deviceItem.id;
+			var name = deviceItem.name;
+			var address = deviceItem.address;
+			var status = deviceItem.onlineStatus=="false"?getLangStr("mobilelist_offline"):getLangStr("mobilelist_online");
+			$("#datatable_body").append("<tr data-id='"+id+"'><td><a>"+name+"</a></td><td id='device_address'>"+address+"</td><td id='device_status' style='text-align:center'>——</td></tr>");
+		}
+	    /* 系统内数据，在线设备数 */
+		onlineNumber = onineList.length;
+	}
+	function initDatatable(){
+		//初始化datatable
+	    datatable = $('#datatable').DataTable(
+	    	{
+	    	"pageLength": 10,
+	    	"lengthChange": false,
+	    	"ordering": true,
+	    	"order": [],
+	    	"info":false,
+	    	"language": {
+	    		"info":getLangStr("datatable_info"),
+	    		"infoFiltered":getLangStr("datatable_infoFiltered"),
+	        	"infoEmpty":getLangStr("datatable_infoEmpty"),
+	        	"search":"",
+        		"paginate": {
+        	        "next":     getLangStr("datatable_next"),
+        	        "previous":   getLangStr("datatable_previous")
+        	    }
+	    	},"columns": [
+	    	            	{"width":"10em"},
+		    	            null,
+		    	            {"width":"10em"},
+	        ]
+	    });
+
+		/* 布局样式修改 */
+		var fontSize = 30/750*($(window).width());
+		var fontSize_paginate = 23/750*($(window).width());
+		$("#datatable").parent().css("font-size",fontSize);
+		$("#datatable_paginate").parent().css("font-size",fontSize);
+		$("#datatable_paginate").parent().removeClass("nine");
+		$("#datatable_paginate").parent().removeClass("wide");
+		$("#datatable_paginate").parent().removeClass("column")
+		$("#datatable_paginate").parent().addClass("sixteen");
+		$("#datatable_paginate").parent().addClass("wide");
+		$("#datatable_paginate").parent().addClass("column");
+		$("#datatable_filter").parent().css("font-size",fontSize);
+		$("#status_th").css("width",130/750*($(window).width()));
+		//调整表格元素方位
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column:first").remove();
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").removeClass("right");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").removeClass("aligned");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").removeClass("eight");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").removeClass("wide");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").removeClass("column");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").addClass("sixteen");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").addClass("wide");
+	    $("#datatable_wrapper .ui.grid").find(".row:first").find(".column").addClass("column");
+	    
+	    //给查询框添加放大镜图标
+		var input_html = $('#datatable_filter').removeClass("input");
+		var input_html = $('#datatable_filter').addClass("left");
+		var input_html = $('#datatable_filter').addClass("icon");
+		var input_html = $('#datatable_filter').addClass("input");
+		$('#datatable_filter label').css("position","relative");
+		$('#datatable_filter label').append('<i class="search icon" style="position:absolute;top:.2em;left:1em;line-height:2;"></i>');
+		$('#datatable_filter label input').css("padding-left","2.1em")
+		/* 添加，检查状态按钮 */
+		$("#list_box_main").append('<button id="viewOnlineStatus">'+getLangStr("check_status")+'</button>');
+		$("#viewOnlineStatus").css("font-size",fontSize);
+		/* 显示datatable */
+		$("#list_box_main").css("display","block");
+	}
+	/* 检查在线状态 */
+	 $("body").on("click","#viewOnlineStatus",function(){
+		 var $this_status;
+		 /* var rows = datatable.rows().nodes(); */
+		 var rows = $("#datatable_body>tr");
+		 for(var n=0;n<rows.length;n++){
+			 var $thisRow =  $(rows[n]);
+			 var id =$thisRow.data("id");
+			 $thisRow.find("#device_status").html();
+			 getStatus($thisRow,id);
+		 }
+	 });
+	 function getStatus($thisRow,id){
+		 $thisRow.find("#device_status").html('<div class="ui mini active inline loader"></div>');
+		 $.ajax({
+			url:"/device/status",
+			type:"POST",
+			data:{"deviceID":id},
+			success:function(response){
+				if(response.code == 200){
+					var this_status;
+					if(response.status==true){
+						this_status = getLangStr("deviceList_online");
+					}else{
+						this_status = getLangStr("deviceList_notonline");
+					}
+					
+					$thisRow.find("#device_status").html(this_status);
+				}
+				
+			}
+		 });
+	 }
+	 /* 跳转到实时数据页 */
+	 $("#list_box_main").on("click","#datatable_body>tr",function(){
+		var did = $(this).data("id");
+		var daddress = $(this).find("#device_address").html();
+		var dstatus = $(this).find("#device_status").data("status");
+		localStorage.setItem("device_address",daddress); 
+		localStorage.setItem("device_id",did);
+		var timestamp = Date.parse(new Date());
+     	timestamp = timestamp / 1000;
+		window.location.href = "/weixin?url=mobile/realtimeData.jsp?timestamp="+timestamp;
+	 });
+	function extractData(list){
+		var i;
+		var loc;
+		var count;
+		onlineNumber = 0;
+		addressMap  = new Map();
+		locationMap = new Map();
+		for(i = 0; i < list.length; i++){
+			if(list[i].onlineStatus == "true"){
+				onlineNumber += 1;
+			}
+			
+			address = list[i].address.trim();
+			
+			if(address == null || address == ""){
+				address = getLangStr("mobilelist_1");
+			}
+			if(addressMap.get(address)){
+				addressMap.get(address).push([list[i].name,list[i].id,list[i].onlineStatus]);
+			}else{
+				addressMap.put(address,[[list[i].name,list[i].id,list[i].onlineStatus]]);
+			}
+			
+			loc = list[i].latitude + "," + list[i].longitude;
+			if(loc != null && loc != ""){
+				if(locationMap.get(loc)){
+					count = locationMap.get(loc)*1;
+					locationMap.put(loc,count+1);
+				}else{
+					locationMap.put(loc,1);
+				}
+			}
+		}
+	}
+	
+	function buildDevcieHtml(dataToShow){
+		var ks = dataToShow.keySet();
+		var address;
+		var list;
+		var htmlText ="";
+		
+		//先过一遍在线的
+		for(var i=0; i < ks.length; i++){
+			address = ks[i];
+			if(address == getLangStr("mobilelist_1")){
+				continue;
+			}
+			htmlText += buildRow(address,dataToShow.get(address),"true");			
+		}
+		if(dataToShow.get(getLangStr("mobilelist_1")) != null){
+			htmlText += buildRow(getLangStr("mobilelist_1"),dataToShow.get(getLangStr("mobilelist_1")),"true");	
+		}
+		
+		htmlText += "<br><br><br><div class='address'>"+ getLangStr("mobilelist_2") +"</div>";
+		
+		//再过一遍不在线的
+		for(var i=0; i < ks.length; i++){
+			address = ks[i];
+			if(address == getLangStr("mobilelist_1")){
+				continue;
+			}
+			htmlText += buildRow(address,dataToShow.get(address),"false");			
+		}
+		if(dataToShow.get(getLangStr("mobilelist_1")) != null){
+			htmlText += buildRow(getLangStr("mobilelist_1"),dataToShow.get(getLangStr("mobilelist_1")),"false");	
+		}
+		
+		if(htmlText == ""){
+			htmlText  = "<div class='address'>"+ getLangStr("mobilelist_3") +"</div>";
+		}
+		
+		return htmlText;
+	}
+	
+	function buildRow(address,list,state){
+		var htmlText = "<div class='address'>"+address+"</div>";
+		var hasDeviceInThisAddress = false;
+		for(var j=0; j < list.length; j++){
+			if(list[j][2] == state){
+				hasDeviceInThisAddress = true;
+				if(state == "true"){
+					htmlText += "<div class='device online' id='"+list[j][1]+"' address='"+address+"'>"+list[j][0]+"</div>";
+				}else{
+					htmlText += "<div class='device offline' id='"+list[j][1]+"' address='"+address+"'>"+list[j][0]+"</div>";
+				}
+			}
+		}
+		
+		if(hasDeviceInThisAddress == false){
+			return "";
+		}
+		return htmlText;
+	}
+	
+	function bindDeviceRowClick(){
+		$(".device").unbind('click');
+		
+		$(".device").bind('click',function(){
+			var did = $(this).attr("id");
+			var daddress = $(this).attr("address");
+			localStorage.setItem("device_address",daddress); 
+			localStorage.setItem("device_id",did); 
+			var timestamp = Date.parse(new Date());
+        	timestamp = timestamp / 1000;
+			window.location.href = "/weixin?url=mobile/realtimeData.jsp?timestamp="+timestamp;
+		});
+	}
+	
+	function updateDeviceCss(){
+		$(".device").css("width",docWidth * 0.88);
+		/* //$(".device").css("height","3rem");//40
+		
+		$(".device").css("paddingLeft",docWidth * 0.0541);
+		$(".device").css("paddingRight",docWidth * 0.0541);
+		//$(".device").css("paddingTop","0.5rem");//(docHeight * 0.0516 - 40)/2);
+		//$(".device").css("paddingBottom","0.5rem");//(docHeight * 0.0596 - 40)/2);
+		$(".device").css("marginLeft",docWidth * 0.0653);
+		$(".device").css("marginBottom",docWidth * 0.0308);
+		//$(".device").css("borderRadius","2rem");//docHeight * 0.0298);
+		$(".device").css("background-position-x",docWidth * 0.7611);
+		$(".device").css("background-position-y","1.6rem");//(docHeight * 0.0596 - 40)/2); */
+	}
+	
+	function loadDistributionMap(){
+		var distributionData = [];
+		var ks = locationMap.keySet();
+		var locArr;
+		
+		for(var i=0; i < ks.length; i++){
+			loc = ks[i];
+			locArr = loc.split(",");
+			distributionData.push({
+				name: '' + locationMap.get(loc),
+                lat: locArr[0]*1.0,
+                lon: locArr[1]*1.0
+			});
+		}
+		
+		 Highcharts.mapChart('map_box', {
+		        chart: {
+		            borderWidth: 1,
+		            borderRadius:$(document).width() * 0.0176,
+		            borderColor:"#ffffff"
+		        },
+		        title: {
+		            text: ''
+		        },
+		        legend: {
+		            enabled: false
+		        },
+		        mapNavigation: {
+		            enabled: true
+		        },
+		        credits:{
+		        	enabled:false
+		        },
+		        series: [{
+		            name: '',
+		            mapData: Highcharts.maps['countries/cn/custom/cn-all-sar-taiwan'],
+		            dataLabels: {
+		                enabled: true,
+		                color: '#FFFFFF',
+		                formatter: function () {
+		                    if (this.point.value) {
+		                        return this.point.name;
+		                    }
+		                }
+		            },
+		            tooltip: {
+		                headerFormat: '',
+		                pointFormat: '{point.name}'
+		            }
+		        },{
+		            // Specify points using lat/lon
+		            type: 'mapbubble',
+		            name: 'Cities',
+		            color: "#3fb493",
+		            maxSize: "5%",
+		            minSize: "2",
+		            data: distributionData
+		            }
+		        ]
+		    });
+	}
+	
+	
+	function filterData(filterStr){
+		var filterMap = new Map();
+		var ks = addressMap.keySet();
+		var address;
+		var list, newList;
+		
+		for(var i=0; i < ks.length; i++){
+			address = ks[i];
+			if(address.indexOf(filterStr) >= 0){
+				filterMap.put(address,addressMap.get(address));
+			}else{
+				newList = [];
+				list = addressMap.get(address);
+				for(var j=0; j < list.length; j++){
+					if(list[j][0].indexOf(filterStr) >= 0){
+						newList.push(list[j]);
+					}
+				}
+				if(newList.length > 0){
+					filterMap.put(address,newList);
+				}
+			}
+		}
+		
+		return filterMap;
+	}
+	
+	$(document).ready(function(){
+		$("body").prepend('<style>'+
+				'.loding-panel{width:100%;height:100%;background-color:rgba(0,0,0,0.5);position:fixed ;top:0;left:0;;z-index:2000;}'+
+				'.loding-icon{position:absolute;top:50%;left:50%;height:11rem;width:11rem;margin-left:-5.5rem;margin-top:-5.5rem;}'+
+				'.loding-icon>i.huge.icon{font-size:12rem;}	'+
+				'</style>'+
+				'	<div class="loding-panel">'+
+				'		<img alt="loading" class="loding-icon" src="/public/static/manage/img/loading.gif">'+
+				'	</div>')
+		
+		
+		$("#profile").css("height",docHeight * 0.1191);
+		
+		$("#profile_potrait").css("top",docHeight * 0.0166);
+		$("#profile_potrait").css("left",docWidth * 0.0729);
+		$("#profile_potrait").css("width",docWidth * 0.1222);
+		//$("#profile_potrait").css("height",docHeight * 0.0866);
+		$("#profile_potrait").css("borderRadius",docHeight * 0.0433);
+		
+		$("#profile_name,#profile_wechat").css("top",docHeight * 0.0433);
+		
+		$("#search_input_main").css("top",docHeight * 0.1458);
+		$("#search_input_search").css("top",docHeight * 0.0121);
+		$(".search_input").css("left","50%");
+		$(".search_input").css("margin-left","-"+docWidth * 0.4025+"px");
+		$(".search_input").css("width",docWidth * 0.805);
+		//$(".search_input").css("width",docWidth * 0.7003);
+		//$(".search_input").css("height",docHeight * 0.0516);
+		//$(".search_input").css("borderRadius",docHeight * 0.0258);
+		
+		$("#search_input_logo_main").css("top",docHeight * 0.155);
+		$("#search_input_logo_search").css("top",docHeight * 0.0208);
+		$(".search_input_logo").css("left","50%");
+		var leftnum = (docWidth * 0.4025)-20;
+		$(".search_input_logo").css("margin-left","-"+leftnum+"px");
+		//$("#search_input_logo").css("width",docWidth * 0.0565);
+		$(".search_input_logo").css("height",docHeight * 0.0333);
+		
+		$("#add_device_logo").css("top",docHeight * 0.1458);
+		$("#add_device_logo").css("right",docWidth * 0.0554);
+		//$("#add_device_logo").css("width",docWidth * 0.0741);
+		//$("#add_device_logo").css("height",docHeight * 0.0516);
+		//$("#add_device_logo").css("borderRadius",docHeight * 0.0258);
+		
+		$("#total_number_line").css("top",docHeight * 0.2375);
+		$("#total_number_line").css("height",docHeight * 0.0316);
+		
+		/* $("#map_box").css("top",docHeight * 0.1575); */
+		$("#map_box").css("height",docHeight * 0.4025);
+		$("#map_box").css("borderRadius",docWidth * 0.0176);
+		
+		$("#qrcode_bind_btn").css("width",docWidth * 0.7611);
+		/* $("#qrcode_bind_btn").css("top",docHeight * 0.6); */
+		$("#qrcode_bind_btn").css("margin-left",(docWidth * 0.3805*-1));
+		$("#qrcode_bind_btn").css("height",docWidth * 0.09);
+		$("#qrcode_bind_btn").css("line-height",docWidth * 0.09+"px");
+		$("#qrcode_bind_btn").css("font-size",docWidth * 0.05);
+		$("#qrcode_bind_btn").css("border-radius",docWidth * 0.02);
+		/* height:4rem;line-height:4rem;font-size:2.5rem;border-radius:.4rem; */
+		
+		/* $("#list_box_main").css("top",docHeight * 0.78); */
+		$("#list_box_search").css("top",docHeight * 0.09);
+		
+		updateDeviceCss();
+		
+		$('#searchPanel').css({'height':$(document).height(),'width':$(document).width()});   
+		
+		$("#search_box").css("height",docHeight*0.0758);
+		
+		$("#return_to_main_panel").css("left",docWidth*0.83);
+		$("#return_to_main_panel").css("top",docHeight * 0.0121 + (docHeight * 0.0516-35)/2);
+		
+		$("#add_device_title").css("top",docHeight * 0.1466);
+		
+		//$("#add_device_box .add_device_input").css("height",docHeight * 0.0516);
+		$("#add_device_box .add_device_input").css("width",docWidth * 0.7611);
+		$("#add_device_box .add_device_input").css("paddingLeft",docWidth * 0.0541);
+		$("#add_device_box .add_device_input").css("paddingRight",docWidth * 0.0541);
+		$("#add_device_box .add_device_input").css("left",docWidth * 0.0653);
+		//$("#add_device_box .add_device_input").css("borderRadius",docHeight * 0.0258);
+		
+		$("#device_name").css("top",docHeight * 0.1983);
+		$("#device_password").css("top",docHeight * 0.2858);
+		
+		$(".add_device_input_logo").css("left",docWidth * 0.0929);
+		$(".add_device_input_logo").css("height",docHeight * 0.03);
+		
+		$("#device_name_logo").css("top",docHeight * 0.21);
+		$("#device_password_logo").css("top",docHeight * 0.2983);
+		
+		//$(".add_device_btn").css("height",40);
+		$(".add_device_btn").css("width",docWidth * 0.7611);
+		$(".add_device_btn").css("paddingLeft",docWidth * 0.0541);
+		$(".add_device_btn").css("paddingRight",docWidth * 0.0541);
+		//$(".add_device_btn").css("paddingTop",(docHeight * 0.0516 - 40)/2);
+		//$(".add_device_btn").css("paddingBottom",(docHeight * 0.0516 - 40)/2);
+		$(".add_device_btn").css("marginLeft",docWidth * 0.0653);
+		$(".add_device_btn").css("marginBottom",docWidth * 0.0258);
+		//$(".add_device_btn").css("borderRadius",docHeight * 0.0258);
+		
+		$("#add_device_from_name").css("top",docHeight * 0.645);
+		$("#add_device_from_qrcode").css("top",docHeight * 0.7375);
+		
+		if($.cookie('name') != null){
+			$("#profile_name").html($.cookie('name'));
+		}
+		
+		if($.cookie('wechat_name') != null && $.cookie('wechat_name') != "null"){
+			$("#profile_wechat").html(getLangStr("mobilelist_4")+$.cookie('wechat_name')+getLangStr("mobilelist_5"));
+		}
+		
+		/* 布局结束后，显示页面元素 */
+		$("#mainPanel").css("display","block");
+		//绑定微信号
+		$("#profile_wechat").click(function(){
+			var thisUrl = window.location.href;  //是一个可以接收返回的code的url，可以是本页面
+			window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx472e78d4295c4091"
+								+"&redirect_uri="+encodeURIComponent(thisUrl)
+								+"&response_type=code&scope=snsapi_userinfo&state=BindingWechat#wechat_redirect";
+		});
+		
+		var urlStateParam = getUrlParam("state");
+		//state 为BindingWechat，本页面的打开时先检测STATE参数，然后获取code，传递到后台获取用户信息
+		if(urlStateParam == "BindingWechat"){
+			var code = getUrlParam("code");
+			//获取用户信息
+			$.ajax({
+		        type: "post",
+		        dataType: "json",
+		        url: '/weixin/getUser',
+		        data:{
+		        	code:code
+		        },
+		        success: function (data) {
+		        	//alert(JSON.stringify(data));
+		        	//更新用户绑定微信账户的信息，并且更新用户在使用的设备的微信绑定信息；
+		        	var openid = data.openid;
+		        	var wechatName = data.nickname;
+		        	$("#profile_wechat").html(getLangStr("mobilelist_4")+wechatName+getLangStr("mobilelist_5"));
+		        	$.ajax({
+		    	        type: "post",
+		    	        dataType: "json",
+		    	        url: '/user/bindWechat',
+		    	        data:{
+	        				   openid:openid,
+	        				   wechatName:wechatName
+	        			   },
+		    	        success: function (data) {
+		    	        	if(data.code == 200){
+		    	        		alert(getLangStr("mobilelist_6"));
+		    	        	}else{
+		    	        		alert(getLangStr("mobilelist_7"));
+		    	        		$("#profile_wechat").html(getLangStr("mobilelist_8"));
+		    	        	}
+		    	        },
+		    	        error:function (XMLHttpRequest, textStatus, errorThrown) 
+		    	        { 
+		    	        	
+		    	       	} 
+		    	    });
+		        },
+		        error:function (XMLHttpRequest, textStatus, errorThrown) 
+		        { 
+		        	alert(getLangStr("mobilelist_9"));
+		       	} 
+		    });
+		}
+		
+		$.ajax({
+	        type: "post",
+	        dataType: "json",
+	        url: '/device/alllist',
+	        success: function (data) {
+	        	//TODO ajax
+	        	if(data.status == 0){
+	        		extractData(data.devicelist);
+	        		getTrFromData(data.devicelist);
+	        		
+	        		/* 初始化datatable */
+	        		initDatatable();
+	        		/*
+	        		var htmlText = buildDevcieHtml(addressMap);
+					$("#list_box_main").html(""); 
+					$("#list_box_main").append(htmlText);
+					*/
+					$("#total_number").html(data.devicelist.length);
+					$("#online_number").html(getLangStr("mobilelist_10")+" "+onlineNumber+" "+getLangStr("mobilelist_11"));
+					updateDeviceCss();
+					bindDeviceRowClick();
+					loadDistributionMap();
+					/* 清空cookie，为了realtime页区分扫码进入和登陆进入*/
+					removeLoading(); 
+	        	}else{
+	        		alert(getLangStr("mobilelist_12"));
+	        		removeLoading(); 
+	        	}
+	        },
+	        error:function (XMLHttpRequest, textStatus, errorThrown) 
+	        { 
+	        	//alert("加载设备列表失败:+textStatus");
+	       	} 
+	    });
+		
+		/*$("#online_number").click(function(){
+			alert("攻城狮正在努力开发[在线检测]功能中~");
+		});*/
+		
+		$(".add_device_btn").click(function(){
+			alert(getLangStr("mobilelist_13"));
+		});
+		
+		$("#search_input_main").bind('input propertychange',function(){
+			//隐藏地图
+			$("#map_box").hide();		
+			$("#total_number_line").hide();
+			$("#list_box_main").css("top",docHeight * 0.26);
+			$("#qrcode_bind_btn").css("top",docHeight * 0.22);
+			var filterKey = $("#search_input_main").val().trim();
+			var dataToShow = filterData(filterKey);
+			var htmlText = buildDevcieHtml(dataToShow);
+			$("#list_box_main").html(htmlText);
+			updateDeviceCss();
+			bindDeviceRowClick();
+		});
+		
+		$("#return_to_main_panel").click(hideSearchPanel);
+		$("#qrcode_bind_btn").click(function(){
+			/* $.ajax({
+		        type:"get",
+		        url:"/static/common/components/mobilealertOk.html",
+		        async: false,
+		        dataType:"html",
+		        success:function(result){
+		        	var replaceTxt = {"-title-":"您和此设备不在同一项目，无法关注","-ok-":"确定","-okfunc-":""};
+		        	if(replaceTxt){
+		        		var arr = Object.keys(replaceTxt);
+		                for(var i =0 ;i<arr.length;i++){
+		                    result = result.replace(new RegExp(arr[i],'gm'),replaceTxt[arr[i]]);
+		                }       
+		        	}
+					if($("#alertokBackground").length==0){
+						$("body").prepend(result);
+						$('.segment.alertok').dimmer('show');
+					}
+		        },
+		    	error:function(){
+				} 
+		    });*/
+			  wx.scanQRCode({
+			    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+			    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+			    success: function (res) {
+			    	var result = res.resultStr;
+			    	var token;
+			    	var deviceid;
+			    	if(result.indexOf("www.ibeem.cn") >= 0){
+			    		token = result.split("token=")[1];
+			    	}else{
+			    		token = result;
+			    	}
+			    	deviceid = token.split("%3c%3d%3d%3e")[0];
+			    	$.ajax({
+				        type: "post",
+				        dataType: "json",
+				        data:{
+				        	deviceID:deviceid
+	        			   },
+				        url: '/device/addAttention',
+				        success: function (data) {
+				        	if(data.messg==1){
+				        		alert(getLangStr("mobilelist_15"));
+				        	}else if(data.messg==2){
+				        		alert(getLangStr("mobilelist_16"));
+				        	}else if(data.messg==3){
+				        		alert(getLangStr("mobilelist_17"));
+				        		var timestamp = Date.parse(new Date());
+				            	timestamp = timestamp / 1000;
+					        	window.location.href="/weixin?url=mobile/list.jsp?timestamp="+timestamp;
+				        	}
+				        },
+				        error:function (data) 
+				        { 
+				        	alert(getLangStr("mobilelist_14"));
+				       	} 
+				    });
+				}
+			}); 
+			
+		});
+		
+		
+	});
+	function removeAlertOk(){
+		$('.segment.alertok').dimmer('hide');
+		setTimeout(function(){$(".segment.alertok").remove();},100);
+	}
+</script>
+</body>
+</html>

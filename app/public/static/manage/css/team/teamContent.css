@@ -1,0 +1,32 @@
+/* 布局 */
+.layout-left{float:left;}
+.layout-right{float:left;margin-left:1rem;}
+.div-group-base.message .div-content{height:22.9285rem;}
+.div-group-base.message .div-content .contentbox{position:relative;width:5.6428rem;height:5.6428rem;margin:0 auto;margin-top:2.5rem;}
+.div-group-base.message .div-content .span-title{display:block;width:32rem;margin:0 auto;margin-top:.5571rem;font-size: 1.2142rem;color: #737373;text-align:center;border:1px solid #47B390}
+.div-group-base.message .div-content .span-content{display:block;width:32rem;min-height:2rem;height:5.5rem;margin:0 auto;margin-top:1rem;font-size: 1rem;color: #737373;border:1px solid #47B390;text-align:center; resize : none;}
+.div-group-base.message .div-content .readonly{border:none;}
+.div-group-base.message .div-content .count{margin:0 auto;margin-top:1rem;text-align:center;}
+.div-group-base.message .div-content .count span{display:inline-block;text-align:center;min-width:11.0714rem;width:auto;max-height:8rem;line-height:1.8571rem;border-radius:.2857rem;box-shadow:none;border: 1px solid #47B390;background-color:white;color:#4A4A4A;padding:0 1rem;}
+.div-group-base.message .div-content .update{width:11.0714rem;height:1.8571rem;margin:0 auto;margin-top:1rem;}
+.div-group-base.message .div-content .update.readonly{display:none;}
+.div-group-base.message .div-content .update button{display:block;text-align:center;width:100%;line-height:1.8571rem;border-radius:.2857rem;box-shadow:none;border: 1px solid #47B390;background-color:#47B390;color:white;}
+.div-group-base.questionnaire{margin-top:1rem;}
+.div-group-base.questionnaire .div-content{height:16.3571rem;overflow:auto;}
+.div-group-base.questionnaire .div-content .ui.table{border-top:none;border-left:none;border-right:none;}
+.dissolve{min-width:6.4285rem;width:auto;height:1.8571rem;margin:0 auto;margin:1.9285rem 0;}
+.dissolve button{min-width:6.4285rem;padding:0 1rem;height:100%;border-radius:7.1428rem;box-shadow:none;border: 1px solid #47B390;background-color:white;color: #737373;}
+.div-group-base.map .div-content{height:38.9285rem; }
+.map-panel{height:19rem;;width:100%;margin:0 auto;}
+.map-panel .mapdata{height:19rem;width:100%;}
+.msg-table{width:100%;height:19.9285rem;overflow:auto;margin:0 auto}
+.msg-table table{width:80%; margin:0 auto;border-top:1px solid #979797;}
+.msg-table  tr{border-bottom:1px solid #979797;line-height:1.7142rem;}
+.msg-table  tr td{text-align:center;}
+.msg-table .total{text-align:right;padding-right:0.5rem;}
+#image_div.change-status{border:1px solid #47B391;border-radius:.2857rem;}
+#image_div.change-status.readonly{border:none;}
+
+.contentbox #file.readonly{cursor:default;}
+.contentbox #file{cursor:pointer;}
+

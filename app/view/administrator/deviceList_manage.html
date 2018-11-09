@@ -1,0 +1,323 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>设备列表页</title>
+<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="static/common/css/base.css" />
+    <link rel="stylesheet" href="static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="static/manage/css/deviceList.css" />
+    <link rel="stylesheet" href="static/manage/css/home.css">
+    <style>
+    	.item .deviceList{
+    		background:url("../static/manage/img/list.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.item.on .deviceList{
+    		background-image:url("../static/manage/img/listActive.png") ;
+    	}
+    	.item .addDevice{
+    		background:url("../static/manage/img/addDevice.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.item.on .addDevice{
+    		background-image:url("../static/manage/img/addDeviceActive.png") ;
+    	}
+    	.item .downloadData{
+    		background:url("../static/manage/img/download.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.item.on .downloadData{
+    		background-image:url("../static/manage/img/downloadActive.png") ;
+    	}
+    	.item .viewData{
+    		background:url("../static/manage/img/viewData.png") no-repeat left;
+    		background-size:1rem 1rem;
+    		padding-left:1.5rem;
+    	}
+    	.item.on .viewData{
+    		background-image:url("../static/manage/img/viewDataActive.png") ;
+    	}
+		.content{ padding-top:60px;padding-right:10px;}
+		.deviceNameTit {left: 6.5rem;}
+		.main .ui.inverted.icon.menu .item { margin-left:0;}
+		.contentbox .portraitForm input {width: 17rem;height: 8rem;}
+		.edit-btn-group { overflow:hidden;position: absolute;right: 2.5rem; top: 1rem;}
+		.edit-btn-group .edit{ position:static!important; margin-left:0.5rem;}
+		.edit-btn-group .edits{width: 3.2rem;height: 1.7rem;background: #47B390 100%;text-align: center;line-height: 1.7rem;border-radius: 2px;color: #fff;cursor: pointer;margin-left:0.5rem;}
+    	#example tr{border-bottom-color:#7c7c7c;}
+    	.ui.segment.attached{border-bottom:1px solid #7c7c7c;}
+    	.ui.grid>.column:not(.row), .ui.grid>.row>.column{padding-left: 0.5rem;padding-right: 0.5rem;}
+    	.ui.grid>.column:not(.row){padding-top:0.5rem}
+    	.ui.segment[class*="bottom attached"]{border-radius:0;}
+    	#example_wrapper .sixteen.wide.column{padding:0;}
+    	.ui.column.grid>[class*="ten wide"].column, .ui.grid>.column.row>[class*="ten wide"].column, .ui.grid>.row>[class*="ten wide"].column, .ui.grid>[class*="ten wide"].column {width: 65%!important;}
+    	.ui.grid>* {padding-left: 0.3rem;padding-right: 0.3rem;}
+    	.adddevice>.container{height:20rem;width:30rem;margin:0 auto;position:relative;}
+    	.adddevice>.container>.ui.form>.ui.header{color:white;border-bottom:1px solid white;font-size:1.4rem;}
+    	.adddevice>.container>.ui.form label{color:white;width:15%;font-size:1.05rem;}
+    	.adddevice>.container>.ui.form input{width:80%;}
+    	.adddevice>.container>.ui.form .ui.search.dropdown{width:80%;display:inline-block;}
+		.adddevice>.container>.addfromlibrary{width:10rem;height:2rem;background:#47b391;border:none;border-radius:.2857rem;position:absolute;left:50%;margin-left:-5rem;top:18rem;}
+		.adddevice>.container>.error{padding-top:.8rem;text-align:left;color:red;font-weight:700;}
+		.ui.basic.modal.adddevice>.close{position:fixed;top:-3rem;right:12rem;font-size:2rem;}
+		/* 用户列表  */
+		.addowner>.container{height:30rem;width:27rem;margin:0 auto;position:relative;}
+		.ui.basic.modal.addowner>.close{top:2rem;right:22rem;}
+		#loadingm{width:1.4285rem;height:1.4285rem;margin:.3571rem auto;}
+		.userListBox{
+            position:absolute;
+            left:0rem;
+            top:0rem;
+            width:100%;
+            height:100%;
+            border:1px solid #ccc;
+            color:#000;
+            border-radius:10px;
+            background:#fff;
+            text-align:center;
+        }
+        .userListBox .searchUser{border:1px solid #F0F0F0;border-radius:.5rem;padding-left:1rem;}
+        .userListBox .tit{
+			font-size: 1.2142rem;color: #737373;line-height:3.5rem;
+		}
+       .userListBox .ui.checkbox .box:after, .ui.checkbox label:after{
+       		position:absolute;
+       		line-height:1;
+       		width:17px;
+       		height:17px;
+       		left:0;
+            top:0;
+       		content:'';
+       		background:#47B390;
+       		border-radius:.25em;
+       		transition: background-color .3s ease,border .3s ease,box-shadow .3s ease;
+       		border:1px solid #d4d4d5;
+       		
+       }
+
+        .userListBox #box{
+        	overflow:auto;
+        	height:20rem;
+        	margin-top:.5rem;
+        }
+        .userListBox #boxSurvey{
+        	overflow:auto;
+        }
+        .userListBox ul{
+            padding:0;
+            width:100%;
+        }
+        .userListBox li{
+            padding-left:5rem;
+            height:2.5rem;
+            line-height:2.5rem;
+            background: #F2F2F2;
+            display:none
+        }
+        .userListBox li.show{display:block;}
+        .userListBox li .ui.checkbox{
+            margin-right:1rem;
+            margin-top:0.7rem;
+        }
+        .userListBox li span.fl{
+        	width:17rem;text-align:center;overflow:hidden;
+        }
+        .ui.button.confirmBtn{
+        	padding:0;position:absolute;bottom:1rem;left:50%;margin-left:-3.35rem;width:6.7rem;height:2rem;float:none;color:white;font-weight:400;border:none;text-align:center;background-color:#47B390;border-radius:7.1428rem;
+        }
+        #example tbody tr{cursor:auto;}
+	    #fileUpLoad{margin:30px;}
+		#UpLoadFileButton{margin-left:0;}
+		#dataTable tr:hover{cursor:pointer;color:#ffffff;background-color:rgba(71,179,145,0.9)}
+		.ui.modal.addbuilding-modal .container .bottom {height: 36rem!important;}
+		
+		#devicePagination{overflow:hidden; float:right;clear:both;}
+    	#devicePagination li{float:left;border:1px solid #cccccc; color:#999999; padding:4px 10px;border-radius:3px; margin-left:8px;cursor:pointer;}
+    	#devicePagination li.active{color:#ffffff;background-color:#47B391;}
+    	#devicePagination li.disable{display:none;}
+    	
+   	    #searck_input{padding:4px 8px; border:1px solid #cccccc; border-radius:3px;}
+      	#searck_ok{cursor:pointer;padding:4px 8px; display:inline-block; border-radius:3px; border:1px solid #cccccc; margin-left:8px; background-color:#ffffff;}
+ 
+    </style>
+</head>
+<body>
+<div class="ui basic test modal adddevice">
+	<i class="big green close icon"></i>
+	<div class="container">
+		<form class="ui form">
+		  <h4 class="ui dividing header">添加设备</h4>
+	      <div class="inline field">
+	      	 <label>id:</label>
+	         <input type="text" name="id" placeholder="请输入id" id='addDeviceId'>
+	      </div>
+	      <div class="inline field">
+	      	 <label>设备名:</label>
+	         <input type="text" name="devicename" placeholder="请输入设备名" id='addDeviceName'>
+	      </div>
+	      <div class="inline field">
+	      	 <label>mac:</label>
+	         <input type="text" name="mac" placeholder="请输入mac地址" id="addDeviceMac">
+	      </div>
+		  <div class="inline field">
+		      <label>类型:</label>
+		      <select class="ui search dropdown" id="addDeviceType">
+		        <option value="coclean">coclean</option>
+		        <option value="ibem">ibem</option>
+		      </select>
+		    </div>
+		</form>
+		<div class="error" id="addDeviceError"></div>
+		<button class="addfromlibrary" id="addDeviceButton">添加</button>
+	</div>
+</div>
+<div class="ui basic test modal addowner">
+	<i class="big green close icon"></i>
+	<div class="container">
+		<div class="userListBox" >
+            <div class="tit">用户列表</div>
+          	    <img src="/static/manage/img/team/loding.gif"  id="loadingm"/>  	
+            <input type="search" class="searchUser" placeholder="搜索..." id="searchUser">
+            <div class="box" id="box">  
+                <ul class="addDeviceList child" id="child">
+                     <!--<li class="clearfix">  
+                        <div class="ui checkbox fl">  
+                     <input type="checkbox" name="example">  
+                     <label></label>  
+                   </div>  
+                        <span class="fl">设备名</span>   
+                    </li>-->
+                </ul>  
+                <div class="progress" id="progress">  
+                    <div class="bar" id="bar"></div>  
+                </div>  
+            </div>  
+            <button class="ui button confirmBtn" id="confirmOwner">确定</button>  
+        </div>
+	</div>
+</div>
+
+<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu">
+           	<a class="item on">设备列表    </a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="fourteen wide" id="contentRight">
+                	<div class="deviceListTab contentTab on" >
+                		<!--设备列表  -->
+                		<div class="ui grid" id="deviceList">
+                			 <div class="sixteen wide column mainright">
+			                	<div class="tableBox" id="tableBox" ></div>
+			                	
+			                	<div id="devicePagination"></div>
+			                </div>
+                		</div>
+                	</div>
+                	<div class="contentTab"></div>
+                	<div class="contentTab downloadData" id="downloadData"></div>
+                	<div class="contentTab"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模板导入弹窗 -->
+<div class="ui modal small" id="buildUploadPopover">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    	导入设备
+	  </div>
+   	  <form id="fileUpLoad" enctype="multipart/form-data" class="inline fields">
+       	    <input type="file" name="building_file" />
+	  </form>
+	  <div class="actions">
+	    	<div class="ui red button" id="UpLoadFileButton" >提交</div>  
+	  </div>
+</div>
+
+ 	<script src="static/common/js/jquery.min.js"></script>
+ 	<script src="static/common/js/tools.js"></script>
+ 	<script>
+	    getComponent("/static/manage/components/leftpanel_manage.html",
+	  		function(result){
+	  			$(".fl.mainleft").html(result);
+	  			/*左侧导航的选中效果*/
+	  			$( ".leftmenu").click(function(){
+	  			    $(this).addClass("active").siblings(".leftmenu").removeClass("active");
+	  			});
+	  			/*添加active效果*/
+	  			$( ".leftmenu").each(function(){
+	  				$(this).removeClass("active");
+	  			});
+	  			$(".leftmenu.devicepage").addClass("active");
+	  			
+	  	});
+	  //获取浏览器包括滚动条在内的宽度
+	    window.getWidth= function(){  
+	      if(window.innerWidth!= undefined){  
+	          return window.innerWidth;  
+	      }  
+	      else{  
+	          var scrollWidth = getScrollWidth();
+	          return $(window).width()+scrollWidth;
+	      }  
+	    } 
+	    //获取浏览器滚动条宽度
+	    function getScrollWidth() {  
+	    var noScroll, scroll, oDiv = document.createElement("DIV");  
+	    oDiv.style.cssText = "position:absolute; top:-1000px; width:100px; height:100px; overflow:hidden;";
+	    noScroll = document.getElementsByTagName("body")[0].appendChild(oDiv).clientWidth;
+	    oDiv.style.overflowY = "scroll";
+	    scroll = oDiv.clientWidth;
+	    document.getElementsByTagName("body")[0].removeChild(oDiv);
+	    return noScroll-scroll;
+	    }
+	    //设置页面高度宽度
+	    function init(){
+	    	//初始化时，将右侧content高度设置为屏幕高度减导航栏高度
+	    	var window_height = $(window).height();
+	    	var window_width = window.getWidth();
+	    	var nav_height = $(".main .ui.inverted.menu").height();
+	    	//var content_height = window_height - nav_height;
+	    	//右侧content是absolute，距离上侧55px，直接减去55
+	    	$("#content").css("height",window_height-55);
+	    	//main的宽度是，屏幕宽度减去左侧导航栏宽度
+	    	$('#content').css("width",window_width-60);
+	    	$('.fl.main').css("width",window_width-60);
+//	    	$('.ui.grid').css("min-width",1200);
+	    }
+	    $(window).resize(function(){
+	    	/*动态设置内容区高度  */
+	    	init();
+	    });
+	    $(function(){
+	    	init();
+	    })
+    </script>
+    <script src="static/common/js/semantic.min.js"></script>
+    <script src="static/common/js/jquery.md5.js"></script>
+    <script src="static/common/js/jquery.dataTables.min.js"></script>
+    <script src="static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="static/manage/js/jquery.form.js"></script>
+    <script src="static/manage/js/inputFoucs.js"></script>
+    <script src="static/manage/js/customFrame.js"></script>
+    <script src="static/manage/js/deviceList_manage.js"></script>     
+</body>
+</html>

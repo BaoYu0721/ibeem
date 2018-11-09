@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
+<html style="font-size: 50px;">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title><spring:message code="mobileSurvey_survey" /></title>
+	<base href="<%=basePath%>" />
+	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="/static/mobile/css/mobileSurveyTree.css">
+
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="/static/common/js/semantic.min.js"></script>
+    <script src="/static/common/js/jquery.qrcode.min.js"></script>
+    <script src="/static/common/js/tools.js"></script> 
+</head>
+<body>
+<div class="ui basic test modal showqr">
+		<div class="container">
+			<i class="tiny green close icon"></i>
+			<div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
+		</div>
+	</div>
+<div class="container" style="width:90%;margin:0 auto;padding-top:1rem;">
+	<div class="ui left icon input">
+	  <input placeholder="<spring:message code="mobileSurvey_search" />" type="search" class="search" id="search">
+	  <i class="search icon"></i>
+	</div>
+	<div class="ui list" id="projectList">
+	</div>
+</div>
+	<script src="/static/mobile/js/mobileSurveyTree.js"></script>
+</body>
+</html>

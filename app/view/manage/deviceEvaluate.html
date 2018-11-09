@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>编辑设备评估</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <style>
+    	.ui.table tbody tr:hover{background:transparent;}
+        
+    	#deviceEvaluation{padding-top:1rem;padding-bottom:1rem;}
+    	.evaluation-content{background-color:white;width:100%;min-height:500px;padding-top:3.7rem;padding-bottom:3rem;}
+    	.evaluation-content>.content-box{width:90%;margin:0 auto;}
+    	.evaluation-content>.content-box .deviceid{font-size:1.8rem;text-align:left;color:black;}
+    	.evaluation-item{font-size:1.1rem;margin-bottom:1rem;}
+    	.evaluation-item>.title{font-size:1.3rem;font-weight:700;}
+    	.ui.table.widthauto{width:auto;}
+    	.ui.table.widthauto td{padding-left:2rem;padding-right:2rem;}
+    	#jzjs.evaluation-item>.ui.table.inputborder input{margin-left:1rem;}
+    	.ui.table.inputborder input{border:1px solid #F0F0F0;width:4rem;}
+    	.td-light{background-color:#f0f0f0;font-weight:700;}
+    	#save{font-size:1rem;width:100px;height:40px;border:none;background-color:#47b391;color:white;border-radius:.2857rem;}
+    	input{border:1px solid #F0F0F0;border-radius:.2857rem;padding:0 5px;width:10rem;}
+    </style>
+</head>
+<body>
+<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu">
+           	<a class="item on">修改评估参数</a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="fourteen wide" id="deviceEvaluation">
+                	<div class="evaluation-content">
+                		<div class="content-box">
+                			<div><span class="deviceid" id="deviceName"></span></div>
+                			<div class="ui divider" style="background:#979797;"></div>
+                			
+                			<div class="evaluation-item">
+                				<span class="title">IEQ</span>
+                				<!-- <table class="ui celled structured table">
+								  <thead>
+								    <tr>
+								      <th>IEQ</th>
+								      <th>热舒适度</th>
+								      <th>空气品质</th>
+								      <th>光环境</th>
+								      <th>声环境</th>
+								      <th>整体评价</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>本建筑</td>
+								      <td><input id="ieq_dqjz_rssd"></td>
+								      <td><input id="ieq_dqjz_iaq"></td>
+								      <td><input id="ieq_dqjz_ghj"></td>
+								      <td><input id="ieq_dqjz_shj"></td>
+								      <td><input id="ieq_dqjz_ztpj"></td>
+								    </tr>
+								    <tr>
+								      <td>同气候区建筑</td>
+								      <td><input id="ieq_bsjz_rssd"></td>
+								      <td><input id="ieq_bsjz_iaq"></td>
+								      <td><input id="ieq_bsjz_ghj"></td>
+								      <td><input id="ieq_bsjz_shj"></td>
+								      <td><input id="ieq_bsjz_ztpj"></td>
+								    </tr>
+								    <tr>
+								      <td>全国建筑</td>
+								      <td><input id="ieq_qgjz_rssd"></td>
+								      <td><input id="ieq_qgjz_iaq"></td>
+								      <td><input id="ieq_qgjz_ghj"></td>
+								      <td><input id="ieq_qgjz_shj"></td>
+								      <td><input id="ieq_qgjz_ztpj"></td>
+								    </tr>
+								  </tbody>
+								</table> -->
+								
+								<table class="ui celled structured table">
+								  <thead>
+								    <tr>
+								      <th>IEQ达标率</th>
+								      <th>热达标</th>
+								      <th>PM2.5达标</th>
+								      <th>CO2达标</th>
+								      <th>照度达标</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>本建筑</td>
+								      <td><input id="dbl_dqjz_rssd"></td>
+								      <td><input id="dbl_dqjz_iaq"></td>
+								      <td><input id="dbl_dqjz_ghj"></td>
+								      <td><input id="dbl_dqjz_shj"></td>
+								    </tr>
+								    <tr>
+								      <td>同气候区建筑</td>
+								      <td><input id="dbl_bsjz_rssd"></td>
+								      <td><input id="dbl_bsjz_iaq"></td>
+								      <td><input id="dbl_bsjz_ghj"></td>
+								      <td><input id="dbl_bsjz_shj"></td>
+								    </tr>
+								    <tr>
+								      <td>全国建筑</td>
+								      <td><input id="dbl_qgjz_rssd"></td>
+								      <td><input id="dbl_qgjz_iaq"></td>
+								      <td><input id="dbl_qgjz_ghj"></td>
+								      <td><input id="dbl_qgjz_shj"></td>
+								    </tr>
+								  </tbody>
+								</table>
+                			</div>
+                			<div class="evaluation-item">
+                				<span class="title">满意度</span>
+                				<table class="ui celled structured table">
+								  <thead>
+								    <tr>
+								      <th>满意度</th>
+								      <th>综合评价</th>
+								      <th>热环境</th>
+								      <th>空气品质</th>
+								      <th>光环境</th>
+								      <th>声环境</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td>本建筑</td>
+								      <td><input id="myd_dqjz_ztpj"></td>
+								      <td><input id="myd_dqjz_rssd"></td>
+								      <td><input id="myd_dqjz_iaq"></td>
+								      <td><input id="myd_dqjz_ghj"></td>
+								      <td><input id="myd_dqjz_shj"></td>
+								    </tr>
+								    <tr>
+								      <td>同气候区建筑</td>
+								      <td><input id="myd_bsjz_ztpj"></td>
+								      <td><input id="myd_bsjz_rssd"></td>
+								      <td><input id="myd_bsjz_iaq"></td>
+								      <td><input id="myd_bsjz_ghj"></td>
+								      <td><input id="myd_bsjz_shj"></td>
+								    </tr>
+								    <tr>
+								      <td>全国建筑</td>
+								      <td><input id="myd_qgjz_ztpj"></td>
+								      <td><input id="myd_qgjz_rssd"></td>
+								      <td><input id="myd_qgjz_iaq"></td>
+								      <td><input id="myd_qgjz_ghj"></td>
+								      <td><input id="myd_qgjz_shj"></td>
+								    </tr>
+								  </tbody>
+								</table>
+                			</div>
+                			<!-- <div class="evaluation-item" id="jzjs">
+                				<span class="title">建筑技术指标</span>
+                				<table class="ui celled structured table inputborder widthauto">
+								  <tbody>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>围护结构</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_whjg"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_whjg"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_whjg"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>通风空调</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_tfkt"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_tfkt"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_tfkt"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>供热</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_gr"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_gr"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_gr"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>供配电及照明</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_gpdjzm"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_gpdjzm"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_gpdjzm"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>生活热水</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_shrs"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_shrs"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_shrs"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>运行管理</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_yxgl"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_yxgl"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_yxgl"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>可再生能源</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_kzsny"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_kzsny"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_kzsny"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>给排水</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_gps"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_gps"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_gps"></td>
+								    </tr>
+								    <tr>
+								      <td><div class="ui checkbox">
+										  <input type="checkbox" name="example">
+										  <label>其他</label>
+										</div>
+									  </td>
+								      <td>本建筑<input id="jzjs_dqjz_qt"></td>
+								      <td>同气候区建筑<input id="jzjs_bsjz_qt"></td>
+								      <td>全国建筑<input id="jzjs_qgjz_qt"></td>
+								    </tr>
+								  </tbody>
+								</table>
+                			</div> -->
+							<!-- <div class="evaluation-item">
+                				<span class="title">建筑物性</span>
+                				<table class="ui celled structured table">
+								  <tbody>
+								    <tr>
+								      <td class="td-light">层数</td>
+								      <td colspan="2"><input id="jzwx_cs"></td>
+								    </tr>
+								    <tr>
+								      <td class="td-light">体形系数</td>
+								      <td colspan="2"><input id="jzwx_txxs"></td>
+								    </tr>
+								    <tr>
+								      <td class="td-light" rowspan="4">传热系数<br>（W/m2.k）</td>
+								      <td>外墙</td>
+								      <td><input id="jzwx_crxs_wq"></td>
+								    </tr>
+								    <tr>
+								      <td>屋面</td>
+								      <td><input id="jzwx_crxs_wm"></td>
+								    </tr>
+								    <tr>
+								      <td>采暖与非采暖的楼板</td>
+								      <td><input id="jzwx_crxs_cnyfcndlb"></td>
+								    </tr>
+								    <tr>
+								      <td>采暖与非采暖的隔墙</td>
+								      <td><input id="jzwx_crxs_cnyfcndgb"></td>
+								    </tr>
+								  </tbody>
+								</table>
+								
+								<table class="ui celled structured table">
+								  <tbody>
+								    <tr>
+								      <td class="td-light"></td>
+								      <td class="td-light">东</td>
+								      <td class="td-light">南</td>
+								      <td class="td-light">西</td>
+								      <td class="td-light">北</td>
+								    </tr>
+								    <tr>
+								      <td class="td-light">窗墙比</td>
+								      <td><input id="jzwx_cqb_d"></td>
+								      <td><input id="jzwx_cqb_n"></td>
+								      <td><input id="jzwx_cqb_x"></td>
+								      <td><input id="jzwx_cqb_b"></td>
+								    </tr>
+								     <tr>
+								      <td class="td-light">外窗传热系数</td>
+								      <td><input id="jzwx_wccrxs_d"></td>
+								      <td><input id="jzwx_wccrxs_n"></td>
+								      <td><input id="jzwx_wccrxs_x"></td>
+								      <td><input id="jzwx_wccrxs_b"></td>
+								    </tr>
+								  </tbody>
+								</table>
+								
+								<table class="ui celled structured table inputborder">
+								  <tbody>
+								    <tr>
+								      <td class="td-light">外墙传热系数</td>
+								      <td>低水平
+								      	<div class="ui checkbox" id="jzwx_wq_d_c"><input type="checkbox"></div>
+								      	<input id="jzwx_wq_d">	
+								      </td>
+								      <td>中等
+								      	<div class="ui checkbox" id="jzwx_wq_z_c"><input type="checkbox"></div>
+								      	<input id="jzwx_wq_z">
+								      </td>
+								      <td>高水平
+								      	<div class="ui checkbox" id="jzwx_wq_g_c"><input type="checkbox"></div>
+								      	<input id="jzwx_wq_g">	
+								      </td>
+								    </tr>
+								    <tr>
+								      <td class="td-light">屋面传热系数</td>
+								      <td>低水平
+								      	<div class="ui checkbox" id="jzwx_wm_d_c"><input type="checkbox"></div>
+								      	<input id="jzwx_wm_d">	
+								      </td>
+								      <td>中等
+								      	<div class="ui checkbox" id="jzwx_wm_z_c"><input type="checkbox"></div>
+								      	<input id="jzwx_wm_z">
+								      </td>
+								      <td>高水平
+								      	<div class="ui checkbox" id="jzwx_wm_g_c"><input type="checkbox"></div>
+								      	<input id="jzwx_wm_g">	
+								      </td>
+								    </tr>
+								    <tr>
+								      <td class="td-light">采暖与非采暖楼板传热系数</td>
+								      <td>低水平
+								      	<div class="ui checkbox" id="jzwx_lb_d_c"><input type="checkbox"></div>
+								      	<input id="jzwx_lb_d">	
+								      </td>
+								      <td>中等
+								      	<div class="ui checkbox" id="jzwx_lb_z_c"><input type="checkbox"></div>
+								      	<input id="jzwx_lb_z">
+								      </td>
+								      <td>高水平
+								      	<div class="ui checkbox" id="jzwx_lb_g_c"><input type="checkbox"></div>
+								      	<input id="jzwx_lb_g">	
+								      </td>
+								    </tr>
+								     <tr>
+								      <td class="td-light">采暖与非采暖隔墙传热系数</td>
+								      <td>低水平
+								      	<div class="ui checkbox" id="jzwx_gq_d_c"><input type="checkbox"></div>
+								      	<input id="jzwx_gq_d">	
+								      </td>
+								      <td>中等
+								      	<div class="ui checkbox" id="jzwx_gq_z_c"><input type="checkbox"></div>
+								      	<input id="jzwx_gq_z">
+								      </td>
+								      <td>高水平
+								      	<div class="ui checkbox" id="jzwx_gq_g_c"><input type="checkbox"></div>
+								      	<input id="jzwx_gq_g">	
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+                			</div>
+                			<div class="evaluation-item">
+                				<span class="title">能耗</span>
+                				<table class="ui celled structured table widthauto">
+								  <tbody>
+								    <tr>
+								    	<td class="td-light">单位面积能耗量</td><td><input id="nh_dwmjnhl"></td>
+								    	<td class="td-light">能耗量</td><td><input id="nh_nhl"></td>
+								    </tr>
+								  </tbody>
+								</table>
+                			</div> -->
+                			
+                			<button id="save">保存更改</button>
+						</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 	<script src="/public/static/common/js/jquery.min.js"></script>
+ 	<script src="/public/static/common/js/tools.js"></script>
+ 	<script>
+ 		$("#content").width($(window).width()-60);
+	    getComponent("/public/static/manage/components/leftpanel.html",
+	  		function(result){
+	  			$(".fl.mainleft").html(result);
+	  			/*左侧导航的选中效果*/
+	  			$( ".leftmenu").click(function(){
+	  			    $(this).addClass("active").siblings(".leftmenu").removeClass("active");
+	  			});
+	  			/*添加active效果*/
+	  			$( ".leftmenu").each(function(){
+	  				$(this).removeClass("active");
+	  			});
+	  			$(".leftmenu.devicepage").addClass("active");
+	  			
+	  	});
+	    
+   
+    </script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.md5.js"></script>
+    <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/manage/js/inputFoucs.js"></script>
+    <script src="/public/static/manage/js/home.js"></script>
+    <script src="/public/static/manage/js/deviceEvaluate.js"></script>
+</body>
+</html>

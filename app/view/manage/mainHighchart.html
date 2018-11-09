@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数据概览</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/public/static/manage/css/main.css">
+    
+	<!-- <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script> -->
+	<script src="/public/static/common/js/jquery.min.js"></script>
+	<script src="/public/static/common/js/jquery.cookie.js"></script>
+	<script src="/public/static/common/js/semantic.min.js"></script>
+	<script src="/public/static/common/js/tools.js"></script>
+</head>
+<body>
+<div class="clearfix" style="height:100%;">
+    <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
+            <a class="item on" style="margin-left:0;">数据概览</a>
+        </div>
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-map">
+                	<button class="top-button building">建筑</button>
+                	<button class="top-button point">测点</button>
+                	<button class="top-button survey">问卷</button>
+                	<!-- highmaps地图只需要一个div -->
+                	<div id="container"></div>
+                	<div id="drag"></div>
+<div id="drop"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/static/manage/js/team/teamCommon.js"></script>
+<script>
+//添加loading	
+addLoading();
+//去掉左侧导航栏active
+$("#team").removeClass("active");
+</script>
+<!-- 地图相关开始 -->
+	<!-- 地图基础文件 -->
+	<script src="https://img.hcharts.cn/highmaps/highmaps.js"></script>
+	<!-- 有下跳时需要引入 -->
+	 <script src="https://img.hcharts.cn/highcharts/modules/drilldown.js"></script> 
+	<!-- 应该是加高亮的 -->
+	<!-- <script src="https://img.hcharts.cn/highcharts/themes/grid-light.js"></script> -->
+	<!-- mappoint描点必须引入（经纬度转换成坐标） -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script> 
+	<!-- 引入后右上角出现导出按钮，可以进行导出打印等操作 -->
+	 <script src="https://code.highcharts.com/maps/modules/exporting.js"></script> 
+	<!-- data.js -->
+	<script src="https://img.hcharts.cn/highcharts/modules/data.js"></script>
+	<!-- 中国地图json文件 -->
+	<!-- <script src="https://data.jianshukeji.com/geochina/china.js"></script> -->
+	<!-- 欧洲地图json文件 -->
+	<!-- <script src="https://img.hcharts.cn/mapdata/custom/europe.js"></script> -->
+	<!-- 中国城市json信息 -->
+	<script src="https://img.hcharts.cn/mapdata/chinaCitys.js"></script>  
+	<!-- point地图初始化配置 -->	
+	<script src="/public/static/manage/js/myMapHighchart.js"></script>
+<!-- 地图相关结束 -->
+<!-- 获取数据，拼成data并调用myMap进行初始化 -->
+<script src="/public/static/manage/js/main.js"></script>
+
+</body>
+</html>

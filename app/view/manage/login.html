@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<title>登录</title>
+	<link rel="icon" href="/public/static/common/img/favicon.ico">
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
+    <link rel="stylesheet" href="/public/static/common/css/base.css">
+    <style>
+    	body{
+    		background:#4c4c4c;
+    	}
+    	.head{
+    		height:4rem;
+    	}
+    	.head .ui.top{
+    		background:#47b391;
+    		font-size:1.85rem;
+    	}
+    	.loginbox{
+    		width:25.3rem;
+    		margin:0 auto;
+    		
+    	}
+    	.ui.button.loginbtn{
+    		width:100%;
+    		background:#47b391;
+    		color:#fff;
+    		margin-top:1rem;
+    		margin-bottom:1rem;
+    		height:3.1rem;
+    	}
+    	.loginbox .name{
+    		margin:7.5rem 0 6.2rem;
+    		text-align:center;
+    		font-size:2rem;
+    		color:#fff;
+    	}
+    	.forgepassAndRegister a{
+    		color:#fff;
+    	}
+    	.ui.icon.menu .language{
+    		/* padding-left:1rem; */
+    		width:7rem;
+    		height:1.6rem;
+    		background:url("/public/static/manage/img/language.png") no-repeat right;
+    		background-size:1.6rem 1.6rem;
+    		position:absolute;
+    		right:1rem;
+    		top:50%;
+    		margin-top:-0.8rem;
+    		cursor:pointer;
+    	}
+    	.ui.icon.menu .language.en{width:7.5rem}
+    	.ui.icon.menu .language .menu{
+			position:absolute!important;
+			left:0rem;
+			top:2.4rem;
+			width:7rem;
+    	}
+    	.ui.icon.menu .language .menu a{
+			color:#333333;
+    	}
+    	.head .ui.menu{
+    		position:relative;
+    	}
+    	.copyright{
+    		position:absolute;bottom:1rem;left:0;width:100%;display:inline-block;text-align:center;color:white;font-size:.8rem;
+    	}
+    </style>
+</head>
+<body>
+	<div class="head">
+	    <div class="ui top demo horizontal inverted sidebar labeled icon menu visible">
+            <a class="item left  float">iBEM</a>
+            <div class="language ui dropdown">
+            <span style="color:rgba(255,255,255,.8);font-size:1rem;" id="language_switch">语言切换</span>
+            
+	             <div class="menu">
+					 <div class="item" data-value="language_ch"><a href="javascript:void(0)"><i class="china flag">中文</i></a></div>
+					 <div class="item" data-value="language_en"><a href="javascript:void(0)"><i class="us flag">English</i></a></div>
+				  </div>
+            </div>
+            
+            
+        </div>
+	</div>
+	<div class="main">
+		<div class="loginbox">
+			  <div class="name">iBEM</div>
+			  <form class="ui form">
+				  <div class="field">
+				    <input type="text" placeholder="用户名" id="username">
+				  </div>
+				  <div class="field">
+				    <input type="password" placeholder="密码" id="password">
+				  </div>
+				  <button class="ui button loginbtn" type="button" id="login-submit-btn">登录</button>
+			 </form>
+			<div class="ui divider"></div>
+			<div class="forgepassAndRegister">
+				<a href="user?item=forget_password" class="fl forgetPass">忘记密码</a>				
+				<a href="user?item=register" class="fr toRegister">注册账号</a>
+			</div>
+		</div>
+	</div>
+	<span class="copyright">Copyright © 2016 - <span id="copyright_year"></span> by Tsinghua Building Technology Co. All Rights Reserved. 京ICP备15040251号-1.</span>
+</body>
+<script src="/public/static/common/js/jquery.min.js"></script>
+<script src="/public/static/common/js/semantic.min.js"></script>
+<script src="/public/static/common/js/jquery.md5.js"></script>
+<script src="/public/static/common/js/jquery.cookie.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script src="/public/static/common/js/tools.js"></script>
+<script>
+	$(function(){
+		/* 在html尾端加入language.js ，拼接时间戳 */
+		function p(s) {
+		    return s < 10 ? '0' + s: s;
+		}
+		var myDate = new Date();
+		//获取当前年
+		var year=myDate.getFullYear();
+		$("#copyright_year").html(year);
+		//获取当前月
+		var month=myDate.getMonth()+1;
+		//获取当前日
+		var date=myDate.getDate(); 
+		var h=myDate.getHours();       //获取当前小时数(0-23)
+		var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+		var s=myDate.getSeconds();  
+		
+		var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s);
+		var langScript = $("<scri"+"pt>"+"</scr"+"ipt>").attr({src:"/public/static/manage/js/language.js?time="+now,type:'text/javascript',id:'load'}); 
+		$("html").append(langScript);   
+		
+		// 选择语言
+		$('.language.ui.dropdown').dropdown();
+		$(".dropdown>.menu>.item").click(function(){
+			if($(this).data("value")=="language_ch"){
+				window.localStorage.setItem("language","ch");
+				setLanguageCookie();
+				//window.location.href="/common/language?language=zh_CN";
+			}else if($(this).data("value")=="language_en"){
+				window.localStorage.setItem("language","en");
+				setLanguageCookie();
+				//window.location.href="/common/language?language=en";
+			}
+			setLanguage();
+		})
+		setLanguage();
+		/* 切换样式 */
+		if(window.localStorage.getItem("language")=="en"){
+			$(".ui.icon.menu>.language").addClass("en");	
+		}
+		$('#username').bind('keypress',function(event){  
+		    if(event.keyCode == "13")      
+		    {  
+		    	$('#password').focus();
+		    }  
+		});
+		$('#password').bind('keypress',function(event){  
+		    if(event.keyCode == "13")      
+		    {  
+		    	doLogin();
+		    }  
+		});
+		$("#login-submit-btn").click(function(){
+			doLogin();
+		});
+	});
+	function setLanguage(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: 'public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				$("title").html($.i18n.prop("login_title"));
+				$("#login-submit-btn").html($.i18n.prop("login_button"));
+				$(".fl.forgetPass").html($.i18n.prop("login_forget"));
+				$(".fr.toRegister").html($.i18n.prop("login_sigup"));
+			}
+		})
+	}
+	function doLogin(){
+		var username = $("#username").val();
+		var password;
+		password = $("#password").val();
+
+		// 正则验证
+		// var $reg_email = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		var $reg_name = /^\w+$/;
+		var $reg_password = /^\w{6,20}$/;
+		if(username==""){
+			alertokMsg(getLangStr("home_15"),getLangStr("alert_ok")); 
+			return false;
+		}else if(!$reg_name.test(username)){
+			alertokMsg(getLangStr("login_inputusername"),getLangStr("alert_ok")); 
+			return false;
+		}else if(password==""){
+			alertokMsg(getLangStr("home_18"),getLangStr("alert_ok"));
+			return false;
+		}else if(!$reg_password.test(password)){
+			alertokMsg(getLangStr("login_inputpassword"),getLangStr("alert_ok"));
+			return false;
+		}else{
+			
+			//password = $.md5(password);
+			$.ajax({
+		        type: "post",
+		        dataType: "json",
+		        url: '/user/login',
+		        data: {
+		        	"username":username,
+		        	"password":password
+				},
+		        success: function (data) {
+		        	if(data.status==0){
+						//alert("登录成功");
+		        		window.location.href="/"
+		        	}else{
+		        		var messgStr;
+		        		if(data.messg ==1){
+		        			var messgStr = getLangStr("login_messg1");
+		        		}else if(data.messg ==2){
+		        			var messgStr = getLangStr("login_messg2");
+		        		}
+		        		alertokMsg(messgStr,getLangStr("alert_ok"));
+		        	}
+	            	
+		        },
+		        error:function (data) 
+		        { 
+					console.log(data);
+		        	//alert("登录失败，请检查用户名和密码！");
+		        	alertokMsg(getLangStr("faild_signin"),getLangStr("alert_ok"));
+		          	//alert(textStatus);
+		        } 
+		    });
+		}
+	}
+</script>
+</html>

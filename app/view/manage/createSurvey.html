@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="/public/static/common/img/favicon.ico">
+<title>管理页面</title>
+<!-- Bootstrap core CSS -->
+<link href="/public/static/common/css/bootstrap.min.css" rel="stylesheet">
+<link href="/public/static/common/css/jquery.range.css" rel="stylesheet">
+<!-- Website common CSS -->
+<link href="/public/static/manage/css/style.css" rel="stylesheet">
+<link href="/public/static/manage/css/dashboard.css" rel="stylesheet">
+<link href="/public/static/manage/css/createSurvey.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">IBEEM</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="page/index">首页</a></li>
+					<li><a href="page/devicelist">数据</a></li>
+					<li class="active"><a href="page/teamManage">管理</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li id="login-btn" class="hidden"><a href="#" data-toggle="modal" data-target="#loginModal">登录</a></li>
+					<li id="user-profile" class="dropdown"><a id="user-name" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span
+							class="caret"
+						></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">个人设置</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a id="logout-submit-btn" href="#">退出系统</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li><a href="page/homeManage"><span style="margin-right: 10px" class="glyphicon glyphicon-home" aria-hidden="true"></span>
+						<spring:message code="link.home" /></a></li>
+					<li><a href="page/teamManage"><span style="margin-right: 10px" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<spring:message code="link.usermanage" /></a></li>
+					<li><a href="page/deviceManage"><span style="margin-right: 10px" class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+						<spring:message code="link.devicemanage" /></a></li>
+					<li class="active"><a href="page/surveyManage"><span style="margin-right: 10px" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+						<spring:message code="link.surveymanage" /></a></li>
+					<li><a href="page/helpPage"><span style="margin-right: 10px" class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+						<spring:message code="link.help" /></a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div class="container-fluid">
+					<a href="page/surveyManage" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回问卷管理
+					</a>
+				</div>
+				<div class="container-fluid" style="margin-top: 30px; max-width: 1000px; background: #f8f8f8">
+					<div id="questionlist">
+						<div class="form-group">
+							<h3 contenteditable="true" style="text-align: center;" id="surveytitle">编辑问卷题目</h3>
+						</div>
+						<div class="form-group">
+							<p contenteditable="true" id="surveyintro">问卷描述</p>
+						</div>
+						<hr />
+					</div>
+					<div class="form-group">
+						<div class="container-fluid">
+							<div class="col-md-2">
+								<button href="createSurvey" type="button" class="btn btn-default" onclick="addQuestion('填空题')">
+									<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 填空题
+								</button>
+							</div>
+							<div class="col-md-2">
+								<button href="createSurvey" type="button" class="btn btn-default" onclick="addQuestion('单选题')">
+									<span class="glyphicon glyphicon-record" aria-hidden="true"></span> 单选题
+								</button>
+							</div>
+							<div class="col-md-2">
+								<button href="createSurvey" type="button" class="btn btn-default" onclick="addQuestion('多选题')">
+									<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span> 多选题
+								</button>
+							</div>
+							<div class="col-md-2">
+								<button href="createSurvey" type="button" class="btn btn-default" onclick="addQuestion('滑动题')">
+									<img src="/public/static/img/slider.png" width="16" height="16"> 滑动题
+								</button>
+							</div>
+							<div class="col-md-2">
+								<button href="createSurvey" type="button" class="btn btn-default" onclick="addQuestion('点列题')">
+									<img src="/public/static/img/slider.png" width="16" height="16"> 点列题
+								</button>
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="col-md-12">
+						<button class="btn btn-success btn-block" onclick="publish()">发布</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<!-- template-->
+		<!-- 填空题 -->
+		<div id="tiankong-temp" class="template question">
+			<div class="form-group">
+				<p>
+					<label class="checkbox-inline">填空题</label> <label class="checkbox-inline"> <input type="checkbox" class="requiredCheck"> 必答题
+					</label> <label class="checkbox-inline delete"><a class="deleteButton text-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除</a></label> <label class="checkbox-inline delete"><a
+						class="editButton"
+					>完成</a></label>
+				</p>
+				<label>题目描述</label> <input type="text" class="title form-control">
+			</div>
+			<hr />
+		</div>
+		<!-- 编辑之后的填空题 -->
+		<div id="tiankong-edited-temp" class="template">
+			<div class="form-group">
+				<p class="edittool">
+					<label class="checkbox-inline delete"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">编辑</a></label>
+				</p>
+				<label class="editedtitle"></label> <input type="text" class="fillblank">
+			</div>
+			<hr />
+		</div>
+		<!-- 填空题 -->
+		<!-- 选择题 -->
+		<div id="danxuan-temp" class="template question">
+			<div class="form-group">
+				<p>
+					<label class="checkbox-inline">单选题</label> <label class="checkbox-inline"> <input type="checkbox" class="requiredCheck"> 必答题
+					</label> <label class="checkbox-inline"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">完成</a></label>
+				</p>
+				<label>题目描述</label> <input type="text" class="form-control title">
+			</div>
+			<!-- 选择项 -->
+			<div class="options"></div>
+			<!-- 选择项结束 -->
+			<hr>
+		</div>
+		<!-- 选择题结束 -->
+		<!-- -->
+		<div class="container-fluid template" id="danxuan-option-template">
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text" class="form-control input-sm optioninput">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<a type="button" class="btn btn-success btn-xs addoption" onclick="addOption(this);"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</a> <a type="button" class="btn btn-danger btn-xs deleteOption" onclick="deleteOption(this)"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- -->
+		<!-- 选择题编辑之后 -->
+		<div id="danxuan-edited-temp" class="template">
+			<div class="form-group">
+				<p class="edittool">
+					<label class="checkbox-inline delete"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">编辑</a></label>
+				</p>
+				<label class="editedtitle"></label>
+			</div>
+			<!-- 选择项 -->
+			<div class="container-fluid options"></div>
+			<!-- 选择项结束 -->
+			<hr>
+		</div>
+		<!-- 选择题结束 -->
+		<!-- 选项 -->
+		<div id="danxuan-radio-template-edited" class="radio template">
+			<label class="radiolabel"> <input type="radio">
+			</label>
+		</div>
+		<!--选项结束-->
+		<!-- 选择题 -->
+		<div id="duoxuan-temp" class="template question">
+			<div class="form-group">
+				<p>
+					<label class="checkbox-inline">单选题</label> <label class="checkbox-inline"> <input type="checkbox" class="requiredCheck"> 必答题
+					</label> <label class="checkbox-inline"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">完成</a></label>
+				</p>
+				<label>题目描述</label> <input type="text" class="form-control title">
+			</div>
+			<!-- 选择项 -->
+			<div class="options"></div>
+			<!-- 选择项结束 -->
+			<hr>
+		</div>
+		<!-- 选择题结束 -->
+		<!-- -->
+		<div class="container-fluid template question" id="duoxuan-option-template">
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text" class="form-control input-sm optioninput">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<a type="button" class="btn btn-success btn-xs addoption" onclick="addOption(this);"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</a> <a type="button" class="btn btn-danger btn-xs deleteOption" onclick="deleteOption(this)"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- -->
+		<!-- 选择题编辑之后 -->
+		<div id="duoxuan-edited-temp" class="template">
+			<div class="form-group">
+				<p class="edittool">
+					<label class="checkbox-inline delete"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">编辑</a></label>
+				</p>
+				<label class="editedtitle"></label>
+			</div>
+			<!-- 选择项 -->
+			<div class="container-fluid options"></div>
+			<!-- 选择项结束 -->
+			<hr>
+		</div>
+		<!-- 选择题结束 -->
+		<!-- 选项 -->
+		<div id="duoxuan-radio-template-edited" class="checkbox template">
+			<label class="radiolabel"> <input type="checkbox">
+			</label>
+		</div>
+		<!--选项结束-->
+		<!-- 滑动题开始-->
+		<div id="huadong-temp" class="template question">
+			<div class="form-group">
+				<p>
+					<label class="checkbox-inline">滑动题</label> <label class="checkbox-inline"> <input type="checkbox" class="requiredCheck"> 必答题
+					</label> <label class="checkbox-inline"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton" href="javascript:edit()">完成</a></label>
+				</p>
+				<label>题目描述</label> <input type="text" class="title form-control input-sm">
+			</div>
+			<div class="container-fluid">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>左坐标</label> <input type="text" class="left-axis form-control input-sm">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>右坐标</label> <input type="text" class="right-axis form-control input-sm">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>滑动范围</label> <input type="text" class="range form-control input-sm">
+					</div>
+				</div>
+			</div>
+			<hr />
+		</div>
+		<!-- 滑动题结束 -->
+		<!--滑动题已经编辑好-->
+		<div id="huadong-temp-edited" class="template">
+			<div class="form-group">
+				<p class="edittool">
+					<label class="checkbox-inline delete"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">编辑</a></label>
+				</p>
+				<label class="editedtitle"></label>
+			</div>
+			<div class="container-fluid">
+				<div class="col-md-12">
+					<input type="hidden" class="slider-input" value="23" />
+				</div>
+				<div class="col-md-12" style="width: 640px; margin-top: 30px">
+					<label class="left-axis">左坐标</label> <label class="right-axis pull-right">右坐标</label> <label class="range hidden"></label>
+				</div>
+			</div>
+			<hr />
+		</div>
+		<!-- 滑动题已经编辑好-->
+		<!-- 点阵题开始-->
+		<div id="dianzhen-temp" class="template question">
+			<div class="form-group">
+				<p>
+					<label class="checkbox-inline">点阵题</label> <label class="checkbox-inline"> <input type="checkbox" class="requiredCheck"> 必答题
+					</label> <label class="checkbox-inline"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton" href="javascript:edit()">完成</a></label>
+				</p>
+				<label>题目描述</label> <input type="text" class="title form-control input-sm">
+			</div>
+			<div class="container-fluid">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>左坐标</label> <input type="text" class="left-axis form-control input-sm">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>右坐标</label> <input type="text" class="right-axis form-control input-sm">
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>选择个数</label> <input type="text" class="range form-control input-sm">
+					</div>
+				</div>
+			</div>
+			<hr />
+		</div>
+		<!-- 滑动题结束 -->
+		<!--滑动题已经编辑好-->
+		<div id="dianzhen-temp-edited" class="template">
+			<div class="form-group">
+				<p class="edittool">
+					<label class="checkbox-inline delete"><a class="deleteButton">删除</a></label> <label class="checkbox-inline delete"><a class="editButton">编辑</a></label>
+				</p>
+				<label class="editedtitle"></label>
+			</div>
+			<div class="container-fluid">
+				<div class="col-md-12">
+					<form class="form-inline dianzhen-dian" style="width: 600px"></form>
+				</div>
+				<div class="col-md-12" style="width: 640px; margin-top: 30px">
+					<label class="left-axis">左坐标</label> <label class="right-axis pull-right">右坐标</label> <label class="range hidden"></label>
+				</div>
+			</div>
+			<hr />
+		</div>
+	</div>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/public/static/common/js/jquery.min.js"></script>
+	<script src="/public/static/common/js/jquery.cookie.js"></script>
+	<script src="/public/static/common/js/jquery.md5.js"></script>
+	<script src="/public/static/common/js/bootstrap.min.js"></script>
+	<script src="/public/static/common/js/jquery.range.js"></script>
+	<!-- js for team -->
+	<script src="/public/static/manage/js/user.js"></script>
+	<script src="/public/static/manage/js/addSurvey.js"></script>
+</body>
+</html>

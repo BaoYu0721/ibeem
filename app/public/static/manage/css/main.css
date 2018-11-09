@@ -1,0 +1,65 @@
+.ui.grid>.column:not(.row){padding:0;background-color:white;}
+.highcharts-legend-item.highcharts-series-0{display:none;}
+.highcharts-legend-item.highcharts-series-1{display:none;}
+.highcharts-legend-item.highcharts-series-2{display:none;}
+.highcharts-legend-item.highcharts-series-3{display:none;}
+.highcharts-legend-item.highcharts-series-4{display:none;}
+.highcharts-legend-item.highcharts-series-5{display:none;}
+.highcharts-legend-item.highcharts-series-6{display:none;}
+
+.content{position:relative;}
+.ui.grid>.column:not(.row).content-map{background-color:#f0f0f0;}
+.top-button{position:absolute;top:1rem;width:5rem;height:2rem;border:1px solid #666666;border-radius:.2857rem;z-index:1000;background-color:white;}
+.top-button.active{background-color:#666666;color:white;}
+.top-button.building{left:50%;margin-left:-10.1428rem;}
+.top-button.point{left:50%;margin-left:-4.6428rem;}
+.top-button.survey{left:50%;margin-left:.8571rem;}
+
+/* 图表部分 */
+.chart-in-map{width:23rem;height:14.3rem;position:absolute;z-index:100;}
+#chart_top_left{top:0.5rem;left:0.5rem;}
+#chart_bottom_left{bottom:0.5rem;left:0.5rem;}
+#chart_medium_left{top:50%;margin-top:-7.15rem;left:0.5rem;}
+/* table部分 */
+.map_list_div{width:34rem;;height:23rem;position:absolute;z-index:100;top:3rem;left:50%;margin-left:-19.1428rem;}
+#map_list{height:100%;width:100%;}
+#map_list td.redirecttd{padding:0;}
+#map_list td.redirecttd a{display:inline-block;padding:0 0.8rem;line-height:2.4rem;width:100%;}
+.ui.pagination.menu  .paginate_button.previous{width:4rem;}
+.ui.pagination.menu  .paginate_button.next{width:4rem;}
+/* 右上角计数 */
+.countNum{position:absolute;z-index:101;top:1rem;right:1rem;font-size:2rem;color:#666666;}
+/* 右下角切换 */
+.ui.toggle.checkbox.mytoggle{position:absolute;z-index:101;width:9.5rem;bottom:1rem;right:1rem;min-height:2.5rem;line-height:2.4rem;font-size:1.2rem;}
+.ui.toggle.checkbox.mytoggle.en{width:11.5rem;}
+.ui.toggle.checkbox.mytoggle label{padding-left:2.8rem;color:darkgrey;}
+.ui.toggle.checkbox.mytoggle label:before{width:9.5rem;height:2.5rem;}
+.ui.toggle.checkbox.mytoggle.en label:before{width:11.5rem;height:2.5rem;}
+.ui.toggle.checkbox.mytoggle label:after{width:2.5rem;height:2.5rem;}
+.ui.toggle.checkbox.mytoggle input[type=checkbox]:checked~label:after{left:7rem;}
+.ui.toggle.checkbox.mytoggle.en input[type=checkbox]:checked~label:after{left:9rem;}
+.ui.toggle.checkbox.mytoggle input[type=checkbox]:checked~label:before{background-color:#47b391;}
+.toogle-tip{display:block;line-height:2.5rem;color:white;float:left;margin-top:-2.5rem;z-index:150;position:absolute;padding-left:0.5rem}
+.toogle-tip.hidden{display:none;}
+/* 过滤部分 */
+#filter{position:absolute;z-index:101;top:5rem;right:1rem;margin:0;width:14.57142rem;;height:auto;text-align:center;letter-spacing:2px;}
+#filter>.menu{max-width:12rem;}
+#filter>.text{text-align:center;width:100%;}
+#filter .item .left.dropdown.icon{margin-right:0;}
+#filter_menu>.item>.menu{overflow-y:auto;max-height:20rem;}
+.filter_confirm{width:11.6rem;height:2.78562rem;font-size:1.2142rem;border:2px solid #47B390;border-radius:.2857rem;background-color:white;color:#666666;position:absolute;top:10rem;right:1rem;z-index:100;}
+.filter_confirm:hover{-webkit-box-shadow: 0px 2px 20px rgba(0,0,0,0.25);  
+  -moz-box-shadow: 0px 2px 20px rgba(0,0,0,0.25);  
+  box-shadow: 0px 2px 20px rgba(0,0,0,0.25);  }
+#filter .item .left.dropdown.icon+.text, .ui.dropdown .left.menu .item .dropdown.icon+.text{}  
+ 
+/* #chart_top_left>.highcharts-container >svg>rect:hover{-webkit-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  
+  -moz-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  }
+#chart_bottom_left:hover{-webkit-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  
+  -moz-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  }
+#chart_bottom_right:hover{-webkit-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  
+  -moz-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.25);  } */
+

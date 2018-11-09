@@ -1,0 +1,636 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>建筑性能数据库</title>
+	<link href="/static/common/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/static/manage/css/green.css" rel="stylesheet" type="text/css">
+	
+	<!-- 下拉列表样式 end -->
+	<link rel="stylesheet" type="text/css" href="/static/manage/css/bpd/bpd.css" />
+	<link rel="stylesheet" type="text/css" href="/static/manage/css/bpd/color.css" />
+	<script src="/static/common/js/jquery.min.js"></script>
+	<script src="/static/common/js/bootstrap.min.js"></script>
+	<script src="/static/common/js/jquery.cookie.js"></script>
+	<script src="/static/manage/js/icheck.min.js"></script>
+	<script src="/static/manage/js/bpd/common.js"></script>
+	<script src="/static/manage/js/bpd/bpd.js"></script>
+	<!--[if lte IE 9]>
+		<script src="/static/common/js/respond.1.4.2.min.js"></script>
+		<script src="/static/common/js/html5shiv.min.js"></script>
+	<![endif]-->
+	<style>
+		.loading{margin-bottom:20px;}
+		.main_box{padding-top:10px;}
+		
+	</style>
+</head>
+
+<body>
+<div class="logo_nav"><a href="/buildings" title="新增建筑">新增建筑</a><img src="/static/manage/img/logo_w_update.png"><a href="/bpd" title="建筑图表">建筑图表</a></div>
+<div class="main_nav">
+	<!-- <div class="logo"><img src="/static/manage/img/logo_w.png"></div> -->
+	<div class="num">已筛选：1024条</div>
+	<div class="res_check" id="res_check">
+		<ul>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true"></span>
+					<span>基本信息</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select">
+					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_1">建筑名称：上海申都大厦改造工程<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">星级：三星级<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">气候区：夏热冬冷<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">建筑类型：办公<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">排风热回收：暂无数据<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">ER达标：暂无数据<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">照明目标值：暂无数据<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1">蓄冷蓄热：暂无数据<i>&times;</i></span>
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true"></span>
+					<span>关键设计指标 </span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select">
+					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_2">星级：三星级<i>&times;</i></span>
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true"></span>
+					<span>节能措施</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select">
+					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_3">星级：三星级<i>&times;</i></span>
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true" style="visibility:hidden;"></span>
+					<span>室内环境措施</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select">
+					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_4">星级：三星级<i>&times;</i></span>
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true" style="visibility:hidden;"></span>
+					<span>室内环境参数设计</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select">
+					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_5">星级：三星级<i>&times;</i></span>
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true" style="visibility:hidden;"></span>
+					<span>节水设计</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select">
+					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_6">星级：三星级<i>&times;</i></span>
+				</div>
+			</li>	
+		</ul>
+	</div>
+</div>
+<!-- Modal_1 -->
+<div class="modal fade" id="myModal_1" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">基本信息</h4>
+      </div>
+      <div class="modal-body modal-list">
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+		    			<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>  
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="test_line">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 		      		
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_1 -->
+<!-- Modal_2 -->
+<div class="modal fade" id="myModal_2" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">关键设计指标</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      	</div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_2 -->
+<!-- Modal_3 -->
+<div class="modal fade" id="myModal_3" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">节能措施</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_3 -->
+<!-- Modal_4 -->
+<div class="modal fade" id="myModal_4" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">室内环境措施</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_4 -->
+<!-- Modal_5 -->
+<div class="modal fade" id="myModal_5" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">室内环境参数设计</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_5 -->
+<!-- Modal_6 -->
+<div class="modal fade" id="myModal_6" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">节水设计</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox" name="aaa">
+      					<label>基本信息：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bbb">
+							<label>radio 1</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_6 -->
+<!-- main_box_a -->
+<div class="main_box">
+	<div class="main_box_container">
+		<div class="item_nav">
+			<ul id="itemStyle">
+				<li data-style="1">图文模式</li>
+				<li data-style="2">列表模式</li>
+				<li class="active"  data-style="3">地图模式</li>
+			</ul>
+		</div>
+		<div id="container"></div>
+	</div>
+</div>
+<!-- // main_box_a -->
+<script src="/static/manage/js/team/selectCity.js"></script>
+<!-- 地图相关开始 -->
+	<!-- 图表基础文件 -->
+	<!-- <script src="/static/common/js/plotly.min.js"></script> -->
+	<!-- 地图基础文件 -->
+	<script src="/static/common/js/highmaps.js"></script> 
+	
+	
+	<!-- 有下跳时需要引入 -->
+	<!-- <script src="https://img.hcharts.cn/highcharts/modules/drilldown.js"></script> -->
+	<!-- 应该是加高亮的 -->
+	<!-- <script src="https://img.hcharts.cn/highcharts/themes/grid-light.js"></script> -->
+	<!-- mappoint描点必须引入（经纬度转换成坐标） -->
+	<script src="/static/common/js/proj4.js"></script> 
+	<!-- 引入后右上角出现导出按钮，可以进行导出打印等操作 -->
+	<!-- <script src="https://code.highcharts.com/maps/modules/exporting.js"></script> -->
+	<!-- data.js -->
+	<script src="/static/common/js/highchartdata.js"></script>
+	<!-- hicharts插件 -->
+	<script src="/static/common/js/highcharts-zh_CN.js"></script>
+	<!-- 中国地图json文件 -->
+	<script src="/static/common/js/jianshuChina.js"></script>
+	<!-- 欧洲地图json文件 -->
+	<!-- <script src="https://img.hcharts.cn/mapdata/custom/europe.js"></script> -->
+	<!-- 中国城市json信息 -->
+	<!-- <script src="https://img.hcharts.cn/mapdata/chinaCitys.js"></script> -->
+	<!-- point地图初始化配置 -->	
+	<!-- <script src="/static/manage/js/myMapHighchart.js"></script> -->
+	<!-- <script src="/static/manage/js/myChartHighchart.js"></script>  -->
+<!-- 地图相关结束 -->
+<script src="/static/manage/js/bpd/bpd_map.js"></script>
+</body>
+</html>

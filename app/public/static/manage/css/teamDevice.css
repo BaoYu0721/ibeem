@@ -1,0 +1,475 @@
+ /* 宸︿笂瑙掓爣棰樻枃瀛� */
+.teamTitleTit{
+       		font-size:1.3rem;
+       		position:absolute;
+       		left:-25px;
+       		width:15rem;
+       		top:0rem;
+       		color:#47b391;
+       		text-align:center;
+       }
+.teamTitleTit a{width:100%;text-align:center;}
+
+/* 涓婃柟tab鏍峰紡 */
+#topmenu .item{margin-left:8.9285rem;}       
+#topmenu{
+	position:relative;
+}
+.five.wide.column,.ten.wide.column{
+	margin-left:0.5rem;
+} 
+.contentbox .portraitForm{
+	width:27%;
+	height:8.2rem;
+} 
+ *{
+            margin:0;
+            padding:0;
+        }
+        body,html{
+            font-size:14px;
+        }
+        .fl{
+            float:left;
+        }
+        .fr{
+            flaot:right;
+        }
+        li{
+            list-style:none;
+        }
+        .clearfix:after{
+            content:'';
+            display:block;
+            clear: both;
+        }
+        .actionBtnBox{
+            width:22.5rem;
+            height:1.6rem;
+            line-height:1.6rem;
+            border:1px solid #ccc;
+            border-radius:10px;
+            float:right;
+            margin-right:2rem;
+        }
+        .actionBtnBox-2{
+            height:1.6rem;
+            line-height:1.6rem;
+            float:right;
+        }
+        .actionBtnBox-2 .btn-act{
+        	padding:0 0.7rem;
+            border:1px solid #ccc;
+            box-sizing: border-box;
+            text-align:center;
+            margin-right:0.2rem;
+            font-size:1rem;
+            cursor:pointer;
+            background:#fff;
+            border-radius:10px;
+        }
+        .actionBtnBox .actionBtn{
+            width:25%;
+            border-right:1px solid #ccc;
+            box-sizing: border-box;
+            text-align:center;
+            font-size:1rem;
+            cursor:pointer;
+            background:#fff;
+        }
+        .actionBtnBox .actionBtn.on{
+            background:#47b391;
+            color:#fff;
+        }
+        .actionBtnBox .actionBtn.relieveBtn{
+            border:none;
+        }
+        .addDevice{
+            position:relative;
+        }
+        .addDevice .addDeviceListBox{
+            position:absolute;
+            left:-8rem;
+            top:2rem;
+            width:27rem;
+            /* height:22rem; */
+            border:1px solid #ccc;
+            display:none;
+            color:#000;
+            border-radius:10px;
+            background:#fff;
+            z-index:10;
+        }
+        .addDevice .addDeviceListBox ul{
+            padding:0;
+            width:100%;
+        }
+        .addDevice .addDeviceListBox li{
+            padding-left:5rem;
+            height:2.5rem;
+            line-height:2.5rem;
+            background: #F2F2F2;
+        }
+        .addDevice .addDeviceListBox li .ui.checkbox{
+            margin-right:5rem;
+            margin-top:0.7rem;
+        }
+        .addDevice.on  .addDeviceListBox{
+           /*  display:block; */
+            color:#000;
+        }
+        .addDevice{
+            border-radius:10px 0 0 10px;
+        }
+        .relieveBtn{
+            border-radius:0 10px 10px 0;
+        }
+        .confirmBtn{
+            background: #47B390;
+            border-radius: 100px;
+            width:6.7rem;
+            height:1.7rem;
+            text-align:center;
+            line-height:1.7rem;
+            color:#fff;
+            margin:1rem auto;
+            position
+        }
+        .addDeviceListBox .tit{
+            font-weight:bold;
+            line-height:2rem;
+        }
+        .box{
+            position: relative;
+            margin-bottom:1rem;
+            overflow: hidden;
+        }
+        .child{
+            position: absolute;
+        }
+        .progress{
+            position: absolute;
+            right:0;
+            top:0;
+            width:10px;
+            height:15rem;
+            background: #D8D8D8;
+        }
+        .bar{
+            position: absolute;
+            top:0;
+            left:0;
+            background: #47B390;
+            border-radius: 2px;
+            width:100%;
+            height:10%;
+        }
+        .addDeviceList  .ui.checkbox .box:after,
+    	.addDeviceList  .ui.checkbox label:after{
+    		content:'';
+    		background:#47b391;
+    		border-radius:4px;
+    	}
+    	
+    	.ui.checkbox .box:before, .ui.checkbox label:before{
+    		width:16px;
+    		height:16px;
+    	}
+    	
+    	 /*设备列表页  */
+    	 table.dataTable.table thead th.sorting, table.dataTable.table thead th.sorting_asc, table.dataTable.table thead th.sorting_desc, table.dataTable.table thead td.sorting, table.dataTable.table thead td.sorting_asc, table.dataTable.table thead td.sorting_desc{
+    	 
+    	 	text-align:center;
+    	 	padding-right:0;
+    	 	padding-left:0;
+    	 	white-space:nowrap;
+    	 	overflow:hidden;
+    	 }
+    	 .ui.compact.table td{
+    	 	white-space:nowrap;
+    	 	overflow:hidden;
+    	 	text-overflow:ellipsis;
+    	 }
+    	 .ui.compact.table td.normalColumn,table.dataTable.table thead .normalColumn.sorting, table.dataTable.table thead .normalColumn.sorting_asc, table.dataTable.table thead .normalColumn.sorting_desc, table.dataTable.table thead td.sorting, table.dataTable.table thead td.sorting_asc, table.dataTable.table thead td.sorting_desc{
+    	 	width:15%;
+    	 	max-width:94px;
+    	 }
+    	 .ui.compact.table td.firstColumn,table.dataTable.table thead .firstColumn.sorting, table.dataTable.table thead .firstColumn.sorting_asc, table.dataTable.table thead .firstColumn.sorting_desc, table.dataTable.table thead td.sorting, table.dataTable.table thead td.sorting_asc, table.dataTable.table thead td.sorting_desc{
+    	 	width:2%;
+    	 }
+    	  .ui.compact.table td.smallColumn,table.dataTable.table thead .smallColumn.sorting, table.dataTable.table thead .smallColumn.sorting_asc, table.dataTable.table thead .smallColumn.sorting_desc, table.dataTable.table thead td.sorting, table.dataTable.table thead td.sorting_asc, table.dataTable.table thead td.sorting_desc{
+    	 	width:8%;
+    	 }
+    	  .ui.compact.table td.addressColumn,table.dataTable.table thead .addressColumn.sorting, table.dataTable.table thead .addressColumn.sorting_asc, table.dataTable.table thead .addressColumn.sorting_desc, table.dataTable.table thead td.sorting, table.dataTable.table thead td.sorting_asc, table.dataTable.table thead td.sorting_desc{
+    	 	width:25%;
+    	 	
+    	 	max-width:100px;
+    	 }
+    	 /*表头排序图标  */
+    	 .caret.down,.caret.up{
+    	 	display:block;
+    	 }
+    	 .sorting_desc .sortArrow .caret.down{
+    	 	display:none;
+    	 }
+    	 .sorting_desc .sortArrow, .sorting_asc .sortArrow {
+    	 	margin-top:0.4rem;
+    	 
+    	 }
+    	 .sorting_asc .sortArrow .caret.up{
+    	 	display:none;
+    	 }
+    	 .sortArrow{
+    		position:absolute;
+    		right:-3px;
+    		top:10px;
+    		margin-top:0.2rem;
+    	}
+    	.sortArrow p{
+    		margin-top:0;
+    		
+    	}
+    	.sortArrow i.icon{
+    		line-height:0.5rem;
+    		margin:0;
+    		height:0.5rem;
+    		cursor:pointer;
+    		display:block;
+    	}
+    	 
+    	.ui.grid>.column:not(.row){
+    		padding:0.5rem;
+    	}
+    	/*设备信息页面  */
+    	#device_list_map{
+    		overflow:hidden;
+    	}
+    	.deviceInfoTab .infobox{
+    		margin:0;
+    		height:46rem;
+    		padding-top:2rem;
+    		width:100%;
+    	}
+    	.contentbox ul .portraitBox{
+    		height:8rem;
+    		margin:0;
+    		
+    	}
+    	.deviceInfoTab .contentbox ul{
+    		padding-left:0;
+    	}
+    	.deviceInfoTab .infobox .contentbox{
+    		width:90%;
+    	}
+    	.deviceInfoTab .ui.divider{
+    		background:#979797;
+    	}
+    	.deviceInfoTab .contentbox .left{
+    		width:7.8rem;
+    		text-align:left;
+    	}
+    	.contentbox .devicename{
+    		font-size:1.8rem;
+    		text-align:left;
+    	}
+    	.deviceInfoTab .edit{
+    		top:2.4rem;
+    	}
+    	.deviceImg .imgBox , .deviceImg .uploadImgStyle{
+    		width:27%;
+    		height:8.2rem;
+    		border-radius:0;
+    		margin-right:2rem;
+    		background: #F2F2F2;
+			border: 1px solid #47B390;
+			overflow:hidden;
+    	}
+    	.deviceImg img{
+    		width:100%;
+    		height:8.2rem;
+    	}
+    	.contentbox ul .portraitBox{
+    		margin-bottom:2rem;
+    	}
+    	.deviceInfoTab .ecode{
+    		margin:0;
+    		width:6rem;
+    	}
+    	.deviceInfoTab .ecode img{
+    		margin:0;
+    	}
+    	.deviceImg .uploadImgStyle{
+    		position:absolute;
+    		left:0; 
+    		top:0;
+    	}
+    	.deviceInfoTab .portraitForm{
+    		width:14rem;
+    		height:8.2rem;
+    		margin-right:2rem;
+    		display:block;
+    		position:relative;
+    	}
+    	.deviceInfoTab .contentbox .portraitForm input{
+    		width:14rem;
+    		height:8.2rem;
+    		border-radius:0;
+    		margin-right:2rem;
+    		border:1px solid #979797;
+    	}
+    	.cir{
+    		width:3.6rem;
+    		height:3.6rem;
+    		border: 2px solid #47B390;
+    		text-align:center;
+    		line-height:3rem;
+    		font-size:2rem;
+    		position:absolute;
+    		left:50%;
+    		top:50%;
+    		margin-left:-1.8rem;
+    		margin-top:-1.8rem;
+    		border-radius:50%;
+    		color:#47B390;
+    	}
+    	.deviceInfoTab .myform input{
+    		width:20rem;
+    	}
+    	.imgBox{
+    		position:relative;
+    	}
+    	.trash{
+    		position:absolute; 
+    		right:0;
+    		top:0.5rem;
+    		cursor:pointer;
+    	}
+    	.staticValue  .trash{
+    		display:none;
+    	}
+    	.dynamicValue  .trash{
+    		display:block;
+    	}
+    	.contentTab{
+    		display:none;
+    	}
+    	.contentTab.on{
+    		display:block;
+    	}
+    	#deviceInfo{
+    		display:none;
+    	}
+    	#deviceInfo .infobox{
+    		margin-left:0;
+    		margin-top:0;
+    		height:auto;
+    	}
+    	#deviceInfo .infobox .contentbox{
+    		width:90%;
+    		
+    	}
+    	#deviceInfo  .contentbox ul{
+    		padding-left:0;
+    	}
+    	#deviceInfo .contentbox .left{
+    		width:7.8rem;
+    		text-align:left;
+    	}
+  /*   	#deviceInfo .ecode{
+    		margin-left:0;
+    		width:4.7rem;
+    		height:4.7rem;
+    	} */
+    	#example tbody tr td:nth-child(2){
+    		cursor:pointer;
+    	}
+    	i.icon.caret.down:before,i.icon.caret.up:before{
+    		content:'';
+    	}
+    	#downloadData .mainleft{
+    		border:1px solid #ccc;
+    	}
+    	/*日历  */
+    	 #startTime input,#endTime input{
+	     	font-size:0.8rem;
+	     }
+    	.calendar {
+    		width:28rem;
+    		height:20rem;
+    		position:absolute;
+    		top:2rem; 
+    		left:2rem;
+    		z-index:10;
+    	}
+    	.calendar .date{
+    		
+    		height:1.35rem;
+    	}
+    	.calendar .date input{
+    		width:8rem;
+    		height:1.5rem;
+    		background:#fff;
+    		padding:0.1rem;
+    	}
+    	.calendarBox{
+    		position:relative;
+    	}
+    	.input-group-addon{
+    		width:0.1rem;
+    		height:0.1rem;
+    		opacity:0;
+    		padding:0;
+    	}
+    	.datetimepicker.datetimepicker-dropdown-bottom-right.dropdown-menu{
+    		left:56%;
+    		top:38%;
+    	}
+    	.params{
+    		margin-top:2.3rem;
+    		margin-bottom:4rem;
+    	}
+    	.downloadtit{
+    		font-size:1.3rem;
+	       	color:#171717;
+	       	padding-left:29px;
+	       	padding-bottom:0;
+	       	margin-bottom:2rem;
+    	}
+    	.ui.vertical.menu .item:not(.dropdown)>.menu>.item{
+    		padding:1.5rem 1.5rem;
+    	}
+    	.ui.vertical.menu .item:not(.dropdown)>.menu{
+    		margin:0;
+    	}
+    	#submenu .item{
+    		line-height:0;
+    	}
+    	#submenu .item .icon{
+    		margin-top:-0.5rem;
+    	}
+    	#submenu .item.projectlist{
+    		margin-top:1.5rem;
+    		margin-bottom:1.5rem;
+    	
+    	}
+    	.line{
+    		width:100%;
+    		height:1px;
+    		background:#ccc;
+    	}
+    	.infobox{
+    		width:100%;
+    	}
+    	.contentbox .portraitForm input{
+    		width:100%;
+    		height:8.2rem;
+    	}
+    	#loadingm{
+    		width:20px;
+    		height:20px;
+    		margin:5px auto;
+    	}
+    	
+    	#submenu .item{
+    		margin-top:0;
+    	}

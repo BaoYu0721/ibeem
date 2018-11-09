@@ -1,0 +1,139 @@
+<div class="question zx on" id="-id-_question" data-mustanswer="">
+	<div class="question-title">
+		<span class="order-index">-orderindex-</span>、<span class="span_title"></span>
+	</div>
+	<div class="question-content">
+		<div class="ui form option">
+			<table style="width:100%;" id="zx_content">
+			<tr>
+				<td style="width:12rem;" class="left-title-1"></td>
+				<td width="5rem;">0</td>
+				<td style="padding-left:2rem;padding-right:2rem;"><div id="slider-range-max"></div></td>
+				<td width="5rem;">10</td>
+				<td style="width:8rem;text-align:right;" class="right-title-1"></td>
+			</tr>
+			
+			<tr>
+				<td style="width:12rem;" class="left-title-2"></td>
+				<td width="5rem;">0</td>
+				<td style="padding-left:2rem;padding-right:2rem;"><div id="slider-range-max-1"></div></td>
+				<td width="5rem;">10</td>
+			</tr>
+			</table>
+			
+			<script>
+  $(function() {
+	  $("#-id-_question #slider-range-max" ).slider({
+	      range: "max",
+	      min: 1,
+	      max: 10,
+	      step:1,
+	      value: 1
+	    });
+	    $("#-id-_question #slider-range-max-1" ).slider({
+	      range: "max",
+	      min: 1,
+	      max: 10,
+	      value: 1
+	    });
+	  });
+  </script>
+		</div>
+		<div class="ui divider question-remove question-yl"></div>
+		<div class="button-group question-remove question-yl" data-index="-id-">
+			<button class="ui button editquestion on"></button>
+			<button class="ui button deletequestion"></button>
+			<button class="ui button orderupquestion"></button>
+			<button class="ui button orderdownquestion"></button>
+			<button class="ui button ordertopquestion"></button>
+			<button class="ui button orderbottomquestion"></button>
+		</div>
+		<div class="edit-container question-yl">
+			<div style="float: left; width: 50%; margin-top: 1.2857rem">
+				<table class="ui celled table title titletable">
+					<thead>
+						<tr>
+							<th class="th_title"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><textarea class="question_title" placeholder=""
+									rows="" cols=""></textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div
+				style="float: left; width: 50%; margin-top: 1.2857rem; padding: .3571rem .7857rem">
+				<span id="this_question_type"></span><span id="this_question_type_value"></span>
+				<br/>
+				<div class="ui checkbox" id="mustAnswer" style="margin-top:0.5rem;">
+					<input type="checkbox" name="answer" class="hidden">
+					<label style="font-size:1rem;" id="must_text"></label>
+				</div>
+			</div>
+			<div style="clear: both"></div>
+			<table class="ui celled table optiontable" id="option_list">
+				<thead>
+					<tr>
+						<th style="text-align: center" class="th1"></th>
+						<th style="text-align: center;width:20%;" class="th2"></th>
+						<th style="text-align: center;" class="th3"></th>
+						<th style="text-align: center;" class="th4"></th>
+						<th style="text-align: center;" class="th5"></th>
+						<th style="text-align: center;width:25%;" class="th6"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="tr-option">
+						<td><input class="td1" placeholder="" type="text" name="left-title" /></td>
+						<td><div class="ui checkbox" id="allow_right_title_input">
+							<input type="checkbox" name="allow-right-title" class="hidden">
+							<label></label>
+						</div><input class="td2"  placeholder="" type="text" name="right-title" style="width:70%;" readonly/></td>
+						<td><input class="td3"  placeholder="" type="text" name="min" /></td>
+						<td><input class="td4"  placeholder="" type="text" name="max" /></td>
+						<td><input class="td5"  placeholder="" type="text" name="step" /></td>
+						<td><i class="link add circle icon"
+							onclick="addZXOptionAfter(this)"></i> <i
+							class="link minus circle icon" onclick="deleteOption(this)"></i>
+							<i class="link arrow circle up icon"
+							onclick="orderUpOption(this)"></i> <i
+							class="link arrow circle down icon"
+							onclick="orderDownOption(this)"></i></td>
+					</tr>
+					<tr class="tr-option">
+						<td><input class="td1" placeholder="" type="text" name="left-title" /></td>
+						<td><div class="ui checkbox" id="allow_right_title_input">
+							<input type="checkbox" name="allow-right-title" class="hidden">
+							<label></label>
+						</div><input class="td2" placeholder="" type="text" name="right-title" style="width:70%;" readonly/></td>
+						<td><input class="td3" placeholder="" type="text" name="min" /></td>
+						<td><input class="td4" placeholder="" type="text" name="max" /></td>
+						<td><input class="td5" placeholder="" type="text" name="step" /></td>
+						<td><i class="link add circle icon"
+							onclick="addZXOptionAfter(this)"></i> <i
+							class="link minus circle icon" onclick="deleteOption(this)"></i>
+							<i class="link arrow circle up icon"
+							onclick="orderUpOption(this)"></i> <i
+							class="link arrow circle down icon"
+							onclick="orderDownOption(this)"></i></td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: left;"><a  id="add_option"
+							href="javascript:void(0)" onclick="addZXOption(this)"></a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="error">
+				<h4 class="ui red header"></h4>
+			</div>
+			<button class="editover" data-index="-id-"></button>
+		</div>
+	</div>
+	<script>
+	putTextFromLanguage_zx("-id-_question");
+	</script>
+</div>
+

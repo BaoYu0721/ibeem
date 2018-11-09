@@ -1,0 +1,137 @@
+body{
+ 		background:#4c4c4c;
+ 	}
+.head{
+ 		height:4rem;
+ 	}
+ 	.head .ui.top{
+ 		background:#47b391;
+ 		font-size:1.85rem;
+ 	}
+ 	.loginbox{
+ 		width:25.3rem;
+ 		margin:0 auto;
+ 		
+ 	}
+ 	.ui.button.loginbtn{
+ 		width:100%;
+ 		background:#47b391;
+ 		color:#fff;
+ 		margin-top:1rem;
+ 		margin-bottom:1rem;
+ 		height:3.1rem;
+ 	}
+ 	.loginbox .name{
+ 		margin:7.5rem 0 6.2rem;
+ 		text-align:center;
+ 		font-size:2rem;
+ 		color:#fff;
+ 	}
+ 	.forgepassAndRegister a{
+ 		color:#fff;
+ 	}
+   	.ui.icon.menu .language{
+   		width:1.6rem;
+   		height:1.6rem;
+   		background:url("/public/static/manage/img/language.png") no-repeat center;
+   		background-size:1.6rem 1.6rem;
+   		position:absolute;
+   		right:1rem;
+   		top:50%;
+   		margin-top:-0.8rem;
+   		cursor:pointer;
+   	}
+   	.ui.icon.menu .language .menu{
+		position:absolute!important;
+		left:-4rem;
+		top:2.4rem;
+   	}
+   	.ui.icon.menu .language .menu a{
+			color:#333333;
+    	}
+ 	.head .ui.menu{
+ 		position:relative;
+ 	}
+ 	.button{
+ 		width:12rem;
+ 		height:3.1rem;
+ 		letter-spacing:7px;
+ 		font-size:1.2rem;
+ 		color:#fff;
+ 		line-height:3.1rem;
+text-align:center;
+cursor:pointer;
+margin-bottom:5rem;
+ 	}
+ 	.register-btn{
+ 		background: #47B390;
+border-radius: 4px;
+ 	}
+ 	.return-btn{
+ 		background: #7E7E7E;
+border-radius: 4px;
+
+ 	}
+ 	.tit{
+font-size: 1.2rem;
+color: #DADADA;
+margin:2rem 0 2.9rem 0;
+ 	}
+ 	.upload{
+ 		position:relative;
+ 		width:8.4rem;
+ 		height:8.4rem;
+ 		margin-bottom:1.5rem;
+ 	}
+ 	.upload input{
+ 		width:8.4rem;
+ 		height:8.4rem;
+ 		background: #FFFFFF;
+border: 1px solid #DADADA;
+border-radius: 4px;
+opacity:0;
+position:absolute;
+left:0;
+top:0;
+z-index:10;
+ 	}
+ 	.upload .upload-img-style{
+ 		width:8.4rem;
+ 		height:8.4rem;
+ 		background:#fff url("../img/addPortrait.png") no-repeat  center 2rem;
+ 		background-size:3.2rem 3.2rem;
+ 		position:absolute;
+ 		left:0;
+ 		top:0;
+ 		text-align:center;
+ 		line-height:12rem;
+ 		color:#737373;
+ 	}
+ 	.portraitForm img{
+  	width:8.4rem;
+  	height:8.4rem;
+  	position:absolute;
+  	left:0;
+  	top:0;
+  	/* border:1px solid #DADADA; */
+  	/* display:none; */
+  }
+  .warning{
+  	float:left;
+  	font-size:1rem;
+  	color:red;
+  	font-weight:bold;
+  }
+  .ui.form .field, .ui.form .fields .field{
+  	margin:0 0 1.5rem;
+  	position:relative;
+  }
+  .required{position:absolute; right:-24px; font-size:24px; top:6px; color:#ffffff;}
+  .portraitForm .warning{
+  	position:absolute; 
+  	left:0;
+  	bottom:-1.3rem;
+  }
+  .loginbox .name{
+  	font-size:1rem;
+  }

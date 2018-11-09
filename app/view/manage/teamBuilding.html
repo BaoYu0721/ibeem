@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>项目建筑</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamBuilding.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+    
+    <!--地图渲染的核心文件 必须引用  -->
+	<script src="/public/static/common/js/highmap/highmaps.js"></script>
+	<!--地图数据拼接及解析的核心文件 必须引用  --> 
+	<script src="/public/static/common/js/data.js"></script>
+	<!--地图 展开明细的核心插件，若需要点击显示省市则需要引用，反之则不需要引用  -->
+	<script src="/public/static/common/js/drilldown.js"></script>
+	<!--中国地图主要省会的坐标及相关数据插件 必须引用  -->
+	<script src="/public/static/common/js/cn-china.js"></script>
+	
+	<script src="/public/static/common/js/exporting.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/proj4js/2.2.2/proj4.js"></script>
+	<!-- 所有地图数据详情见：https://img.hcharts.cn/mapdata/index.html -->
+	<script src="//img.hcharts.cn/mapdata/countries/gb/gb-all.js"></script>
+    <script src="/public/static/manage/js/team/map.js" ></script>
+    <style>
+	#fileUpLoad{margin:30px;}
+	#UpLoadFileButton{margin-left:0;}
+	#dataTable tr:hover{cursor:pointer;color:#ffffff;background-color:rgba(71,179,145,0.9)}
+	</style>
+	<script>
+	$(function(){
+		$("#selectType").change(function(){
+			if($(this).val()==1){
+				$(".type_ibeem").show();
+			}else if($(this).val()==2){
+				$(".type_ibeem").hide();
+			}
+		});
+	})
+	</script>
+</head>
+<body >
+<div class="ui basic test modal addbuilding-modal">
+	 
+	<i class="green close icon"></i>
+		<div class="container">
+			
+			<div class="top">
+				<span>添加建筑</span>
+			</div>
+			<div class="bottom">
+				<div class="addbuilding" >
+                		<div class="ui form">
+						  <div class="field name">
+						    <input type="text" name="team-name"  id="addname" placeholder="建筑名称">
+						  </div>
+						   <table width="100%" cellpadding="10" class="select">  Select province
+						  	<tr>  
+					            <td class="title-td">建筑格式</td>  
+					            <td class="select-td"><select id="selectType">  
+					                    <option value="1" selected>IBEEM</option>  
+					                    <option value="2">TOP</option>  
+					            </select></td>  
+					        </tr> 
+						 
+					        <tr class="type_ibeem">  
+					            <td class="title-td">省份选择</td>  
+					            <td class="select-td"><select id="selectProvince">  
+					                    <option value="-1" disabled selected>省份选择</option>  
+					            </select></td>  
+					        </tr>  
+					        <tr class="type_ibeem">  
+					            <td class="title-td">城市选择</td>  
+					            <td class="select-td"><select id="selectCity">  
+					                    <option value="-1" disabled selected>城市选择</option>  
+					            </select></td>  
+					        </tr>  
+					        <tr class="type_ibeem">  
+					            <td class="title-td">气候区选择</td>  
+					            <td class="select-td"><select id="selectQhq">  
+					                    <option value="严寒">严寒</option>
+					                    <option value="寒冷">寒冷</option>
+					                    <option value="夏热冬暖">夏热冬暖</option>
+					                    <option value="夏热冬冷">夏热冬冷</option>  
+					                    <option value="温和">温和</option>
+					            </select></td>  
+					        </tr>  
+					        <tr class="type_ibeem">  
+					            <td class="title-td">类型选择</td>  
+					            <td class="select-td"><select id="selectClass">  
+					                    <option value="1">公共建筑</option>
+					                    <option value="2">居住建筑</option>
+					            </select></td>  
+					        </tr>  
+					    </table>  
+						</div>
+						
+						  <div class="error"><h4 class="ui red header"></h4></div>
+						  <button class="ui button" id="submit" >创建</button>
+                	</div>
+			</div>
+		</div>
+	</div>
+<div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item on" href=<%="?project_name=" + project_name + "&item=building"%>>项目建筑</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=device"%>>项目设备</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=survey"%>>项目问卷</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=member"%>>项目成员</a>
+            <a class="teamTitleTit" href=<%="?project_name=" + project_name%> style="display:block;"></a>
+        </div>
+            
+        <!--内容区--> 
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="buildinglist">
+                		<div class="ui grid">
+	                		<div class="nine wide column mainright">
+			                	<div class="div-group-base table questionnaire" id="questionnaire">
+			                		<div class="title">
+			                			<span class="title-content">项目建筑列表</span>
+			                			<div class="delete">
+											<button id="deleteBuilding">删除建筑</button>
+										</div>
+										<div class="add">
+											<button id="addBuilding">添加建筑</button>
+										</div>
+										<div class="upload">
+											<button id="uploadBuilding">模板导入</button>
+										</div>
+			                		</div>
+			                		<div class="div-content">		
+			                			<table class="ui striped table" >
+										  <thead >
+										    <tr>
+										      <th width="1rem"></th>
+										      <th>建筑名称</th>
+										      <th>所在城市</th>
+										    </tr>
+										  </thead>
+										  <tbody id="dataTable">
+										  
+										  </tbody>
+										</table>
+			                		</div>
+			                	</div>
+		                	</div>
+		                	<div class="seven wide column mainright">
+		                		<div class="div-group-base map" id="map">
+			                		<div class="title">
+			                			<span class="title-content">地理分布</span>
+			                		</div>
+			                		<div class="div-content">
+			                			<div class="map-panel">
+			                				<div class="mapdata" id="container"></div>
+			                			</div>
+			                		</div>
+			                	</div>
+		                	</div>
+	                	</div>	
+                	</div>
+                	
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模板导入弹窗 -->
+<div class="ui modal small" id="buildUploadPopover">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    	模板导入
+	  </div>
+   	  <form id="fileUpLoad" enctype="multipart/form-data" class="inline fields">
+		   	 <div class="field">
+			      <label>建筑类型</label>
+			      <div class="ui selection dropdown" id="selectBuildingClass">
+				        <input type="hidden" name="gender" id="buildingClass">
+				        <div class="default text">建筑类型</div>
+				        <i class="dropdown icon"></i>
+				        <div class="menu">
+				          	<div class="item" data-value="1">IBEEM公共建筑</div>
+				          	<div class="item" data-value="2">IBEEM居住建筑</div>
+				          	<div class="item" data-value="3">TOP</div>
+				        </div>
+			      </div>
+		    </div>
+			
+		   <div class="ui form" style="width:240px;display:none;" id="topBuildingName">
+		   		<br />
+				  <div class="field name">
+				     <input type="text" name="team-name" placeholder="<spring:message code="building.name" />">
+				  </div>
+		  </div>
+   	  		<br />
+   	  		<br />
+       	    <input type="file" name="building_file" id="building_file" />
+       	    <p style="margin-top:10px;font-size:12px;">
+	       	    <a href="http://www.ibeem.cn/file/doc/gg_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">IBEEM公共建筑模板下载</a>&nbsp;&nbsp;
+	       	    <a href="http://www.ibeem.cn/file/doc/jz_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">IBEEM居住建筑模板下载</a>&nbsp;&nbsp;
+	       	    <a href="http://www.ibeem.cn/file/doc/top_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">TOP格式模板下载</a>
+       	    </p>
+	  </form>
+	  <div class="actions">
+	    	<div class="ui button" id="UpLoadFileButton" >提交 </div>  
+	  </div>
+</div>
+
+<script src="/public/static/manage/js/team/teamCommon.js"></script>
+<script src="/public/static/manage/js/team/teamBuilding.js"></script>
+<!-- 选择城市 -->
+<script src="/public/static/manage/js/team/selectCity.js"></script>
+</body>
+</html>

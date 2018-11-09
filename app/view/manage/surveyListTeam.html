@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>项目问卷列表</title>
+<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+     <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+     <link rel="stylesheet" href="/public/static/manage/css/team/surveyList.css">
+    
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/excellentexport.min.js"></script>
+    <script type="text/javascript" src="/public/static/common/js/jquery.qrcode.min.js"></script>
+    <!-- 全局工具脚本-->
+    <script src="/public/static/common/js/tools.js"></script>
+</head>
+<body >
+<div class="ui basic test modal showqr">
+	
+	<i class="green close icon"></i>
+		<div class="container">
+		<div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
+			<button id="downloadqr"><spring:message code="surveyListDevice.downloadqr" /></button>
+		</div>
+	</div>
+<div class="ui basic test modal export">
+	<i class="green close icon"></i>
+	<div class="container">
+	<span class="export-title"><spring:message code="surveyListDevice.select" /></span>
+		<span class="starttime-span"><spring:message code="surveyListDevice.starttime" /></span>
+		<input id="startTime" class="some_class starttime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
+		<span class="endtime-span"><spring:message code="surveyListDevice.endtime" /></span>
+		<input id="endTime" class="some_class endtime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
+		<a download="surveyExport.xls" class="export-button" id="exportExcel" href="javascript:void(0)"><spring:message code="surveyListDevice.downloadexcel" /></a>
+	</div>
+</div>
+<table id="exceltable" style="display:none;"></table>
+<div class="ui basic test modal addteam-modal">
+	<i class="green close icon"></i>
+		<div class="container">
+			<div class="bindListBox">
+ 	           <span  class="tit"><spring:message code="surveyListTeam.surveylisttitle" /></span>  
+ 	           <input type="search" class="search" placeholder="<spring:message code="surveyListDevice.search" />.." id="search"><br>
+ 	           <!-- <img src="/static/manage/img/team/loding.gif"  id="loadingm"/> -->
+ 	           <div class="box" id="box">  
+ 	              <ul class="bindList child" id="child">  
+ 	              </ul>  
+ 	        	</div>
+ 	        <button class="ui button confirmBtn" id="confirmBtn"><spring:message code="survey.ok" /> </button>  
+ 	       </div>
+		</div>
+	</div>
+ <div class="clearfix" style="height:100%;" >
+     <div class="fl mainleft"></div>
+    <div class="fl main">
+        <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building"%>>项目建筑</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=device"%>>项目设备</a>
+            <a class="item on" href=<%="?project_name=" + project_name + "&item=survey"%>>项目问卷</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=member"%>>项目成员</a>
+            <a class="teamTitleTit" href=<%="?project_name=" + project_name%> style="display:block;"></a>
+        </div>
+        <div class="content" id="content">
+            <div class="ui grid">
+                <div class="sixteen wide column content-team" >
+                	<div class="surveylist">
+                		<div class="div-group-base table questionnaire datatables" id="pointlist">
+                		<div class="title">
+                			<span class="title-content">问卷列表</span>							
+							<div class="survey-button">
+								<button id="bindSurvey">绑定答卷</button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyReport">统计答卷</button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyAnalysis">分析答卷</button>
+							</div>
+							<div class="survey-button">
+								<button id="surveyExport">下载答卷</button>
+							</div>
+                		</div>
+                		<div class="div-content">
+                			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
+                			<thead> 
+                			<tr> 
+                				<th></th>
+                				<th>标题</th> 
+                				<th>介绍</th> 
+                				<th>创建者名称</th>
+                				<th>有效答卷数</th> 
+                				<th>路径</th> 
+                				<th>二维码</th>
+               				</tr> 
+               				</thead> 
+             				<tbody id="datatable_body"> 
+             				</tbody>
+             				</table>
+                		</div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<script src="/public/static/manage/js/team/surveyListTeam.js"></script>
+</body>
+</html>

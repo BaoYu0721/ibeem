@@ -1,0 +1,26 @@
+/*清除默认样式*/
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    font-weight:normal;
+    font-family:"Microsoft Yahei"
+}
+*:focus {outline: none;} 
+a{
+    text-decoration: none;
+    color:#000;
+}
+img{
+    border:none;
+    display:block;
+}
+input,textarea{
+    border:none;
+    outline:none;
+    font-family:"Microsoft Yahei"!important;
+}
+/*公用样式*/
+.clear{clear:both}
+.fl{float:left;}
+.fr{float:right;}

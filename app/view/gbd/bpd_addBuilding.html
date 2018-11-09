@@ -1,0 +1,2035 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>建筑性能数据库</title>
+	<link href="/static/common/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/static/manage/css/green.css" rel="stylesheet" type="text/css">
+	
+	<!-- 下拉列表样式 end -->
+	<link rel="stylesheet" type="text/css" href="/static/manage/css/bpd/bpd.css" />
+	<link rel="stylesheet" type="text/css" href="/static/manage/css/bpd/color.css" />
+	<link rel="stylesheet" type="text/css" href="/static/manage/css/bpd/slider.css" />
+	<script src="/static/common/js/jquery.min.js"></script>
+	<script src="/static/common/js/bootstrap.min.js"></script>
+	<script src="/static/common/js/jquery.cookie.js"></script>
+	<script src="/static/manage/js/icheck.min.js"></script>
+	<script src="/static/manage/js/bpd/common.js"></script>
+	<script src="/static/manage/js/bpd/slider.js"></script>
+	<script src="/static/manage/js/bpd/bpd1.js"></script>
+	<script src="/static/manage/js/bpd/bpd_slider.js"></script>
+	<!-- mapbox插件 -->
+	<link href='/static/common/css/mapbox-gl.css' rel='stylesheet' />
+    <script src='/static/common/js/mapbox-gl.js'></script>
+    <script src='/static/common/js/mapbox-gl-language.js'></script>
+    
+	
+	
+	<!--[if lte IE 9]>
+		<script src="/static/common/js/respond.1.4.2.min.js"></script>
+		<script src="/static/common/js/html5shiv.min.js"></script>
+	<![endif]-->
+	<style>
+		*{outline:none;}
+		div{border:none}
+		html{overflow:hidden;}
+		.loading{text-decoration:underline;margin-top:20px;}
+		.modal-dialog.buildings {width: 1000px!important;}
+		.modal-dialog.buildings .modal-content{height:600px;overflow:hidden;}
+		#buildUploadPopover>.modal-dialog{width:500px!important;}
+		#buildUploadPopover .modal-content{height:auto;}
+		.loading{margin-bottom:20px;}
+		/* 搜索结果 */
+		body{padding-top:45px;}
+		.main_box_a{ padding:0 10px 20px 250px;height:100%;overflow-x:hidden; box-sizing: border-box; -webkit-box-sizing: border-box;}
+		.main_box_container{padding:10px 20px;width:100%;min-height:100%;height:auto;background-color:white;}
+		.main_box_a .item_nav ul{ overflow: hidden; padding: 0; float: right;}
+		.main_box_a .item_nav ul li{float:left; color: #666666; cursor: pointer;padding:0 3px 1px; display: inline-block; margin-left: 5px;}
+		.main_box_a .item_nav ul li.active{color: #ac2925; border-bottom: 2px solid #ac2925; }
+		.main_box_a .item_nav h4{margin: 0 0 20px; font-size: 16px;}
+
+		/* 图文样式 */
+		.main_box_a .item_list .items{overflow: hidden; margin-bottom: 10px; cursor: pointer;padding:10px;}
+		.main_box_a .item_list .items:hover{background-color:#f8f8f8;}
+		.main_box_a .item_list .items .item_pic{border:1px solid #cccccc; padding:4px;/* opacity:0.5; filter:alpha(opacity=50); */float:left;width: 100px; height: 100px; margin-right: 10px;}
+		/* .main_box_a .item_list .items:hover .item_pic{ opacity:0.9; filter:alpha(opacity=90);} */
+		.main_box_a .item_list .items .item_intro h4{margin-top: 0!important; font-weight: bold!important; margin-bottom: 6px;}
+		.main_box_a .item_list .items .item_intro p{ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical; text-overflow: ellipsis; overflow: hidden;}
+		.main_box_a .item_list .items .item_intro .btn-item{float: left;color: #ac2925; border: 1px solid #ac2925;}
+
+		/* 列表样式 */
+		.main_box_a .item_list_2.row{margin: 0;}
+		.main_box_a .item_list_2 .items{overflow: hidden; margin-bottom: 0; border-bottom: 1px solid #999999; width: 100%; padding: 12px 18px;}
+		.main_box_a .item_list_2 .items:hover{ background-color: #eeeeee;cursor: pointer;}
+		.main_box_a .item_list_2 .items .item_pic{display: none;}
+		.main_box_a .item_list_2 .items .item_intro h4{ float:left;margin-top: 0!important; margin-bottom: 0!important; margin-right: 16px; font-weight: bold!important;}
+		.main_box_a .item_list_2 .items .item_intro p{ margin-bottom: 0; display: inline-block;}
+		.main_box_a .item_list_2 .items .item_intro .btn-item{display: none;}
+		
+		/* 地图样式 */
+		#container{width:100%;}
+		
+		.left-group{position:absolute;width:230px;left:10px;box-shadow: 0 0 3px #333333; -webkit-box-shadow: 0 0 3px #333333;}
+		.left-group .top-botton{border-radius:0;width:230px;height:30px;border:none;color:#333;font-weight:500;outline: none;}
+		.left-group .left-botton{border-radius:0;width:115px;height:30px;border:none;color:white;font-weight:500;outline: none;background-color:#8ba9a4;border-right:1px solid #F0F0F0;}
+		.left-group .left-botton:hover{text-decoration:underline;}
+		.left-group .right-botton{border-radius:0;width:115px;height:30px;border:none;color:white;font-weight:500;outline: none;background-color:#8ba9a4;}
+		.left-group .right-botton:hover{text-decoration:underline;}
+		/* 新增建筑 */
+		.add-building-group{top:330px;}
+		/* 导入建筑 */
+		.import-building-group{top:410px;}
+		/* 导入其他建筑 */
+		.import-another-building-group{top:520px;}
+		
+		#UpLoadFileButton{width:60%;margin:0 auto;display:block;background-color:#47b391;border:none;}
+		/* 下载模板提示 */
+		.import-building-tit{position:absolute;width:230px;top:470px;left:10px;}
+		.import-building-tit>p{text-align:center;}
+		
+		.import-building-tit-1{top:580px;}
+		/* mapbox样式 */
+		#map_container{min-height:545px;position:relative;}
+		
+        #container { position:absolute; top:0; bottom:0; width:95%;left:2.5%;}
+        /* 南海 */
+        .southsea{width:60px;height:80px;position:absolute;bottom:30px;right:15px;border:1px solid #b8b4b4;background-color:white;}
+        /* 分组列表 */
+        .sourcelist-panel{color:#666666;padding:10px;position:absolute;top:50%;margin-top:-250px;right:10px;width:100px;height:500px;background-color:white;}
+		.sourcetitle{width:100%;display:inline-block;line-height:40px;font-size:18px;text-align:center;}
+		.sourcelist{list-style:none;padding:0;margin:0;height:450px;overflow:auto;}
+		.sourcelist>li{cursor:pointer;line-height:18px;font-size:16px;opacity:.2;
+		transition:opacity .5s;
+		-moz-transition:opacity .5s; /* Firefox 4 */
+		-webkit-transition:opacity .5s; /* Safari and Chrome */
+		-o-transition:opacity .5s; /* Opera */}
+		.sourcelist>li.show{opacity:1;}
+		.sourcelist>li>img{line-height:30px;width:8px;}
+		.sourcelist>li>span{padding-left:10px;font-size:12px;}
+		.sourcelist>.loading{width:30px;height:auto;display:block;margin:50px auto;}
+		/* loading */
+		#loading_panel{position:fixed;width:100%;height:100%;z-index:100;background-color:rgba(0,0,0,.5);}
+		#loading_panel>img{width:40px;height:40px;position:absolute;top:50%;left:50%;margin-left:-20px;margin-top:-20px;}
+		/* 点击弹出框 */
+		.myInfoWindow{padding:20px;min-width:100px;max-width:200px;}
+		.mapboxgl-popup-content{background-color:rgba(0,0,0,.8);color:white;}
+		.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{border-top-color:rgba(0,0,0,.8);}
+		.mapboxgl-popup-anchor-top .mapboxgl-popup-tip{border-bottom-color:rgba(0,0,0,.8);}
+		.mapboxgl-popup-close-button{background-color:transparent;color:white;}
+		.redirectToChart{cursor:pointer;margin-top:25px;font-size:14px;border:none;border-radius:4px;background-color:white;color:rgba(0,0,0,.8);height:35px;width:100%;display:inline-block;}
+		@media only screen and (max-width: 750px) {
+		   .sourcelist-panel{border-radius:4px;height:auto;margin-top:0;top:10px;width:80px;}
+		   .sourcetitle{line-height:20px;font-size:14px;}
+		   .sourcelist{display:none;margin-top:5px;}
+		   .progressbar-bg.up>.progress-label{margin-left:30%;}
+		}
+	</style>
+	
+	<!-- 滚动条 -->
+	<link rel="stylesheet" type="text/css" href="/static/manage/css/bpd/perfect-scrollbar.css" />
+	<script type="text/javascript" src="/static/manage/js/bpd/divscroll.js"></script>
+	<script type="text/javascript">
+	$(function() {
+	   setTimeout(function(){
+		   $('.main_box_a,.modal-content').perfectScrollbar();
+	   },800);
+	});
+	</script>
+</head>
+
+<body>
+<!-- 导入建筑弹出框 -->
+<div class="modal fade"  id="buildUploadPopover" tabindex="-1" role="dialog" aria-labelledby="buildUploadPopover" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					模板导入
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form id="fileUpLoad" enctype="multipart/form-data" class="inline fields">
+				   	 <div class="field">
+				   	 	<span style="display:inline-block;padding:6px 12px 6px 0;">建筑类型:</span>
+					   	 <div class="btn-group">
+					   	 
+							<button type="button" class="btn btn-default dropdown-toggle" 
+									data-toggle="dropdown">
+								 <span style="padding-right:6px;" id="importBuildingType" data-type="notype">建筑类型</span><span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#" data-type="gg">公共建筑</a></li>
+								<li><a href="#" data-type="jz">居住建筑</a></li>
+							</ul>
+						</div>
+				    </div>
+		   	  		<br />
+		       	    <input type="file" name="building_file" id="building_file" />
+		       	    <!-- <div style="margin-top:10px;font-size:12px;line-height:18px;">
+				       	   * 导入公共建筑的模板文件名必须以"gg_"开头，例如：gg_我的文件名<br />
+				       	   * 导入居住建筑的模板文件名必须以"jz_"开头，例如：jz_我的文件名<br />
+		       	    </div> -->
+		       	    
+			  </form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="UpLoadFileButton">
+					提交
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<!-- 建筑详情弹出框 -->
+<div class="modal fade bs-example-modal-lg " tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg buildings" role="document">
+    <div class="modal-content">
+      	<iframe src="" style="height:100%;width:100%;border:none;" scrolling="no"  frameBorder="0" id="iframe_url"></iframe>
+    </div>
+  </div>
+</div>
+<button style="display:none;" id="btn_turn" data-toggle="modal" data-target=".bs-example-modal-lg"></button>
+<div class="logo_nav"><img src="/static/manage/img/logo_w_update.png">
+<a href="javascript:void(0)" id="redirectToMap" title="绿建分布">绿建分布</a>
+<a href="/bpd" title="首页">首页</a>
+</div>
+<div class="add-building-group left-group">
+	<button class="add-buildng top-botton" id="addBuilding">新增建筑</button>
+	<button class="left-botton" id="buildingclass1" data-class=1 >公共建筑</button><button id="buildingclass2" class="right-botton" data-class=2>居住建筑</button>
+</div>
+<div class="import-building-group left-group">
+	<button class="add-buildng top-botton" id="addBuilding">导入建筑(ibeem)</button>
+	<button class="buildingclass1 importbuilding left-botton" data-class=1 >公共建筑</button><button class="buildingclass2 importbuilding right-botton" data-class=2>居住建筑</button>
+</div>
+<div class="import-building-tit">
+	<p style="margin-top:10px;font-size:12px;">
+      	<a href="http://www.ibeem.cn/file/doc/gg_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">公共建筑模板下载</a>&nbsp;&nbsp;
+      	<a href="http://www.ibeem.cn/file/doc/jz_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">居住建筑模板下载</a>
+    </p>
+</div>
+
+<div class="import-building-group import-another-building-group left-group">
+	<button class="add-buildng top-botton" id="addBuilding">导入建筑(北京市建委)</button>
+	<button id="importbuildingclass3" class="buildingclass3 importbuilding left-botton" data-class=3 >公共建筑</button><button id="importbuildingclass4" class="buildingclass4 importbuilding right-botton" data-class=4>居住建筑</button>
+</div>
+<div class="import-building-tit import-building-tit-1">
+	<p style="margin-top:10px;font-size:12px;">
+      	<a href="http://www.ibeem.cn/file/doc/gg_bjsjw_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">公共建筑模板下载</a>&nbsp;&nbsp;
+      	<a href="http://www.ibeem.cn/file/doc/jz_bjsjw_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">居住建筑模板下载</a>
+    </p>
+</div>
+
+<div class="main_nav">
+	<!-- <div class="logo"><img src="/static/manage/img/logo_w.png"></div> -->
+	<div class="num" id="num">共有：<span>0</span>条数据</div>
+	<div class="res_check" id="res_check">
+		<ul>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true"></span>
+					<span>基本信息</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select" id="glyphicon_select_1">
+					<h5>请点击导航进行条件筛选！</h5>
+<!-- 					<span class="label label-color" data-target="myModal_1" data-offset="a3">建筑名称：上海申都大厦改造工程<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1" data-offset="a4">星级：三星级<i>&times;</i></span>
+					<span class="label label-color" data-target="myModal_1" data-offset="a6">蓄冷蓄热：暂无数据<i>&times;</i></span> -->
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true"></span>
+					<span>关键设计指标 </span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select" id="glyphicon_select_2">
+					<h5>请点击导航进行条件筛选！</h5>
+<!--  					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_2" data-offset="b2">星级：三星级<i>&times;</i></span> -->
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true"></span>
+					<span>节能措施</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select" id="glyphicon_select_3">
+					<h5>请点击导航进行条件筛选！</h5>
+<!--  					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_3" data-offset="c1">星级：三星级<i>&times;</i></span> -->
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true" style="visibility:hidden;"></span>
+					<span>室内环境措施</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select" id="glyphicon_select_4">
+					<h5>请点击导航进行条件筛选！</h5>
+<!-- 					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_4" data-offset="d1">星级：三星级<i>&times;</i></span> -->
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true" style="visibility:hidden;"></span>
+					<span>室内环境参数设计</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select" id="glyphicon_select_5">
+					<h5>请点击导航进行条件筛选！</h5>
+<!-- 					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_5" data-offset="e1">星级：三星级<i>&times;</i></span> -->
+				</div>
+			</li>
+			<li>
+				<div class="list_nav">
+					<span class="glyphicon glyphicon-asterisk glyphicon_l" aria-hidden="true" style="visibility:hidden;"></span>
+					<span>节水设计</span>
+					<span class="glyphicon glyphicon-menu-right glyphicon_r" aria-hidden="true"></span>
+				</div>
+				<div class="glyphicon_select" id="glyphicon_select_6">
+					<h5>请点击导航进行条件筛选！</h5>
+<!--  					<h5>已筛选项目：</h5>
+					<span class="label label-color" data-target="myModal_6" data-offset="f1">星级：三星级<i>&times;</i></span> -->
+				</div>
+			</li>	
+		</ul>
+	</div>
+</div>
+<!-- Modal_1 -->
+<div class="modal fade" id="myModal_1" data-box="glyphicon_select_1" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close_modal">点击筛选</span></button>
+        <h4 class="modal-title">基本信息</h4>
+      </div>
+      <div class="modal-body modal-list">
+      		<div class="row" id="a1">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑类型：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>办公</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>博物馆</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>会展中心</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>酒店</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>商场</label>
+		      			</div>
+		    			<div class="col-float">
+		      				<input type="radio">
+							<label>商业综合体</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>学校</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>医院</label>
+		      			</div>  
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>住宅</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>展览馆或其他</label>
+		      			</div>    
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="a2">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>地理位置：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>北京市</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>上海市</label>
+		      			</div>
+					    <div class="col-float">
+		      				<input type="radio">
+							<label>天津市</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>重庆市</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>河北省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>山西省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>辽宁省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>吉林省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>黑龙江省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>浙江省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>福建省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>山东省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>河南省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>湖北省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>湖南省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>广东省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>海南省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>贵州省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>四川省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>云南省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>江西省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>陕西省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>青海省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>甘肃省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>安徽省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>江苏省</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>广西壮族自治区</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>新疆维吾尔自治区</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>内蒙古自治区</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>西藏自治区</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>宁夏回族</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>中国台湾</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>中国香港</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>中国澳门</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="a3">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>气候区：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>严寒</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>寒冷</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>夏热冬冷</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>夏热冬暖</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>温和</label>
+		      			</div>
+      				</div>		
+      			</div>    			      			      			      			      			
+      		</div> 		
+      		<div class="row" id="a4">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>申报时间：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="time-1980-now"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+<!--       		<div class="row" id="a5">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>采用标准：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	 -->
+      		<div class="row" id="a6">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>星级：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>无星级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>LEED金级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>LEED银级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>LEED认证级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>非绿建</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>一星级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>二星级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>三星级</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>设计一星</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>设计二星</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>设计三星</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>运行一星</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>运行二星</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>运行三星</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="a7">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>标志类型：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="bzlx">
+							<label>设计</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="bzlx">
+							<label>运行</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="a8">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>立项时间：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="time-1980-now"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="a9">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>竣工时间：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="time-1980-now"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="a10">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>运营时间：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="time-1980-now"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>       			
+      		<div class="row" id="a11">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑面积：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+<!--       		<div class="row" id="a12">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑朝向：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	 -->
+      		<div class="row" id="a13">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>空调面积：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="a14">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>高度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	      		      		
+      		<!-- <div class="row" id="a15">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑性质：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio">
+							<label>？？？</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	 -->
+      		<div class="row" id="a16">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑使用人数：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-10000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	      		
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_1 -->
+<!-- Modal_2 -->
+<div class="modal fade" id="myModal_2" data-box="glyphicon_select_2" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close_modal">点击筛选</span></button>
+        <h4 class="modal-title">关键设计指标</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row" id="b1">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>用地面积：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	  
+      		<div class="row" id="b2">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑总面积：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b3">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>地下建筑面积：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="b4">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>地上建筑面积：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b5">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>天然气：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b6">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>市政热力：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b7">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>电力：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b8">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>年标煤量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b9">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>单位建筑面积设计总能耗：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b10">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>设计节能率：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b11">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>热工性能提高幅度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b12">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>供暖、通风与空调系统设计能耗：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b13">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>供暖、通风与空调系统设计能耗降低幅度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b14">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>用水总量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b15">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>非传统水量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b17">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑生活热水量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b18">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>可再生热水量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b19">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>可再生能源产生热水比例：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b20">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>建筑用电量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b21">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>可再生发电量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="b22">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>可再生能源产生发电比例：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	      		
+      	</div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_2 -->
+<!-- Modal_3 -->
+<div class="modal fade" id="myModal_3" data-box="glyphicon_select_3" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close_modal">点击筛选</span></button>
+        <h4 class="modal-title">节能措施</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row" id="c1">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>外窗幕墙可开启：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c1">
+							<label>采用</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c1">
+							<label>未采用</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c2">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>排风热回收：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c2">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c2">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="c3">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>可调新风比：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c3">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c3">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c4">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>部分工况节能：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c4">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c4">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c5">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>ER达标：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c5">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c5">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="c6">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>WS达标：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c6">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c6">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c7">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>余热废热利用：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c7">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c7">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c8">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>分项计量：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c8">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c8">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c9">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>热电冷三联供：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c9">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c9">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c10">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>可再能源利用形式：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c10">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c10">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c11">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>照明目标值：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c11">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c11">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c12">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>照明节能调控：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c12">
+							<label>达标</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c12">
+							<label>未达标</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c13">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>电梯群控、扶梯自动启停：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c13">
+							<label>采用</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c13">
+							<label>未采用</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c14">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>节能电器设备：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c14">
+							<label>采用</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c14">
+							<label>未采用</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+  		    <div class="row" id="c15">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>蓄冷蓄热：</label>
+      				</div>
+   				    <div class="col-box">
+						<div class="col-float">
+		      				<input type="radio" name="c15">
+							<label>采用</label>
+		      			</div>
+		      			<div class="col-float">
+		      				<input type="radio" name="c15">
+							<label>未采用</label>
+		      			</div>
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="c16">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>总制冷量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="c17">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>制冷量指标：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="c18">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>总制热量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="c19">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>制热量指标：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 
+      		<div class="row" id="c20">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>COP：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c21">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>EER：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c22">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>锅炉热效率：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c23">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>外墙K：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="c24">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>屋面K：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c25">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>外窗K：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c26">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>外窗SC：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c27">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>外窗可开启面积比：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c28">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>幕墙可开启面积比：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c29">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>天窗K：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c30">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>天窗SC：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c31">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>窗墙面积比：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c32">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>天窗比例：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c33">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>空调供冷温度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-b30-100"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c34">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>空调供冷供回水温度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-b30-100"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c35">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>空调供热温度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	
+      		<div class="row" id="c36">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>空调供热供回水温度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div> 	 	 	 	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_3 -->
+<!-- Modal_4 -->
+<div class="modal fade" id="myModal_4" data-box="glyphicon_select_4" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close_modal">点击筛选</span></button>
+        <h4 class="modal-title">室内环境措施</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row" id="d1">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>自然采光达标面积比例：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_4 -->
+<!-- Modal_5 -->
+<div class="modal fade" id="myModal_5" data-box="glyphicon_select_5" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close_modal">点击筛选</span></button>
+        <h4 class="modal-title">室内环境参数设计</h4>
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row" id="e1">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>夏季温度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-40"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="e2">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>夏季湿度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="e3">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>冬季温度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-40"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="e4">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>冬季湿度：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="e5">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>新风量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="e6">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>照度标准值：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>
+      		<div class="row" id="e7">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>UGR：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="e8">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>U0：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="e9">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>Ra：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>		
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_5 -->
+<!-- Modal_6 -->
+<div class="modal fade" id="myModal_6" data-box="glyphicon_select_6" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="close_modal">点击筛选</span></button>
+        <h4 class="modal-title">节水设计</h4><!--  id="myModalLabel" -->
+      </div>
+		<div class="modal-body modal-list">
+      		<div class="row" id="f1">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>雨水回用量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="f2">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>中水利用量：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-100000"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      		<div class="row" id="f3">
+      			<div class="col-list">
+      				<div class="col-title">
+   				      	<input type="checkbox">
+      					<label>非传统水源利用率：</label>
+      				</div>
+   				    <div class="col-box">
+						<!--筛选条开始-->
+						<div class="price-dd-choose">
+								<div class="price-range" data-type="num-0-1"></div>
+						</div>
+						<!--筛选条结束--> 
+      				</div>	
+      			</div>    			      			      			      			      			
+      		</div>	
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // Modal_6 -->
+<!-- main_box_a -->
+<div class="main_box_a">
+	<div class="main_box_container" id="main_box_container"> 
+		<div class="item_nav">
+			<ul id="itemStyle">
+				<li data-style="1">图文模式</li>
+				<li data-style="2">列表模式</li>
+				<li data-style="3">地图模式</li>
+			</ul>
+			<div class="clearfix"></div>
+			
+		</div>
+		<div id="list_container" class="hide">
+			<h4>共有 <span class="text-danger" id="maxCount"></span> 条搜索结果：</h4>
+			<br/>
+			<div class="item_list row" id="itemList"></div><!-- item_list_2 默认图片、隐藏列表样式 -->
+			<div class="text-center loading" id="loading"><img src="/static/manage/img/loading_2.gif"></div>
+		</div>
+		<div id="map_container" class="hide">
+			<div id="map"></div>
+			<div id="southsea_container" class="southsea"></div>
+		</div>
+		
+	</div>
+</div>
+<!-- // main_box_a -->
+<script src="/static/manage/js/team/selectCity.js"></script>
+ <!-- 地图相关开始 -->
+	<!-- <script src="/static/common/js/highmaps.js"></script> 
+	<script src="/static/common/js/proj4.js"></script> 
+	<script src="/static/common/js/highchartdata.js"></script>
+	<script src="/static/common/js/highcharts-zh_CN.js"></script>
+	<script src="/static/common/js/jianshuChina.js"></script>
+	<script src="/static/manage/js/bpd/bpd_map.js"></script> -->
+<!-- 地图相关结束 -->
+
+
+<script src="/static/manage/js/bpd/bpd_map_mapbox.js"></script>
+<script src="/static/manage/js/bpd/bpd_addBuilding.js"></script>
+</body>
+</html>

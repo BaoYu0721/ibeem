@@ -1,0 +1,70 @@
+.ui.basic.modal>.close{right:50%;margin-right:-8rem;}
+.ui.grid>.column:not(.row){padding:1rem;}
+.bindListBox{width:20rem;height:40rem;background-color:white;border:1px solid #47b391;border-radius:1rem;margin:0 auto;text-align:center;}
+.bindListBox .tit{display:inline-block;width:100%;padding-top:1rem;padding-bottom:0.5rem;font-size:1.2rem;color:grey;line-height:2rem;}
+.bindListBox .search{border:1px solid #47b391;border-radius:1rem;padding-left:1rem;font-size:1rem;color:black;}
+.bindListBox .confirmBtn{width:10rem;height:3rem;}
+#box{max-height:28rem;width:100%;height:100%;margin-top:1rem;}
+#loadingm{width:1.5rem;height:1.5rem;display:inline-block;margin-top:0.5rem;}
+.bindList{color:black;}
+#box ul{width:100%;height:100%;overflow:auto;} 
+#box ul li{display:block;width:100%;height:3rem;}
+#box ul li:nth-child(odd)
+{
+background:#ece9e9;
+}
+#box ul li:nth-child(even)
+{
+background:white;
+}   
+#box ul li span{display:inline-block;margin-top:0.85rem;line-height:1.5rem;height:1.5rem;margin-left:2rem;max-width:14rem;overflow:hidden;}
+#box ul li .ui.checkbox label:before{height:1.5rem;width:1.5rem;top:0.75rem;left:1.5rem;line-height:1.5rem;}
+#box ul li .ui.checkbox label:after{height:1.5rem;width:1.5rem;top:0.75rem;left:1.5rem;line-height:1.5rem;}
+.bindSurvey-button{width:6.6428rem;height:1.7rem;float:right;margin-top:0.5rem;}
+.bindSurvey-button button{width:6.6428rem;height:1.7rem;border-radius:7.1428rem;box-shadow:none;border: 1px solid #9B9B9B;background-color:white;color: #737373;}
+.surveyreport-button{width:6.6428rem;height:1.7rem;float:right;margin-top:0.5rem;margin-right:1rem;}
+.surveyreport-button button{width:6.6428rem;height:1.7rem;border-radius:7.1428rem;box-shadow:none;border: 1px solid #9B9B9B;background-color:white;color: #737373;}
+/* 问卷路径 */
+.answerUrl{text-decoration:underline;}
+/* 是否完成编辑，编辑状态 */
+.unfinished{color:#47b391;text-decoration:underline;cursor:pointer;}
+/* 二维码 */
+.ui.modal.showqr{width:20rem;height:30rem;margin:0 0 0 -10rem;}
+.ui.basic.modal.showqr>.close{right:-3rem;margin-right:0;top:-1rem;}
+.ui.modal.showqr .container{text-align:center;}
+.ui.modal.showqr .container .qrcode{margin:0 auto;}
+.ui.modal.showqr .container .qrcode-container{background-color:white;width:20rem;height:20rem;padding-top:0.9rem;border-radius:.2857rem;}
+.ui.modal.showqr .container button{width:10rem;height:3rem;margin-top:1rem;border:none;border-radius:.2857rem;background-color:#47b391;color:white;}
+/* 问卷下载 */
+.survey-button{min-width:6.6428rem;width:auto;height:1.7rem;float:right;margin-top:0.5rem;margin-left:0.5rem;}
+.survey-button button{width:auto;height:1.7rem;border-radius:7.1428rem;box-shadow:none;border: 1px solid #9B9B9B;background-color:white;color: #737373;padding-left:1rem;padding-right:1rem;}
+.export-button{position:absolute;width:10rem;height:2rem;top:15rem;left:50%;margin-left:-5rem;font-size:1.1rem;background-color:#47b391;color:white;border:none;border-radius:.2857rem;line-height:2rem;display:block;}
+.export-button:hover{color:white;}
+.export-title{color:#666666;font-size:1.3rem;}
+.ui.modal.export .container{position:relative;text-align:center;padding-top:1.6rem;width:40rem;height:20rem;margin:0 auto;background-color:white;}
+.some_class{position:absolute;padding-left:1rem;width:12rem;height:1.7142rem;border:1px solid #F0F0F0;color:black;}
+.some_class.starttime{top:6.5rem;left:19rem;}
+.some_class.endtime{top:10.5rem;left:19rem;}
+.export-title{position:absolute;top:2rem;left:0;width:100%;}
+.starttime-span{position:absolute;width:10rem;height:1.7142rem;line-height:1.7142rem;top:6.5rem;left:9rem;color:#666666;}
+.endtime-span{position:absolute;width:10rem;height:1.7142rem;line-height:1.7142rem;top:10.5rem;left:9rem;color:#666666;}
+.ui.basic.modal.export>.close{margin-right:-18rem;margin-top:1rem;padding:0;}
+/* datatimepicker颜色修改 */
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today{color:#47b391;}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current{background:#47b391;box-shadow:#47b391 0 1px 3px 0 inset;color:white;}
+/* 显示维度列表 */
+.ui.basic.modal.tree>.close{margin-right:-30rem;top:-3rem;font-size:1.8rem;}
+.ui.basic.modal.tree .ui.input{display:block;margin-left:2rem;}
+.ui.modal.tree>.container .content{position:static;height:auto;width:auto;}
+.ui.modal.tree>.container .content>.header{width:auto;padding-left:1rem;padding-right:1rem;display:inline-block;}
+.ui.list .list>.item .header.disable, .ui.list>.item .header.disable{color:#F0F0F0!important;}
+.ui.list .list>.item .header.search, .ui.list>.item .header.search{color:#47b391!important;}
+.ui.modal.tree>.container .content>.header.active{color:#00b2f3!important}
+.ui.modal.tree>.container .content>.header.active.search{color:#47b391!important}
+.ui.modal.tree>.container .content>.qr{text-decoration:underline;border-left:1px solid #666666;}
+.ui.list .list>.item>i.icon, .ui.list>.item>i.icon{vertical-align:top;}
+.treesearch{margin:0 auto;}
+#projectList>.item{width:90%;margin:0 auto;}
+
+.answerUrl{cursor:pointer}
+

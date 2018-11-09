@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	response.setHeader("Cache-Control","no-store");
+	response.setHeader("Pragrma","no-cache");
+	response.setDateHeader("Expires",0);
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+<title>IBEM搜索建筑</title>
+<base href="<%=basePath%>" />
+<script src="static/common/js/jquery.min.js"></script>
+<script src="static/common/js/tools.js"></script>
+<style>
+.container{width:600px;height:200px;position:absolute;top:50%;left:50%;margin-left:-300px;margin-top:-100px;}
+.container>.logo{width:80px;height:50px;position:absolute;top:-100px;left:290px;margin-left:-40px;}
+.container>.search>input{outline:none;display:block;border:1px solid #47b391;border-radius:.2857rem;width:458px;height:38px;padding:0 120px 0 20px;margin:0;}
+.container>.search>button{font-size:15px;display:block;color:white;background-color:#47b391;width:100px;height:40px;position:absolute;top:0;right:0;border-top-right-radius:.2857rem;border-bottom-right-radius:.2857rem;border:1px solid #47b391;}
+.copyright{text-align:center;color:#999999;position:absolute;bottom:0;left:0;display:inline-block;width:100%;height:30px;line-height:30px;font-size:12px;}
+
+</style>
+</head>
+<body>
+<div class="container">
+	<img class="logo" alt="" src="/static/manage/img/logo_s.png">
+	<div class="search">
+		<input type="text" />
+		<button>搜索建筑</button>
+	</div>
+</div>
+	<span class="copyright">Copyright © 2016 - <span id="copyright_year"></span> by Tsinghua Building Technology Co. All Rights Reserved. 京ICP备15040251号-1.</span>
+</body>
+
+<script>
+var myDate = new Date();
+//获取当前年
+var year=myDate.getFullYear();
+$("#copyright_year").html(year);
+</script>
+</html>

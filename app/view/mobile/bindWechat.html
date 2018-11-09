@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>微信绑定</title>
+    <link rel="stylesheet" href="/public/static/mobile/css/base.css">
+    <style>
+        .bindWechat{
+            width:24rem;
+            height:6rem;
+            text-align:center;
+            line-height:6rem;
+            border:1px solid #ccc;
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin-left:-12rem;
+            margin-top:-3rem;
+            background:#2F9833;
+            color:#fff;
+            font-size:1.5rem;
+            border-radius:5rem;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="bindWechat" id="bind-wechat">绑定微信</div>
+        <script src="/public/static/common/js/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $("#bind-wechat").click(function(){
+                    //绑定微信号
+                        var thisUrl = "http://www.ibeem.cn/views/mobile/roomPartion.jsp";  //是一个可以接收返回的code的url，可以是本页面
+                        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx472e78d4295c4091"
+                                +"&redirect_uri="+encodeURIComponent(thisUrl)
+                                +"&response_type=code&scope=snsapi_userinfo&state=BindingWechat#wechat_redirect";
+
+                });
+
+            });
+        </script>
+</body>
+</html>
