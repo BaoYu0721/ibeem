@@ -72,6 +72,12 @@ module.exports = app => {
   router.post('/project/single/building', userRequired, controller.project.single.buildingInfo);
   router.post('/project/single/building/increase', userRequired, controller.project.singleBuilding.buildingIncrease);
   router.post('/project/single/building/delete', userRequired, controller.project.singleBuilding.buildingDelete);
+  router.post('/project/single/building/view', userRequired, controller.project.singleBuilding.buildingView);
+  router.post('/project/single/building/infomation', userRequired, controller.project.singleBuilding.buildingInfomation);
+  router.post('/project/single/building/point', userRequired, controller.project.singleBuilding.buildingPoint);
+  router.post('/project/single/building/point_data', userRequired, controller.project.singleBuilding.buildingPointData);
+  router.post('/project/single/building/survey', userRequired, controller.project.singleBuilding.buildingSurvey);
+  router.post('/project/single/building/energy', userRequired, controller.project.singleBuilding.buildingEnergy);
   router.post('/project/single/survey', userRequired, controller.project.single.surveyInfo);
   router.post('/project/single/device', userRequired, controller.project.single.deviceInfo);
   router.post('/project/single/device/search', userRequired, controller.project.singleDevice.deviceSearch);

@@ -1,33 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="building.point" /></title>
-<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    <link rel="stylesheet" href="/static/common/css/base.css" />
-    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
-    <link rel="stylesheet" href="/static/common/css/jquery.datetimepicker.css">
-    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
-    <link rel="stylesheet" href="/static/manage/css/home.css">
-    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
-    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingPoint.css">
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
-    <script src="/static/manage/js/jquery.form.js"></script>
-    <script src="/static/common/js/jquery.datetimepicker.full.min.js"></script> 
-     <script src="/static/common/js/jquery.dataTables.min.js"></script>
-    <script src="/static/common/js/dataTables.semanticui.min.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
+<title>建筑测点</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamBuildingPoint.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script> 
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
     <!-- 全局工具脚本-->
-    <script src="/static/common/js/tools.js"></script>
+    <script src="/public/static/common/js/tools.js"></script>
     <style>
     .ui.form input[type=search].searchDevice{padding-left: 1rem;font-size:0.8rem; padding-right:1rem; height: 2rem; border:1px solid #cccccc; margin:1rem 5%; border-radius: 100px; width:90%; box-sizing:border-box!important;margin-top:0;}
     /* 设置滚动条的样式 */.addPointListBox ::-webkit-scrollbar {width: 12px;}/* 滚动槽 */.addPointListBox ::-webkit-scrollbar-track {     border-radius: 10px;}/* 滚动条滑块 */.addPointListBox ::-webkit-scrollbar-thumb {    border-radius: 10px;    background: #47B390;}.addPointListBox ::-webkit-scrollbar-thumb:window-inactive {    background: #47B390;}
@@ -72,7 +64,7 @@
 				<div class="addpoint">
                		<div class="ui form">
 	               	   <div class="addlogo">
-					  	<img class="addicon" alt="<spring:message code="ponit.add_image" />" src="/static/manage/img/team/addlogo.png">
+					  	<img class="addicon" alt="添加" src="/public/static/manage/img/team/addlogo.png">
 					  	<span><spring:message code="ponit.add_image" /></span>
 					  	<div class="contentbox">
 						  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
@@ -103,7 +95,7 @@
 	               		<div class="datasource-option" id="link-device"><a href="javascript:void(0)"><spring:message code="ponit.device" /></a><a id="glsb"></a>
 	               			<div class="addPointListBox" >
 		     	                    <div class="tit"><spring:message code="deviceList.title" /></div>
-	     	                   	    <img src="/static/manage/img/team/loding.gif"  id="loadingm"/>  	
+	     	                   	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingm"/>  	
 		     	                    <input type="search" class="searchDevice" placeholder="<spring:message code="search" />" id="searchDevice">
 		     	                    <div class="box" id="box">  
 		     	                        <ul class="addDeviceList child" id="child">
@@ -127,7 +119,7 @@
 	               		<div class="datasource-option" id="link-survey"><a href="javascript:void(0)"><spring:message code="point.survey" /></a><a id="glwj"></a>
 	               			<div class="addSurveyListBox" >  
 		     	                    <div  class="tit"><spring:message code="surveyListDevice.surveylist" /></div>  
-	     	                   	    <img src="/static/manage/img/team/loding.gif"  id="loadingmSurvey"/>  	
+	     	                   	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingmSurvey"/>  	
 		     	                    <input type="search" class="searchSurvey" placeholder="<spring:message code="search" />" id="searchSurvey">
 		     	                    <div class="box" id="boxSurvey">  
 		     	                        <ul class="addSurveyList child" id="childSurvey">  
@@ -156,13 +148,13 @@
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
          <div class="teamTitleTit">
-	        	<a class="tit-teamname" href="/redirect?url=manage/teamContent.jsp"></a>
-	        	<a class="tit-buildingname" href="/redirect?url=manage/teamBuildingContent.jsp" style="border:none;"></a>
+	        	<a class="tit-teamname" href=<%="?project_name=" + project_name%>></a>
+	        	<a class="tit-buildingname" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
 	        </div>
-            <a class="item" href="/redirect?url=manage/teamBuildingData.jsp" id="teamBuildingLoad"><spring:message code="building.information" /></a>
-            <a class="item on" href="/redirect?url=manage/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
-            <a class="item" href="/redirect?url=manage/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
-            <a class="item" href="/redirect?url=manage/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName%>>建筑信息</a>
+            <a class="item on" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=point"%>>建筑测点</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=survey"%>>建筑问卷</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=energy"%>>建筑能耗</a>
         </div>
             
         <!--内容区--> 
@@ -174,10 +166,10 @@
                 		<div class="title_box">
                 			<div class="fl ui mini icon input">
                 				<i class="search icon"></i>
-							 	<input type="text" placeholder="<spring:message code="search" />" id="search_result">
+							 	<input type="text" placeholder="搜索" id="search_result">
 							</div>
 							<div class="fr">
-	                			<div class='ui buttons ' id='button_add'><i class="plus icon"></i><spring:message code="btn.add" /></div>
+	                			<div class='ui buttons ' id='button_add'><i class="plus icon"></i>添加</div>
                 			</div>
                 		</div>
            				<div id="datatable_body">
@@ -191,7 +183,7 @@
         </div>
     </div>
 </div>
-<script src="/static/manage/js/team/teamCommon.js"></script>
-<script src="/static/manage/js/team/teamBuildingPoint.js"></script>
+<script src="/public/static/manage/js/team/teamCommon.js"></script>
+<script src="/public/static/manage/js/team/teamBuildingPoint.js"></script>
 </body>
 </html>

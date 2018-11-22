@@ -73,6 +73,16 @@
 <script src="/public/static/manage/js/team/selectCity.js"></script>
 
 <script>
+	$(function(){
+		var language = window.localStorage.getItem("language");
+		if(language == 'en'){
+			$("title").html(getLangStr('mainTitle'))
+			$(".item.on").html(getLangStr('mainTitle'))
+			$(".top-button.building.active").html(getLangStr('mainBuilding'))
+			$(".top-button.point").html(getLangStr('mainMeasuringPoint'))
+			$(".top-button.survey").html(getLangStr('mainSurvey'))
+		}
+	})
 //添加loading	
 addLoading();
 //去掉左侧导航栏active

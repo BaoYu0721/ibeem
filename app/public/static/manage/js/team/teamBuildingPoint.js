@@ -37,9 +37,10 @@ Date.prototype.Format = function(fmt)
 }
 
 //获取建筑下测点信息
+$all_id = [];
 function getPointData(){
 	point_list_data = [];
-	var url="/buildingPoint/getListByBuilding";
+	var url="/project/single/building/point";
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){
 		
@@ -55,7 +56,6 @@ function getPointData(){
 		}
 		
 		$all_length = points.length;
-		$all_id = [];
 		
 		//alert($all_length);
 		
@@ -178,7 +178,7 @@ function getPointData(){
 
 function showDataCard(deviceids){
 	$.ajax({
-		url:"/device/getBuildingPointData",
+		url:"/project/single/building/point_data",
 		type:"POST",
 		data:{"deviceId":deviceids},
 		success:function(data){

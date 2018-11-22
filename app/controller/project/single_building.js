@@ -10,6 +10,7 @@ class SingleBuildingController extends Controller {
         const buildingType = ctx.request.body.buildingType;
         console.log(projectId + ' ' + buildingName + ' ' + buildingType);
         if(buildingType == '1'){
+            console.log(ctx.request.body);
             const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
             const userId = user.split('^_^')[0];
             const buildingClass = ctx.request.body.buildingClass;
@@ -79,6 +80,107 @@ class SingleBuildingController extends Controller {
                 code: 1005
             };
         }
+    }
+
+    async buildingView(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingView(buildingId);
+        if(result == -1 || result == null){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            building: result,
+            code: 200
+        };
+    }
+
+    async buildingInfomation(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingInfomation(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            building: result,
+            code: 200
+        };
+    }
+
+    async buildingPoint(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingPoint(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async buildingPointData(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingPointData(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            status: result.status,
+            tem: result.tem,
+            co2: result.co2,
+            pm: result.pm,
+            hum: result.hum,
+            lightIntensity: result.lightIntensity,
+            code: 200
+        };
+    }
+
+    async buildingSurvey(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingSurvey(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async buildingEnergy(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingEnergy(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            energyConsumption: result,
+            code: 200
+        };
     }
 }
 

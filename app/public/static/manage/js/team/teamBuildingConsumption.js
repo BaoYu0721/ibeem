@@ -11,7 +11,7 @@ $(".tit-teamname").html(teamName.length>8?teamName.substring(0,8)+"..":teamName)
 var consumptionID ;
 //获取项目下建筑详细信息
 function getBuildingConsumption(){
-	var url="/energyConsumption/getECByBuilding";
+	var url="/project/single/building/energy";
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){
 		var consumption = data.energyConsumption;

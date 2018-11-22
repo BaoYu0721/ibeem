@@ -6,7 +6,7 @@ class HomeController extends Controller {
   async index() {
     await this.ctx.render('manage/main.html');
   }
-
+  
   async buildingList() {
     const { ctx } = this;
     const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);

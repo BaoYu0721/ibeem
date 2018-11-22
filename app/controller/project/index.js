@@ -8,6 +8,9 @@ class IndexController extends Controller {
     const projectName = ctx.query.project_name;
     const item = ctx.query.item;
     const to = ctx.query.to;
+    const buildingName = ctx.query.building_name;
+    const topBuildingName = ctx.query.top_building_name;
+    const operation = ctx.query.op;
     if(projectName == undefined){
       await this.ctx.render('manage/teamList.html');
     }else if(projectName != undefined && item == undefined){
@@ -15,6 +18,39 @@ class IndexController extends Controller {
         project_name: projectName
       });
     }else if(projectName != undefined && item == 'building'){
+      if(buildingName != undefined){
+        if(operation == "info"){
+          return ctx.render('manage/teamBuildingData.html', {
+            project_name: projectName,
+            buildingName: buildingName
+          });
+        }else if(operation == "point"){
+          return ctx.render('manage/teamBuildingPoint.html', {
+            project_name: projectName,
+            buildingName: buildingName
+          });
+        }else if(operation == "survey"){
+          return ctx.render('manage/surveyListBuilding.html', {
+            project_name: projectName,
+            buildingName: buildingName
+          });
+        }else if(operation == "energy"){
+          return ctx.render('manage/teamBuildingConsumption.html', {
+            project_name: projectName,
+            buildingName: buildingName
+          });
+        }
+        return ctx.render('manage/teamBuildingContent.html', {
+          project_name: projectName,
+          buildingName: buildingName
+        });
+      }
+      if(topBuildingName != undefined){
+        return ctx.render('manage/teamBuildingTop.html', {
+          project_name: projectName,
+          topBuildingName: topBuildingName
+        });
+      }
       return ctx.render('manage/teamBuilding.html', {
         project_name: projectName
       });
@@ -40,9 +76,6 @@ class IndexController extends Controller {
       ctx.body = 'forbidden!';
       return;
     }
-  }
-
-  async single(){
   }
 
   async projectList() {

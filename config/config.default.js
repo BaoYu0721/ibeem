@@ -28,7 +28,7 @@ module.exports = appInfo => {
 
   // logger
   exports.logger = {
-    dir: path.join(__dirname, '../logs/ibeem'),
+    dir: path.join(__dirname, '../logs/egg'),
     level: 'DEBUG',
   };
 
@@ -51,7 +51,7 @@ module.exports = appInfo => {
   };
 
   //http client
-  exports.httpClient = {
+  exports.httpclient = {
     request: {
       timeout: 3000
     }

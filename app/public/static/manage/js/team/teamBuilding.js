@@ -76,9 +76,9 @@ function show(tr,event){
 		$.cookie('buildingname', buildingName); 
 	
 		if(buildingType=="ibeem"){ // ibeem
-			window.location.href="/redirect?url=manage/teamBuildingContent.jsp";
+			window.location.href += "&building_name=" + buildingName;
 		}else if(buildingType == "top"){ // top
-			window.location.href="/redirect?url=manage/teamBuildingTop.jsp";
+			window.location.href += "&top_building_name=" + buildingName;
 		}
 		
 		//window.location.href="/redirect?url=manage/teamBuildingContent.jsp";

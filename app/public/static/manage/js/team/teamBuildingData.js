@@ -263,9 +263,10 @@ function downLoadBuilding(bid){
 function getBuildingInfo(bid){
 	
 	$.ajax({
-		url:"/building/getBuildingInfo?buildingID=" + bid, // buildingID=221;220;
-		type:"GET",
+		url:"/project/single/building/infomation",
+		type:"POST",
 		datatype:"JSON",
+		data:{"buildingID": bid },
 		success:function(response){
 
 			console.log(response)

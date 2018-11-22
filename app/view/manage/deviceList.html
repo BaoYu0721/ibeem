@@ -238,6 +238,11 @@
  	<script src="/public/static/common/js/jquery.min.js"></script>
  	<script src="/public/static/common/js/tools.js"></script>
  	<script>
+		$(function(){
+			$("title").html(getLangStr('deviceListTitle'))
+			$(".item.on").html(getLangStr('deviceListTitle'))
+			$(".tit").html(getLangStr('deviceListMap'))
+		})
 	    getComponent("/common/leftpanel",
 	  		function(result){
 	  			$(".fl.mainleft").html(result);

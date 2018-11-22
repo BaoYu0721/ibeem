@@ -8,14 +8,14 @@ var buildingID = $.cookie("buildingid");
 $(function(){
 	// 修改信息
 	$("#part-result-ok").click(function(){
-		window.location.href="/redirect?url=manage/teamBuildingData.jsp";
+		window.location.href += "&op=info";
 	});
 	
 });
 
 //获取项目下建筑信息
 function getBuilding(){
-	var url="/building/getBuildingByID";
+	var url="/project/single/building/view";
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){
 		console.log(data)

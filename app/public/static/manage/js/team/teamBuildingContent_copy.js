@@ -7,7 +7,7 @@ var buildingID = $.cookie("buildingid");
 
 //获取项目下建筑信息
 function getBuilding(){
-	var url="/building/getBuildingByID";
+	var url="/project/single/building/view";
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){
 		var building = data.building;

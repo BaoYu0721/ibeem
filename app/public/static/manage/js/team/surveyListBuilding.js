@@ -12,7 +12,7 @@ $(".tit-teamname").html(teamName.length>8?teamName.substring(0,8)+"..":teamName)
 var buildingID = $.cookie("buildingid");
 //var surveyParam = $.cookie("surveyparam");
 //添加左侧导航栏
-getComponent("/static/manage/components/leftpanel.html",
+getComponent("/common/leftpanel",
 		function(result){
 			$(".fl.mainleft").html(result);
 			/*左侧导航的选中效果*/
@@ -78,7 +78,7 @@ $('.ui.checkbox')
 
 //获取问卷列表信息
 function getSurveyData(){
-	var url="/survey/getSurveyByBuilding";
+	var url="/project/single/building/survey";
 //	var json={"projectID":teamID};
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){

@@ -1,31 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="building.energy_consumption" /></title>
-<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    <link rel="stylesheet" href="/static/common/css/base.css" />
-    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
-    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
-    <link rel="stylesheet" href="/static/manage/css/home.css">
-    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
-    <link rel="stylesheet" href="/static/manage/css/team/teamBuildingComsumption.css">
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
-    <script src="/static/manage/js/jquery.form.js"></script>
-     <script src="static/common/js/jquery.dataTables.min.js"></script>
-    <script src="static/common/js/dataTables.semanticui.min.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
+<title>建筑能耗</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamBuildingComsumption.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
     <!-- 全局工具脚本-->
-    <script src="/static/common/js/tools.js"></script>
+    <script src="/public/static/common/js/tools.js"></script>
     
 </head>
 <body >
@@ -35,13 +27,13 @@
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
             <div class="teamTitleTit">
-	        	<a class="tit-teamname" href="/redirect?url=manage/teamContent.jsp"></a>
-	        	<a class="tit-buildingname" href="/redirect?url=manage/teamBuildingContent.jsp" style="border:none;"></a>
+	        	<a class="tit-teamname" href=<%="?project_name=" + project_name%>></a>
+	        	<a class="tit-buildingname" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
 	        </div>
-            <a class="item" href="/redirect?url=manage/teamBuildingData.jsp" id="teamBuildingLoad"><spring:message code="building.information" /></a>
-            <a class="item" href="/redirect?url=manage/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
-            <a class="item" href="/redirect?url=manage/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
-            <a class="item on" href="/redirect?url=manage/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName%>>建筑信息</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=point"%>>建筑测点</a>
+            <a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=survey"%>>建筑问卷</a>
+            <a class="item on" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=energy"%>>建筑能耗</a>
         </div>
             
         <!--内容区--> 
@@ -54,32 +46,32 @@
 		                <div class="fifteen wide column">
 		          			<div class="div-group-base showcontent" style="margin-bottom:1rem;">
 			                		<div class="title">
-			                			<span class="title-content"><spring:message code="energy_consumption.data" /></span>
-			                			<div class="edit" style="top:2.2rem;" ><spring:message code="energy_consumption.edit_data" /></div>
+			                			<span class="title-content">能耗数据</span>
+			                			<div class="edit" style="top:2.2rem;" >编辑数据</div>
 			                		</div>
 			                		<div class="div-content" >
 										  <div class="buildingContent">											  
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="3"><spring:message code="energy_consumption" /></td></tr>
-											  <tr><td><spring:message code="energy_consumption.aeu" /></td><td><spring:message code="energy_consumption.data_source" /></td><td><spring:message code="energy_consumption.comment" /></td></tr>
+											  <tr><td class="td-title" colspan="3">电耗</td></tr>
+											  <tr><td>年度电耗</td><td>数据源</td><td>注释</td></tr>
 											  <tr><td><input class=" change-status readonly" id="1_annual_ele_usage" readonly="" type="text"/></td>
 											  <td><input class=" change-status readonly" id="1_data_source" readonly="" type="text"/></td>
 											  <td><input class=" change-status readonly" id="1_comment" readonly="" type="text"/></td></tr>
 											  </table>
 											  
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="2"><spring:message code="energy_consumption.sec_sourec" /></td></tr>
+											  <tr><td class="td-title" colspan="2">第二能耗源</td></tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.source" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.au" /></td>
+											  	<td width="50%">能耗源</td>
+											  	<td width="50%">能耗值</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="2_source" readonly="" type="text"/ ></td>
 											  	<td><input class=" change-status readonly" id="2_annual_usage" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.data_source" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.comment" /></td>
+											  	<td width="50%">数据源</td>
+											  	<td width="50%">注释</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="2_data_source" readonly="" type="text"/ ></td>
@@ -88,18 +80,18 @@
 											  </table>
 											  
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="2"><spring:message code="energy_consumption.thi_sourec" /></td></tr>
+											  <tr><td class="td-title" colspan="2">第三能耗源</td></tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.source" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.au" /></td>
+											  	<td width="50%">能耗源</td>
+											  	<td width="50%">能耗值</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="3_source" readonly="" type="text"/ ></td>
 											  	<td><input class=" change-status readonly" id="3_annual_ele_usage" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.data_source" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.comment" /></td>
+											  	<td width="50%">数据源</td>
+											  	<td width="50%">注释</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="3_data_source" readonly="" type="text"/ ></td>
@@ -108,18 +100,18 @@
 											  </table>
 											  
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="2"><spring:message code="energy_consumption.fou_sourec" /></td></tr>
+											  <tr><td class="td-title" colspan="2">第四能耗源</td></tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.source" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.au" /></td>
+											  	<td width="50%">能耗源</td>
+											  	<td width="50%">能耗值</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="4_source" readonly="" type="text"/ ></td>
 											  	<td><input class=" change-status readonly" id="4_annual_ele_usage" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.data_source" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.comment" /></td>
+											  	<td width="50%">数据源</td>
+											  	<td width="50%">注释</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="4_data_source" readonly="" type="text"/ ></td>
@@ -128,11 +120,11 @@
 											  </table>
 											  
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="6"><spring:message code="energy_consumption.site_source" /></td></tr>
+											  <tr><td class="td-title" colspan="6">当地可更新能源</td></tr>
 											  <tr>
-											  	<td width="30%" colspan="2"><spring:message code="energy_consumption.source" /></td>
-											  	<td width="30%" colspan="2"><spring:message code="energy_consumption.au" /></td>
-											  	<td width="30%" colspan="2"><spring:message code="energy_consumption.sd" /></td>
+											  	<td width="30%" colspan="2">能耗源</td>
+											  	<td width="30%" colspan="2">能耗值</td>
+											  	<td width="30%" colspan="2">系统描述</td>
 											  </tr>
 											  <tr>
 											  	<td colspan="2"><input class=" change-status readonly" id="5_source" readonly="" type="text"/ ></td>
@@ -140,8 +132,8 @@
 											  	<td colspan="2"><input class=" change-status readonly" id="5_sys_desc" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td colspan="3"><spring:message code="energy_consumption.data_source" /></td>
-											  	<td colspan="3"><spring:message code="energy_consumption.comment" /></td>
+											  	<td colspan="3">数据源</td>
+											  	<td colspan="3">注释</td>
 											  </tr>
 											   <tr>
 											  	<td colspan="3"><input class=" change-status readonly" id="5_data_source" readonly="" type="text"/ ></td>
@@ -150,27 +142,27 @@
 											  </table>
 											                 
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="6"><spring:message code="energy_consumption.chp" /></td></tr>
+											  <tr><td class="td-title" colspan="6">当地CHP</td></tr>
 											  <tr>
-											  	<td width="30%" colspan="3"><spring:message code="energy_consumption.chp_mm" /></td>
-											  	<td width="30%" colspan="3"><spring:message code="energy_consumption.chp_fs" /></td>
+											  	<td width="30%" colspan="3">制造商和模型</td>
+											  	<td width="30%" colspan="3">化学源</td>
 											  </tr>
 											  <tr>
 											  	<td colspan="3"><input class=" change-status readonly" id="6_manufacturer_model" readonly="" type="text"/ ></td>
 											  	<td colspan="3"><input class=" change-status readonly" id="6_fuel_source" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td width="30%" colspan="3"><spring:message code="energy_consumption.chp_rp" /></td>
-											  	<td width="30%" colspan="3"><spring:message code="energy_consumption.chp_afc" /></td>
+											  	<td width="30%" colspan="3">额定功率</td>
+											  	<td width="30%" colspan="3">年度化学消耗</td>
 											  </tr>
 											  <tr>
 											  	<td colspan="3"><input class=" change-status readonly" id="6_rated_power" readonly="" type="text"/ ></td>
 											  	<td colspan="3"><input class=" change-status readonly" id="6_annual_fuel_consumption" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td colspan="2"><spring:message code="energy_consumption.chp_aeg" /></td>
-											  	<td colspan="2"><spring:message code="energy_consumption.chp_ahg" /></td>
-											  	<td colspan="2"><spring:message code="energy_consumption.comment" /></td>
+											  	<td colspan="2">年度发电量</td>
+											  	<td colspan="2">年度发热量</td>
+											  	<td colspan="2">注释</td>
 											  </tr>
 											  <tr>
 											  	<td colspan="2"><input class=" change-status readonly" id="6_annual_ele_generation" readonly="" type="text"/ ></td>
@@ -180,18 +172,18 @@
 											  </table>
 											   
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="2"><spring:message code="energy_consumption.seu" /></td></tr>
+											  <tr><td class="td-title" colspan="2">特殊能源</td></tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.seu_des" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.seu_ps" /></td>
+											  	<td width="50%">描述</td>
+											  	<td width="50%">主要来源</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="7_description" readonly="" type="text"/ ></td>
 											  	<td><input class=" change-status readonly" id="7_primary_source" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.seu_aeu" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.comment" /></td>
+											  	<td width="50%">年电使用量</td>
+											  	<td width="50%">注释</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="7_annual_ele_usage" readonly="" type="text"/ ></td>
@@ -200,18 +192,18 @@
 											  </table>
 											    
 											  <table class="ui celled striped table">
-											  <tr><td class="td-title" colspan="2"><spring:message code="energy_consumption.oh" /></td></tr>
+											  <tr><td class="td-title" colspan="2">工作小时</td></tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.oh_wd" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.oh_nwd" /></td>
+											  	<td width="50%">工作日运行小时数</td>
+											  	<td width="50%">工作天数</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="8_working_occ_hour" readonly="" type="text"/ ></td>
 											  	<td><input class=" change-status readonly" id="8_working_num" readonly="" type="text"/></td>
 											  </tr>
 											  <tr>
-											  	<td width="50%"><spring:message code="energy_consumption.oh_hd" /></td>
-											  	<td width="50%"><spring:message code="energy_consumption.oh_nhd" /></td>
+											  	<td width="50%">假日运行小时数</td>
+											  	<td width="50%">假日天数</td>
 											  </tr>
 											  <tr>
 											  	<td><input class=" change-status readonly" id="8_holiday_occ_hour" readonly="" type="text"/ ></td>
@@ -232,7 +224,7 @@
         </div>
     </div>
 </div>
-<script src="/static/manage/js/team/teamCommon.js"></script>
-<script src="/static/manage/js/team/teamBuildingConsumption.js"></script>
+<script src="/public/static/manage/js/team/teamCommon.js"></script>
+<script src="/public/static/manage/js/team/teamBuildingConsumption.js"></script>
 </body>
 </html>
