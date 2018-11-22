@@ -9,7 +9,7 @@ see /doc/ibeem技术文档.docx for more detail.
 ### Environment Dependencies
 
 - [redis](https://redis.io/)
-- [mongodb](https://www.mongodb.com/)
+- [mysql](https://www.mysql.com/)
 
 ### Development
 
