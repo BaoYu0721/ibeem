@@ -117,10 +117,9 @@ class IndexService extends Service {
             return -1;
         }
         var imageList = [];
-        console.log(device.image);
         if(device.image){
             if(device.image.indexOf(',') != -1){
-                image = device.image.split(',');
+                const image = device.image.split(',');
                 for(var key in image){
                     const imageMap = {
                         img: image[key]
