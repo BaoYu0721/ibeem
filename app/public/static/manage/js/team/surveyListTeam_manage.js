@@ -6,7 +6,7 @@ var teamName = $.cookie("teamname");
 //放置左上角项目名称
 $(".teamTitleTit").html(teamName.length>10?teamName.substring(0,9)+"...":teamName);
 //添加左侧导航栏
-getComponent("/static/manage/components/leftpanel_manage.html",
+getComponent("/common/admin/leftpanel",
 		function(result){
 			$(".fl.mainleft").html(result);
 			/*左侧导航的选中效果*/

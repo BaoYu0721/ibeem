@@ -288,7 +288,7 @@ $("body").on("click","#datatable_body .ui.card .content_tz",function(){
 	var this_index = $(this).parents(".ui.card").index();
 	$.cookie("point_data_detail",JSON.stringify(point_list_data[this_index]));
 
-	window.location.href="/redirect?url=manage/teamBuildingPointDetail.jsp";
+	window.location.href += "&go=detail";
 });
 
 //点击添加按钮
@@ -305,7 +305,7 @@ $("body").on("click","#button_add",function(){
 	  .modal('show');
 	 
 	//显示默认头像	
-	var url = "/buildingPoint/getImage";
+	var url = "/project/single/building/point_image";
 	var json = {};
 	function successFunc(data){
 		var imgUrl = data.image;
@@ -421,10 +421,10 @@ $("#submit").click(function(){
 			}
 			
 			//发送
-			var url = "/buildingPoint/addBuildingPoint";
+			var url = "/project/single/building/point_add";
 			var json = {"buildingID":buildingID,"surveyID":selectedSurvey,"deviceID":selectedDevice,"name":pointName,"positionDesc":pointPosition,"image":pointImg,"startTime":startTime_cd,"endTime":endTime_cd};
 			function successFunc(data){
-				alertokMsg(getLangStr("add_point_messg5"),getLangStr("determine"),"window.location.href='/redirect?url=manage/teamBuildingPoint.jsp\'");
+				alertokMsg(getLangStr("add_point_messg5"),getLangStr("determine"),"window.location.reload()");
 			}
 			function errorFunc(data){
 				var errormsg = data.messg;
@@ -477,7 +477,7 @@ $("#link-device a").click(function(){
 			$("#child").empty();
 			 $.ajax({
 			   		type:"post",
-			   		url:"/device/getNotUsedDeviceByProject",
+			   		url:"/project/single/building/point_device_relevant",
 			   		dataType:"json",
 			   		data:{
 			   			'projectID':teamID,
@@ -594,7 +594,7 @@ $("#link-survey a").click(function(){
 		$("#childSurvey").empty();
 	   	 $.ajax({
 	   		type:"post",
-	   		url:"/survey/getSurveyByPoint",
+	   		url:"/project/single/building/point_survey_relevant",
 	   		dataType:"json",
 	   		data:{projectID:teamID},
 	   		success:function(data){
@@ -719,7 +719,7 @@ $("body").on("click",".extra_del",function(){
 	
 		var pointid = $(this).attr("id");
 
-		var url = "/buildingPoint/deleteBuildingPoint";
+		var url = "/project/single/building/point_del";
 		var json = {"buildingPointID":pointid};
 
 		var $this = $(this);

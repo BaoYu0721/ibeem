@@ -2,7 +2,7 @@
 var teamList=[];
 //请求项目数据方法
 function getData(){
-	 var url = "/admin/getProjectListByAdmin";
+	 var url = "/admin/project/list";
 	 var json = {};
 	 function func(data){
 		 teamList = data.list;
@@ -17,7 +17,7 @@ function getData(){
 				decribe = decribe.substring(0, 22);
 				decribe = decribe +"..."
 			}
-			 getComponent("/static/manage/components/teamList_item.html",
+			 getComponent("/common/team_list_item",
 					 function(resultHTML){
 					   $(".showTeam").prepend(resultHTML);
 				 	 },

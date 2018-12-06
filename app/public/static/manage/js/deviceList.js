@@ -937,7 +937,7 @@ $(function(){
   	 		   $.ajax({
   	 			   type:"post",
   	 			   dataType:"json",
-  	 			   url:"/device/webUpdateDevice",
+  	 			   url:"/device/update",
   	 			   data:{
   	 				   id:localId,
   	 				   address:address,
@@ -1074,19 +1074,19 @@ $(function(){
     	 	  // 设备信息页面的下载按钮
     	 	  $("body").on("click","#editDeviceDownload",function(){
     	 		 addLoading();
-		    		 window.location.href="/redirect?url=manage/new_compareDeviceDataOne.jsp?to=download";
+		    		 window.location.href="/device?item=download";
     	 	  });
     	 	  
     	 	// 设备信息页面的编辑评估按钮
     	 	  $("body").on("click","#editDeviceEvaluation",function(){
     	 		 addLoading();
-		    		 window.location.href="/redirect?url=manage/deviceEvaluate.jsp";
+		    		 window.location.href="/device?item=assessment";
     	 	  });
     	 	  
     	 	  // 设备信息页面的查看按钮
     	 	  $("body").on("click","#editDeviceShow",function(){
     	 		 addLoading();
-    	 		 window.location.href="/redirect?url=manage/new_compareDeviceDataOne.jsp";
+				  window.location.href="/device?item=view" + "&id=" + JSON.parse(window.localStorage.getItem("deviceNameId"))[0].name;
     	 	  });
     	 	  
         });

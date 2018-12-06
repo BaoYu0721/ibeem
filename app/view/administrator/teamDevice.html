@@ -130,7 +130,7 @@
 														<!-- <img class="fl" src="../static/manage/img/userdefault.png"/>
 														<img class="fl" src="../static/manage/img/userdefault.png"/> -->
 													</div>
-													<form action="http://localhost:8080/imageupload" id="deviceInfoForm" class=" fl  portraitForm"
+													<form action="/common/upload" id="deviceInfoForm" class=" fl  portraitForm"
 													ENCTYPE="multipart/form-data" method="post">
 														<input type="file" id="file" name="file" class="eportrait "> 
 														<div class="uploadImgStyle">
@@ -285,7 +285,7 @@
     <!-- <script src="static/manage/js/home.js"></script>  -->
     <script>
      /*引入左侧导航  */
-    getComponent("/static/manage/components/leftpanel_manage.html",
+    getComponent("/common/admin/leftpanel",
   		function(result){
   			$(".fl.mainleft").html(result);
   			/*左侧导航的选中效果*/

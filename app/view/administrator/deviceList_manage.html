@@ -1,53 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>设备列表页</title>
-<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="static/common/css/semantic.min.css" />
-    <link rel="stylesheet" href="static/common/css/base.css" />
-    <link rel="stylesheet" href="static/common/css/dataTables.semanticui.min.css"/>
-    <link rel="stylesheet" href="static/manage/css/frameStyle.css" />
-    <link rel="stylesheet" href="static/manage/css/deviceList.css" />
-    <link rel="stylesheet" href="static/manage/css/home.css">
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/deviceList.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
     <style>
     	.item .deviceList{
-    		background:url("../static/manage/img/list.png") no-repeat left;
+    		background:url("/public/static/manage/img/list.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .deviceList{
-    		background-image:url("../static/manage/img/listActive.png") ;
+    		background-image:url("/public/static/manage/img/listActive.png") ;
     	}
     	.item .addDevice{
-    		background:url("../static/manage/img/addDevice.png") no-repeat left;
+    		background:url("/public/static/manage/img/addDevice.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .addDevice{
-    		background-image:url("../static/manage/img/addDeviceActive.png") ;
+    		background-image:url("/public/static/manage/img/addDeviceActive.png") ;
     	}
     	.item .downloadData{
-    		background:url("../static/manage/img/download.png") no-repeat left;
+    		background:url("/public/static/manage/img/download.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .downloadData{
-    		background-image:url("../static/manage/img/downloadActive.png") ;
+    		background-image:url("/public/static/manage/img/downloadActive.png") ;
     	}
     	.item .viewData{
-    		background:url("../static/manage/img/viewData.png") no-repeat left;
+    		background:url("/public/static/manage/img/viewData.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .viewData{
-    		background-image:url("../static/manage/img/viewDataActive.png") ;
+    		background-image:url("/public/static/manage/img/viewDataActive.png") ;
     	}
 		.content{ padding-top:60px;padding-right:10px;}
 		.deviceNameTit {left: 6.5rem;}
@@ -188,7 +181,7 @@
 	<div class="container">
 		<div class="userListBox" >
             <div class="tit">用户列表</div>
-          	    <img src="/static/manage/img/team/loding.gif"  id="loadingm"/>  	
+          	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingm"/>  	
             <input type="search" class="searchUser" placeholder="搜索..." id="searchUser">
             <div class="box" id="box">  
                 <ul class="addDeviceList child" id="child">
@@ -252,10 +245,10 @@
 	  </div>
 </div>
 
- 	<script src="static/common/js/jquery.min.js"></script>
- 	<script src="static/common/js/tools.js"></script>
+ 	<script src="/public/static/common/js/jquery.min.js"></script>
+ 	<script src="/public/static/common/js/tools.js"></script>
  	<script>
-	    getComponent("/static/manage/components/leftpanel_manage.html",
+	    getComponent("/common/admin/leftpanel",
 	  		function(result){
 	  			$(".fl.mainleft").html(result);
 	  			/*左侧导航的选中效果*/
@@ -311,13 +304,13 @@
 	    	init();
 	    })
     </script>
-    <script src="static/common/js/semantic.min.js"></script>
-    <script src="static/common/js/jquery.md5.js"></script>
-    <script src="static/common/js/jquery.dataTables.min.js"></script>
-    <script src="static/common/js/dataTables.semanticui.min.js"></script>
-    <script src="static/manage/js/jquery.form.js"></script>
-    <script src="static/manage/js/inputFoucs.js"></script>
-    <script src="static/manage/js/customFrame.js"></script>
-    <script src="static/manage/js/deviceList_manage.js"></script>     
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.md5.js"></script>
+    <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/manage/js/inputFoucs.js"></script>
+    <script src="/public/static/manage/js/customFrame.js"></script>
+    <script src="/public/static/manage/js/deviceList_manage.js"></script>     
 </body>
 </html>

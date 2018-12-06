@@ -22,6 +22,19 @@ class IndexService extends Service {
       }
         return projectList;
     }
+
+    async buildingExport(buildingId){
+        var result = null;
+        try {
+            result = await this.app.mysql.get('building', {id: buildingId});
+        } catch (error) {
+            return -1;
+        }
+        if(!result){
+            return null;
+        }
+        return result;
+    }
 }
 
 module.exports = IndexService;

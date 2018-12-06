@@ -159,7 +159,7 @@ $("#addSurvey").click(function(){
 var surveyArr;
 $("#bindSurvey").click(function(){
 	//获取没有绑定过项目的问卷列表
-	var url="/survey/getSurveyNoBuilding";
+	var url="/project/single/building/survey_add";
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){
 		var list = data.list;
@@ -209,12 +209,12 @@ $("#confirmBtn").click(function(){
 	var bindLength = $("#child .ui.checkbox.checked").length;
 	$("#child .ui.checkbox.checked").each(function(){
 		var surveyId = $(this).data("id");
-		var url = "/survey/bindBuilding";
+		var url = "/project/single/building/survey_bind";
 		var json={"buildingID":buildingID,"surveyID":surveyId};
 		var successFunc = function(data){
 			bindLength--;
 			if(bindLength==0){
-				window.location.href="/redirect?url=manage/surveyListBuilding.jsp"
+				window.location.reload();
 			}
 		}
 		sentJson(url,json,successFunc);

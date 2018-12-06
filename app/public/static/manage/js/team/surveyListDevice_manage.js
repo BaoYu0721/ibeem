@@ -3,7 +3,7 @@
 var teamID = $.cookie("teamid");
 //var surveyParam = $.cookie("surveyparam");
 //添加左侧导航栏
-getComponent("/static/manage/components/leftpanel_manage.html",
+getComponent("/common/admin/leftpanel",
 		function(result){
 			$(".fl.mainleft").html(result);
 			/*左侧导航的选中效果*/
@@ -68,7 +68,7 @@ $('.ui.checkbox')
 ;
 //获取问卷列表信息
 function getSurveyData(){
-	var url="/survey/getListByAdmin";
+	var url="/admin/survey/list";
 //	var json={"projectID":teamID};
 //	var json={"projectID":"-1"};
 	var json={};

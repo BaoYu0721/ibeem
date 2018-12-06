@@ -14,7 +14,7 @@ function loadDeviceList(page){
 	     $.ajax({
 	     		type:"post",
 	     		dataType:"json",
-	     		url:"/device/getDeviceList",
+	     		url:"/admin/device/list",
 	     		data:{"pageNo":page},
 	     		success:function(data){
 	     		console.log(data);

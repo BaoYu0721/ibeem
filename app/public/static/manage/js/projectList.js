@@ -624,7 +624,7 @@ $(function(){
      	 }else{
      		 localStorage.setItem("checkedId",checkedId);
      		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	    		 window.location.href="/redirect?url=manage/new_compareTeamDeviceDataOne.jsp";
+	    		 window.location.href += "&to=view";
      	 }
 		 });
 		
@@ -657,7 +657,7 @@ $(function(){
      	 }else{
      		 localStorage.setItem("checkedId",checkedId);
      		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	    	 window.location.href="/redirect?url=manage/new_compareTeamDeviceData.jsp";
+	    	 window.location.href += "&to=compare";
      	 }
 	 });
 		
@@ -794,7 +794,7 @@ $(function(){
 		   $.ajax({
 			   type:"post",
 			   dataType:"json",
-			   url:"/device/webUpdateDevice",
+			   url:"/device/update",
 			   data:{
 				   id:localId,
 				   address:address,
@@ -930,13 +930,13 @@ $(function(){
  	  // 设备信息页面的下载按钮
  	  $("body").on("click","#editDeviceDownload",function(){
  		 addLoading();
-    	 window.location.href="/redirect?url=manage/new_compareTeamDeviceDataOne.jsp?to=download";
+    	 window.location.href += "&to=download";
  	  });
  	  
  	  // 设备信息页面的查看按钮
  	  $("body").on("click","#editDeviceShow",function(){
  		 addLoading();
- 		 window.location.href="/redirect?url=manage/new_compareTeamDeviceDataOne.jsp";
+ 		 window.location.href += "&to=view";
  	  });
  	  
 });

@@ -57,9 +57,9 @@ class DownloadService extends Service {
             }
             if(device.type == 'ibeem'){
                 isIbeem = true;
-                cocleanPhysicalId.push(device.physical_id);
             }else if(device.type == 'coclean'){
                 isCoclean = true;
+                cocleanPhysicalId.push(device.physical_id);
             }
         }
         const workOrderMap = {
@@ -103,7 +103,7 @@ class DownloadService extends Service {
         };
         paraJson.condition = condition;
         if(isIbeem && isCoclean){
-            const result = await this.service.utils.http.createExportOrder(paraJson);
+            const result = await this.service.utils.http.cocleanPost(app.config.deviceDataReqUrl.coclean.createExportOrder, paraJson);
             if(result.result == 'success'){
                 workOrderMap.work_id = result.data;
             }else{
@@ -112,7 +112,7 @@ class DownloadService extends Service {
             workOrderMap.ids = deviceid;
             workOrderMap.type = 2;
         }else if(isCoclean){
-            const result = await this.service.utils.http.createExportOrder(paraJson);
+            const result = await this.service.utils.http.cocleanPost(app.config.deviceDataReqUrl.coclean.createExportOrder, paraJson);
             if(result.result == 'success'){
                 workOrderMap.work_id = result.data;
             }else{

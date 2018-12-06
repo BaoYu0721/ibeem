@@ -241,7 +241,7 @@ $(function(){
 			$.ajax({
 				type:"post",
 				dataType:"json",
-				url:"/user/fingPassword",
+				url:"/user/find_password",
 				data:{
 					username:userName,
     				email:email
@@ -267,5 +267,5 @@ $(function(){
 });
 
 function toLogin(){
-	window.location.href="login";
+	window.location.href="/user";
 }

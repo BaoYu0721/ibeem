@@ -1,19 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>用户列表</title>
-<base href="<%=basePath%>" />
-<link rel="stylesheet"  href="static/common/css/semantic.min.css" />
-<link rel="stylesheet" href="static/common/css/base.css" />
-<link rel="stylesheet" href="static/common/css/dataTables.semanticui.min.css"/>
-<link rel="stylesheet" href="static/manage/css/frameStyle.css" />
+<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+<link rel="stylesheet" href="/public/static/common/css/base.css" />
+<link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+<link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
 <style>
 .user_head{background-color:#ffffff; margin-top:20px; font-size:14px; margin-right:20px; margin-bottom:30px;}
 .user_head table th,.user_head table td{text-align:center!important;}
@@ -67,10 +60,10 @@
 	  </div>
 </div>
 
-<script src="static/common/js/jquery.min.js"></script>
-<script src="static/common/js/tools.js"></script>
+<script src="/public/static/common/js/jquery.min.js"></script>
+<script src="/public/static/common/js/tools.js"></script>
 <script>
-	    getComponent("/static/manage/components/leftpanel_manage.html",
+	    getComponent("/common/admin/leftpanel",
 	  		function(result){
 	  			$(".fl.mainleft").html(result);
 	  			/*左侧导航的选中效果*/
@@ -127,13 +120,13 @@
 	    })
     </script>
     
-  <script src="static/common/js/semantic.min.js"></script>
-  <script src="static/common/js/jquery.md5.js"></script>
-  <script src="static/common/js/jquery.dataTables.min.js"></script>
-  <script src="static/common/js/dataTables.semanticui.min.js"></script>
-  <script src="static/manage/js/jquery.form.js"></script>
-  <script src="static/manage/js/inputFoucs.js"></script>
-  <script src="static/manage/js/customFrame.js"></script>
+  <script src="/public/static/common/js/semantic.min.js"></script>
+  <script src="/public/static/common/js/jquery.md5.js"></script>
+  <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+  <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+  <script src="/public/static/manage/js/jquery.form.js"></script>
+  <script src="/public/static/manage/js/inputFoucs.js"></script>
+  <script src="/public/static/manage/js/customFrame.js"></script>
 <script>
 $(function(){
   	
@@ -141,7 +134,7 @@ $(function(){
   	addLoading();
 
   	$.ajax({
-  		url:"/admin/getAllUserByAdmin",
+  		url:"/admin/user/list",
   		type:"POST",
   		dataType:"JSON",
   		success:function(data){	

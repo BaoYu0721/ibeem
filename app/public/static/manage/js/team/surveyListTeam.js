@@ -151,7 +151,7 @@ $("#addSurvey").click(function(){
 var surveyArr;
 $("#bindSurvey").click(function(){
 	//获取没有绑定过项目的问卷列表
-	var url="/survey/getSurveyNoProject";
+	var url="/project/single/survey/search";
 	var json={"projectID":teamID};
 	var successFunc = function(data){
 		var list = data.list;
@@ -201,12 +201,12 @@ $("#confirmBtn").click(function(){
 	var bindLength = $("#child .ui.checkbox.checked").length;
 	$("#child .ui.checkbox.checked").each(function(){
 		var surveyId = $(this).data("id");
-		var url = "/survey/bindProject";
+		var url = "/project/single/survey/bind";
 		var json={"projectID":teamID,"surveyID":surveyId};
 		var successFunc = function(data){
 			bindLength--;
 			if(bindLength==0){
-				window.location.href="/redirect?url=manage/surveyListTeam.jsp"
+				window.location.reload();
 			}
 		}
 		sentJson(url,json,successFunc);
@@ -235,7 +235,7 @@ $("#surveyReport").click(function(){
 	$.cookie("gxbuildingName","");
 	$.cookie("gxpointId","");
 	$.cookie("gxpointName","");
-	window.location.href="/redirect?url=manage/surveyReportTeam.jsp?relation=1"
+	window.location.href += "&to=statistics&relation=1";
 })
 //点击问卷分析按钮
 $("#surveyAnalysis").click(function(){
@@ -250,7 +250,7 @@ $("#surveyAnalysis").click(function(){
 		return false;
 	}
 	$.cookie("fxsurveyId",id);
-	window.location.href="/redirect?url=manage/surveyAnalysisTeam.jsp?relation=1&objectID="+teamID
+	window.location.href += "&to=analysis&relation=1&oid=" + teamID;//"/redirect?url=manage/surveyAnalysisTeam.jsp?relation=1&objectID="+teamID
 });
 //点击下载答卷按钮
 $("#surveyExport").click(function(){

@@ -24,55 +24,99 @@ class SingleDeviceService extends Service {
     async deviceAdd(projectId, ids){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:device:update";
+        const resource = "ibeem_test:device";
         var ttl = 1000;
-
-        return redlock.lock(resource, ttl).then(function(lock) {
-            async function transation() {
-                const conn = await app.mysql.beginTransaction();
-                try {
-                    const project = await conn.get('project', {id: projectId});
-                    for(var key in ids){
-                        await conn.update('device', {id: ids[key], project_id: projectId, pname: project.name});
+        try {
+            const res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    const conn = await app.mysql.beginTransaction();
+                    try {
+                        const project = await app.mysql.get('project', {id: projectId});
+                        for(var key in ids){
+                            await conn.update('device', {id: ids[key], project_id: projectId, pname: project.name});
+                        }
+                        conn.commit();
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
                     }
-                    conn.commit();
-                } catch (error) {
-                    conn.rollback();
-                    lock.unlock();
-                    return -1;
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
                 }
-                lock.unlock();
-                return 0;
-            }
-            return transation();
-        });
+                return transation();
+            });
+            return res;
+        } catch (error) {
+            return -1;
+        }
     }
 
     async deviceRecycle(userId, ids){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:device:recycle";
+        const conn = await app.mysql.beginTransaction();
         var ttl = 1000;
-
-        return redlock.lock(resource, ttl).then(function(lock) {
-            async function transation() {
-                const conn = await app.mysql.beginTransaction();
-                try {
-                    for(var key in ids){
-                        await conn.update('device', {id: ids[key], project_id: null, owner_id: null, pname: null, gname: null});
-                        await conn.delete('device_attention', {device_id: ids[key], user_id: userId});
+        try {
+            var resource = "ibeem_test:device";
+            var res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        for(var key in ids){
+                            await conn.update('device', {id: ids[key], project_id: null, owner_id: null, pname: null, gname: null});
+                        }
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
                     }
-                    conn.commit();
-                } catch (error) {
-                    conn.rollback();
-                    lock.unlock();
-                    return -1;
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
                 }
-                lock.unlock();
-                return 0;
-            }
-            return transation();
-        });
+                return transation();
+            });
+            if(res == -1) return res;
+            var resource = "ibeem_test:device_attention";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        for(var key in ids){
+                            await conn.delete('device_attention', {device_id: ids[key], user_id: userId});
+                        }
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            await conn.commit();
+            return res;
+        } catch (error) {
+            return -1;
+        }
     }
 
     async deviceAttention(projectId){
@@ -103,24 +147,34 @@ class SingleDeviceService extends Service {
     async deviceRelieve(ids){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:device:recycle";
+        const resource = "ibeem_test:device_attention";
         var ttl = 1000;
-
-        return redlock.lock(resource, ttl).then(function(lock) {
-            async function transation() {
-                try {
-                    for(var key in ids){
-                        await app.mysql.delete('device_attention', {device_id: ids[key]});
+        try {
+            const res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        for(var key in ids){
+                            await app.mysql.delete('device_attention', {device_id: ids[key]});
+                        }
+                    } catch (error) {
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
                     }
-                } catch (error) {
-                    lock.unlock();
-                    return -1;
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
                 }
-                lock.unlock();
-                return 0;
-            }
-            return transation();
-        });
+                return transation();
+            });
+            return res;
+        } catch (error) {
+            return -1;
+        }
     }
 }
 

@@ -108,7 +108,7 @@ $(function(){
 		var formData = new FormData($("#fileUpLoad")[0]);
 
 		$.ajax({
-			url: "/imageupload",
+			url: "/common/upload",
 			type: "POST",
 			data: formData,
 			async: false,
@@ -128,9 +128,9 @@ $(function(){
 					}*/
 					
 					if(imageAll==''||imageAll == null){
-						imageAll = data.imageList[0].imageurl;
+						imageAll = "/public/file/image/" + data.imageList[0].imageurl;
 					}else{
-						imageAll = imageAll + "," + data.imageList[0].imageurl;
+						imageAll = imageAll + "," + "/public/file/image/" + data.imageList[0].imageurl;
 					}
 					
 					var image_box = [];
@@ -234,7 +234,7 @@ $("#buildTempOut").click(function(){
 
 // 导出模板方法
 function downLoadBuilding(bid){
-	window.location.href= "/building/exportBuilding?buildingID=" + bid; 
+	window.location.href= "/project/building/export?buildingId=" + bid; 
 	/*$.ajax({
 		url:"/building/exportBuilding",
 		type:"POST",
@@ -720,7 +720,7 @@ $("#submit_sheet_1").click(function(){
 	};
 	
 	$.ajax({
-		url:"/building/saveBasicInformation",
+		url:"/project/single/building/save_base_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -802,7 +802,7 @@ $("#submit_sheet_2").click(function(){
 	}
 	
 	$.ajax({
-		url:"/building/saveDesignIndicators",
+		url:"/project/single/building/save_design_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -939,7 +939,7 @@ $("#submit_sheet_3").click(function(){
 	}
 	
 	$.ajax({
-		url:"/building/saveEcm",
+		url:"/project/single/building/save_energy_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -1004,7 +1004,7 @@ $("#submit_sheet_4").click(function(){
 	}
 	
 	$.ajax({
-		url:"/building/saveIndoorEnvironment",
+		url:"/project/single/building/save_indoor_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -1061,7 +1061,7 @@ $("#submit_sheet_5").click(function(){
 	}
 	
 	$.ajax({
-		url:"/building/saveIepd",
+		url:"/project/single/building/save_indoor_parameter_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -1128,7 +1128,7 @@ $("#submit_sheet_6").click(function(){
 	}
 	
 	$.ajax({
-		url:"/building/saveWaterSavingDesign",
+		url:"/project/single/building/save_water_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,

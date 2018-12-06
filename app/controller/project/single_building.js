@@ -1,6 +1,7 @@
 'use strict';
 
 const Controller = require('egg').Controller;
+const fs = require('fs');
 
 class SingleBuildingController extends Controller {
     async buildingIncrease(){
@@ -8,9 +9,7 @@ class SingleBuildingController extends Controller {
         const projectId = ctx.request.body.projectID;
         const buildingName = ctx.request.body.name;
         const buildingType = ctx.request.body.buildingType;
-        console.log(projectId + ' ' + buildingName + ' ' + buildingType);
         if(buildingType == '1'){
-            console.log(ctx.request.body);
             const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
             const userId = user.split('^_^')[0];
             const buildingClass = ctx.request.body.buildingClass;
@@ -179,6 +178,294 @@ class SingleBuildingController extends Controller {
         }
         ctx.body = {
             energyConsumption: result,
+            code: 200
+        };
+    }
+
+    async buildingSaveBaseInfo(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingSaveBaseInfo(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingSaveDesignInfo(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingSaveDesignInfo(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingSaveEnergyInfo(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingSaveEnergyInfo(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingSaveIndoorInfo(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingSaveIndoorInfo(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingSaveIndoorParameterInfo(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingSaveIndoorParameterInfo(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingSaveWaterInfo(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingSaveWaterInfo(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingPointImage(){
+        const { ctx, config } = this;
+        const path = config.baseDir + "/app/public/file/point";
+        const files = fs.readdirSync(path);
+        ctx.body = {
+            code: 200,
+            image: '/public/file/point/' + files[Math.floor(Math.random() * files.length)]
+        };
+    }
+
+    async buildingPointAdd(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingPointAdd(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingPointDel(){
+        const { ctx } = this;
+        const buildingPointId = ctx.request.body.buildingPointID;
+        const result = await ctx.service.project.singleBuilding.buildingPointDel(buildingPointId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingPointDeviceRelevant(){
+        const { ctx } = this;
+        const projectId = ctx.request.body.projectID;
+        const result = await ctx.service.project.singleBuilding.buildingPointDeviceRelevant(projectId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async buildingPointSurveyRelevant(){
+        const { ctx } = this;
+        const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
+        const userId = user.split('^_^')[0];
+        const projectId = ctx.request.body.projectID;
+        const result = await ctx.service.project.singleBuilding.buildingPointSurveyRelevant(userId, projectId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async buildingPointDeviceDetail(){
+        const { ctx } = this;
+        const deviceId = ctx.request.body.deviceId;
+        var sTime = ctx.request.body.startTime;
+        var eTime = ctx.request.body.endTime;
+        const result = await ctx.service.project.singleBuilding.buildingPointDeviceDetail(deviceId, sTime, eTime);
+        if(result == -1){
+            return ctx.body = {
+                result: "error"
+            };
+        }else if(result == null){
+            return ctx.body = {
+                result: "success",
+            };
+        }else{
+            return ctx.body = {
+                result: "success",
+                data: result.deviceData,
+                deviceId: deviceId,
+                deviceName: result.deviceName
+            }
+        }
+    }
+
+    async buildingPointSurveyDetail(){
+        const { ctx } = this;
+        const surveyId = ctx.request.body.surveyID;
+        const startTime = ctx.request.body.beginTime;
+        const endTime = ctx.request.body.endTime;
+        const relation = ctx.request.body.relation;
+        const projectId = ctx.request.body.objectID;
+        const result = await ctx.service.project.singleBuilding.buildingPointSurveyDetail(surveyId, startTime, endTime, relation, projectId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            survey: result,
+            code: 200
+        };
+    }
+
+    async buildingPointUpdate(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingPointUpdate(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingPointInfo(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingPointInfo(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async buildingSurveyAdd(){
+        const { ctx } = this;
+        const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
+        const userId = user.split('^_^')[0];
+        const buildingId = ctx.request.body.buildingID;
+        const result = await ctx.service.project.singleBuilding.buildingSurveyAdd(userId, buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async buildingSurveyBind(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingID;
+        const surveyId = ctx.request.body.surveyID;
+        const result = await ctx.service.project.singleBuilding.buildingSurveyBind(buildingId, surveyId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async buildingEnergyUpdate(){
+        const { ctx } = this;
+        const data = ctx.request.body;
+        const result = await ctx.service.project.singleBuilding.buildingEnergyUpdate(data);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
             code: 200
         };
     }

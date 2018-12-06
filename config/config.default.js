@@ -9,6 +9,11 @@ module.exports = appInfo => {
 
   // cookies
   config.auth_cookie_name = 'ibeem';
+  config.auth_cookie_admin = 'admin';
+  config.admin = {
+    name: "admin",
+    password: "21232f297a57a5a743894a0e4a801fc3"
+  };
 
   // add your config here
   config.middleware = [];
@@ -18,12 +23,6 @@ module.exports = appInfo => {
     csrf: {
       enable: false
     }
-  };
-
-  // passport
-  config.passportLocal = {
-    usernameField: 'ibeemname',
-    passwordField: 'ibeempwd',
   };
 
   // logger
@@ -67,6 +66,7 @@ module.exports = appInfo => {
     coclean: {
       appId: "4",
       appKey: "58da3ecb7e1798103eb78c7f844450dbac05f5ab",
+      readDeviceDataUrl: "http://dev.coclean.com/Rest/readDeviceData",
       readDeviceRealtimeDataUrl: "http://dev.coclean.com/Rest/readRealtimeData",
       cloudCalibratUrl: "http://dev.coclean.com/Rest/cloudCalibrat",
       readCloudCalibrat: "http://dev.coclean.com/Rest/readCloudCalibrat",
@@ -89,6 +89,18 @@ module.exports = appInfo => {
     },
     app: true,
     agent: false,
+  };
+
+  exports.email = {
+    host: 'smtp.163.com',
+    port: 465,
+    secure: 'true',
+    auth: {
+      user: 'ibeem',
+      pass: 'ibeem'
+    },
+    password: 'tengke1234',
+    email: 'kangkanglinux@163.com'
   };
   
   return config;

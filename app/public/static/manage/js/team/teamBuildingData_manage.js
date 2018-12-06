@@ -108,7 +108,7 @@ $(function(){
 		var formData = new FormData($("#fileUpLoad")[0]);
 
 		$.ajax({
-			url: "/imageupload",
+			url: "/common/upload",
 			type: "POST",
 			data: formData,
 			async: false,

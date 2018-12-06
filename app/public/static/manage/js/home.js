@@ -14,7 +14,7 @@ $(function(){
            $.ajax({
            	type:"post",
            	datatype:"json",
-           	url:"/manage/manage_info",
+           	url:"/user/user_info",
            	data:{},
            	success:function(data){
            		if(data.code==200){
@@ -65,7 +65,7 @@ $(function(){
        		var position=$(".eposition").val();
        		var email=$(".e_email").val();
        		var mobilePhone=$(".ephonenum").val();
-       		var uploadImg=$(".portraitStyle").attr("src");
+			   var uploadImg=$(".portraitStyle").attr("src");
        		if(workplace==""){
        			alertokMsg(getLangStr("home_2"),getLangStr("alert_ok"));
        		}else if(position==""){
@@ -81,11 +81,11 @@ $(function(){
        		}else if(mobilePhoneReg.test(mobilePhone)==false){
        		    alertokMsg(getLangStr("home_7"),getLangStr("alert_ok"));
        		}else {
-       			console.log(new Date().toLocaleString( ));
+				   console.log(uploadImg);
        			$.ajax({
            			type:"post",
            			dataType:"json",
-           			url:"/user/changeUserInfo",
+           			url:"/user/change_info",
            			data:{
            				name:name,
            				workplace:workplace,
@@ -142,7 +142,7 @@ $(function(){
 	           				return;
 	           			}
 	           			uploadImg=json.imageList[0].imageurl;
-	           			$(".portraitStyle").attr("src",uploadImg);
+	           			$(".portraitStyle").attr("src","/public/file/image/" + uploadImg);
 	           		})
 	           }
            	};
@@ -189,7 +189,7 @@ $(function(){
                			$.ajax({
                    			type:"post",
                    			dataType:"json",
-                   			url:"/user/changheUserPassword",
+                   			url:"/user/changhe_password",
                    			data:{
                    				password:password_1
                    			},

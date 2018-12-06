@@ -39,7 +39,7 @@ function loadDeviceInfo(id){
  	   $.ajax({
  		   type:"post",
  		   dataType:"json",
- 		   url:"/device/getDeviceByID",
+ 		   url:"/device/info",
  		   data:{
  			   deviceID:id
  		   },

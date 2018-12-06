@@ -1,6 +1,6 @@
 //==============================初始化设置开始==============================
 //添加左侧导航栏
-getComponent("/static/manage/components/leftpanel_manage.html",
+getComponent("/common/admin/leftpanel",
 		function(result){
 			$(".fl.mainleft").html(result);
 			/*左侧导航的选中效果*/

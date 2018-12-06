@@ -1,21 +1,21 @@
         <div class="ui left demo vertical inverted sidebar labeled icon menu visible">
-                <a class="item" id="sjgl" style="font-weight:bold" href="/views/administrator/index.jsp">iBEM</a>
-                <a class="item mainpanel  leftmenu icon devicepage" id="mainpanel" href="/views/administrator/deviceList_manage.jsp">
+                <a class="item" id="sjgl" style="font-weight:bold" href="/admin/index">iBEM</a>
+                <a class="item mainpanel  leftmenu icon devicepage" id="mainpanel" href="/admin/device">
                     <i class="device" style="width:26px;height:24px;"></i><span>设备</span>
                 </a>
-                <a class="item mainpanel  leftmenu icon surveypanel" id="surveypanel" href="/redirect?url=administrator/surveyListDevice_manage.jsp">
+                <a class="item mainpanel  leftmenu icon surveypanel" id="surveypanel" href="/admin/survey">
                     <i class="survey" style="width:28px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">问卷</span>
                 </a>
-                <a class="item leftmenu icon teampage" id="team" href="/redirect?url=administrator/teamList.jsp">
+                <a class="item leftmenu icon teampage" id="team" href="/admin/project">
                    <i class="team" style="width:26px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">项目</span>
                 </a>
-                <a class="item leftmenu  personalpage" href="/views/administrator/userList_manage.jsp" id="usermenu">
+                <a class="item leftmenu  personalpage" href="/admin/user" id="usermenu">
                    <i class="page" style="width:25px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">用户</span>
                 </a>
-                <a class="item leftmenu  statistics" href="/views/administrator/statistics.jsp" id="statistics">
+                <a class="item leftmenu  statistics" href="/admin/statistics" id="statistics">
                    <i class="statistics" style="width:25px;height:26px;"></i><span style="word-wrap:break-word;word-break:break-all;">统计</span>
                 </a>
-                 <a class="item leftmenu output_download" href="/views/administrator/output.jsp" id="output">
+                 <a class="item leftmenu output_download" href="/admin/export" id="output">
                    <i class="output" style="width:30px;height:31px;"></i><span style="word-wrap:break-word;word-break:break-all;">导出</span>
                 </a>
                 <a class="item leftmenu" onclick="logOut_center()"> <!-- style="position:absolute;left:0;bottom:0;"  -->
@@ -35,7 +35,7 @@
 				$.ajax({
            			type:"post",
            			dataType:"json",
-           			url:"/user/logout",
+           			url:"/admin/logout",
            			data:{},
            			success:function(data){  
            				if(data.code==200){

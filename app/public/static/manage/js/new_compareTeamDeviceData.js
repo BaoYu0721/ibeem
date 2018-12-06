@@ -1102,7 +1102,7 @@ init();
     	        			   type:"post",
     	        			   dataType:"json",
     	        			   async: false,
-    	        			   url:"/onlineRecord/getOnlineRate",
+    	        			   url:"/device/view/on_line_rate",
     	        			   data:{
     	        				   deviceID:deviceId[i],
     	        				   startTime:onlineStartTime,
@@ -1143,7 +1143,7 @@ init();
     	        			   type:"post",
     	        			   dataType:"json",
     	        			  // async: false,
-    	        			   url:"/device/environmentdataByTime",
+    	        			   url:"/device/view/environment",
     	        			   data:{
     	        				   deviceId:deviceId[i],
     	        				   startTime:startTime,

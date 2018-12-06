@@ -58,26 +58,26 @@
 		<div class="container">
 			
 			<div class="top">
-				<span><spring:message code="point.add" /></span>
+				<span>添加建筑测点</span>
 			</div>
 			<div class="bottom">
 				<div class="addpoint">
                		<div class="ui form">
 	               	   <div class="addlogo">
-					  	<img class="addicon" alt="添加" src="/public/static/manage/img/team/addlogo.png">
+					  	<img class="addicon" alt="图片" src="/public/static/manage/img/team/addlogo.png">
 					  	<span><spring:message code="ponit.add_image" /></span>
 					  	<div class="contentbox">
-						  	<form action="/imageupload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
+						  	<form action="/common/upload" id="formntwo" class="hidden dynamicValue portraitForm" ENCTYPE="multipart/form-data" method="post">
 								<input type="file" id="file" name="file" class="eportrait "> 
 								<img class="portraitStyle" src=""/>
 							</form>
 						</div>
 					  </div>
 					  <div class="field name">
-					    <input type="text" name="name" placeholder="<spring:message code="ponit.name" />">
+					    <input type="text" name="name" placeholder="测点名称">
 					  </div>
 					  <div class="field position">
-					    <input type="text" name="position" placeholder="<spring:message code="ponit.location_describe" />">
+					    <input type="text" name="position" placeholder="测点描述">
 					  </div>
 					  <!-- <div class="field datasource">
 					     <div class="top" id="setDataSource"> <span>设定数据源</span><i class="large angle down icon"></i></div>
@@ -88,15 +88,15 @@
 
 					  <div class="field datasource">
 					  	<div class="clearfix form_date_box">
-							<input class="form_control form_datetime" type="text" value="" placeholder="<spring:message code="ponit.start_time" />" id="start_t">
-					  		<input class="form_control form_datetime" type="text" value="" placeholder="<spring:message code="ponit.end_time" />" id="end_t">
+							<input class="form_control form_datetime" type="text" value="" placeholder="开始时间" id="start_t">
+					  		<input class="form_control form_datetime" type="text" value="" placeholder="结束时间" id="end_t">
 					  	</div>
 					  
-	               		<div class="datasource-option" id="link-device"><a href="javascript:void(0)"><spring:message code="ponit.device" /></a><a id="glsb"></a>
+	               		<div class="datasource-option" id="link-device"><a href="javascript:void(0)">关联设备</a><a id="glsb"></a>
 	               			<div class="addPointListBox" >
-		     	                    <div class="tit"><spring:message code="deviceList.title" /></div>
+		     	                    <div class="tit">设备列表</div>
 	     	                   	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingm"/>  	
-		     	                    <input type="search" class="searchDevice" placeholder="<spring:message code="search" />" id="searchDevice">
+		     	                    <input type="search" class="searchDevice" placeholder="搜索" id="searchDevice">
 		     	                    <div class="box" id="box">  
 		     	                        <ul class="addDeviceList child" id="child">
 		     	                            <li class="clearfix">  
@@ -111,16 +111,16 @@
 		     	                            <div class="bar" id="bar"></div>  
 		     	                        </div>  
 		     	                    </div>  
-		     	                    <button class="ui button confirmBtn"><spring:message code="btn.confirm" /></button>  
+		     	                    <button class="ui button confirmBtn">确认</button>  
 		     	                </div>
 	               		</div>
 	               		
 	               		<!-- <div class="datasource-option on" id="input-device"><a href="javascript:void(0)">手动上传</a></div> -->
-	               		<div class="datasource-option" id="link-survey"><a href="javascript:void(0)"><spring:message code="point.survey" /></a><a id="glwj"></a>
+	               		<div class="datasource-option" id="link-survey"><a href="javascript:void(0)">关联问卷</a><a id="glwj"></a>
 	               			<div class="addSurveyListBox" >  
-		     	                    <div  class="tit"><spring:message code="surveyListDevice.surveylist" /></div>  
+		     	                    <div  class="tit">问卷列表</div>  
 	     	                   	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingmSurvey"/>  	
-		     	                    <input type="search" class="searchSurvey" placeholder="<spring:message code="search" />" id="searchSurvey">
+		     	                    <input type="search" class="searchSurvey" placeholder="搜索" id="searchSurvey">
 		     	                    <div class="box" id="boxSurvey">  
 		     	                        <ul class="addSurveyList child" id="childSurvey">  
 		     	                            <li class="clearfix">  
@@ -132,13 +132,13 @@
 		     	                            </li>  
 		     	                        </ul>  
 		     	                    </div>  
-		     	                    <button class="ui button confirmBtnSurvey"><spring:message code="btn.confirm" /></button>  
+		     	                    <button class="ui button confirmBtnSurvey">确认</button>  
 		     	                </div>
 	               		</div>
 	               	  </div>
 					</div>
 					  <div class="error"><h4 class="ui red header"></h4></div>
-					  <button class="ui button" id="submit" ><spring:message code="btn.add" /></button>
+					  <button class="ui button" id="submit" >添加</button>
                	</div>
 			</div>
 		</div>

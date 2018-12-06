@@ -2853,7 +2853,7 @@ init();
  			});  
         });   
 
-	    getComponent("/static/manage/components/leftpanel_manage.html",
+	    getComponent("/common/admin/leftpanel",
 		  		function(result){
 		  			$(".fl.mainleft").html(result);
 		  			/*左侧导航的选中效果*/

@@ -12,8 +12,10 @@ $(function(){
 //获取json数据，放到页面上
 function initData(){
 	var returnDataJson = {};
-	var url="/assessment/getByDevice?deviceID="+deviceId;
-	var json={};
+	var url="/device/assessment";
+	var json={
+		deviceId: deviceId
+	};
 	var successFunc = function(data){
 		if(data.code=="200"){
 			if(data.content == null || data.content=="")return;
@@ -341,7 +343,7 @@ function saveData(){
 	returnDataJson["part1"]["data"]["seriesDBL"] = dblSeries;
 	returnDataJson["part2"]["data"]["series"] = mydSeries;
 	
-	var url="/assessment/saveOrUpdate";
+	var url="/device/assessment/save";
 	var json={"deviceID":deviceId,"content":JSON.stringify(returnDataJson)};
 	var successFunc = function(data){
 		if(data.code=="200"){

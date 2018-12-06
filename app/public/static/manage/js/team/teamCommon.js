@@ -41,7 +41,7 @@ function UploadPhotoMethod(obj,func){
 				return;
 			}
 			uploadImg=json.imageList[0].imageurl;
-			$img.attr("src",uploadImg);
+			$img.attr("src","/public/file/image/" + uploadImg);
 			$deleteimg.removeClass("readonly");
 			func();
 		})

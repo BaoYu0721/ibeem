@@ -97,11 +97,11 @@
                 			 	<div class="infobox">
                 			 	
                 			 		<div class="column clearfix edit-btn-group">
-                			 			<div class="edits fl" id="submitDeviceInfo" style="display:none;"><spring:message code="btn.confirm" /></div>
-	                			 		<div class="edits fl" id="editDeviceBack" style="display:none;"><spring:message code="deviceList.cancel" /></div>
-	                			 		<div class="edit fl" id="editDeviceInfo"><spring:message code="deviceList.edit" /></div>
-										<div class="edits fl" id="editDeviceShow"><spring:message code="deviceList.scan" /></div>
-										<div class="edits fl" id="editDeviceDownload"><spring:message code="deviceList.download" /></div>
+                			 			<div class="edits fl" id="submitDeviceInfo" style="display:none;">确认</div>
+	                			 		<div class="edits fl" id="editDeviceBack" style="display:none;">取消</div>
+	                			 		<div class="edit fl" id="editDeviceInfo">编辑</div>
+										<div class="edits fl" id="editDeviceShow">查看</div>
+										<div class="edits fl" id="editDeviceDownload">下载</div>
 									</div>
                 			 	
 									<!-- <div class="edit" id="editDeviceInfo"> 编辑</div> -->
@@ -123,7 +123,7 @@
 														<!-- <img class="fl" src="../static/manage/img/userdefault.png"/>
 														<img class="fl" src="../static/manage/img/userdefault.png"/> -->
 													</div>
-													<form action="http://localhost:8080/imageupload" id="deviceInfoForm" class=" fl  portraitForm"
+													<form action="/common/upload" id="deviceInfoForm" class=" fl  portraitForm"
 													ENCTYPE="multipart/form-data" method="post">
 														<input type="file" id="file" name="file" class="eportrait "> 
 														<div class="uploadImgStyle">
@@ -134,49 +134,49 @@
 												
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.owner" /></span>
+												<span class="fl left">拥有者名称</span>
 												<span class="fl">:</span>
 												<span class="value fl  owner "></span>
 												<div class="fl hidden "><input type="text" class="eowner"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.concern" /></span>
+												<span class="fl left">关注者名称</span>
 												<span class="fl">:</span>
 												<span class="value fl user "></span>
 												<div class="fl hidden "><input type="text" class="euser"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.type" /></span>
+												<span class="fl left">类型</span>
 												<span class="fl">:</span>
 												<span class="value fl type  "></span>
 												<div class="fl hidden "><input type="text" class="etype"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.address" /></span>
+												<span class="fl left">设备定位地址</span>
 												<span class="fl">:</span>
 												<span class="value fl address staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="eaddress"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.detailAddress" /></span>
+												<span class="fl left">设备详细地址</span>
 												<span class="fl">:</span>
 												<span class="value fl describ staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="edescrib"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.details" /></span>
+												<span class="fl left">设备详细信息</span>
 												<span class="fl">:</span>
 												<span class="value fl memo staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="ememo"/></div>
 											</li>																							
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.online" /></span>
+												<span class="fl left">在线状态</span>
 												<span class="fl">:</span>
 												<span class="value fl state "></span>
 												<div class="fl hidden "><input type="text" class="estate"/></div>
 											</li>
 											<li class="clearfix warnning">
-												<span class="fl left"><spring:message code="deviceList.alarmswitch" /></span>
+												<span class="fl left">告警开关</span>
 												<span class="fl">:</span>
 												<div class="value fl  staticValue warn">
 													<div class="ui toggle read-only  checkbox" >
@@ -192,19 +192,19 @@
 												</div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.equipmentsource" /></span>
+												<span class="fl left">设备来源</span>
 												<span class="fl">:</span>
 												<span class="value fl source "></span>
 												<div class="fl hidden "><input type="text" class="esource"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.weixin" /></span>
+												<span class="fl left">绑定微信</span>
 												<span class="fl">:</span>
 												<span class="value fl  chatname staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="echatname"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.qrcode" /></span>
+												<span class="fl left">设备的二维码</span>
 												<span class="fl">:</span>
 												<div class="value fl  staticValue"><img src="/public/static/common/images/ecode.png" class="ecode"/></div>
 												<div class="fl hidden dynamicValue"><img src="/public/static/common/images/ecode.png" class="eEcode"/></div>

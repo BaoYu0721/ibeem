@@ -75,16 +75,12 @@ class SingleService extends Service {
         var project = null;
         try {
             project = await this.app.mysql.get('project', {id: projectId});
+            surveyIds = await this.app.mysql.query('select survey_id from project_survey where project_id = ?', [projectId]);
         } catch (error) {
             return -1;
         }
         if(project == null){
             return -2;
-        }
-        try {
-            surveyIds = await this.app.mysql.query('select survey_id from project_survey where project_id = ?', [projectId]);
-        } catch (error) {
-            return -1;
         }
         const surveyList = [];
         for(var key in surveyIds){
@@ -92,8 +88,8 @@ class SingleService extends Service {
             var answerCount = null;
             var creator = null;
             try {
-                survey = await this.app.mysql.get('survey', {id: surveyIds[key]});
-                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ?)', [surveyIds[key], surveyIds[key]]);
+                survey = await this.app.mysql.get('survey', {id: surveyIds[key].survey_id});
+                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id]);
                 creator = await this.app.mysql.get('user', {id: survey.creator_id});
             } catch (error) {
                 return -1;
@@ -213,77 +209,391 @@ class SingleService extends Service {
     async projectUpdate(projectId, name, describe, image){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:project:update:" + projectId;
+        const resource = "ibeem_test:project";
         var ttl = 1000;
-
-        return redlock.lock(resource, ttl).then(function(lock) {
-            async function transation() {
-                var result = null;
-                try {
-                    result = await app.mysql.update('project', {id: projectId, name: name, des: describe, image: image});
-                } catch (error) {
-                    lock.unlock();
-                    return -1;
+        try {
+            const res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    var result = null;
+                    try {
+                        result = await app.mysql.update('project', {id: projectId, name: name, des: describe, image: image});
+                    } catch (error) {
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    if(result.affectedRows == 1){
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return 0;
+                    }else{
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
                 }
-                if(result.affectedRows == 1){
-                    lock.unlock();
-                    return 0;
-                }else{
-                    lock.unlock();
-                    return -1;
-                }
-            }
-            return transation();
-        });
+                return transation();
+            });
+            return res;
+        } catch (error) {
+            return -1;
+        }
     }
 
     async projectDelete(projectId){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:project:delete:" + projectId;
-        console.log(resource);
-        var ttl = 2000;
-
-        return redlock.lock(resource, ttl).then(function(lock) {
-            async function transation() {
-                var project = null;
-                try {
-                    project = await app.mysql.get('project', {id: projectId});
-                } catch (error) {
-                    lock.unlock();
-                    return -1;
-                }
-                if(project == null) {
-                    lock.unlock();
-                    return null;
-                }
-                const conn = await app.mysql.beginTransaction();
-                try {
-                    await conn.query('delete from building_point_survey where building_point_id in(select id from building_point where building_id in(select id from building where project_id = ?))', [projectId]);
-                    await conn.delete('survey_relation', {project_id: projectId});
-                    await conn.query('delete from building_survey where building_id in(select id from building where project_id = ?)', [projectId]);
-                    await conn.query('delete from energy_consumption where building_id in(select id from building where project_id = ?)', [projectId]);
-                    await conn.query('delete from building_point where building_id in(select id from building where project_id = ?)', [projectId]);
-                    await conn.delete('building', {project_id: projectId});
-                    await conn.delete('project_survey', {project_id: projectId});
-                    await conn.query('delete from device_attention where device_id in(select id from device where project_id = ?) and user_id in(select user_id from user_project where project_id = ?)', [projectId, projectId]);
-                    await conn.delete('user_project', {project_id: projectId});
-                    const device = await conn.select('device', {project_id: projectId});
-                    for(var key in device){
-                        await conn.update('device', {id: device[key].id, project_id: null})
+        const conn = await app.mysql.beginTransaction();
+        var ttl = 10000;
+        var project = null;
+        try {
+            project = await app.mysql.get('project', {id: projectId});
+        } catch (error) {
+            return -1;
+        }
+        if(project == null) return null;
+        try {
+            var resource = "ibeem_test:top_element";
+            var res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from top_element where top_room_id in(select id from top_room where top_building_id in(select id from top_building where project_id = ?))', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
                     }
-                    await conn.delete('project', {id: projectId});
-                    await conn.commit();
-                } catch (error) {
-                    conn.rollback();
-                    lock.unlock();
-                    return -1;
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
                 }
-                lock.unlock();
-                return 0;
-            }
-            return transation();
-        });
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:top_room";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from top_room where top_building_id in(select id from top_building where project_id = ?)', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:top_building";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.delete('top_building', {project_id: projectId});
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock();
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:device";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('update device set project_id = ? where project_id = ?', [null, projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:building_point_survey";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from building_point_survey where building_point_id in(select id from building_point where building_id in(select id from building where project_id = ?))', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:survey_relation";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.delete('survey_relation', {project_id: projectId});
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:building_survey";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from building_survey where building_id in(select id from building where project_id = ?)', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:energy_consumption";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from energy_consumption where building_id in(select id from building where project_id = ?)', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:building_point";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from building_point where building_id in(select id from building where project_id = ?)', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:building";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.delete('building', {project_id: projectId});
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:project_survey";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.delete('project_survey', {project_id: projectId});
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:device_attention";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('delete from device_attention where device_id in(select id from device where project_id = ?) and user_id in(select user_id from user_project where project_id = ?)', [projectId, projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:user_project";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.delete('user_project', {project_id: projectId});
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:device";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        const device = await conn.select('device', {project_id: projectId});
+                        for(var key in device){
+                            await conn.update('device', {id: device[key].id, project_id: null})
+                        }
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:device";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.delete('project', {id: projectId});
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            await conn.commit();
+            return res;
+        } catch (error) {
+            return -1;
+        }
     }
 }
 

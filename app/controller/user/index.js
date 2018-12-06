@@ -7,7 +7,7 @@ class IndexController extends Controller {
     await this.ctx.render('manage/home.html');
   }
 
-  async manageInfo() {
+  async userInfo() {
     const { ctx } = this;
     const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
     const userId = user.split('^_^')[0];
@@ -23,6 +23,46 @@ class IndexController extends Controller {
             messg: "查询个人信息失败"
         }
     }
+  }
+
+  async changePassword(){
+    const { ctx } = this;
+    const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
+    const userId = user.split('^_^')[0];
+    const newPassword = ctx.request.body.password;
+    const result = await ctx.service.user.index.changePassword(userId, newPassword);
+    if(result != -1 && result != null){
+        ctx.body = {
+            code: 200,
+        };
+    }else{
+        ctx.body = {
+            code: 1004,
+            messg: "修改密码失败!"
+        }
+    }
+  }
+
+  async changeInfo(){
+    const { ctx } = this;
+    const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
+    const userId = user.split('^_^')[0];
+    const name = ctx.request.body.name;
+    const workplace = ctx.request.body.workplace;
+    const position = ctx.request.body.position;
+    const email = ctx.request.body.email;
+    const mobilePhone = ctx.request.body.mobilePhone;
+    const portrait = ctx.request.body.portrait;
+    const result = await this.ctx.service.user.index.changeInfo(userId, name, workplace, position, email, mobilePhone, portrait);
+    if(result == -1 || result == null){
+        return ctx.body = {
+            messg: "修改信息失败",
+            code: 1003
+        };
+    }
+    ctx.body = {
+        code: 200
+    };
   }
 }
 

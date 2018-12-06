@@ -1,15 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>管理员登录</title>
-<base href="<%=basePath%>" />
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css">
     <link rel="stylesheet" href="/public/static/common/css/base.css">
     <script src="/public/static/common/js/jquery.min.js"></script>
@@ -143,7 +136,7 @@
 			$.ajax({
 		        type: "post",
 		        dataType: "json",
-		        url: '/user/adminLogin',
+		        url: '/admin/login',
 		        data: {
 		        	"username":username,
 		        	"password":password
@@ -152,7 +145,7 @@
 		        	console.log(data);
 		        	if(data.status==0){
 		        		//alert("登录成功");
-		        		window.location.href="/views/administrator/index.jsp";
+		        		window.location.href="/admin/index";
 		        		//window.location.href="/redirect?url=administrator/deviceList_manage.jsp";
 		        		
 		        	}else{

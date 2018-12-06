@@ -134,7 +134,7 @@ $("#commitBuildingUpdate").on("click",function(){
 	var ohHd    = $("#8_holiday_occ_hour").val();
 	var nhd   = $("#8_holiday_num").val();
 	
-	var url="/energyConsumption/updateEC";
+	var url="/project/single/building/energy_update";
 	var json={"id":consumptionID,"buildingID":buildingID,"aeu":aeu,"elecDs":elecDs,"elecComment":elecComment,"secEs":secEs,"secAu":secAu,"secDs":secDs,"secComment":secComment,"thiEs":thiEs,"thiAu":thiAu,"thiDs":thiDs,"thiComment":thiComment,"fouEs":fouEs,"fouAu":fouAu,"fouDs":fouDs,"fouComment":fouComment,"siteSource":siteSource,"siteAu":siteAu,"siteSd":siteSd,"siteDs":siteDs,"siteComment":siteComment,"siteChpMm":siteChpMm,"siteChpFs":siteChpFs,"siteChpRp":siteChpRp,"siteChpAfc":siteChpAfc,"siteChpAeg":siteChpAeg,"siteChpAhg":siteChpAhg,"siteChpComment":siteChpComment,"seuDesc":seuDesc,"seuPs":seuPs,"seuAeu":seuAeu,"seuComment":seuComment,"ohWd":ohWd,"nwd":nwd,"ohHd":ohHd,"nhd":nhd};
 	function successFunc(data){
 		changestatus();

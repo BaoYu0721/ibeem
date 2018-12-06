@@ -28,23 +28,27 @@ class ViewController extends Controller {
     async getEnvironmentData() {
         const { ctx } = this;
         const deviceId = ctx.request.body.deviceId;
-        const sTime = ctx.request.body.startTime;
-        const eTime = ctx.request.body.endTime;
+        var sTime = ctx.request.body.startTime;
+        var eTime = ctx.request.body.endTime;
         const sWorkTime = ctx.request.body.startWorkTime;
         const eWorkTime = ctx.request.body.endWorkTime;
         const workDay = ctx.request.body.workDay;
         const result = await ctx.service.device.view.getEnvironmentData(deviceId, sTime, eTime, sWorkTime, eWorkTime, workDay);
-        if(result != -1){
-            ctx.body = {
-                result: "success",
-                data: result.envData,
-                deviceId: deviceId,
-                deviceName: result.device.name
-            }
-        }else{
-            ctx.body = {
-            result: "error"
+        if(result == -1){
+            return ctx.body = {
+                result: "error"
             };
+        }else if(result == null){
+            return ctx.body = {
+                result: "success"
+            };
+        }else{
+            return ctx.body = {
+                result: "success",
+                data: result.deviceData,
+                deviceId: deviceId,
+                deviceName: result.deviceName
+            }
         }
     }
 

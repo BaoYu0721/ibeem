@@ -13,16 +13,17 @@ class StatusService extends Service {
         }
         if(device != null){
             if(device.type == 'coclean'){
-                var param = "{\"deviceId\":"+deviceId+"}";
-                const result = await this.service.utils.http.getCocleanStatus(param);
+                var param = {
+                    deviceId: deviceId
+                };
+                const result = await this.service.utils.http.cocleanPost(this.app.config.deviceDataReqUrl.coclean.deviceIsOnline, param);
                 if(result.result == 'success'){
                     if(result.data == 1){
                         status = true;
                     }
                 }
             }else if(device.type == 'ibeem'){
-                const result = await this.service.utils.http.getIbeemStatus(deviceId);
-                console.log(result);
+                const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getDeviceOnlineStatus, deviceId);
                 if(result.status == 1){
                     status = true;
                 }

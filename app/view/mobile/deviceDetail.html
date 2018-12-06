@@ -307,7 +307,7 @@ function ajaxFileUpload(fileid) {
     $.ajaxFileUpload
     (
         {
-            url: '<%=request.getContextPath() %>/imageupload', //用于文件上传的服务器端请求地址
+            url: '<%=request.getContextPath() %>/common/upload', //用于文件上传的服务器端请求地址
             secureuri: false, //一般设置为false
             fileElementId: fileid, //文件上传空间的id属性  <input type="file" id="file" name="file" />
             dataType: 'json', //返回值类型 一般设置为json
@@ -417,7 +417,7 @@ function ajaxFileUpload(fileid) {
 		$.ajax({
 	        type: "post",
 	        dataType: "json",
-	        url: '/device/getDeviceByID',
+	        url: '/device/info',
 	        timeout : 60000, //超时时间设置，单位毫秒
 	        data: {deviceID:device_id
 	        },
@@ -637,7 +637,7 @@ function ajaxFileUpload(fileid) {
 		
 		    $.ajax({
 		      type	 : 'post',
-		      url	 : '/imageupload',
+		      url	 : '/common/upload',
 		      data	 : fd,
 		      processData: false,  // tell jQuery not to process the data  ，这个是必须的，否则会报错
 		     // contentType: false,   // tell jQuery not to set contentType  
@@ -754,14 +754,14 @@ function ajaxFileUpload(fileid) {
 				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
 		</div>
 		<%-- <div class="img-panel">
-		<form action="<%=request.getContextPath() %>/imageupload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
+		<form action="<%=request.getContextPath() %>/common/upload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
 			<input type="file" id="file2" name="file" class="image2"  accept="image/*;capture=camera"  >
 			<img class="upload_img upload_img_1" src="../static/mobile/img/upload_image.jpg" data-hasimg='false'/> 
 			<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
 		</form>
 		</div>
 		<div class="img-panel" style="margin-top:1rem">
-		<form action="<%=request.getContextPath() %>/imageupload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
+		<form action="<%=request.getContextPath() %>/common/upload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
 			<input type="file" id="file3" name="file" class="image3"  accept="image/*;capture=camera"  >
 			<img class="upload_img upload_img_2" src="../static/mobile/img/upload_image.jpg" data-hasimg='false'/> 
 			<img class="close" src="/static/manage/img/team/close.png" style="display:none;">

@@ -35,11 +35,12 @@ $(function(){
 	
 	var json = {"surveyID":pseID,"beginTime":time_s,"endTime":time_e,"relation":3,"objectID":pid};
 	$.ajax({
-		url:"/survey/statisticalSurvey",
+		url:"/project/single/building/point_survey_detail",
 		type:"POST",
 		data:json,
-		success:function(){
-			initData(data.suvery);
+		success:function(data){
+			console.log(data);
+			//initData(data.suvery);
 		}
 	})
 	

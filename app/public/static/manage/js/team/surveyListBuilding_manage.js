@@ -12,7 +12,7 @@ $(".tit-teamname").html(teamName.length>8?teamName.substring(0,8)+"..":teamName)
 var buildingID = $.cookie("buildingid");
 //var surveyParam = $.cookie("surveyparam");
 //添加左侧导航栏
-getComponent("/static/manage/components/leftpanel_manage.html",
+getComponent("/common/admin/leftpanel",
 		function(result){
 			$(".fl.mainleft").html(result);
 			/*左侧导航的选中效果*/

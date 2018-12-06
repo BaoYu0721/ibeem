@@ -133,7 +133,6 @@ class SingleController extends Controller {
         const { ctx } = this;
         const projectId = ctx.request.body.projectID;
         const result = await ctx.service.project.single.projectDelete(projectId);
-        console.log(result);
         if(result == -1){
             return ctx.body = {
                 messg: "系统繁忙，请重试",
