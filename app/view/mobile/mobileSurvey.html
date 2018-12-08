@@ -1,11 +1,3 @@
-<%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	Long dateStr = new Date().getTime();
-%>
 <!DOCTYPE html>
 <html style="font-size: 50px;">
 
@@ -13,23 +5,22 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
 	<title>问卷</title>
-	<base href="<%=basePath%>" />
 	<!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" />   -->
-	<link rel="stylesheet" href="/static/common/css/jquery-ui-1.10.1.css">
-	<link rel="stylesheet" href="/static/common/css/jquery.nstSlider.min.css">
-	<link rel="stylesheet"  href="/static/mobile/css/mobileSurvey.css" />
+	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="/public/static/common/css/jquery.nstSlider.min.css">
+	<link rel="stylesheet"  href="/public/static/mobile/css/mobileSurvey.css" />
     <!--[if IE]>
     <link rel="stylesheet"  href="/static/mobile/css/mobileSurvey_ie.css" />
     <script src="/static/mobile/js/json2.js"></script> 
     
     <![endif]--> 
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
-    <script src="/static/common/js/jquery.nstSlider.min.js"></script>
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/common/js/jquery.nstSlider.min.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
-    <script type="text/javascript" src="/static/common/js/tools.js"></script>
-    <script src="/static/manage/js/language.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script type="text/javascript" src="/public/static/common/js/tools.js"></script>
+    <script src="/public/static/manage/js/language.js"></script>
      <style>
      body{padding:0;margin:0;}
      .submit{cursor:pointer;}
@@ -69,7 +60,8 @@
 	<button class="submit" id="submit"></button>
 	<!-- 提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交 -->
 </div>
-<script src="/static/mobile/js/mobileSurvey.js?time=<%=dateStr%>"></script>
+<!--<script src="/public/static/mobile/js/mobileSurvey.js?time= %=dateStr%"></script>-->
+<script src="/public/static/mobile/js/mobileSurvey.js"></script>
 		
 </body>
 </html>

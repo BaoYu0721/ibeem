@@ -1,17 +1,23 @@
 //如果获取到参数是edit
-function getQueryString(name) { 
-	var url = window.location.href;
-	if(url.indexOf(".jsp?")!=-1){
-		var params = url.split(".jsp?")[1];
-		var paramArr = params.split("&");
-		var paramObj = {};
-		for(var i in paramArr){
-			paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
-		}
-		return paramObj[name]==undefined?null:paramObj[name];
-	}else{
-		return null;
-	}
+// function getQueryString(name) { 
+// 	var url = window.location.href;
+// 	if(url.indexOf(".jsp?")!=-1){
+// 		var params = url.split(".jsp?")[1];
+// 		var paramArr = params.split("&");
+// 		var paramObj = {};
+// 		for(var i in paramArr){
+// 			paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
+// 		}
+// 		return paramObj[name]==undefined?null:paramObj[name];
+// 	}else{
+// 		return null;
+// 	}
+// }
+function getQueryString(name) {
+	var params = decodeURI(window.location.search);
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = params.substr(1).match(reg);
+	if (r!=null) return unescape(r[2]); return null;
 }
 //=====编辑问卷，全局变量=====
 var surveyId = $.cookie("editSurveyId");
@@ -32,6 +38,7 @@ function initSurvey(){
 	var json = {"surveyID":surveyId};
 	function func(data){
 		//把题目放在试卷上
+		// jsonObj = JSON.parse(data);
 		putSurvey(data);
 	}
 	function errorfunc(data){
@@ -88,7 +95,7 @@ function putQuestion(question,$root){
 	var setting = eval('(' + question.setting + ')'); ;//选项
 	var num = question.questionorder;//题号
 	if(type==0){//放置填空题
-		getComponent("/static/manage/components/questionTK.html",
+		getComponent("/public/static/components/questionTK.html",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -106,7 +113,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==1){//放置单选题
-		getComponent("/static/manage/components/questionDX.html",
+		getComponent("/public/static/components/questionDX.html",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -185,7 +192,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==2){//放置多选题
-		getComponent("/static/manage/components/questionDDX.html",
+		getComponent("/public/static/components/questionDDX.html",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -267,7 +274,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==3){//放置量表题
-		getComponent("/static/manage/components/questionLB.html",
+		getComponent("/public/static/components/questionLB.html",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -357,7 +364,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==4){//放置折线题
-		getComponent("/static/manage/components/questionZX.html",
+		getComponent("/public/static/components/questionZX.html",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -424,7 +431,7 @@ function putQuestion(question,$root){
 function putQuestionDl(dl,$root){
 	var dltitle = dl.title;
 	var dlorder = dl.order;
-	getComponent("/static/manage/components/questionDL.html",
+	getComponent("/public/static/components/questionDL.html",
 			function(resultHTML){
 				$root.append(resultHTML);
 				add_index++;

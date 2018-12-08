@@ -86,7 +86,7 @@ function getSurveyData(){
 			var host = window.location.host;
 			//将数据放到页面
 			var htmlStr =$("<tr> <td><div class='ui fitted checkbox' data-id='"+id+"' data-status='"+survey.isFinished+"' data-count='"+count+"' ><input type='checkbox' class='hidden'><label></label></div></td><td>"+title+"</td> <td>"+introduction+"</td> <td>"+name+"</td> <td>"+count+"</td>" +
-					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"' href='javascript:void(0)'>"+getLangStr("survey_copyurl")+"</a></td>" +
+					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/survey/mobileSurvey?surveyId="+id+"' href='javascript:void(0)'>"+getLangStr("survey_copyurl")+"</a></td>" +
 					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"' >"+getLangStr("viewQR")+"</a></td>" +
 				    "<td><a class='link' style='text-decoration:underline' href='javascript:void(0)' data-surveyid='"+id+"'>"+getLangStr("viewLink")+"</a></td>" +
 				    "<td class='"+statusClass+"' data-id='"+id+"'>"+isFinished+"</td></tr>"); 

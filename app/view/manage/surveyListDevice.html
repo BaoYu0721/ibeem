@@ -16,7 +16,7 @@
     <script src="/public/static/common/js/jquery.min.js"></script>
     <script src="/public/static/common/js/jquery.cookie.js"></script>
     <script src="/public/static/manage/js/jquery.form.js"></script>
-     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
     <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
     <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
     <script src="/public/static/common/js/semantic.min.js"></script>
@@ -35,14 +35,15 @@
     </style>
 </head>
 <body >
+
 <div class="ui basic test modal showqr">
-	
 	<i class="green close icon"></i>
-		<div class="container">
-		<div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
-			<button id="downloadqr"><spring:message code="surveyListDevice.downloadqr" /></button>
-		</div>
+	<div class="container">
+	   <div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
+	   <button id="downloadqr"> <!--<spring:message code="surveyListDevice.downloadqr" />--> </button>
 	</div>
+</div>
+
 <div class="ui basic test modal export">
 	<i class="green close icon"></i>
 	<div class="container">
@@ -55,7 +56,7 @@
 	</div>
 </div>
 
-<div class="ui basic test modal tree">
+<!--<div class="ui basic test modal tree">
 	<i class="green huge close icon"></i>
 	<div class="qr-container transition hidden" >
 		<div class="qrcode-weidu-container">>
@@ -72,8 +73,8 @@
 		<div class="ui list" id="projectList" style="height:30rem;overflow:auto;">
 		</div>
 	</div>
-	
-</div>
+</div>-->
+
 <table id="exceltable" style="display:none;">
 	    <!-- <tr>
 	        <td>100</td> <td>200</td> <td>300</td>
@@ -88,10 +89,8 @@
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:0;">
             <a class="item on alone" href="/survey">我的问卷</a>
-            <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
         </div>
             
-        <!--内容区--> 
         <div class="content" id="content">
             <div class="ui grid">
                 <div class="sixteen wide column content-team" >
@@ -135,7 +134,7 @@
                 				<th>关联</th>
                 				<th>状态</th>
                				</tr> 
-               				</thead> 
+               				</thead>
              				<tbody id="datatable_body"> 
              				</tbody>
              				</table>

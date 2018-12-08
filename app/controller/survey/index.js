@@ -16,6 +16,9 @@ class IndexController extends Controller {
       await this.ctx.render('manage/surveyLibrary.html');
     }else if(item == 'statistics'){
       await this.ctx.render('manage/surveyReport.html');
+    }else if (item == 'mobileSurvey') {
+      console.log('mobile survey?');
+      await this.ctx.render('mobile/mobileSurvey.html');
     }else{
       ctx.status = 403;
       ctx.body = 'forbidden!';

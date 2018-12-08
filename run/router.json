@@ -586,6 +586,19 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/survey/getSurveyByID",
+    "regexp": "/^\\/survey\\/getSurveyByID(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/survey/download/answer",
     "regexp": "/^\\/survey\\/download\\/answer(?:\\/(?=$))?$/",
     "stack": [
@@ -667,6 +680,33 @@
     "path": "/survey/increase/question/select",
     "regexp": "/^\\/survey\\/increase\\/question\\/select(?:\\/(?=$))?$/",
     "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/survey/mobileSurvey",
+    "regexp": "/^\\/survey\\/mobileSurvey(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/survey/updateSurvey",
+    "regexp": "/^\\/survey\\/updateSurvey(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
       "anonymous",
       "wrappedController"
     ]

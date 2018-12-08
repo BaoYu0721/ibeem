@@ -45,6 +45,22 @@ class IncreaseController extends Controller {
           };
         }
     }
+
+    async updateSurvey() {
+      const { ctx } = this;
+      // console.log(ctx.request.body.surveyID);
+      // console.log(JSON.stringify(ctx.request.body.survey));
+      const result = await ctx.service.survey.increase.updateSurvey(ctx.request.body.surveyID, ctx.request.body.survey);
+      if (result == -1) {
+        // no such surveyID
+      }
+      else if (result == -2) {
+        // unexpected error
+      }
+      else if (result == -3) {
+        // exec transaction error!
+      }
+    }
 }
 
 module.exports = IncreaseController;

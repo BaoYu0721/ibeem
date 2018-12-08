@@ -1113,6 +1113,7 @@ $("#wcbj_update").on("click",function(){
 	var isUpdate = 1;
 	var json=getJSON(isFinished,isUpdate);
 	if(json==""){
+		console.log('json is null');
 		return false;
 	}
 	var successFunc = function(data){
@@ -1125,6 +1126,7 @@ $("#wjzc_update").on("click",function(){
 	var isFinished = 0;
 	var isUpdate = 1;
 	var json=getJSON(isFinished,isUpdate);
+	console.log(json);
 	if(json==""){
 		return false;
 	}
@@ -1375,7 +1377,7 @@ function getJSON(isFinished,isUpdate){
 			questionList.push({
 				"required":required,
 				"sequence":sequence,
-				"setting":setting,
+				"setting":JSON.stringify(setting),
 				"title":title,
 				"type":type
 			});

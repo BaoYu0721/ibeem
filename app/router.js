@@ -63,6 +63,7 @@ module.exports = app => {
   router.get('/survey', userRequired, controller.survey.index.index);
   router.post('/survey/list', userRequired, controller.survey.index.surveyList);
   router.post('/survey/question_list', userRequired, controller.survey.index.questionList);
+  router.post('/survey/getSurveyByID', userRequired, controller.survey.mobile.getSurveyByID);
   router.post('/survey/download/answer', userRequired, controller.survey.download.answer);
   router.post('/survey/download/question', userRequired, controller.survey.download.question);
   router.post('/survey/increase/commit', userRequired, controller.survey.increase.commit);
@@ -70,6 +71,8 @@ module.exports = app => {
   router.post('/survey/statistics', userRequired, controller.survey.statistics.surveyStatistics);
   router.post('/survey/delete', userRequired, controller.survey.delete.surveyDelete);
   router.post('/survey/increase/question/select', userRequired, controller.survey.increase.questionSelect);
+  router.get('/survey/mobileSurvey', controller.survey.mobile.index);
+  router.post('/survey/updateSurvey', userRequired, userRequired, controller.survey.increase.updateSurvey);
   
   // project
   router.get('/project', userRequired, controller.project.index.index);
