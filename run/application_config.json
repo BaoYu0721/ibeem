@@ -85,28 +85,28 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "D:\\TankerSource\\ibeem\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-session\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-jsonp\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-onerror\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-schedule\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-redis\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-mysql\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\locales",
-        "D:\\Code\\ibeem项目\\ibeem\\config\\locales"
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-session\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-jsonp\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-onerror\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-schedule\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-development\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-view\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-redis\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg-mysql\\config\\locales",
+        "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\locales",
+        "D:\\TankerSource\\ibeem\\config\\locales"
       ],
       "queryField": "locale",
       "cookieField": "locale",
@@ -116,14 +116,14 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "D:\\Code\\ibeem项目\\ibeem\\logs\\ibeem\\egg-schedule.log"
+        "file": "D:\\TankerSource\\ibeem\\logs\\ibeem\\egg-schedule.log"
       }
     },
     "multipart": {
@@ -137,7 +137,7 @@
       "files": 10,
       "fileExtensions": [],
       "whitelist": null,
-      "tmpdir": "C:\\Users\\Hello\\AppData\\Local\\Temp\\egg-multipart-tmp\\ibeem",
+      "tmpdir": "C:\\Users\\fairy\\AppData\\Local\\Temp\\egg-multipart-tmp\\ibeem",
       "cleanSchedule": {
         "cron": "0 30 4 * * *"
       }
@@ -160,7 +160,7 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "D:\\Code\\ibeem项目\\ibeem\\app\\public",
+      "dir": "D:\\TankerSource\\ibeem\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
@@ -169,7 +169,7 @@
     },
     "view": {
       "root": [
-        "D:\\Code\\ibeem项目\\ibeem\\app\\view"
+        "D:\\TankerSource\\ibeem\\app\\view"
       ],
       "cache": false,
       "defaultExtension": ".html",
@@ -179,7 +179,7 @@
       }
     },
     "ejs": {
-      "root": "D:\\Code\\ibeem项目\\ibeem\\app\\view",
+      "root": "D:\\TankerSource\\ibeem\\app\\view",
       "cache": false,
       "debug": false,
       "compileDebug": true,
@@ -273,9 +273,9 @@
       "author": "ibeem",
       "license": "MIT"
     },
-    "baseDir": "D:\\Code\\ibeem项目\\ibeem",
-    "HOME": "C:\\Users\\Hello",
-    "rundir": "D:\\Code\\ibeem项目\\ibeem\\run",
+    "baseDir": "D:\\TankerSource\\ibeem",
+    "HOME": "C:\\Users\\fairy",
+    "rundir": "D:\\TankerSource\\ibeem\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -306,7 +306,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "D:\\Code\\ibeem项目\\ibeem\\logs\\egg",
+      "dir": "D:\\TankerSource\\ibeem\\logs\\egg",
       "encoding": "utf8",
       "env": "local",
       "level": "DEBUG",
@@ -435,8 +435,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-session",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -448,8 +448,8 @@
         "session"
       ],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-security",
       "version": "2.4.0"
     },
     "jsonp": {
@@ -461,8 +461,8 @@
         "security"
       ],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-jsonp",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -474,8 +474,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-onerror",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -485,8 +485,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -496,8 +496,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -507,8 +507,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-schedule",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-schedule",
       "version": "3.4.0"
     },
     "multipart": {
@@ -520,8 +520,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart",
       "version": "2.2.1"
     },
     "development": {
@@ -535,8 +535,8 @@
       "env": [
         "local"
       ],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-development",
       "version": "2.4.1"
     },
     "logrotator": {
@@ -548,8 +548,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator",
       "version": "3.0.4"
     },
     "static": {
@@ -559,8 +559,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-static",
       "version": "2.1.1"
     },
     "view": {
@@ -570,8 +570,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view",
+      "from": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-view",
       "version": "2.1.0"
     },
     "ejs": {
@@ -583,8 +583,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs",
+      "from": "D:\\TankerSource\\ibeem\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs",
       "version": "2.0.0"
     },
     "redis": {
@@ -594,8 +594,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-redis",
+      "from": "D:\\TankerSource\\ibeem\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-redis",
       "version": "2.0.0"
     },
     "mysql": {
@@ -605,8 +605,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\Code\\ibeem项目\\ibeem\\config\\plugin.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-mysql",
+      "from": "D:\\TankerSource\\ibeem\\config\\plugin.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg-mysql",
       "version": "3.0.0"
     }
   }
