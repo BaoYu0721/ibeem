@@ -63,3 +63,5 @@ typings/
 run/
 
 .idea/
+
+package-lock.json

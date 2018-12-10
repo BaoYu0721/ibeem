@@ -53,14 +53,39 @@ class IncreaseController extends Controller {
       const result = await ctx.service.survey.increase.updateSurvey(ctx.request.body.surveyID, ctx.request.body.survey);
       if (result == -1) {
         // no such surveyID
+        ctx.body = {
+          messg: "此surveyID不存在",
+          code: 405,
+        };
       }
       else if (result == -2) {
         // unexpected error
+        ctx.body = {
+          messg: "未知错误",
+          code: 405,
+        };
       }
       else if (result == -3) {
         // exec transaction error!
+        ctx.body = {
+          messg: "执行更新survey事务出错",
+          code: 405,
+        };
+      }
+      else if (result == 0) {
+        // complete normally
+        ctx.body = {
+          code: 200
+        };
+      }
+      else {
+        // unexpected error!
+        ctx.body = {
+          messg: "未知错误",
+          code: 405,
+        };
       }
     }
 }
 
-module.exports = IncreaseController;
+module.exports = IncreaseController; 

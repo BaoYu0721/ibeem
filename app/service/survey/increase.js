@@ -78,7 +78,7 @@ class IncreaseService extends Service {
                 return transation();
             });
             if(res == -1) return res;
-            resource = "ibeem_test:survey";
+            resource = "ibeem_test:question";
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
@@ -261,17 +261,135 @@ class IncreaseService extends Service {
                 // set survey detail and question and paragraph
                 if (survey != undefined && survey != '') {
                     var json_obj = JSON.parse(survey);
-                    
+                    const row = {
+                        html: json_obj.html,
+                        introduction: json_obj.introduction,
+                        title: json_obj.title,
+                        is_finished: json_obj.isFinished,
+                        type: json_obj.pagingType,
+                        number: json_obj.pagingNum,
+                        state: 0,
+                        updated_on: this.app.mysql.literals.now
+                    };
+                    const options = {
+                        where: {
+                            id: surveyID
+                        }
+                    };
+                    var resource5 = "ibeem_test:survey";
+                    var res5 = await redlock.lock(resource5, ttl).then(function(lock) {
+                        async function transation() {
+                            try {
+                                var tmp_result = await conn.update('survey', row, options);
+                                lock.unlock().catch(function (err) {
+                                    console.log(err);
+                                });
+                                return 0;
+                            }
+                            catch (error) {
+                                console.log('[service.survey.incease.updateSurvey.lockcallback]: error!!---' + error);
+                                lock.unlock().catch(function(err) {
+                                    console.log(err);
+                                });
+                                return -1;
+                            }
+                        }
+                        return transation();
+                    });
+                    if (res5 == -1) {
+                        conn.rollback();
+                        return -3;
+                    }
+                    if (json_obj.dl != undefined && json_obj.length != 0) {
+                        var resource6 = "ibeem_test:paragraph";
+                        var paragraphIdList = [];
+                        var res6 = await redlock.lock(resource6, ttl).then(function(lock) {
+                            async function transation() {
+                                try {
+                                    var paragraph = json_obj.dl;
+                                    for(var i in paragraph) {
+                                        const result = await conn.insert('paragraph', {
+                                            created_on: new Date(), 
+                                            introduction: paragraph[i].title, 
+                                            sequence: paragraph[i].order,
+                                            survey_id: surveyID
+                                        });
+                                        paragraphIdList.push(result.insertId);
+                                    }
+                                    lock.unlock()
+                                    .catch(function(err) {
+                                        console.error(err);
+                                    });
+                                    return 0;
+                                } 
+                                catch (error) {
+                                    console.log(error);
+                                    lock.unlock()
+                                    .catch(function(err) {
+                                        console.error(err);
+                                    });
+                                    return -1;
+                                }
+                            }
+                            return transation();
+                        });
+                        if(res6 == -1) {
+                            conn.rollback();
+                            return -3;
+                        }
+
+                        var resource7 = "ibeem_test:question";
+                        var res7 = await redlock.lock(resource7, ttl).then(function(lock) {
+                            async function transation() {
+                                try {
+                                    var paragraph = json_obj.dl;
+                                    for(var i in paragraph){
+                                        var question = paragraph[i].questionList;
+                                        for(var j in question){
+                                            await conn.insert('question', {
+                                                created_on: new Date(), 
+                                                required: question[j].required, 
+                                                sequence: question[j].sequence, 
+                                                setting: question[j].setting,
+                                                survey_id: surveyID, 
+                                                title: question[j].title, 
+                                                type: question[j].type, 
+                                                paragraph_id: paragraphIdList[i]
+                                            });
+                                        }
+                                    }
+                                    lock.unlock().catch(function(err) {
+                                        console.error(err);
+                                    });
+                                    return 0;
+                                } 
+                                catch (error) {
+                                    console.log(error);
+                                    conn.rollback();
+                                    lock.unlock()
+                                    .catch(function(err) {
+                                        console.error(err);
+                                    });
+                                    return -1;
+                                }
+                            }
+                            return transation();
+                        });
+                        if(res7 == -1) {
+                            conn.rollback();
+                            return -3;
+                        }
+                    }
                 }
 
                 await conn.commit();
             }
+            return 0;
         }
         catch (error) {
             console.log('[service.survey.incease.updateSurvey]: error!!---' + error);
             return -2;
         }
-        return 1;
     }
 }
 
