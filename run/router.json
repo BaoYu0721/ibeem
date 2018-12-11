@@ -703,6 +703,18 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/survey/answerSurvey",
+    "regexp": "/^\\/survey\\/answerSurvey(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/survey/updateSurvey",
     "regexp": "/^\\/survey\\/updateSurvey(?:\\/(?=$))?$/",
     "stack": [

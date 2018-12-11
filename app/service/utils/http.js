@@ -28,6 +28,13 @@ class HttpService extends Service {
         return JSON.parse(result.data.toString());
     }
 
+    async tencentMapGet(location_ip) {
+        const { ctx } = this;
+        const reqUrl = ctx.app.config.tencentMap.url + '?ip=' + location_ip + '&key=' + ctx.app.config.tencentMap.key;
+        const result = await ctx.curl(reqUrl);
+        return JSON.parse(result.data.toString());
+    }
+
 }
 
 module.exports = HttpService;

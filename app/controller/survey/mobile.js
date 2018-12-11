@@ -39,6 +39,11 @@ class IndexController extends Controller {
       ctx.status = 200;
     }
   }
+
+  async answerSurvey() {
+    const { ctx } = this;
+    const result = await ctx.service.survey.mobile.answerSurvey(ctx.request.body.answer, ctx.request.ip);
+  }
 }
 
 module.exports = IndexController;

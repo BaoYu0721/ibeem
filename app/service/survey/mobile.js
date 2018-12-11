@@ -95,6 +95,25 @@ class IndexService extends Service {
             return result;
         }
     }
+
+    async answerSurvey(answer, ip) {
+        // test ip: '123.112.102.239'
+        const map_result = await this.service.utils.http.tencentMapGet('123.112.102.239');
+        var longitude = undefined;
+        var latitude = undefined;
+        var province = undefined;
+        if (map_result.status != 0) {
+            longitude = 0;
+            latitude = 0;
+            province = '';
+        }
+        else {
+            longitude = map_result.result.location.lng;
+            latitude = map_result.result.location.lat;
+            province = map_result.result.ad_info.province;
+        }
+        console.log(longitude, latitude, province);
+    }
 }
 
 module.exports = IndexService;

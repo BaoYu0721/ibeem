@@ -509,12 +509,12 @@ $(".paging").on("click","ul li",function(){
 //===========组装答案json==========
 $("#submit").click(sendAnswer);
 function sendAnswer(){
-	addMobileLoading();
 	var url = "/survey/answerSurvey";
 	var answer = getAnswerJson();
 	if(!answer){
 		return false;
 	}
+	addMobileLoading();
 	//判断题目的所属维度
 	var objectID = "";
 	var relation = "";

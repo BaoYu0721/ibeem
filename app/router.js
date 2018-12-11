@@ -72,6 +72,7 @@ module.exports = app => {
   router.post('/survey/delete', userRequired, controller.survey.delete.surveyDelete);
   router.post('/survey/increase/question/select', userRequired, controller.survey.increase.questionSelect);
   router.get('/survey/mobileSurvey', controller.survey.mobile.index);
+  router.post('/survey/answerSurvey', controller.survey.mobile.answerSurvey);
   router.post('/survey/updateSurvey', userRequired, userRequired, controller.survey.increase.updateSurvey);
   
   // project
