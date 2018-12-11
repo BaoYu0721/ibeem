@@ -1,25 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html style="font-size: 50px;">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title><spring:message code="mobileSurvey_submitsuccess" /></title>
-	<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-	<link rel="stylesheet" href="/static/mobile/css/mobileSurveyList.css">
+	<title>提交成功</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/public/static/mobile/css/mobileSurveyList.css">
 
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
-    <script src="/static/common/js/tools.js"></script> 
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/tools.js"></script> 
 </head>
 <body>
 	<div class="container" style="position:static;padding-top:1em;text-align:center;padding-bottom:1em">
@@ -59,9 +51,15 @@
             			$("body").css("font-size","50px");
             		}
             	}
+                  function getQueryString(name) {
+                        var params = decodeURI(window.location.search);
+                        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                        var r = params.substr(1).match(reg);
+                        if (r!=null) return unescape(r[2]); return null;
+                  }
             	changeFontsize();//进入页面时先执行一次
             	$("#jxdt").click(function(){
-            		window.location.href="/views/mobile/mobileSurvey.jsp";	
+            		window.location.href="/survey/mobileSurvey?surveyId=" + getQueryString("surveyID");	
             	});
             	$("#fhlb").click(function(){
             		window.location.href="open?url=mobile/mobileSurveyList.jsp";	

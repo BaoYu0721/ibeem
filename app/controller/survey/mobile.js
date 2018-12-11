@@ -16,6 +16,19 @@ class IndexController extends Controller {
     }
   }
 
+  async mobileSurveySuccess() {
+    const { ctx } = this;
+    const surveyID = ctx.query.surveyID;
+    if(surveyID == undefined){
+      ctx.status = 404;
+      ctx.body = 'Please specify survey id';
+      return;
+    }
+    else {
+      await this.ctx.render('mobile/mobileSurveySuccess.html');
+    }
+  }
+
   async getSurveyByID() {
     const { ctx } = this;
     const surveyID = ctx.request.body.surveyID;
@@ -43,6 +56,41 @@ class IndexController extends Controller {
   async answerSurvey() {
     const { ctx } = this;
     const result = await ctx.service.survey.mobile.answerSurvey(ctx.request.body.answer, ctx.request.ip);
+    if (result == -1) {
+      // unexpected error
+      ctx.body = {
+        code: 405,
+        messg: "未知错误"
+      };
+    }
+    else if (result == -2) {
+      // no such surveyID
+      ctx.body = {
+        code: 405,
+        messg: "此 surveyID 不存在"
+      };
+    }
+    else if (result == -3) {
+      // exec transaction error
+      ctx.body = {
+        code: 405,
+        messg: "执行事务出错"
+      };
+    }
+    else if (result == 0) {
+      // success
+      ctx.body = {
+        code: 200,
+        messg: "填写成功"
+      };
+    }
+    else {
+      // unexpected error
+      ctx.body = {
+        code: 405,
+        messg: "未知错误"
+      };
+    }
   }
 }
 

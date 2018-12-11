@@ -137,6 +137,10 @@
       "deviceIsOnline": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     }
   },
+  "tencentMap": {
+    "url": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "key": "D:\\TankerSource\\ibeem\\config\\config.default.js"
+  },
   "mysql": {
     "client": {
       "host": "D:\\TankerSource\\ibeem\\config\\config.default.js",

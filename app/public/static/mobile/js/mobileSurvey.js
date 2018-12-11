@@ -534,7 +534,7 @@ function sendAnswer(){
 	var toStringAnswer = JSON.stringify({"surveyID":surveyId,"objectID":objectID,"relation":relation,"list":answer});
 	var json = {"answer":toStringAnswer};
 	function func(data){
-		window.location.href="/open?url=mobile/mobileSurveySuccess.jsp";
+		window.location.href="/survey/mobileSurveySuccess?surveyID=" + surveyId;
 	}
 	function errorfunc(data){
 		var errorcode = data.code;

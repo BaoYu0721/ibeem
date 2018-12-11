@@ -360,6 +360,10 @@
         "deviceIsOnline": "http://dev.coclean.com/Rest/deviceIsOnline"
       }
     },
+    "tencentMap": {
+      "url": "http://apis.map.qq.com/ws/location/v1/ip",
+      "key": "JLWBZ-4353U-5PKVK-4EEN7-27ZKO-64FLV"
+    },
     "email": {
       "host": "smtp.163.com",
       "port": 465,
