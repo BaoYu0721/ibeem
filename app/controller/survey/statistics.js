@@ -12,15 +12,17 @@ class StatisticsController extends Controller {
         const projectId = ctx.request.body.objectID;
         const result = await ctx.service.survey.statistics.surveyStatistics(surveyId, startTime, endTime, relation, projectId);
         if(result == -1){
-            return ctx.body = {
-                messg: "系统繁忙，请重试",
+            ctx.body = {
+                messg: "查询问卷情况错误",
                 code: 1005
             };
         }
-        ctx.body = {
-            survey: result,
-            code: 200
-        };
+        else {
+            ctx.body = {
+                survey: result,
+                code: 200
+            };
+        }
     }
 }
 

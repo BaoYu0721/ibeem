@@ -116,11 +116,14 @@ var paramBuildingName = $.cookie("gxbuildingName");
 var url = "/survey/statistics";
 var json = {"surveyID":surveyId,"beginTime":starttime,"endTime":endtime,"relation":relation,"objectID":objectID};
 function successFunc(data){
+	console.log('statistics succ');
 	initData(data.suvery);
 }
 function errorFunc(data){
+	console.log('statistics fail');
 	var errormsg = data.messg;
-	$(".error h4").html(errormsg);
+	// $(".error h4").html(errormsg);
+	alertokMsg("错误码：" + data.code + "，" + errormsg,getLangStr("alert_ok"));
 }
 sentJson(url,json,successFunc,errorFunc);
 
