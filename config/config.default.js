@@ -83,7 +83,7 @@ module.exports = appInfo => {
     url: "http://apis.map.qq.com/ws/location/v1/ip",
     key: "JLWBZ-4353U-5PKVK-4EEN7-27ZKO-64FLV"
   };
-
+  
   //mysql
   exports.mysql = {
     client: {

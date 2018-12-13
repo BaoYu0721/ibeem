@@ -1,16 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="building.homepage" /></title>
-<base href="<%=basePath%>" />
+<title>建筑主页</title>
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
     <link rel="stylesheet" href="/public/static/common/css/base.css" />
     <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
@@ -46,13 +38,13 @@
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
         <div class="teamTitleTit">
-        	<a class="tit-teamname" href="/redirect?url=administrator/teamContent.jsp"></a>
-        	<a class="tit-buildingname" href="/redirect?url=administrator/teamBuildingContent.jsp" style="border:none;color:#47B390;"></a>
+			<a class="tit-teamname" href=<%="?project_name=" + projectName%>></a>
+			<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;color:#47B390;"></a>
         </div>
-            <a class="item" href="/redirect?url=administrator/teamBuildingData.jsp"><spring:message code="building.information" /></a>
-            <a class="item" href="/redirect?url=administrator/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
-            <a class="item" href="/redirect?url=administrator/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
-            <a class="item" href="/redirect?url=administrator/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName + "&op=info" %>>建筑信息</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName + "&op=point" %>>建筑测点</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName + "&op=survey" %>>建筑问卷</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName + "&op=energy" %>>建筑能耗</a>
         </div>
         <!--内容区--> 
         <div class="content" id="content">
@@ -81,39 +73,39 @@
 										  <table class="ui very basic table">
 											 
 												   <tr>
-												      <td class="str" style="width:15%"><spring:message code="building.name" /></td>
+												      <td class="str" style="width:15%">建筑名</td>
 												      <td id="name" style="width:35%"></td>
-												      <td class="str" style="width:15%"><spring:message code="building.city" /></td>
+												      <td class="str" style="width:15%">所在城市</td>
 												      <td id="citys" style="width:35%"></td>
 												    </tr>
 												    <tr>
-												      <td class="str"><spring:message code="building.area" /></td>
+												      <td class="str">建筑总面积</td>
 												      <td id="area"></td>
-												      <td class="str"><spring:message code="building.height" /></td>
+												      <td class="str">高度</td>
 												      <td id="height"></td>
 												    </tr>
 												    <tr>
-												      <td class="str"><spring:message code="building.wwr" /></td>
+												      <td class="str">窗墙比</td>
 												      <td id="proportion"></td>
-												      <td class="str"><spring:message code="building.point_count" /></td>
+												      <td class="str">建筑测点数</td>
 												      <td id="pointnum"></td>
 												    </tr>
 												    <tr>
-												      <td class="str"><spring:message code="building.evaluate" /></td>
+												      <td class="str">建筑主观评价</td>
 												      <td id="comment"></td>
-												      <td class="str"><spring:message code="building.power_consumption" /></td>
+												      <td class="str">年度耗电量</td>
 												      <td id="consumption"></td>
 												    </tr>
 											  
 										</table>
 									</div>
-			                		<div class="ui teal label huge part-result-ok" id="part-result-ok"><spring:message code="btn.update" /></div>
+			                		<div class="ui teal label huge part-result-ok" id="part-result-ok">修改</div>
 			                	</div>
 		                	</div>
 		                	<!-- 右侧三维模型 -->
 		                	<div class="five wide column mainright">
 		                		<div class="building-slider">
-			                		<div class="ui label huge label-2"><spring:message code="building.3_d_model" /></div>
+			                		<div class="ui label huge label-2">建筑三维模型</div>
 			                		<div id="" class="slider-3d"></div>
 			                	</div>
 		                	</div>

@@ -131,8 +131,8 @@ class SingleBuildingController extends Controller {
 
     async buildingPointData(){
         const { ctx } = this;
-        const buildingId = ctx.request.body.buildingID;
-        const result = await ctx.service.project.singleBuilding.buildingPointData(buildingId);
+        const deviceId = ctx.request.body.deviceId;
+        const result = await ctx.service.project.singleBuilding.buildingPointData(deviceId);
         if(result == -1){
             return ctx.body = {
                 messg: "系统繁忙，请重试",
@@ -466,6 +466,38 @@ class SingleBuildingController extends Controller {
             };
         }
         ctx.body = {
+            code: 200
+        };
+    }
+
+    async topBuildingInfo(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingId;
+        const result = await ctx.service.project.singleBuilding.topBuildingInfo(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            topBuilding: result,
+            code: 200
+        };
+    }
+
+    async topBuildingRoomInfo(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.buildingId;
+        const result = await ctx.service.project.singleBuilding.topBuildingRoomInfo(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            result: result,
             code: 200
         };
     }

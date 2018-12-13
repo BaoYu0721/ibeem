@@ -141,7 +141,7 @@ function loadDeviceList(){
      $.ajax({
      		type:"post",
      		dataType:"json",
-     		url:"/admin/getDeviceByProject",
+     		url:"/admin/project/single/device",
      		data:{
      			projectID:$.cookie("teamid")
      		},

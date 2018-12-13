@@ -410,7 +410,7 @@ class SingleBuildingService extends Service {
         }
     }
 
-    async buildingInfomation(projectId){
+    async buildingInfomation(buildingId){
         var building = null;
         var designIndicators = null;
         var energyConservationMeasure = null;
@@ -424,7 +424,7 @@ class SingleBuildingService extends Service {
         var indoorEnvParaDesignMap = null;
         var waterSaveDesignMap = null;
         try {
-            building = await this.app.mysql.get('building', {id: projectId});
+            building = await this.app.mysql.get('building', {id: buildingId});
         } catch (error) {
             return -1;
         }
@@ -2268,6 +2268,53 @@ class SingleBuildingService extends Service {
         } catch (error) {
             return -1;
         }
+    }
+
+    async topBuildingInfo(buildingId){
+        var topBuilding = null;
+        try {
+            topBuilding = await this.app.mysql.get('top_building', {id: buildingId});
+        } catch (error) {
+            return -1;
+        }
+        return topBuilding;
+    }
+
+    async topBuildingRoomInfo(buildingId){
+        var topRoom = null;
+        try {
+            topRoom = await this.app.mysql.select('top_room', {where: {top_building_id: buildingId}});
+        } catch (error) {
+            return -1;
+        }
+        const topRoomList = [];
+        for(var key in topRoom){
+            const topRoomMap = {
+                rid: topRoom[key].id,
+                floorLocation: topRoom[key].floor_location,
+                grossInternalArea: topRoom[key].gross_internal_area,
+                roomType: topRoom[key].room_type
+            };
+            const topElementList = [];
+            const topElement = null;
+            try {
+                topElement = await this.app.mysql.select('top_element', {where: {top_room_id: topRoom[key].id}});
+            } catch (error) {
+                return -1;
+            }
+            for(var j in topElement){
+                const topElementMap = {
+                    eid: topElement[j].id,
+                    elementArea: topElement[j].element_area,
+                    elementType: topElement[j].element_type,
+                    elementUValue: topElement[j].element_u_value
+                };
+                topElementList.push(topElementMap);
+            }
+            topRoomMap.topElementList = topElementList;
+            topRoomList.push(topRoomMap);
+        }
+        return topRoomList;
     }
 }
 

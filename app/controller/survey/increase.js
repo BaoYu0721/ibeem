@@ -88,4 +88,4 @@ class IncreaseController extends Controller {
     }
 }
 
-module.exports = IncreaseController; 
+module.exports = IncreaseController;

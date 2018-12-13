@@ -1,44 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="project.homepage" /></title>
-<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    <link rel="stylesheet" href="/static/common/css/base.css" />
-    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
-    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
-    <link rel="stylesheet" href="/static/manage/css/home.css">
-    <link rel="stylesheet" href="/static/manage/css/team/teamcommon.css">
-    <link rel="stylesheet" href="/static/manage/css/team/teamContent.css">
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
-    <script src="/static/manage/js/jquery.form.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
+<title>项目主页</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamcommon.css">
+    <link rel="stylesheet" href="/public/static/manage/css/team/teamContent.css">
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
     <!-- 全局工具脚本-->
-    <script src="/static/common/js/tools.js"></script>
-    
+    <script src="/public/static/common/js/tools.js"></script>
      <!--地图渲染的核心文件 必须引用  -->
-	<script src="/static/common/js/highmap/highmaps.js"></script>
+	<script src="/public/static/common/js/highmap/highmaps.js"></script>
 	<!--地图数据拼接及解析的核心文件 必须引用  --> 
-	<script src="/static/common/js/data.js"></script>
+	<script src="/public/static/common/js/data.js"></script>
 	<!--地图 展开明细的核心插件，若需要点击显示省市则需要引用，反之则不需要引用  -->
-	<script src="/static/common/js/drilldown.js"></script>
+	<script src="/public/static/common/js/drilldown.js"></script>
 	<!--中国地图主要省会的坐标及相关数据插件 必须引用  -->
-	<script src="/static/common/js/cn-china.js"></script>
+	<script src="/public/static/common/js/cn-china.js"></script>
 	
-	<script src="/static/common/js/exporting.js"></script>
-	<script src="/static/common/js/proj4.js"></script>
+	<script src="/public/static/common/js/exporting.js"></script>
+	<script src="/public/static/common/js/proj4.js"></script>
 	<!-- 所有地图数据详情见：https://img.hcharts.cn/mapdata/index.html -->
-	<script src="/static/common/js/gb-all.js"></script> 
-    <script src="/static/manage/js/team/map.js" ></script>
+	<script src="/public/static/common/js/gb-all.js"></script> 
+    <script src="/public/static/manage/js/team/map.js" ></script>
 </head>
 <body >
 
@@ -47,13 +38,12 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
-            <a class="item" href="/redirect?url=administrator/teamBuilding.jsp"><spring:message code="project.building" /></a>
-            <a class="item" href="/redirect?url=administrator/teamDevice.jsp"><spring:message code="project.device" /></a>
-            <a class="item" href="/redirect?url=administrator/surveyListTeam.jsp"><spring:message code="project.survey" /></a>
-            <a class="item" href="/redirect?url=administrator/teamMember.jsp"><spring:message code="project.member" /></a>
-            <a class="teamTitleTit" href="/redirect?url=administrator/teamContent.jsp" style="display:block;"></a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building"%>>项目建筑</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=device"%>>项目设备</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=survey"%>>项目问卷</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=member"%>>项目成员</a>
+			<a class="teamTitleTit" href=<%="?project_name=" + projectName%> style="display:block;"></a>
         </div>
-            
         <!--内容区--> 
         <div class="content" id="content">
             <div class="ui grid">
@@ -62,8 +52,8 @@
                 		<div class="nine wide column mainright">
 	                		<div class="div-group-base message" id="message">
 		                		<div class="title">
-		                			<span class="title-content"><spring:message code="project.information" /></span>
-		                			<div class="edit teamcontent-edit"><spring:message code="btn.edit" /></div>
+		                			<span class="title-content">项目信息</span>
+		                			<div class="edit teamcontent-edit">编辑</div>
 		                		</div>
 		                		<div class="div-content">
 		                			<div class="ui form">
@@ -78,7 +68,7 @@
 										<div class="count">
 											<span id="peopleCount"></span>
 										</div>
-										<div class="update  change-status readonly"><button id="commitTeamUpdate"><spring:message code="btn.submit" /></button></div>
+										<div class="update  change-status readonly"><button id="commitTeamUpdate">提交</button></div>
 									</div>
 		                		</div>
 		                	</div>
@@ -102,16 +92,16 @@
 		                		</div>
 		                	</div>
 	                		<div class="dissolve">
-										<button id="dissolve"><spring:message code="project.delete" /></button>
+										<button id="dissolve">删除项目</button>
 							</div>
 	                	</div>
 	                	<div class="seven wide column mainright">
 	                		<div class="div-group-base tab map" id="map">
 		                		<div class="title">
-		                			<span class="title-content"><spring:message code="project.map" /></span>
+		                			<span class="title-content">地理分布</span>
 		                			<div class="ui tabular menu">
-									  <a class="active item" id="buildingTJ"><spring:message code="project.construction_statistics" /></a>
-									  <a class="item" id="deviceTJ"><spring:message code="project.device_statistics" /></a>
+									  <a class="active item" id="buildingTJ">建筑统计</a>
+									  <a class="item" id="deviceTJ">设备统计</a>
 									</div>
 		                		</div>
 		                		<div class="div-content">
@@ -132,7 +122,7 @@
         </div>
     </div>
 </div>
-<script src="/static/manage/js/team/teamCommon_manage.js"></script>
-<script src="/static/manage/js/team/teamContent_manage.js"></script>
+<script src="/public/static/manage/js/team/teamCommon_manage.js"></script>
+<script src="/public/static/manage/js/team/teamContent_manage.js"></script>
 </body>
 </html>

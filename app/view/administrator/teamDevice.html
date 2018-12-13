@@ -1,54 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="teamDevice_title" /></title>
-<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="static/common/css/semantic.min.css" />
-    <link rel="stylesheet" href="static/common/css/base.css" />
-    <link rel="stylesheet" href="static/common/css/dataTables.semanticui.min.css"/>
-    <link rel="stylesheet" href="static/manage/css/frameStyle.css" />
-    <link rel="stylesheet" href="static/manage/css/deviceList.css" />
-    <link rel="stylesheet" href="static/manage/css/home.css">
-    <link rel="stylesheet" href="static/manage/css/teamDevice.css">
+<title>项目设备列表</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/deviceList.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/manage/css/teamDevice.css">
     <style>
     	.item .projectList{
-    		background:url("../static/manage/img/team.png") no-repeat left;
+    		background:url("/public/static/manage/img/team.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .projectList{
-    		background-image:url("../static/manage/img/team_on.png") ;
+    		background-image:url("/public/static/manage/img/team_on.png") ;
     	}
     	.item .uploadData{
-    		background:url("../static/manage/img/upload.png") no-repeat left;
+    		background:url("/public/static/manage/img/upload.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .uploadData{
-    		background-image:url("../static/manage/img/upload_on.png") ;
+    		background-image:url("/public/static/manage/img/upload_on.png") ;
     	}
     	.item .download{
-    		background:url("../static/manage/img/download.png") no-repeat left;
+    		background:url("/public/static/manage/img/download.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .download{
-    		background-image:url("../static/manage/img/downloadActive.png") ;
+    		background-image:url("/public/static/manage/img/downloadActive.png") ;
     	}
     	.item .viewData{
-    		background:url("../static/manage/img/viewData.png") no-repeat left;
+    		background:url("/public/static/manage/img/viewData.png") no-repeat left;
     		background-size:1rem 1rem;
     		padding-left:1.5rem;
     	}
     	.item.on .viewData{
-    		background-image:url("../static/manage/img/viewDataActive.png");
+    		background-image:url("/public/static/manage/img/viewDataActive.png");
     	}
     	#example_wrapper .ui.grid>[class*="two column"].row>.column{ width:auto!important;}
     	.searchDevice{padding-left: 1rem; padding-right:1rem; height: 2rem; border:1px solid #cccccc; margin:1rem 5%; border-radius: 100px; width:90%; box-sizing:border-box!important;}
@@ -72,11 +65,11 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu">
-            <a class="item" href="/redirect?url=administrator/teamBuilding.jsp"><spring:message code="project.building" /></a>
-            <a class="item on" href="/redirect?url=administrator/teamDevice.jsp"><spring:message code="project.device" /></a>
-            <a class="item" href="/redirect?url=administrator/surveyListTeam.jsp"><spring:message code="project.survey" /></a>
-            <a class="item" href="/redirect?url=administrator/teamMember.jsp"><spring:message code="project.member" /></a>
-            <a class="teamTitleTit" href="/redirect?url=administrator/teamContent.jsp" style="display:block;"></a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building"%>>项目建筑</a>
+			<a class="item on" href=<%="?project_name=" + projectName + "&item=device"%>>项目设备</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=survey"%>>项目问卷</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=member"%>>项目成员</a>
+			<a class="teamTitleTit" href=<%="?project_name=" + projectName%> style="display:block;"></a>
         </div>
         <!--内容区--> 
         <div class="content" id="content">
@@ -93,7 +86,7 @@
 			                </div>
 			                <div class="five wide column mainright" id="device_list_map">
 			                	<div class="map">
-			                		<div class="tit"><spring:message code="deviceList.map" /></div>
+			                		<div class="tit">地图</div>
 			                		 <div class="mapdata" id="container"></div>
 			                	</div>
 			                </div>
@@ -104,11 +97,11 @@
                 			 	<div class="infobox">
                 			 	
                 			 		<div class="column clearfix edit-btn-group">
-                			 			<div class="edits fl" id="submitDeviceInfo" style="display:none;"><spring:message code="btn.confirm" /></div>
-	                			 		<div class="edits fl" id="editDeviceBack" style="display:none;"><spring:message code="deviceList.cancel" /></div>
-	                			 		<div class="edit fl" id="editDeviceInfo"><spring:message code="deviceList.edit" /></div>
-										<div class="edits fl" id="editDeviceShow"><spring:message code="deviceList.scan" /></div>
-										<div class="edits fl" id="editDeviceDownload"><spring:message code="deviceList.download" /></div>
+											<div class="edits fl" id="submitDeviceInfo" style="display:none;">确认</div>
+											<div class="edits fl" id="editDeviceBack" style="display:none;">取消</div>
+											<div class="edit fl" id="editDeviceInfo">编辑</div>
+										   <div class="edits fl" id="editDeviceShow">查看</div>
+										   <div class="edits fl" id="editDeviceDownload">下载</div>
 									</div>
                 			 	
 									<!-- <div class="edit" id="editDeviceInfo"> 编辑</div> -->
@@ -141,49 +134,49 @@
 												
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.owner" /></span>
+												<span class="fl left">拥有者名称</span>
 												<span class="fl">:</span>
 												<span class="value fl  owner "></span>
 												<div class="fl hidden "><input type="text" class="eowner"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.concern" /></span>
+												<span class="fl left">关注者名称</span>
 												<span class="fl">:</span>
 												<span class="value fl user "></span>
 												<div class="fl hidden "><input type="text" class="euser"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.type" /></span>
+												<span class="fl left">类型</span>
 												<span class="fl">:</span>
 												<span class="value fl type  "></span>
 												<div class="fl hidden "><input type="text" class="etype"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.address" /></span>
+												<span class="fl left">设备定位地址</span>
 												<span class="fl">:</span>
 												<span class="value fl address staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="eaddress"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.detailAddress" /></span>
+												<span class="fl left">设备详细地址</span>
 												<span class="fl">:</span>
 												<span class="value fl describ staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="edescrib"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.details" /></span>
+												<span class="fl left">设备详细信息</span>
 												<span class="fl">:</span>
 												<span class="value fl memo staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="ememo"/></div>
 											</li>																							
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.online" /></span>
+												<span class="fl left">在线状态</span>
 												<span class="fl">:</span>
 												<span class="value fl state "></span>
 												<div class="fl hidden "><input type="text" class="estate"/></div>
 											</li>
 											<li class="clearfix warnning">
-												<span class="fl left"><spring:message code="deviceList.alarmswitch" /></span>
+												<span class="fl left">告警开关</span>
 												<span class="fl">:</span>
 												<div class="value fl  staticValue warn">
 													<div class="ui toggle read-only checkbox" >
@@ -199,22 +192,22 @@
 												</div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.equipmentsource" /></span>
+												<span class="fl left">设备来源</span>
 												<span class="fl">:</span>
 												<span class="value fl source "></span>
 												<div class="fl hidden "><input type="text" class="esource"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.weixin" /></span>
+												<span class="fl left">绑定微信</span>
 												<span class="fl">:</span>
 												<span class="value fl  chatname staticValue"></span>
 												<div class="fl hidden dynamicValue"><input type="text" class="echatname"/></div>
 											</li>
 											<li class="clearfix">
-												<span class="fl left"><spring:message code="deviceList.qrcode" /></span>
+												<span class="fl left">设备的二维码</span>
 												<span class="fl">:</span>
-												<div class="value fl  staticValue"><img src="/static/common/images/ecode.png" class="ecode"/></div>
-												<div class="fl hidden dynamicValue"><img src="/static/common/images/ecode.png" class="eEcode"/></div>
+												<div class="value fl  staticValue"><img src="/public/static/common/images/ecode.png" class="ecode"/></div>
+												<div class="fl hidden dynamicValue"><img src="/public/static/common/images/ecode.png" class="eEcode"/></div>
 											</li>
 										</ul>
 									</div>
@@ -222,7 +215,7 @@
                 			 </div>
                 			 <div class="five wide column" style="width: 29.25%!important;">
                 			 	<div class="map">
-			                		<div class="tit"><spring:message code="deviceList.location" /></div>
+			                		<div class="tit">设备位置</div>
 			                		 <div class="mapdata" id="container2" ></div>
 			                	</div>
 			                	<div class="download">
@@ -245,7 +238,7 @@
 <div class="ui modal" id="user_add_list">
   	<i class="close icon"></i>
   	<div class="header">
-  		<span><spring:message code="teamDevice_setReference" /></span> 
+  		<span>请选择要设定的关注者</span> 
 	</div>
   	<ul id="user_list">
    				
@@ -253,35 +246,35 @@
 </div>
 <!-- 设定关注着用户列表 -->
 
- 	<script src="static/common/js/jquery.min.js"></script>
- 	<script src="static/common/js/tools.js"></script>
-    <script src="static/common/js/semantic.min.js"></script>
-    <script src="static/common/js/jquery.md5.js"></script>
-    <script src="static/common/js/jquery.dataTables.min.js"></script>
-    <script src="static/common/js/dataTables.semanticui.min.js"></script>
-    <script src="static/manage/js/jquery.form.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
-    <script src="static/manage/js/inputFoucs.js"></script>
+ 	<script src="/public/static/common/js/jquery.min.js"></script>
+ 	<script src="/public/static/common/js/tools.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.md5.js"></script>
+    <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/manage/js/jquery.form.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/manage/js/inputFoucs.js"></script>
      
      <!--地图渲染的核心文件 必须引用  -->
-	<script src="static/common/js/highmap/highmaps.js"></script>
+	<script src="/public/static/common/js/highmap/highmaps.js"></script>
 	<!--地图数据拼接及解析的核心文件 必须引用  --> 
-	<script src="static/common/js/data.js"></script>
+	<script src="/public/static/common/js/data.js"></script>
 	<!--地图 展开明细的核心插件，若需要点击显示省市则需要引用，反之则不需要引用  -->
-	<script src="static/common/js/drilldown.js"></script>
+	<script src="/public/static/common/js/drilldown.js"></script>
 	<!--中国地图主要省会的坐标及相关数据插件 必须引用  -->
-	<script src="static/common/js/cn-china.js"></script>
+	<script src="/public/static/common/js/cn-china.js"></script>
 	
-	<script src="static/common/js/exporting.js"></script>
-	<script src="static/common/js/proj4.js"></script>
+	<script src="/public/static/common/js/exporting.js"></script>
+	<script src="/public/static/common/js/proj4.js"></script>
 	<!-- 所有地图数据详情见：https://img.hcharts.cn/mapdata/index.html -->
-	<script src="static/common/js/gb-all.js"></script>
-	<script src="static/manage/js/language.js"></script>
-    <script src="static/manage/js/map2.js" ></script>
-    <script src="static/manage/js/getDeviceInfo_manage.js"></script>
-    <script src="static/manage/js/customFrame.js"></script>
-    <script src="static/manage/js/projectList_manage.js"></script>
-    <script src="static/manage/js/teamDevice_manage.js"></script> 
+	<script src="/public/static/common/js/gb-all.js"></script>
+	<script src="/public/static/manage/js/language.js"></script>
+    <script src="/public/static/manage/js/map2.js" ></script>
+    <script src="/public/static/manage/js/getDeviceInfo_manage.js"></script>
+    <script src="/public/static/manage/js/customFrame.js"></script>
+    <script src="/public/static/manage/js/projectList_manage.js"></script>
+    <script src="/public/static/manage/js/teamDevice_manage.js"></script> 
     <!-- <script src="static/manage/js/home.js"></script>  -->
     <script>
      /*引入左侧导航  */

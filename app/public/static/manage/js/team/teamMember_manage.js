@@ -6,7 +6,7 @@ $(".teamTitleTit").html(teamname.length>10?teamname.substring(0,9)+"...":teamnam
 //保存项目成员信息
 var memberList=[];
 function getData(){
-	var url="/admin/getUserByProject";
+	var url="/admin/project/single/member";
 	var json={"projectID":id};
 	var successFunc = function(data){
 		memberList = data.list;
@@ -18,7 +18,7 @@ function getData(){
 			 var portrait = memberList[i].portrait;
 			 var id = memberList[i].id;
 			 var role = memberList[i].role;
-			 getComponent("/static/manage/components/memberList_item.html",
+			 getComponent("/common/member/list",
 					 function(resultHTML){
 					   $(".memberList .showMember").append(resultHTML);
 					   if(role==1){
@@ -51,7 +51,7 @@ function searchTeamMember(searchContent){
 		if(name.indexOf(searchContent) >= 0 || $.trim(searchContent)=="")
 		{
 			searchResult.push(memberList[i]);
-			getComponent("/static/manage/components/memberList_item.html",
+			getComponent("/common/member/list",
 					 function(resultHTML){
 					   $(".showMember").prepend(resultHTML);
 				 	 },
@@ -79,7 +79,7 @@ function searchUser(searchContent){
 	//清除当前页面上的数据
 	 $(".addMember .member-item").each(function(){$(this).remove()});
 	 addLoading($('body'));
-	 var url="/admin/searchUser";
+	 var url="/admin/project/single/member/search";
 	 var json={"key":searchContent,"projectID":id};
 	 var successFunc = function(data){
 		 memberList = data.arrayList;
@@ -90,7 +90,7 @@ function searchUser(searchContent){
 			 var name = memberList[i].name;
 			 var portrait = memberList[i].portrait;
 			 var id = memberList[i].id;
-			 getComponent("/static/manage/components/memberList_item.html",
+			 getComponent("/common/member/list",
 					 function(resultHTML){
 					   $(".addMember .showMember").prepend(resultHTML);
 				 	 },
@@ -137,7 +137,7 @@ $("#deleteMember").on("click",function(){
 	alertMsg(getLangStr("teamMember_is_delete"),getLangStr("cancel"),getLangStr("delete"),"okFunc");
 })
 function okFunc(){//调用删除项目接口
-	var url = "/admin/deleteUser";
+	var url = "/admin/project/single/member/delete";
 	//获取选中成员id
 	$(".memberList .member-item a.click").each(function(){
 		var memberId = $(this).data("id");
@@ -158,7 +158,7 @@ $("#addrole-button").on("click",function(){
 	alertMsg(getLangStr("teamMember_is_administrator"),getLangStr("cancel"),getLangStr("determine"),"addroleFunc");
 })
 function addroleFunc(){//调用设为管理员接口
-	var url = "/admin/addManager";
+	var url = "/admin/project/single/member/set_manager";
 	//获取选中成员id
 	$(".memberList .member-item a.click").each(function(){
 		var memberId = $(this).data("id");
@@ -191,7 +191,7 @@ $("#deleterole-button").on("click",function(){
 	alertMsg(getLangStr("teamMember_messg3"),getLangStr("cancel"),getLangStr("determine"),"deleteroleFunc");
 })
 function deleteroleFunc(){//调用撤销管理员接口
-	var url = "/admin/relieveManager";
+	var url = "/admin/project/single/member/manager_revocation";
 	//获取选中成员id
 	$(".memberList .member-item a.click").each(function(){
 		var memberId = $(this).data("id");
@@ -221,7 +221,7 @@ function deleteroleFunc(){//调用撤销管理员接口
 }
 //点击添加成员按钮事件
 $(".button-add").on("click",function(){
-	var url = "/admin/addUser";
+	var url = "/admin/project/single/member/add";
 	//获取选中成员id
 	if($(".addMember .member-item a.click").length==0){
 		alertokMsg(getLangStr("teamMember_messg6"),getLangStr("determine"),"showAddDlg()");
@@ -232,7 +232,7 @@ $(".button-add").on("click",function(){
 			var json={"projectID":id,"userID":memberId};
 			var successFunc = function(data,linkNum){
 				if(linkNum==0){
-					window.location.href="/redirect?url=administrator/teamMember.jsp";
+					window.location.reload();
 				}
 			}
 			sentJson(url,json,successFunc);

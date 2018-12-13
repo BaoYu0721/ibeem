@@ -943,7 +943,7 @@ init();
     	        			   type:"post",
     	        			   dataType:"json",
     	        			   async: false,
-    	        			   url:"/admin/getOnlineRate",
+    	        			   url:"/admin/device/view/on_line_rate",
     	        			   data:{
     	        				   deviceID:deviceId[i],
     	        				   startTime:onlineStartTime,
@@ -984,7 +984,7 @@ init();
     	        			   type:"post",
     	        			   dataType:"json",
     	        			   //async: false,
-    	        			   url:"/admin/environmentdataByTime",
+    	        			   url:"/admin/device/view/environment",
     	        			   data:{
     	        				   deviceId:deviceId[i],
     	        				   startTime:startTime,
@@ -2067,7 +2067,7 @@ init();
 	    				$.ajax({
 	 	     			   type:"post",
 	 	     			   dataType:"json",
-	 	     			   url:"/admin/environmentdata",
+	 	     			   url:"/admin/device/view/environment",
 	 	     			   data:{
 	 	     				   deviceId:downDeviceId[i],
 	 	     				   startTime:startTimeStamp2,
@@ -2171,7 +2171,7 @@ init();
  	   			   type:"post",
  	   			   dataType:"json",
  	   			   //async:false,
- 	   			   url:"/admin/getWorkOrderList",
+ 	   			   url:"/admin/device/download/history",
  	   			   success:function(data){
 
  	  					if(data.code==200){

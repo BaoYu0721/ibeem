@@ -9,7 +9,7 @@ $(".div-group-base.tab .ui.tabular.menu .item").click(function(){
 //获取项目信息
 function getTeamMsg(){
 	//根据id获取项目信息
-	var url="/admin/getProjectByID";
+	var url="/admin/project/single/info";
 	var json={"projectID":id};
 	var successFunc = function(data){
 		var teamMsg = data.project;
@@ -31,7 +31,7 @@ function getTeamMsg(){
 }
 //获取问卷列表信息
 function getSurveyData(){
-	var url="/admin/getSurveyByProject";
+	var url="/admin/project/single/survey_info";
 	var json={"projectID":id};
 	var successFunc = function(data){
 		var surveys = data.list;
@@ -53,7 +53,7 @@ function getSurveyData(){
 }
 //编辑完项目信息之后，点提交按钮，提交修改并且修改样式
 $("#commitTeamUpdate").on("click",function(){
-	var url="/admin/updateProject";
+	var url="/admin/project/single/edit";
 	var name = $("#name").val();
 	var describe = $("#describe").val();
 	var image = $("#image").attr("src");
@@ -83,10 +83,10 @@ $("#dissolve").click(function(){
 	alertMsg(getLangStr("project_delete"),getLangStr("cancel"),getLangStr("delete"),"okFunc");
 })
 function okFunc(){//调用删除项目接口
-	var url = "/admin/deleteProject";
+	var url = "/admin/project/single/delete";
 	var json={"projectID":id};
 	var successFunc = function(data){
-		window.location.href="/redirect?url=administrator/teamList.jsp";
+		window.location.href="/admin/project";
 	}
 	var errorFunc = function(data){
 		alertokMsg(data.messg,getLangStr("determine"));
@@ -97,7 +97,7 @@ function okFunc(){//调用删除项目接口
 function getBuilding(){
 	//清空经纬度数组
 	positionArr.length=0;
-	var url="/admin/getBuildingByProject";
+	var url="/admin/project/single/building_info";
 	var json={"projectID":id};
 	var successFunc = function(data){
 		var buildingArr = data.list;
@@ -126,7 +126,7 @@ function getBuilding(){
 function getDevice(){
 	//清空经纬度数组
 	positionArr.length=0;
-	var url="/admin/getDeviceByProject";
+	var url="/admin/project/single/device_info";
 	var json={"projectID":id};
 	var successFunc = function(data){
 		var deviceArr = data.list;

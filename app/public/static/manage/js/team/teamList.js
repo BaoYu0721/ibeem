@@ -21,7 +21,7 @@ function getData(){
 					 function(resultHTML){
 					   $(".showTeam").prepend(resultHTML);
 				 	 },
-					 {"-id-":id,"-imgSrc-":image,"-teamName-":name.length>10?name.substring(0,18)+"...":name,"-teamIntro-":decribe,"-url-":"/project?project_name=" + teamList[i].name}
+					 {"-id-":id,"-imgSrc-":image,"-teamName-":name.length>10?name.substring(0,18)+"...":name,"-teamIntro-":decribe,"-url-":"/project?project_name=" + name}
 			 )
 		 }
 		 //共计
@@ -53,7 +53,7 @@ function searchTeam(searchContent){
 					 function(resultHTML){
 					   $(".showTeam").prepend(resultHTML);
 				 	 },
-					 {"-id-":id,"-imgSrc-":image,"-teamName-":name,"-teamIntro-":decribe}
+					{"-id-":id,"-imgSrc-":image,"-teamName-":name.length>10?name.substring(0,18)+"...":name,"-teamIntro-":decribe,"-url-":"/project?project_name=" + name}
 			 )
 		}
 	}

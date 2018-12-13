@@ -94,7 +94,7 @@ function getBuildingInfo(bid){
 	
 	// 默认数据添加
 	$.ajax({
-		url:"/project/single/topBuilding", // bid
+		url:"/admin/project/single/topBuilding", // bid
 		type:"POST",
 		datatype:"JSON",
 		data: {buildingId: bid},
@@ -120,7 +120,7 @@ function showRoom(bid){
 	$("#roomList").html("");
 	// ROOM 和 Element
 	$.ajax({
-		url:"/project/single/topBuilding/room_info", // bid
+		url:"/admin/project/single/topBuilding/room_info", // bid
 		type:"POST",
 		datatype:"JSON",
 		data: {buildingId: bid},

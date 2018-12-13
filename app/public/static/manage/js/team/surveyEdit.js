@@ -1,18 +1,4 @@
 //如果获取到参数是edit
-// function getQueryString(name) { 
-// 	var url = window.location.href;
-// 	if(url.indexOf(".jsp?")!=-1){
-// 		var params = url.split(".jsp?")[1];
-// 		var paramArr = params.split("&");
-// 		var paramObj = {};
-// 		for(var i in paramArr){
-// 			paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
-// 		}
-// 		return paramObj[name]==undefined?null:paramObj[name];
-// 	}else{
-// 		return null;
-// 	}
-// }
 function getQueryString(name) {
 	var params = decodeURI(window.location.search);
 	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -95,7 +81,7 @@ function putQuestion(question,$root){
 	var setting = eval('(' + question.setting + ')'); ;//选项
 	var num = question.questionorder;//题号
 	if(type==0){//放置填空题
-		getComponent("/public/static/components/questionTK.html",
+		getComponent("/common/questionTK",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -113,7 +99,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==1){//放置单选题
-		getComponent("/public/static/components/questionDX.html",
+		getComponent("/common/questionDX",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -192,7 +178,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==2){//放置多选题
-		getComponent("/public/static/components/questionDDX.html",
+		getComponent("/common/questionDDX",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -274,7 +260,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==3){//放置量表题
-		getComponent("/public/static/components/questionLB.html",
+		getComponent("/common/questionLB",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -364,7 +350,7 @@ function putQuestion(question,$root){
 				},
 				{"-id-":add_index,"-orderindex-":order_index})
 	}else if(type==4){//放置折线题
-		getComponent("/public/static/components/questionZX.html",
+		getComponent("/common/questionZX",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -431,7 +417,7 @@ function putQuestion(question,$root){
 function putQuestionDl(dl,$root){
 	var dltitle = dl.title;
 	var dlorder = dl.order;
-	getComponent("/public/static/components/questionDL.html",
+	getComponent("/common/questionDL",
 			function(resultHTML){
 				$root.append(resultHTML);
 				add_index++;

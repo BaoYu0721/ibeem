@@ -15,15 +15,37 @@ class SingleMemberService extends Service {
     }
 
     async memberAdd(userId, projectId){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:user_project";
+        var ttl = 1000;
         try {
-            await this.app.mysql.insert('user_project', {
-                created_on: new Date(),
-                deleted: 0,
-                project_id: projectId,
-                user_id: userId,
-                role: 2
+            const res =  await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await app.mysql.insert('user_project', {
+                            created_on: new Date(),
+                            deleted: 0,
+                            project_id: projectId,
+                            user_id: userId,
+                            role: 2
+                        });
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return 0;
+                    } catch (error) {
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                }
+                return transation();
             });
-            return 0;
+            return res;          
         } catch (error) {
             return -1;
         }

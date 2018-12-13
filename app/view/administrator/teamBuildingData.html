@@ -1,16 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="building.information" /></title>
-<base href="<%=basePath%>" />
+<title>建筑信息</title>
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
     <link rel="stylesheet" href="/public/static/common/css/base.css" />
     <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
@@ -87,13 +79,13 @@
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible" id="topmenu" style="padding-left:10rem;">
             <div class="teamTitleTit">
-		        	<a class="tit-teamname" href="/redirect?url=administrator/teamContent.jsp"></a>
-		        	<a class="tit-buildingname" href="/redirect?url=administrator/teamBuildingContent.jsp" style="border:none;"></a>
-	        </div>
-            <a class="item on" href="/redirect?url=administrator/teamBuildingData.jsp"><spring:message code="building.information" /></a>
-            <a class="item" href="/redirect?url=administrator/teamBuildingPoint.jsp"><spring:message code="building.point" /></a>
-            <a class="item" href="/redirect?url=administrator/surveyListBuilding.jsp"><spring:message code="building.survey" /></a>
-            <a class="item" href="/redirect?url=administrator/teamBuildingConsumption.jsp"><spring:message code="building.energy_consumption" /></a>
+				<a class="tit-teamname" href=<%="?project_name=" + projectName%>></a>
+				<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
+			</div>
+			<a class="item on" href=<%="?project_name=" + projectName + "&item=building" + "&building_name=" + buildingName + "&op=info"%>>建筑信息</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building" + "&building_name=" + buildingName + "&op=point"%>>建筑测点</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building" + "&building_name=" + buildingName + "&op=survey"%>>建筑问卷</a>
+			<a class="item" href=<%="?project_name=" + projectName + "&item=building" + "&building_name=" + buildingName + "&op=energy"%>>建筑能耗</a>
         </div>
  
         <!--内容区--> 
@@ -107,1026 +99,1026 @@
 			                		<div class="ui label huge label-2" id="buildingname"></div>
 
 									<div class="ui pointing secondary menu" id="build-menu">
-										  <a class="active item" data-tab="first"><spring:message code="basicinfo" /></a>
-										  <a class="item" data-tab="second"><spring:message code="information.key_design" /></a>
-										  <a class="item" data-tab="third"><spring:message code="information.esm" /></a>
-										  <a class="item" data-tab="four"><spring:message code="information.iem" /></a>
-										  <a class="item" data-tab="five"><spring:message code="information.iepd" /></a>
-										  <a class="item" data-tab="six"><spring:message code="information.wsd" /></a>
-									</div>
-									<!-- 基本信息 -->
-									<div class="ui bottom attached active tab segment" data-tab="first">
-										
-					                		<div class="b-pic" id="b-pic">
-							                		<!-- <div class="ui left floated image b-pic-img">
-													  		<a class="ui left red corner label"><i class="remove icon b-pic-img-list"></i></a>
-													  		<img src="http://www.ibeem.cn/file/image/1494754915058.jpg">
-													</div>
-							                		<div class="ui left floated image b-pic-img">
-													  		<a class="ui left red corner label"><i class="remove icon b-pic-img-list"></i></a>
-													  		<img src="http://www.ibeem.cn/file/image/1494754915058.jpg">
-													</div> -->
-													<div class="ui left floated image b-pic-img b-pic-add" id="b-pic-add">
-													  		<i class="add icon" style="font-size:48px;"></i>
-													</div>
-					                		</div> 
-											
-											<div class="b-list">
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.ratu" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a1">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.subject" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a2">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.contacts" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a3">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.contact_information" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a4">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="building.name" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a5">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="building.type" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="a6_hide">
-														        <div class="text" id="a6"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          		<div class="item"><spring:message code="office" /></div>
-																        <div class="item"><spring:message code="museum" /></div>
-																        <div class="item"><spring:message code="caec" /></div>
-																        <div class="item"><spring:message code="hotel" /></div>
-																        <div class="item"><spring:message code="market" /></div>
-																        <div class="item"><spring:message code="commercial_complex" /></div>
-																        <div class="item"><spring:message code="school" /></div>
-																        <div class="item"><spring:message code="hospital" /></div>
-																        <div class="item"><spring:message code="residence" /></div>
-																        <div class="item"><spring:message code="aehoo" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input" style="display:block!important">
-														  <a class="ui label"><spring:message code="geographical_position" /> &nbsp;<span id="open_select_box1" class="open_select_box"><spring:message code="btn.modify" /></span><span id="open_select_box2" class="open_select_box" style="display:none;"><spring:message code="btn.close" /></span></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a7" class="input_disabled" disabled>
-														  <input type="hidden" id="a7_pro" class="input_disabled" disabled>
-														  <div id="box_select" style="display:none;">
-															  <select id="selectProvince" class="change-status">  
-										                    		<option value="-1"><spring:message code="building.select_province" /></option>  
-												              </select>
-												              <select id="selectCity" class="change-status">  
-												                    <option value="-1"><spring:message code="building.select_city" /></option>  
-												              </select>
-											              </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.climatic_province" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="a26_hide">
-														        <div class="text" id="a26"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          		<div class="item"><spring:message code="severe_cold" /></div>
-																        <div class="item"><spring:message code="cold" /></div>
-																        <div class="item"><spring:message code="hot_summer_and_cold_winter" /></div>
-																        <div class="item"><spring:message code="hot_summer_and_warm_winter" /></div>
-																        <div class="item"><spring:message code="mild" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="declaration_unit" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a8">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="participating_units" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a9">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="reporting_time" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a10" class="form_datetime_choice">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="standard" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a11">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="level" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="a12_hide">
-														        <div class="text" id="a12"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item"><spring:message code="no_level" /></div>
-															        <div class="item"><spring:message code="LEED_PLatinum" /></div>
-															        <div class="item"><spring:message code="LEED_Silver" /></div>
-															        <div class="item"><spring:message code="LEED_certification_level" /></div>
-															        <div class="item"><spring:message code="Non_green_building" /></div>
-															        <div class="item"><spring:message code="one_star" /></div>
-															        <div class="item"><spring:message code="two_star" /></div>
-															        <div class="item"><spring:message code="three_star" /></div>
-															        <div class="item"><spring:message code="design_a_star" /></div>
-															        <div class="item"><spring:message code="design_two_stars" /></div>
-															        <div class="item"><spring:message code="design_three_stars" /></div>
-															        <div class="item"><spring:message code="run_a_star" /></div>
-															        <div class="item"><spring:message code="run_two_stars" /></div>
-															        <div class="item"><spring:message code="run_three_stars" /></div>
-														        </div>
-													      </div>												      
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="identification_class" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="a13_hide">
-														        <div class="text" id="a13"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item"><spring:message code="information.design" /></div>
-														          	<div class="item"><spring:message code="information.run" /></div>
-														        </div>
-													      </div>													      
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.project_time" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a14" class="form_datetime_choice">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.completion_time" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a15" class="form_datetime_choice">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.operation_time" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a16" class="form_datetime_choice">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.building_area" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a17">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.building_orientation" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a18">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.remark" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a19">
-													</div>
-													
-													<!-- 公共建筑独有  -->
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="air_conditioning_area" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a20">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="building.height" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a21">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="building_property" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a22">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="nobu" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a23">
-													</div>
- 													
-													<!-- 居住建筑独有 -->
-													<div class="ui labeled input list_jz">
-														  <a class="ui label"><spring:message code="ttnoh" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a24">
-													</div>
-													<div class="ui labeled input list_jz">
-														  <a class="ui label"><spring:message code="occupancy" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="a25">
-													</div>
-													
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_1"><spring:message code="btn.save" /></div>
-									</div>
-									<!-- // 基本信息 -->
-									<!-- 关键设计评价指标 -->
-									<div class="ui tab segment" data-tab="second">
-											<div class="b-list">
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="building.name" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b1" class="input_disabled" disabled>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="information.land_area" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b2">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="gross_floor_area" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b3">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="underground_floor_area" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b4">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="floor_area" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b5">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="natural_gas" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b6">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="municipal_heating" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b7">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="electric_power" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b8">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="annual_standard_coal" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b9">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="tecpufad" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b10">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="design_energy_saving_rate" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b11">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="thermal_performance_improvement_range" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b12">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="hvaacsdec" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b13">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="hvaacsder" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b14">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="total_water_use" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b15">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="Non-traditional_water_quantity" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b16">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="uontws" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b17">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="twqobl" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b18">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="renewable_hot_water" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b19">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="reghwr" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b20">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="building_electricity_consumption" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b21">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="renewable_power_generation" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b22">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="regr" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="b23">
-													</div>
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_2"><spring:message code="btn.save" /></div>
-									</div>
-									<!-- // 关键设计评价指标 -->
-									<!-- 节能措施 -->
-									<div class="ui tab segment" data-tab="third">
-											<div class="b-list">
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="building.name" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c1" class="input_disabled" disabled>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="identification_type" /></a>
-														  <input type="text" placeholder="<spring:message code="psftbi" />" id="c2_hide" class="input_disabled" disabled>
-														  <!--   
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c2_hide">
-														        <div class="text" id="c2"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">设计</div>
-														          	<div class="item">运行</div>
-														        </div>
-													      </div> 
-													      -->
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="level" /></a>
-														  <input type="text" placeholder="<spring:message code="psftbi" />" id="c3_hide" class="input_disabled" disabled>
-														  <!-- <div class="ui selection dropdown">
-														        <input type="hidden" id="c3_hide">
-														        <div class="text" id="c3"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">无星级</div>
-															        <div class="item">LEED金级</div>
-															        <div class="item">LEED银级</div>
-															        <div class="item">LEED认证级</div>
-															        <div class="item">非绿建</div>
-															        <div class="item">一星级</div>
-															        <div class="item">二星级</div>
-															        <div class="item">三星级</div>
-															        <div class="item">设计一星</div>
-															        <div class="item">设计二星</div>
-															        <div class="item">设计三星</div>
-															        <div class="item">运行一星</div>
-															        <div class="item">运行二星</div>
-															        <div class="item">运行三星</div>
-														        </div>
-													      </div> -->
-													</div>
-													<!-- 填写1或0， 1表示达标或采用，0表示未达标或未采用  -->
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="towccbo" /></a>
-													   	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c4_hide">
-														        <div class="text" id="c4"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="exhaust_heat_recovery" /></a>
-													   	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c5_hide">
-														        <div class="text" id="c5"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Adjustable_fresh_air_ratio" /></a>
-													   	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c6_hide">
-														        <div class="text" id="c6"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="partial_energy_saving" /></a>
-												   	  	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c7_hide">
-														        <div class="text" id="c7"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="ER_standard" /></a>
-												   	  	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c8_hide">
-														        <div class="text" id="c8"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="ws_standard" /></a>
-												   	  	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c9_hide">
-														        <div class="text" id="c9"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="whahu" /></a>
-												   	      <div class="ui selection dropdown">
-														        <input type="hidden" id="c10_hide">
-														        <div class="text" id="c10"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Itemized_measurement" /></a>
-												   	  	  <div class="ui selection dropdown">
-														        <input type="hidden" id="c11_hide">
-														        <div class="text" id="c11"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="cchp" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c12_hide">
-														        <div class="text" id="c12"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Renewable_energy_utilization" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c13_hide">
-														        <div class="text" id="c13"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Illumination_target_value" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c14_hide">
-														        <div class="text" id="c14"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Lighting_energy-saving_regulation" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c15_hide">
-														        <div class="text" id="c15"><spring:message code="information.select" /></div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.standard" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_up_to_standard" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="egcaeass" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c16_hide">
-														        <div class="text" id="c16"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
-														        </div>
-													      </div>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Energy_saving_electrical_equipment" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c17_hide">
-														        <div class="text" id="c17"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
-														        </div>
-													      </div>
-													</div>												
-													<!-- 公共建筑独有项目  -->
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Thermal_storage" /></a>
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="c18_hide">
-														        <div class="text" id="c18"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
-														        </div>
-													      </div>
-													</div>
-													
-													
-											</div>
-											<div class="b-title">	
-													<a class="ui teal label large"><spring:message code="Concrete_measures_statistics" /></a>
-													<div class="clear"></div>
-											</div>
-											<div class="b-list">
-											
-													
-													<!-- 居住建筑独有项目    -->
-													<div class="ui labeled input list_jz">
-														  <a class="ui label"><spring:message code="Ventilation_form" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c19">
-													</div>
-
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Cold_and_heat_sources" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c20">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="fotads" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c21">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="End_system" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c22">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Total_refrigerating_capacity" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c23">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="Refrigerating_capacity_index" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c24">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Total_heat" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c25">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="Caloric_index" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c26">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">COP</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c27">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">EER</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c28">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">IPLV</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c29">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Boiler_thermal_efficiency" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c30">
-													</div>	
-													<div class="ui labeled input">
-														  <a class="ui label">Ws</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c31">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Exterior_wall_KW" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c32">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Roof_KW" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c33">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Outer_window_k" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c34">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Outer_window_SC" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c35">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Building_orientation" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c36">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Open_window_area_ratio" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c37">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Curtain_wall_open_area_ratio" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c38">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="docsahss" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c39">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Exhaust_heat_recovery_form" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c40">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="profar" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c41">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="esmupwc" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c42">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="dowhawhs" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c43">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="Design_of_CCHP_system" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c44">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Renewable_energy_utilization" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c45">
-													</div>
-													<!-- 公共建筑独有    -->
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Sunroof_K" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c46">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Sunroof_SC" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c47">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Area_ratio_of_window_to_wal" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c48">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Skylight_ratio" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c49">
-													</div>
-													
-											</div>
-											<div class="b-title list_gg">	
-													<a class="ui teal label large"><spring:message code="accwsarwt" /></a>
-													<div class="clear"></div>
-											</div>	
-											<div class="b-list">
-													
-																																				
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="water_supply" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c50">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Backwater" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c51">
-													</div>
-											</div>
-											<div class="b-title list_gg">	
-											 	  	<a class="ui teal label large"><spring:message code="achwsart" /></a>
-												  	<div class="clear"></div>
-											</div>
-											<div class="b-list">													
-	
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="water_supply" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c52">
-													</div>
-													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Backwater" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="c53">
-													</div>
-													
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_3"><spring:message code="btn.save" /></div>
-									</div>
-									<!-- 节能措施 -->
-									<!-- 室内环境措施  -->
-									<div class="ui tab segment" data-tab="four">
-											<div class="b-list">											
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="building.name" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d17" class="input_disabled" disabled>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="identification_type" /></a>
-														  <input type="text" placeholder="<spring:message code="psftbi" />" id="d2_hide" class="input_disabled" disabled>
-														  <!--   
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="d2_hide">
-														        <div class="text" id="d2"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">设计</div>
-														          	<div class="item">运行</div>
-														        </div>
-													      </div> 
-													      -->
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="level" /></a>
-														  <input type="text" placeholder="<spring:message code="psftbi" />" id="d1_hide" class="input_disabled" disabled>
-														  <!-- <div class="ui selection dropdown">
-														        <input type="hidden" id="d1_hide">
-														        <div class="text" id="d1"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">无星级</div>
-															        <div class="item">LEED金级</div>
-															        <div class="item">LEED银级</div>
-															        <div class="item">LEED认证级</div>
-															        <div class="item">非绿建</div>
-															        <div class="item">一星级</div>
-															        <div class="item">二星级</div>
-															        <div class="item">三星级</div>
-															        <div class="item">设计一星</div>
-															        <div class="item">设计二星</div>
-															        <div class="item">设计三星</div>
-															        <div class="item">运行一星</div>
-															        <div class="item">运行二星</div>
-															        <div class="item">运行三星</div>
-														        </div>
-													      </div> -->
-													</div>
-													
-											</div>
-											<div class="b-title">	
-													<a class="ui teal label large"><spring:message code="Technical_Application_Statistics" /></a>
-													<div class="clear"></div>
-											</div>	
-											<div class="b-list">													
-													
-																									
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Natural_draft" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d3">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Daylighting" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d4">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="sunshade" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d5">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Improve_natural_lighting" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d6">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Adjustable_air_conditioning_terminal" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d7">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Air_quality_monitoring" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d8">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Wheelchair_Accessible" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d9">
-													</div>
-													
-											</div>
-											<div class="b-title">	
-													<a class="ui teal label large"><spring:message code="Concrete_measures_statistics" /></a>
-													<div class="clear"></div>
-											</div>		
-											<div class="b-list">
-			
-													<!-- 公共建筑专有 -->									
-													<div class="ui labeled input list_gg"> 
-														  <a class="ui label"><spring:message code="Natural_ventilation_measures" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d10">
-													</div>
-													
-													<!-- 居住建筑独有   -->
-													<div class="ui labeled input list_jz"> 
-														  <a class="ui label label-max"><spring:message code="rovoatfaoar" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d11">
-													</div>
-													
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="ponltsa" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d12">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Sun_shading" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d13">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="mtinl" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d14">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="actcm" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d15">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Air_quality_monitoring_design" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="d16">
-													</div>
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_4"><spring:message code="btn.save" /></div>
-									</div>
-									<!-- 室内环境措施 -->
-									<!-- 室内环境参数设计 -->
-									<div class="ui tab segment" data-tab="five">
-									
-											<div class="b-title" style="padding-top:0;">	
-													<a class="ui teal label large"><spring:message code="Air-conditioning_environment" /></a>
-													<div class="clear"></div>
-											</div>
-											<div class="b-list">
-													
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Functional_room" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e1">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Summer_temperature" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e2">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Summer_humidity" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e3">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Winter_temperature" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e4">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Winter_humidity" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e5">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="fresh_air_rate" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e6">
-													</div>
-											</div>
-											<div class="b-title">	
-													<a class="ui teal label large"><spring:message code="Illumination_environment" /></a>
-													<div class="clear"></div>
-											</div>
-											<div class="b-list">		
-													
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Illuminance_standard_value" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e7">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">UGR</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e8">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">U0</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e9">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">Ra</a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="e10">
-													</div>
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_5"><spring:message code="btn.save" /></div>
-									</div>
-									<!-- 室内环境参数设计 -->
-									<!-- 节水设计 -->
-									<div class="ui tab segment" data-tab="six">
-											<div class="b-list">
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="building.name" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f1" class="input_disabled" disabled>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="identification_type" /></a>
-														  <input type="text" placeholder="<spring:message code="psftbi" />" id="f3_hide" class="input_disabled" disabled>
-														  <!--   
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="f3_hide">
-														        <div class="text" id="f3"><spring:message code="information.select" /> </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">设计</div>
-														          	<div class="item">运行</div>
-														        </div>
-													      </div> 
-													      -->
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="level" /></a>
-														  <input type="text" placeholder="<spring:message code="psftbi" />" id="f2_hide" class="input_disabled" disabled>
-													</div>
-											</div>
-											<div class="b-title">													
-													<a class="ui teal label large"><spring:message code="Technical_Application_Statistics" /></a>
-													<div class="clear"></div>
-											</div>
-											<div class="b-list">
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Rainwater_accumulation" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f4">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Rainwater_reuse" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f5">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Municipal_Reclaimed_Water" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f6">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Homemade_reclaimed_water" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f7">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Classification_measurement" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f8">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="water_saving_irrigation" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f9">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Cooling_water_saving" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f10">
-													</div>
-											</div>
-											<div class="b-title">	
-												<a class="ui teal label large"><spring:message code="Concrete_measures_statistics" /></a>
-												<div class="clear"></div>
-											</div>
-											<div class="b-list">
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Rainwater_harvesting_measures" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f11">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Rainwater_reuse" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f12">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="Non_traditional_sources_of_water" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f13">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="uontws2" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f14">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Water_saving_irrigation_form" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f15">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="Rainwater_reuse" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f16">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label label-max"><spring:message code="aowuic" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f17">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label"><spring:message code="Utilization_of_non_traditional_water_sources" /></a>
-														  <input type="text" placeholder="<spring:message code="please_fill_in" />" id="f18">
-													</div>
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_6"><spring:message code="btn.save" /></div>
-									</div>
-									<!-- 节水设计 -->									
-			                	</div>
-		                	</div>
-		                	<!-- 右侧三维模型 -->
-		                	<div class="five wide column mainright">
-		                		<div class="building-slider">
-			                		<div class="ui label huge label-2"><spring:message code="building.3_d_model" /></div>
-			                		<div id="" class="slider-3d"></div>
-			                	</div>
-			                	<br />
-			                	<div class="building-slider">
-			                		<a class="ui teal label huge part-result-ok" id="buildTempOut" style="width:100%;text-align:center;"><spring:message code="Export_building_information" /></a>
-			                	</div>
-		                	</div>
-	                	</div>	
-                	</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+											<a class="active item" data-tab="first">基本信息</a>
+											<a class="item" data-tab="second">关键设计评价指标</a>
+											<a class="item" data-tab="third">节能措施</a>
+											<a class="item" data-tab="four">室内环境措施</a>
+											<a class="item" data-tab="five">室内环境参数设计</a>
+											<a class="item" data-tab="six">节水设备</a>
+									  </div>
+									  <!-- 基本信息 -->
+									  <div class="ui bottom attached active tab segment" data-tab="first">
+										  
+											  <div class="b-pic" id="b-pic">
+													  <!-- <div class="ui left floated image b-pic-img">
+																<a class="ui left red corner label"><i class="remove icon b-pic-img-list"></i></a>
+																<img src="http://www.ibeem.cn/file/image/1494754915058.jpg">
+													  </div>
+													  <div class="ui left floated image b-pic-img">
+																<a class="ui left red corner label"><i class="remove icon b-pic-img-list"></i></a>
+																<img src="http://www.ibeem.cn/file/image/1494754915058.jpg">
+													  </div> -->
+													  <div class="ui left floated image b-pic-img b-pic-add" id="b-pic-add">
+																<i class="add icon" style="font-size:48px;"></i>
+													  </div>
+											  </div> 
+											  
+											  <div class="b-list">
+													  <div class="ui labeled input">
+															<a class="ui label">调研测试主体单位</a>
+															<input type="text" placeholder="请填写" id="a1">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">所在课题</a>
+															<input type="text" placeholder="请填写" id="a2">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">联系人</a>
+															<input type="text" placeholder="请填写" id="a3">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">联系方式</a>
+															<input type="text" placeholder="请填写" id="a4">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">建筑名称</a>
+															<input type="text" placeholder="请填写" id="a5">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">建筑类别</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="a6_hide">
+																  <div class="text" id="a6">办公</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																			<div class="item">办公</div>
+																		  <div class="item">博物馆</div>
+																		  <div class="item">会展中心</div>
+																		  <div class="item">酒店</div>
+																		  <div class="item">商场</div>
+																		  <div class="item">商业综合体</div>
+																		  <div class="item">学校</div>
+																		  <div class="item">医院</div>
+																		  <div class="item">住宅</div>
+																		  <div class="item">展览馆或其他</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input" style="display:block!important">
+															<a class="ui label">地理位置 &nbsp;<span id="open_select_box1" class="open_select_box">修改</span><span id="open_select_box2" class="open_select_box" style="display:none;">关闭</span></a>
+															<input type="text" placeholder="请填写" id="a7" class="input_disabled" disabled>
+															<input type="hidden" id="a7_pro" class="input_disabled" disabled>
+															<div id="box_select" style="display:none;">
+																<select id="selectProvince" class="change-status">  
+																	  <option value="-1">省份选择</option>  
+																</select>
+																<select id="selectCity" class="change-status">  
+																	  <option value="-1">城市选择</option>  
+																</select>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">气候区</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="a26_hide">
+																  <div class="text" id="a26">严寒</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																			<div class="item">严寒</div>
+																		  <div class="item">寒冷</div>
+																		  <div class="item">夏热冬冷</div>
+																		  <div class="item">夏热冬暖</div>
+																		  <div class="item">温和</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">申报单位</a>
+															<input type="text" placeholder="请填写" id="a8">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">参与单位</a>
+															<input type="text" placeholder="请填写" id="a9">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">申报时间</a>
+															<input type="text" placeholder="请填写" id="a10" class="form_datetime_choice">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">采用标准</a>
+															<input type="text" placeholder="请填写" id="a11">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">星级</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="a12_hide">
+																  <div class="text" id="a12">无星级</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">无星级</div>
+																	  <div class="item">LEED金级</div>
+																	  <div class="item">LEED银级</div>
+																	  <div class="item">LEED认证级</div>
+																	  <div class="item">非绿建</div>
+																	  <div class="item">一星级</div>
+																	  <div class="item">二星级</div>
+																	  <div class="item">三星级</div>
+																	  <div class="item">设计一星级</div>
+																	  <div class="item">设计二星级</div>
+																	  <div class="item">设计三星级</div>
+																	  <div class="item">运行一星级</div>
+																	  <div class="item">运行二星级</div>
+																	  <div class="item">运行三星级</div>
+																  </div>
+															</div>												      
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">标识类别</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="a13_hide">
+																  <div class="text" id="a13">设计</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">设计</div>
+																		<div class="item">运行</div>
+																  </div>
+															</div>													      
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">立项时间</a>
+															<input type="text" placeholder="1970-01-01" id="a14" class="form_datetime_choice">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">竣工时间</a>
+															<input type="text" placeholder="1970-01-01" id="a15" class="form_datetime_choice">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">运营时间</a>
+															<input type="text" placeholder="1970-01-01" id="a16" class="form_datetime_choice">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">建筑面积(m2)</a>
+															<input type="text" placeholder="请填写" id="a17">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">建筑朝向</a>
+															<input type="text" placeholder="请填写" id="a18">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">备注</a>
+															<input type="text" placeholder="请填写" id="a19">
+													  </div>
+													  
+													  <!-- 公共建筑独有  -->
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">空调面积</a>
+															<input type="text" placeholder="请填写" id="a20">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">高度</a>
+															<input type="text" placeholder="请填写" id="a21">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">建筑性质</a>
+															<input type="text" placeholder="请填写" id="a22">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">建筑使用人数</a>
+															<input type="text" placeholder="请填写" id="a23">
+													  </div>
+													   
+													  <!-- 居住建筑独有 -->
+													  <div class="ui labeled input list_jz">
+															<a class="ui label">总户数</a>
+															<input type="text" placeholder="请填写" id="a24">
+													  </div>
+													  <div class="ui labeled input list_jz">
+															<a class="ui label">入住户数</a>
+															<input type="text" placeholder="请填写" id="a25">
+													  </div>
+													  
+											  </div>
+											  <div class="clearfix"></div>
+											  <div class="ui teal label huge part-result-ok" id="submit_sheet_1">保存</div>
+									  </div>
+									  <!-- // 基本信息 -->
+									  <!-- 关键设计评价指标 -->
+									  <div class="ui tab segment" data-tab="second">
+											  <div class="b-list">
+													  <div class="ui labeled input">
+															<a class="ui label">建筑名称</a>
+															<input type="text" placeholder="请填写" id="b1" class="input_disabled" disabled>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">用地面积</a>
+															<input type="text" placeholder="请填写" id="b2">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">建筑总面积</a>
+															<input type="text" placeholder="请填写" id="b3">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">地下建筑面积</a>
+															<input type="text" placeholder="请填写" id="b4">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">地上建筑面积</a>
+															<input type="text" placeholder="请填写" id="b5">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">天然气</a>
+															<input type="text" placeholder="请填写" id="b6">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">市政热力</a>
+															<input type="text" placeholder="请填写" id="b7">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">电力</a>
+															<input type="text" placeholder="请填写" id="b8">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">年标煤量</a>
+															<input type="text" placeholder="请填写" id="b9">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">单位建筑面积设计总能耗</a>
+															<input type="text" placeholder="请填写" id="b10">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">设计节能率</a>
+															<input type="text" placeholder="请填写" id="b11">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">热工性能提高幅度</a>
+															<input type="text" placeholder="请填写" id="b12">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">供暖、通风与空调系统设计能耗</a>
+															<input type="text" placeholder="请填写" id="b13">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">供暖、通风与空调系统设计能耗降低幅度</a>
+															<input type="text" placeholder="请填写" id="b14">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">用水总量</a>
+															<input type="text" placeholder="请填写" id="b15">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">非传统水量</a>
+															<input type="text" placeholder="请填写" id="b16">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">非传统水源利用率</a>
+															<input type="text" placeholder="请填写" id="b17">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">建筑生活热水量</a>
+															<input type="text" placeholder="请填写" id="b18">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">可再生热水量</a>
+															<input type="text" placeholder="请填写" id="b19">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">可再生能源产生热水比例</a>
+															<input type="text" placeholder="请填写" id="b20">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">建筑用电量</a>
+															<input type="text" placeholder="请填写" id="b21">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">可再生发电量</a>
+															<input type="text" placeholder="请填写" id="b22">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">可再生能源产生发电比例</a>
+															<input type="text" placeholder="请填写" id="b23">
+													  </div>
+											  </div>
+											  <div class="clearfix"></div>
+											  <div class="ui teal label huge part-result-ok" id="submit_sheet_2">保存</div>
+									  </div>
+									  <!-- // 关键设计评价指标 -->
+									  <!-- 节能措施 -->
+									  <div class="ui tab segment" data-tab="third">
+											  <div class="b-list">
+													  <div class="ui labeled input">
+															<a class="ui label">建筑名称</a>
+															<input type="text" placeholder="请填写" id="c1" class="input_disabled" disabled>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">标识类型</a>
+															<input type="text" placeholder="请在基本信息中选择..." id="c2_hide" class="input_disabled" disabled>
+															<!--   
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c2_hide">
+																  <div class="text" id="c2">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">设计</div>
+																		<div class="item">运行</div>
+																  </div>
+															</div> 
+															-->
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">星级</a>
+															<input type="text" placeholder="请在基本信息中选择..." id="c3_hide" class="input_disabled" disabled>
+															<!-- <div class="ui selection dropdown">
+																  <input type="hidden" id="c3_hide">
+																  <div class="text" id="c3">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">无星级</div>
+																	  <div class="item">LEED金级</div>
+																	  <div class="item">LEED银级</div>
+																	  <div class="item">LEED认证级</div>
+																	  <div class="item">非绿建</div>
+																	  <div class="item">一星级</div>
+																	  <div class="item">二星级</div>
+																	  <div class="item">三星级</div>
+																	  <div class="item">设计一星</div>
+																	  <div class="item">设计二星</div>
+																	  <div class="item">设计三星</div>
+																	  <div class="item">运行一星</div>
+																	  <div class="item">运行二星</div>
+																	  <div class="item">运行三星</div>
+																  </div>
+															</div> -->
+													  </div>
+													  <!-- 填写1或0， 1表示达标或采用，0表示未达标或未采用  -->
+													  <div class="ui labeled input">
+															<a class="ui label">外窗幕墙可开启</a>
+															   <div class="ui selection dropdown">
+																  <input type="hidden" id="c4_hide">
+																  <div class="text" id="c4">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">采用</div>
+																		<div class="item" data-value="0">未采用</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">排风热回收</a>
+															   <div class="ui selection dropdown">
+																  <input type="hidden" id="c5_hide">
+																  <div class="text" id="c5">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">可调新风比</a>
+															   <div class="ui selection dropdown">
+																  <input type="hidden" id="c6_hide">
+																  <div class="text" id="c6">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">部分工况节能</a>
+																 <div class="ui selection dropdown">
+																  <input type="hidden" id="c7_hide">
+																  <div class="text" id="c7">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">ER达标</a>
+																 <div class="ui selection dropdown">
+																  <input type="hidden" id="c8_hide">
+																  <div class="text" id="c8">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">WS达标</a>
+																 <div class="ui selection dropdown">
+																  <input type="hidden" id="c9_hide">
+																  <div class="text" id="c9">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">余热废热利用</a>
+															   <div class="ui selection dropdown">
+																  <input type="hidden" id="c10_hide">
+																  <div class="text" id="c10">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">分项计量</a>
+																 <div class="ui selection dropdown">
+																  <input type="hidden" id="c11_hide">
+																  <div class="text" id="c11">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">热电冷三联供</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c12_hide">
+																  <div class="text" id="c12">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">可再能源利用形式</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c13_hide">
+																  <div class="text" id="c13">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">照明目标值</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c14_hide">
+																  <div class="text" id="c14">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">照明节能调控</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c15_hide">
+																  <div class="text" id="c15">请选择</div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1">达标</div>
+																		<div class="item" data-value="0">未达标</div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">电梯群控、扶梯自动启停</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c16_hide">
+																  <div class="text" id="c16">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1"><spring:message code="information.use" /></div>
+																		<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
+																  </div>
+															</div>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">节能电器设备</a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c17_hide">
+																  <div class="text" id="c17">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1"><spring:message code="information.use" /></div>
+																		<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
+																  </div>
+															</div>
+													  </div>												
+													  <!-- 公共建筑独有项目  -->
+													  <div class="ui labeled input list_gg">
+															<a class="ui label"><spring:message code="Thermal_storage" /></a>
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="c18_hide">
+																  <div class="text" id="c18">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item" data-value="1"><spring:message code="information.use" /></div>
+																		<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
+																  </div>
+															</div>
+													  </div>
+													  
+													  
+											  </div>
+											  <div class="b-title">	
+													  <a class="ui teal label large">具体措施统计</a>
+													  <div class="clear"></div>
+											  </div>
+											  <div class="b-list">
+											  
+													  
+													  <!-- 居住建筑独有项目    -->
+													  <div class="ui labeled input list_jz">
+															<a class="ui label">通风换气形式</a>
+															<input type="text" placeholder="请填写" id="c19">
+													  </div>
+  
+													  <div class="ui labeled input">
+															<a class="ui label">冷热源形式</a>
+															<input type="text" placeholder="请填写" id="c20">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">输配系统形式</a>
+															<input type="text" placeholder="请填写" id="c21">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">末端系统</a>
+															<input type="text" placeholder="请填写" id="c22">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">总制冷量</a>
+															<input type="text" placeholder="请填写" id="c23">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">制冷量指标</a>
+															<input type="text" placeholder="请填写" id="c24">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">总制热量</a>
+															<input type="text" placeholder="请填写" id="c25">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">制热量指标</a>
+															<input type="text" placeholder="请填写" id="c26">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">COP</a>
+															<input type="text" placeholder="请填写" id="c27">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">EER</a>
+															<input type="text" placeholder="请填写" id="c28">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">IPLV</a>
+															<input type="text" placeholder="请填写" id="c29">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">锅炉热效率</a>
+															<input type="text" placeholder="请填写" id="c30">
+													  </div>	
+													  <div class="ui labeled input">
+															<a class="ui label">Ws</a>
+															<input type="text" placeholder="请填写" id="c31">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">外墙K</a>
+															<input type="text" placeholder="请填写" id="c32">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">屋面K</a>
+															<input type="text" placeholder="请填写" id="c33">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">外窗K</a>
+															<input type="text" placeholder="请填写" id="c34">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">外窗SC</a>
+															<input type="text" placeholder="请填写" id="c35">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">建筑朝向</a>
+															<input type="text" placeholder="请填写" id="c36">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">外窗可开启面积比</a>
+															<input type="text" placeholder="请填写" id="c37">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">幕墙可开启面积比</a>
+															<input type="text" placeholder="请填写" id="c38">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">蓄冷蓄热系统设计</a>
+															<input type="text" placeholder="请填写" id="c39">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">排风热回收形式</a>
+															<input type="text" placeholder="请填写" id="c40">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">新风调节比例范围</a>
+															<input type="text" placeholder="请填写" id="c41">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">部分工况节能措施</a>
+															<input type="text" placeholder="请填写" id="c42">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">余热废热系统设计</a>
+															<input type="text" placeholder="请填写" id="c43">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">冷热电三联供系统设计</a>
+															<input type="text" placeholder="请填写" id="c44">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">可再能源利用形式</a>
+															<input type="text" placeholder="请填写" id="c45">
+													  </div>
+													  <!-- 公共建筑独有    -->
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">天窗K</a>
+															<input type="text" placeholder="请填写" id="c46">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">天窗SC</a>
+															<input type="text" placeholder="请填写" id="c47">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">窗墙面积比</a>
+															<input type="text" placeholder="请填写" id="c48">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">天窗比例</a>
+															<input type="text" placeholder="请填写" id="c49">
+													  </div>
+													  
+											  </div>
+											  <div class="b-title list_gg">	
+													  <a class="ui teal label large">空调供冷供回水温度</a>
+													  <div class="clear"></div>
+											  </div>	
+											  <div class="b-list">
+													  
+																																				  
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">供水</a>
+															<input type="text" placeholder="请填写" id="c50">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">回水</a>
+															<input type="text" placeholder="请填写" id="c51">
+													  </div>
+											  </div>
+											  <div class="b-title list_gg">	
+														 <a class="ui teal label large">空调供热供回水温度</a>
+														<div class="clear"></div>
+											  </div>
+											  <div class="b-list">													
+	  
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">供水</a>
+															<input type="text" placeholder="请填写" id="c52">
+													  </div>
+													  <div class="ui labeled input list_gg">
+															<a class="ui label">回水</a>
+															<input type="text" placeholder="请填写" id="c53">
+													  </div>
+													  
+											  </div>
+											  <div class="clearfix"></div>
+											  <div class="ui teal label huge part-result-ok" id="submit_sheet_3">保存</div>
+									  </div>
+									  <!-- 节能措施 -->
+									  <!-- 室内环境措施  -->
+									  <div class="ui tab segment" data-tab="four">
+											  <div class="b-list">											
+													  <div class="ui labeled input">
+															<a class="ui label">建筑名称</a>
+															<input type="text" placeholder="请填写" id="d17" class="input_disabled" disabled>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">标识类型</a>
+															<input type="text" placeholder="请在基本信息中选择..." id="d2_hide" class="input_disabled" disabled>
+															<!--   
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="d2_hide">
+																  <div class="text" id="d2">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">设计</div>
+																		<div class="item">运行</div>
+																  </div>
+															</div> 
+															-->
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">星级</a>
+															<input type="text" placeholder="请在基本信息中选择..." id="d1_hide" class="input_disabled" disabled>
+															<!-- <div class="ui selection dropdown">
+																  <input type="hidden" id="d1_hide">
+																  <div class="text" id="d1">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">无星级</div>
+																	  <div class="item">LEED金级</div>
+																	  <div class="item">LEED银级</div>
+																	  <div class="item">LEED认证级</div>
+																	  <div class="item">非绿建</div>
+																	  <div class="item">一星级</div>
+																	  <div class="item">二星级</div>
+																	  <div class="item">三星级</div>
+																	  <div class="item">设计一星</div>
+																	  <div class="item">设计二星</div>
+																	  <div class="item">设计三星</div>
+																	  <div class="item">运行一星</div>
+																	  <div class="item">运行二星</div>
+																	  <div class="item">运行三星</div>
+																  </div>
+															</div> -->
+													  </div>
+													  
+											  </div>
+											  <div class="b-title">	
+													  <a class="ui teal label large">技术应用统计</a>
+													  <div class="clear"></div>
+											  </div>	
+											  <div class="b-list">													
+													  
+																									  
+													  <div class="ui labeled input">
+															<a class="ui label">自然通风</a>
+															<input type="text" placeholder="请填写" id="d3">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">自然采光</a>
+															<input type="text" placeholder="请填写" id="d4">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">遮阳</a>
+															<input type="text" placeholder="请填写" id="d5">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">改善自然采光</a>
+															<input type="text" placeholder="请填写" id="d6">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">可调控空调末端</a>
+															<input type="text" placeholder="请填写" id="d7">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">空气质量监控</a>
+															<input type="text" placeholder="请填写" id="d8">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">无障碍设施</a>
+															<input type="text" placeholder="请填写" id="d9">
+													  </div>
+													  
+											  </div>
+											  <div class="b-title">	
+													  <a class="ui teal label large">具体措施统计</a>
+													  <div class="clear"></div>
+											  </div>		
+											  <div class="b-list">
+			  
+													  <!-- 公共建筑专有 -->									
+													  <div class="ui labeled input list_gg"> 
+															<a class="ui label">自然通风措施</a>
+															<input type="text" placeholder="请填写" id="d10">
+													  </div>
+													  
+													  <!-- 居住建筑独有   -->
+													  <div class="ui labeled input list_jz"> 
+															<a class="ui label label-max">通风开口面积与房间地板面积比例</a>
+															<input type="text" placeholder="请填写" id="d11">
+													  </div>
+													  
+													  <div class="ui labeled input">
+															<a class="ui label label-max">自然采光达标面积比例</a>
+															<input type="text" placeholder="请填写" id="d12">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">遮阳形式</a>
+															<input type="text" placeholder="请填写" id="d13">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">改善自然采光措施</a>
+															<input type="text" placeholder="请填写" id="d14">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">空调末端调控手段</a>
+															<input type="text" placeholder="请填写" id="d15">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">空气质量监控设计</a>
+															<input type="text" placeholder="请填写" id="d16">
+													  </div>
+											  </div>
+											  <div class="clearfix"></div>
+											  <div class="ui teal label huge part-result-ok" id="submit_sheet_4">保存</div>
+									  </div>
+									  <!-- 室内环境措施 -->
+									  <!-- 室内环境参数设计 -->
+									  <div class="ui tab segment" data-tab="five">
+									  
+											  <div class="b-title" style="padding-top:0;">	
+													  <a class="ui teal label large">空调环境</a>
+													  <div class="clear"></div>
+											  </div>
+											  <div class="b-list">
+													  
+													  <div class="ui labeled input">
+															<a class="ui label">功能房间</a>
+															<input type="text" placeholder="请填写" id="e1">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">夏季温度</a>
+															<input type="text" placeholder="请填写" id="e2">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">夏季湿度</a>
+															<input type="text" placeholder="请填写" id="e3">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">冬季温度</a>
+															<input type="text" placeholder="请填写" id="e4">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">冬季湿度</a>
+															<input type="text" placeholder="请填写" id="e5">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">新风量</a>
+															<input type="text" placeholder="请填写" id="e6">
+													  </div>
+											  </div>
+											  <div class="b-title">	
+													  <a class="ui teal label large">照度环境</a>
+													  <div class="clear"></div>
+											  </div>
+											  <div class="b-list">		
+													  
+													  <div class="ui labeled input">
+															<a class="ui label">照度标准值</a>
+															<input type="text" placeholder="请填写" id="e7">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">UGR</a>
+															<input type="text" placeholder="请填写" id="e8">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">U0</a>
+															<input type="text" placeholder="请填写" id="e9">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">Ra</a>
+															<input type="text" placeholder="请填写" id="e10">
+													  </div>
+											  </div>
+											  <div class="clearfix"></div>
+											  <div class="ui teal label huge part-result-ok" id="submit_sheet_5">保存</div>
+									  </div>
+									  <!-- 室内环境参数设计 -->
+									  <!-- 节水设计 -->
+									  <div class="ui tab segment" data-tab="six">
+											  <div class="b-list">
+													  <div class="ui labeled input">
+															<a class="ui label">建筑名称</a>
+															<input type="text" placeholder="请填写" id="f1" class="input_disabled" disabled>
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">标识类型</a>
+															<input type="text" placeholder="请在基本信息中选择..." id="f3_hide" class="input_disabled" disabled>
+															<!--   
+															<div class="ui selection dropdown">
+																  <input type="hidden" id="f3_hide">
+																  <div class="text" id="f3">请选择 </div>
+																  <i class="dropdown icon" style="border:none"></i>
+																  <div class="menu">
+																		<div class="item">设计</div>
+																		<div class="item">运行</div>
+																  </div>
+															</div> 
+															-->
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">星级</a>
+															<input type="text" placeholder="请在基本信息中选择..." id="f2_hide" class="input_disabled" disabled>
+													  </div>
+											  </div>
+											  <div class="b-title">													
+													  <a class="ui teal label large">技术应用统计</a>
+													  <div class="clear"></div>
+											  </div>
+											  <div class="b-list">
+													  <div class="ui labeled input">
+															<a class="ui label">雨水积蓄</a>
+															<input type="text" placeholder="请填写" id="f4">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">雨水回用量</a>
+															<input type="text" placeholder="请填写" id="f5">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">市政中水</a>
+															<input type="text" placeholder="请填写" id="f6">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">自制中水</a>
+															<input type="text" placeholder="请填写" id="f7">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">分类计量</a>
+															<input type="text" placeholder="请填写" id="f8">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">节水灌溉</a>
+															<input type="text" placeholder="请填写" id="f9">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">冷却水节水</a>
+															<input type="text" placeholder="请填写" id="f10">
+													  </div>
+											  </div>
+											  <div class="b-title">	
+												  <a class="ui teal label large">具体措施统计</a>
+												  <div class="clear"></div>
+											  </div>
+											  <div class="b-list">
+													  <div class="ui labeled input">
+															<a class="ui label">雨水积蓄措施</a>
+															<input type="text" placeholder="请填写" id="f11">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">雨水回用量</a>
+															<input type="text" placeholder="请填写" id="f12">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">非传统水源来源</a>
+															<input type="text" placeholder="请填写" id="f13">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">非传统水源利用用途</a>
+															<input type="text" placeholder="请填写" id="f14">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">节水灌溉形式</a>
+															<input type="text" placeholder="请填写" id="f15">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">雨水回用量</a>
+															<input type="text" placeholder="请填写" id="f16">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label label-max">中水利用量</a>
+															<input type="text" placeholder="请填写" id="f17">
+													  </div>
+													  <div class="ui labeled input">
+															<a class="ui label">非传统水源利用率</a>
+															<input type="text" placeholder="请填写" id="f18">
+													  </div>
+											  </div>
+											  <div class="clearfix"></div>
+											  <div class="ui teal label huge part-result-ok" id="submit_sheet_6">保存</div>
+									  </div>
+									  <!-- 节水设计 -->									
+								  </div>
+							  </div>
+							  <!-- 右侧三维模型 -->
+							  <div class="five wide column mainright">
+								  <div class="building-slider">
+									  <div class="ui label huge label-2">建筑三维模型</div>
+									  <div id="" class="slider-3d"></div>
+								  </div>
+								  <br />
+								  <div class="building-slider">
+									  <a class="ui teal label huge part-result-ok" id="buildTempOut" style="width:100%;text-align:center;">导出建筑信息</a>
+								  </div>
+							  </div>
+						  </div>	
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+  </div>
 
 <!-- 选择城市 -->
 <script src="/public/static/manage/js/team/selectCity.js"></script>

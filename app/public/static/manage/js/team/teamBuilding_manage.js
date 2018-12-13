@@ -13,7 +13,7 @@ $(".div-group-base.tab .ui.tabular.menu .item").click(function(){
 function getBuilding(){
 	//清空经纬度数组
 	positionArr.length=0;
-	var url="/admin/getBuildingByProject";
+	var url="/admin/project/single/building";
 	var json={"projectID":id};
 	var successFunc = function(data){
 		console.log(data)
@@ -22,17 +22,21 @@ function getBuilding(){
 		for(var i=0;i<buildingArr.length;i++){
 			var id = buildingArr[i].id;
 			var name = buildingArr[i].name;
-			var city = buildingArr[i].city;
+			var city = buildingArr[i].city? buildingArr[i].city: '';
+			var type = buildingArr[i].type;
 			var latitude = buildingArr[i].latitude;
 			var longitude = buildingArr[i].longitude;
-			$("#dataTable").append("<tr onclick='show(this,event)' data-id='"+id+"'>" +
-					"<td id='addIcon'><div class='ui checkbox'><input type='checkbox' name='delete' tabindex='"+id+"' data-index='"+i+"' class='hidden'><label> </label></div></td>" +
+			$("#dataTable").append("<tr onclick='show(this,event)' data-id='"+id+"' data-type='"+type+"' data-name='"+name+"'>" +
+					"<td id='addIcon'><div class='ui checkbox'><input type='checkbox' name='delete' tabindex='"+id+"' data-typed='"+type+"' data-index='"+i+"' class='hidden'><label> </label></div></td>" +
 					"<td>"+name+"</td><td>"+city+"</td></tr>");
-			positionArr.push({
-				"name":name,
-				"lat":latitude,
-				"lon":longitude
-			});
+			
+			if(type=="ibeem"){
+				positionArr.push({
+					"name":name,
+					"lat":latitude,
+					"lon":longitude
+				});				
+			}
 		}
 		//set Map
 		initMap();
@@ -65,8 +69,16 @@ function show(tr,event){
 	//点击复选框时，不跳转
 	if(event.target.nodeName!="LABEL"){
 		var buildingID = $(tr).data("id");
+		var buildingType = $(tr).data("type");
+		var buildingName = $(tr).data("name");
 		$.cookie('buildingid', buildingID); 
-		window.location.href="/redirect?url=administrator/teamBuildingContent.jsp";
+		$.cookie('buildingType', buildingType); 
+		$.cookie('buildingname', buildingName);  
+		if(buildingType=="ibeem"){ // ibeem
+			window.location.href += "&building_name=" + buildingName;
+		}else if(buildingType == "top"){ // top
+			window.location.href += "&top_building_name=" + buildingName;
+		}
 	}
 }
 //删除项目下建筑
@@ -83,7 +95,7 @@ function okFunc(){
 		var $tr = $(this).parent().parent().parent();
 		var index = $(this).data("index");
 		var id = $(this).attr("tabindex");
-		var url = "/admin/deleteBuilding";
+		var url = "/admin/project/single/building/delete";
 		var json={"buildingID":id};
 		var successFunc = function(data){
 			$tr.remove();
@@ -102,8 +114,10 @@ $("#addBuilding").on("click",function(){
 })
 //添加建筑
 $("#submit").click(function(){
+
 	//校验
-	var buildingName = $(".ui.form .name input").val();
+	var buildingName = $("#addname").val();
+
 	if($.trim(buildingName)==""){
 		$(".error h4").html(getLangStr("add_building_messg1"));
 		return false;
@@ -111,35 +125,55 @@ $("#submit").click(function(){
 		$(".error h4").html(getLangStr("add_building_messg4"));
 		return false;
 	}
-	var city = $("#selectCity option:selected").val();
-	var log = $("#selectCity option:selected").data("log");
-	var lat = $("#selectCity option:selected").data("lat");
-	var cityname = $("#selectCity option:selected").html();
-	var qhq = $("#selectQhq option:selected").val();
 	
-	var selclass = $("#selectClass option:selected").val();
 	
-	if(city==-1 || $.trim(cityname)==""){
-		$(".error h4").html(getLangStr("add_building_messg2"));
-		return false;
-	}
-	if(qhq==-1 || $.trim(qhq)==""){
-		$(".error h4").html(getLangStr("add_building_messg3"));
-		return false;
-	}
-	//发送
-	var url = "/admin/addBuilding";
-	var json = {"projectID":id,"name":buildingName,"buildingClass":selclass,"city":cityname,"longitude":log,"latitude":lat,"climaticProvince":qhq};
+	if($("#selectType").val()==1){ // ibeem 格式
 
-	function successFunc(data){
-		$('.basic.test.modal.addbuilding-modal').modal('hide');
-		window.location.href="/redirect?url=administrator/teamBuilding.jsp";
+		var city = $("#selectCity option:selected").val();
+		var log = $("#selectCity option:selected").data("log");
+		var lat = $("#selectCity option:selected").data("lat");
+		var cityname = $("#selectCity option:selected").html();
+		var qhq = $("#selectQhq option:selected").val();
+		
+		var selclass = $("#selectClass option:selected").val();
+		
+		if(city==-1 || $.trim(cityname)==""){
+			$(".error h4").html(getLangStr("add_building_messg2"));
+			return false;
+		}
+		if(qhq==-1 || $.trim(qhq)==""){
+			$(".error h4").html(getLangStr("add_building_messg3"));
+			return false;
+		}
+		//发送
+		var url = "/admin/project/single/building/add?type=" + $("#selectType").val();
+		var json = {"projectID":id,"name":buildingName,"buildingType": $("#selectType").val(), "buildingClass":selclass,"city":cityname,"longitude":log,"latitude":lat,"climaticProvince":qhq};
+
+		function successFunc(data){
+			$('.basic.test.modal.addbuilding-modal').modal('hide');
+			location.reload();
+		}
+		function errorFunc(data){
+			var errormsg = data.messg;
+			$(".error h4").html(errormsg);
+		}
+		sentJson(url,json,successFunc,errorFunc);
+		
+	}else if($("#selectType").val()==2){ // top 格式
+		var url = "/admin/project/single/building/add?type=" + $("#selectType").val();
+		var json = {"projectID":id,"name":buildingName,"buildingType":$("#selectType").val()};
+
+		function successFunc(data){
+			$('.basic.test.modal.addbuilding-modal').modal('hide');
+			location.reload();
+		}
+		function errorFunc(data){
+			var errormsg = data.messg;
+			$(".error h4").html(errormsg);
+		}
+		sentJson(url,json,successFunc,errorFunc);
 	}
-	function errorFunc(data){
-		var errormsg = data.messg;
-		$(".error h4").html(errormsg);
-	}
-	sentJson(url,json,successFunc,errorFunc);
+	
 });
 
 $(function(){

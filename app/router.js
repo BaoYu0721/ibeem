@@ -26,7 +26,7 @@ module.exports = app => {
   router.get('/common/questionLB', userRequired, controller.common.questionLB);
   router.get('/common/questionZX', userRequired, controller.common.questionZX);
   router.get('/common/questionDL', userRequired, controller.common.questionDL);
-  router.get('/common/member/list', userRequired, controller.common.memberList);
+  router.get('/common/member/list', controller.common.memberList);
   router.post('/common/upload', userRequired, controller.common.upload);
 
   // index
@@ -111,6 +111,8 @@ module.exports = app => {
   router.post('/project/single/building/save_indoor_info', userRequired, controller.project.singleBuilding.buildingSaveIndoorInfo);
   router.post('/project/single/building/save_indoor_parameter_info', userRequired, controller.project.singleBuilding.buildingSaveIndoorParameterInfo);
   router.post('/project/single/building/save_water_info', userRequired, controller.project.singleBuilding.buildingSaveWaterInfo);
+  router.post('/project/single/topBuilding', userRequired, controller.project.singleBuilding.topBuildingInfo);
+  router.post('/project/single/topBuilding/room_info', userRequired, controller.project.singleBuilding.topBuildingRoomInfo);
   router.post('/project/single/survey', userRequired, controller.project.single.surveyInfo);
   router.post('/project/single/survey/search', userRequired, controller.project.singleSurvey.surveySearch);
   router.post('/project/single/survey/bind', userRequired, controller.project.singleSurvey.surveyBind);
@@ -144,6 +146,14 @@ module.exports = app => {
   // admin & device
   router.get('/admin/device', adminRequired, controller.admin.device.index);
   router.post('/admin/device/list', adminRequired, controller.admin.device.deviceList);
+  router.post('/admin/device/download/history', adminRequired, controller.admin.device.deviceDownloadHistory);
+  router.post('/admin/device/view/on_line_rate', adminRequired, controller.admin.device.deviceOnLineRate);
+  router.post('/admin/device/view/environment', adminRequired, controller.admin.device.deviceEnvironment);
+  router.post('/admin/device/add', adminRequired, controller.admin.device.deviceAdd);
+  router.post('/admin/device/user_list', adminRequired, controller.admin.device.deviceUserList);
+  router.post('/admin/device/set_owner', adminRequired, controller.admin.device.deviceSetOwner);
+  router.post('/admin/device/del_owner', adminRequired, controller.admin.device.deviceDelOwner);
+  router.post('/admin/device/status', adminRequired, controller.admin.device.deviceStatus);
 
   // admin & survey
   router.get('/admin/survey', adminRequired, controller.admin.survey.index);
@@ -152,10 +162,52 @@ module.exports = app => {
   // admin & project
   router.get('/admin/project', adminRequired, controller.admin.project.index);
   router.post('/admin/project/list', adminRequired, controller.admin.project.projectList);
-
+  router.post('/admin/project/single/info', adminRequired, controller.admin.project.singleInfo);
+  router.post('/admin/project/single/device_info', adminRequired, controller.admin.project.singleDeviceInfo);
+  router.post('/admin/project/single/survey_info', adminRequired, controller.admin.project.singleSurveyInfo);
+  router.post('/admin/project/single/building_info', adminRequired, controller.admin.project.singleBuildingInfo);
+  router.post('/admin/project/single/edit', adminRequired, controller.admin.project.singleEdit);
+  router.post('/admin/project/single/delete', adminRequired, controller.admin.project.singleDelete);
+  router.post('/admin/project/single/building', adminRequired, controller.admin.project.singleBuilding);
+  router.post('/admin/project/single/building/add', adminRequired, controller.admin.project.singleBuildingAdd);
+  router.post('/admin/project/single/building/delete', adminRequired, controller.admin.project.singleBuildingDelete);
+  router.post('/admin/project/single/building/view', adminRequired, controller.admin.project.singleBuildingView);
+  router.post('/admin/project/single/building/infomation', adminRequired, controller.admin.project.singleBuildingInformation);
+  router.post('/admin/project/single/building/point', adminRequired, controller.admin.project.singleBuildingPoint);
+  router.post('/admin/project/single/building/point_data', adminRequired, controller.admin.project.singleBuildingPointData);
+  router.post('/admin/project/single/building/point_del', adminRequired, controller.admin.project.singleBuildingPointDelete);
+  router.post('/admin/project/single/building/point_update', adminRequired, controller.admin.project.singleBuildingPointUpdate);
+  router.post('/admin/project/single/building/point_info', adminRequired, controller.admin.project.singleBuildingPointInfo);
+  router.post('/admin/project/single/building/point_device_relevant', adminRequired, controller.admin.project.singleBuildingPointDeviceRelevant);
+  router.post('/admin/project/single/building/point_survey_relevant', adminRequired, controller.admin.project.singleBuildingPointSurveyRelevant);
+  router.post('/admin/project/single/building/point_survey_detail', adminRequired, controller.admin.project.singleBuildingPointSurveyDetail);
+  router.post('/admin/project/single/building/point_device_detail', adminRequired, controller.admin.project.singleBuildingPointDeviceDetail);
+  router.post('/admin/project/single/building/survey', adminRequired, controller.admin.project.singleBuildingSurvey);
+  router.post('/admin/project/single/building/survey_add', adminRequired, controller.admin.project.singleBuildingSurveyAdd);
+  router.post('/admin/project/single/building/survey_bind', adminRequired, controller.admin.project.singleBuildingSurveyBind);
+  router.post('/admin/project/single/building/energy', adminRequired, controller.admin.project.singleBuildingEnergy);
+  router.post('/admin/project/single/building/energy_update', adminRequired, controller.admin.project.singleBuildingEnergyUpdate);
+  router.post('/admin/project/single/building/save_base_info', adminRequired, controller.admin.project.singleBuildingSaveBaseInfo);
+  router.post('/admin/project/single/building/save_design_info', adminRequired, controller.admin.project.singleBuildingSaveDesignInfo);
+  router.post('/admin/project/single/building/save_energy_info', adminRequired, controller.admin.project.singleBuildingSaveEnergyInfo);
+  router.post('/admin/project/single/building/save_indoor_info', adminRequired, controller.admin.project.singleBuildingSaveIndoorInfo);
+  router.post('/admin/project/single/building/save_indoor_parameter_info', adminRequired, controller.admin.project.singleBuildingSaveParameterInfo);
+  router.post('/admin/project/single/building/save_water_info', adminRequired, controller.admin.project.singleBuildingSaveWaterInfo);
+  router.post('/admin/project/single/topBuilding', adminRequired, controller.admin.project.singleTopBuilding);
+  router.post('/admin/project/single/topBuilding/room_info', adminRequired, controller.admin.project.singleTopBuildingRoomInfo);
+  router.post('/admin/project/single/device', adminRequired, controller.admin.project.singleDevice);
+  router.post('/admin/project/single/survey', adminRequired, controller.admin.project.singleSurvey);
+  router.post('/admin/project/single/member', adminRequired, controller.admin.project.singleMember);
+  router.post('/admin/project/single/member/search', adminRequired, controller.admin.project.singleMemberSearch);
+  router.post('/admin/project/single/member/add', adminRequired, controller.admin.project.singleMemberAdd);
+  router.post('/admin/project/single/member/delete', adminRequired, controller.admin.project.singleMemberDelete);
+  router.post('/admin/project/single/member/set_manager', adminRequired, controller.admin.project.singleMemberSetManager);
+  router.post('/admin/project/single/member/manager_revocation', adminRequired, controller.admin.project.singleMemberManagerRevocation);
+  
   // admin & user
   router.get('/admin/user', adminRequired, controller.admin.user.index);
   router.post('/admin/user/list', adminRequired, controller.admin.user.userList);
+  router.post('/admin/user/change_password', adminRequired, controller.admin.user.userChangePassword);
 
   // admin & statistics
   router.get('/admin/statistics', adminRequired, controller.admin.statistics.index);

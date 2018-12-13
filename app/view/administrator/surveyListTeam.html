@@ -1,16 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="surveyListTeam.title" /></title>
-<base href="<%=basePath%>" />
+<title>项目问卷列表</title>
 <link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
     <link rel="stylesheet" href="/public/static/common/css/base.css" />
@@ -25,7 +17,7 @@
     <script src="/public/static/common/js/jquery.cookie.js"></script>
     <script src="/public/static/manage/js/jquery.form.js"></script>
      <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
-    <script src="/publicstatic/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
     <script src="/public/static/common/js/semantic.min.js"></script>
     <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
     <script src="/public/static/common/js/excellentexport.min.js"></script>
@@ -58,14 +50,14 @@
 	<i class="green close icon"></i>
 		<div class="container">
 			<div class="bindListBox">
- 	           <span  class="tit"><spring:message code="surveyListTeam.surveylisttitle" /></span>  
- 	           <input type="search" class="search" placeholder="<spring:message code="surveyListDevice.search" />.." id="search"><br>
+ 	           <span  class="tit">问卷列表</span>  
+ 	           <input type="search" class="search" placeholder="维度搜索.." id="search"><br>
  	           <!-- <img src="/static/manage/img/team/loding.gif"  id="loadingm"/> -->
  	           <div class="box" id="box">  
  	              <ul class="bindList child" id="child">  
  	              </ul>  
  	        	</div>
- 	        <button class="ui button confirmBtn" id="confirmBtn" style="margin-top:1rem;"><spring:message code="survey.ok" /> </button>  
+ 	        <button class="ui button confirmBtn" id="confirmBtn" style="margin-top:1rem;">确定 </button>  
  	       </div>
 		</div>
 	</div>
@@ -73,11 +65,11 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
-            <a class="item" href="/redirect?url=administrator/teamBuilding.jsp"><spring:message code="surveyListTeam.navbuilding" /></a>
-            <a class="item" href="/redirect?url=administrator/teamDevice.jsp"><spring:message code="surveyListTeam.navdevice" /></a>
-            <a class="item on" href="/redirect?url=administrator/surveyListTeam.jsp"><spring:message code="surveyListTeam.navsurvey" /></a>
-            <a class="item" href="/redirect?url=administrator/teamMember.jsp"><spring:message code="surveyListTeam.navmember" /></a>
-            <a class="teamTitleTit" href="/redirect?url=administrator/teamContent.jsp" style="display:block;"></a>
+				<a class="item" href=<%="?project_name=" + projectName + "&item=building"%>>项目建筑</a>
+				<a class="item" href=<%="?project_name=" + projectName + "&item=device"%>>项目设备</a>
+				<a class="item on" href=<%="?project_name=" + projectName + "&item=survey"%>>项目问卷</a>
+				<a class="item" href=<%="?project_name=" + projectName + "&item=member"%>>项目成员</a>
+				<a class="teamTitleTit" href=<%="?project_name=" + projectName%> style="display:block;"></a>
         </div>
         <div class="content" id="content">
             <div class="ui grid">
@@ -85,18 +77,18 @@
                 	<div class="surveylist">
                 		<div class="div-group-base table questionnaire datatables" id="pointlist">
                 		<div class="title">
-                			<span class="title-content"><spring:message code="surveyListDevice.surveylist" /></span>
+                			<span class="title-content">问卷列表</span>
 							<div class="survey-button">
-								<button id="surveyExport"><spring:message code="surveyListDevice.downloadsurvey" /></button>
+								<button id="surveyExport">绑定答卷</button>
 							</div>
 							<div class="survey-button">
-								<button id="bindSurvey"><spring:message code="survey.bindSruvey" /></button>
+								<button id="bindSurvey">统计答卷</button>
 							</div>
 							<div class="survey-button">
-								<button id="surveyReport"><spring:message code="surveyListDevice.surveyreport" /></button>
+								<button id="surveyReport">分析答卷</button>
 							</div>
 							<div class="survey-button">
-								<button id="surveyAnalysis"><spring:message code="surveyListDevice.surveyanaly" /></button>
+								<button id="surveyAnalysis">下载答卷</button>
 							</div>
                 		</div>
                 		<div class="div-content">
@@ -104,12 +96,12 @@
                 			<thead> 
                 			<tr> 
                 				<th></th>
-                				<th><spring:message code="survey.tdTitle" /></th> 
-                				<th><spring:message code="survey.tdIntro" /></th> 
-                				<th><spring:message code="survey.tdCreator" /></th>
-                				<th><spring:message code="survey.tdNum" /></th> 
-                				<th><spring:message code="survey.tdPath" /></th> 
-                				<th><spring:message code="survey.tdQR" /></th>
+                				<th>标题</th> 
+                				<th>介绍</th> 
+                				<th>创建者名称</th>
+                				<th>有效答卷数</th> 
+                				<th>路径</th> 
+                				<th>二维码</th>
                				</tr> 
                				</thead> 
              				<tbody id="datatable_body"> 

@@ -39,7 +39,7 @@ Date.prototype.Format = function(fmt)
 //获取建筑下测点信息
 function getPointData(){
 	point_list_data = [];
-	var url="/admin/getListByBuilding";
+	var url="/admin/project/single/building/point";
 	var json={"buildingID":buildingID};
 	var successFunc = function(data){
 		
@@ -175,7 +175,7 @@ function getPointData(){
 
 function showDataCard(deviceids){
 	$.ajax({
-		url:"/admin/getBuildingPointData",
+		url:"/admin/project/single/building/point_data",
 		type:"POST",
 		data:{"deviceId":deviceids},
 		success:function(data){
@@ -285,7 +285,7 @@ $("body").on("click","#datatable_body .ui.card .content_tz",function(){
 	var this_index = $(this).parents(".ui.card").index();
 	$.cookie("point_data_detail",JSON.stringify(point_list_data[this_index]));
 
-	window.location.href="/redirect?url=administrator/teamBuildingPointDetail.jsp";
+	window.location.href += "&go=detail";
 });
 
 //点击添加按钮
@@ -717,7 +717,7 @@ $("body").on("click",".extra_del",function(){
 	
 		var pointid = $(this).attr("id");
 
-		var url = "/admin/deleteBuildingPoint";
+		var url = "/admin/project/single/building/point_del";
 		var json = {"buildingPointID":pointid};
 
 		var $this = $(this);

@@ -192,7 +192,7 @@ $(function(){
       					var $newPassWord = $.md5(newPassW);
       					
       					$.ajax({
-      				  		url:"/admin/changheUserPasswordByAdmin",
+      				  		url:"/admin/user/change_password",
       				  		type:"POST",
       				  		dataType:"JSON",
       				  		data:{userID:changePassID,password:$newPassWord},

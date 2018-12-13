@@ -73,7 +73,7 @@ $('.ui.checkbox')
 var projectSurveyList = [];
 //获取问卷列表信息
 function getSurveyData(){
-	var url="/admin/getSurveyByProject";
+	var url="/admin/project/single/survey";
 	var json={"projectID":teamID};
 	var successFunc = function(data){
 		var surveys = data.list;

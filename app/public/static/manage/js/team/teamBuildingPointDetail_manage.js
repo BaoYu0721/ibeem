@@ -135,12 +135,12 @@ $(function(){
 		d_status = getLangStr("teamBuilding_msg_2");
 	}
 
-	if(point_detail.deviceID == -1){
+	if(point_detail.deviceID == -1 || point_detail.deviceID == '' || point_detail.deviceID == undefined){
 		d_name = "<span class='button_add'>"+ getLangStr("teamBuilding_msg_3") +"</span>";
 		d_status = "";
 	}
 
-	if(point_detail.surveyID == -1){
+	if(point_detail.surveyID == -1 || point_detail.surveyID == '' || point_detail.surveyID == undefined){
 		s_title = "<span class='button_add'>"+ getLangStr("teamBuilding_msg_4") +"</span>";
 	}
 
@@ -176,7 +176,7 @@ $(function(){
 			   type:"post",
 			   dataType:"json",
 			   //async: false,
-			   url:"/admin/environmentdata",
+			   url:"/admin/project/single/building/point_device_detail",
 			   data:{
 				   deviceId:point_detail.deviceID,
 				   startTime:startTimeStamp,
@@ -255,7 +255,7 @@ $(function(){
 		    var name=deviceData.deviceName;
 		
 		    var data=deviceData.data;
-		  
+			if(data == undefined) return;
 		    console.log(deviceData)
 		    
 			data.sort(function(a,b){
@@ -566,7 +566,7 @@ $(function(){
 		
 		
 		//发送
-		var url = "/admin/updateBuildingPoint";
+		var url = "/admin/project/single/building/point_update";
 		//var json = {"buildingPointID":pid,"surveyID":selectedSurvey,"deviceID":selectedDevice,"name":pointName,"positionDesc":positionDesc,"image":avaimage,"startTime":start_time_add,"endTime":end_time_add};
 		var json = {"buildingPointID":pid,"surveyID":selectedSurvey,"deviceID":selectedDevice,"name":pointName,"positionDesc":pointPosition,"image":pointImg,"startTime":startTime_cd,"endTime":endTime_cd};
 
@@ -576,7 +576,7 @@ $(function(){
 		function successFunc(data){
 			
 			$.ajax({
-				url:"/admin/getListByBuilding",
+				url:"/admin/project/single/building/point_info",
 				type:"POST",
 				data:{"buildingID":buildingID},
 				success:function(data){
@@ -591,7 +591,7 @@ $(function(){
 					point_detail.surveyTitle = selectedSurveyTitle;
 					point_detail.deviceStatus = data.list[0].deviceStatus;
 					
-					alertokMsg(getLangStr("teamBuilding_msg_6"),getLangStr("alert_ok"),"window.location.href='/redirect?url=administrator/teamBuildingPointDetail.jsp\'");
+					alertokMsg(getLangStr("teamBuilding_msg_6"),getLangStr("alert_ok"),"window.location.reload()");
 					$.cookie("point_data_detail",JSON.stringify(point_detail)); // 修改成功之后 覆盖原先的cookie;
 				}
 				
@@ -662,7 +662,7 @@ $(function(){
 				$("#child").empty();
 				 $.ajax({
 				   		type:"post",
-				   		url:"/admin/getNotUsedDeviceByProject",
+				   		url:"/admin/project/single/building/point_device_relevant",
 				   		dataType:"json",
 				   		data:{
 				   			'projectID':teamID,
@@ -778,7 +778,7 @@ $(function(){
 			$("#childSurvey").empty();
 		   	 $.ajax({
 		   		type:"post",
-		   		url:"/admin/getSurveyByUser",
+		   		url:"/admin/project/single/building/point_survey_relevant",
 		   		dataType:"json",
 		   		data:{},
 		   		success:function(data){

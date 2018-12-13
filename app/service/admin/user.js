@@ -26,6 +26,50 @@ class UserService extends Service {
         }
         return resultList;
     }
+
+    async userChangePassword(userId, password){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        var resource = "ibeem_test:user";
+        var ttl = 1000;
+        try {
+            var res =  await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        const user = await app.mysql.get('user', {id: userId});
+                        if(user){
+                            await app.mysql.update('user', {
+                                id: userId,
+                                password: password
+                            });
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return 0;
+                        }else{
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return null;
+                        }
+                    } catch (error) {
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                }
+                return transation();
+            });
+            return res;
+        }
+        catch (error) {
+            return -1;
+        }
+    }
 }
 
 module.exports = UserService;

@@ -37,7 +37,7 @@ class SingleController extends Controller {
             };
         }else if(result == -2){
             return  ctx.body = {
-                messg: "该项目已被删除",
+                messg: "该建筑已被删除",
                 code: 4005
             };
         }

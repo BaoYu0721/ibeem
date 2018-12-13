@@ -454,17 +454,17 @@ function setTable(deviceList){
 			$("#child").empty();
 			 $.ajax({
 			   		type:"post",
-			   		url:"/admin/getUserList",
+			   		url:"/admin/device/user_list",
 			   		dataType:"json",
 			   		data:{},
 			   		success:function(data){
-			   			console.log(data);
+			   			//console.log(data);
 			   			if(data.code==200){
 			   				$("#loadingm").css("display","none");
-			   				var list=data.arrayList;
+							var list=data.arrayList;
 			   				var listStr='';
-			   				for(var i=0;i<list.length;i++){
-			   					var name = list[i].name.length>15?list[i].name.substring(0,15):list[i].name;
+			   				for(var i=0;i<list.length;i++){	
+			   					var name = list[i].name != null? list[i].name.length>15?list[i].name.substring(0,15):list[i].name: '';
 			   					listStr+='<li class="clearfix show" data-id='+list[i].id+'>'+
 					                         '<div class="ui checkbox fl">'+
 						                          '<input type="checkbox" name="example">'+
@@ -670,7 +670,7 @@ $(function(){
 		 $("#dev-"+id).html('<div class="ui mini active inline loader"></div>');
 		 
 		 $.ajax({
-			url:"/admin/getDeviceStatus",
+			url:"/admin/device/status",
 			type:"POST",
 			data:{"deviceID":id},
 			success:function(response){
@@ -719,7 +719,7 @@ $(function(){
     	 }else{
     		 localStorage.setItem("checkedId",checkedId);
     		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-    		 window.location.href="/redirect?url=administrator/new_compareDeviceDataOne.jsp";
+    		 window.location.href += "?item=view";
     	 }
 	 });
 	
@@ -751,7 +751,7 @@ $(function(){
     	 }else{
     		 localStorage.setItem("checkedId",checkedId);
     		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-    		 window.location.href="/redirect?url=administrator/new_compareDeviceData.jsp";
+    		 window.location.href += "?item=compare";
     	 }
 	 });
 	
@@ -797,7 +797,7 @@ $(function(){
     		 console.log(deviceNameId)
     		 localStorage.setItem("checkedId",checkedId);
     		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-    		 window.location.href="/administrator/new_compareDeviceData/download";
+    		 window.location.href += "?item=download";
     	 }
 	 });         
         });
@@ -899,7 +899,7 @@ $("#confirmOwner").click(function(){
 				$.ajax({
 			 		type:"post",
 			 		dataType:"json",
-			 		url:"/admin/addOwner",
+			 		url:"/admin/device/set_owner",
 			 		async: false,
 			 		data:{"deviceID":deviceid,"userID":checkedUserId},
 			 		success:function(data){
@@ -948,7 +948,7 @@ function cancelOwner(){
 				$.ajax({
 			 		type:"post",
 			 		dataType:"json",
-			 		url:"/admin/deleteOwner",
+			 		url:"/admin/device/del_owner",
 			 		async: false,
 			 		data:{"deviceID":deviceid},
 			 		success:function(data){
@@ -982,5 +982,5 @@ function showConfirm(){
 	deviceNameId = [];
 	localStorage.setItem("checkedId",checkedId);
 	localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	 window.location.href="/redirect?url=administrator/new_compareDeviceData.jsp?to=download";
+	 window.location.href += "?item=download";
 }

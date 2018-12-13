@@ -21,7 +21,7 @@ function getData(){
 					 function(resultHTML){
 					   $(".showTeam").prepend(resultHTML);
 				 	 },
-					 {"-id-":id,"-imgSrc-":image,"-teamName-":name.length>10?name.substring(0,18)+"...":name,"-teamIntro-":decribe,"-url-":"/redirect?url=administrator/teamContent.jsp"}
+					 {"-id-":id,"-imgSrc-":image,"-teamName-":name.length>10?name.substring(0,18)+"...":name,"-teamIntro-":decribe,"-url-":"?project_name=" + name}
 			 )
 		 }
 		 //共计
@@ -47,14 +47,16 @@ function searchTeam(searchContent){
 		if(name.indexOf(searchContent) >= 0 || decribe.indexOf(searchContent) >= 0 || $.trim(searchContent)=="")
 		{
 			searchResult.push(teamList[i]);
-			getComponent("/static/manage/components/teamList_item.html",
+			
+			getComponent("/common/team_list_item",
 					 function(resultHTML){
 					   $(".showTeam").prepend(resultHTML);
 				 	 },
-					 {"-id-":id,"-imgSrc-":image,"-teamName-":name,"-teamIntro-":decribe}
+					{"-id-":id,"-imgSrc-":image,"-teamName-":name.length>10?name.substring(0,18)+"...":name,"-teamIntro-":decribe,"-url-":"/admin/project?project_name=" + name}
 			 )
 		}
 	}
+
 	//搜索结果
 	if($.trim(searchContent)==""){
 		//共计

@@ -263,9 +263,10 @@ function downLoadBuilding(bid){
 function getBuildingInfo(bid){
 	
 	$.ajax({
-		url:"/admin/getBuildingInfo?buildingID=" + bid, // buildingID=221;220;
-		type:"GET",
+		url:"/admin/project/single/building/infomation",
+		type:"POST",
 		datatype:"JSON",
+		data:{"buildingID": bid },
 		success:function(response){
 
 			console.log(response)
@@ -718,7 +719,7 @@ $("#submit_sheet_1").click(function(){
 	};
 	
 	$.ajax({
-		url:"/admin/saveBasicInformation",
+		url:"/admin/project/single/building/save_base_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -800,7 +801,7 @@ $("#submit_sheet_2").click(function(){
 	}
 	
 	$.ajax({
-		url:"/admin/saveDesignIndicators",
+		url:"/admin/project/single/building/save_design_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -937,7 +938,7 @@ $("#submit_sheet_3").click(function(){
 	}
 	
 	$.ajax({
-		url:"/admin/saveEcm",
+		url:"/admin/project/single/building/save_energy_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -1002,7 +1003,7 @@ $("#submit_sheet_4").click(function(){
 	}
 	
 	$.ajax({
-		url:"/admin/saveIndoorEnvironment",
+		url:"/admin/project/single/building/save_indoor_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -1059,7 +1060,7 @@ $("#submit_sheet_5").click(function(){
 	}
 	
 	$.ajax({
-		url:"/admin/saveIepd",
+		url:"/admin/project/single/building/save_indoor_parameter_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,
@@ -1126,7 +1127,7 @@ $("#submit_sheet_6").click(function(){
 	}
 	
 	$.ajax({
-		url:"/admin/saveWaterSavingDesign",
+		url:"/admin/project/single/building/save_water_info",
 		type:"POST",
 		datatype:"JSON",
 		data:json,

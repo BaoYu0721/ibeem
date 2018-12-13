@@ -212,7 +212,6 @@
     "path": "/common/member/list",
     "regexp": "/^\\/common\\/member\\/list(?:\\/(?=$))?$/",
     "stack": [
-      "anonymous",
       "wrappedController"
     ]
   },
@@ -586,19 +585,6 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/survey/getSurveyByID",
-    "regexp": "/^\\/survey\\/getSurveyByID(?:\\/(?=$))?$/",
-    "stack": [
-      "anonymous",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
     "path": "/survey/download/answer",
     "regexp": "/^\\/survey\\/download\\/answer(?:\\/(?=$))?$/",
     "stack": [
@@ -680,58 +666,6 @@
     "path": "/survey/increase/question/select",
     "regexp": "/^\\/survey\\/increase\\/question\\/select(?:\\/(?=$))?$/",
     "stack": [
-      "anonymous",
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/survey/mobileSurveySuccess",
-    "regexp": "/^\\/survey\\/mobileSurveySuccess(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "HEAD",
-      "GET"
-    ],
-    "paramNames": [],
-    "path": "/survey/mobileSurvey",
-    "regexp": "/^\\/survey\\/mobileSurvey(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/survey/answerSurvey",
-    "regexp": "/^\\/survey\\/answerSurvey(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/survey/updateSurvey",
-    "regexp": "/^\\/survey\\/updateSurvey(?:\\/(?=$))?$/",
-    "stack": [
-      "anonymous",
       "anonymous",
       "wrappedController"
     ]
@@ -1186,6 +1120,32 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/project/single/topBuilding",
+    "regexp": "/^\\/project\\/single\\/topBuilding(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/project/single/topBuilding/room_info",
+    "regexp": "/^\\/project\\/single\\/topBuilding\\/room_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/project/single/survey",
     "regexp": "/^\\/project\\/single\\/survey(?:\\/(?=$))?$/",
     "stack": [
@@ -1510,6 +1470,110 @@
   {
     "name": null,
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/download/history",
+    "regexp": "/^\\/admin\\/device\\/download\\/history(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/view/on_line_rate",
+    "regexp": "/^\\/admin\\/device\\/view\\/on_line_rate(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/view/environment",
+    "regexp": "/^\\/admin\\/device\\/view\\/environment(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/add",
+    "regexp": "/^\\/admin\\/device\\/add(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/user_list",
+    "regexp": "/^\\/admin\\/device\\/user_list(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/set_owner",
+    "regexp": "/^\\/admin\\/device\\/set_owner(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/del_owner",
+    "regexp": "/^\\/admin\\/device\\/del_owner(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/device/status",
+    "regexp": "/^\\/admin\\/device\\/status(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "HEAD",
       "GET"
     ],
@@ -1564,6 +1628,539 @@
   {
     "name": null,
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/info",
+    "regexp": "/^\\/admin\\/project\\/single\\/info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/device_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/device_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/survey_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/survey_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/edit",
+    "regexp": "/^\\/admin\\/project\\/single\\/edit(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/delete",
+    "regexp": "/^\\/admin\\/project\\/single\\/delete(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building",
+    "regexp": "/^\\/admin\\/project\\/single\\/building(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/add",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/add(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/delete",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/delete(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/view",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/view(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/infomation",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/infomation(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_data",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_data(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_del",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_del(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_update",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_update(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_device_relevant",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_device_relevant(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_survey_relevant",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_survey_relevant(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_survey_detail",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_survey_detail(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/point_device_detail",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/point_device_detail(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/survey",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/survey(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/survey_add",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/survey_add(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/survey_bind",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/survey_bind(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/energy",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/energy(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/energy_update",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/energy_update(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/save_base_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/save_base_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/save_design_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/save_design_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/save_energy_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/save_energy_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/save_indoor_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/save_indoor_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/save_indoor_parameter_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/save_indoor_parameter_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/building/save_water_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/building\\/save_water_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/topBuilding",
+    "regexp": "/^\\/admin\\/project\\/single\\/topBuilding(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/topBuilding/room_info",
+    "regexp": "/^\\/admin\\/project\\/single\\/topBuilding\\/room_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/device",
+    "regexp": "/^\\/admin\\/project\\/single\\/device(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/survey",
+    "regexp": "/^\\/admin\\/project\\/single\\/survey(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/member",
+    "regexp": "/^\\/admin\\/project\\/single\\/member(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/member/search",
+    "regexp": "/^\\/admin\\/project\\/single\\/member\\/search(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/member/add",
+    "regexp": "/^\\/admin\\/project\\/single\\/member\\/add(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/member/delete",
+    "regexp": "/^\\/admin\\/project\\/single\\/member\\/delete(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/member/set_manager",
+    "regexp": "/^\\/admin\\/project\\/single\\/member\\/set_manager(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/member/manager_revocation",
+    "regexp": "/^\\/admin\\/project\\/single\\/member\\/manager_revocation(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "HEAD",
       "GET"
     ],
@@ -1583,6 +2180,19 @@
     "paramNames": [],
     "path": "/admin/user/list",
     "regexp": "/^\\/admin\\/user\\/list(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/user/change_password",
+    "regexp": "/^\\/admin\\/user\\/change_password(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
       "wrappedController"

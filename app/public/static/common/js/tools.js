@@ -50,7 +50,7 @@ function sentJson(url,dataJson,successFunc,errorFunc){
 						if(errorcode == 4005){
 							alertokMsg(errormsg,"ok");
 							setTimeout(() => {
-								window.location.href = '/project';
+								window.history.back();
 							}, 3000);
 						}else{
 							alertokMsg("network busy，Please retry！网络繁忙，请重试！","OK");
