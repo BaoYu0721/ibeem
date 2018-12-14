@@ -28,6 +28,11 @@ module.exports = app => {
   router.get('/common/questionDL', userRequired, controller.common.questionDL);
   router.get('/common/member/list', controller.common.memberList);
   router.post('/common/upload', userRequired, controller.common.upload);
+  router.get('/common/tjDX', userRequired, controller.common.tjDX);
+  router.get('/common/tjHK', userRequired, controller.common.tjHK);
+  router.get('/common/tjLB', userRequired, controller.common.tjLB);
+  router.get('/common/tjTK', userRequired, controller.common.tjTK);
+  router.get('/common/tjTKModal', userRequired, controller.common.tjTKModal);
 
   // index
   router.get('/', loginRequired, controller.index.index);

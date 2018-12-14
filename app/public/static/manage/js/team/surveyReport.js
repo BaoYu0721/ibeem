@@ -116,8 +116,8 @@ var paramBuildingName = $.cookie("gxbuildingName");
 var url = "/survey/statistics";
 var json = {"surveyID":surveyId,"beginTime":starttime,"endTime":endtime,"relation":relation,"objectID":objectID};
 function successFunc(data){
-	console.log('statistics succ');
-	initData(data.suvery);
+	// console.log(JSON.stringify(data.survey));
+	initData(data.survey);
 }
 function errorFunc(data){
 	console.log('statistics fail');
@@ -168,7 +168,7 @@ function initData(list){
 						  '<span class="title">'+questionId+'.'+questiontitle+getLangStr("surveyRep_empty1")+'</span>'+
 						'</div>');
 			}else{
-				getComponent("/static/manage/components/tjDX.html",
+				getComponent("/common/tjDX",
 						function(resultHTML){
 							$container.append(resultHTML);
 						},
@@ -235,12 +235,12 @@ function initData(list){
 						  '<span class="title">'+questionId+'.'+questiontitle+getLangStr("surveyRep_empty1")+'</span>'+
 						'</div>');
 			}else{
-				getComponent("/static/manage/components/tjTK.html",
+				getComponent("/common/tjTK",
 						function(resultHTML){
 							$container.append(resultHTML);
 						},
 						{"-id-":questionId,"-title-":questiontitle});
-				getComponent("/static/manage/components/tjTKModal.html",
+				getComponent("/common/tjTKModal",
 						function(resultHTML){
 							$("body").append(resultHTML);
 						},
@@ -265,7 +265,7 @@ function initData(list){
 						  '<span class="title">'+questionId+'.'+questiontitle+getLangStr("surveyRep_empty1")+'</span>'+
 						'</div>');
 			}else{
-				getComponent("/static/manage/components/tjLB.html",
+				getComponent("/common/tjLB",
 						function(resultHTML){
 							$container.append(resultHTML);
 						},
@@ -322,7 +322,7 @@ function initData(list){
 		}
 		//====================滑块题====================
 		else if(questiontype==4){
-			getComponent("/static/manage/components/tjHK.html",
+			getComponent("/common/tjHK",
 					function(resultHTML){
 						$container.append(resultHTML);
 					},

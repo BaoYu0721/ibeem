@@ -101,7 +101,7 @@ class IndexService extends Service {
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
 
-        const map_result = await this.service.utils.http.tencentMapGet('123.112.102.239');
+        const map_result = await this.service.utils.http.tencentMapGet(ip);
         var longitude = null;
         var latitude = null;
         var province = null;
