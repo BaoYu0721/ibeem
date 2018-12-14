@@ -297,7 +297,6 @@ class StatisticsService extends Service {
                                         const min_val = yarray[k].min_val;
                                         const max_val = yarray[k].max_val;
                                         const interval = parseInt(yarray[k].interval);
-                                        console.log('            ', id, min_val, max_val, interval);
                                         for (var l = min_val; l <= max_val; l++) {
                                             if ((l - min_val) % interval == 0)
                                             {
@@ -360,10 +359,12 @@ class StatisticsService extends Service {
                                 for (var k = 0; k < answer_detail_list.length; k++) {
                                     if (answer_detail_list[k].isanswered == 1) {
                                         var result_map = {};
-                                        const answer_content_obj = answer_detail_list[k].reply_content;
+                                        const answer_content_obj = JSON.parse(answer_detail_list[k].reply_content);
                                         const s = answer_content_obj.answer;
                                         result_map['answer'] = s;
-                                        result_map['time'] = answer_detail_list[k].created_on;
+                                        var tmp_date = new Date(answer_detail_list[k].created_on); //.format("yyyy-MM-dd HH:mm:ss");
+                                        var date_str = tmp_date.getFullYear() + '-' + (tmp_date.getMonth()+1) + '-' + tmp_date.getDate() + ' ' + tmp_date.getHours() + ':' + tmp_date.getMinutes() + ':' + tmp_date.getSeconds();
+                                        result_map['time'] = date_str;
                                         answer_list.push(result_map);
                                     }
                                 }
