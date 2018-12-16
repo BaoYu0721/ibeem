@@ -39,7 +39,6 @@ class StatisticsService extends Service {
                 sql = 'select count(*) from answer where survey_id=?';
                 para_list.push(surveyID);
             }
-            console.log(beginTime, endTime);
             if (beginTime != null && endTime != null && beginTime != '' && endTime != '') {
                 sql = sql + ' and created_on >STR_TO_DATE(?,\'%Y-%m-%d %H:%i:%s\') and created_on< STR_TO_DATE(?,\'%Y-%m-%d %H:%i:%s\')';
                 para_list.push(beginTime);
@@ -47,7 +46,6 @@ class StatisticsService extends Service {
             }
             const tmp_people_count = await this.app.mysql.query(sql, para_list);
             const people_count = tmp_people_count[0]['count(*)'];
-            // console.log('=================' + people_count);
 
             // List<Paragraph> paragraphList = paragraphDao.getListBySurvey(surveyID);
             const paragraph_list = await this.app.mysql.query('select * from paragraph where survey_id=? order by sequence', [surveyID]);
@@ -61,7 +59,6 @@ class StatisticsService extends Service {
                 var question_list = await this.app.mysql.query('select * from question where survey_id=? order by sequence', [surveyID]);
                 if (question_list != null && question_list.length != 0) {
                     for (var j = 0; j < question_list.length; j++) {
-                        console.log('    ============question index:' + j);
                         var item_list = [];   // 用于记录每个题各项综合结果参数的列表
                         var question_map = {};  // 存储整体结果
                         var m = {};    // 用于统计各项数量的map
@@ -126,7 +123,6 @@ class StatisticsService extends Service {
 
                             // 单选题
                             if (question_list[j].type == 1) {
-                                console.log('        单选');
                                 for (var k = 0; k < ques_setting_obj.items.length; k++) {
                                     var tmp_id = ques_setting_obj.items[k].id;
                                     for (var l = 0; l < answer_detail_list.length; l++) {
@@ -167,7 +163,6 @@ class StatisticsService extends Service {
 
                             else if (question_list[j].type == 2) {
                                 // 多选题
-                                console.log('        多选');
                                 for (var k = 0; k < ques_setting_obj.items.length; k++) {
                                     var tmp_id = ques_setting_obj.items[k].id;
                                     for (var l = 0; l < answer_detail_list.length; l++) {
@@ -213,7 +208,6 @@ class StatisticsService extends Service {
 
                             else if (question_list[j].type == 3) {
                                 // 量表题
-                                console.log('        量表');
                                 var yarray = ques_setting_obj.y_axis;
                                 var xarray = ques_setting_obj.x_axis;
                                 for (var k = 0; k < yarray.length; k++) {
@@ -284,7 +278,6 @@ class StatisticsService extends Service {
 
                             else if (question_list[j].type == 4) {
                                 // 滑条题
-                                console.log('        滑条题');
                                 var yarray = ques_setting_obj.items;
                                 for (var k = 0; k < yarray.length; k++) {
                                     const id = yarray[k].id;
@@ -348,7 +341,6 @@ class StatisticsService extends Service {
 
                         else {
                             // 填空题
-                            console.log('        填空题');
                             var answer_list = [];
                             for (var k = 0; k < answer_detail_list.length; k++) {
                                 if (answer_detail_list[k].isanswered == 1) {
@@ -373,7 +365,6 @@ class StatisticsService extends Service {
             else {
                 // 有段落分段的情况
                 for (var i = 0; i < paragraph_list.length; i++) {
-                    console.log('============paragraph index:' + i);
                     var paragraph_map = {};
                     var result_question_list = [];
                     paragraph_map['title'] = paragraph_list[i].introduction;
@@ -381,7 +372,6 @@ class StatisticsService extends Service {
                     var question_list = await this.app.mysql.query('select * from question where survey_id=? and paragraph_id=? order by sequence', [surveyID, paragraph_list[i].id]);
                     if (question_list != null && question_list.length != 0) {
                         for (var j = 0; j < question_list.length; j++) {
-                            console.log('    ============question index:' + j);
                             var item_list = [];   // 用于记录每个题各项综合结果参数的列表
                             var question_map = {};  // 存储整体结果
                             var m = {};    // 用于统计各项数量的map
@@ -446,7 +436,6 @@ class StatisticsService extends Service {
 
                                 // 单选题
                                 if (question_list[j].type == 1) {
-                                    console.log('        单选');
                                     for (var k = 0; k < ques_setting_obj.items.length; k++) {
                                         var tmp_id = ques_setting_obj.items[k].id;
                                         for (var l = 0; l < answer_detail_list.length; l++) {
@@ -487,7 +476,6 @@ class StatisticsService extends Service {
 
                                 else if (question_list[j].type == 2) {
                                     // 多选题
-                                    console.log('        多选');
                                     for (var k = 0; k < ques_setting_obj.items.length; k++) {
                                         var tmp_id = ques_setting_obj.items[k].id;
                                         for (var l = 0; l < answer_detail_list.length; l++) {
@@ -507,7 +495,6 @@ class StatisticsService extends Service {
                                             }
                                         }
                                     }
-                                    console.log('        多选flag1');
 
                                     for (var k = 0; k < ques_setting_obj.items.length; k++) {
                                         var item_map = {};
@@ -530,12 +517,10 @@ class StatisticsService extends Service {
                                     setting_map['max_input'] = ques_setting_obj.max_input;
                                     question_map['setting'] = setting_map;
                                     question_map['peoplecount'] = pcount;
-                                    console.log('        多选flag2');
                                 }
 
                                 else if (question_list[j].type == 3) {
                                     // 量表题
-                                    console.log('        量表');
                                     var yarray = ques_setting_obj.y_axis;
                                     var xarray = ques_setting_obj.x_axis;
                                     for (var k = 0; k < yarray.length; k++) {
@@ -606,7 +591,6 @@ class StatisticsService extends Service {
 
                                 else if (question_list[j].type == 4) {
                                     // 滑条题
-                                    console.log('        滑条题');
                                     var yarray = ques_setting_obj.items;
                                     for (var k = 0; k < yarray.length; k++) {
                                         const id = yarray[k].id;
@@ -670,7 +654,6 @@ class StatisticsService extends Service {
 
                             else {
                                 // 填空题
-                                console.log('        填空题');
                                 var answer_list = [];
                                 for (var k = 0; k < answer_detail_list.length; k++) {
                                     if (answer_detail_list[k].isanswered == 1) {
@@ -693,7 +676,6 @@ class StatisticsService extends Service {
                     final_array_list.push(paragraph_map);
                 }
             }
-            console.log('before final');
             final_map['title'] = survey_list[0].title;
             final_map['introduction'] = survey_list[0].introduction;
             final_map['paragraph'] = final_array_list;
