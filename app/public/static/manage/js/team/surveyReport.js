@@ -665,7 +665,7 @@ $("#dropdownTeam").dropdown({
 			$this.find(".menu").empty();
 			$(this).find(".menu").append("<img src='/public/static/manage/img/team/loding.gif'/>");
 			$(this).dropdown("show");
-			var url = "/project/getProjectListByUser";
+			var url = "/project/list";
 			var json = {};
 			function func(data){
 				 teamList = data.list;
@@ -758,7 +758,7 @@ $("#dropdownPoint").dropdown({
 		$this.find(".menu").empty();
 		$(this).find(".menu").append("<img src='/public/static/manage/img/team/loding.gif'/>");
 		$(this).dropdown("show");
-		var url="/buildingPoint/getBuildingPointListByBuilding";
+		var url="/project/single/building/point";
 		var json={"buildingID":selectedBuilding};
 		var func = function(data){
 			var points = data.list;
