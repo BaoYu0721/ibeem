@@ -116,6 +116,11 @@ var ch ={
 		"surveyAna_th2":"提交答案时间",
 		"surveyAna_th3":"填空题文本",
 		"surveyRep_dx4":"本题有效填写人次",
+		"surveyAna_addAnalysis":"添加分析",
+		"surveyAna_anatitle":"标题：",
+		"surveyAna_anatitleTit":"请输入标题",
+		"surveyAna_anazi":"请输入自变量",
+		"surveyAna_anayin":"请输入因变量",
 //问卷统计
 		"surveyRep_title":"问卷统计",
 		"surveyRep_empty":"没有数据",
@@ -804,6 +809,11 @@ var en ={
 		"surveyRep_hk1":"Left Title",
 		"surveyRep_hk2":"Average",
 		"surveyRep_tk1":"［View details］",
+		"surveyAna_addAnalysis":"Add Analysis",
+		"surveyAna_anatitle":"Title:",
+		"surveyAna_anatitleTit":"Please input the title",
+		"surveyAna_anazi":"Please input the independent variable",
+		"surveyAna_anayin":"Please input the dependent variable",
 //新增问卷		
 		"surveyAdd_inputoption":"Input options",
 		"surveyAdd_inputvalue":"Value",

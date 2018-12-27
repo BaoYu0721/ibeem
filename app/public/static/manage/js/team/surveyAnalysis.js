@@ -9,6 +9,17 @@ getComponent("/common/leftpanel",
 			});
 			$("#surveypanel").addClass("active");
 });
+// 添加分析对话框的文字内容
+$('#surveyAna_addAnalysis').text(getLangStr('surveyAna_addAnalysis'));
+$('#surveyAna_anatitle').text(getLangStr('surveyAna_anatitle'));
+$('#title_input').attr('placeholder', getLangStr('surveyAna_anatitleTit'));
+$('#surveyAna_anazi').text(getLangStr('surveyAna_anazi') + ":");
+$('#independent_div').text(getLangStr('surveyAna_anazi'));
+$('#surveyAna_anayin').text(getLangStr('surveyAna_anayin') + ":");
+$('#dependent_div').text(getLangStr('surveyAna_anayin'));
+$('#cancelAdd').text(getLangStr('cancel'));
+$('#confirmAdd').text(getLangStr('determine'));
+
 //左侧导航
 $(".leftmenu").removeClass("active");
 //所属项目和建筑	
@@ -78,15 +89,21 @@ $("#add").click(function(){
 //问卷ID
 var surveyId = $.cookie("fxsurveyId");
 //获取当前维度
-function getQueryString(name) { 
-	var url = window.location.href;
-	var params = url.split(".jsp?")[1];
-	var paramArr = params.split("&");
-	var paramObj = {};
-	for(var i in paramArr){
-		paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
-	}
-	return paramObj[name]==undefined?null:paramObj[name];
+// function getQueryString(name) { 
+// 	var url = window.location.href;
+// 	var params = url.split(".jsp?")[1];
+// 	var paramArr = params.split("&");
+// 	var paramObj = {};
+// 	for(var i in paramArr){
+// 		paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
+// 	}
+// 	return paramObj[name]==undefined?null:paramObj[name];
+// }
+function getQueryString(name) {
+	var params = decodeURI(window.location.search);
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = params.substr(1).match(reg);
+	if (r!=null) return unescape(r[2]); return null;
 }
 var paramRelation = getQueryString("relation");
 var paramObjectId = getQueryString("objectID")==""?null:getQueryString("objectID");
@@ -101,7 +118,7 @@ $('.some_class').datetimepicker({
 });
 //根据问卷ID获取题目列表，放到自变量和因变量的下拉框中
 $(function(){
-	var url = "/survey?item=analyze";
+	var url = "/survey/getSurveyByID";
 	var json = {"surveyID":surveyId};
 	function successFunc(data){
 		var dlList = data.list;
@@ -296,7 +313,13 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 			returnFlag = "isNoData";
 		}
 	}
-	sentJsonSync(url,json,successFunc);
+	function errorFunc(data){
+		var errormsg = data.messg;
+		// $(".error h4").html(errormsg);
+		alertokMsg("错误码：" + data.code + "，" + errormsg, getLangStr("alert_ok"));
+		removeLoading();
+	}
+	sentJsonSync(url,json,successFunc, errorFunc);
 	if(returnFlag!="")return returnFlag;
 	
 	//1.自变量：选择／维度，因变量：选择
@@ -521,10 +544,11 @@ $("#chartDropdown_1").dropdown();
 //$("#datatable_ddd").DataTable({ scrollY: '50vh', scrollCollapse: true, paging: false ,"language": {  "info": "", "infoEmpty": "没有记录", "infoFiltered": "" }});
 //==============================调用方法==============================
 function getSetting(surveyId){
-	var url = "/survey/analyze/dimension";
+	var url = "/survey/getDimension";
 	var json = {"surveyID":surveyId};
 	var setting ={};
 	function successFunc(data){
+		console.log('getDimension succ');
 		var dataList = data.projectList;
 		var projectSettingList = [];
 		var buildingSettingList = [];
@@ -552,6 +576,11 @@ function getSetting(surveyId){
 		}
 		setting={projectSettingList:projectSettingList,buildingSettingList:buildingSettingList,pointSettingList:pointSettingList};
 	}
-	sentJsonSync(url,json,successFunc);
+	function errorFunc(data){
+		var errormsg = data.messg;
+		// $(".error h4").html(errormsg);
+		alertokMsg("错误码：" + data.code + "，" + errormsg, getLangStr("alert_ok"));
+	}
+	sentJsonSync(url,json,successFunc, errorFunc);
 	return setting;
 }

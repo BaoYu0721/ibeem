@@ -14,8 +14,8 @@
     
     <script src="/public/static/common/js/jquery.min.js"></script>
     <script src="/public/static/common/js/jquery.cookie.js"></script>
-     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
-     <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+    <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
     <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
     <script src="/public/static/common/js/semantic.min.js"></script>
     <script src="/public/static/common/js/plotly.min.js"></script>
@@ -27,40 +27,40 @@
 <div class="ui small modal add" id="addAnalysis">
 		<div class="container">
 			<div class="top">
-				<span><spring:message code="surveyAna.addAnalysis" /></span>
+                <span id="surveyAna_addAnalysis"></span>
 			</div>
 			<div class="bottom">
 			<form class="ui form">
 			  <div class="field">
-			    <label><spring:message code="surveyAna.anatitle" /></label>
-			    <input type="text" name="title" placeholder="<spring:message code="surveyAna.anatitleTit" />" id="title_input">
+			    <label id="surveyAna_anatitle"></label>
+			    <input type="text" name="title" placeholder="" id="title_input">
 			  </div>
 			  <div class="error title_error" id="title_error" style="top:3.5rem;left:0;"></div>
 			  <div class="field">
-			  	<label><spring:message code="surveyAna.anazi" />:</label>
+			  	<label id="surveyAna_anazi"></label>
 			    <div class="ui selection dropdown" id="dropdownZi">
 		          <input type="hidden" name="gender">
 		          <i class="dropdown icon"></i>
-		          <div class="default text"><spring:message code="surveyAna.anazi" /></div>
+		          <div class="default text" id="independent_div"></div>
 		          <div class="menu">
 		          </div>
 			    </div>
 			  </div>
 			  <div class="error title_zi" id="title_zi" style="top:8.3rem;left:0;"></div>
 			  <div class="field">
-			  	<label><spring:message code="surveyAna.anayin" />:</label>
+			  	<label id="surveyAna_anayin"></label>
 			    <div class="ui selection dropdown" id="dropdownYin">
 		          <input type="hidden" name="gender">
 		          <i class="dropdown icon"></i>
-		          <div class="default text"><spring:message code="surveyAna.anayin" /></div>
+		          <div class="default text" id="dependent_div"><spring:message code="surveyAna.anayin" /></div>
 		          <div class="menu">
 		          </div>
 			    </div>
 			  </div>
 			  <div class="error title_yin" id="title_yin" style="top:13rem;left:0;"></div>
 			  <div class="field btn-group">
-			  	<button class="ui button" type="button" id="cancelAdd"><spring:message code="btn.cancel" /></button>
-			    <button class="ui button" type="button" id="confirmAdd"><spring:message code="btn.confirm" /></button>
+			  	<button class="ui button" type="button" id="cancelAdd"></button>
+			    <button class="ui button" type="button" id="confirmAdd"></button>
 			  </div>
 			</form>
 				
@@ -97,6 +97,7 @@
     </div>
 </div>
 <script src="/public/static/manage/js/team/surveyAnalysis.js"></script>
+<script src="/public/static/manage/js/language.js"></script>
 <script>
 $("#surveypanel").addClass("active");
 </script>

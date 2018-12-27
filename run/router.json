@@ -801,6 +801,31 @@
     "regexp": "/^\\/survey\\/updateSurvey(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/survey/getDimension",
+    "regexp": "/^\\/survey\\/getDimension(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/survey/analysisSurvey",
+    "regexp": "/^\\/survey\\/analysisSurvey(?:\\/(?=$))?$/",
+    "stack": [
       "anonymous",
       "wrappedController"
     ]

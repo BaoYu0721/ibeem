@@ -79,7 +79,9 @@ module.exports = app => {
   router.get('/survey/mobileSurveySuccess', controller.survey.mobile.mobileSurveySuccess);
   router.get('/survey/mobileSurvey', controller.survey.mobile.index);
   router.post('/survey/answerSurvey', controller.survey.mobile.answerSurvey);
-  router.post('/survey/updateSurvey', userRequired, userRequired, controller.survey.increase.updateSurvey);
+  router.post('/survey/updateSurvey', userRequired, controller.survey.increase.updateSurvey);
+  router.post('/survey/getDimension', userRequired, controller.survey.analyze.getDimension);
+  router.post('/survey/analysisSurvey', userRequired, controller.survey.analyze.analysisSurvey);
   
   // project
   router.get('/project', userRequired, controller.project.index.index);
