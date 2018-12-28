@@ -95,6 +95,12 @@ class CommonController extends Controller {
     async tjTKModal() {
         await this.ctx.render('common/components/tjTKModal.html');
     }
+    async analysis1() {
+        await this.ctx.render('common/components/analysis1.html');
+    }
+    async analysis2() {
+        await this.ctx.render('common/components/analysis2.html');
+    }
 }
 
 module.exports = CommonController;

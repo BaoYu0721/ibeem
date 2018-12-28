@@ -33,6 +33,8 @@ module.exports = app => {
   router.get('/common/tjLB', userRequired, controller.common.tjLB);
   router.get('/common/tjTK', userRequired, controller.common.tjTK);
   router.get('/common/tjTKModal', userRequired, controller.common.tjTKModal);
+  router.get('/common/analysis1', userRequired, controller.common.analysis1);
+  router.get('/common/analysis2', userRequired, controller.common.analysis2);
 
   // index
   router.get('/', loginRequired, controller.index.index);

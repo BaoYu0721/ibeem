@@ -305,6 +305,34 @@
       "GET"
     ],
     "paramNames": [],
+    "path": "/common/analysis1",
+    "regexp": "/^\\/common\\/analysis1(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/common/analysis2",
+    "regexp": "/^\\/common\\/analysis2(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
     "path": "/",
     "regexp": "/^(?:\\/(?=$))?$/",
     "stack": [

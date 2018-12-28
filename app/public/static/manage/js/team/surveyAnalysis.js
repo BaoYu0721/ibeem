@@ -326,7 +326,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 	if(chartType =="chart1"){
 //		dataJson = {"男":{"电脑":10,"化妆品":0,"书":5},"女":{"电脑":2,"化妆品":15,"书":8}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart1(dataJson,"myChart_"+orderNum);
@@ -336,7 +336,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 	else if(chartType =="chart2"){
 //		dataJson = {analysis:[{"id":1,"textlist":[{"time":"2017-05-20","answer":"我是答案"},{"time":"2017-05-20","answer":"我是答案"},{"time":"2017-05-20","answer":"我回答回答了"}]},{"id":2,"textlist":['我是答案','我来回答','我回答回答了']},{"id":3,"textlist":['我是答案','我来回答','我回答回答了']}]};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis2.html",
+		getComponent("/common/analysis2",
 				function(result){
 					$("#container").append(result);
 					//获取选项，初始化下拉列表，给一个默认选项
@@ -421,7 +421,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 		//获取json
 //		var dataJson = {"温度":{"男":{"非常不满意":10,"一般般":0,"满意":5},"女":{"非常不满意":6,"一般般":6,"满意":3}},"湿度":{"男":{"非常不满意":5,"一般般":9,"满意":1},"女":{"非常不满意":12,"一般般":1,"满意":2}},"PM2.5":{"男":{"非常不满意":13,"一般般":1,"满意":1},"女":{"非常不满意":10,"一般般":4,"满意":1}}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart3(dataJson,"myChart_"+orderNum);
@@ -432,7 +432,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 		//获取json
 //		var dataJson = {"男":{"温度满意度":{"1":10,"2":0,"3":5,"4":3,"5":8,"6":2},"湿度满意度":{"1":6,"2":6,"3":3,"4":3,"5":8,"6":2}},"女":{"温度满意度":{"1":5,"2":9,"3":1,"4":3,"5":8,"6":2},"湿度满意度":{"1":12,"2":1,"3":2,"4":3,"5":8,"6":2}}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart4(dataJson,"myChart_"+orderNum);
@@ -508,6 +508,9 @@ function initChart4(json,divID){
 //	
 	var n = 1;
 	for(var chartname in json){
+		if (chartname == "isNoData" || chartname == "isNotRelated") {
+			continue;
+		}
 		var json1 = json[chartname];
 		$("#"+divID).append("<div id='myDiv_"+orderNum+"_"+n+"' class='small-chart-1'></div>");
 		var xaxis1 = [];

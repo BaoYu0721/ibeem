@@ -39,6 +39,12 @@ class AnalyzeController extends Controller {
                 messg: "analysisSurvey发生未知错误"
             };
         }
+        else {
+            ctx.body = {
+                code: 200,
+                result: result
+            };
+        }
     }
 }
 
