@@ -1,17 +1,8 @@
-<%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	Long dateStr = new Date().getTime();
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="mobile.realtime" /></title>
-<base href="<%=basePath%>" />
+<title>实时数据</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -21,18 +12,18 @@
 <meta http-equiv="expires" content="0">
 
 
-<link rel="icon" href="static/common/img/favicon.ico" />
-<link rel="stylesheet" href="static/mobile/css/base.css?time=<%=dateStr%>"/>
+<link rel="icon" href="/public/static/common/img/favicon.ico" />
+<link rel="stylesheet" href="/public/static/mobile/css/base.css"/>
 <!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" /> -->
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="static/common/js/highcharts.js"></script>
-<script type="text/javascript" src="static/common/js/highcharts-more.js"></script>
-<script type="text/javascript" src="static/common/js/solid-gauge.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highcharts.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highcharts-more.js"></script>
+<script type="text/javascript" src="/public/static/common/js/solid-gauge.js"></script>
 
-<script src="/static/manage/js/language.js"></script> 
-<script src="/static/common/js/toolsMobile.js"></script> 
-<script type="text/javascript" src="static/mobile/js/common.js"></script>
+<script src="/public/static/manage/js/language.js"></script> 
+<script src="/public/static/common/js/toolsMobile.js"></script> 
+<script type="text/javascript" src="/public/static/mobile/js/common.js"></script>
 
 
 <style>
@@ -104,7 +95,7 @@
 		height:.75rem;
 		border:1px solid #ffffff;
 		border-radius:2.5rem;
-		background:url("../static/mobile/img/modify.png") no-repeat 0.5rem center;
+		background:url("/public/static/mobile/img/modify.png") no-repeat 0.5rem center;
 		background-size:.6rem .6rem;
 		color:#ffffff;
 		font-size:.6rem;
@@ -116,7 +107,7 @@
 	}
 	.modify2{
 		color:#565656;
-		background-image:url("../static/mobile/img/settingicon.png");
+		background-image:url("/public/static/mobile/img/settingicon.png");
 		border:1px solid #565656;
 		display:none;
 	}
@@ -298,15 +289,15 @@
 <div class="container" style="display:none;">
 	<div class="isOnline" id="isOnline"></div>
 	<div class="clearfix">
-		<div class="fl address clearfix"><img src="../static/mobile/img/map.png" class="fl"/><span class="value fl"></span></div>
+		<div class="fl address clearfix"><img src="/public/static/mobile/img/map.png" class="fl"/><span class="value fl"></span></div>
 		<div class="fr modify" id="modify"><spring:message code="mobile.realtime_1" /></div>
 	</div>
 	
 	<!--分数统计 -->
 	<div class="score">
-			<div id="evaluation_title"><spring:message code="mobile.realtime_2" /></div>
+			<div id="evaluation_title">室内环境品质</div>
 			<div id="evaluation_value"></div>
-			<div id="evaluation_btn"><span><spring:message code="mobile.realtime_3" />&nbsp;</span><span id="opt_number"></span><span>&nbsp;<spring:message code="mobile.realtime_4" /></span></div>
+			<div id="evaluation_btn"><span>发现&nbsp;</span><span id="opt_number"></span><span>&nbsp;项可优化环境品质</span></div>
 			<div id="evaluation_chart"></div>
 <!-- 		<div class="">室内环境品质</div> -->
 <!-- 		<div class="rate"> -->
@@ -350,8 +341,8 @@
 <ul class="param clearfix" style="display:none;">
 	<li class="temperature" >
 		<div class="paramItem clearfix" >
-			<span class="icon fl"><img src="../static/mobile/img/temperature.png"/></span>
-			<span class="fl txt" his_target="0"><spring:message code="mobile.realtime_temperature" /></span>
+			<span class="icon fl"><img src="/public/static/mobile/img/temperature.png"/></span>
+			<span class="fl txt" his_target="0">温度</span>
 		</div>
 		<div class="clearfix paramValue">
 			<div class="tips fl" id="tem_tip"></div>
@@ -360,8 +351,8 @@
 	</li>
 	<li class="wet ">
 		<div class="paramItem clearfix">
-			<span class="icon fr"><img src="../static/mobile/img/wet.png"/></span>
-			<span class="fr txt" his_target="1"><spring:message code="mobile.realtime_humidity" /></span>
+			<span class="icon fr"><img src="/public/static/mobile/img/wet.png"/></span>
+			<span class="fr txt" his_target="1">湿度</span>
 		</div>
 		<div class="clearfix paramValue">
 			<div class="tips fl" id="hum_tip"></div>
@@ -370,8 +361,8 @@
 	</li>
 	<li class="sun">
 		<div class="paramItem clearfix">
-			<span class="icon fl"><img src="../static/mobile/img/sun.png"/></span>
-			<span class="fl txt" his_target="2"><spring:message code="mobile.realtime_intensity" /></span>
+			<span class="icon fl"><img src="/public/static/mobile/img/sun.png"/></span>
+			<span class="fl txt" his_target="2">光照强度</span>
 		</div>
 		<div class="clearfix paramValue">
 			<div class="tips fl" id="sun_tip"></div>
@@ -380,8 +371,8 @@
 	</li>
 	<li class="air">
 		<div class="paramItem clearfix ">
-			<span class="icon fr"><img src="../static/mobile/img/air.png"/></span>
-			<span class="fr txt" his_target="3"><spring:message code="mobile.realtime_CO2" /></span>
+			<span class="icon fr"><img src="/public/static/mobile/img/air.png"/></span>
+			<span class="fr txt" his_target="3">CO2浓度</span>
 		</div>
 		<div class="clearfix paramValue">
 			<div class="tips fl" id="co2_tip"></div>
@@ -390,7 +381,7 @@
 	</li>
 	<li class="pm" style="border-bottom:none;">
 		<div class="paramItem clearfix">
-			<span class="icon fl"><img src="../static/mobile/img/PM2.5.png"/></span>
+			<span class="icon fl"><img src="/public/static/mobile/img/PM2.5.png"/></span>
 			<span class="fl txt" his_target="4">PM2.5</span>
 		</div>
 		<div class="clearfix paramValue">
@@ -404,17 +395,17 @@
 	<li class="current" id="devicetab">
 		<!-- <div class="icons"><img src="../static/mobile/img/device.png"/></div> -->
 		<div class="icons"></div>
-		<div class="txt"><spring:message code="mobile.realtime_device" /></div>
+		<div class="txt">设备</div>
 	</li>
 	<li class="realtime" id="realtimetab">
 		<!-- <div class="icons"><img src="../static/mobile/img/realtime.png"/></div> -->
 		<div class="icons realtimeicon"></div>
-		<div class="txt"><spring:message code="mobile.realtime_realtime" /></div>
+		<div class="txt">实时</div>
 	</li>
 	<li class="history current" id="historytab">
 		<!-- <div class="icons"><img src="../static/mobile/img/history.png"/><span class="arrow"></span></div> -->
 		<div class="icons historyicon"><span class="arrow"></span></div>
-		<div class="txt"><spring:message code="mobile.realtime_history" /></div>
+		<div class="txt">历史</div>
 	</li>
 	<li class="evaluation" id="evaluationtab">
 		<div class="icons evaluationicon"></div>
@@ -423,7 +414,7 @@
 	<li class="home" id="hometab">
 		<!-- <div class="icons"><img src="../static/mobile/img/home.png"/><span class="arrow"></span></div> -->
 		<div class="icons homeicon"><span class="arrow"></span></div>
-		<div class="txt"><spring:message code="mobile.realtime_room" /></div>
+		<div class="txt">房间</div>
 	</li>
 </ul>
 <!-- 悬浮返回 -->
@@ -431,10 +422,10 @@
 
 
 <script type="text/javascript">
-if(localStorage.getItem("language")=="en"){
-	$(".param").addClass("en");
-	$(".return_to_list_float_btn").addClass("en");
-}
+	if(localStorage.getItem("language")=="en"){
+		$(".param").addClass("en");
+		$(".return_to_list_float_btn").addClass("en");
+	}
 	var device_id2=localStorage.getItem("device_id"); 
 	
 
@@ -786,13 +777,13 @@ if(localStorage.getItem("language")=="en"){
 			stepCount+=1;
 			strategyHtml += buildStrategyStep(ss);
 			if(roomshape==1){
-				strategyHtml += buildStrategyStep("<img src='/static/mobile/img/jxzm.jpg'>");
+				strategyHtml += buildStrategyStep("<img src='/public/static/mobile/img/jxzm.jpg'>");
 			}else if(roomshape==2){
-				strategyHtml += buildStrategyStep("<img src='/static/mobile/img/lxzm.jpg'>");
+				strategyHtml += buildStrategyStep("<img src='/public/static/mobile/img/lxzm.jpg'>");
 			}else if(roomshape==3){
-				strategyHtml += buildStrategyStep("<img src='/static/mobile/img/axzm.jpg'>");
+				strategyHtml += buildStrategyStep("<img src='/public/static/mobile/img/axzm.jpg'>");
 			}else if(roomshape==4){
-				strategyHtml += buildStrategyStep("<img src='/static/mobile/img/txzm.jpg'>");
+				strategyHtml += buildStrategyStep("<img src='/public/static/mobile/img/txzm.jpg'>");
 			}
 		}
 		/* if(r_sun < 0.5){
@@ -886,16 +877,16 @@ if(localStorage.getItem("language")=="en"){
 			var imgStr = "";
 			if(roomshape==1){
 				hqcs ="9.2-18.4"+getLangStr("mobile_realtime51");
-				imgStr = "<img src='/static/mobile/img/jxtf.jpg'>";
+				imgStr = "<img src='/public/static/mobile/img/jxtf.jpg'>";
 			}else if(roomshape==2){
 				hqcs ="8.5-17.0"+getLangStr("mobile_realtime51");
-				imgStr = "<img src='/static/mobile/img/lxtf.jpg'>";
+				imgStr = "<img src='/public/static/mobile/img/lxtf.jpg'>";
 			}else if(roomshape==3){
 				hqcs ="8.0-16.0"+getLangStr("mobile_realtime51");
-				imgStr = "<img src='/static/mobile/img/axtf.jpg'>";
+				imgStr = "<img src='/public/static/mobile/img/axtf.jpg'>";
 			}else if(roomshape==4){
 				hqcs ="5.7-11.4"+getLangStr("mobile_realtime51");
-				imgStr = "<img src='/static/mobile/img/txtf.jpg'>";
+				imgStr = "<img src='/public/static/mobile/img/txtf.jpg'>";
 			}
 			ss = stepCount + getLangStr("mobile_realtime52")+kekaiqichuangdibi1.toFixed(2)+getLangStr("mobile_realtime53")+windowarea/2+getLangStr("mobile_realtime54")+hqcs+getLangStr("mobile_realtime55");
 			stepCount+=1;
@@ -1026,7 +1017,7 @@ if(localStorage.getItem("language")=="en"){
 		$.ajax({
 	        type: "post",
 	        dataType: "json",
-	        url: '/device/realtime',
+	        url: '/weixin/device/realtime_data',
 	        data:{
 	        	deviceId:device_id
 	        },

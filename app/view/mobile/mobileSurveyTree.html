@@ -1,10 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html style="font-size: 50px;">
 
@@ -12,17 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><spring:message code="mobileSurvey_survey" /></title>
-	<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-	<link rel="stylesheet" href="/static/common/css/jquery-ui-1.10.1.css">
-	<link rel="stylesheet" href="/static/mobile/css/mobileSurveyTree.css">
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
+	<link rel="stylesheet" href="/public/static/mobile/css/mobileSurveyTree.css">
 
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>
     <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
-    <script src="/static/common/js/jquery.qrcode.min.js"></script>
-    <script src="/static/common/js/tools.js"></script> 
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/jquery.qrcode.min.js"></script>
+    <script src="/public/static/common/js/tools.js"></script> 
 </head>
 <body>
 <div class="ui basic test modal showqr">
@@ -39,6 +31,6 @@
 	<div class="ui list" id="projectList">
 	</div>
 </div>
-	<script src="/static/mobile/js/mobileSurveyTree.js"></script>
+	<script src="/public/static/mobile/js/mobileSurveyTree.js"></script>
 </body>
 </html>

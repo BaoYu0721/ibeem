@@ -1,27 +1,19 @@
-<%@page import="edu.thu.ibeem.third.WeixinJsAPI"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page  import="edu.thu.ibeem.third.WeixinJsAPI"%> 
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>用户注册</title>
-<base href="<%=basePath%>" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
-<link rel="stylesheet" href="static/mobile/css/base.css"/>
+<link rel="stylesheet" href="/public/static/mobile/css/base.css"/>
 <!-- <script type="text/javascript" src="static/mobile/js/fontSize.js"></script> -->
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.md5.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.sha1.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.sha1.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript" src="static/mobile/js/register.js"></script>
+<script type="text/javascript" src="/public/static/mobile/js/register.js"></script>
 <style>
 	body{
 		background:#efefef;
@@ -88,7 +80,7 @@
                 color: #ffffff;
                 top: 0px;
                 left: 0px;
-                background:#d8d8d8 url("../static/mobile/img/camera.png") no-repeat center;
+                background:#d8d8d8 url("/public/static/mobile/img/camera.png") no-repeat center;
                 background-size:2.1rem 1.6rem;
 				border:1px solid #979797;
 				border-radius:4px;

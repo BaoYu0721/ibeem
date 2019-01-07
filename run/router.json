@@ -585,6 +585,19 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/survey/getSurveyByID",
+    "regexp": "/^\\/survey\\/getSurveyByID(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/survey/download/answer",
     "regexp": "/^\\/survey\\/download\\/answer(?:\\/(?=$))?$/",
     "stack": [
@@ -666,6 +679,58 @@
     "path": "/survey/increase/question/select",
     "regexp": "/^\\/survey\\/increase\\/question\\/select(?:\\/(?=$))?$/",
     "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/survey/mobileSurveySuccess",
+    "regexp": "/^\\/survey\\/mobileSurveySuccess(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/survey/mobileSurvey",
+    "regexp": "/^\\/survey\\/mobileSurvey(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/survey/answerSurvey",
+    "regexp": "/^\\/survey\\/answerSurvey(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/survey/updateSurvey",
+    "regexp": "/^\\/survey\\/updateSurvey(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
       "anonymous",
       "wrappedController"
     ]
@@ -1383,6 +1448,122 @@
     "paramNames": [],
     "path": "/user/change_info",
     "regexp": "/^\\/user\\/change_info(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/weixin/index",
+    "regexp": "/^\\/weixin\\/index(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/weixin/device",
+    "regexp": "/^\\/weixin\\/device(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weixin/getTicket",
+    "regexp": "/^\\/weixin\\/getTicket(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weixin/login",
+    "regexp": "/^\\/weixin\\/login(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weixin/device/list",
+    "regexp": "/^\\/weixin\\/device\\/list(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weixin/device/realtime_data",
+    "regexp": "/^\\/weixin\\/device\\/realtime_data(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weinxin/device/detail",
+    "regexp": "/^\\/weinxin\\/device\\/detail(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weixin/device/history",
+    "regexp": "/^\\/weixin\\/device\\/history(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/weixin/device/evaluation",
+    "regexp": "/^\\/weixin\\/device\\/evaluation(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
       "wrappedController"

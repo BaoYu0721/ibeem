@@ -1,363 +1,379 @@
 {
-  "keys": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-  "auth_cookie_name": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-  "auth_cookie_admin": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
+  "keys": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+  "auth_cookie_name": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+  "auth_cookie_admin": "D:\\Code\\github\\ibeem\\config\\config.default.js",
   "admin": {
-    "name": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "password": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+    "name": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "password": "D:\\Code\\github\\ibeem\\config\\config.default.js"
   },
-  "middleware": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
+  "middleware": "D:\\Code\\github\\ibeem\\config\\config.default.js",
   "security": {
     "csrf": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "useSession": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "ignoreJSON": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "cookieName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "sessionName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "headerName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "bodyName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "queryName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "useSession": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
-    "domainWhiteList": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-    "protocolWhiteList": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-    "defaultMiddleware": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+    "domainWhiteList": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
     "xframe": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "hsts": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.local.js",
-      "maxAge": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "includeSubdomains": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "dta": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "methodnoallow": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "noopen": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "nosniff": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "referrerPolicy": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "xssProtection": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "csp": {
-      "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "policy": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "ssrf": {
-      "ipBlackList": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "checkAddress": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "ipBlackList": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     }
   },
   "logger": {
-    "dir": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "level": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "encoding": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "env": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "consoleLevel": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "disableConsoleAfterReady": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "outputJSON": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "buffer": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "appLogName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "coreLogName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "agentLogName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "errorLogName": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "dir": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "level": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "encoding": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "coreLogger": {
-      "consoleLevel": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.local.js"
+      "consoleLevel": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.local.js"
     },
-    "allowDebugAtProd": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "allowDebugAtProd": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "view": {
-    "defaultViewEngine": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
+    "defaultViewEngine": "D:\\Code\\github\\ibeem\\config\\config.default.js",
     "mapping": {
-      ".html": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      ".html": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     },
-    "root": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view\\config\\config.default.js",
-    "cache": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view\\config\\config.local.js",
-    "defaultExtension": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view\\config\\config.default.js"
+    "root": "D:\\Code\\github\\ibeem\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\Code\\github\\ibeem\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\Code\\github\\ibeem\\node_modules\\egg-view\\config\\config.default.js"
   },
   "redis": {
     "client": {
-      "host": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "port": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "password": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "db": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      "host": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "port": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "password": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "db": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     },
-    "default": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
-    "app": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
-    "agent": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-redis\\config\\config.default.js"
+    "default": "D:\\Code\\github\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
+    "app": "D:\\Code\\github\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
+    "agent": "D:\\Code\\github\\ibeem\\node_modules\\egg-redis\\config\\config.default.js"
   },
   "httpclient": {
     "request": {
-      "timeout": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      "timeout": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     },
-    "enableDNSCache": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "dnsCacheLookupInterval": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "dnsCacheMaxLength": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "enableDNSCache": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "httpAgent": {
-      "keepAlive": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "freeSocketKeepAliveTimeout": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxSockets": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxFreeSockets": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "keepAlive": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "freeSocketKeepAliveTimeout": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxSockets": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxFreeSockets": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "keepAlive": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "deviceDataReqUrl": {
     "ibeem": {
-      "getDeviceData": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "getDeviceOnlineStatus": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "getRealtimeData": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      "getDeviceData": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "getDeviceOnlineStatus": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "getRealtimeData": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     },
     "coclean": {
-      "appId": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "appKey": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "readDeviceDataUrl": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "readDeviceRealtimeDataUrl": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "cloudCalibratUrl": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "readCloudCalibrat": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "readDeviceList": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "readOnlineRate": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "createExportOrder": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "statusWorkOrder": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "deviceIsOnline": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      "appId": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "appKey": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "readDeviceDataUrl": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "readDeviceRealtimeDataUrl": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "cloudCalibratUrl": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "readCloudCalibrat": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "readDeviceList": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "readOnlineRate": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "createExportOrder": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "statusWorkOrder": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "deviceIsOnline": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     }
+  },
+  "tencentMap": {
+    "url": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "key": "D:\\Code\\github\\ibeem\\config\\config.default.js"
   },
   "mysql": {
     "client": {
-      "host": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "port": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "user": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "password": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "database": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      "host": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "port": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "user": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "password": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "database": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     },
-    "app": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "agent": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
+    "app": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "agent": "D:\\Code\\github\\ibeem\\config\\config.default.js",
     "default": {
-      "database": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js",
-      "connectionLimit": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js"
+      "database": "D:\\Code\\github\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js",
+      "connectionLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js"
     }
   },
   "email": {
-    "host": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "port": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "secure": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
+    "host": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "port": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "secure": "D:\\Code\\github\\ibeem\\config\\config.default.js",
     "auth": {
-      "user": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-      "pass": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+      "user": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "pass": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     },
-    "password": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js",
-    "email": "D:\\Code\\ibeem项目\\ibeem\\config\\config.default.js"
+    "password": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "email": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+  },
+  "wexin": {
+    "token": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "appId": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "appScrect": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "encodingAESKey": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "apiDomain": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "apiUrl": {
+      "accessTokenApi": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+      "ticketApi": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+    }
   },
   "session": {
-    "maxAge": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
-    "key": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
-    "httpOnly": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
-    "encrypt": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-session\\config\\config.default.js"
+    "maxAge": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js"
   },
   "helper": {
-    "shtml": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+    "shtml": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
   },
   "jsonp": {
-    "limit": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
-    "callback": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
-    "csrf": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js"
+    "limit": "D:\\Code\\github\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\Code\\github\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\Code\\github\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js"
   },
   "onerror": {
-    "errorPageUrl": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
-    "appErrorFilter": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
-    "templatePath": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js"
+    "errorPageUrl": "D:\\Code\\github\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\Code\\github\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\Code\\github\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js"
   },
   "i18n": {
-    "defaultLocale": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "dirs": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "queryField": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "cookieField": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "cookieMaxAge": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js"
+    "defaultLocale": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js"
   },
   "watcher": {
-    "type": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher\\config\\config.local.js",
+    "type": "D:\\Code\\github\\ibeem\\node_modules\\egg-watcher\\config\\config.local.js",
     "eventSources": {
-      "default": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js",
-      "development": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js"
+      "default": "D:\\Code\\github\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\Code\\github\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js"
     }
   },
   "customLogger": {
     "scheduleLogger": {
-      "consoleLevel": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js",
-      "file": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js"
+      "consoleLevel": "D:\\Code\\github\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\Code\\github\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js"
     }
   },
   "multipart": {
-    "mode": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "autoFields": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "defaultCharset": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fieldNameSize": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fieldSize": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fields": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fileSize": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "files": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fileExtensions": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "whitelist": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "tmpdir": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "mode": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
     "cleanSchedule": {
-      "cron": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js"
+      "cron": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js"
     }
   },
   "development": {
-    "watchDirs": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "ignoreDirs": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "fastReady": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "reloadOnDebug": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "overrideDefault": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-development\\config\\config.default.js"
+    "watchDirs": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js"
   },
   "logrotator": {
-    "filesRotateByHour": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "hourDelimiter": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "filesRotateBySize": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxFileSize": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxFiles": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "rotateDuration": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxDays": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js"
+    "filesRotateByHour": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js"
   },
   "static": {
-    "prefix": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "dir": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "dynamic": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "preload": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "buffer": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "maxFiles": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-static\\config\\config.default.js"
+    "prefix": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js"
   },
   "ejs": {
-    "root": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "cache": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\config.local.js",
-    "debug": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "compileDebug": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "delimiter": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "strict": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js"
+    "root": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "cache": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.local.js",
+    "debug": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "compileDebug": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "delimiter": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "strict": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js"
   },
-  "env": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "name": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "proxy": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "protocolHeaders": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "ipHeaders": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "hostHeaders": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "env": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
   "pkg": {
-    "name": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "version": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "description": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "private": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "name": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "private": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "dependencies": {
-      "await-stream-ready": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-messager": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-mysql": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-redis": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-scripts": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-view-ejs": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "fs": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "node-xlsx": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "qrcode": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "redlock": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "stream-wormhole": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "await-stream-ready": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-messager": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-redis": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-ejs": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "fs": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "node-xlsx": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "qrcode": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "redlock": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "stream-wormhole": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "util": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "devDependencies": {
-      "autod": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "autod-egg": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-bin": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-ci": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-mock": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "eslint": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "eslint-config-egg": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "webstorm-disable-index": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "autod": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "webstorm-disable-index": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "engines": {
-      "node": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "node": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "scripts": {
-      "start": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "stop": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "dev": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "debug": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "test": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "test-local": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "cov": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "lint": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "ci": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "autod": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "start": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "stop": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "dev": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "debug": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "test": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "test-local": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "cov": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "lint": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "ci": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "autod": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "ci": {
-      "version": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "version": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "repository": {
-      "type": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "url": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "type": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "url": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
-    "author": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "license": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "author": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
-  "baseDir": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "HOME": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "rundir": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "baseDir": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
   "dump": {
-    "ignore": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "ignore": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "notFound": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "sitefile": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "middlewares": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "httpClient": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "bodyparser": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "notfound": {
-    "pageUrl": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "pageUrl": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "/favicon.ico": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "bodyParser": {
-    "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "encoding": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "formLimit": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "jsonLimit": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "strict": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "queryString": {
-      "arrayLimit": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "depth": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "parameterLimit": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "arrayLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "meta": {
-    "enable": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "logging": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
-  "coreMiddleware": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "workerStartTimeout": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "coreMiddleware": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
   "cluster": {
     "listen": {
-      "path": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "port": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "hostname": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "clusterClient": {
-    "maxWaitTime": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "responseTimeout": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "maxWaitTime": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
-  "onClientError": "D:\\Code\\ibeem项目\\ibeem\\node_modules\\egg\\config\\config.default.js"
+  "onClientError": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
 }

@@ -6,6 +6,7 @@ const QRCode = require('qrcode');
 const fs = require('fs');
 const path = require('path');
 const xlsx = require('node-xlsx');
+const util = require('util');
 
 exports.crypto = str => {
   return crypto.createHash("md5").update(str).digest('hex');
@@ -48,4 +49,19 @@ exports.qrcode = id => {
     if(err) throw err;
   })
   return '/public/file/qrcode/' + filename;
+}
+
+//格式化请求基础AccessToken地址
+exports.formatBaseAccessToken = (accessTokenApi, apiDomain, appId, appScrect) => {
+  return util.format(accessTokenApi, apiDomain, appId, appScrect);
+}
+
+//格式化ticket
+exports.formatTicket = (ticketApi, apiDomain, accessToken) => {
+  return util.format(ticketApi, apiDomain, accessToken);
+}
+
+//跟新access_token
+exports.updateWeixinJson = data => {
+  fs.writeFile('./weixin.json', JSON.stringify(data));
 }

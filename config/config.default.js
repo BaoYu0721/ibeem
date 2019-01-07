@@ -108,6 +108,18 @@ module.exports = appInfo => {
     password: 'tengke1234',
     email: 'kangkanglinux@163.com'
   };
+
+  exports.wexin = {
+    token: "ibeem_wechat",
+    appId: "wx472e78d4295c4091",
+    appScrect: "e631dbeedbec456a210fd5484a23869f",
+    encodingAESKey: "haha",
+    apiDomain: "https://api.weixin.qq.com/",
+    apiUrl: {
+      accessTokenApi: "%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
+      ticketApi: "%scgi-bin/ticket/getticket?access_token=%s&type=jsapi"
+    }
+  }
   
   return config;
 };

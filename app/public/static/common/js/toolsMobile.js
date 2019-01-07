@@ -195,7 +195,7 @@ function addLoading(ele){
 //添加loading页面
 function addMobileLoading(){
 	var ele= $("body");
-	getComponent("/common/components/mobileloading",
+	getComponent("/common/mobileloading",
 			function(result){
 				if(ele.children(".loding-panel").length==0){
 					ele.prepend(result);
