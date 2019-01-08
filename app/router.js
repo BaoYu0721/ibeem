@@ -144,6 +144,17 @@ module.exports = app => {
   router.post('/user/changhe_password', userRequired, controller.user.index.changePassword);
   router.post('/user/change_info', userRequired, controller.user.index.changeInfo);
 
+  // weixin
+  router.get('/weixin/index', controller.weixin.user.index);
+  router.get('/weixin/device', userRequired, controller.weixin.device.index);
+  router.post('/weixin/getTicket', controller.weixin.index.getTicket);
+  router.post('/weixin/login', controller.sign.login.loginAuth);
+  router.post('/weixin/device/list', userRequired, controller.weixin.device.deviceList);
+  router.post('/weixin/device/realtime_data', userRequired, controller.weixin.device.deviceRealtimeData);
+  router.post('/weinxin/device/detail', userRequired, controller.weixin.device.deviceDetail);
+  router.post('/weixin/device/history', userRequired, controller.weixin.device.deviceHistory);
+  router.post('/weixin/device/evaluation', userRequired, controller.weixin.device.deviceEvaluation);
+
   // admin & login
   router.get('/admin', controller.admin.login.index);
   router.post('/admin/login', controller.admin.login.adminLogin);

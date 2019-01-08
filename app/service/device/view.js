@@ -62,6 +62,10 @@ class ViewService extends Service {
                     pageSize: 1440
                 };
                 const result = await this.service.utils.http.cocleanPost(this.app.config.deviceDataReqUrl.coclean.readDeviceDataUrl, param);
+                if(result == -1){
+                    sTime += dayTime;
+                    continue;
+                }
                 if(result.result == 'success'){
                     for(var key in result.data){
                         const dataMap = {
@@ -90,17 +94,19 @@ class ViewService extends Service {
         }else if(device.type == "ibeem"){
             const param = "q=" + deviceId + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
             const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getDeviceData, param);
-            for(var key in result.data){
-                for(var i in result.data[key].dev_data){
-                    const resultMap = {
-                        tem: result.data[key].dev_data[i].wd,
-                        hum: result.data[key].dev_data[i].sd,
-                        pm:  result.data[key].dev_data[i].pm25,
-                        co2: result.data[key].dev_data[i].co2,
-                        lightIntensity: result.data[key].dev_data[i].zd,
-                        time: parseInt(result.data[key].dev_data[i].time)
+            if(result != -1){
+                for(var key in result.data){
+                    for(var i in result.data[key].dev_data){
+                        const resultMap = {
+                            tem: result.data[key].dev_data[i].wd,
+                            hum: result.data[key].dev_data[i].sd,
+                            pm:  result.data[key].dev_data[i].pm25,
+                            co2: result.data[key].dev_data[i].co2,
+                            lightIntensity: result.data[key].dev_data[i].zd,
+                            time: parseInt(result.data[key].dev_data[i].time)
+                        }
+                        resultList.push(resultMap);
                     }
-                    resultList.push(resultMap);
                 }
             }
         }

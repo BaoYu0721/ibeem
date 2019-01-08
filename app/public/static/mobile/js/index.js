@@ -44,22 +44,22 @@ $(document).ready(function(){
 		
 		var password = $.cookie('password');
 		if(password == null || passwordEdited){
-			password = $.md5($("#user_password").val());
+			password = $("#user_password").val();
 		}
 		
 		$.ajax({
 	        type: "post",
 	        dataType: "json",
-	        url: '/user/login',
+	        url: '/weixin/login',
 	        data: {username:username,
 	        	   password:password},
 	        success: function (data) {
 	        	removeLoading();
 	            if (data.status == 0) {
-	            	localStorage.setItem("login_type","user");	            	
+	            	localStorage.setItem("login_type","user");
 	            	var timestamp = Date.parse(new Date());
 	            	timestamp = timestamp / 1000;
-	            	window.location.href = "/weixin?url=mobile/list.jsp?timestamp="+timestamp;
+	            	window.location.href = "/weixin/device?timestamp="+timestamp;
 	            }else{  //失败
 	            	if(data.messg==1){
 	            		alert(getLangStr("login_messg1"));

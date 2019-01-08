@@ -323,7 +323,7 @@ $(document).ready(function(){
 	$this_ID = localStorage.getItem("device_id");
 	
 	$.ajax({
-		url:"/assessment/getByDevice",
+		url:"/weixin/device/evaluation",
 		type:"POST",
 		dataType:"JSON",
 		data:{deviceID:$this_ID},
@@ -335,13 +335,13 @@ $(document).ready(function(){
 				
 				changeParam();
 			}else{
-				alert("获取数据失败！");
+				//alert("获取数据失败！");
 			}
 			removeLoading();
 		},
 		error:function(error){
 			removeLoading();
-			alert("获取数据失败！");
+			//alert("获取数据失败！");
 		}
 	});
 

@@ -1,17 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title>参数校准</title>
-<base href="<%=basePath%>" />
 <meta name="viewport" content="user-scalable=no"/>
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
 <style>
 	body{
 		width:100%;
@@ -219,11 +212,11 @@
 <div id="content">
 	<div id="tip_row">
 		点击参数修改数值
-		<img  src="img/cross.png">
+		<img  src="/public/static/mobile/img/cross.png">
 	</div>
 	<div class="green_row data_row off" id="tem_row" >
 		<div class="left">
-			<img src="img/temperature.png">
+			<img src="/public/static/mobile/img/temperature.png">
 			<div class="title">温度</div>
 			<div class="value">21<span>℃</span></div>
 		</div>
@@ -239,7 +232,7 @@
 	</div>
 	<div class="blue_row data_row off" id="hum_row">
 		<div class="left">
-			<img src="img/humandity.png">
+			<img src="/public/static/mobile/img/humandity.png">
 			<div class="title">湿度</div>
 			<div class="value">45<span>%</span></div>
 		</div>
@@ -254,7 +247,7 @@
 	</div>
 	<div class="green_row data_row off" id="sun_row">
 		<div class="left">
-			<img src="img/sun.png">
+			<img src="/public/static/mobile/img/sun.png">
 			<div class="title">光照强度</div>
 			<div class="value">300<span>lux</span></div>
 		</div>
@@ -270,7 +263,7 @@
 	</div>
 	<div class="blue_row data_row off" id="co2_row">
 		<div class="left">
-			<img src="img/co2.png">
+			<img src="/public/static/mobile/img/co2.png">
 			<div class="title">CO<sub>2</sub></div>
 			<div class="value">350<span>ppm</span></div>
 		</div>
@@ -285,7 +278,7 @@
 	</div>
 	<div class="green_row data_row off" id="pm25_row">
 		<div class="left">
-			<img src="img/pm25.png">
+			<img src="/public/static/mobile/img/pm25.png">
 			<div class="title">PM2.5</div>
 			<div class="value">300<span>ug/m<sup>3</sup></span></div>
 		</div>

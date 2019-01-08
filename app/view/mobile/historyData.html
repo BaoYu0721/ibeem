@@ -1,18 +1,8 @@
-<%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	Long dateStr = new Date().getTime();
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="mobilehistory_title" /></title>
-<base href="<%=basePath%>" />
+<title>历史</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -21,14 +11,14 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 
-<link rel="stylesheet" href="static/mobile/css/base.css"/>
-<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="static/common/js/highcharts.js"></script>
-<script type="text/javascript" src="static/common/js/map.js"></script>
-<script type="text/javascript" src="static/common/js/toolsMobile.js"></script>
-<script type="text/javascript" src="static/mobile/js/common.js"></script>
+<link rel="stylesheet" href="/public/static/mobile/css/base.css"/>
+<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highcharts.js"></script>
+<script type="text/javascript" src="/public/static/common/js/map.js"></script>
+<script type="text/javascript" src="/public/static/common/js/toolsMobile.js"></script>
+<script type="text/javascript" src="/public/static/mobile/js/common.js"></script>
 <style>
 	body{
 
@@ -47,19 +37,19 @@
 	}
 	
 	#tem_logo{
-		background-image:url(static/mobile/img/temperature.png);
+		background-image:url(/public/static/mobile/img/temperature.png);
 	}
 	#hum_logo{
-		background-image:url(static/mobile/img/wet.png);
+		background-image:url(/public/static/mobile/img/wet.png);
 	}
 	#sun_logo{
-		background-image:url(static/mobile/img/sun.png);
+		background-image:url(/public/static/mobile/img/sun.png);
 	}
 	#co2_logo{
-		background-image:url(static/mobile/img/air.png);
+		background-image:url(/public/static/mobile/img/air.png);
 	}
 	#p25_logo{
-		background-image:url(static/mobile/img/PM2.5.png);
+		background-image:url(/public/static/mobile/img/PM2.5.png);
 	}
 	
 	#param_txt_box .param_txt{
@@ -150,22 +140,22 @@
 	<div class="param_logo" id="p25_logo" order="4"></div>
 </div>
 <div id="param_txt_box">
-	<div class="param_txt" id="tem_txt" order="0"><spring:message code="tem_ss" /></div>
-	<div class="param_txt" id="hum_txt" order="1"><spring:message code="hum" /></div>
-	<div class="param_txt" id="sun_txt" order="2"><spring:message code="lig_s" /></div>
-	<div class="param_txt" id="co2_txt" order="3"><spring:message code="co2_s" /></div>
-	<div class="param_txt" id="p25_txt" order="4"><spring:message code="pm25_s" /></div>
+	<div class="param_txt" id="tem_txt" order="0">温度</div>
+	<div class="param_txt" id="hum_txt" order="1">湿度</div>
+	<div class="param_txt" id="sun_txt" order="2">光照</div>
+	<div class="param_txt" id="co2_txt" order="3">CO2</div>
+	<div class="param_txt" id="p25_txt" order="4">PM2.5</div>
 </div>
 <div id="param_select_line">
 	<div id="param_select_index"></div>
 </div>
 <!--  图表部分  -->
-<div id="current_time_range"><span><spring:message code="mobilehistory_time1" /></span></div>
+<div id="current_time_range"><span>过去2小时</span></div>
 <div id="time_range_list">
-	<div class="time_range selected_time_range" hour="2"><span><spring:message code="mobilehistory_time1" /></span></div>
-	<div class="time_range" hour="6"><span><spring:message code="mobilehistory_time2" /></span></div>
-	<div class="time_range" hour="12"><span><spring:message code="mobilehistory_time3" /></span></div>
-	<div class="time_range" hour="24"><span><spring:message code="mobilehistory_time4" /></span></div>
+	<div class="time_range selected_time_range" hour="2"><span>过去2小时</span></div>
+	<div class="time_range" hour="6"><span>过去6小时</span></div>
+	<div class="time_range" hour="12"><span>过去12小时</span></div>
+	<div class="time_range" hour="24"><span>过去24小时</span></div>
 </div>
 
 <div id="history_chart">	
@@ -175,17 +165,17 @@
 <div id="bottom_line"></div>
 <div id="stastics_box">
 	<div class="stastics">
-		<spring:message code="mobilehistory_num_min" />
+		最小值
 		<br>
 		<span id="min_value">-</span>
 	</div>
 	<div class="stastics">
-		<spring:message code="mobilehistory_num_ave" />
+		平均值
 		<br>
 		<span id="ave_value">-</span>
 	</div>
 	<div class="stastics">
-		<spring:message code="mobilehistory_num_max" />
+		最大值
 		<br>
 		<span id="max_value">-</span>
 	</div>
@@ -196,17 +186,17 @@
 	<li class="current" id="devicetab">
 		<!-- <div class="icons"><img src="../static/mobile/img/device.png"/></div> -->
 		<div class="icons"></div>
-		<div class="txt"><spring:message code="mobilehistory_nav1" /></div>
+		<div class="txt">设备</div>
 	</li>
 	<li class="realtime" id="realtimetab">
 		<!-- <div class="icons"><img src="../static/mobile/img/realtime.png"/></div> -->
 		<div class="icons realtimeicon"></div>
-		<div class="txt"><spring:message code="mobilehistory_nav2" /></div>
+		<div class="txt">实时</div>
 	</li>
 	<li class="history" id="historytab">
 		<!-- <div class="icons"><img src="../static/mobile/img/history.png"/><span class="arrow"></span></div> -->
 		<div class="icons historyicon"><span class="arrow"></span></div>
-		<div class="txt"><spring:message code="mobilehistory_nav3" /></div>
+		<div class="txt">历史</div>
 	</li>
 	<li class="evaluation" id="evaluationtab">
 		<div class="icons evaluationicon"></div>
@@ -215,7 +205,7 @@
 	<li class="home" id="hometab">
 		<!-- <div class="icons"><img src="../static/mobile/img/home.png"/><span class="arrow"></span></div> -->
 		<div class="icons homeicon"><span class="arrow"></span></div>
-		<div class="txt"><spring:message code="mobilehistory_nav4" /></div>
+		<div class="txt">房间</div>
 	</li>
 </ul>
 <!-- 悬浮返回 -->
@@ -383,7 +373,7 @@
 		$.ajax({
 	        type: "post",
 	        dataType: "json",
-	        url: '/device/environmentdata',
+	        url: '/weixin/device/history',
 	        /* timeout : 20000, //超时时间设置，单位毫秒 */
 	        data:{
 	        	deviceId:device_id,
@@ -408,7 +398,7 @@
 	        			getStastics();
 	        		}
 	        	}else{
-	        		alert(getLangStr("mobilehistory_msg_2"));
+	        		//alert(getLangStr("mobilehistory_msg_2"));
 	        	}
 	        	removeLoading();
 	        },

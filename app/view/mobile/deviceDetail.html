@@ -1,25 +1,8 @@
-<%@page import="edu.thu.ibeem.third.WeixinJsAPI,java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	Long dateStr = new Date().getTime();
-%>
-<%
-	String JsapiTicket = WeixinJsAPI.JsapiTicket;
-	String AccessToken = WeixinJsAPI.AccessToken;
-	if(JsapiTicket==null||"".equals(JsapiTicket)){
-		WeixinJsAPI.workAtTime();
-		JsapiTicket = WeixinJsAPI.JsapiTicket;
-	}
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="mobiledetail_title" /></title>
-<base href="<%=basePath%>" />
+<title>设备</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -29,24 +12,24 @@
 <meta http-equiv="expires" content="0">
 
 
-<link rel="stylesheet" href="static/mobile/css/base.css"/>
+<link rel="stylesheet" href="/public/static/mobile/css/base.css"/>
 <!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" /> -->
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.md5.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.sha1.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="static/manage/js/jquery.form.js"></script>
-<script type="text/javascript" src="static/common/js/highcharts.js"></script>
-<script type="text/javascript" src="static/common/js/highcharts-more.js"></script>
-<script type="text/javascript" src="static/common/js/solid-gauge.js"></script>
-<script type="text/javascript" src="static/common/js/toolsMobile.js"></script>
-<script type="text/javascript" src="static/mobile/js/common.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.sha1.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/manage/js/jquery.form.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highcharts.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highcharts-more.js"></script>
+<script type="text/javascript" src="/public/static/common/js/solid-gauge.js"></script>
+<script type="text/javascript" src="/public/static/common/js/toolsMobile.js"></script>
+<script type="text/javascript" src="/public/static/mobile/js/common.js"></script>
 <!-- <script type="text/javascript" src="static/common/js/ajaxfileupload.js"></script> -->
 <!-- <script type="text/javascript" src="static/common/js/tools.js"></script> -->
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-<script type="text/javascript" src="static/common/js/weixin/weixin.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA&amp;services=&amp;t=20170220193356"></script>
+<script type="text/javascript" src="/public/static/common/js/weixin/weixin.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=THK4l29Nn9su15oUi0KrzhAl3GkU9SQs"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=THK4l29Nn9su15oUi0KrzhAl3GkU9SQs&amp;services=&amp;t=20170220193356"></script>
 <style>
 	body{
 		background:#f4f4f4;
@@ -262,7 +245,7 @@ function getLocation(){
 }
 
 function getBaiduAddress(lat,lon){
-   var baiduGeocodingApi = 'http://api.map.baidu.com/geocoder/v2/?ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA&callback=showAddress&location='+lat+','+lon+'&output=json';
+   var baiduGeocodingApi = 'http://api.map.baidu.com/geocoder/v2/?ak=THK4l29Nn9su15oUi0KrzhAl3GkU9SQscallback=showAddress&location='+lat+','+lon+'&output=json';
    var script = document.createElement('script');
    script.type = 'text/javascript';
    script.src = baiduGeocodingApi;
@@ -307,7 +290,7 @@ function ajaxFileUpload(fileid) {
     $.ajaxFileUpload
     (
         {
-            url: '<%=request.getContextPath() %>/common/upload', //用于文件上传的服务器端请求地址
+            url: '/common/upload', //用于文件上传的服务器端请求地址
             secureuri: false, //一般设置为false
             fileElementId: fileid, //文件上传空间的id属性  <input type="file" id="file" name="file" />
             dataType: 'json', //返回值类型 一般设置为json
@@ -417,9 +400,10 @@ function ajaxFileUpload(fileid) {
 		$.ajax({
 	        type: "post",
 	        dataType: "json",
-	        url: '/device/info',
-	        timeout : 60000, //超时时间设置，单位毫秒
-	        data: {deviceID:device_id
+	        url: '/weinxin/device/detail',
+	        timeout : 3000, //超时时间设置，单位毫秒
+	        data: {
+				deviceID:device_id
 	        },
 	        success: function (data) {
 	            if (data.code == 200) {
@@ -433,9 +417,9 @@ function ajaxFileUpload(fileid) {
 	            	$(".address").attr("lon",device.longitude+"");
 	            	var imgList = device.imageList;
 	            	for(var i=0;i<imgList.length;i++){
-	            		var imgUrl = device.imageList[i].img;
+	            		var imgUrl = device.imageList[i];
 	            		if($.trim(imgUrl)!=""){
-	            			$(".upload_img_"+i).attr("src",device.imageList[i].img);
+	            			$(".upload_img_"+i).attr("src",device.imageList[i]);
 	            			$(".upload_img_"+i).attr("data-hasimg","has");
 	            			$(".upload_img_"+i).siblings(".close").css("display","block");
 	            		}
@@ -448,15 +432,15 @@ function ajaxFileUpload(fileid) {
 	            		$(".switch span").css("left","19px");
 	    				$(".switch").css("background","#44db5e");
 	            	}
-	            	removeLoading();
+					removeLoading();
 	            }
-	    },
-	    complete : function(XMLHttpRequest,status){ 
-	    	if(status=='timeout'){//超时,status还有success,error等值的情况
-	    		removeLoading();
-	    	  alert(getLangStr("mobilehistory_msg_3"));
-			}
-	    } 
+			},
+			complete : function(XMLHttpRequest,status){ 
+				if(status=='timeout'){//超时,status还有success,error等值的情况
+					removeLoading();
+					alert(getLangStr("mobilehistory_msg_3"));
+				}
+			} 
 		});
 		
 		var urlStateParam = getUrlParam("state");
@@ -582,7 +566,7 @@ function ajaxFileUpload(fileid) {
     		});
     		$(".img-panel .close").click(function(){
     			$(this).css("display","none");
-    			$(this).siblings(".upload_img").attr("src","../static/mobile/img/upload_image.jpg");
+    			$(this).siblings(".upload_img").attr("src","/public/static/mobile/img/upload_image.jpg");
     			$(this).siblings(".upload_img").attr("data-hasimg","false");
     		});
        	}else{
@@ -688,22 +672,22 @@ function ajaxFileUpload(fileid) {
 <body>
 <ul class="devicedetail" style="display:none;">
 	<li class=" name on">
-		<div class="txt"> <spring:message code="mobilehistory_nav1" /></div>
+		<div class="txt">设备</div>
 		<div class="clearfix">
 			<input type="text" id="device_name" class="fl" value="" readOnly="true" disabled/>
-			<img class="icon fr" src="../static/mobile/img/device00.png" style="display:none;"/>
+			<img class="icon fr" src="/public/static/mobile/img/device00.png" style="display:none;"/>
 		</div>
 	</li>
 	<li class="clearfix">
-		<input type="text" class="fl" id="memo" value="" placeholder="<spring:message code='mobiledetail_msg_1' />"/>
+		<input type="text" class="fl" id="memo" value="" placeholder="输入设备详细信息"/>
 	</li>
 	<li class="clearfix address" lat="" lon="">
-		<span class="fl" id="address" value=""  readonly ><spring:message code='mobiledetail_msg_2' /></span>
-		<img class="icon fr" src="../static/mobile/img/map00.png"/>
+		<span class="fl" id="address" value=""  readonly ></span>
+		<img class="icon fr" src="/public/static/mobile/img/map00.png"/>
 	</li>
 	<li class="clearfix">
-		<input type="text" class="fl" id="description" value="" placeholder="<spring:message code='mobiledetail_msg_3' />"/>
-		<img class="icon fr" src="../static/mobile/img/address00.png"/>
+		<input type="text" class="fl" id="description" value="" placeholder="输入设备详细地址"/>
+		<img class="icon fr" src="/public/static/mobile/img/address00.png"/>
 	</li>
 <!-- 	<li class="clearfix " id="house"> -->
 <!-- 		<div class="house_box" id="house_box"> -->
@@ -742,31 +726,17 @@ function ajaxFileUpload(fileid) {
 	<li class="uploadimg">
 	<div class="img-container">
 		<div class="img-panel" style="margin-right:5%;">
-				<img class="upload_img upload_img_0" src="../static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
-				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+				<img class="upload_img upload_img_0" src="/public/static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
+				<img class="close" src="/public/static/manage/img/team/close.png" style="display:none;">
 		</div>
 		<div class="img-panel">
-				<img class="upload_img upload_img_1" src="../static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
-				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+				<img class="upload_img upload_img_1" src="/public/static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
+				<img class="close" src="/public/static/manage/img/team/close.png" style="display:none;">
 		</div>
 		<div class="img-panel" style="margin-top:1rem;">
-				<img class="upload_img upload_img_2" src="../static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
-				<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
+				<img class="upload_img upload_img_2" src="/public/static/mobile/img/upload_image.jpg" data-hasimg="false"/> 
+				<img class="close" src="/public/static/manage/img/team/close.png" style="display:none;">
 		</div>
-		<%-- <div class="img-panel">
-		<form action="<%=request.getContextPath() %>/common/upload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
-			<input type="file" id="file2" name="file" class="image2"  accept="image/*;capture=camera"  >
-			<img class="upload_img upload_img_1" src="../static/mobile/img/upload_image.jpg" data-hasimg='false'/> 
-			<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
-		</form>
-		</div>
-		<div class="img-panel" style="margin-top:1rem">
-		<form action="<%=request.getContextPath() %>/common/upload" class="portraitForm" ENCTYPE="multipart/form-data" method="post">
-			<input type="file" id="file3" name="file" class="image3"  accept="image/*;capture=camera"  >
-			<img class="upload_img upload_img_2" src="../static/mobile/img/upload_image.jpg" data-hasimg='false'/> 
-			<img class="close" src="/static/manage/img/team/close.png" style="display:none;">
-		</form>
-		</div> --%>
 		<div style="clear:both"></div>
 	</div>
 	</li>
@@ -777,17 +747,17 @@ function ajaxFileUpload(fileid) {
 	<li class="current" id="devicetab">
 		<!-- <div class="icons"><img src="../static/mobile/img/device.png"/></div> -->
 		<div class="icons"></div>
-		<div class="txt"><spring:message code='mobilehistory_nav1' /></div>
+		<div class="txt">设备</div>
 	</li>
 	<li class="realtime" id="realtimetab">
 		<!-- <div class="icons"><img src="../static/mobile/img/realtime.png"/></div> -->
 		<div class="icons realtimeicon"></div>
-		<div class="txt"><spring:message code='mobilehistory_nav2' /></div>
+		<div class="txt">实时</div>
 	</li>
 	<li class="history" id="historytab">
 		<!-- <div class="icons"><img src="../static/mobile/img/history.png"/><span class="arrow"></span></div> -->
 		<div class="icons historyicon"><span class="arrow"></span></div>
-		<div class="txt"><spring:message code='mobilehistory_nav3' /></div>
+		<div class="txt">历史</div>
 	</li>
 	<li class="evaluation" id="evaluationtab">
 		<div class="icons evaluationicon"></div>
@@ -796,7 +766,7 @@ function ajaxFileUpload(fileid) {
 	<li class="home" id="hometab">
 		<!-- <div class="icons"><img src="../static/mobile/img/home.png"/><span class="arrow"></span></div> -->
 		<div class="icons homeicon"><span class="arrow"></span></div>
-		<div class="txt"><spring:message code='mobilehistory_nav4' /></div>
+		<div class="txt">房间</div>
 	</li>
 </ul>
 <!-- 悬浮返回 -->
@@ -817,7 +787,7 @@ $(".devicedetail").css("display","block");
 $(".refresh").css("display","block"); 
 </script>
 
-<div style="visibility:hidden;" id="weixin_api_ticket" key="<%=JsapiTicket%>" data-val="<%=AccessToken%>">	
+<div style="visibility:hidden;" id="weixin_api_ticket">	
 </div>
 </body>
 </html>

@@ -85,27 +85,27 @@ $(function(){
  	timestamp = timestamp / 1000;
 	//底部导航链接
 	 $("#devicetab").click(function(){
-		 window.location.href = "/open?url=mobile/deviceDetail.jsp?timestamp="+timestamp;
+		 window.location.href = "/weixin/device?did=" + device_id + "&item=detail" + "&timestamp="+timestamp;
 	 });
 	 
 	 $("#realtimetab").click(function(){
-		 window.location.href = "/open?url=mobile/realtimeData.jsp?timestamp="+timestamp;
+		window.location.href = "/weixin/device?did=" + device_id + "&item=realtime" + "&timestamp="+timestamp;
 	 });
 	 
 	 $("#historytab").click(function(){
-		 window.location.href = "/open?url=mobile/historyData.jsp?timestamp="+timestamp;
+		window.location.href = "/weixin/device?did=" + device_id + "&item=history" + "&timestamp="+timestamp;
 	 });
 	 
 	 $("#evaluationtab").click(function(){
-		 window.location.href = "/open?url=mobile/evaluation.jsp?timestamp="+timestamp;
+		window.location.href = "/weixin/device?did=" + device_id + "&item=evaluation" + "&timestamp="+timestamp;
 	 });
 	 
 	 $("#hometab").click(function(){
-		 window.location.href = "/open?url=mobile/homeSetting.jsp?timestamp="+timestamp;
+		window.location.href = "/weixin/device?did=" + device_id + "&item=room" + "&timestamp="+timestamp;
 	 });	 
 	 
 	/*底部导航的当前位置*/
-	 if(window.location.href.indexOf("deviceDetail") != -1){
+	 if(window.location.href.indexOf("detail") != -1){
 	    $(".footer li").removeClass("current");
 	    $("#devicetab").addClass("current");
 	}
@@ -121,7 +121,7 @@ $(function(){
 		$(".footer li").removeClass("current");
 		$("#evaluationtab").addClass("current");
 	}
-	if(window.location.href.indexOf("homeSetting") != -1){
+	if(window.location.href.indexOf("room") != -1){
 		$(".footer li").removeClass("current");
 		$("#hometab").addClass("current");
 	}
@@ -145,7 +145,7 @@ $(function(){
 		$(".return_to_list_float_btn").click(function(){
 			var timestamp = Date.parse(new Date());
 		 	timestamp = timestamp / 1000;
-			window.location.href = "/open?url=mobile/index.jsp?timestamp="+timestamp;
+			window.location.href = "/weixin/device?timestamp="+timestamp;
 		});
 		//$(".return_to_list_float_btn").hide();
 		$(".refresh").css("display","none");
@@ -179,7 +179,7 @@ function getComponent(src,func,replaceTxt){
 //添加loading页面
 function addMobileLoading(){
 	var ele= $("body");
-	getComponent("/static/common/components/mobileloading.html",
+	getComponent("/common/mobileloading",
 			function(result){
 				if(ele.children(".loding-panel").length==0){
 					ele.prepend(result);

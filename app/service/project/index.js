@@ -6,7 +6,7 @@ class IndexService extends Service {
     async projectList(userId){
         var project = null;
         try {
-            project = await this.app.mysql.select('project', {where: {creator_id: userId}});
+            project = await this.app.mysql.query('select id, name, des, image from project where creator_id = ? or id in(select project_id from user_project where role = 1 and user_id = ?)', [userId, userId]);
         } catch (error) {
             return -1;
         }

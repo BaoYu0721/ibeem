@@ -1,47 +1,31 @@
-<%@page import="edu.thu.ibeem.third.WeixinJsAPI,java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	String JsapiTicket = WeixinJsAPI.JsapiTicket;
-	if(JsapiTicket==null||"".equals(JsapiTicket)){
-		WeixinJsAPI.workAtTime();
-		JsapiTicket = WeixinJsAPI.JsapiTicket;
-	}
-	Long dateStr = new Date().getTime();
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="deviceList.title" /></title>
-<base href="<%=basePath%>" />
+<title>设备列表</title>
 <meta name="viewport" content="user-scalable=no"/>
 <!-- 不缓存 -->
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
-<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-<link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
+<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+<link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
 
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.md5.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.sha1.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.sha1.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript" src="static/common/js/weixin/weixin.js"></script>
-<script type="text/javascript" src="static/common/js/map.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
-<%-- <script type="text/javascript" src="static/common/js/tools.js?time=<%=dateStr%>"></script> --%>
-<script type="text/javascript" src="static/common/js/tools.js"></script>
-<script type="text/javascript" src="static/common/js/highmap/proj4.js"></script>
-<script type="text/javascript" src="static/common/js/highmap/highmaps.js"></script>
-<script type="text/javascript" src="static/common/js/highmap/cn-all-sar-taiwan.js"></script>
-<script src="static/common/js/jquery.dataTables.min.js"></script>
-<script src="/static/common/js/dataTables.semanticui.min.js"></script>
-<script src="/static/common/js/semantic.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/weixin/weixin.js"></script>
+<script type="text/javascript" src="/public/static/common/js/map.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/common/js/tools.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highmap/proj4.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highmap/highmaps.js"></script>
+<script type="text/javascript" src="/public/static/common/js/highmap/cn-all-sar-taiwan.js"></script>
+<script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+<script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+<script src="/public/static/common/js/semantic.min.js"></script>
 
 <style>
 
@@ -180,7 +164,7 @@
 
 	.list_box .online{
 		color:#3fb493;
-		background-image:url(static/mobile/img/right_arrow.png); 
+		background-image:url(/public/static/mobile/img/right_arrow.png); 
 		background-position:93% 1.7rem;
 	}
 	
@@ -282,7 +266,7 @@
     <!-- 主界面DIV --> 
 	<div id="mainPanel" style="display:none;">
 		<div id="profile">
-			<img id="profile_potrait" src="static/mobile/img/profile_potrait.png">
+			<img id="profile_potrait" src="/public/static/mobile/img/profile_potrait.png">
 			<span id="profile_name"></span>
 			<a id="profile_wechat"><spring:message code="mobilelist_bindChat" /></a>
 		</div>
@@ -290,18 +274,18 @@
 		<!-- <input type="text" id="search_input_main" class="search_input" placeholder="<spring:message code='mobilelist_searchDevice' />"> -->
 <!-- 		<img id="add_device_logo" src="static/mobile/img/add_device_logo.png" onclick="showSearchPanel()"> -->
 		<div id="total_number_line">
-			<span id="online_number"><spring:message code='mobilelist_checkOnline' /></span><spring:message code='mobilelist_tot_1' />&nbsp;<span id="total_number"></span>&nbsp;<spring:message code='mobilelist_tot_2' />
+			<span id="online_number">在线&nbsp;台</span>/共&nbsp;<span id="total_number"></span>&nbsp;台
 		</div>
 		<div id="map_box"></div>
-		<a id="qrcode_bind_btn" style="text-align:center;border:1px solid #47b391;background-color:white;color: #47b391;position:absolute;left:50%;"><spring:message code='mobilelist_tot_sos' /></a>
+		<a id="qrcode_bind_btn" style="text-align:center;border:1px solid #47b391;background-color:white;color: #47b391;position:absolute;left:50%;">扫码关注设备</a>
 		<div id="list_box_main" class="list_box" style="display:none;">
 		
 			<table id="datatable" class="ui celled table datatables" cellspacing="0" width="100%"> 
                 			<thead> 
                 			<tr> 
-                				<th><spring:message code="mobilelist_deviceName" /></th>
-                				<th><spring:message code="mobilelist_deviceAddr" /></th> 
-                				<th id="status_th"><spring:message code="mobilelist_deviceStatus" /></th> 
+                				<th>设备名</th>
+                				<th>设备地址</th> 
+                				<th id="status_th">设备状态</th> 
                				</tr> 
                				</thead> 
              				<tbody id="datatable_body"> </tbody>
@@ -331,12 +315,12 @@
 		<div id="add_device_box">
 			<div id="add_device_title"><spring:message code='mobilelist_tot_3' /></div>
 			<input type="text" class="add_device_input" id="device_name" placeholder="<spring:message code='devicedata_name' />">
-			<img id="device_name_logo" class="add_device_input_logo" src="static/mobile/img/device_name.png">
+			<img id="device_name_logo" class="add_device_input_logo" src="/public/static/mobile/img/device_name.png">
 			<input type="text" class="add_device_input" id="device_password" placeholder="<spring:message code='mobilelist_pass' />">
-			<img id="device_password_logo" class="add_device_input_logo" src="static/mobile/img/device_password.png">
+			<img id="device_password_logo" class="add_device_input_logo" src="/public/static/mobile/img/device_password.png">
 			
 			<div id="add_device_from_name" class="add_device_btn"><spring:message code='mobilelist_add' /></div>
-			<div id="add_device_from_qrcode" class="add_device_btn"><img src="static/mobile/img/scan_qrcode.png">&nbsp;<spring:message code='mobilelist_add_2' /></div>
+			<div id="add_device_from_qrcode" class="add_device_btn"><img src="/public/static/mobile/img/scan_qrcode.png">&nbsp;<spring:message code='mobilelist_add_2' /></div>
 		</div>
 		
 		
@@ -504,7 +488,7 @@
 		localStorage.setItem("device_id",did);
 		var timestamp = Date.parse(new Date());
      	timestamp = timestamp / 1000;
-		window.location.href = "/weixin?url=mobile/realtimeData.jsp?timestamp="+timestamp;
+		window.location.href = "/weixin/device?did=" + did + "&item=realtime" + "&timestamp="+timestamp;
 	 });
 	function extractData(list){
 		var i;
@@ -610,7 +594,7 @@
 			localStorage.setItem("device_id",did); 
 			var timestamp = Date.parse(new Date());
         	timestamp = timestamp / 1000;
-			window.location.href = "/weixin?url=mobile/realtimeData.jsp?timestamp="+timestamp;
+			window.location.href = "/weixin/device?did=" + did + "&item=realtime" + "&timestamp="+timestamp;
 		});
 	}
 	
@@ -822,8 +806,8 @@
 		$("#add_device_from_name").css("top",docHeight * 0.645);
 		$("#add_device_from_qrcode").css("top",docHeight * 0.7375);
 		
-		if($.cookie('name') != null){
-			$("#profile_name").html($.cookie('name'));
+		if($.cookie('ibeem') != null){
+			$("#profile_name").html($.cookie('ibeem').split('^_^')[1]);
 		}
 		
 		if($.cookie('wechat_name') != null && $.cookie('wechat_name') != "null"){
@@ -890,7 +874,7 @@
 		$.ajax({
 	        type: "post",
 	        dataType: "json",
-	        url: '/device/alllist',
+	        url: '/weixin/device/list',
 	        success: function (data) {
 	        	//TODO ajax
 	        	if(data.status == 0){

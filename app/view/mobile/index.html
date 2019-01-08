@@ -1,22 +1,8 @@
-<%@page import="edu.thu.ibeem.third.WeixinJsAPI,java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	String JsapiTicket = WeixinJsAPI.JsapiTicket;
-	if(JsapiTicket==null||"".equals(JsapiTicket)){
-		WeixinJsAPI.workAtTime();
-		JsapiTicket = WeixinJsAPI.JsapiTicket;
-	}
-	Long dateStr = new Date().getTime();
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 <title><spring:message code="btn.login" /></title>
-<base href="<%=basePath%>" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -25,18 +11,18 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 
-<link rel="stylesheet" href="static/mobile/css/base.css"/>
+<link rel="stylesheet" href="/public/static/mobile/css/base.css"/>
 <!-- <script type="text/javascript" src="static/mibile/js/fontSize.js"></script> -->
-<link rel="stylesheet" href="static/mobile/css/index.css" />
+<link rel="stylesheet" href="/public/static/mobile/css/index.css" />
 <!-- <link rel="stylesheet"  href="/static/common/css/semantic.min.css" /> -->
-<script type="text/javascript" src="static/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.md5.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.sha1.js"></script>
-<script type="text/javascript" src="static/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.sha1.js"></script>
+<script type="text/javascript" src="/public/static/common/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript" src="static/common/js/weixin/weixin.js"></script>
-<script src="/static/common/js/toolsMobile.js"></script> 
-<script type="text/javascript" src="static/mobile/js/index.js"></script>
+<script type="text/javascript" src="/public/static/common/js/weixin/weixin.js"></script>
+<script src="/public/static/common/js/toolsMobile.js"></script> 
+<script type="text/javascript" src="/public/static/mobile/js/index.js"></script>
 
 </head>
 
@@ -49,12 +35,12 @@
 <div id="banner"></div>
 <div id="content">
 	<!--<a id="admin_Login_link" href="/page/mobile/adminlogin">管理员入口</a>  -->
-	<img id="logo" src="static/mobile/img/logo.png">
-	<input id="user_name" class="device_name" type="text" placeholder="<spring:message code="userName" />" />	
-	<input id="user_password" class="device_password" type="password" placeholder="<spring:message code="userPassword" />" /> 
-	<button id="user_login_btn"><spring:message code="btn.login" /></button>
-	<button id="qrcode_login_btn"><spring:message code="mobile.scan_Login" /></button>
-	<a  class="register_now" id="register_btn" disabled style="display:none"><spring:message code="mobile.regist" /></a>
+	<img id="logo" src="/public/static/mobile/img/logo.png">
+	<input id="user_name" class="device_name" type="text" placeholder="用户名" />	
+	<input id="user_password" class="device_password" type="password" placeholder="密码" /> 
+	<button id="user_login_btn">登录</button>
+	<button id="qrcode_login_btn">扫码登录</button>
+	<a  class="register_now" id="register_btn" disabled style="display:none">注册</a>
 													
 	<!-- <div id="copyright">版权所有©清华大学建筑技术系<br>
 	备案号：京ICP备15040251号-2</div> -->
@@ -62,8 +48,7 @@
 <!-- cover占位div -->
 <!-- <div class="cover"></div> -->
 <!-- <div id="cover"></div> -->
-<div style="visibility:hidden;" id="weixin_api_ticket" key="<%=JsapiTicket%>">	
-</div>
+<div style="visibility:hidden;" id="weixin_api_ticket" key="<%=JsapiTicket%>"></div>
 
 
 <script type="text/javascript">
