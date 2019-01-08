@@ -28,6 +28,13 @@ module.exports = app => {
   router.get('/common/questionDL', userRequired, controller.common.questionDL);
   router.get('/common/member/list', controller.common.memberList);
   router.post('/common/upload', userRequired, controller.common.upload);
+  router.get('/common/tjDX', userRequired, controller.common.tjDX);
+  router.get('/common/tjHK', userRequired, controller.common.tjHK);
+  router.get('/common/tjLB', userRequired, controller.common.tjLB);
+  router.get('/common/tjTK', userRequired, controller.common.tjTK);
+  router.get('/common/tjTKModal', userRequired, controller.common.tjTKModal);
+  router.get('/common/analysis1', userRequired, controller.common.analysis1);
+  router.get('/common/analysis2', userRequired, controller.common.analysis2);
 
   // index
   router.get('/', loginRequired, controller.index.index);
@@ -74,7 +81,9 @@ module.exports = app => {
   router.get('/survey/mobileSurveySuccess', controller.survey.mobile.mobileSurveySuccess);
   router.get('/survey/mobileSurvey', controller.survey.mobile.index);
   router.post('/survey/answerSurvey', controller.survey.mobile.answerSurvey);
-  router.post('/survey/updateSurvey', userRequired, userRequired, controller.survey.increase.updateSurvey);
+  router.post('/survey/updateSurvey', userRequired, controller.survey.increase.updateSurvey);
+  router.post('/survey/getDimension', userRequired, controller.survey.analyze.getDimension);
+  router.post('/survey/analysisSurvey', userRequired, controller.survey.analyze.analysisSurvey);
   
   // project
   router.get('/project', userRequired, controller.project.index.index);

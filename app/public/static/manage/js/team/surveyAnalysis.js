@@ -9,6 +9,17 @@ getComponent("/common/leftpanel",
 			});
 			$("#surveypanel").addClass("active");
 });
+// 添加分析对话框的文字内容
+$('#surveyAna_addAnalysis').text(getLangStr('surveyAna_addAnalysis'));
+$('#surveyAna_anatitle').text(getLangStr('surveyAna_anatitle'));
+$('#title_input').attr('placeholder', getLangStr('surveyAna_anatitleTit'));
+$('#surveyAna_anazi').text(getLangStr('surveyAna_anazi') + ":");
+$('#independent_div').text(getLangStr('surveyAna_anazi'));
+$('#surveyAna_anayin').text(getLangStr('surveyAna_anayin') + ":");
+$('#dependent_div').text(getLangStr('surveyAna_anayin'));
+$('#cancelAdd').text(getLangStr('cancel'));
+$('#confirmAdd').text(getLangStr('determine'));
+
 //左侧导航
 $(".leftmenu").removeClass("active");
 //所属项目和建筑	
@@ -78,15 +89,21 @@ $("#add").click(function(){
 //问卷ID
 var surveyId = $.cookie("fxsurveyId");
 //获取当前维度
-function getQueryString(name) { 
-	var url = window.location.href;
-	var params = url.split(".jsp?")[1];
-	var paramArr = params.split("&");
-	var paramObj = {};
-	for(var i in paramArr){
-		paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
-	}
-	return paramObj[name]==undefined?null:paramObj[name];
+// function getQueryString(name) { 
+// 	var url = window.location.href;
+// 	var params = url.split(".jsp?")[1];
+// 	var paramArr = params.split("&");
+// 	var paramObj = {};
+// 	for(var i in paramArr){
+// 		paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
+// 	}
+// 	return paramObj[name]==undefined?null:paramObj[name];
+// }
+function getQueryString(name) {
+	var params = decodeURI(window.location.search);
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = params.substr(1).match(reg);
+	if (r!=null) return unescape(r[2]); return null;
 }
 var paramRelation = getQueryString("relation");
 var paramObjectId = getQueryString("objectID")==""?null:getQueryString("objectID");
@@ -101,7 +118,7 @@ $('.some_class').datetimepicker({
 });
 //根据问卷ID获取题目列表，放到自变量和因变量的下拉框中
 $(function(){
-	var url = "/survey?item=analyze";
+	var url = "/survey/getSurveyByID";
 	var json = {"surveyID":surveyId};
 	function successFunc(data){
 		var dlList = data.list;
@@ -296,14 +313,20 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 			returnFlag = "isNoData";
 		}
 	}
-	sentJsonSync(url,json,successFunc);
+	function errorFunc(data){
+		var errormsg = data.messg;
+		// $(".error h4").html(errormsg);
+		alertokMsg("错误码：" + data.code + "，" + errormsg, getLangStr("alert_ok"));
+		removeLoading();
+	}
+	sentJsonSync(url,json,successFunc, errorFunc);
 	if(returnFlag!="")return returnFlag;
 	
 	//1.自变量：选择／维度，因变量：选择
 	if(chartType =="chart1"){
 //		dataJson = {"男":{"电脑":10,"化妆品":0,"书":5},"女":{"电脑":2,"化妆品":15,"书":8}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart1(dataJson,"myChart_"+orderNum);
@@ -313,7 +336,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 	else if(chartType =="chart2"){
 //		dataJson = {analysis:[{"id":1,"textlist":[{"time":"2017-05-20","answer":"我是答案"},{"time":"2017-05-20","answer":"我是答案"},{"time":"2017-05-20","answer":"我回答回答了"}]},{"id":2,"textlist":['我是答案','我来回答','我回答回答了']},{"id":3,"textlist":['我是答案','我来回答','我回答回答了']}]};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis2.html",
+		getComponent("/common/analysis2",
 				function(result){
 					$("#container").append(result);
 					//获取选项，初始化下拉列表，给一个默认选项
@@ -398,7 +421,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 		//获取json
 //		var dataJson = {"温度":{"男":{"非常不满意":10,"一般般":0,"满意":5},"女":{"非常不满意":6,"一般般":6,"满意":3}},"湿度":{"男":{"非常不满意":5,"一般般":9,"满意":1},"女":{"非常不满意":12,"一般般":1,"满意":2}},"PM2.5":{"男":{"非常不满意":13,"一般般":1,"满意":1},"女":{"非常不满意":10,"一般般":4,"满意":1}}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart3(dataJson,"myChart_"+orderNum);
@@ -409,7 +432,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 		//获取json
 //		var dataJson = {"男":{"温度满意度":{"1":10,"2":0,"3":5,"4":3,"5":8,"6":2},"湿度满意度":{"1":6,"2":6,"3":3,"4":3,"5":8,"6":2}},"女":{"温度满意度":{"1":5,"2":9,"3":1,"4":3,"5":8,"6":2},"湿度满意度":{"1":12,"2":1,"3":2,"4":3,"5":8,"6":2}}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart4(dataJson,"myChart_"+orderNum);
@@ -485,6 +508,9 @@ function initChart4(json,divID){
 //	
 	var n = 1;
 	for(var chartname in json){
+		if (chartname == "isNoData" || chartname == "isNotRelated") {
+			continue;
+		}
 		var json1 = json[chartname];
 		$("#"+divID).append("<div id='myDiv_"+orderNum+"_"+n+"' class='small-chart-1'></div>");
 		var xaxis1 = [];
@@ -521,10 +547,11 @@ $("#chartDropdown_1").dropdown();
 //$("#datatable_ddd").DataTable({ scrollY: '50vh', scrollCollapse: true, paging: false ,"language": {  "info": "", "infoEmpty": "没有记录", "infoFiltered": "" }});
 //==============================调用方法==============================
 function getSetting(surveyId){
-	var url = "/survey/analyze/dimension";
+	var url = "/survey/getDimension";
 	var json = {"surveyID":surveyId};
 	var setting ={};
 	function successFunc(data){
+		console.log('getDimension succ');
 		var dataList = data.projectList;
 		var projectSettingList = [];
 		var buildingSettingList = [];
@@ -552,6 +579,11 @@ function getSetting(surveyId){
 		}
 		setting={projectSettingList:projectSettingList,buildingSettingList:buildingSettingList,pointSettingList:pointSettingList};
 	}
-	sentJsonSync(url,json,successFunc);
+	function errorFunc(data){
+		var errormsg = data.messg;
+		// $(".error h4").html(errormsg);
+		alertokMsg("错误码：" + data.code + "，" + errormsg, getLangStr("alert_ok"));
+	}
+	sentJsonSync(url,json,successFunc, errorFunc);
 	return setting;
 }

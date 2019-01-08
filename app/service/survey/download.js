@@ -47,7 +47,7 @@ class DownloadService extends Service {
                         return -1;
                     }
                     resultMap.name = building.name;
-                    }else if(surveyRelation.relation == 3){
+                }else if(surveyRelation.relation == 3){
                     resultMap.surveyRelation = 3;
                     var buildingPoint = null;
                     try {

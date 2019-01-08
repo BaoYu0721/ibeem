@@ -53,7 +53,7 @@ class CommonController extends Controller {
         await this.ctx.render('common/components/questionDL.html');
     }
     async memberList() {
-        await this.ctx.render('common/components/memberList_item.html')
+        await this.ctx.render('common/components/memberList_item.html');
     }
     async upload(){
         const { ctx, config } = this;
@@ -78,6 +78,28 @@ class CommonController extends Controller {
             code: 200,
             imageList: [url]
         };
+    }
+
+    async tjDX() {
+        await this.ctx.render('common/components/tjDX.html');
+    }
+    async tjHK() {
+        await this.ctx.render('common/components/tjHK.html');
+    }
+    async tjLB() {
+        await this.ctx.render('common/components/tjLB.html');
+    }
+    async tjTK() {
+        await this.ctx.render('common/components/tjTK.html');
+    }
+    async tjTKModal() {
+        await this.ctx.render('common/components/tjTKModal.html');
+    }
+    async analysis1() {
+        await this.ctx.render('common/components/analysis1.html');
+    }
+    async analysis2() {
+        await this.ctx.render('common/components/analysis2.html');
     }
 }
 
