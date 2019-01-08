@@ -385,7 +385,7 @@
       "apiDomain": "https://api.weixin.qq.com/",
       "apiUrl": {
         "accessTokenApi": "%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
-        "getUserInfoApi": "%ssns/userinfo?access_token=%s&"
+        "ticketApi": "%scgi-bin/ticket/getticket?access_token=%s&type=jsapi"
       }
     },
     "coreMiddlewares": "~config~coreMiddleware",

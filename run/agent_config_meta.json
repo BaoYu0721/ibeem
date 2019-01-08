@@ -175,7 +175,7 @@
     "apiDomain": "D:\\Code\\github\\ibeem\\config\\config.default.js",
     "apiUrl": {
       "accessTokenApi": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "getUserInfoApi": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "ticketApi": "D:\\Code\\github\\ibeem\\config\\config.default.js"
     }
   },
   "session": {

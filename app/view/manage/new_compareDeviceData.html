@@ -699,7 +699,7 @@
 									</div>
 			                	</div>
 			                	<div class="download clearfix l_download">
-			                		<div class="tit" id="newCompareDeviceDataDeviceHumidity">数据对齐</div>
+			                		<div class="tit" id="newCompareDeviceDataDeviceDataAlignment">数据对齐</div>
 									<div class="data_align"><span class="fl" id="newCompareDeviceDataDeviceAlignSpacings">对齐间隔&nbsp;&nbsp;</span><input class="fl form-control" type="text" value="1" name="step" id="step"><span class="fl" id="newCompareDeviceDataDeviceMinutes">&nbsp;分</span></div>
 			                	</div>
 			                </div>
@@ -711,42 +711,39 @@
 </div>
 <script>
 	$(function(){
-		var language = window.localStorage.getItem("language");
-		if(language == 'en'){
-			$("title").html(getLangStr('newCompareDeviceDataTitle'))
-			$("#tit").html(getLangStr('newCompareDeviceDataTitle'))
-			$(".item.on").html(getLangStr('newCompareDeviceDataList'))
-			$("#newCompareDeviceDataDeviceName").html(getLangStr('newCompareDeviceDataDeviceName'))
-			$("#newCompareDeviceDataDeviceOwner").html(getLangStr('newCompareDeviceDataDeviceOwner'))
-			$("#newCompareDeviceDataDeviceConcern").html(getLangStr('newCompareDeviceDataDeviceConcern'))
-			$("#newCompareDeviceDataDeviceType").html(getLangStr('newCompareDeviceDataDeviceType'))
-			$("#export_data_btn").html(getLangStr('newCompareDeviceDataDeviceDownload'))
-			$("#newCompareDeviceDataDeviceDataLoading").html(getLangStr('newCompareDeviceDataDeviceDataLoading'))
-			$("#newCompareDeviceDataDeviceWorkingDay").html(getLangStr('newCompareDeviceDataDeviceWorkingDay'))
-			$("#newCompareDeviceDataDeviceChoiceTime").html(getLangStr('newCompareDeviceDataDeviceChoiceTime'))
-			$("#newCompareDeviceDataDeviceStartDate").html(getLangStr('newCompareDeviceDataDeviceStartDate'))
-			$("#newCompareDeviceDataDeviceEndDate").html(getLangStr('newCompareDeviceDataDeviceEndDate'))
-			$("#newCompareDeviceDataDeviceWorkingTime").html(getLangStr('newCompareDeviceDataDeviceWorkingTime'))
-			$("#newCompareDeviceDataDeviceClosingTime").html(getLangStr('newCompareDeviceDataDeviceClosingTime'))
-			$("#newCompareDeviceDataDeviceOffDay").html(getLangStr('newCompareDeviceDataDeviceOffDay'))
-			$("#newCompareDeviceDataDeviceParameterFilterPanel").html(getLangStr('newCompareDeviceDataDeviceParameterFilterPanel'))
-			$("#newCompareDeviceDataDeviceLight").html(getLangStr('newCompareDeviceDataDeviceLight'))
-			$("#newCompareDeviceDataDeviceTemperature").html(getLangStr('newCompareDeviceDataDeviceTemperature'))
-			$("#newCompareDeviceDataDeviceHumidity").html(getLangStr('newCompareDeviceDataDeviceHumidity'))
-			$("#newCompareDeviceDataDeviceDataAlignment").html(getLangStr('newCompareDeviceDataDeviceDataAlignment'))
-			$("#newCompareDeviceDataDeviceAlignSpacings").html(getLangStr('newCompareDeviceDataDeviceAlignSpacings'))
-			$("#newCompareDeviceDataDeviceMinutes").html(getLangStr('newCompareDeviceDataDeviceMinutes'))
-			$('#tit2').html(getLangStr('newCompareDeviceDataDeviceHistory'))
-			$('#newCompareDeviceDataDeviceNumber').html(getLangStr('newCompareDeviceDataDeviceNumber'))
-			$('#newCompareDeviceDataDeviceNameList').html(getLangStr('newCompareDeviceDataDeviceNameList'))
-			$('#newCompareDeviceDataDeviceTime').html(getLangStr('newCompareDeviceDataDeviceTime'))
-			$('#newCompareDeviceDataDeviceOperatingTime').html(getLangStr('newCompareDeviceDataDeviceOperatingTime'))
-			$('#newCompareDeviceDataDeviceProgress').html(getLangStr('newCompareDeviceDataDeviceProgress'))
-			$('#newCompareDeviceDataDeviceEstimatedTime').html(getLangStr('newCompareDeviceDataDeviceEstimatedTime'))
-			$('#newCompareDeviceDataDeviceState').html(getLangStr('newCompareDeviceDataDeviceState'))
-			$('#newCompareDeviceDataDeviceOperation').html(getLangStr('newCompareDeviceDataDeviceOperation'))
-		}
-	})
+		$("title").html(getLangStr('newCompareDeviceDataTitle'))
+		$("#tit").html(getLangStr('newCompareDeviceDataTitle'))
+		$(".item.on").html(getLangStr('newCompareDeviceDataList'))
+		$("#newCompareDeviceDataDeviceName").html(getLangStr('newCompareDeviceDataDeviceName'))
+		$("#newCompareDeviceDataDeviceOwner").html(getLangStr('newCompareDeviceDataDeviceOwner'))
+		$("#newCompareDeviceDataDeviceConcern").html(getLangStr('newCompareDeviceDataDeviceConcern'))
+		$("#newCompareDeviceDataDeviceType").html(getLangStr('newCompareDeviceDataDeviceType'))
+		$("#export_data_btn").html(getLangStr('newCompareDeviceDataDeviceDownload'))
+		$("#newCompareDeviceDataDeviceDataLoading").html(getLangStr('newCompareDeviceDataDeviceDataLoading'))
+		$("#newCompareDeviceDataDeviceWorkingDay").html(getLangStr('newCompareDeviceDataDeviceWorkingDay'))
+		$("#newCompareDeviceDataDeviceChoiceTime").html(getLangStr('newCompareDeviceDataDeviceChoiceTime'))
+		$("#newCompareDeviceDataDeviceStartDate").html(getLangStr('newCompareDeviceDataDeviceStartDate'))
+		$("#newCompareDeviceDataDeviceEndDate").html(getLangStr('newCompareDeviceDataDeviceEndDate'))
+		$("#newCompareDeviceDataDeviceWorkingTime").html(getLangStr('newCompareDeviceDataDeviceWorkingTime'))
+		$("#newCompareDeviceDataDeviceClosingTime").html(getLangStr('newCompareDeviceDataDeviceClosingTime'))
+		$("#newCompareDeviceDataDeviceOffDay").html(getLangStr('newCompareDeviceDataDeviceOffDay'))
+		$("#newCompareDeviceDataDeviceParameterFilterPanel").html(getLangStr('newCompareDeviceDataDeviceParameterFilterPanel'))
+		$("#newCompareDeviceDataDeviceLight").html(getLangStr('newCompareDeviceDataDeviceLight'))
+		$("#newCompareDeviceDataDeviceTemperature").html(getLangStr('newCompareDeviceDataDeviceTemperature'))
+		$("#newCompareDeviceDataDeviceHumidity").html(getLangStr('newCompareDeviceDataDeviceHumidity'))
+		$("#newCompareDeviceDataDeviceDataAlignment").html(getLangStr('newCompareDeviceDataDeviceDataAlignment'))
+		$("#newCompareDeviceDataDeviceAlignSpacings").html(getLangStr('newCompareDeviceDataDeviceAlignSpacings'))
+		$("#newCompareDeviceDataDeviceMinutes").html(getLangStr('newCompareDeviceDataDeviceMinutes'))
+		$('#tit2').html(getLangStr('newCompareDeviceDataDeviceHistory'))
+		$('#newCompareDeviceDataDeviceNumber').html(getLangStr('newCompareDeviceDataDeviceNumber'))
+		$('#newCompareDeviceDataDeviceNameList').html(getLangStr('newCompareDeviceDataDeviceNameList'))
+		$('#newCompareDeviceDataDeviceTime').html(getLangStr('newCompareDeviceDataDeviceTime'))
+		$('#newCompareDeviceDataDeviceOperatingTime').html(getLangStr('newCompareDeviceDataDeviceOperatingTime'))
+		$('#newCompareDeviceDataDeviceProgress').html(getLangStr('newCompareDeviceDataDeviceProgress'))
+		$('#newCompareDeviceDataDeviceEstimatedTime').html(getLangStr('newCompareDeviceDataDeviceEstimatedTime'))
+		$('#newCompareDeviceDataDeviceState').html(getLangStr('newCompareDeviceDataDeviceState'))
+		$('#newCompareDeviceDataDeviceOperation').html(getLangStr('newCompareDeviceDataDeviceOperation'))
+	});
 </script>
 
 <script src="/public/static/common/js/jquery.min.js"></script>
