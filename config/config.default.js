@@ -25,12 +25,6 @@ module.exports = appInfo => {
     }
   };
 
-  // logger
-  exports.logger = {
-    dir: path.join(__dirname, '../logs/egg'),
-    level: 'DEBUG',
-  };
-
   //ejs
   config.view = {
     defaultViewEngine: 'ejs',
