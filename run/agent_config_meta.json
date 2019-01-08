@@ -1,379 +1,367 @@
 {
-  "keys": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-  "auth_cookie_name": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-  "auth_cookie_admin": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+  "keys": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+  "auth_cookie_name": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+  "auth_cookie_admin": "D:\\TankerSource\\ibeem\\config\\config.default.js",
   "admin": {
-    "name": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "password": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+    "name": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "password": "D:\\TankerSource\\ibeem\\config\\config.default.js"
   },
-  "middleware": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+  "middleware": "D:\\TankerSource\\ibeem\\config\\config.default.js",
   "security": {
     "csrf": {
-      "enable": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "useSession": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "ignoreJSON": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "cookieName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "sessionName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "headerName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "bodyName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "queryName": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "useSession": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
-    "domainWhiteList": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-    "protocolWhiteList": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-    "defaultMiddleware": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+    "domainWhiteList": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
     "xframe": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "hsts": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.local.js",
-      "maxAge": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "includeSubdomains": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "dta": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "methodnoallow": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "noopen": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "nosniff": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "referrerPolicy": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "xssProtection": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "value": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "csp": {
-      "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "policy": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     },
     "ssrf": {
-      "ipBlackList": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
-      "checkAddress": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+      "ipBlackList": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
     }
   },
   "logger": {
-    "dir": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "level": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "encoding": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "env": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "consoleLevel": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "disableConsoleAfterReady": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "outputJSON": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "buffer": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "appLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "coreLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "agentLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "errorLogName": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "dir": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "level": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "encoding": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "coreLogger": {
-      "consoleLevel": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.local.js"
+      "consoleLevel": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.local.js"
     },
-    "allowDebugAtProd": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "allowDebugAtProd": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "view": {
-    "defaultViewEngine": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "defaultViewEngine": "D:\\TankerSource\\ibeem\\config\\config.default.js",
     "mapping": {
-      ".html": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      ".html": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     },
-    "root": "D:\\Code\\github\\ibeem\\node_modules\\egg-view\\config\\config.default.js",
-    "cache": "D:\\Code\\github\\ibeem\\node_modules\\egg-view\\config\\config.local.js",
-    "defaultExtension": "D:\\Code\\github\\ibeem\\node_modules\\egg-view\\config\\config.default.js"
+    "root": "D:\\TankerSource\\ibeem\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\TankerSource\\ibeem\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\TankerSource\\ibeem\\node_modules\\egg-view\\config\\config.default.js"
   },
   "redis": {
     "client": {
-      "host": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "port": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "password": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "db": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "host": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "port": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "password": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "db": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     },
-    "default": "D:\\Code\\github\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
-    "app": "D:\\Code\\github\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
-    "agent": "D:\\Code\\github\\ibeem\\node_modules\\egg-redis\\config\\config.default.js"
+    "default": "D:\\TankerSource\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
+    "app": "D:\\TankerSource\\ibeem\\node_modules\\egg-redis\\config\\config.default.js",
+    "agent": "D:\\TankerSource\\ibeem\\node_modules\\egg-redis\\config\\config.default.js"
   },
   "httpclient": {
     "request": {
-      "timeout": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "timeout": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     },
-    "enableDNSCache": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "dnsCacheLookupInterval": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "dnsCacheMaxLength": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "enableDNSCache": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "httpAgent": {
-      "keepAlive": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "freeSocketKeepAliveTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxFreeSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "keepAlive": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "freeSocketKeepAliveTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "maxFreeSockets": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "keepAlive": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "deviceDataReqUrl": {
     "ibeem": {
-      "getDeviceData": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "getDeviceOnlineStatus": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "getRealtimeData": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "getDeviceData": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "getDeviceOnlineStatus": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "getRealtimeData": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     },
     "coclean": {
-      "appId": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "appKey": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "readDeviceDataUrl": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "readDeviceRealtimeDataUrl": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "cloudCalibratUrl": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "readCloudCalibrat": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "readDeviceList": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "readOnlineRate": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "createExportOrder": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "statusWorkOrder": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "deviceIsOnline": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "appId": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "appKey": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "readDeviceDataUrl": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "readDeviceRealtimeDataUrl": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "cloudCalibratUrl": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "readCloudCalibrat": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "readDeviceList": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "readOnlineRate": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "createExportOrder": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "statusWorkOrder": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "deviceIsOnline": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     }
   },
   "tencentMap": {
-    "url": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "key": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+    "url": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "key": "D:\\TankerSource\\ibeem\\config\\config.default.js"
   },
   "mysql": {
     "client": {
-      "host": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "port": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "user": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "password": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "database": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "host": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "port": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "user": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "password": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "database": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     },
-    "app": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "agent": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "app": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "agent": "D:\\TankerSource\\ibeem\\config\\config.default.js",
     "default": {
-      "database": "D:\\Code\\github\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js",
-      "connectionLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js"
+      "database": "D:\\TankerSource\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js",
+      "connectionLimit": "D:\\TankerSource\\ibeem\\node_modules\\egg-mysql\\config\\config.default.js"
     }
   },
   "email": {
-    "host": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "port": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "secure": "D:\\Code\\github\\ibeem\\config\\config.default.js",
+    "host": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "port": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "secure": "D:\\TankerSource\\ibeem\\config\\config.default.js",
     "auth": {
-      "user": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "pass": "D:\\Code\\github\\ibeem\\config\\config.default.js"
+      "user": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+      "pass": "D:\\TankerSource\\ibeem\\config\\config.default.js"
     },
-    "password": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "email": "D:\\Code\\github\\ibeem\\config\\config.default.js"
-  },
-  "wexin": {
-    "token": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "appId": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "appScrect": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "encodingAESKey": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "apiDomain": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-    "apiUrl": {
-      "accessTokenApi": "D:\\Code\\github\\ibeem\\config\\config.default.js",
-      "ticketApi": "D:\\Code\\github\\ibeem\\config\\config.default.js"
-    }
+    "password": "D:\\TankerSource\\ibeem\\config\\config.default.js",
+    "email": "D:\\TankerSource\\ibeem\\config\\config.default.js"
   },
   "session": {
-    "maxAge": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
-    "key": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
-    "httpOnly": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
-    "encrypt": "D:\\Code\\github\\ibeem\\node_modules\\egg-session\\config\\config.default.js"
+    "maxAge": "D:\\TankerSource\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\TankerSource\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\TankerSource\\ibeem\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\TankerSource\\ibeem\\node_modules\\egg-session\\config\\config.default.js"
   },
   "helper": {
-    "shtml": "D:\\Code\\github\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
+    "shtml": "D:\\TankerSource\\ibeem\\node_modules\\egg-security\\config\\config.default.js"
   },
   "jsonp": {
-    "limit": "D:\\Code\\github\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
-    "callback": "D:\\Code\\github\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
-    "csrf": "D:\\Code\\github\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js"
+    "limit": "D:\\TankerSource\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\TankerSource\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\TankerSource\\ibeem\\node_modules\\egg-jsonp\\config\\config.default.js"
   },
   "onerror": {
-    "errorPageUrl": "D:\\Code\\github\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
-    "appErrorFilter": "D:\\Code\\github\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
-    "templatePath": "D:\\Code\\github\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js"
+    "errorPageUrl": "D:\\TankerSource\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\TankerSource\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\TankerSource\\ibeem\\node_modules\\egg-onerror\\config\\config.default.js"
   },
   "i18n": {
-    "defaultLocale": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "dirs": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "queryField": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "cookieField": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
-    "cookieMaxAge": "D:\\Code\\github\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js"
+    "defaultLocale": "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\TankerSource\\ibeem\\node_modules\\egg-i18n\\config\\config.default.js"
   },
   "watcher": {
-    "type": "D:\\Code\\github\\ibeem\\node_modules\\egg-watcher\\config\\config.local.js",
+    "type": "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher\\config\\config.local.js",
     "eventSources": {
-      "default": "D:\\Code\\github\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js",
-      "development": "D:\\Code\\github\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js"
+      "default": "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\TankerSource\\ibeem\\node_modules\\egg-watcher\\config\\config.default.js"
     }
   },
   "customLogger": {
     "scheduleLogger": {
-      "consoleLevel": "D:\\Code\\github\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js",
-      "file": "D:\\Code\\github\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js"
+      "consoleLevel": "D:\\TankerSource\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\TankerSource\\ibeem\\node_modules\\egg-schedule\\config\\config.default.js"
     }
   },
   "multipart": {
-    "mode": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "autoFields": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "defaultCharset": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fieldNameSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fieldSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fields": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fileSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "files": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "fileExtensions": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "whitelist": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
-    "tmpdir": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "mode": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js",
     "cleanSchedule": {
-      "cron": "D:\\Code\\github\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js"
+      "cron": "D:\\TankerSource\\ibeem\\node_modules\\egg-multipart\\config\\config.default.js"
     }
   },
   "development": {
-    "watchDirs": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "ignoreDirs": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "fastReady": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "reloadOnDebug": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
-    "overrideDefault": "D:\\Code\\github\\ibeem\\node_modules\\egg-development\\config\\config.default.js"
+    "watchDirs": "D:\\TankerSource\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\TankerSource\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "D:\\TankerSource\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\TankerSource\\ibeem\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\TankerSource\\ibeem\\node_modules\\egg-development\\config\\config.default.js"
   },
   "logrotator": {
-    "filesRotateByHour": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "hourDelimiter": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "filesRotateBySize": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxFileSize": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxFiles": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "rotateDuration": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
-    "maxDays": "D:\\Code\\github\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js"
+    "filesRotateByHour": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\TankerSource\\ibeem\\node_modules\\egg-logrotator\\config\\config.default.js"
   },
   "static": {
-    "prefix": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "dir": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "dynamic": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "preload": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "buffer": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
-    "maxFiles": "D:\\Code\\github\\ibeem\\node_modules\\egg-static\\config\\config.default.js"
+    "prefix": "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\TankerSource\\ibeem\\node_modules\\egg-static\\config\\config.default.js"
   },
   "ejs": {
-    "root": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "cache": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.local.js",
-    "debug": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "compileDebug": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "delimiter": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
-    "strict": "D:\\Code\\github\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js"
+    "root": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "cache": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\config.local.js",
+    "debug": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "compileDebug": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "delimiter": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "strict": "D:\\TankerSource\\ibeem\\node_modules\\egg-view-ejs\\config\\config.default.js"
   },
-  "env": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "name": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "proxy": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "protocolHeaders": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "ipHeaders": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "hostHeaders": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "env": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
   "pkg": {
-    "name": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "version": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "description": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "private": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "name": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "private": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "dependencies": {
-      "await-stream-ready": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-messager": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-mysql": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-redis": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-scripts": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-view-ejs": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "fs": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "node-xlsx": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "path": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "qrcode": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "redlock": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "stream-wormhole": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "util": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "await-stream-ready": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-messager": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-redis": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-ejs": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "fs": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "node-xlsx": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "qrcode": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "redlock": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "stream-wormhole": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "devDependencies": {
-      "autod": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "autod-egg": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-bin": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-ci": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "egg-mock": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "eslint": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "eslint-config-egg": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "webstorm-disable-index": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "autod": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "webstorm-disable-index": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "engines": {
-      "node": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "node": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "scripts": {
-      "start": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "stop": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "dev": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "debug": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "test": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "test-local": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "cov": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "lint": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "ci": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "autod": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "start": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "stop": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "dev": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "debug": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "test": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "test-local": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "cov": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "lint": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "ci": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "autod": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "ci": {
-      "version": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "version": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
     "repository": {
-      "type": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "url": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "type": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "url": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     },
-    "author": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "license": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "author": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
-  "baseDir": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "HOME": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "rundir": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "baseDir": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
   "dump": {
-    "ignore": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "ignore": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "notFound": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "sitefile": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "middlewares": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "httpClient": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "bodyparser": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "notfound": {
-    "pageUrl": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "pageUrl": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "/favicon.ico": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
   "bodyParser": {
-    "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "encoding": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "formLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "jsonLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "strict": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
     "queryString": {
-      "arrayLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "depth": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "parameterLimit": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "arrayLimit": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "meta": {
-    "enable": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "logging": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "enable": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
-  "coreMiddleware": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-  "workerStartTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "coreMiddleware": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
   "cluster": {
     "listen": {
-      "path": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "port": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-      "hostname": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+      "path": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
     }
   },
   "clusterClient": {
-    "maxWaitTime": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js",
-    "responseTimeout": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+    "maxWaitTime": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
   },
-  "onClientError": "D:\\Code\\github\\ibeem\\node_modules\\egg\\config\\config.default.js"
+  "onClientError": "D:\\TankerSource\\ibeem\\node_modules\\egg\\config\\config.default.js"
 }
