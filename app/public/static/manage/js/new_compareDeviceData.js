@@ -1676,7 +1676,7 @@ init();
 			        			   type:"post",
 			        			   dataType:"json",
 			        			   //async: false,
-			        			   url:"/device/environmentAlignDataByTime",
+			        			   url:"/device/view/environment_data_align",
 			        			   data:{
 			        				   deviceId:deviceId[i],
 			        				   startTime:startTime,
@@ -2242,9 +2242,8 @@ init();
  	   			   //async:false,
  	   			   url:"/device/download/history",
  	   			   success:function(data){
-
+						console.log(data)
  	  					if(data.code==200){
- 	  						
  	  						var $strshow='';
  	  						for(var i=0;i<data.list.length;i++){
  	  							var workOrderStatus='';
@@ -2444,7 +2443,6 @@ init();
  	    						}
  	    						
  	    						if(data.code==200){
- 	    							
  	    							var workOrderStatus='';
  	    							if(data.workOrder.status=="finish"){
  	    								workOrderStatus = getLangStr("devicedata_result6");

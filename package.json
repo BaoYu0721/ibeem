@@ -4,11 +4,13 @@
   "description": "ibeem",
   "private": true,
   "dependencies": {
+    "adm-zip": "^0.4.13",
     "await-stream-ready": "^1.0.1",
     "egg": "^2.2.1",
     "egg-messager": "^0.1.0",
     "egg-mysql": "^3.0.0",
     "egg-redis": "^2.0.0",
+    "egg-schedule": "^3.6.0",
     "egg-scripts": "^2.5.0",
     "egg-view-ejs": "^2.0.0",
     "fs": "0.0.1-security",

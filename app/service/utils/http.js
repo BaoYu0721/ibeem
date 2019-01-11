@@ -4,6 +4,16 @@ const Service = require('egg').Service;
 
 class HttpService extends Service {
 
+    async urlReq(url){
+        const { ctx } = this;
+        try {
+            const result = await ctx.curl(url);
+            return result.data.toString();
+        } catch (error) {
+            return -1;
+        }
+    }
+
     async cocleanPost(url, param){
         const { ctx } = this;
         const time =  Date.parse(new Date())/1000;

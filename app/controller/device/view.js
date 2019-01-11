@@ -73,7 +73,20 @@ class ViewController extends Controller {
             messg: "系统繁忙请重试"
           };
         }
-      }
+    }
+
+    async environmentDataAlign(){
+        const { ctx } = this;
+        const reqData = ctx.request.body;
+        const result = await ctx.service.device.view.environmentDataAlign(reqData);
+        console.log(result);
+        if(result == -1){
+            return ctx.body = {
+                result: "error"
+            };
+        }
+        ctx.body = result;
+    }
 }
 
 module.exports = ViewController;

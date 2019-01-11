@@ -15,8 +15,8 @@ class DownloadService extends Service {
             const resultMap = {
               id: result[key].id,
               status: result[key].status,
-              url: result[key].url,
-              workid: result[key].work_id,
+              url: result[key].path,
+              workid: result[key].id,
               deviceName: result[key].device_name,
               startTime: this.ctx.helper.dateFormat(result[key].start_time),
               endTime: this.ctx.helper.dateFormat(result[key].end_time),
@@ -139,11 +139,12 @@ class DownloadService extends Service {
                 begin_work_time: workOrderMap.begin_work_time,
                 end_work_time: workOrderMap.end_work_time,
                 step: workOrderMap.step,
-                work_id: workOrderMap.work_id != undefined ? workOrderMap.work_id: '',
-                ids: workOrderMap.ids != undefined ? workOrderMap.ids: '',
+                work_id: workOrderMap.work_id? workOrderMap.work_id: null,
+                ids: workOrderMap.ids? workOrderMap.ids: '',
                 type: workOrderMap.type
             });
         } catch (error) {
+            console.log(error);
             return -1;
         }
         const resultMap = {
@@ -157,6 +158,19 @@ class DownloadService extends Service {
             time: workOrderMap.time
         };
         return resultMap;
+    }
+
+    async getUnfinishWorkOrder(){
+        const { app } = this;
+        var result = null;
+        try {
+            result = await app.mysql.select('work_order', {where:{
+                status: 'unfinish'
+            }});
+        } catch (error) {
+            return -1;
+        }
+        return result;
     }
 }
 

@@ -63,6 +63,7 @@ module.exports = app => {
   router.post('/device/download/create_work_order', userRequired, controller.device.download.createWorkOrder);
   router.post('/device/view/on_line_rate', userRequired, controller.device.view.getOnlineRate);
   router.post('/device/view/environment', userRequired, controller.device.view.getEnvironmentData);
+  router.post('/device/view/environment_data_align', userRequired, controller.device.view.environmentDataAlign);
   router.post('/device/view/standard_rate', userRequired, controller.device.view.getDeviceComplianceRate);
   router.post('/device/status', userRequired, controller.device.status.getStatus);
   

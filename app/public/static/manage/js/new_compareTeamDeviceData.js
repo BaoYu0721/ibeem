@@ -1933,7 +1933,7 @@ init();
 			        			   type:"post",
 			        			   dataType:"json",
 			        			   async: false,
-			        			   url:"/device/environmentAlignDataByTime",
+			        			   url:"/device/view/environment_data_align",
 			        			   data:{
 			        				   deviceId:deviceId[i],
 			        				   startTime:startTime,

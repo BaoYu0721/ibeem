@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const xlsx = require('node-xlsx');
 const util = require('util');
+const adm_zip = require('adm-zip');
 
 exports.crypto = str => {
   return crypto.createHash("md5").update(str).digest('hex');
@@ -18,6 +19,10 @@ exports.dateFormat = date => {
 
 exports.dateFormatOther = date => {
   return moment(date).format('YYYY-MM-DD');
+}
+
+exports.dateDayPre = (date, num) => {
+  return moment(date).subtract('day', num).format('YYYY-MM-DD');
 }
 
 exports.mkdirSync = dirname => {
@@ -35,10 +40,32 @@ exports.mkdirSync = dirname => {
   }
 }
 
-//生成excel
+//生成excel数据
 exports.xlsxData = data => {
   return xlsx.build([{data: data}]);
 }
+
+//生成excel文件
+exports.xlsxWriteFile = (data, filename) => {
+  const buffer = xlsx.build([{name: "data", data: data}])
+  fs.writeFileSync(filename, buffer);
+}
+
+//压缩文件夹
+exports.floderToZip = (pathname, flodername) => {
+  const zip = new adm_zip();
+  const floderpath = './tmp/' + flodername;
+  const filename = pathname + flodername + '.zip';
+  zip.addLocalFolder(floderpath);
+  zip.writeZip(filename);
+  const files = fs.readdirSync(floderpath);
+  for(var i = 0; i < files.length; ++i){
+    const filepath = floderpath + '/' + files[i];
+    fs.unlinkSync(filepath);
+  }
+  fs.rmdirSync(floderpath);
+}
+
 //生成二维码
 exports.qrcode = id => {
   this.mkdirSync('./app/public/file/qrcode');

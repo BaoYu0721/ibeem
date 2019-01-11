@@ -15,22 +15,22 @@ class IndexService extends Service {
         const deviceList = [];
         function addDeviceMap(pname, gname, cname, bname, ownerName, id, deviceName, userName, latitude, longitude, type, address, Online_status, warning_sign, des, memo) {
             const deviceMap = {
-              pname: pname,
-              gname: gname,
-              cname: cname,
-              bname: bname,
-              ownerName: ownerName,
+              pname: pname == null? '': pname,
+              gname: gname == null? '': gname,
+              cname: cname == null? '': cname,
+              bname: bname == null? '': bname,
+              ownerName: ownerName == null? '': ownerName,
               id: id,
-              deviceName: deviceName,
-              userName: userName,
-              latitude: latitude,
-              longitude: longitude,
-              type: type,
-              address: address,
-              status: Online_status,
-              waining: warning_sign,
-              description: des,
-              memo: memo
+              deviceName: deviceName == null? '': deviceName,
+              userName: userName == null? '': userName,
+              latitude: latitude == null? '': latitude,
+              longitude: longitude == null? '': longitude,
+              type: type == null? '': type,
+              address: address == null? '': address,
+              status: Online_status == null? '': Online_status,
+              waining: warning_sign == null? '': warning_sign,
+              description: des == null? '': des,
+              memo: memo == null? '': memo
             };
             deviceList.push(deviceMap);
         }
