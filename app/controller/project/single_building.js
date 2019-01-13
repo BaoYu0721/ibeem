@@ -44,6 +44,25 @@ class SingleBuildingController extends Controller {
         }
     }
 
+    async buildingImport(){
+        const { ctx } = this;
+        const projectId = ctx.query.projectID;
+        const type = ctx.query.type;
+        const filepath = ctx.request.files[0].filepath;
+        const xlsx = ctx.helper.parseXlsx(filepath);
+        if(type == '1'){
+            const sheet1 = xlsx[0].data;
+            if(sheet1.length > 1 && sheet1[0][4].replace(/^\s+|\s+$/g, '')
+ == '项目名称'){
+                console.log(sheet1);
+            }
+        }else if(type == '2'){
+            console.log('2');
+        }else if(type == '3'){
+            const buildingName = ctx.query.buildingName;
+        }
+    }
+
     async buildingDelete(){
         const { ctx } = this;
         const type = ctx.request.body.type;

@@ -1535,7 +1535,7 @@ init();
 		   $.ajax({
     			   type:"post",
     			   dataType:"json",
-    			   url:"/device/environmentdata",
+    			   url:"/device/view/environment",
     			   data:{
     				   deviceId:id,
     				   startTime:startTime,

@@ -40,12 +40,17 @@ exports.mkdirSync = dirname => {
   }
 }
 
-//生成excel数据
+//解析xlsx文件数据
+exports.parseXlsx = filename => {
+  return xlsx.parse(filename);
+}
+
+//生成xlsx数据
 exports.xlsxData = data => {
   return xlsx.build([{data: data}]);
 }
 
-//生成excel文件
+//生成xlsx文件
 exports.xlsxWriteFile = (data, filename) => {
   const buffer = xlsx.build([{name: "data", data: data}])
   fs.writeFileSync(filename, buffer);

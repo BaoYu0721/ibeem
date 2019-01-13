@@ -40,12 +40,20 @@ class ViewService extends Service {
             return null;
         }
         const daviceDataList = [];
-        const sTimeHours = sWorkTime.split(':')[0];
-        const sTimeMinutes = sWorkTime.split(':')[1];
-        const eTimeHours = eWorkTime.split(':')[0];
-        const eTimeMinutes = eWorkTime.split(':')[1];
-        const sTimes = sTimeHours * 60 + sTimeMinutes;
-        const eTimes = eTimeHours * 60 + eTimeMinutes;
+        var sTimeHours = null;
+        var sTimeMinutes = null;
+        var eTimeHours = null;
+        var eTimeMinutes = null;
+        var sTimes = null;
+        var eTimes = null;
+        if(sWorkTime && eWorkTime){
+            sTimeHours = sWorkTime.split(':')[0];
+            sTimeMinutes = sWorkTime.split(':')[1];
+            eTimeHours = eWorkTime.split(':')[0];
+            eTimeMinutes = eWorkTime.split(':')[1];
+            sTimes = sTimeHours * 60 + sTimeMinutes;
+            eTimes = eTimeHours * 60 + eTimeMinutes;
+        }
         if(device.type == "coclean"){
             const dayTime = 24 * 60 * 60;
             sTime = parseInt(sTime);
@@ -97,6 +105,10 @@ class ViewService extends Service {
                                     daviceDataList.push(dataMap);
                                 }
                             }else{
+                                daviceDataList.push(dataMap);
+                            }
+                        }else{
+                            if(sWorkTime && eWorkTime){
                                 daviceDataList.push(dataMap);
                             }
                         }
@@ -189,9 +201,9 @@ class ViewService extends Service {
         }
         if(!device) return null;
         if(sTime > eTime) return null;
-        const sWorkTime = data.begin_work_time;
-        const eWorkTime = data.end_work_time;
-        const isWorkDay = data.work_day;
+        const sWorkTime = data.startWorkTime;
+        const eWorkTime = data.endWorkTime;
+        const isWorkDay = data.workDay;
         const sWorkHour = parseInt(sWorkTime.split(':')[0]);
         const sWorkMinute = parseInt(sWorkTime.split(':')[1]);
         const eWorkHour = parseInt(eWorkTime.split(':')[0]);
@@ -212,7 +224,7 @@ class ViewService extends Service {
                 const param = {
                     startTime: sTime,
                     endTime: tempTime,
-                    deviceId: deviceId,
+                    deviceId: data.deviceId,
                     page: 1,
                     pageSize: 1440
                 };
@@ -301,7 +313,7 @@ class ViewService extends Service {
         }
         const temp = [];
         for(var i = parseInt(data.startTime); i < parseInt(data.endTime); i += parseInt(data.step) * 60){
-            for(var j = 0; j < tempList.size(); ++j){
+            for(var j = 0; j < tempList.length; ++j){
                 if(tempList[j].time > i && tempList[j] <= i + data.step * 60){
                     if(temp[i]){
                         temp[i].tem += tempList[j].tem;

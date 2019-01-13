@@ -2600,7 +2600,7 @@ init();
 	    				$.ajax({
 	 	     			   type:"post",
 	 	     			   dataType:"json",
-	 	     			   url:"/device/environmentdata",
+	 	     			   url:"/device/view/environment",
 	 	     			   data:{
 	 	     				   deviceId:downDeviceId[i],
 	 	     				   startTime:startTimeStamp2,

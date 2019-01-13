@@ -224,10 +224,10 @@ $("#UpLoadFileButton").click(function(){
 		alertokMsg(getLangStr("import_building_messg1"),getLangStr("determine"));
 		return;
 	}else if($("#buildingClass").val()==1){
-		ajaxUrl = "/building/importOfficeBuilding?projectID=" + tid;
+		ajaxUrl = "/project/single/building/import?projectID=" + tid + "&type=1";
 		type = "gg_";
 	}else if($("#buildingClass").val()==2){
-		ajaxUrl = "/building/importBuilding?projectID=" + tid;
+		ajaxUrl = "/project/single/building/import?projectID=" + tid + "&type=2";
 		type = "jz_";
 	}else if($("#buildingClass").val()==3){
 		
@@ -236,11 +236,33 @@ $("#UpLoadFileButton").click(function(){
 			return;
 		}
 		
-		ajaxUrl = "/building/importTopBuilding?projectID=" + tid +"&buildingName=" + tname;
+		ajaxUrl = "/project/single/building/import?projectID=" + tid +"&buildingName=" + tname + "&type=1";
 	}else{
 		console.log("类型出错！请先修改JS中的代码~ 调试专用提示！","确定");
 		return;
 	}
+
+	// if($("#buildingClass").val()==""){
+	// 	alertokMsg(getLangStr("import_building_messg1"),getLangStr("determine"));
+	// 	return;
+	// }else if($("#buildingClass").val()==1){
+	// 	ajaxUrl = "/building/importOfficeBuilding?projectID=" + tid;
+	// 	type = "gg_";
+	// }else if($("#buildingClass").val()==2){
+	// 	ajaxUrl = "/building/importBuilding?projectID=" + tid;
+	// 	type = "jz_";
+	// }else if($("#buildingClass").val()==3){
+		
+	// 	if($.trim(tname)==""){
+	// 		alertokMsg(getLangStr("add_building_messg1"),getLangStr("determine"));
+	// 		return;
+	// 	}
+		
+	// 	ajaxUrl = "/building/importTopBuilding?projectID=" + tid +"&buildingName=" + tname;
+	// }else{
+	// 	console.log("类型出错！请先修改JS中的代码~ 调试专用提示！","确定");
+	// 	return;
+	// }
 
 	UpLoadFile(ajaxUrl,type);
 });
@@ -255,7 +277,6 @@ $("#selectBuildingClass").change(function(){
 })
 
 function UpLoadFile(ajaxUrl,type) {
-	
 	var formData = new FormData($("#fileUpLoad")[0]);
 	var this_val = $("#building_file").val();
 	var $thisStr = this_val.split("\\");
@@ -269,7 +290,6 @@ function UpLoadFile(ajaxUrl,type) {
 //		alertokMsg(getLangStr("import_building_messg5"),getLangStr("alert_ok"));
 //		return;
 //	}
-	
 	$.ajax({
 		url: ajaxUrl,
 		type: "POST",

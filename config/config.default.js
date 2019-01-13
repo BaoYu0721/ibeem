@@ -50,6 +50,18 @@ module.exports = appInfo => {
     }
   }
 
+  exports.multipart = {
+    mode: 'file',
+    tmpdir: './tmp',
+    fileSize: '50mb',
+    cleanSchedule: {
+      cron: '0 30 4 * * *'
+    },
+    fileExtensions: [
+      '.xlsx',
+    ],
+  };
+
   //httpUrl
   config.deviceDataReqUrl = {
     ibeem: {
@@ -81,11 +93,11 @@ module.exports = appInfo => {
   //mysql
   exports.mysql = {
     client: {
-      host: '192.168.0.188',
+      host: 'localhost',
       port: 3306,
       user: 'root',
       password: 'root',
-      database: 'ibeem_test',
+      database: 'ibeem',
     },
     app: true,
     agent: false,

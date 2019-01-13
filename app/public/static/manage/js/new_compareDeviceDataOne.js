@@ -2775,7 +2775,7 @@ init();
 	    				$.ajax({
 	 	     			   type:"post",
 	 	     			   dataType:"json",
-	 	     			   url:"/device/environmentdata",
+	 	     			   url:"/device/view/environment",
 	 	     			   data:{
 	 	     				   deviceId:downDeviceId[i],
 	 	     				   startTime:startTimeStamp2,
@@ -2784,7 +2784,7 @@ init();
 	 	     			   success:function(data){
 	 	     				  
 	 	     				   	removeLoading();
-	 	     				   	// console.log(data);
+	 	     				   	//console.log(data);
 	 	     				    currentIndex++;
 	 	     				    var deviceName=data.deviceName;
 	 	     				    downloadData[deviceName]=data.data;

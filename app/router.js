@@ -96,6 +96,7 @@ module.exports = app => {
   router.post('/project/single/info', userRequired, controller.project.single.projectInfo);
   router.post('/project/single/building', userRequired, controller.project.single.buildingInfo);
   router.post('/project/single/building/increase', userRequired, controller.project.singleBuilding.buildingIncrease);
+  router.post('/project/single/building/import', userRequired, controller.project.singleBuilding.buildingImport);
   router.post('/project/single/building/delete', userRequired, controller.project.singleBuilding.buildingDelete);
   router.post('/project/single/building/view', userRequired, controller.project.singleBuilding.buildingView);
   router.post('/project/single/building/infomation', userRequired, controller.project.singleBuilding.buildingInfomation);
