@@ -302,13 +302,15 @@ function UpLoadFile(ajaxUrl,type) {
 			console.log(data);
 	
 			if(data.code == 200) {
-				alertokMsg(getLangStr("import_building_messg2"),getLangStr("determine"),"window.location.href='/redirect?url=manage/teamBuilding.jsp\'");
+				alertokMsg(getLangStr("import_building_messg2"),getLangStr("determine"),"window.location.reload()");
 			} else if(data.code == 1005)  {	
 				alertokMsg(getLangStr("import_building_messg3"),getLangStr("determine"));
 			} else if(data.code == 1001){
 				alertokMsg(getLangStr("import_building_messg4"),getLangStr("determine"));
 			}else if(data.code == 1007){
 				alertokMsg(getLangStr("import_building_messg5"),getLangStr("determine"));
+			}else if(data.code == 1000){
+				alertokMsg(getLangStr("import_building_messg7"),getLangStr("determine"));
 			}
 		},
 		error: function(e) { // 

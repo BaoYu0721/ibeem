@@ -1,5 +1,4 @@
 'use strict';
-const path = require('path');
 
 module.exports = appInfo => {
   const config = exports = {};
@@ -93,11 +92,11 @@ module.exports = appInfo => {
   //mysql
   exports.mysql = {
     client: {
-      host: 'localhost',
+      host: '192.168.0.188',
       port: 3306,
       user: 'root',
       password: 'root',
-      database: 'ibeem',
+      database: 'ibeem_test',
     },
     app: true,
     agent: false,

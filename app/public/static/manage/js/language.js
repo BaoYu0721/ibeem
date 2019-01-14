@@ -339,6 +339,7 @@ var ch ={
 		"import_building_messg4":"文件类型不对，请重试",
 		"import_building_messg5":"文件格式不对",
 		"import_building_messg6":"请先选择文件",
+		"import_building_messg7":"导入模板建筑没有数据",
 //设备列表 && 项目设备列表
 		"deviceList_list":"设备列表",
 		"deviceList_del_ok":"删除成功",
@@ -1009,6 +1010,7 @@ var en ={
 		"import_building_messg4":"The file type is incorrect. Please try again",
 		"import_building_messg5":"The file is incorrect.",
 		"import_building_messg6":"Please select a file first",
+		"import_building_messg7":"Import template building without data",
 //设备列表 && 项目设备列表
 		"deviceList_list":"Device List",
 		"deviceList_del_ok":"Delete successfully",

@@ -49,17 +49,66 @@ class SingleBuildingController extends Controller {
         const projectId = ctx.query.projectID;
         const type = ctx.query.type;
         const filepath = ctx.request.files[0].filepath;
+        const fileCheck = filepath.split('.');
+        if(fileCheck[fileCheck.length - 1] != 'xlsx'){
+            return ctx.body = {
+                code: 1001
+            };
+        }
         const xlsx = ctx.helper.parseXlsx(filepath);
         if(type == '1'){
             const sheet1 = xlsx[0].data;
-            if(sheet1.length > 1 && sheet1[0][4].replace(/^\s+|\s+$/g, '')
- == '项目名称'){
-                console.log(sheet1);
+            if(!sheet1[0][22] || sheet1[0][22].replace(/^\s+|\s+$/g, '') != '备注'){
+                return ctx.body = {
+                    code: 1001
+                };
+            }
+            if(sheet1.length == 1){
+                return ctx.body = {
+                    code: 1000
+                };
+            }
+            const result = await ctx.service.project.singleBuilding.buildingImportType1(projectId, xlsx);
+            if(result == -1){
+                return ctx.body = {
+                    code: 1005
+                }
+            }
+            return ctx.body = {
+                code: 200
             }
         }else if(type == '2'){
-            console.log('2');
+            const sheet2 = xlsx[0].data;
+            if(!sheet2[0][20] || sheet2[0][20].replace(/^\s+|\s+$/g, '') != '备注'){
+                return ctx.body = {
+                    code: 1001
+                };
+            }
+            if(sheet2.length == 1){
+                return ctx.body = {
+                    code: 1000
+                };
+            }
+            const result = await ctx.service.project.singleBuilding.buildingImportType2(projectId, xlsx);
+            if(result == -1){
+                return ctx.body = {
+                    code: 1005
+                }
+            }
+            return ctx.body = {
+                code: 200
+            }
         }else if(type == '3'){
             const buildingName = ctx.query.buildingName;
+            const result = await ctx.service.project.singleBuilding.buildingImportType3(projectId, xlsx, buildingName);
+            if(result == -1){
+                return ctx.body = {
+                    code: 1005
+                }
+            }
+            return ctx.body = {
+                code: 200
+            }
         }
     }
 
