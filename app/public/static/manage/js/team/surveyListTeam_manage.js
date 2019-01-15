@@ -146,12 +146,12 @@ $(document).ready(function() {
 } );
 
 $("#addSurvey").click(function(){
-	window.location.href="/redirect?url=administrator/surveyAdd_manage.jsp"
+	window.location.href="/admin/survey?item=increase"
 })
 var surveyArr=[];
 $("#bindSurvey").click(function(){
 	//获取没有绑定过项目的问卷列表
-	var url="/survey/getListByAdmin";
+	var url="/admin/project/single/survey/search";
 	var json={"projectID":teamID};
 	var successFunc = function(data){
 		var list = data.list;
@@ -238,7 +238,7 @@ $("#surveyReport").click(function(){
 	$.cookie("gxbuildingName","");
 	$.cookie("gxpointId","");
 	$.cookie("gxpointName","");
-	window.location.href="/redirect?url=administrator/surveyReportTeam.jsp?relation=1"
+	window.location.href += "&to=statistics&relation=1";
 })
 //点击问卷分析按钮
 $("#surveyAnalysis").click(function(){
@@ -253,7 +253,7 @@ $("#surveyAnalysis").click(function(){
 		return false;
 	}
 	$.cookie("fxsurveyId",id);
-	window.location.href="/redirect?url=administrator/surveyAnalysisTeam.jsp?relation=1&objectID="+teamID
+	window.location.href += "&to=analysis&relation=1&oid=" + teamID;
 });
 //点击下载答卷按钮
 $("#surveyExport").click(function(){
@@ -288,13 +288,13 @@ $("#exportExcel").click(function(){
 	var answerList ;
 	var questionList;
 	var id = $("#datatable_body").find(".ui.checkbox.checked").data("id");
-	var url="/admin/exportSurvey";
+	var url="/admin/survey/download/answer";
 	var json={"surveyID":id,"startTime":start,"endTime":end,"relation":1,"objectID":teamID};
 	var successFunc = function(data){
 		answerList = data.list;
 	};
 	sentJsonSync(url,json,successFunc);
-	url = "/admin/getSurveyByID";
+	url = "/admin/survey/download/question";
 	json={"surveyID":id};
 	successFunc = function(data){
 		questionList = data.list;

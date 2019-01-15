@@ -21,7 +21,7 @@ class WorkOrder extends Subscription{
                 try {
                     if(res.status == 'finish'){
                         this.ctx.helper.floderToZip(res.pathname, res.flodername);
-                        const filename = './public/file/csv/' + res.flodername + '.zip';
+                        const filename = '/public/file/csv/' + res.flodername + '.zip';
                         const url = res.url;
                         await redlock.lock(resource, ttl).then(function(lock) {
                             async function transation() {
@@ -71,7 +71,7 @@ class WorkOrder extends Subscription{
             }else if(result[key].type == 1){
                 const res = await this.ibeem(result[key]);
                 this.ctx.helper.floderToZip(res.pathname, res.flodername);
-                const filename = './public/file/csv/' + res.flodername + '.zip';
+                const filename = '/public/file/csv/' + res.flodername + '.zip';
                 try {
                     await redlock.lock(resource, ttl).then(function(lock) {
                         async function transation() {

@@ -95,7 +95,7 @@ class SingleService extends Service {
                 return -1;
             }
             const surveyMap = {
-                id: surveyIds[key],
+                id: surveyIds[key].survey_id,
                 title: survey.title,
                 introduction: survey.introduction,
                 name: creator.name,

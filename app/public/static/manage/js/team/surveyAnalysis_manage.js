@@ -79,14 +79,10 @@ $("#add").click(function(){
 var surveyId = $.cookie("fxsurveyId");
 //获取当前维度
 function getQueryString(name) { 
-	var url = window.location.href;
-	var params = url.split(".jsp?")[1];
-	var paramArr = params.split("&");
-	var paramObj = {};
-	for(var i in paramArr){
-		paramObj[paramArr[i].split("=")[0]] = paramArr[i].split("=")[1];
-	}
-	return paramObj[name]==undefined?null:paramObj[name];
+	var params = decodeURI(window.location.search);
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	var r = params.substr(1).match(reg);
+	if (r!=null) return unescape(r[2]); return null;
 }
 var paramRelation = getQueryString("relation");
 var paramObjectId = getQueryString("objectID")==""?null:getQueryString("objectID");
@@ -101,7 +97,7 @@ $('.some_class').datetimepicker({
 });
 //根据问卷ID获取题目列表，放到自变量和因变量的下拉框中
 $(function(){
-	var url = "/admin/getSurveyByID";
+	var url = "/admin/survey/getSurveyById";
 	var json = {"surveyID":surveyId};
 	function successFunc(data){
 		var dlList = data.list;
@@ -280,8 +276,9 @@ var orderNum = 1;
 var colorArr =[]; 
 //分类枚举题
 function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,startTime,endTime){
+	var returnFlag = "";
 	//获取json
-	var url = "/admin/analysisSurvey";
+	var url = "/admin/survey/analysisSurvey";
 	if(jsonType!="question")
 		zi=-1;
 	var json = {"surveyID":surveyId,"zid":zi,"yid":yin,"type":jsonType,"startTime":startTime,"endTime":endTime,"relation":paramRelation,"objectID":paramObjectId};
@@ -301,7 +298,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 	if(chartType =="chart1"){
 //		dataJson = {"男":{"电脑":10,"化妆品":0,"书":5},"女":{"电脑":2,"化妆品":15,"书":8}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart1(dataJson,"myChart_"+orderNum);
@@ -311,7 +308,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 	else if(chartType =="chart2"){
 //		dataJson = {analysis:[{"id":1,"textlist":[{"time":"2017-05-20","answer":"我是答案"},{"time":"2017-05-20","answer":"我是答案"},{"time":"2017-05-20","answer":"我回答回答了"}]},{"id":2,"textlist":['我是答案','我来回答','我回答回答了']},{"id":3,"textlist":['我是答案','我来回答','我回答回答了']}]};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis2.html",
+		getComponent("/common/analysis2",
 				function(result){
 					$("#container").append(result);
 					//获取选项，初始化下拉列表，给一个默认选项
@@ -396,7 +393,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 		//获取json
 //		var dataJson = {"温度":{"男":{"非常不满意":10,"一般般":0,"满意":5},"女":{"非常不满意":6,"一般般":6,"满意":3}},"湿度":{"男":{"非常不满意":5,"一般般":9,"满意":1},"女":{"非常不满意":12,"一般般":1,"满意":2}},"PM2.5":{"男":{"非常不满意":13,"一般般":1,"满意":1},"女":{"非常不满意":10,"一般般":4,"满意":1}}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart3(dataJson,"myChart_"+orderNum);
@@ -407,7 +404,7 @@ function createChart(title,zi,ziTitle,ziType,yin,yinTitle,jsonType,chartType,sta
 		//获取json
 //		var dataJson = {"男":{"温度满意度":{"1":10,"2":0,"3":5,"4":3,"5":8,"6":2},"湿度满意度":{"1":6,"2":6,"3":3,"4":3,"5":8,"6":2}},"女":{"温度满意度":{"1":5,"2":9,"3":1,"4":3,"5":8,"6":2},"湿度满意度":{"1":12,"2":1,"3":2,"4":3,"5":8,"6":2}}};
 		//放置一个分析图表
-		getComponent("/static/manage/components/analysis1.html",
+		getComponent("/common/analysis1",
 				function(result){
 					$("#container").append(result);
 					initChart4(dataJson,"myChart_"+orderNum);
@@ -519,7 +516,7 @@ $("#chartDropdown_1").dropdown();
 //$("#datatable_ddd").DataTable({ scrollY: '50vh', scrollCollapse: true, paging: false ,"language": {  "info": "", "infoEmpty": "没有记录", "infoFiltered": "" }});
 //==============================调用方法==============================
 function getSetting(surveyId){
-	var url = "/admin/getDimension";
+	var url = "/admin/survey/getDimension";
 	var json = {"surveyID":surveyId};
 	var setting ={};
 	function successFunc(data){

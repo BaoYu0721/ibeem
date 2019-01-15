@@ -37,12 +37,12 @@
 <div class="ui basic test modal export">
 	<i class="green close icon"></i>
 	<div class="container">
-	<span class="export-title"><spring:message code="surveyListDevice.select" /></span>
-		<span class="starttime-span"><spring:message code="surveyListDevice.starttime" /></span>
-		<input id="startTime" class="some_class starttime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
-		<span class="endtime-span"><spring:message code="surveyListDevice.endtime" /></span>
-		<input id="endTime" class="some_class endtime" placeholder="<spring:message code="surveyListDevice.clicktochoose" />"/>
-		<a download="surveyExport.xls" class="export-button" id="exportExcel" href="javascript:void(0)"><spring:message code="surveyListDevice.downloadexcel" /></a>
+	<span class="export-title">选择时间段进行下载</span>
+		<span class="starttime-span">问卷开始时间</span>
+		<input id="startTime" class="some_class starttime" placeholder=""/>
+		<span class="endtime-span">问卷结束时间</span>
+		<input id="endTime" class="some_class endtime" placeholder=""/>
+		<a download="surveyExport.xls" class="export-button" id="exportExcel" href="javascript:void(0)">下载Excel</a>
 	</div>
 </div>
 <table id="exceltable" style="display:none;"></table>
@@ -79,16 +79,16 @@
                 		<div class="title">
                 			<span class="title-content">问卷列表</span>
 							<div class="survey-button">
-								<button id="surveyExport">绑定答卷</button>
+								<button id="surveyExport">下载答卷</button>
 							</div>
 							<div class="survey-button">
-								<button id="bindSurvey">统计答卷</button>
+								<button id="bindSurvey">绑定答卷</button>
 							</div>
 							<div class="survey-button">
-								<button id="surveyReport">分析答卷</button>
+								<button id="surveyReport">统计答卷</button>
 							</div>
 							<div class="survey-button">
-								<button id="surveyAnalysis">下载答卷</button>
+								<button id="surveyAnalysis">分析答卷</button>
 							</div>
                 		</div>
                 		<div class="div-content">

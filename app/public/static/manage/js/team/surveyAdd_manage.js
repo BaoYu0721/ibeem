@@ -935,7 +935,7 @@ $("#dlpaging").checkbox({
 var questionmodel = [];
 var libraryDataTable;
 function showLibrary(){
-	var url="/admin/getQuestionBankList";
+	var url="/admin//survey/question_list";
 	var json={};
 	var successFunc = function(data){
 		var questionList = data.list;
@@ -1044,7 +1044,7 @@ $("#addfromlibrary").click(function(){
 		var id = question.id;
 
 		
-		var url="/admin/getQuestionBankByID";
+		var url="/admin/survey/question/select";
 		var json={"id":id};
 		var successFunc = function(data){
 			var questionBank = data.questionBank;
@@ -1084,31 +1084,31 @@ $("#addfromlibrary").click(function(){
 })
 //=========================底部完成编辑=============================
 $("#wcbj").on("click",function(){
-	var url="/admin/addSurvey";
+	var url="/admin/survey/increase/commit";
 	var isFinished = 1;
 	var json=getJSON(isFinished);
 	if(json==""){
 		return false;
 	}
 	var successFunc = function(data){
-		alertokMsg(getLangStr("surveyAdd_alert41"),getLangStr("alert_ok"),"window.location.href='/redirect?url=administrator/surveyListDevice.jsp'");
+		alertokMsg(getLangStr("surveyAdd_alert41"),getLangStr("alert_ok"),"window.location.href='/admin/survey'");
 	}
 	sentJson(url,json,successFunc);
 })
 $("#wjzc").on("click",function(){
-	var url="/admin/addSurvey";
+	var url="/admin/survey/increase/commit";
 	var isFinished = 0;
 	var json=getJSON(isFinished);
 	if(json==""){
 		return false;
 	}
 	var successFunc = function(data){
-		alertokMsg(getLangStr("surveyAdd_alert41_temp"),getLangStr("alert_ok"),"window.location.href='/redirect?url=administrator/surveyListDevice.jsp'");
+		alertokMsg(getLangStr("surveyAdd_alert41_temp"),getLangStr("alert_ok"),"window.location.href='/admin/survey'");
 	}
 	sentJson(url,json,successFunc);
 })
 $("#wcbj_update").on("click",function(){
-	var url="/admin/updateSurvey";
+	var url="/admin/survey/updateSurvey";
 	var isFinished = 1;
 	var isUpdate = 1;
 	var json=getJSON(isFinished,isUpdate);
@@ -1116,12 +1116,12 @@ $("#wcbj_update").on("click",function(){
 		return false;
 	}
 	var successFunc = function(data){
-		alertokMsg(getLangStr("surveyAdd_alert41_update"),getLangStr("alert_ok"),"window.location.href='/redirect?url=administrator/surveyListDevice_manage.jsp'");
+		alertokMsg(getLangStr("surveyAdd_alert41_update"),getLangStr("alert_ok"),"window.location.href='/admin/survey'");
 	}
 	sentJson(url,json,successFunc);
 })
 $("#wjzc_update").on("click",function(){
-	var url="/admin/updateSurvey";
+	var url="/admin/survey/updateSurvey";
 	var isFinished = 0;
 	var isUpdate = 1;
 	var json=getJSON(isFinished,isUpdate);
@@ -1129,7 +1129,7 @@ $("#wjzc_update").on("click",function(){
 		return false;
 	}
 	var successFunc = function(data){
-		alertokMsg(getLangStr("surveyAdd_alert41_temp"),getLangStr("alert_ok"),"window.location.href='/redirect?url=administrator/surveyListDevice_manage.jsp'");
+		alertokMsg(getLangStr("surveyAdd_alert41_temp"),getLangStr("alert_ok"),"window.location.href='/admin/survey'");
 	}
 	sentJson(url,json,successFunc);
 })

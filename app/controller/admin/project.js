@@ -9,6 +9,7 @@ class IndexController extends Controller {
         const item = ctx.query.item;
         const buildingName = ctx.query.building_name;
         const topBuildingName = ctx.query.top_building_name;
+        const to = ctx.query.to;
         const op = ctx.query.op;
         const go = ctx.query.go;
         if(projectName){
@@ -62,6 +63,15 @@ class IndexController extends Controller {
                     projectName: projectName
                 });
             }else if(item == 'survey'){
+                if(to == "analysis"){
+                    return ctx.render('administrator/surveyAnalysisTeam.html', {
+                        projectName: projectName
+                    });
+                }else if(to == "statistics"){
+                    return ctx.render('administrator/surveyReportTeam.html', {
+                        projectName: projectName
+                    });
+                }
                 return await ctx.render('administrator/surveyListTeam.html',{
                     projectName: projectName
                 });
@@ -824,6 +834,22 @@ class IndexController extends Controller {
         }
         ctx.body = {
             result: result,
+            code: 200
+        };
+    }
+
+    async singleSurveySearch(){
+        const { ctx } = this;
+        const projectId = ctx.request.body.projectID;
+        const result = await ctx.service.admin.project.singleSurveySearch(projectId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
             code: 200
         };
     }

@@ -285,13 +285,14 @@ $("#exportExcel").click(function(){
 	var answerList ;
 	var questionList;
 	var id = $("#datatable_body").find(".ui.checkbox.checked").data("id");
-	var url="/survey/exportSurvey";
+	var url="/survey/download/answer";
 	var json={"surveyID":id,"startTime":start,"endTime":end,"relation":1,"objectID":teamID};
 	var successFunc = function(data){
 		answerList = data.list;
 	};
 	sentJsonSync(url,json,successFunc);
-	url = "/survey/getSurveyByID";
+	url = "/survey/download/question";
+	console.log(id)
 	json={"surveyID":id};
 	successFunc = function(data){
 		questionList = data.list;

@@ -1,16 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<!DOCTYPE>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="surveyAdd.title" /></title>
-    <base href="<%=basePath%>" />
+<title>新增问卷</title>
 	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
 	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
@@ -76,11 +67,6 @@
 				<span><spring:message code="surveyAdd.chooseModal" /></span>
 			</div>
 			<div class="bottom">
-				<%-- <div class="table-container">
-					<table id="library" class="ui celled table" cellspacing="0" width="100%">
-						<thead> <tr> <th><spring:message code="surveyAdd.questiontype" /></th> <th><spring:message code="surveyAdd.questiontitle" /></th> <th><spring:message code="surveyAdd.mustanswer" /></th></thead>
-					    <tbody ></tbody> </table>
-				</div> --%>
 				
 			</div>
 		</div>
@@ -90,7 +76,7 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
-            <a class="item on" href="/redirect?url=manage/surveyListDevice.jsp"><spring:message code="survey.mysurvey" /></a>
+            <a class="item on" href="/admin/survey">我的问卷</a>
             <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
         </div>
             
@@ -101,54 +87,51 @@
             	<div class="left-container">
 	            	<div class="table-container">
 						<table id="library" class="ui celled table" cellspacing="0" width="100%">
-						<thead> <tr> <th  width="30%"><spring:message code="surveyAdd.questiontype" /></th> <th><spring:message code="surveyAdd.questiontitle" /></th>
-						 <%-- <th><spring:message code="surveyAdd.mustanswer" /></th> --%>
+						<thead> <tr> <th  width="30%"></th> <th></th>
 						 </thead>
 					    <tbody ></tbody> </table>
 					</div>
 					<div class="type-tab" id="type_tab"><button data-val="单选">单选</button><button data-val="多选">多选</button><button data-val="填空">填空</button><button data-val="量表">量表</button><button data-val="滑条">滑条</button></div>
-					<button class="addfromlibrary" id="addfromlibrary"><spring:message code="surveyAdd.addfrombank" /></button>
+					<button class="addfromlibrary" id="addfromlibrary">添加</button>
             	</div>
             	</div>
                 <div class="twelve wide column content-team" overflow-y:scroll">
              	   
-                	<%-- <a href="javascript:void(0)" class="question-library" id="questionLibrary"><spring:message code="surveyAdd.questionbank" /></a> --%>
     				<div class="container" style="position:static">
                 		<div class="top">
-                			<%-- <span href="javascript:void(0)"><spring:message code="surveyAdd.create" /></span> --%>
                 			<div class="button-group-add">
-                				<button class="ui basic button dx"><i class="green plus icon"></i><font><font><spring:message code="survey.question2" /></font></font></button>
-                				<button class="ui basic button ddx"><i class="green plus icon"></i><font><font><spring:message code="survey.question3" /></font></font></button>
-                				<button class="ui basic button tk"><i class="green plus icon"></i><font><font><spring:message code="survey.question1" /></font></font></button>
-                				<button class="ui basic button lb"><i class="green plus icon"></i><font><font><spring:message code="survey.question4" /></font></font></button>
-                				<button class="ui basic button ht"><i class="green plus icon"></i><font><font><spring:message code="survey.question5" /></font></font></button>
-                				<button class="ui basic button dl"><i class="green plus icon"></i><font><font> <spring:message code="survey.paragraph" /> </font></font></button>
+                				<button class="ui basic button dx"><i class="green plus icon"></i><font><font>单选题</font></font></button>
+                				<button class="ui basic button ddx"><i class="green plus icon"></i><font><font>多选题</font></font></button>
+                				<button class="ui basic button tk"><i class="green plus icon"></i><font><font>填空题</font></font></button>
+                				<button class="ui basic button lb"><i class="green plus icon"></i><font><font>量表题</font></font></button>
+                				<button class="ui basic button ht"><i class="green plus icon"></i><font><font>滑条题</font></font></button>
+                				<button class="ui basic button dl"><i class="green plus icon"></i><font><font>段落</font></font></button>
                 			</div>
                 		</div>
                 		<div class="bottom">
                 			<div class="survey-title">
-                				<span><spring:message code="surveyAdd.questiontitle" /></span><input type="text"/>
+                				<span>题目标题</span><input type="text"/>
                 			</div>
                 			<div class="survey-desc">
-                				<span><spring:message code="surveyAdd.questionintro" /></span><textarea rows="" cols=""></textarea>
+                				<span>问卷描述</span><textarea rows="" cols=""></textarea>
                 			</div>
                 			<div class="question-container">
                 			</div>
                 			<div class="paging" >
-                				<span><spring:message code="surveyAdd.pagingtype" /></span>
+                				<span>分页方式</span>
                 				<div class="paging-container">
                 				<div class="ui checkbox option" id="nopaging">
 									<input type="checkbox" name="paging" class="hidden">
-									<label><spring:message code="surveyAdd.nopaging" /></label>
+									<label>不分页</label>
 								</div>
 								<div class="ui checkbox option" id="limitpaging">
 									<input type="checkbox" name="paging" class="hidden" >
-									<label style="padding-left:6rem;"><spring:message code="surveyAdd.numpaging" /></label>
+									<label style="padding-left:6rem;">题一页</label>
 								</div>
 								<input type="text" name="pagenum" class="pagingnum-input" id="pagingnum_input">
 								<div class="ui checkbox option" id="dlpaging">
 									<input type="checkbox" name="paging" class="hidden">
-									<label><spring:message code="surveyAdd.paragraphpaging" /></label>
+									<label>按段分页</label>
 								</div>
                 				</div>
                 			</div>
@@ -157,14 +140,12 @@
 							</div>
                 			<div class="bottom-button " id="wjcz">
                 			<button class="ui button wjyl" id="wjyl">
-                			<i class="unhide icon"></i><spring:message code="surveyAdd.preview" /></button>
-                			<button class="ui button wjyl" id="wjzc"><spring:message code="surveyAdd.tempsave" /></button>
-                			<button class="ui button wcbj" id="wcbj"><spring:message code="surveyAdd.done" /></button></div>
+                			<i class="unhide icon"></i>问卷预览</button>
+                			<button class="ui button wjyl" id="wjzc">暂存</button>
+                			<button class="ui button wcbj" id="wcbj">完成编辑</button></div>
                 			<div class="bottom-button " id="wjcz_update" style="display:none;">
-                			<%-- <button class="ui button wjyl" id="wjyl">
-                			<i class="unhide icon"></i><spring:message code="surveyAdd.preview" /></button> --%>
-                			<button class="ui button wjyl" id="wjzc_update"><spring:message code="surveyAdd.tempsave" /></button>
-                			<button class="ui button wcbj" id="wcbj_update"><spring:message code="surveyAdd.done" /></button></div>
+                			<button class="ui button wjyl" id="wjzc_update">暂存</button>
+                			<button class="ui button wcbj" id="wcbj_update">完成编辑</button></div>
                 		</div>
                 	</div>
                 </div>

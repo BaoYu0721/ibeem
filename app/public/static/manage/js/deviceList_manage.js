@@ -826,7 +826,7 @@ $("#addDeviceButton").click(function(){
 	var dataJson = {"name":name,"deviceid":id,"type":type,"physicalId":mac};
 	$.ajax({
         type:"get",
-        url:"/common/loding",
+        url:"/common/loading",
         dataType:"html",
         success:function(result){
         	var ele= $("body");
@@ -843,7 +843,7 @@ $("#addDeviceButton").click(function(){
 				$.ajax({
 			 		type:"post",
 			 		dataType:"json",
-			 		url:"/admin/addDevice",
+			 		url:"/admin/device/add",
 			 		async: false,
 			 		data:dataJson,
 			 		success:function(data){

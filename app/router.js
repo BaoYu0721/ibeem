@@ -85,7 +85,7 @@ module.exports = app => {
   router.post('/survey/updateSurvey', userRequired, controller.survey.increase.updateSurvey);
   router.post('/survey/getDimension', userRequired, controller.survey.analyze.getDimension);
   router.post('/survey/analysisSurvey', userRequired, controller.survey.analyze.analysisSurvey);
-  
+
   // project
   router.get('/project', userRequired, controller.project.index.index);
   router.get('/project/building/export', userRequired, controller.project.index.buildingExport);
@@ -169,8 +169,10 @@ module.exports = app => {
   router.get('/admin/device', adminRequired, controller.admin.device.index);
   router.post('/admin/device/list', adminRequired, controller.admin.device.deviceList);
   router.post('/admin/device/download/history', adminRequired, controller.admin.device.deviceDownloadHistory);
+  router.post('/admin/device/download/create_work_order', adminRequired, controller.admin.device.createWorkOrder);
   router.post('/admin/device/view/on_line_rate', adminRequired, controller.admin.device.deviceOnLineRate);
   router.post('/admin/device/view/environment', adminRequired, controller.admin.device.deviceEnvironment);
+  router.post('/admin/device/view/environment_data_align', userRequired, controller.admin.device.environmentDataAlign);
   router.post('/admin/device/add', adminRequired, controller.admin.device.deviceAdd);
   router.post('/admin/device/user_list', adminRequired, controller.admin.device.deviceUserList);
   router.post('/admin/device/set_owner', adminRequired, controller.admin.device.deviceSetOwner);
@@ -180,6 +182,17 @@ module.exports = app => {
   // admin & survey
   router.get('/admin/survey', adminRequired, controller.admin.survey.index);
   router.post('/admin/survey/list', adminRequired, controller.admin.survey.surveyList);
+  router.post('/admin/survey/download/answer', adminRequired, controller.admin.survey.surveyDownloadAnswer);
+  router.post('/admin/survey/download/question', adminRequired, controller.admin.survey.surveyDownloadQuestion);
+  router.post('/admin/survey/getSurveyById', adminRequired, controller.admin.survey.getSurveyById);
+  router.post('/admin/survey/getDimension', adminRequired, controller.admin.survey.getDimension);
+  router.post('/admin/survey/analysisSurvey', adminRequired, controller.admin.survey.analysisSurvey);
+  router.post('/admin/survey/statistics', adminRequired, controller.admin.survey.surveyStatistics);
+  router.post('/admin//survey/question_list', adminRequired, controller.admin.survey.questionList);
+  router.post('/admin/survey/question/select', adminRequired, controller.admin.survey.questionSelect);
+  router.post('/admin/survey/increase/commit', adminRequired, controller.admin.survey.commit);
+  router.post('/admin/survey/updateSurvey', adminRequired, controller.admin.survey.updateSurvey);
+  router.post('/admin/survey/delete', adminRequired, controller.admin.survey.surveyDelete);
 
   // admin & project
   router.get('/admin/project', adminRequired, controller.admin.project.index);
@@ -219,6 +232,7 @@ module.exports = app => {
   router.post('/admin/project/single/topBuilding/room_info', adminRequired, controller.admin.project.singleTopBuildingRoomInfo);
   router.post('/admin/project/single/device', adminRequired, controller.admin.project.singleDevice);
   router.post('/admin/project/single/survey', adminRequired, controller.admin.project.singleSurvey);
+  router.post('/admin/project/single/survey/search', adminRequired, controller.admin.project.singleSurveySearch);
   router.post('/admin/project/single/member', adminRequired, controller.admin.project.singleMember);
   router.post('/admin/project/single/member/search', adminRequired, controller.admin.project.singleMemberSearch);
   router.post('/admin/project/single/member/add', adminRequired, controller.admin.project.singleMemberAdd);

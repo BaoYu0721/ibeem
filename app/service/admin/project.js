@@ -114,7 +114,7 @@ class ProjectService extends Service {
                 return -1;
             }
             const surveyMap = {
-                id: surveyIds[key],
+                id: surveyIds[key].survey_id,
                 title: survey.title,
                 introduction: survey.introduction,
                 name: creator.name,
@@ -652,7 +652,7 @@ class ProjectService extends Service {
                 return -1;
             }
             const surveyMap = {
-                id: surveyIds[key],
+                id: surveyIds[key].survey_id,
                 title: survey.title,
                 introduction: survey.introduction,
                 name: creator.name,
@@ -2997,6 +2997,21 @@ class ProjectService extends Service {
             topRoomList.push(topRoomMap);
         }
         return topRoomList;
+    }
+
+    async singleSurveySearch(projectId){
+        var survey = null;
+        try {
+            const project = await this.app.mysql.get('project', {id: projectId});
+            if(project){
+                survey = await this.app.mysql.query('select id, title from survey where id not in(select survey_id from project_survey where project_id = ?)', [project.creator_id, project.id]);
+            }else{
+                return -1;
+            }
+        } catch (error) {
+            return -1;
+        }
+        return survey;
     }
 }
 

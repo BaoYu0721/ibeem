@@ -1865,7 +1865,7 @@ init();
 			        			   type:"post",
 			        			   dataType:"json",
 			        			   async: false,
-			        			   url:"/admin/environmentAlignDataByTime",
+			        			   url:"/admin/device/view/environment_data_align",
 			        			   data:{
 			        				   deviceId:deviceId[i],
 			        				   startTime:startTime,
@@ -2807,7 +2807,7 @@ init();
  	    			$.ajax({
  	    	 			   type:"post",
  	    	 			   dataType:"json",
- 	    	 			   url:"/admin/creatWorkOrder",
+ 	    	 			   url:"/admin/device/download/create_work_order",
  	    	 			   data:{
  	    	 				   deviceids:downDeviceIds,
  	    	 				   startTime:startTimeStamp1,

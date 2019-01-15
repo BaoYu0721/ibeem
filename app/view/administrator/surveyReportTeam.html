@@ -1,16 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>问卷统计</title>
-<base href="<%=basePath%>" />
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
     <link rel="stylesheet" href="/public/static/common/css/base.css" />
     <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
@@ -37,11 +29,11 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
-            <a class="item" href="/redirect?url=administrator/teamBuilding.jsp"><spring:message code="surveyListTeam.navbuilding" /></a>
-            <a class="item" href="/redirect?url=administrator/teamDevice.jsp"><spring:message code="surveyListTeam.navdevice" /></a>
-            <a class="item on" href="/redirect?url=administrator/surveyListTeam.jsp"><spring:message code="surveyListTeam.navsurvey" /></a>
-            <a class="item" href="/redirect?url=administrator/teamMember.jsp"><spring:message code="surveyListTeam.navmember" /></a>
-            <a class="teamTitleTit" href="/redirect?url=administrator/teamContent.jsp" style="display:block;"></a>
+			<a class="item on" href=<%="?project_name=" + projectName + "&item=building"%>>项目建筑</a>
+            <a class="item" href=<%="?project_name=" + projectName + "&item=device"%>>项目设备</a>
+            <a class="item" href=<%="?project_name=" + projectName + "&item=survey"%>>项目问卷</a>
+            <a class="item" href=<%="?project_name=" + projectName + "&item=member"%>>项目成员</a>
+            <a class="teamTitleTit" href=<%="?project_name=" + projectName%> style="display:block;"></a>
         </div>
         <!--内容区--> 
         <div class="content" id="content" >
@@ -49,15 +41,15 @@
                 <div class="sixteen wide column content-team" style="position:static;overflow-y:scroll">
                 	<div class="container" style="position:static;">
                 		<div class="top">
-                			<span><spring:message code="surveyRep.title" /></span>
+                			<span>问卷统计</span>
                 			<div class="ui form top-form">
-							  <input id="startTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="<spring:message code="survey.starttime" />"/>
-							  <input id="endTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="<spring:message code="survey.endtime" />"/>
+							  <input id="startTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷开始时间"/>
+							  <input id="endTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷结束时间"/>
 							  <div class="field team">
 							      <div class="ui selection dropdown" id="dropdownTeam">
 							          <input type="hidden" name="gender">
 							          <i class="dropdown icon"></i>
-							          <div class="default text"><spring:message code="surveyRep.sourceProj" /></div>
+							          <div class="default text">来源项目</div>
 							          <div class="menu">
 							          </div>
 							      </div>
@@ -66,7 +58,7 @@
 							      <div class="ui selection dropdown" id="dropdownBuilding">
 							          <input type="hidden" name="gender">
 							          <i class="dropdown icon"></i>
-							          <div class="default text"><spring:message code="surveyRep.sourceBuiding" /></div>
+							          <div class="default text">来源建筑</div>
 							          <div class="menu">
 							          </div>
 							      </div>
@@ -75,17 +67,17 @@
 							      <div class="ui selection dropdown" id="dropdownPoint">
 							          <input type="hidden" name="gender">
 							          <i class="dropdown icon"></i>
-							          <div class="default text"><spring:message code="surveyRep.sourcePoint" /></div>
+							          <div class="default text">来源测点</div>
 							          <div class="menu">
 							          </div>
 							      </div>
 							  </div>
-							  <button class="refresh" id="refresh"><spring:message code="surveyRep.refresh" /></button>
+							  <button class="refresh" id="refresh">更新报告</button>
 							</div>
                 		</div>
                 		<div class="bottom">
                 			<div class="bottom-container">
-                				<button id="downloadReport" class="downloadReport"><spring:message code="surveyRep.download" /></button>
+                				<button id="downloadReport" class="downloadReport">下载报告</button>
                 			</div>
                 		</div>
                 	</div>

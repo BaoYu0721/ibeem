@@ -113,10 +113,10 @@ var paramBuildingName = $.cookie("gxbuildingName");
 	}
 //}
 
-var url = "/admin/statisticalSurvey";
+var url = "/admin/survey/statistics";
 var json = {"surveyID":surveyId,"beginTime":starttime,"endTime":endtime,"relation":relation,"objectID":objectID};
 function successFunc(data){
-	initData(data.suvery);
+	initData(data.survey);
 }
 function errorFunc(data){
 	var errormsg = data.messg;
@@ -165,7 +165,7 @@ function initData(list){
 						  '<span class="title">'+questionId+'.'+questiontitle+getLangStr("surveyRep_empty1")+'</span>'+
 						'</div>');
 			}else{
-				getComponent("/static/manage/components/tjDX.html",
+				getComponent("/common/tjDX",
 						function(resultHTML){
 							$container.append(resultHTML);
 						},
@@ -231,12 +231,12 @@ function initData(list){
 						  '<span class="title">'+questionId+'.'+questiontitle+getLangStr("surveyRep_empty1")+'</span>'+
 						'</div>');
 			}else{
-				getComponent("/static/manage/components/tjTK.html",
+				getComponent("/common/tjTK",
 						function(resultHTML){
 							$container.append(resultHTML);
 						},
 						{"-id-":questionId,"-title-":questiontitle});
-				getComponent("/static/manage/components/tjTKModal.html",
+				getComponent("/common/tjTKModal",
 						function(resultHTML){
 							$("body").append(resultHTML);
 						},
@@ -261,7 +261,7 @@ function initData(list){
 						  '<span class="title">'+questionId+'.'+questiontitle+getLangStr("surveyRep_empty1")+'</span>'+
 						'</div>');
 			}else{
-				getComponent("/static/manage/components/tjLB.html",
+				getComponent("/common/tjLB",
 						function(resultHTML){
 							$container.append(resultHTML);
 						},
@@ -318,7 +318,7 @@ function initData(list){
 		}
 		//====================滑块题====================
 		else if(questiontype==4){
-			getComponent("/static/manage/components/tjHK.html",
+			getComponent("/common/tjHK",
 					function(resultHTML){
 						$container.append(resultHTML);
 					},
@@ -660,7 +660,7 @@ $("#dropdownTeam").dropdown({
 			$this.find(".menu").empty();
 			$(this).find(".menu").append("<img src='/public/static/manage/img/team/loding.gif'/>");
 			$(this).dropdown("show");
-			var url = "/admin/getProjectListByAdmin";
+			var url = "/admin/project/list";
 			var json = {"surveyID":surveyId};
 			function func(data){
 				 teamList = data.list;
@@ -711,7 +711,7 @@ $("#dropdownBuilding").dropdown({
 			$this.find(".menu").empty();
 			$(this).find(".menu").append("<img src='/public/static/manage/img/team/loding.gif'/>");
 			$(this).dropdown("show");
-			var url="/admin/getBuildingByProject";
+			var url="/admin/project/single/building";
 			var json={"surveyID":surveyId,"projectID":selectedTeam};
 			var successFunc = function(data){
 				var buildingArr = data.list;
@@ -753,7 +753,7 @@ $("#dropdownPoint").dropdown({
 		$this.find(".menu").empty();
 		$(this).find(".menu").append("<img src='/public/static/manage/img/team/loding.gif'/>");
 		$(this).dropdown("show");
-		var url="/admin/getPointBySurveyAndBuilding";
+		var url="/admin/project/single/building/point";
 		var json={"surveyID":surveyId,"buildingID":selectedBuilding};
 		var func = function(data){
 			var points = data.list;

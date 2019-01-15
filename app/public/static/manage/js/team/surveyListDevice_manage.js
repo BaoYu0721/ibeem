@@ -198,11 +198,11 @@ $(".surveylist").on("click",".release-to-wx",function(){
 })
 //点击新增题库按钮
 $("#surveyLibrary").click(function(){
-	window.location.href="/redirect?url=administrator/surveyLibrary_manage.jsp"
+	window.location.href += "?item=library"
 })
 //点击新增问卷按钮
 $("#addSurvey").click(function(){
-	window.location.href="/redirect?url=administrator/surveyAdd_manage.jsp"
+	window.location.href = "/admin/survey?item=increase"
 })
 //点击修改问卷
 $("#editSurvey").click(function(){
@@ -219,13 +219,13 @@ $("#editSurvey").click(function(){
 function editSurvey(){
 	var id = $("#datatable_body").find(".ui.checkbox.checked").data("id");
 	$.cookie("editSurveyId",id);
-	window.location.href="/redirect?url=administrator/surveyAdd.jsp?mode=modify";
+	window.location.href="/admin/survey?item=increase&mode=modify";
 }
 //未编辑完的，点击进入编辑	    
 $("#datatable").on("click",".unfinished",function(){
 	var id = $(this).data("id");
 	$.cookie("editSurveyId",id);
-	window.location.href="/redirect?url=administrator/surveyAdd.jsp?mode=modify";
+	window.location.href="/admin/survey?item=increase&mode=modify";
 });
 //问卷地址，点击复制	
 $('#datatable').on("click",".answerUrl",function(){
@@ -268,7 +268,7 @@ $("#surveyReport").click(function(){
 	$.cookie("gxbuildingName","");
 	$.cookie("gxpointId","");
 	$.cookie("gxpointName","");
-	window.location.href="/redirect?url=administrator/surveyReport_manage.jsp"
+	window.location.href="/admin/survey?item=statistics"
 })
 //点击问卷分析按钮
 $("#surveyAnalysis").click(function(){
@@ -283,7 +283,7 @@ $("#surveyAnalysis").click(function(){
 		return false;
 	}
 	$.cookie("fxsurveyId",id);
-	window.location.href="/redirect?url=administrator/surveyAnalysis_manage.jsp?relation=0&objectID="
+	window.location.href="/admin/survey?item=analyze"
 });
 //点击下载答卷按钮
 $("#surveyExport").click(function(){
@@ -318,13 +318,13 @@ $("#exportExcel").click(function(){
 	var answerList ;
 	var questionList;
 	var id = $("#datatable_body").find(".ui.checkbox.checked").data("id");
-	var url="/admin/exportSurvey";
+	var url="/admin/survey/download/answer";
 	var json={"surveyID":id,"startTime":start,"endTime":end,"relation":0,"objectID":""};
 	var successFunc = function(data){
 		answerList = data.list;
 	};
 	sentJsonSync(url,json,successFunc);
-	url = "/survey/getSurveyByID";
+	url = "/admin/survey/download/question";
 	json={"surveyID":id};
 	successFunc = function(data){
 		questionList = data.list;
@@ -433,7 +433,7 @@ $("#surveyDelete").click(function(){
 function surveyDelete(){
 	var id = $("#datatable_body").find(".ui.checkbox.checked").data("id");
 	var count = $("#datatable_body").find(".ui.checkbox.checked").data("count");
-	var url="/admin/deleteSurvey";
+	var url="/admin/survey/delete";
 	var json={"surveyID":id};
 	var successFunc = function(data){
 		if(data.code==200){

@@ -6,7 +6,7 @@ class SingleDeviceService extends Service {
     async deviceSearch(userId){
         var device = null;
         try {
-            device = await this.app.mysql.query('select id, name from device where owner_id = ? and project_id is null or owner_id = 24 and project_id is null', [userId]);
+            device = await this.app.mysql.query('select id, name from device where (owner_id = ? and project_id is null) or (owner_id = 24 and project_id is null)', [userId]);
         } catch (error) {
             return -1;
         }

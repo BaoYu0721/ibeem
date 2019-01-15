@@ -1607,7 +1607,7 @@ init();
 			        			   type:"post",
 			        			   dataType:"json",
 			        			   //async: false,
-			        			   url:"/admin/environmentAlignDataByTime",
+			        			   url:"/admin/device/view/environment_data_align",
 			        			   data:{
 			        				   deviceId:deviceId[i],
 			        				   startTime:startTime,
@@ -2343,7 +2343,7 @@ init();
  	    			$.ajax({
  	    	 			   type:"post",
  	    	 			   dataType:"json",
- 	    	 			   url:"/admin/creatWorkOrder",
+ 	    	 			   url:"/admin/device/download/create_work_order",
  	    	 			   data:{
  	    	 				   deviceids:downDeviceIds,
  	    	 				   startTime:startTimeStamp1,
@@ -2359,71 +2359,65 @@ init();
  	    	 				   step:$step
  	    	 			   },
  	    	 			   success:function(data){
- 	    	 				   
- 	    	 				   	alertokMsg(getLangStr("check_download_s"),getLangStr("alert_ok"));
  	    	 				 
- 	    						removeLoading();
- 	    			      		  
+								 removeLoading();
  	    						// 清华接口 系统繁忙
  	    						if(data.code==1005){
- 	    							alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
- 	    						}else if(data.code==1001){
- 	    							alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
- 	    						}
+									alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
+								}else if(data.code==1001){
+									alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
+								}else if(data.code == 200){
+									alertokMsg(getLangStr("check_download_s"),getLangStr("alert_ok"));
+								}
  	    						
  	    						if(data.code==200){
+									// var workOrderStatus='';
+ 	    							// if(data.workOrder.status=="finish"){
+ 	    							// 	workOrderStatus = getLangStr("devicedata_result6");
+ 	 	  							// }else if(data.workOrder.status=="failure"){
+ 	 	  							// 	workOrderStatus = getLangStr("devicedata_result8");
+ 	 	  							// }else{
+ 	    							// 	workOrderStatus = getLangStr("devicedata_result7");
+ 	    							// }
  	    							
- 	    							var workOrderStatus='';
- 	    							if(data.workOrder.status=="finish"){
- 	    								workOrderStatus = getLangStr("devicedata_result6");
- 	 	  							}else if(data.workOrder.status=="failure"){
- 	 	  								workOrderStatus = getLangStr("devicedata_result8");
- 	 	  							}else{
- 	    								workOrderStatus = getLangStr("devicedata_result7");
- 	    							}
- 	    							
-
- 	    							var nameStr = data.workOrder.deviceName;
- 	    	  						var nameArr = nameStr.split(",");
- 	    	  						var nameRes = '';
+ 	    							// var nameStr = data.workOrder.deviceName;
+ 	    	  						// var nameArr = nameStr.split(",");
+ 	    	  						// var nameRes = '';
  	    	  						
- 	    	  						for(var k=0;k<nameArr.length;k++){
- 	    	  							if(k!=0 && k%4 == 0 ){
- 	    	  								nameRes += "<br />" + nameArr[k] + ",";
- 	    	  							}else if(k == nameArr.length - 1){
- 	    	  								nameRes += nameArr[k];
- 	    	  							}else{
- 	    	  								nameRes += nameArr[k] + ",";
- 	    	  							}
- 	    	  						}
-
- 		 	  						var estimateTime = data.list[i].estimateTime;
- 		 	  						if(estimateTime==-1){
- 		 	  							// 未开始
- 		 	  							estimateTime =  getLangStr("devicedata_result9");
- 		 	  						}else if(estimateTime==0){
- 		 	  							// 完成
- 		 	  							estimateTime = getLangStr("devicedata_result6");
- 		 	  						}else{
- 		 	  							estimateTime = estimateTime + "min";
- 		 	  						}
- 		 	  						
- 		 	  						$strshow += '<tr><td style="border-right:1px solid #cccccc;">' + data.list[i].workid + '</td>'+
- 		 	  							'<td style="border-right:1px solid #cccccc;">' + nameRes + '</td>'+
- 		 	  							'<td style="border-right:1px solid #cccccc;">'+ data.list[i].startTime +'<br />'+ data.list[i].endTime +'</td>'+
- 		 	  							'<td style="border-right:1px solid #cccccc;">'+ data.list[i].time +'</td>'+
- 		 	  							
- 		 	  							'<td style="border-right:1px solid #cccccc;">'+ data.list[i].percent +'%</td>'+
- 		 	  							'<td style="border-right:1px solid #cccccc;">'+ estimateTime +'</td>'+
- 		 	  							
- 		 	  							'<td style="border-right:1px solid #cccccc;">'+ workOrderStatus +'</td>'+
- 		 	  							'<td><a href="'+ data.list[i].url +'" target="_blank">'+ getLangStr("deviceList_download") +'</a></td></tr>';
- 		 	  						
- 		 	  						
- 	    							$("#download_history").prepend($str);
- 	    							downloadHistory();
+ 	    	  						// for(var k=0;k<nameArr.length;k++){
+ 	    	  						// 	if(k!=0 && k%4 == 0 ){
+ 	    	  						// 		nameRes += "<br />" + nameArr[k] + ",";
+ 	    	  						// 	}else if(k == nameArr.length - 1){
+ 	    	  						// 		nameRes += nameArr[k];
+ 	    	  						// 	}else{
+ 	    	  						// 		nameRes += nameArr[k] + ",";
+ 	    	  						// 	}
+ 	    	  						// }
  	    							
- 	    							
+ 		 	  						// var estimateTime = data.list[i].estimateTime;
+ 		 	  						// if(estimateTime==-1){
+ 		 	  						// 	// 未开始
+ 		 	  						// 	estimateTime =  getLangStr("devicedata_result9");
+ 		 	  						// }else if(estimateTime==0){
+ 		 	  						// 	// 完成
+ 		 	  						// 	estimateTime = getLangStr("devicedata_result6");
+ 		 	  						// }else{
+ 		 	  						// 	estimateTime = estimateTime + "min";
+ 		 	  						// }
+ 		 	  						
+ 		 	  						// $strshow += '<tr><td style="border-right:1px solid #cccccc;">' + data.list[i].workid + '</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">' + nameRes + '</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ data.list[i].startTime +'<br />'+ data.list[i].endTime +'</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ data.list[i].time +'</td>'+
+ 		 	  							
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ data.list[i].percent +'%</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ estimateTime +'</td>'+
+ 		 	  							
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ workOrderStatus +'</td>'+
+ 		 	  						// 	'<td><a href="'+ data.list[i].url +'" target="_blank">'+ getLangStr("deviceList_download") +'</a></td></tr>';
+ 		 	  						
+ 	    							// $("#download_history").prepend($str);
+ 	    							// downloadHistory();
  	    						}
  	    	 				     	 
  	    	 			   },
