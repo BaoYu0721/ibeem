@@ -196,20 +196,40 @@ $("#UpLoadFileButton").click(function(){
 	//var tid = project_info.projectID; // 项目ID	
 	var tid = project_info; // 项目ID	
 	
+	// if($("#buildingClass").val()==""){
+	// 	alertokMsg(getLangStr("import_building_messg1"),getLangStr("determine"));
+	// 	return;
+	// }else if($("#buildingClass").val()==getLangStr("public_buildings")){
+	// 	ajaxUrl = "/building/importOfficeBuilding?projectID=" + tid;
+	// 	type = "gg_";
+	// }else if($("#buildingClass").val()==getLangStr("residential_building")){
+	// 	ajaxUrl = "/building/importBuilding?projectID=" + tid;
+	// 	type = "jz_";
+	// }else{
+	// 	console.log("类型出错！请先修改JS中的代码~ 调试专用提示！","确定");
+	// 	return;
+	// }
 	if($("#buildingClass").val()==""){
 		alertokMsg(getLangStr("import_building_messg1"),getLangStr("determine"));
 		return;
-	}else if($("#buildingClass").val()==getLangStr("public_buildings")){
-		ajaxUrl = "/building/importOfficeBuilding?projectID=" + tid;
+	}else if($("#buildingClass").val()==1){
+		ajaxUrl = "/admin/project/single/building/import?projectID=" + tid + "&type=1";
 		type = "gg_";
-	}else if($("#buildingClass").val()==getLangStr("residential_building")){
-		ajaxUrl = "/building/importBuilding?projectID=" + tid;
+	}else if($("#buildingClass").val()==2){
+		ajaxUrl = "/admin/project/single/building/import?projectID=" + tid + "&type=2";
 		type = "jz_";
+	}else if($("#buildingClass").val()==3){
+		
+		if($.trim(tname)==""){
+			alertokMsg(getLangStr("add_building_messg1"),getLangStr("determine"));
+			return;
+		}
+		
+		ajaxUrl = "/admin/project/single/building/import?projectID=" + tid +"&buildingName=" + tname + "&type=1";
 	}else{
 		console.log("类型出错！请先修改JS中的代码~ 调试专用提示！","确定");
 		return;
 	}
-
 	UpLoadFile(ajaxUrl,type);
 });
 
@@ -241,7 +261,7 @@ function UpLoadFile(ajaxUrl,type) {
 			console.log(data);
 	
 			if(data.code == 200) {
-				alertokMsg(getLangStr("import_building_messg2"),getLangStr("determine"),"window.location.href='/redirect?url=administrator/teamBuilding.jsp\'");
+				alertokMsg(getLangStr("import_building_messg2"),getLangStr("determine"),"window.location.reload()");
 			} else if(data.code == 1005)  {	
 				alertokMsg(getLangStr("import_building_messg3"),getLangStr("determine"));
 			} else if(data.code == 1001){

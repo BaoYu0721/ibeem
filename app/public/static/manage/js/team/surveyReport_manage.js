@@ -115,12 +115,16 @@ var paramBuildingName = $.cookie("gxbuildingName");
 
 var url = "/admin/survey/statistics";
 var json = {"surveyID":surveyId,"beginTime":starttime,"endTime":endtime,"relation":relation,"objectID":objectID};
+console.log(json)
 function successFunc(data){
+	// console.log(JSON.stringify(data.survey));
 	initData(data.survey);
 }
 function errorFunc(data){
+	console.log('statistics fail');
 	var errormsg = data.messg;
-	$(".error h4").html(errormsg);
+	// $(".error h4").html(errormsg);
+	alertokMsg("错误码：" + data.code + "，" + errormsg,getLangStr("alert_ok"));
 }
 sentJson(url,json,successFunc,errorFunc);
 
@@ -203,7 +207,8 @@ function initData(list){
 					$root.find("table tbody").append($newTr);
 					//进度条初始化
 					var percent = count/peoplecount*100;
-					initProgress("progress_"+questionId+"_"+itemid,percent);
+					
+					initProgress("progress_"+questionId+"_"+itemid,percent<10?percent.toFixed(0):percent.toFixed(2));
 					//柱状图拼data
 					zztData.push(count);
 					//柱状图拼x轴数据				
@@ -354,9 +359,9 @@ function initData(list){
 				var lefttitle = item.title;
 				var dataArr = item.data;
 				var hkid = item.id;
-				var $newTr = $("<tr></tr>");
-				$newTr.append("<td>"+lefttitle+"</td>");
-				$newTr.append("<td>"+avg.toFixed(2)+"</td>");
+				var $newTr = $("<tr></tr>")
+				$newTr.append("<td>"+lefttitle+"</td>")
+				$newTr.append("<td>"+avg.toFixed(2)+"</td>")
 				$root.find("table tbody").append($newTr);
 				var xaxis = [];
 				var hkzxtData_item_data = [];

@@ -186,6 +186,770 @@ class ProjectService extends Service {
         }
     }
 
+    async buildingImportType1(projectId, xlsx){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        var ttl = 1000;
+        var buildingList= [];
+        var designIndicatorsList = [];
+        var energyConservationMeasureList = [];
+        var indoorEnvironmentList = [];
+        var indoorEenvironmentParameterDesignList = [];
+        var waterSaveDesignList = [];
+        const sheet1 = xlsx[0].data;
+        const sheet2 = xlsx[1].data;
+        const sheet3 = xlsx[2].data;
+        const sheet4 = xlsx[3].data;
+        const sheet5 = xlsx[4].data;
+        const sheet6 = xlsx[5].data;
+        for(var i = 1; i < sheet2.length; ++i){
+            if(sheet2[i].length){
+                const designIndicatorsMap = {
+                    land_area: sheet2[i][1]? sheet2[i][1]: null,
+                    building_area: sheet2[i][2]? sheet2[i][2]: null,
+                    subsurface_area: sheet2[i][3]? sheet2[i][3]: null,
+                    ground_floor_area: sheet2[i][4]? sheet2[i][4]: null,
+                    gas: sheet2[i][5]? sheet2[i][5]: null,
+                    municipal_heating: sheet2[i][6]? sheet2[i][6]: null,
+                    electric_power: sheet2[i][7]? sheet2[i][7]: null,
+                    coal: sheet2[i][8]? sheet2[i][8]: null,
+                    ubadtec: sheet2[i][9]? sheet2[i][9]: null,
+                    deer: sheet2[i][10]? sheet2[i][10]: null,
+                    thermal_performance_improvement: sheet2[i][11]? sheet2[i][11]: null,
+                    hvaacsdec: sheet2[i][12]? sheet2[i][12]: null,
+                    hvaacsdectr: sheet2[i][13]? sheet2[i][13]: null,
+                    total_water: sheet2[i][14]? sheet2[i][14]: null,
+                    non_conventional_water: sheet2[i][15]? sheet2[i][15]: null,
+                    non_traditional_water_availability: sheet2[i][16]? sheet2[i][16]: null,
+                    building_life_hot_water: sheet2[i][17]? sheet2[i][17]: null,
+                    renewable_heat_capacity: sheet2[i][18]? sheet2[i][18]: null,
+                    tpohwgbre: sheet2[i][19]? sheet2[i][19]: null,
+                    building_electric_consumption: sheet2[i][20]? sheet2[i][20]: null,
+                    renewable_capacity: sheet2[i][21]? sheet2[i][21]: null,
+                    renewable_energy_generates_electricity: sheet2[i][22]? sheet2[i][22]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                designIndicatorsList[i - 1] = designIndicatorsMap;
+            }
+        }
+        for(var i = 2; i < sheet3.length; ++i){
+            if(sheet3[i].length){
+                const energyConservationMeasureMap = {
+                    owccbo: sheet3[i][3]? sheet3[i][3]: null,
+                    cool_storage_heatstorage: sheet3[i][4]? sheet3[i][4]: null,
+                    exhaust_heat_recovery: sheet3[i][5]? sheet3[i][5]: null,
+                    adjustable_wind_ratio: sheet3[i][6]? sheet3[i][6]: null,
+                    partial_condition_energy_saving: sheet3[i][7]? sheet3[i][7]: null,
+                    er_standard: sheet3[i][8]? sheet3[i][8]: null,
+                    ws_standard: sheet3[i][9]? sheet3[i][9]: null,
+                    whwhu: sheet3[i][10]? sheet3[i][10]: null,
+                    itemized_metering: sheet3[i][11]? sheet3[i][11]: null,
+                    cchp: sheet3[i][12]? sheet3[i][12]: null,
+                    renewable_energy_use: sheet3[i][13]? sheet3[i][13]: null,
+                    lighting_target_value: sheet3[i][14]? sheet3[i][14]: null,
+                    lighting_control: sheet3[i][15]? sheet3[i][15]: null,
+                    egceas: sheet3[i][16]? sheet3[i][16]: null,
+                    energy_saving_electrical_equipment: sheet3[i][17]? sheet3[i][17]: null,
+                    cold_source_form: sheet3[i][18]? sheet3[i][18]: null,
+                    tfotds: sheet3[i][19]? sheet3[i][19]: null,
+                    end_system: sheet3[i][20]? sheet3[i][20]: null,
+                    total_capacity: sheet3[i][21]? sheet3[i][21]: null,
+                    refrigerating_quantity_indicator: sheet3[i][22]? sheet3[i][22]: null,
+                    total_heat: sheet3[i][23]? sheet3[i][23]: null,
+                    calorimetric_index: sheet3[i][24]? sheet3[i][24]: null,
+                    cop: sheet3[i][25]? sheet3[i][25]: null,
+                    eer: sheet3[i][26]? sheet3[i][26]: null,
+                    iplv: sheet3[i][27]? sheet3[i][27]: null,
+                    boiler_thermal_efficiency: sheet3[i][28]? sheet3[i][28]: null,
+                    ws: sheet3[i][29]? sheet3[i][29]: null,
+                    exterior_wall_K: sheet3[i][30]? sheet3[i][30]: null,
+                    roof_K: sheet3[i][31]? sheet3[i][31]: null,
+                    exterior_window_K: sheet3[i][32]? sheet3[i][32]: null,
+                    exterior_window_SC: sheet3[i][33]? sheet3[i][33]: null,
+                    skylight_K: sheet3[i][34]? sheet3[i][34]: null,
+                    skylight_SC: sheet3[i][35]? sheet3[i][35]: null,
+                    building_orientation: sheet3[i][36]? sheet3[i][36]: null,
+                    wwr: sheet3[i][37]? sheep[i][37]: null,
+                    skylight_proportion: sheet3[i][38]? sheet3[i][38]: null,
+                    owcoar: sheet3[i][39]? sheet3[i][39]: null,
+                    tcwcoar: sheet3[i][40]? sheet3[i][40]: null,
+                    dohss: sheet3[i][41]? sheet3[i][41]: null,
+                    exhaust_heat_recovery_form: sheet3[i][42]? sheet3[i][42]: null,
+                    nwats: sheet3[i][43]? sheet3[i][43]: null,
+                    potwcesm: sheet3[i][44]? sheet3[i][44]: null,
+                    whwhsd: sheet3[i][45]? sheet3[i][45]: null,
+                    cchp_system_design: sheet3[i][46]? sheet3[i][46]: null,
+                    renewable_energy_use_form: sheet3[i][47]? sheet3[i][47]: null,
+                    acscwst: sheet3[i][48]? sheet3[i][48]: null,
+                    accwrt: sheet3[i][49]? sheet3[i][49]: null,
+                    achawst: sheet3[i][50]? sheet3[i][50]: null,
+                    achwrt: sheet3[i][51]? sheet3[i][51]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                energyConservationMeasureList[i - 2] = energyConservationMeasureMap;
+            }
+        }
+        for(var i = 2; i < sheet4.length; ++i){
+            if(sheet4[i].length){
+                const indoorEnvironmentMap = {
+                    natural_ventilation: sheet4[i][3]? sheet4[i][3]: null,
+                    natural_lighting: sheet4[i][4]? sheet4[i][4]: null,
+                    shade: sheet4[i][5]? sheet4[i][5]: null,
+                    improved_natural_lighting: sheet4[i][6]? sheet4[i][6]: null,
+                    adjustable_end_of_air: sheet4[i][7]? sheet4[i][7]: null,
+                    air_quality_control: sheet4[i][8]? sheet4[i][8]: null,
+                    accessibility_facilities: sheet4[i][9]? sheet4[i][9]: null,
+                    natural_ventilation_measures: sheet4[i][10]? sheet4[i][10]: null,
+                    natural_lighting_standard_area_ratio: sheet4[i][11]? sheet4[i][11]: null,
+                    shading_form: sheet4[i][12]? sheet4[i][12]: null,
+                    improve_natural_lighting_measures: sheet4[i][13]? sheet4[i][13]: null,
+                    air_conditioning_terminal_control_means: sheet4[i][14]? sheet4[i][14]: null,
+                    air_quality_control_design: sheet4[i][15]? sheet4[i][15]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                indoorEnvironmentList[i - 2] = indoorEnvironmentMap;
+            }
+        }
+        for(var i = 2; i < sheet5.length; ++i){
+            if(sheet5[i].length){
+                const indoorEenvironmentParameterDesignMap = {
+                    function_room: sheet5[i][0]? sheet5[i][0]: null,
+                    summer_temperature: sheet5[i][1]? sheet5[i][1]: null,
+                    summer_humidity: sheet5[i][2]? sheet5[i][2]: null,
+                    winter_temperature: sheet5[i][3]? sheet5[i][3]: null,
+                    winter_humidity: sheet5[i][4]? sheet5[i][4]: null,
+                    fresh_air_volume: sheet5[i][5]? sheet5[i][5]: null,
+                    standard_values_of_illumination: sheet5[i][6]? sheet5[i][6]: null,
+                    ugr: sheet5[i][7]? sheet5[i][7]: null,
+                    u0: sheet5[i][8]? sheet5[i][8]: null,
+                    ra: sheet5[i][9]? sheet5[i][9]: null
+                };
+                indoorEenvironmentParameterDesignList[i - 2] = indoorEenvironmentParameterDesignMap;
+            }
+        }
+        for(var i = 2; i < sheet6.length; ++i){
+            if(sheet6[i].length){
+                const waterSaveDesignMap = {
+                    rain_water_savings: sheet6[i][3]? sheet6[i][3]: null,
+                    rainwater_recycling: sheet6[i][4]? sheet6[i][4]: null,
+                    municipal_water: sheet6[i][5]? sheet6[i][5]: null,
+                    homemade_water: sheet6[i][6]? sheet6[i][6]: null,
+                    classification_of_measurement: sheet6[i][7]? sheet6[i][7]: null,
+                    water_saving_irrigation: sheet6[i][8]? sheet6[i][8]: null,
+                    cooling_water_conservation: sheet6[i][9]? sheet6[i][9]: null,
+                    rainwater_saving_measure: sheet6[i][10]? sheet6[i][10]: null,
+                    use_of_rainwater_for_reuse: sheet6[i][11]? sheet6[i][11]: null,
+                    unconventional_sources_of_water: sheet6[i][12]? sheet6[i][12]: null,
+                    non_traditional_sources_of_water_use: sheet6[i][13]? sheet6[i][13]: null,
+                    form_of_water_saving_irrigation: sheet6[i][14]? sheet6[i][14]: null,
+                    rain_water_return: sheet6[i][15]? sheet6[i][15]: null,
+                    water_and_water_consumption: sheet6[i][16]? sheet6[i][16]: null,
+                    non_traditional_water_availability: sheet6[i][17]? sheet6[i][17]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                waterSaveDesignList[i - 2] = waterSaveDesignMap;
+            }
+        }
+        for(var i = 1; i < sheet1.length; ++i){
+            if(!sheet1[i][4].toString().replace(/^\s+|\s+$/g, '')){
+                continue;
+            }
+            const buildingMap = {
+                unit: sheet1[i][0]? sheet1[i][0]: null,
+                subject: sheet1[i][1]? sheet1[i][1]: null,
+                people: sheet1[i][2]? sheet1[i][2]: null,
+                contact: sheet1[i][3]? sheet1[i][3]: null,
+                name: sheet1[i][4]? sheet1[i][4]: null,
+                type: sheet1[i][5]? sheet1[i][5]: null,
+                address: sheet1[i][6]? sheet1[i][6]: null,
+                application_unit: sheet1[i][7]? sheet1[i][7]: null,
+                participant_organization: sheet1[i][8]? sheet1[i][8]: null,
+                time: sheet1[i][9]? new Date(sheet1[i][9]): null,
+                adoption_standard: sheet1[i][10]? sheet1[i][10]: null,
+                level: sheet1[i][11]? sheet1[i][11]: null,
+                identifying: sheet1[i][12]? sheet1[i][12]: null,
+                project_time: sheet1[i][13]? new Date(sheet1[i][13]): null,
+                completion_time: sheet1[i][14]? new Date(sheet1[i][14]): null,
+                service_time: sheet1[i][15]? new Date(sheet1[i][15]): null,
+                building_area: sheet1[i][16]? sheet1[i][16]: null,
+                air_conditioning_area: sheet1[i][17]? sheet1[i][17]: null,
+                height: sheet1[i][18]? sheet1[i][18]: null,
+                building_orientation: sheet1[i][19]? sheet1[i][19]: null,
+                building_property: sheet1[i][20]? sheet1[i][20]: null,
+                construction_use_number: sheet1[i][21]? sheet1[i][21]: null,
+                remark: sheet1[i][22]? sheet1[i][22]: null,
+                project_id: parseInt(projectId),
+                created_on: new Date(),
+                updated_on: new Date()
+            };
+            buildingList[i - 1] = buildingMap;
+        }
+        for(var key in buildingList){
+            var designIndicators = null;
+            var energyConservationMeasure = null;
+            var indoorEnvironment = null;
+            var indoorEenvironmentParameterDesign = null;
+            var waterSaveDesign = null;
+            const conn = await app.mysql.beginTransaction();
+            try {
+                var resource = "ibeem_test:design_indicators";
+                var res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(designIndicatorsList[key]){
+                                designIndicators = await conn.insert('design_indicators', designIndicatorsList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:energy_conservation_measure";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(energyConservationMeasureList[key]){
+                                energyConservationMeasure = await conn.insert('energy_conservation_measure', energyConservationMeasureList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:indoor_environment";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(indoorEnvironmentList[key]){
+                                indoorEnvironment = await conn.insert('indoor_environment', indoorEnvironmentList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:indoor_environment_parameter_design";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(indoorEenvironmentParameterDesignList[key]){
+                                indoorEenvironmentParameterDesign = await conn.insert('indoor_environment_parameter_design', indoorEenvironmentParameterDesignList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:water_saving_design";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(waterSaveDesignList[key]){
+                                waterSaveDesign = await conn.insert('water_saving_design', waterSaveDesignList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:building";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(designIndicators){
+                                buildingList[key].design_indicators_id = parseInt(designIndicators.insertId);
+                            }
+                            if(energyConservationMeasure){
+                                buildingList[key].energy_conservation_measure_id = parseInt(energyConservationMeasure.insertId);
+                            }
+                            if(indoorEnvironment){
+                                buildingList[key].indoor_environment_id = parseInt(indoorEnvironment.insertId);
+                            }
+                            if(indoorEenvironmentParameterDesign){
+                                buildingList[key].indoor_environment_parameter_design_id = parseInt(indoorEenvironmentParameterDesign.insertId);
+                            }
+                            if(waterSaveDesign){
+                                buildingList[key].water_saving_design_id = parseInt(waterSaveDesign.insertId);
+                            }
+                            await conn.insert('building', buildingList[key]);
+                            await conn.commit();
+                        } catch (error) {
+                            console.error(error);
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+            } catch (error) {
+                return -1;
+            }
+        }
+    }
+
+    async buildingImportType2(projectId, xlsx){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        var ttl = 1000;
+        var buildingList= [];
+        var designIndicatorsList = [];
+        var energyConservationMeasureList = [];
+        var indoorEnvironmentList = [];
+        var indoorEenvironmentParameterDesignList = [];
+        var waterSaveDesignList = [];
+        const sheet1 = xlsx[0].data;
+        const sheet2 = xlsx[1].data;
+        const sheet3 = xlsx[2].data;
+        const sheet4 = xlsx[3].data;
+        const sheet5 = xlsx[4].data;
+        const sheet6 = xlsx[5].data;
+        for(var i = 1; i < sheet2.length; ++i){
+            if(sheet2[i].length){
+                const designIndicatorsMap = {
+                    land_area: sheet2[i][1]? sheet2[i][1]: null,
+                    building_area: sheet2[i][2]? sheet2[i][2]: null,
+                    subsurface_area: sheet2[i][3]? sheet2[i][3]: null,
+                    ground_floor_area: sheet2[i][4]? sheet2[i][4]: null,
+                    gas: sheet2[i][5]? sheet2[i][5]: null,
+                    municipal_heating: sheet2[i][6]? sheet2[i][6]: null,
+                    electric_power: sheet2[i][7]? sheet2[i][7]: null,
+                    coal: sheet2[i][8]? sheet2[i][8]: null,
+                    ubadtec: sheet2[i][9]? sheet2[i][9]: null,
+                    deer: sheet2[i][10]? sheet2[i][10]: null,
+                    thermal_performance_improvement: sheet2[i][11]? sheet2[i][11]: null,
+                    hvaacsdec: sheet2[i][12]? sheet2[i][12]: null,
+                    hvaacsdectr: sheet2[i][13]? sheet2[i][13]: null,
+                    total_water: sheet2[i][14]? sheet2[i][14]: null,
+                    non_conventional_water: sheet2[i][15]? sheet2[i][15]: null,
+                    non_traditional_water_availability: sheet2[i][16]? sheet2[i][16]: null,
+                    building_life_hot_water: sheet2[i][17]? sheet2[i][17]: null,
+                    renewable_heat_capacity: sheet2[i][18]? sheet2[i][18]: null,
+                    tpohwgbre: sheet2[i][19]? sheet2[i][19]: null,
+                    building_electric_consumption: sheet2[i][20]? sheet2[i][20]: null,
+                    renewable_capacity: sheet2[i][21]? sheet2[i][21]: null,
+                    renewable_energy_generates_electricity: sheet2[i][22]? sheet2[i][22]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                designIndicatorsList[i - 1] = designIndicatorsMap;
+            }
+        }
+        for(var i = 2; i < sheet3.length; ++i){
+            if(sheet3[i].length){
+                const energyConservationMeasureMap = {
+                    owccbo: sheet3[i][3]? sheet3[i][3]: null,
+                    exhaust_heat_recovery: sheet3[i][4]? sheet3[i][4]: null,
+                    adjustable_wind_ratio: sheet3[i][5]? sheet3[i][5]: null,
+                    partial_condition_energy_saving: sheet3[i][6]? sheet3[i][6]: null,
+                    er_standard: sheet3[i][7]? sheet3[i][7]: null,
+                    ws_standard: sheet3[i][8]? sheet3[i][8]: null,
+                    whwhu: sheet3[i][9]? sheet3[i][9]: null,
+                    itemized_metering: sheet3[i][10]? sheet3[i][10]: null,
+                    cchp: sheet3[i][11]? sheet3[i][11]: null,
+                    renewable_energy_use: sheet3[i][12]? sheet3[i][12]: null,
+                    lighting_target_value: sheet3[i][13]? sheet3[i][13]: null,
+                    lighting_control: sheet3[i][14]? sheet3[i][14]: null,
+                    egceas: sheet3[i][15]? sheet3[i][15]: null,
+                    energy_saving_electrical_equipment: sheet3[i][16]? sheet3[i][16]: null,
+                    cold_source_form: sheet3[i][17]? sheet3[i][17]: null,
+                    tfotds: sheet3[i][18]? sheet3[i][18]: null,
+                    end_system: sheet3[i][19]? sheet3[i][19]: null,
+                    ventilation_ventilation_form: sheet3[i][20]? sheet3[i][20]: null,
+                    total_capacity: sheet3[i][21]? sheet3[i][21]: null,
+                    refrigerating_quantity_indicator: sheet3[i][22]? sheet3[i][22]: null,
+                    total_heat: sheet3[i][23]? sheet3[i][23]: null,
+                    calorimetric_index: sheet3[i][24]? sheet3[i][24]: null,
+                    cop: sheet3[i][25]? sheet3[i][25]: null,
+                    eer: sheet3[i][26]? sheet3[i][26]: null,
+                    iplv: sheet3[i][27]? sheet3[i][27]: null,
+                    boiler_thermal_efficiency: sheet3[i][28]? sheet3[i][28]: null,
+                    ws: sheet3[i][29]? sheet3[i][29]: null,
+                    exterior_wall_K: sheet3[i][30]? sheet3[i][30]: null,
+                    roof_K: sheet3[i][31]? sheet3[i][31]: null,
+                    exterior_window_K: sheet3[i][32]? sheet3[i][32]: null,
+                    exterior_window_SC: sheet3[i][33]? sheet3[i][33]: null,
+                    building_orientation: sheet3[i][34]? sheet3[i][34]: null,
+                    owcoar: sheet3[i][35]? sheet3[i][35]: null,
+                    tcwcoar: sheet3[i][36]? sheet3[i][36]: null,
+                    dohss: sheet3[i][37]? sheet3[i][37]: null,
+                    exhaust_heat_recovery_form: sheet3[i][38]? sheet3[i][38]: null,
+                    nwats: sheet3[i][39]? sheet3[i][39]: null,
+                    potwcesm: sheet3[i][40]? sheet3[i][40]: null,
+                    whwhsd: sheet3[i][45]? sheet3[i][45]: null,
+                    cchp_system_design: sheet3[i][46]? sheet3[i][46]: null,
+                    renewable_energy_use_form: sheet3[i][47]? sheet3[i][47]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                energyConservationMeasureList[i - 2] = energyConservationMeasureMap;
+            }
+        }
+        for(var i = 2; i < sheet4.length; ++i){
+            if(sheet4[i].length){
+                const indoorEnvironmentMap = {
+                    natural_ventilation: sheet4[i][3]? sheet4[i][3]: null,
+                    natural_lighting: sheet4[i][4]? sheet4[i][4]: null,
+                    shade: sheet4[i][5]? sheet4[i][5]: null,
+                    improved_natural_lighting: sheet4[i][6]? sheet4[i][6]: null,
+                    adjustable_end_of_air: sheet4[i][7]? sheet4[i][7]: null,
+                    air_quality_control: sheet4[i][8]? sheet4[i][8]: null,
+                    accessibility_facilities: sheet4[i][9]? sheet4[i][9]: null,
+                    natural_ventilation_measures: sheet4[i][10]? sheet4[i][10]: null,
+                    natural_lighting_standard_area_ratio: sheet4[i][11]? sheet4[i][11]: null,
+                    shading_form: sheet4[i][12]? sheet4[i][12]: null,
+                    improve_natural_lighting_measures: sheet4[i][13]? sheet4[i][13]: null,
+                    air_conditioning_terminal_control_means: sheet4[i][14]? sheet4[i][14]: null,
+                    air_quality_control_design: sheet4[i][15]? sheet4[i][15]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                indoorEnvironmentList[i - 2] = indoorEnvironmentMap;
+            }
+        }
+        for(var i = 2; i < sheet5.length; ++i){
+            if(sheet5[i].length){
+                const indoorEenvironmentParameterDesignMap = {
+                    function_room: sheet5[i][0]? sheet5[i][0]: null,
+                    summer_temperature: sheet5[i][1]? sheet5[i][1]: null,
+                    summer_humidity: sheet5[i][2]? sheet5[i][2]: null,
+                    winter_temperature: sheet5[i][3]? sheet5[i][3]: null,
+                    winter_humidity: sheet5[i][4]? sheet5[i][4]: null,
+                    fresh_air_volume: sheet5[i][5]? sheet5[i][5]: null,
+                    standard_values_of_illumination: sheet5[i][6]? sheet5[i][6]: null,
+                    ugr: sheet5[i][7]? sheet5[i][7]: null,
+                    u0: sheet5[i][8]? sheet5[i][8]: null,
+                    ra: sheet5[i][9]? sheet5[i][9]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                indoorEenvironmentParameterDesignList[i - 2] = indoorEenvironmentParameterDesignMap;
+            }
+        }
+        for(var i = 2; i < sheet6.length; ++i){
+            if(sheet6[i].length){
+                const waterSaveDesignMap = {
+                    rain_water_savings: sheet6[i][3]? sheet6[i][3]: null,
+                    rainwater_recycling: sheet6[i][4]? sheet6[i][4]: null,
+                    municipal_water: sheet6[i][5]? sheet6[i][5]: null,
+                    homemade_water: sheet6[i][6]? sheet6[i][6]: null,
+                    classification_of_measurement: sheet6[i][7]? sheet6[i][7]: null,
+                    water_saving_irrigation: sheet6[i][8]? sheet6[i][8]: null,
+                    cooling_water_conservation: sheet6[i][9]? sheet6[i][9]: null,
+                    rainwater_saving_measure: sheet6[i][10]? sheet6[i][10]: null,
+                    use_of_rainwater_for_reuse: sheet6[i][11]? sheet6[i][11]: null,
+                    unconventional_sources_of_water: sheet6[i][12]? sheet6[i][12]: null,
+                    non_traditional_sources_of_water_use: sheet6[i][13]? sheet6[i][13]: null,
+                    form_of_water_saving_irrigation: sheet6[i][14]? sheet6[i][14]: null,
+                    rain_water_return: sheet6[i][15]? sheet6[i][15]: null,
+                    water_and_water_consumption: sheet6[i][16]? sheet6[i][16]: null,
+                    non_traditional_water_availability: sheet6[i][17]? sheet6[i][17]: null,
+                    created_on: new Date(),
+                    updated_on: new Date()
+                };
+                waterSaveDesignList[i - 2] = waterSaveDesignMap;
+            }
+        }
+        for(var i = 1; i < sheet1.length; ++i){
+            if(!sheet1[i][4].toString().replace(/^\s+|\s+$/g, '')){
+                continue;
+            }
+            const buildingMap = {
+                unit: sheet1[i][0]? sheet1[i][0]: null,
+                subject: sheet1[i][1]? sheet1[i][1]: null,
+                people: sheet1[i][2]? sheet1[i][2]: null,
+                contact: sheet1[i][3]? sheet1[i][3]: null,
+                name: sheet1[i][4]? sheet1[i][4]: null,
+                type: sheet1[i][5]? sheet1[i][5]: null,
+                address: sheet1[i][6]? sheet1[i][6]: null,
+                application_unit: sheet1[i][7]? sheet1[i][7]: null,
+                participant_organization: sheet1[i][8]? sheet1[i][8]: null,
+                time: sheet1[i][9]? new Date(sheet1[i][9]): null,
+                adoption_standard: sheet1[i][10]? sheet1[i][10]: null,
+                level: sheet1[i][11]? sheet1[i][11]: null,
+                identifying: sheet1[i][12]? sheet1[i][12]: null,
+                project_time: sheet1[i][13]? new Date(sheet1[i][13]): null,
+                completion_time: sheet1[i][14]? new Date(sheet1[i][14]): null,
+                service_time: sheet1[i][15]? new Date(sheet1[i][15]): null,
+                building_area: sheet1[i][16]? sheet1[i][16]: null,
+                building_orientation: sheet1[i][17]? sheet1[i][17]: null,
+                count_number: sheet1[i][18]? sheet1[i][18]: null,
+                number: sheet1[i][19]? sheet1[i][19]: null,
+                remark: sheet1[i][20]? sheet1[i][20]: null,
+                project_id: parseInt(projectId),
+                created_on: new Date(),
+                updated_on: new Date()
+            };
+            buildingList[i - 1] = buildingMap;
+        }
+        for(var key in buildingList){
+            var designIndicators = null;
+            var energyConservationMeasure = null;
+            var indoorEnvironment = null;
+            var indoorEenvironmentParameterDesign = null;
+            var waterSaveDesign = null;
+            const conn = await app.mysql.beginTransaction();
+            try {
+                var resource = "ibeem_test:design_indicators";
+                var res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(designIndicatorsList[key]){
+                                designIndicators = await conn.insert('design_indicators', designIndicatorsList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:energy_conservation_measure";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(energyConservationMeasureList[key]){
+                                energyConservationMeasure = await conn.insert('energy_conservation_measure', energyConservationMeasureList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:indoor_environment";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(indoorEnvironmentList[key]){
+                                indoorEnvironment = await conn.insert('indoor_environment', indoorEnvironmentList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:indoor_environment_parameter_design";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(indoorEenvironmentParameterDesignList[key]){
+                                indoorEenvironmentParameterDesign = await conn.insert('indoor_environment_parameter_design', indoorEenvironmentParameterDesignList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:water_saving_design";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(waterSaveDesignList[key]){
+                                waterSaveDesign = await conn.insert('water_saving_design', waterSaveDesignList[key]);
+                            }
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+                resource = "ibeem_test:building";
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            if(designIndicators){
+                                buildingList[key].design_indicators_id = parseInt(designIndicators.insertId);
+                            }
+                            if(energyConservationMeasure){
+                                buildingList[key].energy_conservation_measure_id = parseInt(energyConservationMeasure.insertId);
+                            }
+                            if(indoorEnvironment){
+                                buildingList[key].indoor_environment_id = parseInt(indoorEnvironment.insertId);
+                            }
+                            if(indoorEenvironmentParameterDesign){
+                                buildingList[key].indoor_environment_parameter_design_id = parseInt(indoorEenvironmentParameterDesign.insertId);
+                            }
+                            if(waterSaveDesign){
+                                buildingList[key].water_saving_design_id = parseInt(waterSaveDesign.insertId);
+                            }
+                            await conn.insert('building', buildingList[key]);
+                            await conn.commit();
+                        } catch (error) {
+                            console.error(error);
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return res;
+            } catch (error) {
+                return -1;
+            }
+        }
+    }
+
+    async buildingImportType3(projectId, xlsx, buildingName){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        var resource = "ibeem_test:top_building";
+        var ttl = 1000;
+        try {
+            var res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await app.mysql.insert('top_building', {
+                            project_id: projectId,
+                            name: buildingName,
+                            created_on: new Date(),
+                            updated_on: new Date()
+                        });
+                    } catch (error) {
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                }
+            });
+            if(res == -1) return res;
+        } catch (error) {
+            return -1;
+        }
+    }
+
     async singleDelete(projectId){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();

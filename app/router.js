@@ -20,21 +20,21 @@ module.exports = app => {
   router.get('/common/leftpanel', userRequired, controller.common.leftpanel);
   router.get('/common/admin/leftpanel', adminRequired, controller.common.adminLeftpanel);
   router.get('/common/team_list_item', controller.common.teamListItem);
-  router.get('/common/questionDX', userRequired, controller.common.questionDx);
-  router.get('/common/questionDDX', userRequired, controller.common.questionDDX);
-  router.get('/common/questionTK', userRequired, controller.common.questionTK);
-  router.get('/common/questionLB', userRequired, controller.common.questionLB);
-  router.get('/common/questionZX', userRequired, controller.common.questionZX);
-  router.get('/common/questionDL', userRequired, controller.common.questionDL);
+  router.get('/common/questionDX', controller.common.questionDx);
+  router.get('/common/questionDDX', controller.common.questionDDX);
+  router.get('/common/questionTK', controller.common.questionTK);
+  router.get('/common/questionLB', controller.common.questionLB);
+  router.get('/common/questionZX', controller.common.questionZX);
+  router.get('/common/questionDL', controller.common.questionDL);
   router.get('/common/member/list', controller.common.memberList);
-  router.post('/common/upload', userRequired, controller.common.upload);
-  router.get('/common/tjDX', userRequired, controller.common.tjDX);
-  router.get('/common/tjHK', userRequired, controller.common.tjHK);
-  router.get('/common/tjLB', userRequired, controller.common.tjLB);
-  router.get('/common/tjTK', userRequired, controller.common.tjTK);
-  router.get('/common/tjTKModal', userRequired, controller.common.tjTKModal);
-  router.get('/common/analysis1', userRequired, controller.common.analysis1);
-  router.get('/common/analysis2', userRequired, controller.common.analysis2);
+  router.post('/common/upload', controller.common.upload);
+  router.get('/common/tjDX', controller.common.tjDX);
+  router.get('/common/tjHK', controller.common.tjHK);
+  router.get('/common/tjLB', controller.common.tjLB);
+  router.get('/common/tjTK', controller.common.tjTK);
+  router.get('/common/tjTKModal', controller.common.tjTKModal);
+  router.get('/common/analysis1', controller.common.analysis1);
+  router.get('/common/analysis2', controller.common.analysis2);
 
   // index
   router.get('/', loginRequired, controller.index.index);
@@ -205,6 +205,7 @@ module.exports = app => {
   router.post('/admin/project/single/delete', adminRequired, controller.admin.project.singleDelete);
   router.post('/admin/project/single/building', adminRequired, controller.admin.project.singleBuilding);
   router.post('/admin/project/single/building/add', adminRequired, controller.admin.project.singleBuildingAdd);
+  router.post('/admin/project/single/building/import', adminRequired, controller.admin.project.singleBuildingImport);
   router.post('/admin/project/single/building/delete', adminRequired, controller.admin.project.singleBuildingDelete);
   router.post('/admin/project/single/building/view', adminRequired, controller.admin.project.singleBuildingView);
   router.post('/admin/project/single/building/infomation', adminRequired, controller.admin.project.singleBuildingInformation);
