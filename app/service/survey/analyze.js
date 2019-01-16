@@ -304,9 +304,11 @@ class AnalyzeService extends Service {
                                             const yanswer_json = JSON.parse(yanswer_detail_list[l].reply_content);
                                             const answers = yanswer_json.answers;
                                             for (var n = min_val; n <= max_val; n++) {
-                                                for (var a = 0; a < answers.length; a++) {
-                                                    if (id == answers[a].id && n == answers[a].value) {
-                                                        m[n.toString()] = m[n.toString()] + 1;
+                                                if ((n - min_val) % interval == 0) {
+                                                    for (var a = 0; a < answers.length; a++) {
+                                                        if (id == answers[a].id && n == answers[a].value) {
+                                                            m[n.toString()] = m[n.toString()] + 1;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -458,7 +460,6 @@ class AnalyzeService extends Service {
                     }
                     else if (yquestion.type == 3) {
                         // 量表题
-                        // here
                         const yquestion_json = JSON.parse(yquestion.setting);
                         const yarray = yquestion_json.y_axis;
                         const xarray = yquestion_json.x_axis;
@@ -466,12 +467,12 @@ class AnalyzeService extends Service {
                             var m = {};
                             const id = yarray[i].id;
                             for (var j = 0; j < list.length; j++) {
-                                const project_survey = list[j];
-                                const project = await this.app.mysql.get('project', {id: project_survey.project_id});
-                                const project_name = project.name;
-                                const project_id = project_survey.project_id;
-                                // answerDetailDao.getListByQuestion(yid,surveyID,projectId,1,startTime,endTime)
-                                const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, project_id, 1, beginTime, endTime);
+                                const building_survey = list[j];
+                                const building = await this.app.mysql.get('building', {id: building_survey.building_id});
+                                const building_name = building.name;
+                                const building_id = building_survey.building_id;
+                                // answerDetailDao.getListByQuestion(yid,surveyID,buildingId,2,startTime,endTime)
+                                const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_id, 2, beginTime, endTime);
                                 if (yanswer_detail_list == -1) {
                                     return -1;
                                 }
@@ -495,13 +496,128 @@ class AnalyzeService extends Service {
                                             }
                                         }
                                     }
-                                    m[project_name] = zm;
+                                    m[building_name] = zm;
                                 }
                             }
                             result[yarray[i].left] = m;
                         }
                         result['isNoData'] = is_no_data;
                     }
+                    else if (yquestion.type == 4) {
+                        // 滑条题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        var yarray = yquestion_json.items;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var map = {};
+                            const id = yarray[i].id;
+                            const min_val = yarray[i].min_val;
+                            const max_val = yarray[i].max_val;
+                            const interval = yarray[i].interval;
+                            const left = yarray[i].left;
+                            for (var j = 0; j < list.length; j++) {
+                                const building_survey = list[j];
+                                var m = {};
+                                const building = await this.app.mysql.get('building', {id: building_survey.building_id});
+                                const building_name = building.name;
+                                const building_id = building_survey.building_id;
+                                for (var k = min_val; k <= max_val; k++) {
+                                    if ((k - min_val) % interval == 0) {
+                                        m[k.toString()] = 0;
+                                    }
+                                }
+                                // answerDetailDao.getListByQuestion(yid,surveyID,buildingId,2,startTime,endTime)
+                                const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_id, 2, beginTime, endTime);
+                                if (yanswer_detail_list == -1) {
+                                    return -1;
+                                }
+
+                                if (yanswer_detail_list.length != 0) {
+                                    is_no_data = 0;
+                                    for (var l = 0; l < yanswer_detail_list.length; l++) {
+                                        if (yanswer_detail_list[l].isanswered == 1) {
+                                            const yanswer_json = JSON.parse(yanswer_detail_list[l].reply_content);
+                                            const answers = yanswer_json.answers;
+                                            for (var n = min_val; n <= max_val; n++) {
+                                                if ((n - min_val) % interval == 0) {
+                                                    for (var a = 0; a < answers.length; a++) {
+                                                        if (id == answers[a].id && n == answers[a].value) {
+                                                            m[n.toString()] = m[n.toString()] + 1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    map[building_name] = m;
+                                }
+                            }
+                            result[left] = map;
+                        }
+                    }
+                    result['isNoData'] = is_no_data;
+                }
+                else {
+                    result['isNotRelated'] = 1;
+                }
+            }
+            else if (type == 'buildingPoint') {
+                var list = null;
+                if (relation == 0) {
+                    list = await this.app.mysql.select('building_point_survey', {where: {survey_id: surveyID}});
+                }
+                else if (relation == 1) {
+                    list = await this.app.mysql.query('select * from building_point_survey where survey_id=? and building_point_id in (select id from building_point where building_id in (select id from building where project_id=?))',
+                        [surveyID, objectID]);
+                }
+                else if (relation == 2) {
+                    list = await this.app.mysql,query('select * from building_point_survey where survey_id=? and building_point_id in (select id from building_point where building_id=?)',
+                        [surveyID, objectID]);
+                }
+                
+                if (list != null && list.length != 0) {
+                    result['isNotRelated'] = 0;
+                    const yquestion = await this.app.mysql.get('question', {id: yid});
+                    if (yquestion.type == 1) {
+                        // 单选题
+                        var yquestion_json = JSON.parse(yquestion.setting);
+                        var yarray = yquestion_json.items;
+                        for (var i = 0; i < list.length; i++) {
+                            var building_point_survey = list[i];
+                            var map = {};
+                            const building_point = await this.app.mysql.get('building_point', {id: building_point_survey.building_point_id});
+                            const building_point_name = building_point.name;
+                            const building_point_id = building_point_survey.building_point_id;
+
+                            // answerDetailDao.getListByQuestion(yid,surveyID,buildingPointId,3,startTime,endTime);
+                            const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_point_id, 3, beginTime, endTime);
+                            if (yanswer_detail_list == -1) {
+                                return -1;
+                            }
+
+                            if (yanswer_detail_list.length != 0) {
+                                is_no_data = 0;
+                                for (var j = 0; j < yarray.length; j++) {
+                                    map[yarray[j].text] = 0;
+                                }
+                                for (var j = 0; j < yarray.length; j++) {
+                                    var id = yarray[j].id;
+                                    for (var k = 0; k < yanswer_detail_list.length; k++) {
+                                        if (yanswer_detail_list[k].isanswered == 1) {
+                                            const answer_json = JSON.parse(yanswer_detail_list[k].reply_content);
+                                            if (id == answer_json.id) {
+                                                map[yarray[j].text] = map[yarray[j].text] + 1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            result[building_point_name] = map;
+                        }
+                        result['isNoData'] = is_no_data;
+                    }
+                }
+                else {
+                    result['isNotRelated'] = 1;
                 }
             }
 
