@@ -615,6 +615,183 @@ class AnalyzeService extends Service {
                         }
                         result['isNoData'] = is_no_data;
                     }
+                    else if (yquestion.type == 2) {
+                        // 多选题
+                        var yquestion_json = JSON.parse(yquestion.setting);
+                        var yarray = yquestion_json.items;
+                        for (var i = 0; i < list.length; i++) {
+                            var building_point_survey = list[i];
+                            var map = {};
+                            const building_point = await this.app.mysql.get('building_point', {id: building_point_survey.building_point_id});
+                            const building_point_name = building_point.name;
+                            const building_point_id = building_point_survey.building_point_id;
+
+                            // answerDetailDao.getListByQuestion(yid,surveyID,buildingPointId,3,startTime,endTime);
+                            const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_point_id, 3, beginTime, endTime);
+                            if (yanswer_detail_list == -1) {
+                                return -1;
+                            }
+
+                            if (yanswer_detail_list.length != 0) {
+                                is_no_data = 0;
+                                for (var j = 0; j < yarray.length; j++) {
+                                    map[yarray[j].text] = 0;
+                                }
+                                for (var j = 0; j < yarray.length; j++) {
+                                    var id = yarray[j].id;
+                                    for (var k = 0; k < yanswer_detail_list.length; k++) {
+                                        if (yanswer_detail_list[k].isanswered == 1) {
+                                            const yanswer_json = JSON.parse(yanswer_detail_list[k].reply_content);
+                                            const yanswers = yanswer_json.answers;
+                                            for (var l = 0; l < yanswers.length; l++) {
+                                                if (id == yanswers[l].id) {
+                                                    map[yarray[j].text] = map[yarray[j].text] + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            result[building_point_name] = map;
+                        }
+                        result['isNoData'] = is_no_data;
+                    }
+                    else if (yquestion.type == 0) {
+                        // 填空题
+                        var result_list = [];
+                        for (var i = 0; i < list.length; i++) {
+                            var building_point_survey = list[i];
+                            var text_list = [];
+                            var map = {};
+                            const building_point = await this.app.mysql.get('building_point', {id: building_point_survey.building_point_id});
+                            const building_point_name = building_point.name;
+                            const building_point_id = building_point_survey.building_point_id;
+                            map['id'] = building_point_id;
+                            // answerDetailDao.getListByQuestion(yid,surveyID,buildingPointId,3,startTime,endTime);
+                            const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_point_id, 3, beginTime, endTime);
+                            if (yanswer_detail_list == -1) {
+                                return -1;
+                            }
+
+                            if (yanswer_detail_list.length != 0) {
+                                is_no_data = 0;
+                                for (var j = 0; j < yanswer_detail_list.length; j++) {
+                                    if (yanswer_detail_list[j].isanswered == 1) {
+                                        var m = {};
+                                        const reply_content = JSON.parse(yanswer_detail_list[j].reply_content);
+                                        const answer = reply_content.answer;
+                                        const tmp_date = new Date(yanswer_detail_list[j].created_on);
+                                        const date_str = tmp_date.getFullYear() + '-' + (tmp_date.getMonth()+1) + '-' + tmp_date.getDate() + ' ' + tmp_date.getHours() + ':' + tmp_date.getMinutes() + ':' + tmp_date.getSeconds();
+                                        m['time'] = date_str;
+                                        m['answer'] = answer;
+                                        text_list.push(m);
+                                    }
+                                }
+                            }
+
+                            map['textlist'] = text_list;
+                            result_list.push(map);
+                        }
+                        result['isNoData'] = is_no_data;
+                        result['analysis'] = result_list;
+                    }
+                    else if (yquestion.type == 3) {
+                        // 量表题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.y_axis;
+                        const xarray = yquestion_json.x_axis;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var m = {};
+                            const id = yarray[i].id;
+                            for (var j = 0; j < list.length; j++) {
+                                const building_point_survey = list[j];
+                                const building_point = await this.app.mysql.get('building_point', {id: building_point_survey.building_point_id});
+                                const building_point_name = building_point.name;
+                                const building_point_id = building_point_survey.building_point_id;
+                                // answerDetailDao.getListByQuestion(yid,surveyID,buildingPointId,3,startTime,endTime);
+                                const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_point_id, 3, beginTime, endTime);
+                                if (yanswer_detail_list == -1) {
+                                    return -1;
+                                }
+                                var zm = {};
+                                if (yanswer_detail_list.length != 0) {
+                                    is_no_data = 0;
+                                    for (var k = 0; k < xarray.length; k++) {
+                                        zm[xarray[k].tag] = 0;
+                                    }
+                                    for (var k = 0; k < yanswer_detail_list.length; k++) {
+                                        if (yanswer_detail_list[k].isanswered == 1) {
+                                            const yanswer_json = JSON.parse(yanswer_detail_list[k].reply_content);
+                                            const answers = yanswer_json.answers;
+                                            for (var l = 0; l < xarray.length; l++) {
+                                                const val = xarray[l].val;
+                                                for (var n = 0; n < answers.length; n++) {
+                                                    if (id == answers[n].id && val == answers[n].val) {
+                                                        zm[xarray[l].tag] = zm[xarray[l].tag] + 1;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    m[building_point_name] = zm;
+                                }
+                            }
+                            result[yarray[i].left] = m;
+                        }
+                        result['isNoData'] = is_no_data;
+                    }
+                    else if (yquestion.type == 4) {
+                        // 滑条题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        var yarray = yquestion_json.items;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var map = {};
+                            const id = yarray[i].id;
+                            const min_val = yarray[i].min_val;
+                            const max_val = yarray[i].max_val;
+                            const interval = yarray[i].interval;
+                            const left = yarray[i].left;
+                            for (var j = 0; j < list.length; j++) {
+                                const building_point_survey = list[j];
+                                var m = {};
+                                const building_point = await this.app.mysql.get('building_point', {id: building_point_survey.building_point_id});
+                                const building_point_name = building_point.name;
+                                const building_point_id = building_point_survey.building_point_id;
+                                for (var k = min_val; k <= max_val; k++) {
+                                    if ((k - min_val) % interval == 0) {
+                                        m[k.toString()] = 0;
+                                    }
+                                }
+                                // answerDetailDao.getListByQuestion(yid,surveyID,buildingPointId,3,startTime,endTime);
+                                const yanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestion(yid, surveyID, building_point_id, 3, beginTime, endTime);
+                                if (yanswer_detail_list == -1) {
+                                    return -1;
+                                }
+
+                                if (yanswer_detail_list.length != 0) {
+                                    is_no_data = 0;
+                                    for (var l = 0; l < yanswer_detail_list.length; l++) {
+                                        if (yanswer_detail_list[l].isanswered == 1) {
+                                            const yanswer_json = JSON.parse(yanswer_detail_list[l].reply_content);
+                                            const answers = yanswer_json.answers;
+                                            for (var n = min_val; n <= max_val; n++) {
+                                                if ((n - min_val) % interval == 0) {
+                                                    for (var a = 0; a < answers.length; a++) {
+                                                        if (id == answers[a].id && n == answers[a].value) {
+                                                            m[n.toString()] = m[n.toString()] + 1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    map[building_point_name] = m;
+                                }
+                            }
+                            result[left] = map;
+                        }
+                    }
+                    result['isNoData'] = is_no_data;
                 }
                 else {
                     result['isNotRelated'] = 1;
