@@ -1,4 +1,3 @@
-
 var passwordEdited = false;
 
 $(document).ready(function(){ 
@@ -93,6 +92,8 @@ $(document).ready(function(){
 		    		window.location.href = "/device/qrcodelogin?token="+token+"&timestamp="+timestamp;
 		    	}
 		    	localStorage.setItem("login_type","device");
+			},
+			fail: function(res){
 			}
 		});
 	});

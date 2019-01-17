@@ -268,7 +268,7 @@
 		<div id="profile">
 			<img id="profile_potrait" src="/public/static/mobile/img/profile_potrait.png">
 			<span id="profile_name"></span>
-			<a id="profile_wechat"><spring:message code="mobilelist_bindChat" /></a>
+			<a id="profile_wechat">绑定微信</a>
 		</div>
 		<!-- <img id="search_input_logo_main" class="search_input_logo" src="static/mobile/img/search_logo.png"> -->
 		<!-- <input type="text" id="search_input_main" class="search_input" placeholder="<spring:message code='mobilelist_searchDevice' />"> -->
@@ -819,7 +819,7 @@
 		//绑定微信号
 		$("#profile_wechat").click(function(){
 			var thisUrl = window.location.href;  //是一个可以接收返回的code的url，可以是本页面
-			window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx472e78d4295c4091"
+			window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9e2ae443958122f4"
 								+"&redirect_uri="+encodeURIComponent(thisUrl)
 								+"&response_type=code&scope=snsapi_userinfo&state=BindingWechat#wechat_redirect";
 		});

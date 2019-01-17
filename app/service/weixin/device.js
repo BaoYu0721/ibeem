@@ -169,13 +169,13 @@ class DeviceService extends Service {
     }
 
     async deviceEvaluation(deviceId){
-        const assessment = null;
+        var assessment = null;
         try {
             assessment = await this.app.mysql.get('assessment', {device_id: deviceId});
         } catch (error) {
             return -1;
         }
-        return assessment;
+        return assessment.content;
     }
 }
 

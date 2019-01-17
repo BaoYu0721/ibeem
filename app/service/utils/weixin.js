@@ -14,9 +14,8 @@ class WenxinService extends Service {
                 return -1;
             }else{
                 WexinData.base_token.access_token = result.access_token;
-                WexinData.base_token.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 200) * 1000;
+                WexinData.base_token.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 600) * 1000;
                 ctx.helper.updateWeixinJson(WexinData);
-                return WexinData.base_token.access_token;
             }
         }
         return WexinData.base_token.access_token;
@@ -24,17 +23,19 @@ class WenxinService extends Service {
 
     async getTicket(){
         const { ctx } = this;
-        if(WexinData.ticket == ""){
-            const access_token = await this.getAccessToken();
-            if(access_token == -1){
-                return -1;
-            }
-            const url = ctx.helper.formatTicket(ctx.app.config.wexin.apiUrl.ticketApi, ctx.app.config.wexin.apiDomain, access_token);
+        const current_time = new Date().getTime();
+        if(WexinData.ticket_ob.ticket == "" || WexinData.ticket_ob.expires_time < current_time){
+            const url = ctx.helper.formatTicket(ctx.app.config.wexin.apiUrl.ticketApi, ctx.app.config.wexin.apiDomain, WexinData.base_token.access_token);
             const result = await ctx.service.utils.http.wexinGet(url);
-            WexinData.ticket = result.ticket;
-            ctx.helper.updateWeixinJson(WexinData);
+            if(result.errcode){
+                return -1;
+            }else{
+                WexinData.ticket_ob.ticket = result.ticket;
+                WexinData.ticket_ob.expires_time = new Date().getTime() + (parseInt(result.expires_in) - 600) * 1000;
+                ctx.helper.updateWeixinJson(WexinData);
+            }
         }
-        return WexinData.ticket;
+        return WexinData.ticket_ob.ticket;
     }
 }
 

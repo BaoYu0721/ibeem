@@ -8,15 +8,25 @@ class DeviceController extends Controller {
         const did = ctx.query.did;
         const item = ctx.query.item;
         if(did && item == "realtime"){
-            return await ctx.render('mobile/realtimeData.html');
+            return await ctx.render('mobile/realtimeData.html', {
+                did: did
+            });
         }else if(did && item == "detail"){
-            return await ctx.render('mobile/deviceDetail.html');
+            return await ctx.render('mobile/deviceDetail.html', {
+                did: did
+            });
         }else if(did && item == "history"){
-            return await ctx.render('mobile/historyData.html');
+            return await ctx.render('mobile/historyData.html', {
+                did: did
+            });
         }else if(did && item == "evaluation"){
-            return await ctx.render('mobile/evaluation.html');
+            return await ctx.render('mobile/evaluation.html', {
+                did: did
+            });
         }else if(did && item == "room"){
-            return await ctx.render('mobile/homeSetting.html');
+            return await ctx.render('mobile/homeSetting.html', {
+                did: did
+            });
         }
         const ticket = await ctx.service.utils.weixin.getTicket();
         if(ticket == -1){

@@ -1,153 +1,193 @@
 // 雷达图
 function result_ldt(num,data){
-	
 	var title,data1,data2,data3;
 	if(num==1){
 		title = "IEQ雷达图（本城市/本气候区）";
-		data1 = data.part1.data.series[0].data; // 当前
-		data2 = data.part1.data.series[1].data; // 本省
-		data3 = data.part1.data.series[2].data; // 全国
+		if(data){
+			data1 = data.part1.data.series[0].data; // 当前
+			data2 = data.part1.data.series[1].data; // 本省
+			data3 = data.part1.data.series[2].data; // 全国
+		}
 	}else if(num==2){
 		title = "满意度投票（-3~3）";
-		data1 = data.part2.data.series[0].data;		
-		data2 = data.part2.data.series[1].data;
-		data3 = data.part2.data.series[2].data;
+		if(data){
+			data1 = data.part2.data.series[0].data;		
+			data2 = data.part2.data.series[1].data;
+			data3 = data.part2.data.series[2].data;
+		}
 	}
 	
 	console.log("雷达图数据：1当前、2本省、3全国");
 	console.log(data1);
 	console.log(data2);
 	console.log(data3);
-	
-    $('#evaluation_chart').highcharts({
-        chart: {
-            polar: true,
-            type: 'line',
-            backgroundColor:"#3fb493"
-        },
-        title: {
-            text: title,
-            style:{
-                color:"#ffffff"
-            }
-        },
-        xAxis: {
-            categories: ['综合评价','热环境', '空气品质', '光环境', '声环境'],
-            tickmarkPlacement: 'on',
-            lineWidth: 0,
-            gridLineWidth:"3px",
-            labels: {
-            	style: { 
-            		color: "#FFFFFF" ,
-            		fontSize:"14px"
-            	}
-            }
-        },
-        yAxis: {
-            gridLineInterpolation: 'polygon',
-            lineWidth: 0,
-            min: 0,
-            gridLineWidth:"3px",
-            labels: {
-            	style: { 
-            		color: "#FFFFFF" ,
-            		fontSize:"14px"
-            	}
-            }
-        },
-        legend: {
-	      	  itemStyle: {
-	      	    color: '#fff',
-	      	    fontSize:'14px',
-	      	    fontWeight:"normal"
-	      	  },
-	      	  layout:"vertical",
-        },
+	// var json = {
+    //     chart: {
+    //         polar: true,
+    //         type: 'line',
+    //         backgroundColor:"#3fb493"
+    //     },
+    //     title: {
+    //         text: title,
+    //         style:{
+    //             color:"#ffffff"
+    //         }
+    //     },
+    //     xAxis: {
+    //         categories: ['综合评价','热环境', '空气品质', '光环境', '声环境'],
+    //         tickmarkPlacement: 'on',
+    //         lineWidth: 0,
+    //         gridLineWidth:"3px",
+    //         labels: {
+    //         	style: { 
+    //         		color: "#FFFFFF" ,
+    //         		fontSize:"14px"
+    //         	}
+    //         }
+    //     },
+    //     yAxis: {
+    //         gridLineInterpolation: 'polygon',
+    //         lineWidth: 0,
+    //         min: 0,
+    //         gridLineWidth:"3px",
+    //         labels: {
+    //         	style: { 
+    //         		color: "#FFFFFF" ,
+    //         		fontSize:"14px"
+    //         	}
+    //         }
+    //     },
+    //     legend: {
+	//       	  itemStyle: {
+	//       	    color: '#fff',
+	//       	    fontSize:'14px',
+	//       	    fontWeight:"normal"
+	//       	  },
+	//       	  layout:"vertical",
+    //     },
 
-        plotOptions: {
-            spline: {
-            	lineColor:"#FFFFFF",
-            	lineWidth: 1
-            }
-        },
+    //     plotOptions: {
+    //         spline: {
+    //         	lineColor:"#FFFFFF",
+    //         	lineWidth: 1
+    //         }
+    //     },
 
-        tooltip: {
+    //     tooltip: {
+    //         shared: true,
+    //         pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
+    //     },
+    //     credits: {
+    //         enabled:false
+    //     },
+    //     series: [{
+    //         name: '本建筑',
+    //         data: data1,
+    //         pointPlacement: 'on',
+    //         color:"#af1234"
+    //     }, {
+    //         name: '同气候区建筑',
+    //         data: data2,
+    //         pointPlacement: 'on',
+    //         color:"#7744de"
+    //     },{
+    //         name: '全国建筑',
+    //         data: data3,
+    //         pointPlacement: 'on',
+    //         color:"#036df1"
+	// 	}]
+	// };
+	var json = {
+		title: {
+			text: title,
+		},
+		subtitle: {
+			text: "www.ibeem.cn"
+		},
+		xAxis: {
+			categories: ['综合评价','热环境', '空气品质', '光环境', '声环境']
+		},
+		yAxis: {
+			title: {
+				text: '^_^'
+			}
+		},
+		tooltip: {
             shared: true,
             pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
         },
-        credits: {
-            enabled:false
-        },
-        series: [{
-            name: '本建筑',
-            data: data1,
-            pointPlacement: 'on',
-            color:"#af1234"
-        }, {
-            name: '同气候区建筑',
-            data: data2,
-            pointPlacement: 'on',
-            color:"#7744de"
-        },{
-            name: '全国建筑',
-            data: data3,
-            pointPlacement: 'on',
-            color:"#036df1"
-        }]
-    });
+		series: [{
+			name: '本建筑',
+			data: data1
+		}, {
+			name: '同气候区建筑',
+			data: data2
+		}, {
+			name: '全国建筑',
+			data: data3
+		}]
+	};
+	console.log(json.series);
+	try {
+		$('#evaluation_chart').highcharts(json);
+	} catch (error) {
+		console.log(error)
+		console.log('hightcharts error!');
+		return -1;
+	}
 }
 
 // 达标图
 function result_dbt(data){
-	var gaugeOptions = {
-	        chart: {
-	            type: 'solidgauge',
-	           // backgroundColor:"#3fb493"
-	        },
-	        title:"达标率",
-	        pane: {
-	            center: ['50%', '50%'],
-	            size: '100%',
-	            startAngle: -90,
-	            endAngle: 90,
-	            background: {
-	                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-	                innerRadius: '60%',
-	                outerRadius: '100%',
-	                shape: 'arc'
-	            }
-	        },
-	        tooltip: {
-	            enabled: false
-	        },
-	        // the value axis
-	        yAxis: {
-	            stops: [
-	                [0.1, '#55BF3B'], // green
-	                [0.5, '#DDDF0D'], // yellow
-	                [0.9, '#DF5353'] // red
-	            ],
-	            lineWidth: 0,
-	            minorTickInterval: null,
-	            tickPixelInterval: 400,
-	            tickWidth: 0,
-	            title: {
-	                y:50
-	            },
-	            labels: {
-	                y: 1000 // 超出范围隐藏
-	            }
-	        },
-	        plotOptions: {
-	            solidgauge: {
-	                dataLabels: {
-	                    y: 0,
-	                    borderWidth: 0,
-	                    useHTML: true
-	                }
-	            }
-	        }
-	    };
+	// var gaugeOptions = {
+	//         chart: {
+	//             type: 'solidgauge',
+	//            // backgroundColor:"#3fb493"
+	//         },
+	//         title:"达标率",
+	//         pane: {
+	//             center: ['50%', '50%'],
+	//             size: '100%',
+	//             startAngle: -90,
+	//             endAngle: 90,
+	//             background: {
+	//                 backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+	//                 innerRadius: '60%',
+	//                 outerRadius: '100%',
+	//                 shape: 'arc'
+	//             }
+	//         },
+	//         tooltip: {
+	//             enabled: false
+	//         },
+	//         // the value axis
+	//         yAxis: {
+	//             stops: [
+	//                 [0.1, '#55BF3B'], // green
+	//                 [0.5, '#DDDF0D'], // yellow
+	//                 [0.9, '#DF5353'] // red
+	//             ],
+	//             lineWidth: 0,
+	//             minorTickInterval: null,
+	//             tickPixelInterval: 400,
+	//             tickWidth: 0,
+	//             title: {
+	//                 y:50
+	//             },
+	//             labels: {
+	//                 y: 1000 // 超出范围隐藏
+	//             }
+	//         },
+	//         plotOptions: {
+	//             solidgauge: {
+	//                 dataLabels: {
+	//                     y: 0,
+	//                     borderWidth: 0,
+	//                     useHTML: true
+	//                 }
+	//             }
+	//         }
+	//     };
 	
 		// 0-3为当前 4-7为本省 8-11为全国
 		var dbtStr ="<div id='dbt_box'>"+
@@ -173,32 +213,74 @@ function result_dbt(data){
 		//$('#evaluation_chart').after(dbtStr);
 
 		for(var i=0;i<12;i++){
-			
-			var titleText = data.part1.data.seriesDBL[i].titleText;
-			var dataPer = data.part1.data.seriesDBL[i].dataPer;
-			
-			$('#dbt_chart_' + i).highcharts(Highcharts.merge(gaugeOptions, {
-		        yAxis: {
-		            min: 0,
-		            max: 100,
-		            title: {
-		                text: titleText
-		            }
-		        },
-		        credits: {
-		            enabled: false
-		        },
-		        series: [{
-		            name: titleText,
-		            data: dataPer,
-		            dataLabels: {
-		                format: '<div style="fontsize:12px;color:#777777;text-align:center;"><span>{y:.1f}%</span></div>'
-		            },
-		            tooltip: {
-		                valueSuffix: '%'
-		            }
-		        }]
-		    }));
+			var titleText = '';
+			var dataPer = null;
+			if(data){
+				titleText = data.part1.data.seriesDBL[i].titleText;
+				dataPer = data.part1.data.seriesDBL[i].dataPer;
+			}
+			console.log(dataPer);
+			// var json = Highcharts.merge(gaugeOptions, {
+			// 	yAxis: {
+			// 		min: 0,
+			// 		max: 100,
+			// 		title: {
+			// 			text: titleText
+			// 		}
+			// 	},
+			// 	credits: {
+			// 		enabled: false
+			// 	},
+			// 	series: [{
+			// 		name: titleText,
+			// 		data: dataPer,
+			// 		dataLabels: {
+			// 			format: '<div style="fontsize:12px;color:#777777;text-align:center;"><span>{y:.1f}%</span></div>'
+			// 		},
+			// 		tooltip: {
+			// 			valueSuffix: '%'
+			// 		}
+			// 	}]
+			// 	//series: []
+			// });
+			var json = {
+				chart: {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false
+				},
+				title: {
+					text: '',
+				},
+				tooltip: {
+					//shared: true,
+					pointFormat: '<div>{series.name}</div><div style="fontsize:12px;color:#777777;text-align:center;"><span>{point.percentage:.1f}%</span></div>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+						   enabled: false           
+						},
+						showInLegend: false
+					 }
+				},
+				series: [{
+					type: 'pie',
+					name: titleText,
+					data: [
+					   ['达标率',   dataPer[0]],
+					   ['未达标率', 100 - dataPer[0]]
+					]
+				 }]
+			};
+			try {
+				$('#dbt_chart_' + i).highcharts(json);
+			} catch (error) {
+				console.log('hightcharts error!');
+				return -1;
+			}
 		}
 }
 
@@ -283,20 +365,18 @@ function result_nh(){
 function changeParam(){
 	var order = $(this).attr("order") * 1;
 	$("#param_select_index").animate({"left":$(document).width() * (0.1117 + order * 0.1552) + "px"});
-	
 	if(isNaN(order)){
 		currentParameter = "result_1";
 	}else{
 		currentParameter  = ["result_1","result_2","result_3","result_4","result_5"][order];
 	}
-	
 	result_show(currentParameter);
 }
 
 function result_show(method){
 	
 	// $("#dbt_box").remove(); // 去掉达标率图的BOX
-	
+
 	if(method=="result_1"){
 		//result_ldt(1,all_data);
 		result_dbt(all_data);
@@ -330,9 +410,12 @@ $(document).ready(function(){
 		success:function(data){
 			if(data.code==200){
 				
-				all_data = eval("("+ data.content +")");
-				console.log(all_data);
-				
+				//all_data = eval("("+ data.content +")");
+				if(!data.content){
+					removeLoading();
+					return;
+				}
+				all_data = JSON.parse(data.content);
 				changeParam();
 			}else{
 				//alert("获取数据失败！");

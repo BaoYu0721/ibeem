@@ -201,7 +201,7 @@ function removeLoading(){
 }
 //mobile添加alertOk,参数分别为：title-提示框中部文字，ok-底部提示文字
 function mobilealertokMsg(title,ok,okfunc){
-	getComponent("/static/common/components/mobilealertOk.html",
+	getComponent("/common/mobilealertOk",
 			function(result){
 				if($("#alertokBackground").length==0){
 					$("body").prepend(result);

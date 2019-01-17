@@ -116,9 +116,8 @@ module.exports = appInfo => {
 
   exports.wexin = {
     token: "ibeem_wechat",
-    appId: "wx472e78d4295c4091",
-    appScrect: "e631dbeedbec456a210fd5484a23869f",
-    encodingAESKey: "haha",
+    appId: "wx9e2ae443958122f4",
+    appScrect: "9641f187abcc9b61507f7e708958ca2b",
     apiDomain: "https://api.weixin.qq.com/",
     apiUrl: {
       accessTokenApi: "%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",

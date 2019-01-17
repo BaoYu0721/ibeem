@@ -23,20 +23,18 @@ $(document).ready(function(){
         url: '/weixin/getTicket',
         data: {},
         success: function (data) {
-        	jsapi_ticket = data.ticket;
+			jsapi_ticket = data.ticket;
         }
 	});
-	console.log("jsapi_ticket:"+jsapi_ticket);
 //	alert("tocken:"+tocken);
 	var timestamp =new Date().getTime();
 	var url = window.location.href;
 	url = url.substr(0,url.indexOf("#")== -1 ? url.length : url.indexOf("#"));
 	var raw = "jsapi_ticket=" + jsapi_ticket + "&noncestr=" + noncestr + "&timestamp=" + timestamp + "&url=" + url;
 	var signature = $.sha1(raw);
-
 	wx.config({
 	    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-	    appId: 'wx472e78d4295c4091', // 必填，公众号的唯一标识
+	    appId: 'wx9e2ae443958122f4', // 必填，公众号的唯一标识
 	    timestamp: timestamp, // 必填，生成签名的时间戳
 	    nonceStr: noncestr, // 必填，生成签名的随机串
 	    signature: signature,// 必填，签名，见附录1
@@ -54,7 +52,7 @@ $(document).ready(function(){
 		    	console.log(res);
 		    },
 			fail: function (res) {  
-	              
+	              console.log(res);
 	        }  
 		});
 		
