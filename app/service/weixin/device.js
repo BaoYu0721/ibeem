@@ -40,6 +40,7 @@ class DeviceService extends Service {
         if(device.type == 'ibeem'){
             const param = "q=" + deviceId;
             const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getRealtimeData, param);
+            if(result == -1) return -1;
             if(result.data.length){
                 resultMap.tem = result.data.wd,
                 resultMap.hum = result.data.sd,
@@ -52,7 +53,7 @@ class DeviceService extends Service {
                 deviceId: deviceId
             };
             const result = await this.service.utils.http.cocleanPost(this.app.config.deviceDataReqUrl.coclean.readDeviceRealtimeDataUrl, param);
-            console.log(result)
+            if(result == -1) return -1;
             if(result.result == 'success'){
                 const arr = result.result.data.split(',');
                 resultMap.tem = data.parseFloat(arr[1]),
