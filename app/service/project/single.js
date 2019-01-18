@@ -131,10 +131,10 @@ class SingleService extends Service {
                 return -1;
             }
             const deviceMap = {
-                pname: device[key].pname,
-                gname: device[key].gname,
-                cname: device[key].cname,
-                bname: device[key].bname,
+                pname: device[key].pname? device[key].pname: '',
+                gname: device[key].gname? device[key].gname: '',
+                cname: device[key].cname? device[key].cname: '',
+                bname: device[key].bname? device[key].bname: '',
                 ownerName: device[key].uname != null ? device[key].uname : '',
                 id: device[key].id,
                 name: device[key].name,

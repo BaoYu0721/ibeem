@@ -165,6 +165,8 @@ module.exports = app => {
 
   // admin & index
   router.get('/admin/index', adminRequired, controller.admin.index.index);
+  router.post('/admin/getDeviceDataCountList', adminRequired, controller.admin.index.getDeviceDataCountList);
+  router.post('/admin/getCount', adminRequired, controller.admin.index.getCount);
 
   // admin & device
   router.get('/admin/device', adminRequired, controller.admin.device.index);
@@ -233,6 +235,11 @@ module.exports = app => {
   router.post('/admin/project/single/topBuilding', adminRequired, controller.admin.project.singleTopBuilding);
   router.post('/admin/project/single/topBuilding/room_info', adminRequired, controller.admin.project.singleTopBuildingRoomInfo);
   router.post('/admin/project/single/device', adminRequired, controller.admin.project.singleDevice);
+  router.post('/admin/project/single/device/search', adminRequired, controller.admin.project.singleDeviceSearch);
+  router.post('/admin/project/single/device/add', adminRequired, controller.admin.project.singleDeviceAdd);
+  router.post('/admin/project/single/device/recycle', adminRequired, controller.admin.project.singleDeviceRecycle);
+  router.post('/admin/project/single/device/attention', adminRequired, controller.admin.project.singleDeviceAttention);
+  router.post('/admin/project/single/device/relieve', adminRequired, controller.admin.project.singleDeviceRelieve);
   router.post('/admin/project/single/survey', adminRequired, controller.admin.project.singleSurvey);
   router.post('/admin/project/single/survey/search', adminRequired, controller.admin.project.singleSurveySearch);
   router.post('/admin/project/single/member', adminRequired, controller.admin.project.singleMember);

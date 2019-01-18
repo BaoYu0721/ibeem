@@ -125,7 +125,8 @@ function showCharts(data){
             }
         },
         xAxis: {
-            type: 'category',
+			type: 'category',
+			categories: data.xAxis,
             labels: {
                 rotation: 90,
                 style: {
@@ -160,7 +161,7 @@ function showCharts(data){
         },
         series: [{
             name: '数据量前100的设备统计',
-            data: data,
+            data: data.yAxis,
             dataLabels: {
                 enabled: true,
                 rotation: -90,

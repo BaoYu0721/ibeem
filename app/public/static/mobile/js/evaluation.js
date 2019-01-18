@@ -98,6 +98,10 @@ function result_ldt(num,data){
 	// 	}]
 	// };
 	var json = {
+		chart: {
+            type: 'column',
+            backgroundColor: 'rgba(0,0,0,0)',
+        },
 		title: {
 			text: title,
 		},
@@ -245,12 +249,17 @@ function result_dbt(data){
 			// });
 			var json = {
 				chart: {
-					plotBackgroundColor: null,
-					plotBorderWidth: null,
-					plotShadow: false
+					type: 'column',
+					backgroundColor: 'rgba(0,0,0,0)',
 				},
 				title: {
 					text: '',
+				},
+				credits: {
+					enabled: false
+				},
+				legend: {
+					enabled: false,
 				},
 				tooltip: {
 					//shared: true,

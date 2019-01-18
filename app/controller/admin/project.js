@@ -59,6 +59,11 @@ class IndexController extends Controller {
                     projectName: projectName
                 });
             }else if(item == 'device'){
+                if(to == 'download' || to == 'compare' || to == 'view'){
+                    return ctx.render('administrator/new_compareTeamDeviceData.html', {
+                        project_name: projectName
+                    });
+                }
                 return await ctx.render('administrator/teamDevice.html',{
                     projectName: projectName
                 });
@@ -918,6 +923,86 @@ class IndexController extends Controller {
         }
         ctx.body = {
             list: result,
+            code: 200
+        };
+    }
+
+    
+    async singleDeviceSearch(){
+        const { ctx } = this;
+        const result = await ctx.service.admin.project.singleDeviceSearch();
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            list: result,
+            code: 200
+        };
+    }
+
+    async singleDeviceAdd(){
+        const { ctx } = this;
+        const projectId = ctx.request.body.projectID;
+        const ids = ctx.request.body.ids.split(',');
+        const result = await ctx.service.admin.project.singleDeviceAdd(projectId, ids);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }else if(result == 0){
+            ctx.body = {
+                code: 200
+            };
+        }
+    }
+
+    async singleDeviceRecycle(){
+        const { ctx } = this;
+        const ids = ctx.request.body.ids.split(',');
+        const result = await ctx.service.admin.project.singleDeviceRecycle(ids);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }else if(result == 0){
+            ctx.body = {
+                code: 200
+            };
+        }
+    }
+
+    async singleDeviceAttention(){
+        const { ctx } = this;
+        const projectId = ctx.request.body.projectID;
+        const result = await ctx.service.admin.project.singleDeviceAttention(projectId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            user: result,
+            code: 200
+        };
+    }
+
+    async singleDeviceRelieve(){
+        const { ctx } = this;
+        const ids = ctx.request.body.deviceID.split(',');
+        const result = await ctx.service.admin.project.singleDeviceRelieve(ids);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
             code: 200
         };
     }

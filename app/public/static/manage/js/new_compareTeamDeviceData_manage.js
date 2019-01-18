@@ -1102,7 +1102,7 @@ init();
     	        			   type:"post",
     	        			   dataType:"json",
     	        			   async: false,
-    	        			   url:"/admin/getOnlineRate",
+    	        			   url:"/admin/device/view/on_line_rate",
     	        			   data:{
     	        				   deviceID:deviceId[i],
     	        				   startTime:onlineStartTime,
@@ -1143,7 +1143,7 @@ init();
     	        			   type:"post",
     	        			   dataType:"json",
     	        			  // async: false,
-    	        			   url:"/admin/environmentdataByTime",
+    	        			   url:"/admin/device/view/environment",
     	        			   data:{
     	        				   deviceId:deviceId[i],
     	        				   startTime:startTime,
@@ -2509,105 +2509,154 @@ init();
 			
 				if(downDeviceId.length!=0){
 
-					var $start_time2 = String($("#startTime input").val() + " 00:00:00");
-					var $end_time2 = String($("#endTime input").val() + " 23:59:59");
-	    			var startTimeStamp2=Date.parse($start_time2)/1000;
-	    			var endTimeStamp2=Date.parse($end_time2)/1000;
-	    			
-	    			if(startTimeStamp2>endTimeStamp2){
-	    				//removeLoading();
-	    				alertokMsg(getLangStr("surveyRep_messg1"),getLangStr("alert_ok"));
-	    				return;
-	    			}
-	    			
-	    			addLoading();
-	    			
-	       			sunshineFlag=$("#sun").addClass("checked");
-	       			temperatureFlag=$("#tem").addClass("checked");
-	       			co2Flag=$("#co2").addClass("checked");
-	       			pm25Flag=$("#pm25").addClass("checked");
-	       			humFlag=$("#hum").addClass("checked");
-	    			
-	    			for(var i=0;i<downDeviceId.length;i++){
-	    				$.ajax({
-	 	     			   type:"post",
-	 	     			   dataType:"json",
-	 	     			   url:"/admin/environmentdata",
-	 	     			   data:{
-	 	     				   deviceId:downDeviceId[i],
-	 	     				   startTime:startTimeStamp2,
-	 	     				   endTime:endTimeStamp2
-	 	     			   },
-	 	     			   success:function(data){
-	 	     					removeLoading();
-	 	     				   	// console.log(data);
-	 	     				    currentIndex++;
-	 	     				    var deviceName=data.deviceName;
-	 	     				    downloadData[deviceName]=data.data;
-	 	     				    var dataArr=data.data;
-	 	     				    var ep=new ExcelPlus();
-	 	     				    var content = [["Time"]];
-	 	     				    //var content = [["Time","Temperature(℃)","Humidity(%)","PM2.5(ug/m³)","CO2(ppm)","Light(lux)"]];
-	 	 	   	    			var i,d; 
-	 	 	   	    			var newDate = new Date();
-	 	 	   	    				
-	 	 	   	    			if(!temperatureFlag&&!humFlag&&!pm25Flag&&!co2Flag&&!sunshineFlag){
-	 	 	   	    				alertokMsg(getLangStr("devicedata_par"),getLangStr("alert_ok"));
-	 	 	   	    				return;
-	 	 	   	    			}
-	 	     				    if(temperatureFlag){
-	 	     				    	content[0].push("Temperature(℃)");
-	 	     				    }
-	 	     				    if(humFlag){
-	 	     				    	content[0].push("Humidity(%)");
-	 	     				    }
-	 	     				    if(pm25Flag){
-	 	     				    	content[0].push("PM2.5(ug/m³)");
-	 	     				    }
-	 	     				    if(co2Flag){
-	 	     				    	content[0].push("CO2(ppm)");
-	 	     				    }
-	 	     				    if(sunshineFlag){
-	 	     				    	content[0].push("Light(lux)");
-	 	     				    }
-	 	     				    
-	 	     				    
-	 	 	   	    			for(i = 0; i < dataArr.length; i++){
-	 	 	   	    				d = dataArr[i];
-	 	 	   	 	   				newDate.setTime(d.time);
-	 	 	   	 	   				var time = newDate.Format("MM-dd hh:mm");
-	 	 	   	 	   				
-	 	 	   	 	   				var temArr=[time];
-	 	 		   	 	   			if(temperatureFlag){
-	 	 	    				    	temArr.push(d.tem);
-	 	 	    				    }
-	 	 	    				    if(humFlag){
-	 	 	    				    	temArr.push(d.hum);
-	 	 	    				    }
-	 	 	    				    if(pm25Flag){
-	 	 	    				    	temArr.push(d.pm);
-	 	 	    				    }
-	 	 	    				    if(co2Flag){
-	 	 	    				    	temArr.push(d.co2);
-	 	 	    				    }
-	 	 	    				    if(sunshineFlag){
-	 	 	    				    	temArr.push(d.lightIntensity);
-	 	 	    				    }
-	 	 	   	    				content.push(temArr);
-	 	 	   	    			}
-	 	 	   	    			ep.createFile("Book1")
-	 	 	   	    			  .write({ "content":content })
-	 	 	   	    			  .saveAs(deviceName+".xlsx");
-	 	 	   	    			
-	 	 	   	    		   	
-	 	     				   loadDownloadDeviceData(startTimeStamp2,endTimeStamp2);
-	 	     				
-	 	     			   },
-	 	     			   error:function(){
-	 	     				   removeLoading();
-	 	     			   }
-	 	    			});
-	    			}
+					var $start_time = String($("#startTime_d input").val() + " 00:00:00");
+ 					var $end_time = String($("#endTime_d input").val() + " 23:59:59");
+ 	    			var startTimeStamp1=Date.parse($start_time)/1000;
+ 	    			var endTimeStamp1=Date.parse($end_time)/1000;
+
+ 	    			if(startTimeStamp1>endTimeStamp1){
+ 	    				removeLoading();
+ 	    				alertokMsg(getLangStr("surveyRep_messg1"),getLangStr("alert_ok"));
+ 	    				return;
+ 	    			}
+ 	    			
+   	    			if(!temperatureFlag&&!humFlag&&!pm25Flag&&!co2Flag&&!sunshineFlag){
+   	    				alertokMsg(getLangStr("devicedata_par"),getLangStr("alert_ok"));
+   	    				return;
+   	    			} 	    			
+ 	    			
+   	    			if(!temperatureFlag){
+  				    	$("#tem_s").val("0");
+  				    }
+  				    if(!humFlag){
+  				    	$("#hum_s").val("0");
+  				    }
+  				    if(!pm25Flag){
+  				    	$("#pm25_s").val("0");
+  				    }
+  				    if(!co2Flag){
+  				    	$("#co2_s").val("0");
+  				    }
+  				    if(!sunshineFlag){
+  				    	$("#sun_s").val("0");
+  				    }
+ 	    			
+  				    /* 是否是工作日 */
+  				    var $workDay;
+  				    workdayFlag_y = $("#workday_y").hasClass("checked");
+  				    workdayFlag_n = $("#workday_n").hasClass("checked");
+  				    
+  				    if(!workdayFlag_y&&!workdayFlag_n){
+  				    	alertokMsg(getLangStr("devicedata_settime"),getLangStr("alert_ok"));
+  				    	return;
+  				    }
+  				    
+  				    if(workdayFlag_y){
+  				    	$workDay = 1;
+  				    }
+  				    if(workdayFlag_n){
+  				    	$workDay = 0;
+  				    }
+  				    if(workdayFlag_y&&workdayFlag_n){
+  				    	$workDay = 2;
+  				    }  				    
+  				    
+ 	    			var $s_val = $("#sun_s").val();
+ 	    			var $t_val = $("#tem_s").val();
+					var $p_val = $("#pm25_s").val();
+					var $h_val = $("#hum_s").val();
+					var $c_val = $("#co2_s").val(); 
+					var $startTime_hour_d = $("#startTime_hour_d input").val();
+					var $endTime_hour_d = $("#endTime_hour_d input").val();
+					var $step = $("#step").val(); 
+					
+ 	    			addLoading();
+ 	    			$.ajax({
+ 	    	 			   type:"post",
+ 	    	 			   dataType:"json",
+ 	    	 			   url:"/admin/device/download/create_work_order",
+ 	    	 			   data:{
+ 	    	 				   deviceids:downDeviceIds,
+ 	    	 				   startTime:startTimeStamp1,
+ 	    	 				   endTime:endTimeStamp1,
+ 	    	 				   d1:$s_val,
+ 	    	 				   d2:$h_val,
+ 	    	 				   d3:$p_val,
+ 	    	 				   d4:$c_val,
+ 	    	 				   d5:$t_val,
+ 	    	 				   workDay:$workDay,
+ 	    	 				   startWorkTime:$startTime_hour_d,
+ 	    	 				   endWorkTime:$endTime_hour_d,
+ 	    	 				   step:$step
+ 	    	 			   },
+ 	    	 			   success:function(data){
+ 	    	 				 
+								 removeLoading();
+ 	    						// 清华接口 系统繁忙
+ 	    						if(data.code==1005){
+									alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
+								}else if(data.code==1001){
+									alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
+								}else if(data.code == 200){
+									alertokMsg(getLangStr("check_download_s"),getLangStr("alert_ok"));
+								}
+ 	    						
+ 	    						if(data.code==200){
+									// var workOrderStatus='';
+ 	    							// if(data.workOrder.status=="finish"){
+ 	    							// 	workOrderStatus = getLangStr("devicedata_result6");
+ 	 	  							// }else if(data.workOrder.status=="failure"){
+ 	 	  							// 	workOrderStatus = getLangStr("devicedata_result8");
+ 	 	  							// }else{
+ 	    							// 	workOrderStatus = getLangStr("devicedata_result7");
+ 	    							// }
+ 	    							
+ 	    							// var nameStr = data.workOrder.deviceName;
+ 	    	  						// var nameArr = nameStr.split(",");
+ 	    	  						// var nameRes = '';
+ 	    	  						
+ 	    	  						// for(var k=0;k<nameArr.length;k++){
+ 	    	  						// 	if(k!=0 && k%4 == 0 ){
+ 	    	  						// 		nameRes += "<br />" + nameArr[k] + ",";
+ 	    	  						// 	}else if(k == nameArr.length - 1){
+ 	    	  						// 		nameRes += nameArr[k];
+ 	    	  						// 	}else{
+ 	    	  						// 		nameRes += nameArr[k] + ",";
+ 	    	  						// 	}
+ 	    	  						// }
+ 	    							
+ 		 	  						// var estimateTime = data.list[i].estimateTime;
+ 		 	  						// if(estimateTime==-1){
+ 		 	  						// 	// 未开始
+ 		 	  						// 	estimateTime =  getLangStr("devicedata_result9");
+ 		 	  						// }else if(estimateTime==0){
+ 		 	  						// 	// 完成
+ 		 	  						// 	estimateTime = getLangStr("devicedata_result6");
+ 		 	  						// }else{
+ 		 	  						// 	estimateTime = estimateTime + "min";
+ 		 	  						// }
+ 		 	  						
+ 		 	  						// $strshow += '<tr><td style="border-right:1px solid #cccccc;">' + data.list[i].workid + '</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">' + nameRes + '</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ data.list[i].startTime +'<br />'+ data.list[i].endTime +'</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ data.list[i].time +'</td>'+
+ 		 	  							
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ data.list[i].percent +'%</td>'+
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ estimateTime +'</td>'+
+ 		 	  							
+ 		 	  						// 	'<td style="border-right:1px solid #cccccc;">'+ workOrderStatus +'</td>'+
+ 		 	  						// 	'<td><a href="'+ data.list[i].url +'" target="_blank">'+ getLangStr("deviceList_download") +'</a></td></tr>';
+ 		 	  						
+ 	    							// $("#download_history").prepend($str);
+ 	    							// downloadHistory();
+ 	    						}
+ 	    	 				     	 
+ 	    	 			   },
+ 	    	 			   error:function(){
+ 	    	 				   removeLoading();
+ 	    	 				 alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
+ 	    	 			   }
+ 	    	 	    });
 				}else{
 					removeLoading();
 					alertokMsg(getLangStr("deviceList_download_list"),getLangStr("alert_ok"));
@@ -2635,7 +2684,7 @@ init();
 	   			   type:"post",
 	   			   dataType:"json",
 	   			   //async:false,
-	   			   url:"/admin/getWorkOrderList",
+	   			   url:"/admin/device/download/history",
 	   			   success:function(data){
 	
 	  					if(data.code==200){

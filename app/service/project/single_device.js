@@ -69,7 +69,7 @@ class SingleDeviceService extends Service {
                 async function transation() {
                     try {
                         for(var key in ids){
-                            await conn.update('device', {id: ids[key], project_id: null, owner_id: null, pname: null, gname: null});
+                            await conn.update('device', {id: ids[key], project_id: null, owner_id: 24, pname: null, gname: null});
                         }
                     } catch (error) {
                         conn.rollback();
@@ -128,7 +128,7 @@ class SingleDeviceService extends Service {
         }
         const resultList = [];
         for(var key in userProject){
-            const user = null;
+            var user = null;
             try {
                 user = await this.app.mysql.get('user', {id: userProject[key].user_id});
             } catch (error) {

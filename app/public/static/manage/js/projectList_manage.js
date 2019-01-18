@@ -627,7 +627,7 @@ $(function(){
      	 }else{
      		 localStorage.setItem("checkedId",checkedId);
      		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	    		 window.location.href="/redirect?url=administrator/new_compareTeamDeviceDataOne.jsp";
+	    		 window.location.href += "&to=view";
      	 }
 		 });
 		
@@ -660,7 +660,7 @@ $(function(){
      	 }else{
      		 localStorage.setItem("checkedId",checkedId);
      		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	    	 window.location.href="/redirect?url=administrator/new_compareTeamDeviceData.jsp";
+	    	 window.location.href += "&to=compare";
      	 }
 	 });
 		
@@ -705,7 +705,7 @@ $(function(){
      	 }else{
      		 localStorage.setItem("checkedId",checkedId);
      		 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	    	 window.location.href="/redirect?url=administrator/new_compareTeamDeviceData.jsp?to=download";
+	    	 window.location.href += "&to=download";
      	 }
 	});
 		

@@ -62,11 +62,7 @@ class IndexController extends Controller {
         project_name: projectName
       });
     }else if(projectName != undefined && item == 'device'){
-      if(to == 'download'){
-        return ctx.render('manage/new_compareTeamDeviceData.html', {
-          project_name: projectName
-        });
-      }else if(to == 'compare' || to == 'view'){
+      if(to == 'download' || to == 'compare' || to == 'view'){
         return ctx.render('manage/new_compareTeamDeviceData.html', {
           project_name: projectName
         });

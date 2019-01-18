@@ -12,7 +12,7 @@ function recycleDevice(){
 	 $.ajax({
 		 type:"post",
 		 dataType:"json",
-		 url:"/admin/recycleDevice",
+		 url:"/admin/project/single/device/recycle",
 		 data:{
 			 ids:operateId
 		 },
@@ -43,7 +43,7 @@ function markDevice(uid){
 	 $.ajax({
 		 type:"post",
 		 dataType:"json",
-		 url:"/admin/userDevice",
+		 url:"/admin/project/single/device/attention",
 		 data:{
 			 ids:operateId,
 			 userID:uid
@@ -66,7 +66,7 @@ function relieveDevice2(){
 	 $.ajax({
 		 type:"post",
 		 dataType:"json",
-		 url:"/admin/relieveDevice",
+		 url:"/admin/project/single/device/relieve",
 		 data:{
 			 deviceID:operateId
 		 },
@@ -97,7 +97,7 @@ function operateDevice(){
 		$("#loadingm").css("display","block");
 	   	 $.ajax({
 	   		type:"post",
-	   		url:"/admin/searchDevice",
+	   		url:"/admin/project/single/device/search",
 	   		dataType:"json",
 	   		data:{
 	   			key:teamId
@@ -190,7 +190,7 @@ function operateDevice(){
     	$.ajax({
     		type:"post",
     		dataType:"json",
-    		url:"/admin/allotProject",
+    		url:"/admin/project/single/device/add",
     		data:{
     			projectID:teamId,
     			ids:ids.join(",")
@@ -246,7 +246,7 @@ function operateDevice(){
 	   		$.ajax({
 	    		type:"post",
 	    		dataType:"json",
-	    		url:"/admin/getCommonUser",
+	    		url:"/admin/project/single/device/attention",
 	    		data:{
 	    			projectID:teamId
 	    		},
