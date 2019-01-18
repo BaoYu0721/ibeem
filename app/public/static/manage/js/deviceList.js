@@ -360,7 +360,10 @@ function loadDeviceList(page){
 						
 						search_device();
 						
-
+						//自动获取设备状态
+						for(var i=0;i<loadListId.length;i++){
+							getStatus(loadListId[i]) 
+						}
 	     			}
 	     		},
 	     		error:function(){
@@ -687,7 +690,7 @@ $(function(){
 			loadDeviceList(1);
 		
 			reset_selectID();
-			
+
 	         /*删除设备  */
 	         $("body").on("click","#deleteDeviceBtn",function(){
 	        	 deleteId='';
@@ -752,29 +755,6 @@ $(function(){
     				 getStatus(loadListId[i]) 
     			 }
     		 });
-    		 
-    		 function getStatus(id){
-    			 $("#dev-"+id).html('<div class="ui mini active inline loader"></div>');
-    			 
-    			 $.ajax({
- 					url:"/device/status",
- 					type:"POST",
- 					data:{"deviceID":id},
- 					success:function(response){
-
- 						if(response.code == 200){
- 							if(response.status==true){
- 								$this_status = getLangStr("deviceList_online");
- 							}else{
- 								$this_status = getLangStr("deviceList_notonline");
- 							}
- 							
- 							$("#dev-"+id).html($this_status);
- 						}
- 						
- 					}
- 				 });
-    		 }
     		 
     		 /*点击跳转到设备数据页面  */
 			$("body").on("click","#viewDeviceData",function(){
@@ -1098,4 +1078,27 @@ function showConfirm(){
 	localStorage.setItem("checkedId",checkedId);
 	localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
 	window.location.href="/redirect?url=manage/new_compareDeviceData.jsp?to=download";
+}
+
+function getStatus(id){
+	$("#dev-"+id).html('<div class="ui mini active inline loader"></div>');
+	
+	$.ajax({
+		url:"/device/status",
+		type:"POST",
+		data:{"deviceID":id},
+		success:function(response){
+
+			if(response.code == 200){
+				if(response.status==true){
+					$this_status = getLangStr("deviceList_online");
+				}else{
+					$this_status = getLangStr("deviceList_notonline");
+				}
+				
+				$("#dev-"+id).html($this_status);
+			}
+			
+		}
+	 });
 }
