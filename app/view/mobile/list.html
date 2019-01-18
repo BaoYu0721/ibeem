@@ -970,7 +970,7 @@
 				        data:{
 				        	deviceID:deviceid
 	        			   },
-				        url: '/device/addAttention',
+				        url: '/weixin/device/addAttention',
 				        success: function (data) {
 				        	if(data.messg==1){
 				        		alert(getLangStr("mobilelist_15"));
@@ -980,7 +980,7 @@
 				        		alert(getLangStr("mobilelist_17"));
 				        		var timestamp = Date.parse(new Date());
 				            	timestamp = timestamp / 1000;
-					        	window.location.href="/weixin?url=mobile/list.jsp?timestamp="+timestamp;
+					        	window.location.href="/weixin/device?did=" + deviceid + "&item=list&timestamp="+timestamp;
 				        	}
 				        },
 				        error:function (data) 

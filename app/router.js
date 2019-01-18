@@ -156,6 +156,7 @@ module.exports = app => {
   router.post('/weinxin/device/detail', userRequired, controller.weixin.device.deviceDetail);
   router.post('/weixin/device/history', userRequired, controller.weixin.device.deviceHistory);
   router.post('/weixin/device/evaluation', userRequired, controller.weixin.device.deviceEvaluation);
+  router.post('/weixin/device/addAttention', userRequired, controller.weixin.device.deviceAddAttention);
 
   // admin & login
   router.get('/admin', controller.admin.login.index);

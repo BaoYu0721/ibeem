@@ -125,6 +125,24 @@ class DeviceController extends Controller {
             content: result
         };
     }
+
+    async deviceAddAttention(){
+        const { ctx } = this;
+        const user = ctx.cookies.get(ctx.app.config.auth_cookie_admin);
+        const userId = user.split('^_^')[0];
+        const deviceId = ctx.request.body.deviceID;
+        const result = await ctx.service.weixin.device.deviceAddAttention(userId, deviceId);
+        if(result == -1){
+            return ctx.body = {
+                code: 1005,
+                messg: "系统繁忙"
+            };
+        }
+        ctx.body = {
+            code: 200,
+            messg: result
+        };
+    }
 }
 
 module.exports = DeviceController;

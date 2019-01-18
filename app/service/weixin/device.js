@@ -175,7 +175,111 @@ class DeviceService extends Service {
         } catch (error) {
             return -1;
         }
+        if(!assessment){
+            return null;
+        }
         return assessment.content;
+    }
+
+    async deviceAddAttention(userId, deviceId){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        var ttl = 1000;
+        var device = null;
+        try {
+            device = await this.app.mysql.get('device', {id: deviceId});
+        } catch (error) {
+            return -1;
+        }
+        if(!device.project_id){
+            return 1;
+        }
+        var deviceAttention = null;
+        try {
+            deviceAttention = await this.app.mysql.get('device_attention',{
+                user_id: userId,
+                device_id: deviceId
+            });
+        } catch (error) {
+            return -1;
+        }
+        if(deviceAttention){
+            return 2;
+        }
+        var project = null;
+        try {
+            project = await this.app.mysql.query('select id from project where creator_id = ? or id in(select project_id from user_project where user_id = ?)', [userId, userId]);
+        } catch (error) {
+            return -1;
+        }
+        for(var key in project){
+            if(project[key].id == device.project_id){
+                var resource = "ibeem_test:device_attention";
+                const conn = await app.mysql.beginTransaction();
+                var res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            await conn.insert('device_attention', {
+                                user_id: userId,
+                                device_id: deviceId,
+                                created_on: new Date(),
+                                updated_on: new Date()
+                            });
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return -1;
+                res = await redlock.lock(resource, ttl).then(function(lock) {
+                    async function transation() {
+                        try {
+                            const deviceAttentionList = await app.mysql.select('device_attention', {where: {device_id: deviceId}});
+                            var gname = '';
+                            for(var i in deviceAttentionList){
+                                const user = await app.mysql.get('user', {id: deviceAttentionList[i].user_id});
+                                if(i == deviceAttentionList.length - 1){
+                                    gname += user.name;
+                                }else{
+                                    gname += user.name + ',';
+                                }
+                            }
+                            await conn.update('device',{
+                                id: deviceId,
+                                gname: gname,
+                                updated_on: new Date()
+                            });
+                            await conn.commit();
+                        } catch (error) {
+                            conn.rollback();
+                            lock.unlock()
+                            .catch(function(err) {
+                                console.error(err);
+                            });
+                            return -1;
+                        }
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                    }
+                    return transation();
+                });
+                if(res == -1) return -1;
+                return 3;
+            }
+        }
+        return 1;
     }
 }
 
