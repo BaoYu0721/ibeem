@@ -1048,7 +1048,7 @@ class SingleBuildingService extends Service {
                     try {
                         const topRoom = await conn.select('top_room', {top_building_id: buildingId});
                         for(var key in topRoom){
-                            await conn.delete('top_element', {top_room_id: topRoom[key]});
+                            await conn.delete('top_element', {top_room_id: topRoom[key].id});
                         }
                     } catch (error) {
                         conn.rollback();
