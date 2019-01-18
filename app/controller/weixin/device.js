@@ -128,7 +128,7 @@ class DeviceController extends Controller {
 
     async deviceAddAttention(){
         const { ctx } = this;
-        const user = ctx.cookies.get(ctx.app.config.auth_cookie_admin);
+        const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
         const userId = user.split('^_^')[0];
         const deviceId = ctx.request.body.deviceID;
         const result = await ctx.service.weixin.device.deviceAddAttention(userId, deviceId);

@@ -95,5 +95,10 @@ exports.formatTicket = (ticketApi, apiDomain, accessToken) => {
 
 //跟新access_token
 exports.updateWeixinJson = data => {
-  fs.writeFile('./weixin.json', JSON.stringify(data));
+  const filepath = __dirname + '/../../weixin.json';
+  fs.writeFile(filepath, JSON.stringify(data), function(err){
+    if(err){
+      console.log(err);
+    }
+  });
 }
