@@ -797,6 +797,421 @@ class AnalyzeService extends Service {
                     result['isNotRelated'] = 1;
                 }
             }
+            else {
+                // 自变量问题
+                const zquestion = await this.app.mysql.get('question', {id: zid});
+                // 因变量问题
+                const yquestion = await this.app.mysql.get('question', {id: yid});
+                if (zquestion.type == 1) {
+                    // 单选题
+                    // zanswerDetailList = answerDetailDao.getListByQuestionAndRelation(zquestion.getId(),surveyID,startTime,endTime,relation,objectID)
+                    const zanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestionAndRelation(zquestion.id, surveyID, beginTime, endTime, relation, objectID);
+                    if (zanswer_detail_list == -1) {
+                        return -1;
+                    }
+                    const zquestion_json = JSON.parse(zquestion.setting);
+                    var zarray = zquestion_json.items;
+                    if (yquestion.type == 1) {
+                        // 单选题
+                        var yquestion_json = JSON.parse(yquestion.setting);
+                        var yarray = yquestion_json.items;
+                        for (var i = 0; i < zarray.length; i++) {
+                            var map = {};
+                            for (var j = 0; j < yarray.length; j++) {
+                                map[yarray[j].text] = 0;
+                            }
+                            var id = zarray[i].id;
+                            for (var j = 0; j < zanswer_detail_list.length; j++) {
+                                const answer_detail = zanswer_detail_list[j];
+                                if (answer_detail.isanswered == 1) {
+                                    const answer_json = JSON.parse(answer_detail.reply_content);
+                                    if (id == answer_json.id) {
+                                        const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                        if (yanswer_detail.isanswered == 1) {
+                                            const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                            const yaid = yanswer_json.id;
+                                            for (var k = 0; k < yarray.length; k++) {
+                                                const yqid = yarray[k].id;
+                                                if (yaid == yqid) {
+                                                    map[yarray[k].text] = map[yarray[k].text] + 1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            result[zarray[i].text] = map;
+                        }
+                    }
+                    else if (yquestion.type == 2) {
+                        // 多选题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.items;
+                        for (var i = 0; i < zarray.length; i++) {
+                            var map = {};
+                            for (var j = 0; j < yarray.length; j++) {
+                                map[yarray[j].text] = 0;
+                            }
+                            var id = zarray[i].id;
+                            for (var j = 0; j < zanswer_detail_list.length; j++) {
+                                const answer_detail = zanswer_detail_list[j];
+                                if (answer_detail.isanswered == 1) {
+                                    const answer_json = JSON.parse(answer_detail.reply_content);
+                                    if (id == answer_json.id) {
+                                        const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                        if (yanswer_detail.isanswered == 1) {
+                                            const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                            const yanswers = yanswer_json.answers;
+                                            for (var k = 0; k < yarray.length; k++) {
+                                                const yqid = yarray[k].id;
+                                                for (var l = 0; l < yanswers.length; l++) {
+                                                    if (yqid == yanswers[l].id) {
+                                                        map[yarray[k].text] = map[yarray[k].text] + 1;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            result[zarray[i].text] = map;
+                        }
+                    }
+                    else if (yquestion.type == 0) {
+                        // 填空题
+                        var list = [];
+                        for (var i = 0; i < zarray.length; i++) {
+                            var text_list = [];
+                            var map = {};
+                            const id = zarray[i].id;
+                            map['id'] = id;
+                            for (var j = 0; j < zanswer_detail_list.length; j++) {
+                                const answer_detail = zanswer_detail_list[j];
+                                if (answer_detail.isanswered == 1) {
+                                    const answer_json = JSON.parse(answer_detail.reply_content);
+                                    if (id == answer_json.id) {
+                                        const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                        if (yanswer_detail != null) {
+                                            if (yanswer_detail.isanswered == 1) {
+                                                var m = {};
+                                                const reply_content = JSON.parse(yanswer_detail.reply_content);
+                                                const answer = reply_content.answer;
+                                                const tmp_date = new Date(yanswer_detail.created_on);
+                                                const date_str = tmp_date.getFullYear() + '-' + (tmp_date.getMonth()+1) + '-' + tmp_date.getDate() + ' ' + tmp_date.getHours() + ':' + tmp_date.getMinutes() + ':' + tmp_date.getSeconds();
+                                                m['time'] = date_str;
+                                                m['answer'] = answer;
+                                                text_list.push(m);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            map['textlist'] = text_list;
+                            list.push(map);
+                        }
+                        result['analysis'] = list;
+                    }
+                    else if (yquestion.type == 3) {
+                        // 量表题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.y_axis;
+                        const xarray = yquestion_json.x_axis;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var m = {};
+                            const id = yarray[i].id;
+                            for (var j = 0; j < zarray.length; j++) {
+                                const z_item_id = zarray[j].id;
+                                var zm = {};
+                                for (var k = 0; k < xarray.length; k++) {
+                                    zm[xarray[k].tag] = 0;
+                                }
+                                for (var k = 0; k < zanswer_detail_list.length; k++) {
+                                    const answer_detail = zanswer_detail_list[k];
+                                    if (answer_detail.isanswered == 1) {
+                                        const answer_json = JSON.parse(answer_detail.reply_content);
+                                        if (z_item_id == answer_json.id) {
+                                            const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                            if (yanswer_detail.isanswered == 1) {
+                                                const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                                const answers = yanswer_json.answers;
+                                                for (var l = 0; l < xarray.length; l++) {
+                                                    const val = xarray[l].val;
+                                                    for (var n = 0; n < answers.length; n++) {
+                                                        if (id == answers[n].id && val == answers[n].val) {
+                                                            zm[xarray[l].tag] = zm[xarray[l].tag] + 1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                m[zarray[j].text] = zm;
+                            }
+                            result[yarray[i].left] = m;
+                        }
+                    }
+                    else if (yquestion.type == 4) {
+                        // 滑条题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.items;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var map = {};
+                            const id = yarray[i].id;
+                            const min_val = yarray[i].min_val;
+                            const max_val = yarray[i].max_val;
+                            const interval = yarray[i].interval;
+                            const left = yarray[i].left;
+                            for (var j = 0; j < zarray.length; j++) {
+                                var m = {};
+                                const zqid = zarray[j].id;
+                                const text = zarray[j].text;
+                                for (var k = min_val; k <= max_val; k++) {
+                                    if ((k - min_val) % interval == 0) {
+                                        m[k.toString()] = 0;
+                                    }
+                                }
+                                for (var k = 0; k < zanswer_detail_list.length; k++) {
+                                    const answer_detail = zanswer_detail_list[k];
+                                    if (answer_detail.isanswered == 1) {
+                                        const answer_json = JSON.parse(answer_detail.reply_content);
+                                        if (zqid == answer_json.id) {
+                                            const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                            if (yanswer_detail.isanswered == 1) {
+                                                const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                                const answers = yanswer_json.answers;
+                                                for (var l = min_val; l <= max_val; l++) {
+                                                    if ((l - min_val) % interval == 0) {
+                                                        for (var n = 0; n < answers.length; n++) {
+                                                            if (id == answers[n].id && l == answers[n].value) {
+                                                                m[l.toString()] = m[l.toString()] + 1;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                map[text] = m;
+                            }
+                            result[left] = map;
+                        }
+                    }
+                }
+                else if (zquestion.type == 2) {
+                    // 多选题
+                    // zanswerDetailList = answerDetailDao.getListByQuestionAndRelation(zquestion.getId(),surveyID,startTime,endTime,relation,objectID)
+                    const zanswer_detail_list = await this.service.survey.answer.answerDetailGetListByQuestionAndRelation(zquestion.id, surveyID, beginTime, endTime, relation, objectID);
+                    if (zanswer_detail_list == -1) {
+                        return -1;
+                    }
+                    const zquestion_json = JSON.parse(zquestion.setting);
+                    var zarray = zquestion_json.items;
+                    if (yquestion.type == 1) {
+                        // 单选题
+                        var yquestion_json = JSON.parse(yquestion.setting);
+                        var yarray = yquestion_json.items;
+                        for (var i = 0; i < zarray.length; i++) {
+                            var map = {};
+                            for (var j = 0; j < yarray.length; j++) {
+                                map[yarray[j].text] = 0;
+                            }
+                            var id = zarray[i].id;
+                            for (var j = 0; j < zanswer_detail_list.length; j++) {
+                                const answer_detail = zanswer_detail_list[j];
+                                if (answer_detail.isanswered == 1) {
+                                    const answer_json = JSON.parse(answer_detail.reply_content);
+                                    const answers = answer_json.answers;
+                                    for (var k = 0; k < answers.length; k++) {
+                                        if (id == answers[k].id) {
+                                            const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                            if (yanswer_detail.isanswered == 1) {
+                                                const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                                const yaid = yanswer_json.id;
+                                                for (var l = 0; l < yarray.length; l++) {
+                                                    const yqid = yarray[l].id;
+                                                    if (yaid == yqid) {
+                                                        map[yarray[l].text] = map[yarray[l].text] + 1;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            result[zarray[i].text] = map;
+                        }
+                    }
+                    else if (yquestion.type == 2) {
+                        // 多选题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.items;
+                        for (var i = 0; i < zarray.length; i++) {
+                            var map = {};
+                            for (var j = 0; j < yarray.length; j++) {
+                                map[yarray[j].text] = 0;
+                            }
+                            var id = zarray[i].id;
+                            for (var j = 0; j < zanswer_detail_list.length; j++) {
+                                const answer_detail = zanswer_detail_list[j];
+                                if (answer_detail.isanswered == 1) {
+                                    const answer_json = JSON.parse(answer_detail.reply_content);
+                                    const answers = answer_json.answers;
+                                    for (var k = 0; k < answers.length; k++) {
+                                        if (id == answers[k].id) {
+                                            const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                            if (yanswer_detail.isanswered == 1) {
+                                                const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                                const yanswers = yanswer_json.answers;
+                                                for (var l = 0; l < yarray.length; l++) {
+                                                    const yqid = yarray[l].id;
+                                                    for (var n = 0; n < yanswers.length; n++) {
+                                                        if (yqid == yanswers[n].id) {
+                                                            map[yarray[l].text] = map[yarray[l].text] + 1;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            result[zarray[i].text] = map;
+                        }
+                    }
+                    else if (yquestion.type == 0) {
+                        // 填空题
+                        var list = [];
+                        for (var i = 0; i < zarray.length; i++) {
+                            var text_list = [];
+                            var map = {};
+                            const id = zarray[i].id;
+                            map['id'] = id;
+                            for (var j = 0; j < zanswer_detail_list.length; j++) {
+                                const answer_detail = zanswer_detail_list[j];
+                                if (answer_detail.isanswered == 1) {
+                                    const answer_json = JSON.parse(answer_detail.reply_content);
+                                    const answers = answer_json.answers;
+                                    for (var k = 0; k < answers.length; k++) {
+                                        if (id == answers[k].id) {
+                                            const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                            if (yanswer_detail != null) {
+                                                if (yanswer_detail.isanswered == 1) {
+                                                    var m = {};
+                                                    const reply_content = JSON.parse(yanswer_detail.reply_content);
+                                                    const answer = reply_content.answer;
+                                                    const tmp_date = new Date(yanswer_detail.created_on);
+                                                    const date_str = tmp_date.getFullYear() + '-' + (tmp_date.getMonth()+1) + '-' + tmp_date.getDate() + ' ' + tmp_date.getHours() + ':' + tmp_date.getMinutes() + ':' + tmp_date.getSeconds();
+                                                    m['time'] = date_str;
+                                                    m['answer'] = answer;
+                                                    text_list.push(m);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            map['textlist'] = text_list;
+                            list.push(map);
+                        }
+                        result['analysis'] = list;
+                    }
+                    else if (yquestion.type == 3) {
+                        // 量表题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.y_axis;
+                        const xarray = yquestion_json.x_axis;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var m = {};
+                            const id = yarray[i].id;
+                            for (var j = 0; j < zarray.length; j++) {
+                                const z_item_id = zarray[j].id;
+                                var zm = {};
+                                for (var k = 0; k < xarray.length; k++) {
+                                    zm[xarray[k].tag] = 0;
+                                }
+                                for (var k = 0; k < zanswer_detail_list.length; k++) {
+                                    const answer_detail = zanswer_detail_list[k];
+                                    if (answer_detail.isanswered == 1) {
+                                        const answer_json = JSON.parse(answer_detail.reply_content);
+                                        const answers = answer_json.answers;
+                                        for (var l = 0; l < answers.length; l++) {
+                                            if (z_item_id == answers[l].id) {
+                                                const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                                if (yanswer_detail.isanswered == 1) {
+                                                    const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                                    const answers = yanswer_json.answers;
+                                                    for (var n = 0; n < xarray.length; n++) {
+                                                        const val = xarray[n].val;
+                                                        for (var a = 0; a < answers.length; a++) {
+                                                            if (id == answers[a].id && val == answers[a].val) {
+                                                                zm[xarray[n].tag] = zm[xarray[n].tag] + 1;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                m[zarray[j].text] = zm;
+                            }
+                            result[yarray[i].left] = m;
+                        }
+                    }
+                    else if (yquestion.type == 4) {
+                        // 滑条题
+                        const yquestion_json = JSON.parse(yquestion.setting);
+                        const yarray = yquestion_json.items;
+                        for (var i = 0; i < yarray.length; i++) {
+                            var map = {};
+                            const id = yarray[i].id;
+                            const min_val = yarray[i].min_val;
+                            const max_val = yarray[i].max_val;
+                            const interval = yarray[i].interval;
+                            const left = yarray[i].left;
+                            for (var j = 0; j < zarray.length; j++) {
+                                var m = {};
+                                const zqid = zarray[j].id;
+                                const text = zarray[j].text;
+                                for (var k = min_val; k <= max_val; k++) {
+                                    if ((k - min_val) % interval == 0) {
+                                        m[k.toString()] = 0;
+                                    }
+                                }
+                                for (var k = 0; k < zanswer_detail_list.length; k++) {
+                                    const answer_detail = zanswer_detail_list[k];
+                                    if (answer_detail.isanswered == 1) {
+                                        const answer_json = JSON.parse(answer_detail.reply_content);
+                                        const answers = answer_json.answers;
+                                        for (var l = 0; l < answers.length; l++) {
+                                            if (zqid == answers[l].id) {
+                                                const yanswer_detail = await this.service.survey.answer.answerDetailGetAnswerDetailByUserAndQuestion(answer_detail.answer_id, yid);
+                                                if (yanswer_detail.isanswered == 1) {
+                                                    const yanswer_json = JSON.parse(yanswer_detail.reply_content);
+                                                    const answers = yanswer_json.answers;
+                                                    for (var n = min_val; n <= max_val; n++) {
+                                                        if ((n - min_val) % interval == 0) {
+                                                            for (var a = 0; a < answers.length; a++) {
+                                                                if (id == answers[a].id && n == answers[a].value) {
+                                                                    m[n.toString()] = m[n.toString()] + 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                map[text] = m;
+                            }
+                            result[left] = map;
+                        }
+                    }
+                }
+            }
 
             return result;
         }
