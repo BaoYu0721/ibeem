@@ -3,8 +3,6 @@
 const Controller = require('egg').Controller;
 const path = require('path');
 const fs = require('fs');
-const awaitWriteStream = require('await-stream-ready').write;
-const sendToWormhole = require('stream-wormhole');
 
 class CommonController extends Controller {
     async leftpanel() {
@@ -57,19 +55,22 @@ class CommonController extends Controller {
     }
     async upload(){
         const { ctx, config } = this;
-        const stream = await ctx.getFileStream();
-        const filename = ctx.helper.crypto(stream.filename + Date.now()).substring(8, 24) + '.' + stream.filename.split('.')[stream.filename.split('.').length - 1];
+        const file = ctx.request.files[0];
+        const tmpfilepath = ctx.request.files[0].filepath;
+        const filename = ctx.helper.crypto(file.filename + Date.now()).substring(8, 24) + '.' + file.filename.split('.')[file.filename.split('.').length - 1];
         const dir = path.join(config.baseDir, 'app/public/file/image');
         ctx.helper.mkdirSync(dir);
         const target = path.join(config.baseDir, 'app/public/file/image', filename);
-        const writeStream = fs.createWriteStream(target);
         try {
-            await awaitWriteStream(stream.pipe(writeStream));
-        } catch (error) {
-            await sendToWormhole(stream);
+            fs.writeFileSync(target, fs.readFileSync(tmpfilepath));
+        } 
+        catch(error){
             return ctx.body = {
                 code: 1005
             };
+        }
+        finally {
+            await ctx.cleanupRequestFiles();
         }
         const url = {
             imageurl: filename
