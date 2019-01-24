@@ -127,11 +127,28 @@ $(document).ready(function(){
 		if($(this).data("value")=="language_ch"){
 			window.localStorage.setItem("language","ch");
 			setLanguageCookie();
-			window.location.reload();
+			setLanguage();
 		}else if($(this).data("value")=="language_en"){
 			window.localStorage.setItem("language","en");
 			setLanguageCookie();
-			window.location.reload();
+			setLanguage();
 		}
 	})
 });
+
+var setLanguage = function(){
+	jQuery.i18n.properties({
+		name: 'i18n',
+		path: '/public/i18n/',
+		mode: 'map',
+		language: window.localStorage.getItem("language"),
+		callback: function() {
+			$("title").html($.i18n.prop("wx_login_title"));
+			$("#user_login_btn").html($.i18n.prop("wx_login_title"));
+			$("#qrcode_login_btn").html($.i18n.prop("wx_login_scancode"));
+			$("#register_btn").html($.i18n.prop("wx_login_register"));
+			$("#user_name").attr("placeholder", $.i18n.prop("wx_login_username"));
+			$("#user_password").attr("placeholder", $.i18n.prop("wx_login_passwd"));
+		}
+	})
+}
