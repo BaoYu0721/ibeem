@@ -83,10 +83,32 @@
 	<script src="/public/static/manage/js/regularExpression.js"></script>
 	<script src="/public/static/manage/js/customMethod.js"></script>
 	<script src="/public/static/manage/js/register.js"></script>
+	<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
 	<script>
 	$(function(){
 		// 选择语言
 		$('.language.ui.dropdown').dropdown();
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("register_title"));
+				$(".tit").html($.i18n.prop("register_title"));
+				$("#username").attr("placeholder", $.i18n.prop("register_username"));
+				$("#password1").attr("placeholder", $.i18n.prop("register_passwd"));
+				$("#confirmPassword").attr("placeholder", $.i18n.prop("register_confirm_passwd"));
+				$("#name").attr("placeholder", $.i18n.prop("register_name"));
+				$("#company").attr("placeholder", $.i18n.prop("register_company"));
+				$("#professor").attr("placeholder", $.i18n.prop("register_position"));
+				$("#email").attr("placeholder", $.i18n.prop("register_email"));
+				$("#telephone").attr("placeholder", $.i18n.prop("register_phone"));
+				$("#return-btn").html($.i18n.prop("register_home"));
+				$("#register-btn").html($.i18n.prop("register_ok"));
+			}
+		})
 	});
 	</script>	
 </html>

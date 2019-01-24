@@ -679,14 +679,14 @@ function ajaxFileUpload(fileid) {
 		</div>
 	</li>
 	<li class="clearfix">
-		<input type="text" class="fl" id="memo" value="" placeholder="输入设备详细信息"/>
+		<input type="text" class="fl" id="memo" value="" placeholder="设备详细信息"/>
 	</li>
 	<li class="clearfix address" lat="" lon="">
 		<span class="fl" id="address" value=""  readonly ></span>
 		<img class="icon fr" src="/public/static/mobile/img/map00.png"/>
 	</li>
 	<li class="clearfix">
-		<input type="text" class="fl" id="description" value="" placeholder="输入设备详细地址"/>
+		<input type="text" class="fl" id="description" value="" placeholder="设备详细地址"/>
 		<img class="icon fr" src="/public/static/mobile/img/address00.png"/>
 	</li>
 <!-- 	<li class="clearfix " id="house"> -->
@@ -771,7 +771,7 @@ function ajaxFileUpload(fileid) {
 </ul>
 <!-- 悬浮返回 -->
 <div class="return_to_list_float_btn"></div>
-
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
 <script>
 if(localStorage.getItem("language")=="en"){
 	$(".return_to_list_float_btn").addClass("en");
@@ -785,6 +785,27 @@ $(".uploadimg .img-container .img-panel").each(function(){
 /*  位置加载完毕再显示devicedetail  */
 $(".devicedetail").css("display","block");
 $(".refresh").css("display","block"); 
+</script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("wx_device"));
+				$("#memo").attr("placeholder", $.i18n.prop("wx_detail_content"));
+				$("#description").attr("placeholder", $.i18n.prop("wx_detail_address"));
+				$("#devicetab .txt").html($.i18n.prop("wx_device"));
+				$("#realtimetab .txt").html($.i18n.prop("wx_realtime"));
+				$("#historytab .txt").html($.i18n.prop("wx_history"));
+				$("#evaluationtab .txt").html($.i18n.prop("wx_evaluation"));
+				$("#hometab .txt").html($.i18n.prop("wx_home"));
+			}
+		})
+	})
 </script>
 
 <div style="visibility:hidden;" id="weixin_api_ticket">	

@@ -79,7 +79,7 @@
                 			    <div class="" id="result_charts">
 	                			 	<div class="clearfix toprow">
 	                			 		<div class='fl deviceName'>
-	                			 			<span class="fl">查看设备数据：</span>
+	                			 			<span class="fl" id="data-view">查看设备数据：</span>
 	                			 			<div class="fl namelist"></div>
 	                			 		</div>
 	                			 	</div>
@@ -108,7 +108,7 @@
 									<div class="tab_chart_box tab_chart_box_1" style="border-bottom:none!important; overflow:hidden;" id="shebei_online_box">
 										<div class="clearfix toprow toprow_new">
 		                			 		<div class='fl deviceName deviceName_new'>
-		                			 			<span class="fl">设备在线率：</span>
+		                			 			<span class="fl" id="device-online">设备在线率：</span>
 		                			 			<div class="fl namelist"></div>
 		                			 		</div>
 		                			 	</div>
@@ -122,7 +122,7 @@
 	                			<!--图表  -->
                 			 	<div class="realtimedata">
                 			 		<div class='clearfix head'>
-                			 			<div class="fl"><spring:message code="devicedata_datalatest" />：</div>
+                			 			<div class="fl" id="real-data-list">实时数据列表：</div>
                			 				<div class="ui  inline  dropdown fr">
                			 					<div class="text current" id="deviceName"></div> <i class="dropdown icon"></i>
                			 				  	<div class="menu"></div>
@@ -134,9 +134,9 @@
                 			 <div class="five wide column" style="position:fixed; top:4.5rem;">
                 			 	<div class="download l_tab_title">
 				                	<div class="map" style="height:23rem;">
-				                		<h6>数据加载</h6>
+				                		<h6 id="data-load">数据加载</h6>
 				                			<div class="params ui top attached tabular menu l_menu l_tab_content">
-											  <a class="item active" data-tab="tab3">时间选择</a>
+											  <a class="item active" data-tab="tab3" id="time-choice">时间选择</a>
 											</div>
 											<div class="ui bottom attached tab segment l_segment active l_tab_content" data-tab="tab3">
 												<table class="ui table">
@@ -146,10 +146,10 @@
 																  <input type="checkbox" checked="checked" name="" >
 																  <label></label>
 															</div>
-															<span>工作日</span>
+															<span id="work-day">工作日</span>
 														</td>
 														<td width="70%">
-															<span class="fl">开始日期：</span>
+															<span class="fl" id="start-date">开始日期：</span>
 															<div id="startTime" class="fl input-group date">
 																<input class="fl form-control form_datetime_m" type="text" value="">
 																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -158,7 +158,7 @@
 													</tr>
 													<tr>
 														<td>
-															<span class="fl">结束日期：</span>
+															<span class="fl" id="end-date">结束日期：</span>
 															<div id="endTime" class="fl input-group date">
 																<input class="fl form-control form_datetime_m" type="text" value="">
 																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -170,7 +170,7 @@
 													</tr>
 													<tr>
 														<td>
-															<span class="fl">上班时间：</span>
+															<span class="fl" id="work-time">上班时间：</span>
 															<div id="startTime_hour" class="fl input-group date" data-date="">
 																<input class="fl form-control form_datetime_hour_m" type="text" value="" >
 																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -179,7 +179,7 @@
 													</tr>
 													<tr>
 														<td>
-															<span class="fl">下班时间：</span>
+															<span class="fl" id="off-time">下班时间：</span>
 															<div id="endTime_hour" class="fl input-group date" data-date="">
 																<input class="fl form-control form_datetime_hour_m" type="text" value="">
 																<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -195,7 +195,7 @@
 																  <input type="checkbox" name="" >
 																  <label></label>
 															</div>
-															<span>非工作日</span>
+															<span id="off-day">非工作日</span>
 														</td>
 														<td>&nbsp;</td>
 													</tr>
@@ -277,35 +277,35 @@
                 			 
                 			 <div class="download l_tab_title">
                 			 	<div class="map" style="height:23rem;">
-                			 			<h6>数据预处理</h6>
+                			 			<h6 id="data-pretreatment">数据预处理</h6>
 			                			<div class="params ui top attached tabular menu l_tab_content">
-											  <a class="item active" data-tab="tab5">异常值剔除</a>
-											  <a class="item" data-tab="tab6">数据对齐</a>
-											  <a class="item " data-tab="tab7">检测缺失值</a>
-											  <a class="item " data-tab="tab8">数据偏移</a>
+											  <a class="item active" data-tab="tab5" id="elimination">异常值剔除</a>
+											  <a class="item" data-tab="tab6" id="alignment">数据对齐</a>
+											  <a class="item " data-tab="tab7" id="missing">检测缺失值</a>
+											  <a class="item " data-tab="tab8" id="offset">数据偏移</a>
 										</div>
 										<div class="ui bottom attached tab segment active l_tab_content" data-tab="tab5">
 											<table class="ui compact celled definition table tab1">
 											  <thead class="full-width">
 											    <tr>
-											      <th>参数</th>
-											      <th class='center'>最小值</th>
-											      <th class='center'>最大值</th>
+											      <th id="parameter1">参数</th>
+											      <th class='center' id="data-min1">最小值</th>
+											      <th class='center' id="data-max1">最大值</th>
 											    </tr>
 											  </thead>
 											  <tbody>
 											  	<tr>
-											      <td>温度（℃）</td>
+											      <td id="temparture1">温度（℃）</td>
 											      <td><input type='text' value="20" id="min_tem_yc"/></td>
 											  	  <td><input type='text' value="25" id="max_tem_yc"/></td>
 											  	</tr>
 											  	<tr>
-											      <td>湿度（％）</td>
+											      <td id="humidity1">湿度（％）</td>
 											      <td><input type='text' value="40" id="min_hum_yc"/></td>
 											  	  <td><input type='text' value="60" id="max_hum_yc"/></td>
 											  	</tr>
 											  	<tr>
-											      <td>光照（lux）</td>
+											      <td id="light1">光照（lux）</td>
 											      <td><input type='text' value="300" id="min_sun_yc"/></td>
 											  	  <td><input type='text' value="500" id="max_sun_yc"/></td>
 											  	</tr>
@@ -331,7 +331,7 @@
 											  </thead>
 											  <tbody >
 											  	<tr>
-											      <td>对齐时间(min)</td>
+											      <td id="alignment-time">对齐时间(min)</td>
 											      <td><input type='text' value="1" id="duiqi_value" /></td>
 											  	</tr>
 											  </tbody>
@@ -347,7 +347,7 @@
 											  </thead>
 											  <tbody >
 											  	<tr>
-											      <td>最大时间间断(min)</td>
+											      <td id="max-time-interval">最大时间间断(min)</td>
 											      <td><input type='text' id="queshizhi_value" value="5"/></td>
 											  	</tr>
 											  </tbody>
@@ -366,15 +366,15 @@
 											  </thead>
 											  <tbody >
 											  	<tr>
-											      <td>温度（℃）</td>
+											      <td id="temparture2">温度（℃）</td>
 											      <td><input type='text' id="tem_py" value="0" /></td>
 											  	</tr>
 											  	<tr>
-											      <td>湿度（％）</td>
+											      <td id="humidity2">湿度（％）</td>
 											      <td><input type='text' id="hum_py" value="0"/></td>
 											  	</tr>
 											  	<tr>
-											      <td>光照（lux）</td>
+											      <td id="light2">光照（lux）</td>
 											      <td><input type='text' id="sun_py" value="0"/></td>
 											  	</tr>
 											  	<tr>
@@ -396,34 +396,34 @@
 								
 								<div class="download l_download l_tab_title">
                 			 		<div class="map" style="height:23rem;">
-                			 			<h6>数据分析</h6>
+                			 			<h6 id="data-analysis">数据分析</h6>
 			                			<div class="params ui top attached tabular menu l_tab_content">
-										  <a class="item active" data-tab="tab9" style="width: 50%;">达标率</a>
-										  <a class="item" data-tab="tab12" style="width: 50%;">数据挖掘</a>
+										  <a class="item active" data-tab="tab9" style="width: 50%;" id="standard">达标率</a>
+										  <a class="item" data-tab="tab12" style="width: 50%;" id="excavate">数据挖掘</a>
 										</div>
 
 										<div class="ui bottom attached tab segment active l_tab_content" data-tab="tab9">
 											<table class="ui compact celled definition table tab1">
 											  <thead class="full-width">
 											    <tr>
-											      <th>参数</th>
-											      <th class='center'>最小值</th>
-											      <th class='center'>最大值</th>
+											      <th id="parameter2">参数</th>
+											      <th class='center' id="data-min2">最小值</th>
+											      <th class='center' id="data-max2">最大值</th>
 											    </tr>
 											  </thead>
 											  <tbody>
 											  	<tr>
-											      <td>温度（℃）</td>
+											      <td id="temparture3">温度（℃）</td>
 											      <td><input type='text' id="min_tem" value="20"/></td>
 											  	  <td><input type='text' id="max_tem" value="25"/></td>
 											  	</tr>
 											  	<tr>
-											      <td>湿度（％）</td>
+											      <td id="humidity3">湿度（％）</td>
 											      <td><input type='text' id="min_hum" value="40"/></td>
 											  	  <td><input type='text' id="max_hum" value="60"/></td>
 											  	</tr>
 											  	<tr>
-											      <td>光照（lux）</td>
+											      <td id="light3">光照（lux）</td>
 											      <td><input type='text' id="min_sun" value="300"/></td>
 											  	  <td><input type='text' id="max_sun" value="500"/></td>
 											  	</tr>
@@ -447,7 +447,7 @@
 											<table class="ui compact celled definition table">
 											  <thead class="full-width">
 											    <tr>
-											      <td><spring:message code="decicedata_fun_18" /></td>
+											      <td id="no-parameter">无参数</td>
 											    </tr>
 											  </thead>
 											  
@@ -458,8 +458,8 @@
 								</div>
 								<div class="download">
                 			 		<div class="map" style="height:auto;">
-                			 			<h6>数据下载</h6>
-                			 			<div style="background-color:#ffffff; padding:0.6rem 0;"><div class="timeBtn downloadData_this">下载数据</div></div>
+                			 			<h6 id="download-data1">下载数据</h6>
+                			 			<div style="background-color:#ffffff; padding:0.6rem 0;"><div class="timeBtn downloadData_this" id="download-data2">下载数据</div></div>
                 			 		</div>
                 			 	</div>
 								
@@ -711,6 +711,7 @@
 </div>
 <script>
 	$(function(){
+		if(window.localStorage.getItem("language") == 'ch') return;
 		$("title").html(getLangStr('newCompareDeviceDataTitle'))
 		$("#tit").html(getLangStr('newCompareDeviceDataTitle'))
 		$(".item.on").html(getLangStr('newCompareDeviceDataList'))
@@ -743,6 +744,51 @@
 		$('#newCompareDeviceDataDeviceEstimatedTime').html(getLangStr('newCompareDeviceDataDeviceEstimatedTime'))
 		$('#newCompareDeviceDataDeviceState').html(getLangStr('newCompareDeviceDataDeviceState'))
 		$('#newCompareDeviceDataDeviceOperation').html(getLangStr('newCompareDeviceDataDeviceOperation'))
+		$("#data-view").html(getLangStr('newCompareDeviceDataView'));
+		$("#data-load").html(getLangStr('newCompareDeviceDataDeviceDataLoading'));
+		$("#refreshData").html(getLangStr('newCompareDeviceDataDeviceDataLoading'));
+		$("#time-choice").html(getLangStr('newCompareDeviceDataDeviceChoiceTime'));
+		$("#work-day").html(getLangStr('newCompareDeviceDataDeviceWorkingDay'));
+		$("#off-day").html(getLangStr('newCompareDeviceDataDeviceOffDay'));
+		$("#start-date").html(getLangStr('newCompareDeviceDataDeviceStartDate'));
+		$("#end-date").html(getLangStr('newCompareDeviceDataDeviceEndDate'));
+		$('#work-time').html(getLangStr('newCompareDeviceDataDeviceWorkingTime'));
+		$('#off-time').html(getLangStr('newCompareDeviceDataDeviceClosingTime'));
+		$('#data-pretreatment').html(getLangStr('newCompareDeviceDataPretreatment'));
+		$('#parameter1').html(getLangStr('newCompareDeviceDataParameter'));
+		$('#parameter2').html(getLangStr('newCompareDeviceDataParameter'));
+		$('#data-min1').html(getLangStr('newCompareDeviceDataMin'));
+		$('#data-min2').html(getLangStr('newCompareDeviceDataMin'));
+		$('#data-max1').html(getLangStr('newCompareDeviceDataMax'));
+		$('#data-max2').html(getLangStr('newCompareDeviceDataMax'));
+		$('#elimination').html(getLangStr('newCompareDeviceDataElimination'));
+		$('#alignment').html(getLangStr('newCompareDeviceDataAlignment'));
+		$('#missing').html(getLangStr('newCompareDeviceDataMissing'));
+		$('#offset').html(getLangStr('newCompareDeviceDataOffset'));
+		$('#temparture1').html(getLangStr('newCompareDeviceDataDeviceTemperature') + "（℃）");
+		$('#temparture2').html(getLangStr('newCompareDeviceDataDeviceTemperature') + "（℃）");
+		$('#temparture3').html(getLangStr('newCompareDeviceDataDeviceTemperature') + "（℃）");
+		$('#humidity1').html(getLangStr('newCompareDeviceDataDeviceHumidity') + "（％）");
+		$('#humidity2').html(getLangStr('newCompareDeviceDataDeviceHumidity') + "（％）");
+		$('#humidity3').html(getLangStr('newCompareDeviceDataDeviceHumidity') + "（％）");
+		$('#light1').html(getLangStr('newCompareDeviceDataDeviceLight') + "（lux）");
+		$('#light2').html(getLangStr('newCompareDeviceDataDeviceLight') + "（lux）");
+		$('#light3').html(getLangStr('newCompareDeviceDataDeviceLight') + "（lux）");
+		$('#delete_yc').html(getLangStr('newCompareDeviceDataDelete'));
+		$('#alignment-time').html(getLangStr('newCompareDeviceDataAlignmentTime'));
+		$('#data_duiqi').html(getLangStr('newCompareDeviceDataAlignment'));
+		$('#max-time-interval').html(getLangStr('newCompareDeviceDataMaxTimeInterval'));
+		$('#queshizhi_check').html(getLangStr('newCompareDeviceDataCheck'));
+		$('#pianyi_check').html(getLangStr('newCompareDeviceDataOffset'));
+		$('#data-analysis').html(getLangStr('newCompareDeviceDataAnalysis'));
+		$('#standard').html(getLangStr('newCompareDeviceDataSdandard'));
+		$('#excavate').html(getLangStr('newCompareDeviceDataExcavate'));
+		$('#update_dblchart').html(getLangStr('newCompareDeviceDataUpdate'));
+		$('#download-data1').html(getLangStr('newCompareDeviceDataDownload'));
+		$('#download-data2').html(getLangStr('newCompareDeviceDataDownload'));
+		$('#no-parameter').html(getLangStr('newCompareDeviceDataNoParameter'));
+		$('#device-online').html(getLangStr('newCompareDeviceDataDeviceOnline'));
+		$('#real-data-list').html(getLangStr('newCompareDeviceDataRealList'));
 	});
 </script>
 

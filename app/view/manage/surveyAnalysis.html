@@ -81,9 +81,9 @@
                 		<div class="top">
                 			<span id="headtitle">问卷分析:</span>
                 			<div class="ui form top-form">
-                			  <label>问卷开始时间:</label>
+                			  <label id="survey-start-time">问卷开始时间:</label>
 							  <input id="startTime" class="some_class" style="width:12rem;height:1.7142rem;" placeholder="问卷开始时间"/>
-							  <label style="margin-left:1rem;">问卷结束时间:</label>
+							  <label style="margin-left:1rem;" id="survey-end-time">问卷结束时间:</label>
 							  <input id="endTime" class="some_class" style="width:12rem;height:1.7142rem;" placeholder="问卷结束时间"/>
 							  <button class="btn add" id="add">添加分析</button>
 							 </div>
@@ -98,8 +98,26 @@
 </div>
 <script src="/public/static/manage/js/team/surveyAnalysis.js"></script>
 <script src="/public/static/manage/js/language.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
 <script>
-$("#surveypanel").addClass("active");
+	$("#surveypanel").addClass("active");
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("#headtitle").html($.i18n.prop("surveyAna_title"));
+				$("#survey-start-time").html($.i18n.prop("survey_list_starttime"));
+				$("#survey-end-time").html($.i18n.prop("survey_list_endtime"));
+				$("#startTime").attr("placeholder", "Start Time");
+				$("#endTime").attr("placeholder", "End Time");
+				$("#add").html($.i18n.prop("surveyAna_add"));
+			}
+		})
+	});
 </script>
 </body>
 </html>

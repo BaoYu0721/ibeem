@@ -372,7 +372,7 @@
 	<li class="air">
 		<div class="paramItem clearfix ">
 			<span class="icon fr"><img src="/public/static/mobile/img/air.png"/></span>
-			<span class="fr txt" his_target="3">CO2浓度</span>
+			<span class="fr txt" his_target="3">CO2</span>
 		</div>
 		<div class="clearfix paramValue">
 			<div class="tips fl" id="co2_tip"></div>
@@ -1071,12 +1071,43 @@
 		$(".paramItem .txt").click(function(){
 			localStorage.setItem("his_target",$(this).attr("his_target"));
 			var timestamp = Date.parse(new Date());
-        	timestamp = timestamp / 1000;
-			window.location.href = "/open?url=mobile/historyData.jsp?timestamp="+timestamp;
+			timestamp = timestamp / 1000;
+			var did = window.localStorage.getItem("device_id");
+			window.location.href = "/weixin/device?did=" + did + "&item=history&timestamp="+timestamp;
 		});
 		
 	});
 </script>
-
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("wx_realtime"));
+				$("#evaluation_title").html($.i18n.prop("wx_realtime_indoorenv"));
+				$(".backtoRealtime").html($.i18n.prop("wx_realtime_back"));
+				let i = 1;
+				$(".advices_tips .content li").each(function(){
+					if(i == 1)
+						$(this).html($.i18n.prop("wx_realtime_suggestion"));
+					i++
+				});
+				$(".temperature .txt").html($.i18n.prop("wx_realtime_temperature"));
+				$(".wet .txt").html($.i18n.prop("wx_realtime_humidity"));
+				$(".sun .txt").html($.i18n.prop("wx_realtime_light"));
+				$("#devicetab .txt").html($.i18n.prop("wx_device"));
+				$("#realtimetab .txt").html($.i18n.prop("wx_realtime"));
+				$("#historytab .txt").html($.i18n.prop("wx_history"));
+				$("#evaluationtab .txt").html($.i18n.prop("wx_evaluation"));
+				$("#hometab .txt").html($.i18n.prop("wx_home"));
+			}
+		})
+	})
+</script>
 </body>
 </html>

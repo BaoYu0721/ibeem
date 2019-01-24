@@ -114,5 +114,48 @@
 </div>
 <script src="/public/static/manage/js/team/teamCommon.js"></script>
 <script src="/public/static/manage/js/team/teamMember.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("project_member"));
+				let i = 1;
+				$("#topmenu .item").each(function(){
+					if(i == 1) 
+						$(this).html($.i18n.prop("project_building"));
+					else if(i == 2)
+						$(this).html($.i18n.prop("project_device"));
+					else if(i == 3)
+						$(this).html($.i18n.prop("project_survey"));
+					else if(i == 4)
+						$(this).html($.i18n.prop("project_member"));
+					i++;
+				});
+				i = 1;
+				$("#content .legend span").each(function(){
+					if(i == 1)
+						$(this).html('<i class="green user icon"></i>' + $.i18n.prop("project_member_creator"));
+					if(i == 2)
+						$(this).html('<i class="red user icon"></i>' + $.i18n.prop("project_member_manager"))
+					i++;
+				});
+				$("#searchMember").attr("placeholder", $.i18n.prop("project_member_search"));
+				$("#addMember-button").html($.i18n.prop("project_member_add"));
+				$("#addrole-button").html($.i18n.prop("project_member_setadmin"));
+				$("#deleterole-button").html($.i18n.prop("project_member_revocationadmin"));
+				$("#deleteMember").html($.i18n.prop("project_member_delete"));
+				$("#export-button").html($.i18n.prop("project_member_export"));
+				$("#searchAddMember").attr("placeholder", $.i18n.prop("project_member_searchtit"));
+				$(".addMember .button-add").html($.i18n.prop("project_member_add"));
+			}
+		})
+	})
+</script>
 </body>
 </html>

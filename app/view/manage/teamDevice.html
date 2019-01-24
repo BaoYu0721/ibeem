@@ -275,7 +275,8 @@
     <script src="/public/static/manage/js/customFrame.js"></script>
     <script src="/public/static/manage/js/projectList.js"></script>
     <script src="/public/static/manage/js/teamDevice.js"></script> 
-    <script src="/public/static/manage/js/home.js"></script> 
+	<script src="/public/static/manage/js/home.js"></script> 
+	<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
     <script>
      /*引入左侧导航  */
     getComponent("/common/leftpanel",
@@ -290,7 +291,33 @@
   				$(this).removeClass("active");
   			});
   			$(".leftmenu.teampage").addClass("active");
-  	});
+	  });
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("project_device"));
+				let i = 1;
+				$("#topmenu .item").each(function(){
+					if(i == 1) 
+						$(this).html($.i18n.prop("project_building"));
+					else if(i == 2)
+						$(this).html($.i18n.prop("project_device"));
+					else if(i == 3)
+						$(this).html($.i18n.prop("project_survey"));
+					else if(i == 4)
+						$(this).html($.i18n.prop("project_member"));
+					i++;
+				});
+				$("#device_list_map .tit").html($.i18n.prop("project_device_map"));
+				$("#user_add_list .header span").html($.i18n.prop("project_select_reference"));
+			}
+		})
+	})
     </script>
 </body>
 </html>

@@ -150,7 +150,8 @@
     <script src="/public/static/manage/js/customMethod.js"></script>
     <script src="/public/static/manage/js/customFrame.js"></script>
     <script src="/public/static/manage/js/home.js"></script>
-    <script src="/public/static/common/js/tools.js"></script>
+	<script src="/public/static/common/js/tools.js"></script>
+	<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
     <script>
 	  //添加左侧导航栏
 	    getComponent("/common/leftpanel",
@@ -182,6 +183,48 @@
           			error:function(){}
           		});
 		} */
+		$(function(){
+			jQuery.i18n.properties({
+				name: 'i18n',
+				path: '/public/i18n/',
+				mode: 'map',
+				language: window.localStorage.getItem("language"),
+				callback: function() {
+					if(window.localStorage.getItem("language") == 'ch') return;
+					$("title").html($.i18n.prop("homepage"));
+					$(".item.on").html($.i18n.prop("homepage"));
+					$("#editBack").html($.i18n.prop("peplepage_name"));
+					$("#changePassword").html($.i18n.prop("peplepage_modify"));
+					$("#editPersonalInfo").html($.i18n.prop("peplepage_edit"));
+					let i = 1;
+					$(".myform_01 .clearfix .fl.left").each(function(){
+						if(i == 1)
+							$(this).html($.i18n.prop("peplepage_name"));
+						if(i == 2)
+							$(this).html($.i18n.prop("peplepage_company"));
+						if(i == 3)
+							$(this).html($.i18n.prop("peplepage_position"));
+						if(i == 4)
+							$(this).html($.i18n.prop("peplepage_email"));
+						if(i == 5)
+							$(this).html($.i18n.prop("peplepage_phone"));
+						i++;
+					})
+
+					i = 1;
+					$(".myform_02 .clearfix .fl.left").each(function(){
+						if(i == 1)
+							$(this).html($.i18n.prop("peplepage_oldpasswd"));
+						if(i == 2)
+							$(this).html($.i18n.prop("peplepage_passwd"));
+						if(i == 3)
+							$(this).html($.i18n.prop("peplepage_reenter"));
+						i++;
+					})
+					$("#submitPassChange").html($.i18n.prop("peplepage_save"));
+				}
+			})
+		})
     </script>
 </body>
 </html>

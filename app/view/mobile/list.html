@@ -274,7 +274,7 @@
 		<!-- <input type="text" id="search_input_main" class="search_input" placeholder="<spring:message code='mobilelist_searchDevice' />"> -->
 <!-- 		<img id="add_device_logo" src="static/mobile/img/add_device_logo.png" onclick="showSearchPanel()"> -->
 		<div id="total_number_line">
-			<span id="online_number">在线&nbsp;台</span>/共&nbsp;<span id="total_number"></span>&nbsp;台
+			<span id="online_number"></span><span id="total_number"></span>
 		</div>
 		<div id="map_box"></div>
 		<a id="qrcode_bind_btn" style="text-align:center;border:1px solid #47b391;background-color:white;color: #47b391;position:absolute;left:50%;">扫码关注设备</a>
@@ -326,6 +326,33 @@
 		
 	</div>
 	<div style="visibility:hidden;" id="weixin_api_ticket" key="<%=JsapiTicket%>">	
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("wx_devicelist_title"));
+				$("#profile_wechat").html($.i18n.prop("wx_devicelist_bindwx"));
+				$("#qrcode_bind_btn").html($.i18n.prop("wx_devicelist_concerndevice"));
+				let i = 1;
+				$("#datatable th").each(function(){
+					if(i == 1)
+						$(this).html($.i18n.prop("wx_devicelist_name"));
+					else if(i == 2)
+						$(this).html($.i18n.prop("wx_devicelist_address"));
+					else if(i == 3)
+						$(this).html($.i18n.prop("wx_devicelist_status"));
+					i++;
+				})
+			}
+		})
+	})
+</script>
 <script type="text/javascript">
 
 	function getUrlParam(name) {
@@ -888,7 +915,7 @@
 					$("#list_box_main").html(""); 
 					$("#list_box_main").append(htmlText);
 					*/
-					$("#total_number").html(data.devicelist.length);
+					$("#total_number").html(getLangStr("mobilelist_18") + " " + data.devicelist.length + getLangStr("mobilelist_11"));
 					$("#online_number").html(getLangStr("mobilelist_10")+" "+onlineNumber+" "+getLangStr("mobilelist_11"));
 					updateDeviceCss();
 					bindDeviceRowClick();

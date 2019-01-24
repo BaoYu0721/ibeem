@@ -175,7 +175,7 @@
 	function setLanguage(){
 		jQuery.i18n.properties({
 			name: 'i18n',
-			path: 'public/i18n/',
+			path: '/public/i18n/',
 			mode: 'map',
 			language: window.localStorage.getItem("language"),
 			callback: function() {
@@ -183,8 +183,9 @@
 				$("#login-submit-btn").html($.i18n.prop("login_button"));
 				$(".fl.forgetPass").html($.i18n.prop("login_forget"));
 				$(".fr.toRegister").html($.i18n.prop("login_sigup"));
+				$("#language_switch").html($.i18n.prop("login_language_switch"));
 			}
-		})
+		});
 	}
 	function doLogin(){
 		var username = $("#username").val();

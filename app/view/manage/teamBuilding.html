@@ -143,11 +143,11 @@
 			                		</div>
 			                		<div class="div-content">		
 			                			<table class="ui striped table" >
-										  <thead >
+										  <thead>
 										    <tr>
 										      <th width="1rem"></th>
-										      <th>建筑名称</th>
-										      <th>所在城市</th>
+										      <th id="building-name">建筑名称</th>
+										      <th id="building-city">所在城市</th>
 										    </tr>
 										  </thead>
 										  <tbody id="dataTable">
@@ -209,9 +209,9 @@
    	  		<br />
        	    <input type="file" name="building_file" id="building_file" />
        	    <p style="margin-top:10px;font-size:12px;">
-	       	    <a href="http://www.ibeem.cn/file/doc/gg_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">IBEEM公共建筑模板下载</a>&nbsp;&nbsp;
-	       	    <a href="http://www.ibeem.cn/file/doc/jz_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">IBEEM居住建筑模板下载</a>&nbsp;&nbsp;
-	       	    <a href="http://www.ibeem.cn/file/doc/top_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">TOP格式模板下载</a>
+	       	    <a href="/public/file/csv/template/gg_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">IBEEM公共建筑模板下载</a>&nbsp;&nbsp;
+	       	    <a href="/public/file/csv/template/jz_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">IBEEM居住建筑模板下载</a>&nbsp;&nbsp;
+	       	    <a href="/public/file/csv/template/top_xxx.xlsx" target="_blank" style="border-bottom:1px solid #333333;">TOP格式模板下载</a>
        	    </p>
 	  </form>
 	  <div class="actions">
@@ -223,5 +223,106 @@
 <script src="/public/static/manage/js/team/teamBuilding.js"></script>
 <!-- 选择城市 -->
 <script src="/public/static/manage/js/team/selectCity.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("project_building"));
+				let i = 1;
+				$("#topmenu .item").each(function(){
+					if(i == 1) 
+						$(this).html($.i18n.prop("project_building"));
+					else if(i == 2)
+						$(this).html($.i18n.prop("project_device"));
+					else if(i == 3)
+						$(this).html($.i18n.prop("project_survey"));
+					else if(i == 4)
+						$(this).html($.i18n.prop("project_member"));
+					i++;
+				});
+				$("#questionnaire .title-content").html($.i18n.prop("project_building_list"));
+				$("#uploadBuilding").html($.i18n.prop("project_building_export"));
+				$("#buildUploadPopover .header").html($.i18n.prop("project_building_export"));
+				$("#addBuilding").html($.i18n.prop("project_building_add"));
+				$("#deleteBuilding").html($.i18n.prop("project_building_delete"));
+				$("#building-name").html($.i18n.prop("project_building_name"));
+				$("#building-city").html($.i18n.prop("project_building_city"));
+				$("#map .title-content").html($.i18n.prop("project_geographical_distribution"));
+				$("#fileUpLoad label").html($.i18n.prop("project_building_type"));
+				$("#selectBuildingClass .default").html($.i18n.prop("project_building_type"));
+				$("#selectBuildingClass .item").each(function(){
+					if($(this).attr("data-value") == "1")
+						$(this).html($.i18n.prop("project_building_type1"))
+					if($(this).attr("data-value") == "2")
+						$(this).html($.i18n.prop("project_building_type2"))
+				})
+				$("#topBuildingName input").attr("placeholder", $.i18n.prop("project_building_name"));
+				let j = 1;
+				$("#fileUpLoad p a").each(function(){
+					if(j == 1)
+						$(this).html($.i18n.prop("project_template_type1"))
+					else if(j == 2)
+						$(this).html($.i18n.prop("project_template_type2"))
+					else if(j == 3)
+						$(this).html($.i18n.prop("project_template_type3"))
+					j++;
+				})
+				$("#UpLoadFileButton").html($.i18n.prop("project_template_sumbmit"));
+				$("#addname").attr("placeholder", $.i18n.prop("project_building_name"));
+				$(".top span").html($.i18n.prop("project_building_add"));
+				let k = 1;
+				$(".addbuilding .title-td").each(function(){
+					if(k == 1)
+						$(this).html($.i18n.prop("project_buildingadd_format"));
+					else if(k == 2)
+						$(this).html($.i18n.prop("project_buildingadd_province"));
+					else if(k == 3)
+						$(this).html($.i18n.prop("project_buildingadd_city"));
+					else if(k == 4)
+						$(this).html($.i18n.prop("project_buildingadd_climatic"));
+					else if(k == 5)
+						$(this).html($.i18n.prop("project_buildingadd_type"));
+					k++;
+				});
+				k = 1;
+				$("#selectProvince option").each(function(){
+					if(k == 1)
+						$(this).html($.i18n.prop("project_buildingadd_province"));
+					k++;
+				})
+				$("#selectCity option").html($.i18n.prop("project_buildingadd_city"));
+				k = 1;
+				$("#selectQhq option").each(function(){
+					if(k == 1)
+						$(this).html($.i18n.prop("project_buildingadd_climatictype1"));
+					else if(k == 2)
+						$(this).html($.i18n.prop("project_buildingadd_climatictype2"));
+					else if(k == 3)
+						$(this).html($.i18n.prop("project_buildingadd_climatictype3"));
+					else if(k == 4)
+						$(this).html($.i18n.prop("project_buildingadd_climatictype4"));
+					else if(k == 5)
+						$(this).html($.i18n.prop("project_buildingadd_climatictype5"));
+					k++;
+				})
+				k = 1;
+				$("#selectClass option").each(function(){
+					if(k == 1)
+						$(this).html($.i18n.prop("project_buildingadd_public"));
+					else if(k == 2)
+						$(this).html($.i18n.prop("project_buildingadd_residential"));
+					k++;
+				})
+				$("#submit").html($.i18n.prop("project_buildingadd_submit"));
+			}
+		})
+	})
+</script>
 </body>
 </html>

@@ -76,7 +76,7 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
-            <a class="item on" href="/survey">我的问卷</a>
+            <a class="item on" href="/survey" id="survey-head">我的问卷</a>
             <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
         </div>
             
@@ -142,8 +142,7 @@
 								<h4 class="ui red header"></h4>
 							</div>
                 			<div class="bottom-button " id="wjcz">
-                			<button class="ui button wjyl" id="wjyl">
-                			<i class="unhide icon"></i>问卷预览</button>
+                			<button class="ui button wjyl" id="wjyl"><i class="unhide icon"></i>问卷预览</button>
                 			<button class="ui button wjyl" id="wjzc">暂存</button>
                 			<button class="ui button wcbj" id="wcbj">完成编辑</button></div>
                 			<div class="bottom-button " id="wjcz_update" style="display:none;">
@@ -160,5 +159,39 @@
 </div>
 <script src="/public/static/manage/js/team/surveyAdd.js"></script>
 <script src="/public/static/manage/js/team/surveyEdit.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("surveyAdd_title"));
+				$("#survey-head").html($.i18n.prop("survey_list_head"));
+				$(".button-group-add .dx font").html($.i18n.prop("survey_question2"));
+				$(".button-group-add .ddx font").html($.i18n.prop("survey_question3"));
+				$(".button-group-add .tk font").html($.i18n.prop("survey_question1"));
+				$(".button-group-add .lb font").html($.i18n.prop("survey_question4"));
+				$(".button-group-add .ht font").html($.i18n.prop("survey_question5"));
+				$(".button-group-add .dl font").html($.i18n.prop("surveyAdd_dl3"));
+				$(".survey-title span").html($.i18n.prop("surveyAdd_dxx_title"));
+				$(".survey-desc span").html($.i18n.prop("surveyAdd_introduction"));
+				$("#paging span").html($.i18n.prop("surveyAdd_pagemode"));
+				$("#nopaging label").html($.i18n.prop("surveyAdd_nopage"));
+				$("#limitpaging label").html($.i18n.prop("surveyAdd_question_one_page"));
+				$("#dlpaging label").html($.i18n.prop("surveyAdd_page_paragraph"));
+				$("#addfromlibrary").html($.i18n.prop("top_add"));
+				$("#wjyl").html('<i class="unhide icon"></i>' + $.i18n.prop("surveyAdd_preview"));
+				$("#wjzc").html($.i18n.prop("surveyAdd_stage"));
+				$("#wcbj").html($.i18n.prop("surveyAdd_down"));
+				$("#wjzc_update").html($.i18n.prop("surveyAdd_stage"));
+				$("#wcbj_update").html($.i18n.prop("surveyAdd_down"));
+			}
+		})
+	});
+</script>
 </body>
 </html>

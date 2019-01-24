@@ -127,11 +127,11 @@ $(document).ready(function(){
 		if($(this).data("value")=="language_ch"){
 			window.localStorage.setItem("language","ch");
 			setLanguageCookie();
-			window.location.href="/global/mobile/language?language=zh_cn";
+			window.location.reload();
 		}else if($(this).data("value")=="language_en"){
 			window.localStorage.setItem("language","en");
 			setLanguageCookie();
-			window.location.href="/global/mobile/language?language=en";
+			window.location.reload();
 		}
 	})
 });

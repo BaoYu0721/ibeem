@@ -41,7 +41,7 @@
                 <div class="sixteen wide column content-team" style="position:static;overflow-y:scroll">
                 	<div class="container" style="position:static;">
                 		<div class="top">
-                			<span>问卷统计:</span>
+                			<span id="headtitle">问卷统计:</span>
                 			<div class="ui form top-form">
 							  <input id="startTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷开始时间"/>
 							  <input id="endTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷结束时间"/>
@@ -88,8 +88,40 @@
 </div>
 <script src="/public/static/manage/js/team/teamCommon.js"></script>
 <script src="/public/static/manage/js/team/surveyReport.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
 <script>
 $("#team").addClass("active");
+$(function(){
+	jQuery.i18n.properties({
+		name: 'i18n',
+		path: '/public/i18n/',
+		mode: 'map',
+		language: window.localStorage.getItem("language"),
+		callback: function() {
+			if(window.localStorage.getItem("language") == 'ch') return;
+			$("title").html($.i18n.prop("project_survey"));
+			let i = 1;
+			$("#topmenu .item").each(function(){
+				if(i == 1) 
+					$(this).html($.i18n.prop("project_building"));
+				else if(i == 2)
+					$(this).html($.i18n.prop("project_device"));
+				else if(i == 3)
+					$(this).html($.i18n.prop("project_survey"));
+				else if(i == 4)
+					$(this).html($.i18n.prop("project_member"));
+				i++;
+			});
+			$("#startTime").attr("placeholder", "Start Time");
+			$("#endTime").attr("placeholder", "End Time");
+			$("#dropdownTeam .default.text").html($.i18n.prop("surveyAna_project"));
+			$("#dropdownBuilding .default.text").html($.i18n.prop("surveyAna_building"));
+			$("#dropdownPoint .default.text").html($.i18n.prop("surveyAna_point"));
+			$("#refresh").html($.i18n.prop("surveyAna_refresh"));
+			$("#downloadReport").html($.i18n.prop("surveyAna_download"));
+		}
+	})
+})
 </script>
 </body>
 </html>

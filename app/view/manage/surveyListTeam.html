@@ -77,7 +77,7 @@
                 	<div class="surveylist">
                 		<div class="div-group-base table questionnaire datatables" id="pointlist">
                 		<div class="title">
-                			<span class="title-content">问卷列表</span>							
+                			<span class="title-content" id="survey-list">问卷列表</span>							
 							<div class="survey-button">
 								<button id="bindSurvey">绑定答卷</button>
 							</div>
@@ -116,5 +116,60 @@
     </div>
 </div> 
 <script src="/public/static/manage/js/team/surveyListTeam.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+	$(function(){
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("project_survey"));
+				$("#survey-list").html($.i18n.prop("survey_list"));
+				let i = 1;
+				$("#topmenu .item").each(function(){
+					if(i == 1) 
+						$(this).html($.i18n.prop("project_building"));
+					else if(i == 2)
+						$(this).html($.i18n.prop("project_device"));
+					else if(i == 3)
+						$(this).html($.i18n.prop("project_survey"));
+					else if(i == 4)
+						$(this).html($.i18n.prop("project_member"));
+					i++;
+				});
+				i = 1;
+				$("#datatable th").each(function(){
+					if(i == 2)
+						$(this).html($.i18n.prop("surveyList_title"));
+					else if(i == 3)
+						$(this).html($.i18n.prop("surveyList_introduction"));
+					else if(i == 4)
+						$(this).html($.i18n.prop("surveyList_creator"));
+					else if(i == 5)
+						$(this).html($.i18n.prop("surveyList_amount"));
+					else if(i == 6)
+						$(this).html($.i18n.prop("surveyList_path"));
+					else if(i == 7)
+						$(this).html($.i18n.prop("surveyList_qrcode"));
+					i++;
+				});
+				$("#bindSurvey").html($.i18n.prop("project_survey_bind"));
+				$("#surveyReport").html($.i18n.prop("project_survey_result"));
+				$("#surveyAnalysis").html($.i18n.prop("project_survey_analysis"));
+				$("#surveyExport").html($.i18n.prop("project_survey_download"));
+				$(".export-title").html($.i18n.prop("survey_list_exporttitle"));
+				$(".starttime-span").html($.i18n.prop("survey_list_starttime"));
+				$(".endtime-span").html($.i18n.prop("survey_list_endtime"));
+				$("#exportExcel").html($.i18n.prop("survey_list_downloadexcel"));
+				$(".bindListBox .tit").html($.i18n.prop("survey_list"));
+				$("#search").attr("placeholder", $.i18n.prop("project_survey_search"));
+				$("#confirmBtn").html($.i18n.prop("project_survey_bindok"));
+			}
+		})
+	})
+</script>
 </body>
 </html>
