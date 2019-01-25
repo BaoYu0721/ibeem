@@ -40,7 +40,7 @@
 	<i class="green close icon"></i>
 	<div class="container">
 	   <div class="qrcode-container"><div id="qrcode" class="qrcode"></div></div>
-	   <button id="downloadqr"> <!--<spring:message code="surveyListDevice.downloadqr" />--> </button>
+	   <button id="downloadqr">下载二维码</button>
 	</div>
 </div>
 
@@ -171,6 +171,7 @@
 				$(".starttime-span").html($.i18n.prop("survey_list_starttime"));
 				$(".endtime-span").html($.i18n.prop("survey_list_endtime"));
 				$("#exportExcel").html($.i18n.prop("survey_list_downloadexcel"));
+				$("#downloadqr").html($.i18n.prop("survey_list_qrdownload"));
 				let i = 1;
 				$("#datatable th").each(function(){
 					if(i == 2)

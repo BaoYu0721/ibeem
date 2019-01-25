@@ -287,7 +287,12 @@ function putItem(list,surveyTime){
 		var questionID = question.questionID;//题目ID
 		var title = question.title;//题目内容
 		var type = question.type;//题目类型 type问题类型 0填空、1单选、2多选、3多点、4滑条
-		var setting = eval('(' + question.setting + ')'); ;//选项
+		var setting;
+		try {
+			setting = eval('(' + question.setting + ')'); ;//选项
+		} catch (error) {
+			return -1;
+		}
 		var num = question.questionorder;//题号
 		//添加题目公共部分
 		if(required=="0"){
@@ -534,7 +539,12 @@ function sendAnswer(){
 	var toStringAnswer = JSON.stringify({"surveyID":surveyId,"objectID":objectID,"relation":relation,"list":answer});
 	var json = {"answer":toStringAnswer};
 	function func(data){
-		window.location.href="/survey/mobileSurveySuccess?surveyID=" + surveyId;
+		if(window.location.href.indexOf("role=user") != -1){
+			window.location.href="/survey/mobileSurveySuccess?role=user&surveyID=" + surveyId;
+		}
+		else if(window.location.href.indexOf("role=admin") != -1){
+			window.location.href="/survey/mobileSurveySuccess?role=admin&surveyID=" + surveyId;
+		}
 	}
 	function errorfunc(data){
 		var errorcode = data.code;

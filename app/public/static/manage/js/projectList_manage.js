@@ -237,7 +237,9 @@ function loadDeviceList(){
 	 				// 所有状态拼接
 	     			str = str1 + str2;*/
      				
-     				
+					for(var i=0;i<loadListId.length;i++){
+						getStatus(loadListId[i]) 
+					}
 	     			/***********************   经纬度距离计算设备数量 2017.05.19 by LiHuYong *******************/
      			    function getRad(d){
      			        return d * Math.PI/180.0;
@@ -566,29 +568,6 @@ $(function(){
 			 getStatus(loadListId[i]) 
 		 }
 	 });
-	 
-	 function getStatus(id){
-		 $("#dev-"+id).html('<div class="ui mini active inline loader"></div>');
-		 
-		 $.ajax({
-				url:"/admin/getDeviceStatus",
-				type:"POST",
-				data:{"deviceID":id},
-				success:function(response){
-
-					if(response.code == 200){
-						if(response.status==true){
-							$this_status = getLangStr("deviceList_online");
-						}else{
-							$this_status = getLangStr("deviceList_notonline");
-						}
-						
-						$("#dev-"+id).html($this_status);
-					}
-					
-				}
-			 });
-	 }
 	 
      
      /*参数中有设备id，跳转到设备信息页面*/
@@ -954,4 +933,27 @@ function showConfirm(){
 	localStorage.setItem("checkedId",checkedId);
 	localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
 	 window.location.href="/redirect?url=administrator/new_compareTeamDeviceData.jsp?to=download";
+}
+
+function getStatus(id){
+	$("#dev-"+id).html('<div class="ui mini active inline loader"></div>');
+	
+	$.ajax({
+		   url:"/admin/device/status",
+		   type:"POST",
+		   data:{"deviceID":id},
+		   success:function(response){
+
+			   if(response.code == 200){
+				   if(response.status==true){
+					   $this_status = getLangStr("deviceList_online");
+				   }else{
+					   $this_status = getLangStr("deviceList_notonline");
+				   }
+				   
+				   $("#dev-"+id).html($this_status);
+			   }
+			   
+		   }
+		});
 }

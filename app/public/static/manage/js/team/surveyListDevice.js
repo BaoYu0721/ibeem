@@ -86,8 +86,8 @@ function getSurveyData(){
 			var host = window.location.host;
 			//将数据放到页面
 			var htmlStr =$("<tr> <td><div class='ui fitted checkbox' data-id='"+id+"' data-status='"+survey.isFinished+"' data-count='"+count+"' ><input type='checkbox' class='hidden'><label></label></div></td><td>"+title+"</td> <td>"+introduction+"</td> <td>"+name+"</td> <td>"+count+"</td>" +
-					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/survey/mobileSurvey?surveyId="+id+"' href='javascript:void(0)'>"+getLangStr("survey_copyurl")+"</a></td>" +
-					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"' >"+getLangStr("viewQR")+"</a></td>" +
+					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/survey/mobileSurvey?role=user&surveyId="+id+"' href='javascript:void(0)'>"+getLangStr("survey_copyurl")+"</a></td>" +
+					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+id+"' >"+getLangStr("viewQR")+"</a></td>" +
 				    "<td><a class='link' style='text-decoration:underline' href='javascript:void(0)' data-surveyid='"+id+"'>"+getLangStr("viewLink")+"</a></td>" +
 				    "<td class='"+statusClass+"' data-id='"+id+"'>"+isFinished+"</td></tr>"); 
 			$("#datatable_body").append(htmlStr);
@@ -584,7 +584,7 @@ function setTree(surveyID){
 			var $project_item =$("<div class='item'>"+
 		    "<i class='folder green icon'></i>"+
 		    "<div class='content'>"+
-		    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-type='1' data-click='"+projectclick+"' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+" '>"+projectName+"</a>"+
+		    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-type='1' data-click='"+projectclick+"' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+" '>"+projectName+"</a>"+
 		    "</div>"+
 		    "</div>") 
 			$("#projectList").append($project_item);
@@ -592,7 +592,7 @@ function setTree(surveyID){
 				$("#projectList").find(".item:last .answer").addClass("disable");
 			}
 //			else{
-//				$("#projectList").find(".item:last>.content").append("<a class='header qr' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+" '  data-click='"+projectclick+"'>二维码</a>");
+//				$("#projectList").find(".item:last>.content").append("<a class='header qr' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+" '  data-click='"+projectclick+"'>二维码</a>");
 //			}
 			if(buildingList.length>0){
 				var $building_list = $("<div class='ui list' id='buildingList'></div>");
@@ -605,7 +605,7 @@ function setTree(surveyID){
 					var $building_item =$("<div class='item'>"+
 						    "<i class='folder green icon'></i>"+
 						    "<div class='content'>"+
-						    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-buildingname='"+buildingName+"' data-type='2' data-buildingid='"+buildingID+"' data-click='"+buildingclick+"' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" '>"+buildingName+"</a>"+
+						    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-buildingname='"+buildingName+"' data-type='2' data-buildingid='"+buildingID+"' data-click='"+buildingclick+"' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" '>"+buildingName+"</a>"+
 						    
 						    "</div>"+
 						    "</div>") 
@@ -614,7 +614,7 @@ function setTree(surveyID){
 						$building_list.find(".item:last .answer").addClass("disable");
 					}
 //					else{
-//						$building_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" ' data-click='"+buildingclick+"' >二维码</a>");
+//						$building_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" ' data-click='"+buildingclick+"' >二维码</a>");
 //					}
 					if(buildingPointList.length>0){
 						var $buildingPoint_list = $("<div class='ui list' id='buildingPointList'></div>");
@@ -626,7 +626,7 @@ function setTree(surveyID){
 							var $buildingPoint_item =$("<div class='item'>"+
 								    "<i class='folder green icon'></i>"+
 								    "<div class='content'>"+
-								    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-buildingname='"+buildingName+"' data-type='3' data-buildingid='"+buildingID+"' data-pointid='"+buildingPointID+"' data-pointname='"+buildingPointName+"'   data-click='"+buildingPointclick+"' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+"&pointId="+buildingPointID+" '>"+buildingPointName+"</a>"+
+								    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-buildingname='"+buildingName+"' data-type='3' data-buildingid='"+buildingID+"' data-pointid='"+buildingPointID+"' data-pointname='"+buildingPointName+"'   data-click='"+buildingPointclick+"' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+"&pointId="+buildingPointID+" '>"+buildingPointName+"</a>"+
 								    "</div>"+
 								    "</div>") 
 									$buildingPoint_list.append($buildingPoint_item);
@@ -634,7 +634,7 @@ function setTree(surveyID){
 										$buildingPoint_list.find(".item:last .answer").addClass("disable");
 									}
 //									else{
-//										$buildingPoint_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+"&pointId="+buildingPointID+" '  data-click='"+buildingPointclick+"' >二维码</a>");
+//										$buildingPoint_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+"&pointId="+buildingPointID+" '  data-click='"+buildingPointclick+"' >二维码</a>");
 //									}
 						}
 					}

@@ -88,8 +88,8 @@ function getSurveyData(){
 			var host = window.location.host;
 			//将数据放到页面
 			var htmlStr =$("<tr> <td><div class='ui fitted checkbox' data-id='"+id+"' data-count='"+count+"' ><input type='checkbox' class='hidden'><label></label></div></td><td>"+title+"</td> <td>"+introduction+"</td> <td>"+name+"</td> <td>"+count+"</td>" +
-					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"&teamId="+teamID+"'>"+getLangStr("survey_copyurl")+"</a></td>" +
-					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"&teamId="+teamID+"' >"+getLangStr("viewQR")+"</a></td></tr>") 
+					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/survey/mobileSurvey?role=admin&surveyId="+id+"&teamId="+teamID+"'>"+getLangStr("survey_copyurl")+"</a></td>" +
+					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/survey/mobileSurvey?role=admin&surveyId="+id+"&teamId="+teamID+"' >"+getLangStr("viewQR")+"</a></td></tr>") 
 			$("#datatable_body").append(htmlStr);
 		}
 		$("#datatable_body").find(".ui.checkbox").checkbox();

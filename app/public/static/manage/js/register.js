@@ -16,7 +16,7 @@ function UploadPhotoMethod(obj){
 				alertokMsg(getLangStr("image_failed"),getLangStr("alert_ok"));
 				return;
 			}
-			uploadImg=json.imageList[0].imageurl;
+			uploadImg="/public/file/image/" + json.imageList[0].imageurl;
 			$(".portraitStyle").css("display","none");
 			$(".portraitForm img").css("display","block");
 			$(".portraitForm img").attr("src",uploadImg);
@@ -26,17 +26,18 @@ function UploadPhotoMethod(obj){
 $(function(){
 	
 	// 默认加载头像
-	$.ajax({
-		type:"post",
-		dataType:"json",
-		url:"/user/getPortrait",
-		success:function(e){
-			 if(e.code==200){
-				 portrait = e.portrait;
-				 $(".portraitForm img").attr("src",portrait);
-			 }
-		}
-	});	
+	// $.ajax({
+	// 	type:"post",
+	// 	dataType:"json",
+	// 	url:"/user/getPortrait",
+	// 	success:function(e){
+	// 		 if(e.code==200){
+	// 			 portrait = e.portrait;
+	// 			 $(".portraitForm img").attr("src",portrait);
+	// 		 }
+	// 	}
+	// });	
+	$(".portraitForm img").attr("src", "/public/file/image/default/default.jpg");
 	
 	$(".upload").change(function(){
 		UploadPhotoMethod(".portrait");

@@ -88,8 +88,8 @@ function getSurveyData(){
 			var doReleaseWx = survey.state==0?getLangStr("doRelease"):getLangStr("cancelRelease");
 			//将数据放到页面
 			var htmlStr =$("<tr> <td><div class='ui fitted checkbox' data-id='"+id+"' data-count='"+count+"' data-status='"+survey.isFinished+"' ><input type='checkbox' class='hidden'><label></label></div></td><td>"+title+"</td> <td>"+introduction+"</td> <td>"+name+"</td> <td>"+count+"</td>" +
-					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"' href='javascript:void(0)'>"+getLangStr("survey_copyurl")+"</a></td>" +
-					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+id+"' >"+getLangStr("viewQR")+"</a></td>" +
+					"<td style='position:relative'><a class='answerUrl' data-url='http://"+host+"/survey/mobileSurvey?role=admin&surveyId="+id+"' href='javascript:void(0)'>"+getLangStr("survey_copyurl")+"</a></td>" +
+					"<td><a class='qrcode' style='text-decoration:underline' href='javascript:void(0)' data-url='"+host+"/survey/mobileSurvey?role=admin&surveyId="+id+"' >"+getLangStr("viewQR")+"</a></td>" +
 				    "<td><a class='link' style='text-decoration:underline' href='javascript:void(0)' data-surveyid='"+id+"'>"+getLangStr("viewLink")+"</a></td>" +
 				    "<td class='release-to-wx' data-id='"+id+"' data-state='"+survey.state+"' data-change='"+doReleaseWx+"' data-html='"+state+"'>"+state+"</td>" +
 				    "<td class='"+statusClass+"' data-id='"+id+"'>"+isFinished+"</td></tr>"); 
@@ -174,8 +174,11 @@ $(".surveylist").on("click",".release-to-wx",function(){
 	var id = $(this).data("id");
 	if($(this).data("state")==0){
 		//发布	
-		var url="/admin/releaseQuestionnaire?surveyID="+id;
-		var json={};
+		var url="/admin/survey/release";
+		var json={
+			surveyId: id,
+			operation: 1
+		};
 		var successFunc = function(data){
 			$this.data("change",getLangStr("cancelRelease"));
 			$this.data("html",getLangStr("viewWxYes"));
@@ -185,8 +188,11 @@ $(".surveylist").on("click",".release-to-wx",function(){
 		sentJson(url,json,successFunc);
 	}else{
 		//取消发布
-		var url="/admin/deleteReleaseQuestionnaire?surveyID="+id;
-		var json={};
+		var url="/admin/survey/release";
+		var json={
+			surveyId: id,
+			operation: 0
+		};
 		var successFunc = function(data){
 			$this.data("change",getLangStr("doRelease"));
 			$this.data("html",getLangStr("viewWxNo"));
@@ -587,7 +593,7 @@ function initExportData(list,answerList){
 //========================获取问卷下维度列表，解析树状json==========================
 function setTree(surveyID){
 	$.cookie("treeselectid",surveyID);
-	var url="/admin/getDimension";
+	var url="/admin/survey/getDimension";
 	var json={"surveyID":surveyID};
 	var successFunc = function(data){
 		var projectList = data.projectList;
@@ -610,7 +616,7 @@ function setTree(surveyID){
 			var $project_item =$("<div class='item'>"+
 		    "<i class='folder green icon'></i>"+
 		    "<div class='content'>"+
-		    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-type='1' data-click='"+projectclick+"' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+" '>"+projectName+"</a>"+
+		    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-type='1' data-click='"+projectclick+"' data-url='"+host+"/survey/mobileSurvey?role=admin&surveyId="+surveyID+"&teamId="+projectID+" '>"+projectName+"</a>"+
 		    "</div>"+
 		    "</div>") 
 			$("#projectList").append($project_item);
@@ -631,7 +637,7 @@ function setTree(surveyID){
 					var $building_item =$("<div class='item'>"+
 						    "<i class='folder green icon'></i>"+
 						    "<div class='content'>"+
-						    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-buildingname='"+buildingName+"' data-type='2' data-buildingid='"+buildingID+"' data-click='"+buildingclick+"' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" '>"+buildingName+"</a>"+
+						    "  <a class='header answer' data-projectid='"+projectID+"' data-projectname='"+projectName+"' data-buildingname='"+buildingName+"' data-type='2' data-buildingid='"+buildingID+"' data-click='"+buildingclick+"' data-url='"+host+"/survey/mobileSurvey?role=admin&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" '>"+buildingName+"</a>"+
 						    
 						    "</div>"+
 						    "</div>") 

@@ -59,10 +59,20 @@
                   }
             	changeFontsize();//进入页面时先执行一次
             	$("#jxdt").click(function(){
-            		window.location.href="/survey/mobileSurvey?surveyId=" + getQueryString("surveyID");	
+					if(window.location.href.indexOf("role=user") != -1){
+						window.location.href="/survey/mobileSurvey?role=user&surveyId=" + getQueryString("surveyID");	
+					}
+					else if(window.location.href.indexOf("role=admin") != -1){
+						window.location.href="/survey/mobileSurvey?role=admin&surveyId=" + getQueryString("surveyID");	
+					}
             	});
             	$("#fhlb").click(function(){
-            		window.location.href="open?url=mobile/mobileSurveyList.jsp";	
+            		if(window.location.href.indexOf("role=user") != -1){
+						window.location.href="/survey";	
+					}
+					else if(window.location.href.indexOf("role=admin") != -1){
+						window.location.href="/admin/survey";	
+					}
             	});
             	</script>
             	

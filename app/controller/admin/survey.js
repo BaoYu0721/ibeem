@@ -281,6 +281,22 @@ class IndexController extends Controller {
           };
         }
     }
+
+    async surveyRelease(){
+        const { ctx } = this;
+        const surveyId = ctx.request.body.surveyId;
+        const operation = ctx.request.body.operation;
+        const result = await ctx.service.admin.survey.surveyRelease(surveyId, operation);
+        if(result == -1){
+            return ctx.body = {
+                code: 1005,
+                messg: "未知错误"
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
 }
 
 module.exports = IndexController;

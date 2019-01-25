@@ -67,7 +67,7 @@ $("#surveyList").on("click",".answer",function(){
 	$.cookie("surveyProjectId","");
 	$.cookie("surveyBuildingId","");
 	$.cookie("surveyPointId","");
-	window.location.href="/views/mobile/mobileSurvey.jsp";
+	window.location.href="/survey/mobileSurvey";
 })
 $("#surveyList").on("click",".choose",function(){
 	var surveyId = $(this).data("id");

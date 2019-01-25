@@ -32,7 +32,7 @@ var successFunc = function(data){
 		if(projectclick==1){
 			$("#projectList").find(".item:last .answer").addClass("disable");
 		}else{
-			$("#projectList").find(".item:last>.content").append("<a class='header qr' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+" '  data-click='"+projectclick+"'>"+getLangStr("mobilesurvey_4")+"</a>");
+			$("#projectList").find(".item:last>.content").append("<a class='header qr' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+" '  data-click='"+projectclick+"'>"+getLangStr("mobilesurvey_4")+"</a>");
 		}
 		if(buildingList.length>0){
 			var $building_list = $("<div class='ui list' id='buildingList'></div>");
@@ -53,7 +53,7 @@ var successFunc = function(data){
 				if(buildingclick==1){
 					$building_list.find(".item:last .answer").addClass("disable");
 				}else{
-					$building_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" ' data-click='"+buildingclick+"' >"+getLangStr("mobilesurvey_4")+"</a>");
+					$building_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+" ' data-click='"+buildingclick+"' >"+getLangStr("mobilesurvey_4")+"</a>");
 				}
 				if(buildingPointList.length>0){
 					var $buildingPoint_list = $("<div class='ui list' id='buildingPointList'></div>");
@@ -72,7 +72,7 @@ var successFunc = function(data){
 								if(buildingPointclick==1){
 									$buildingPoint_list.find(".item:last .answer").addClass("disable");
 								}else{
-									$buildingPoint_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/views/mobile/mobileSurvey.jsp?surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+"&pointId="+buildingPointID+" '  data-click='"+buildingPointclick+"' >"+getLangStr("mobilesurvey_4")+"</a>");
+									$buildingPoint_list.find(".item:last>.content").append("  <a class='header qr' data-url='"+host+"/survey/mobileSurvey?role=user&surveyId="+surveyID+"&teamId="+projectID+"&buildingId="+buildingID+"&pointId="+buildingPointID+" '  data-click='"+buildingPointclick+"' >"+getLangStr("mobilesurvey_4")+"</a>");
 								}
 					}
 				}
@@ -133,5 +133,5 @@ $("#projectList").on("click",".answer",function(){
 		$.cookie("surveyBuildingId","");
 		$.cookie("surveyPointId",id);
 	}
-	window.location.href="/views/mobile/mobileSurvey.jsp";
+	window.location.href="/survey/mobileSurvey";
 })

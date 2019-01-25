@@ -196,6 +196,7 @@ module.exports = app => {
   router.post('/admin/survey/increase/commit', adminRequired, controller.admin.survey.commit);
   router.post('/admin/survey/updateSurvey', adminRequired, controller.admin.survey.updateSurvey);
   router.post('/admin/survey/delete', adminRequired, controller.admin.survey.surveyDelete);
+  router.post('/admin/survey/release', adminRequired, controller.admin.survey.surveyRelease);
 
   // admin & project
   router.get('/admin/project', adminRequired, controller.admin.project.index);
