@@ -195,10 +195,12 @@ function saveData(){
 	var dblSeries = [];
 	//====IEQ数据==本建筑
 	var dbl_dqjz=[];
+	var reg = /^\d+(.\d+)?$/;
 	var dbl_dqjz_rssd = $("#dbl_dqjz_rssd").val();
 	var dbl_dqjz_iaq = $("#dbl_dqjz_iaq").val();
 	var dbl_dqjz_ghj = $("#dbl_dqjz_ghj").val();
 	var dbl_dqjz_shj = $("#dbl_dqjz_shj").val();
+	if((!reg.test(dbl_dqjz_rssd) && dbl_dqjz_rssd) || (!reg.test(dbl_dqjz_iaq) && dbl_dqjz_iaq) || (!reg.test(dbl_dqjz_ghj) && dbl_dqjz_ghj) || (!reg.test(dbl_dqjz_shj) && dbl_dqjz_shj)) alertokMsg(getLangStr("check_number"),getLangStr("alert_ok"));
 	if(!verification(dbl_dqjz_rssd,"本建筑热达标"))return;
 	if(!verification(dbl_dqjz_iaq,"本建筑PM2.5达标"))return;
 	if(!verification(dbl_dqjz_ghj,"本建筑CO2达标"))return;
@@ -225,6 +227,7 @@ function saveData(){
 	var dbl_bsjz_iaq = $("#dbl_bsjz_iaq").val();
 	var dbl_bsjz_ghj = $("#dbl_bsjz_ghj").val();
 	var dbl_bsjz_shj = $("#dbl_bsjz_shj").val();
+	if((!reg.test(dbl_bsjz_rssd) && dbl_bsjz_rssd) || (!reg.test(dbl_bsjz_iaq) && dbl_bsjz_iaq) || (!reg.test(dbl_bsjz_ghj) && dbl_bsjz_ghj) || (!reg.test(dbl_bsjz_shj) && dbl_bsjz_shj)) alertokMsg(getLangStr("check_number"),getLangStr("alert_ok"));
 	if(!verification(dbl_bsjz_rssd,"同气候区建筑热达标"))return;
 	if(!verification(dbl_bsjz_iaq,"同气候区建筑PM2.5达标"))return;
 	if(!verification(dbl_bsjz_ghj,"同气候区建筑CO2达标"))return;
@@ -251,6 +254,7 @@ function saveData(){
 	var dbl_qgjz_iaq = $("#dbl_qgjz_iaq").val();
 	var dbl_qgjz_ghj = $("#dbl_qgjz_ghj").val();
 	var dbl_qgjz_shj = $("#dbl_qgjz_shj").val();
+	if((!reg.test(dbl_qgjz_rssd) && dbl_qgjz_rssd) || (!reg.test(dbl_qgjz_iaq) && dbl_qgjz_iaq) || (!reg.test(dbl_qgjz_ghj) && dbl_qgjz_ghj) || (!reg.test(dbl_qgjz_shj) && dbl_qgjz_shj)) alertokMsg(getLangStr("check_number"),getLangStr("alert_ok"));
 	if(!verification(dbl_qgjz_rssd,"全国建筑热达标"))return;
 	if(!verification(dbl_qgjz_iaq,"全国建筑PM2.5达标"))return;
 	if(!verification(dbl_qgjz_ghj,"全国建筑CO2达标"))return;
@@ -280,6 +284,7 @@ function saveData(){
 	var myd_dqjz_ghj = $("#myd_dqjz_ghj").val();
 	var myd_dqjz_shj = $("#myd_dqjz_shj").val();
 	var myd_dqjz_ztpj = $("#myd_dqjz_ztpj").val();
+	if((!reg.test(myd_dqjz_rssd) && myd_dqjz_rssd) || (!reg.test(myd_dqjz_iaq) && myd_dqjz_iaq) || (!reg.test(myd_dqjz_ghj) && myd_dqjz_ghj) || (!reg.test(myd_dqjz_shj) && myd_dqjz_shj) || (!reg.test(myd_dqjz_ztpj) && myd_dqjz_ztpj)) alertokMsg(getLangStr("check_number"),getLangStr("alert_ok"));
 	if(!verification(myd_dqjz_rssd,"本建筑热环境满意度"))return;
 	if(!verification(myd_dqjz_iaq,"本建筑空气品质满意度"))return;
 	if(!verification(myd_dqjz_ghj,"本建筑光环境满意度"))return;
@@ -302,6 +307,7 @@ function saveData(){
 	var myd_bsjz_ghj = $("#myd_bsjz_ghj").val();
 	var myd_bsjz_shj = $("#myd_bsjz_shj").val();
 	var myd_bsjz_ztpj = $("#myd_bsjz_ztpj").val();
+	if((!reg.test(myd_bsjz_rssd) && myd_bsjz_rssd) || (!reg.test(myd_bsjz_iaq) && myd_bsjz_iaq) || (!reg.test(myd_bsjz_ghj) && myd_bsjz_ghj) || (!reg.test(myd_bsjz_shj) && myd_bsjz_shj) || (!reg.test(myd_bsjz_ztpj) && myd_bsjz_ztpj)) alertokMsg(getLangStr("check_number"),getLangStr("alert_ok"));
 	if(!verification(myd_bsjz_rssd,"同气候区建筑热环境满意度"))return;
 	if(!verification(myd_bsjz_iaq,"同气候区建筑空气品质满意度"))return;
 	if(!verification(myd_bsjz_ghj,"同气候区建筑光环境满意度"))return;
@@ -324,6 +330,7 @@ function saveData(){
 	var myd_qgjz_ghj = $("#myd_qgjz_ghj").val();
 	var myd_qgjz_shj = $("#myd_qgjz_shj").val();
 	var myd_qgjz_ztpj = $("#myd_qgjz_ztpj").val();
+	if((!reg.test(myd_qgjz_rssd) && myd_qgjz_rssd) || (!reg.test(myd_qgjz_iaq) && myd_qgjz_iaq) || (!reg.test(myd_qgjz_ghj) && myd_qgjz_ghj) || (!reg.test(myd_qgjz_shj) && myd_qgjz_shj) || (!reg.test(myd_qgjz_ztpj) && myd_qgjz_ztpj)) alertokMsg(getLangStr("check_number"),getLangStr("alert_ok"));
 	if(!verification(myd_qgjz_rssd,"全国建筑热环境满意度"))return;
 	if(!verification(myd_qgjz_iaq,"全国建筑空气品质满意度"))return;
 	if(!verification(myd_qgjz_ghj,"全国建筑光环境满意度"))return;

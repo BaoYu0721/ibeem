@@ -71,6 +71,22 @@ class SingleDeviceController extends Controller {
         };
     }
 
+    async addDeviceAttention(){
+        const { ctx } = this;
+        const dids = ctx.request.body.ids;
+        const uid = ctx.request.body.userID;
+        const result = await ctx.service.project.singleDevice.addDeviceAttention(dids, uid);
+        if(result == -1){
+            return ctx.body = {
+                messg: "未知错误!",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
     async deviceRelieve(){
         const { ctx } = this;
         const ids = ctx.request.body.deviceID.split(',');

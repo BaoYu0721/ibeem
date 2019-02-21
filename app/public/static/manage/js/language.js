@@ -371,7 +371,7 @@ var ch ={
 		"deviceList_change":"您不是该设备拥有者，没有权限修改该设备",
 		"deviceList_pname":"所在项目",
 		"deviceList_memo":"设备详细信息",
-		"deviceList_relieve_ts":"尚未选中设备，是否直接进去查看设备下载列表",
+		"deviceList_relieve_ts":"尚未选中设备",
 // 查看设备数据&&对比设备数据
 		"devicedata_download":"设备数据下载",
 		"devicedata_view":"查看设备数据",
@@ -635,6 +635,9 @@ var ch ={
 		// deviceList
 		"deviceListTitle":"设备列表",
 		"deviceListMap":"地图",
+		"check_number": "请填写数字或小数",
+		"project_exist": "项目已存在!",
+		"unknown_error": "未知错误!",
 		// new_compareDeviceData
 		"newCompareDeviceDataTitle":"设备数据下载",
 		"newCompareDeviceDataList":"设备列表",
@@ -658,7 +661,7 @@ var ch ={
 		"newCompareDeviceDataDeviceDataAlignment":"数据对齐",
 		"newCompareDeviceDataDeviceAlignSpacings":"对齐间隔",
 		"newCompareDeviceDataDeviceMinutes":"分",
-		"newCompareDeviceDataDeviceHistory":"下载历史",
+		"newCompareDeviceDataDeviceHistory":"工单历史",
 		"newCompareDeviceDataDeviceNumber":"ID号",
 		"newCompareDeviceDataDeviceNameList":"设备名列表",
 		"newCompareDeviceDataDeviceTime":"起止时间",
@@ -690,6 +693,21 @@ var ch ={
 		"newCompareDeviceDataDeviceOnline":"设备在线率:",
 		"newCompareDeviceDataRealList":"实时数据列表:",
 		"newCompareDeviceDataOffsetValue":"偏移值",
+		"buildingName_msg": "建筑名不能为空!",
+		"aue_msg": "电耗年度电耗数据非法!",
+		"secAu_msg": "第二能耗源能耗值数据非法!",
+		"thiAu_msg": "第三能耗源能耗值数据非法!",
+		"fouAu_msg": "第四能耗源能耗值数据非法!",
+		"siteAu_msg": "当地可更新能源能耗值数据非法!",
+		"siteChpRp_msg": "当地CHP额定功率数据非法!",
+		"siteChpAfc_msg": "当地CHP年度化学消耗数据非法!",
+		"siteChpAeg_msg": "当地CHP年度发电量数据非法!",
+		"siteChpAhg_msg": "当地CHP年度发热量数据非法!",
+		"seuAeu_msg": "特殊能源年电使用量数据非法!",
+		"ohWd_msg": "工作日运行小时数数据非法!",
+		"nwd_msg": "工作天数数据非法!",
+		"ohHd_msg": "假日运行小时数数据非法!",
+		"nhd_msg": "假日天数数据非法!",
 }
 
 
@@ -1326,6 +1344,9 @@ var en ={
 		// deviceList
 		"deviceListTitle":"Device List",
 		"deviceListMap":"Map",
+		"check_number": "Please fill in Numbers or decimals",
+		"project_exist": "project has exist!",
+		"unknown_error": "unknown error!",
 		// new_compareDeviceData
 		"newCompareDeviceDataTitle":"Device data download",
 		"newCompareDeviceDataList":"Device List",
@@ -1381,6 +1402,21 @@ var en ={
 		"newCompareDeviceDataDeviceOnline":"Device On-line Rate:",
 		"newCompareDeviceDataRealList":"Real-time Numerical List:",
 		"newCompareDeviceDataOffsetValue":"Offset value",
+		"buildingName_msg": "The Building Name Not Null!",
+		"aue_msg": "Electricity consumption annual electricity consumption data is illegal!",
+		"secAu_msg": "The second energy source energy consumption value data is illegal!",
+		"thiAu_msg": "The third energy source energy consumption value data is illegal!",
+		"fouAu_msg": "The fourth energy source energy consumption value data is illegal!",
+		"siteAu_msg": "Local renewable energy energy value data is illegal!",
+		"siteChpRp_msg": "Local CHP rated power data is illegal!",
+		"siteChpAfc_msg": "Local CHP annual chemical consumption data is illegal!",
+		"siteChpAeg_msg": "Local CHP annual power generation data is illegal!",
+		"siteChpAhg_msg": "Local CHP annual calorific data is illegal!",
+		"seuAeu_msg": "Special energy annual electricity usage data is illegal!",
+		"ohWd_msg": "Working day hours data is illegal!",
+		"nwd_msg": "Illegal working days data!",
+		"ohHd_msg": "Holiday running hours data is illegal!",
+		"nhd_msg": "Holiday day data is illegal!",
 }
 
 function setLanguageCookie(){

@@ -43,7 +43,7 @@ function markDevice(uid){
 	 $.ajax({
 		 type:"post",
 		 dataType:"json",
-		 url:"/device/userDevice",
+		 url:"/project/single/device/addAttention",
 		 data:{
 			 ids:operateId,
 			 userID:uid

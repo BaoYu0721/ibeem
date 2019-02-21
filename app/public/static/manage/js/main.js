@@ -135,13 +135,11 @@
         		$.cookie("buildingid",buildingId);
         		$.cookie("teamid",teamId);
         		//获取项目名称
-        		var url="/project/getProjectByID";
-        		var json={"projectID":teamId};
+        		var url="/index/single_building";
+        		var json={"projectId":teamId, "buildingId": buildingId};
         		var successFunc = function(data){
-        			var teamMsg = data.project;
-        			var name = teamMsg.name;
-        			$.cookie("teamname",name);
-        			window.location.href="/redirect?url=manage/teamBuildingContent.jsp";
+        			$.cookie("teamname",data.projectName);
+        			window.location.href="/project?project_name=" + data.projectName + "&item=building&building_name=" + data.buildingName;
         		}
         		sentJson(url,json,successFunc);
 			})

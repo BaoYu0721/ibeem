@@ -73,12 +73,26 @@ $("#commitTeamUpdate").on("click",function(){
 		return false;
 	}
 	var json={"projectID":id,"name":name,"describe":describe,"image":image};
-	var successFunc = function(data){
+	var successFunc = function(){
 		changestatus();
 //		将左上角项目名对应修改
 		$(".teamTitleTit").html(name.length>10?name.substring(0,9)+"...":name);
 	}
-	sentJson(url,json,successFunc);
+	//sentJson(url,json,successFunc);
+	$.ajax({
+		url: url,
+		type: "post",
+		data: json,
+		success: function(res){
+			if(res.code == 200){
+				successFunc();
+			}else if(res.code == 1003){
+				alertokMsg(getLangStr("unknown_error"),getLangStr("alert_ok"));
+			}else if(res.code == 1005){
+				alertokMsg(getLangStr("project_exist"),getLangStr("alert_ok"));
+			}
+		}
+	})
 })
 //限制项目简介输入文字数量不得超过60
 $("#describe").keydown(function(event){

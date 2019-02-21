@@ -2752,10 +2752,32 @@ init();
       			
 				if(downDeviceId.length!=0){
 
+					/*开始和结束的时间戳  */
 					var $start_time2 = String($("#startTime input").val() + " 00:00:00");
 					var $end_time2 = String($("#endTime input").val() + " 23:59:59");
-	    			var startTimeStamp2=Date.parse($start_time2)/1000;
-	    			var endTimeStamp2=Date.parse($end_time2)/1000;
+					var startTimeStamp2=Date.parse($start_time2)/1000;
+					var endTimeStamp2=Date.parse($end_time2)/1000;
+
+					var startTime_hour = $("#startTime_hour input").val();
+					var endTime_hour = $("#endTime_hour input").val();
+					
+					/* 是否是工作日 */
+					var workDay;
+					workdayFlag_zz = $("#workday_zz").hasClass("checked");
+					workdayFlag_nn = $("#workday_nn").hasClass("checked");
+					if(!workdayFlag_zz&&!workdayFlag_nn){
+						alertokMsg(getLangStr("devicedata_settime"),getLangStr("alert_ok"));
+						return;
+					}
+					if(workdayFlag_zz){
+						workDay = 1;
+					}
+					if(workdayFlag_nn){
+						workDay = 0;
+					}
+					if(workdayFlag_zz&&workdayFlag_nn){
+						workDay = 2;
+					} 
 	    			
 	    			if(startTimeStamp2>endTimeStamp2){
 	    				//removeLoading();
@@ -2777,9 +2799,12 @@ init();
 	 	     			   dataType:"json",
 	 	     			   url:"/device/view/environment",
 	 	     			   data:{
-	 	     				   deviceId:downDeviceId[i],
-	 	     				   startTime:startTimeStamp2,
-	 	     				   endTime:endTimeStamp2
+								deviceId:downDeviceId[i],
+								startTime:startTimeStamp2,
+								endTime:endTimeStamp2,
+								startWorkTime:startTime_hour,
+								endWorkTime:endTime_hour,
+								workDay:workDay
 	 	     			   },
 	 	     			   success:function(data){
 	 	     				  

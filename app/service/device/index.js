@@ -82,7 +82,24 @@ class IndexService extends Service {
         } catch (error) {
             return -1;
         }
-        return dataParameter;
+        const result = {
+            id: dataParameter[0].id,
+            userId: dataParameter[0].user_id,
+            maxCo2: dataParameter[0].max_co2,
+            maxHum: dataParameter[0].max_hum,
+            maxLight: dataParameter[0].max_light,
+            maxPm25: dataParameter[0].max_pm25,
+            maxTem: dataParameter[0].max_tem,
+            minCo2: dataParameter[0].min_co2,
+            minHum: dataParameter[0].min_hum,
+            minLight: dataParameter[0].min_light,
+            minPm25: dataParameter[0].min_pm25,
+            minTem: dataParameter[0].min_tem,
+            createdOn: dataParameter[0].created_on,
+            updatedOn: dataParameter[0].updated_on,
+            deleted: dataParameter[0].deleted
+        };
+        return result;
     }
 
     async deviceInfo(deviceId){
@@ -136,7 +153,8 @@ class IndexService extends Service {
         const deviceMap = {
             id: device.id,
             name: device.name,
-            source: device.source,
+            address: device.address,
+            describe: device.des,
             type: device.type,
             owner: owner == null? '': owner.name,
             user: user == null? '': user.name,
@@ -144,12 +162,11 @@ class IndexService extends Service {
             latitude: device.latitude,
             address: device.address,
             warnning: device.warning_sign,
-            describe: device.describe,
             onlineStatus: device.Online_status,
             QRcode: device.QR_code,
             memo: device.memo,
             gname: attentionNames,
-            wechat: device.wechat,
+            wechat: device.wechat_name,
             imageList: imageList
         };
         return deviceMap;
@@ -173,7 +190,7 @@ class IndexService extends Service {
                     wechat_name: deviceInfo.wechat,
                     warning_sign: deviceInfo.warning,
                     memo: deviceInfo.memo,
-                })
+                });
             } catch (error) {
                 return -1;
             }

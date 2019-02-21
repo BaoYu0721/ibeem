@@ -18,7 +18,7 @@ class ViewService extends Service {
         for(var key in onlineRecord){
             const resultMap = {
                 time: onlineRecord[key].time.getTime(),
-                onlineRecord: Math.round(onlineRecord[key].number / 288, 2)
+                onlineRate: Math.floor(onlineRecord[key].number / 288.0 * 100) / 100
             };
             resultList.push(resultMap);
         }
@@ -40,20 +40,12 @@ class ViewService extends Service {
             return null;
         }
         const daviceDataList = [];
-        var sTimeHours = null;
-        var sTimeMinutes = null;
-        var eTimeHours = null;
-        var eTimeMinutes = null;
-        var sTimes = null;
-        var eTimes = null;
-        if(sWorkTime && eWorkTime){
-            sTimeHours = sWorkTime.split(':')[0];
-            sTimeMinutes = sWorkTime.split(':')[1];
-            eTimeHours = eWorkTime.split(':')[0];
-            eTimeMinutes = eWorkTime.split(':')[1];
-            sTimes = sTimeHours * 60 + sTimeMinutes;
-            eTimes = eTimeHours * 60 + eTimeMinutes;
-        }
+        var sTimeHours = parseInt(sWorkTime.split(':')[0]);
+        var sTimeMinutes = parseInt(sWorkTime.split(':')[1]);
+        var eTimeHours = parseInt(eWorkTime.split(':')[0]);
+        var eTimeMinutes = parseInt(eWorkTime.split(':')[1]);
+        var sTimes = sTimeHours * 60 + sTimeMinutes;
+        var eTimes = eTimeHours * 60 + eTimeMinutes;
         if(device.type == "coclean"){
             const dayTime = 24 * 60 * 60;
             sTime = parseInt(sTime);
@@ -91,21 +83,21 @@ class ViewService extends Service {
                         const dTimes = hours * 60 + minutes;
                         if(workDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(dataMap);
-                                }
+                                daviceDataList.push(dataMap);
                             }
                         }else if(workDay == 1){
                             if(time.getDay() != 0 && time.getDay() != 6){
-                                daviceDataList.push(dataMap);
-                            }
-                        }else if(workDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     daviceDataList.push(dataMap);
                                 }
-                            }else{
+                            }
+                        }else if(workDay == 2){
+                            if(time.getDay() == 0 || time.getDay() == 6){
                                 daviceDataList.push(dataMap);
+                            }else{
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    daviceDataList.push(dataMap);
+                                }
                             }
                         }else{
                             if(sWorkTime && eWorkTime){
@@ -136,21 +128,21 @@ class ViewService extends Service {
                         const dTimes = hours * 60 + minutes;
                         if(workDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(resultMap);
-                                }
+                                daviceDataList.push(resultMap);
                             }
                         }else if(workDay == 1){
                             if(time.getDay() != 0 && time.getDay() != 6){
-                                daviceDataList.push(resultMap);
-                            }
-                        }else if(workDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     daviceDataList.push(resultMap);
                                 }
-                            }else{
+                            }
+                        }else if(workDay == 2){
+                            if(time.getDay() == 0 || time.getDay() == 6){
                                 daviceDataList.push(resultMap);
+                            }else{
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    daviceDataList.push(resultMap);
+                                }
                             }
                         }
                     }
@@ -249,21 +241,21 @@ class ViewService extends Service {
                         const dTimes = hours * 60 + minutes;
                         if(isWorkDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    tempList.push(dataMap);
-                                }
+                                tempList.push(dataMap);
                             }
                         }else if(isWorkDay == 1){
                             if(time.getDay() != 0 && time.getDay() != 6){
-                                tempList.push(dataMap);
-                            }
-                        }else if(isWorkDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     tempList.push(dataMap);
                                 }
-                            }else{
+                            }
+                        }else if(isWorkDay == 2){
+                            if(time.getDay() == 0 || time.getDay() == 6){
                                 tempList.push(dataMap);
+                            }else{
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    tempList.push(dataMap);
+                                }
                             }
                         }
                     }
@@ -290,60 +282,63 @@ class ViewService extends Service {
                         const dTimes = hours * 60 + minutes;
                         if(isWorkDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    tempList.push(resultMap);
-                                }
+                                tempList.push(resultMap);
                             }
                         }else if(isWorkDay == 1){
                             if(time.getDay() != 0 && time.getDay() != 6){
-                                tempList.push(resultMap);
-                            }
-                        }else if(isWorkDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     tempList.push(resultMap);
                                 }
-                            }else{
+                            }
+                        }else if(isWorkDay == 2){
+                            if(time.getDay() == 0 || time.getDay() == 6){
                                 tempList.push(resultMap);
+                            }else{
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    tempList.push(resultMap);
+                                }
                             }
                         }
                     }
                 }
             }
         }
-        const temp = [];
         for(var i = parseInt(data.startTime); i < parseInt(data.endTime); i += parseInt(data.step) * 60){
+            var temp = null;
             for(var j = 0; j < tempList.length; ++j){
-                if(tempList[j].time > i && tempList[j] <= i + data.step * 60){
-                    if(temp[i]){
-                        temp[i].tem += tempList[j].tem;
-                        temp[i].hum += tempList[j].hum;
-                        temp[i].pm += tempList[j].pm;
-                        temp[i].co2 += tempList[j].co2;
-                        temp[i].lightIntensity += tempList[j].lightIntensity;
-                        temp[i].count++;
+                if(tempList[j].time > i * 1000 && tempList[j].time <= (i + data.step * 60) * 1000){
+                    if(temp){
+                        temp.tem += tempList[j].tem;
+                        temp.hum += tempList[j].hum;
+                        temp.pm += tempList[j].pm;
+                        temp.co2 += tempList[j].co2;
+                        temp.time += tempList[j].time;
+                        temp.lightIntensity += tempList[j].lightIntensity;
+                        temp.count++;
                     }else{
-                        temp[i] = {
+                        temp = {
                             tem: tempList[j].tem,
                             hum: tempList[j].hum,
                             pm: tempList[j].pm,
                             co2: tempList[j].co2,
+                            time: tempList[j].time,
                             lightIntensity: tempList[j].lightIntensity,
                             count: 1
                         };
                     }
                 }
             }
-        }
-        for(var i = 0; i < temp.length; ++i){
-            const resultMap = {
-                tem: temp[i].tmp / temp[i].count,
-                hum: temp[i].hum / temp[i].count,
-                pm: temp[i].pm / temp[i].count,
-                co2: temp[i].co2 / temp[i].count,
-                lightIntensity: temp[i].lightIntensity / temp[i].count
+            if(temp){
+                const resultMap = {
+                    tem: temp.tem / temp.count,
+                    hum: temp.hum / temp.count,
+                    pm: temp.pm / temp.count,
+                    co2: temp.co2 / temp.count,
+                    time: temp.time / temp.count,
+                    lightIntensity: temp.lightIntensity / temp.count
+                }
+                resultList.push(resultMap);
             }
-            resultList.push(resultMap);
         }
         return {
             result: "success",

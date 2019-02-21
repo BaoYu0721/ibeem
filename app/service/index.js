@@ -41,6 +41,21 @@ class IndexService extends Service {
         return buildingList;
     }
 
+    async singleBuilding(buildingId, projectId){
+        var building, project;
+        try {
+            project = await this.app.mysql.query('select name from project where id = ?', [projectId]);
+            building = await this.app.mysql.query('select name from building where id = ?', [buildingId]);
+        } catch (error) {
+            return -1;
+        }
+        const result = {
+            projectName: project.length? project[0].name: null,
+            buildingName: building.length? building[0].name: null
+        };
+        return result;
+    }
+
     async deviceList(userId) {
         var device = null;
         try {

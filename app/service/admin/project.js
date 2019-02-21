@@ -156,6 +156,8 @@ class ProjectService extends Service {
                 async function transation() {
                     var result = null;
                     try {
+                        result = await app.mysql.query('select id from project where name = ? and id != ?', [name, projectId]);
+                        if(result.length) return -2;
                         result = await app.mysql.update('project', {id: projectId, name: name, des: describe, image: image});
                     } catch (error) {
                         lock.unlock()
@@ -3917,6 +3919,37 @@ class ProjectService extends Service {
             resultList.push(resultMap);
         }
         return resultList;
+    }
+
+    async singleAddDeviceAttention(dids, uid){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:device_attention";
+        var ttl = 1000;
+        await redlock.lock(resource, ttl)
+        .then(async function(lock) {
+            const didArr = dids.split(',');
+            for(var i = 0; i < didArr.length; i++){
+                const res = await app.mysql.get('device_attention', {
+                    device_id: didArr[i],
+                    user_id: uid
+                });
+                if(res) continue;
+                await app.mysql.insert('device_attention', {
+                    device_id: didArr[i],
+                    user_id: uid,
+                    created_on: new Date(),
+                    updated_on: new Date(),
+                    deleted: 0
+                });
+            }
+            lock.unlock();
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        })
+        return 0;
     }
 
     async singleDeviceRelieve(ids){

@@ -122,6 +122,11 @@ class SingleController extends Controller {
                 messg: "系统繁忙，请重试",
                 code: 1003
             }; 
+        }else if(result == -2){
+            return ctx.body = {
+                messg: "项目名已存在!",
+                code: 1005
+            }; 
         }else if(result == 0){
             return ctx.body = {
                 code: 200

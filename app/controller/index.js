@@ -25,6 +25,24 @@ class HomeController extends Controller {
     }
   }
 
+  async singleBuilding(){
+    const { ctx } = this;
+    const buildingId = ctx.request.body.buildingId;
+    const projectId = ctx.request.body.projectId;
+    const result = await ctx.service.index.singleBuilding(buildingId, projectId);
+    if(result != -1){
+      return ctx.body = {
+          result: result,
+          code: 200
+      };
+    }else{
+        return ctx.body = {
+            code: 1005,
+            messg: "系统繁忙请重试"
+        }
+    }
+  }
+
   async deviceList() {
     const { ctx } = this;
     const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);

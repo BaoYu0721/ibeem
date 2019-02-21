@@ -109,7 +109,6 @@ class WorkOrder extends Subscription{
             orderId: workOrder.work_id.toString()
         }
         var result = await this.ctx.service.utils.http.cocleanPost(this.app.config.deviceDataReqUrl.coclean.statusWorkOrder, json);
-        console.log(result);
         if(result == -1){
             return -1;
         }
@@ -171,24 +170,26 @@ class WorkOrder extends Subscription{
                         const minute = parseInt(time.getMinutes());
                         const dTimes = hour * 60 + minute;
                         const sTimes = sWorkHour * 60 + sWorkMinute;
-                        const eTimes = eWorkHour * 60 + eWorkMinute; 
+                        const eTimes = eWorkHour * 60 + eWorkMinute;
                         if(isWorkDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
+                                dataListPush(dataList, title, arr);
+                            }
+                        }else if(isWorkDay == 1){
+                            if(time.getDay() != 0 && time.getDay() != 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     dataListPush(dataList, title, arr);
                                 }
                             }
-                        }else if(isWorkDay == 1){
-                            if(time.getDay() != 0 && time.getDay() != 6){
-                                dataListPush(dataList, title, arr);
-                            }
                         }else if(isWorkDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
+                            if(time.getDay() != 0 && time.getDay() != 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     dataListPush(dataList, title, arr);
                                 }
                             }else{
-                                dataListPush(dataList, title, arr);
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    dataListPush(dataList, title, arr);
+                                }
                             }
                         }
                     }
@@ -259,24 +260,24 @@ class WorkOrder extends Subscription{
                 const minutes = parseInt(time.getMinutes());
                 const dTimes = hours * 60 + minutes;
                 const sTimes = sWorkHour * 60 + sWorkMinute;
-                const eTimes = eWorkHour * 60 + eWorkMinute; 
+                const eTimes = eWorkHour * 60 + eWorkMinute;
                 if(isWorkDay == 0){
                     if(time.getDay() == 0 || time.getDay() == 6){
-                        if(dTimes > sTimes && dTimes < eTimes){
-                            device.push(envData);
-                        }
+                        device.push(envData);
                     }
                 }else if(isWorkDay == 1){
                     if(time.getDay() != 0 && time.getDay() != 6){
-                        device.push(envData);
-                    }
-                }else if(isWorkDay == 2){
-                    if(time.getDay() == 0 || time.getDay() == 6){
                         if(dTimes > sTimes && dTimes < eTimes){
                             device.push(envData);
                         }
-                    }else{
+                    }
+                }else if(isWorkDay == 2){
+                    if(time.getDay() == 0 || time.getDay() == 6){
                         device.push(envData);
+                    }else{
+                        if(dTimes > sTimes && dTimes < eTimes){
+                            device.push(envData);
+                        }
                     }
                 }
                 device.push(envData);

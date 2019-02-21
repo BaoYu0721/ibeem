@@ -69,7 +69,6 @@ class LoadDeviceData extends Subscription{
                                                 0,
                                                 devices[i].deviceid
                                             ]);
-                                            console.log(insertRes);
                                         } catch (error) {
                                             console.log(error);
                                             lock.unlock()

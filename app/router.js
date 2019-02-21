@@ -41,6 +41,7 @@ module.exports = app => {
   router.post('/index/building_list', userRequired, controller.index.buildingList);
   router.post('/index/device_list', userRequired, controller.index.deviceList);
   router.post('/index/survey_list', userRequired, controller.index.surveyList);
+  router.post('/index/single_building', userRequired, controller.index.singleBuilding);
   
   // login&logout
   router.get('/user', controller.sign.index.index);
@@ -132,6 +133,7 @@ module.exports = app => {
   router.post('/project/single/device/add', userRequired, controller.project.singleDevice.deviceAdd);
   router.post('/project/single/device/recycle', userRequired, controller.project.singleDevice.deviceRecycle);
   router.post('/project/single/device/attention', userRequired, controller.project.singleDevice.deviceAttention);
+  router.post('/project/single/device/addAttention', userRequired, controller.project.singleDevice.addDeviceAttention);
   router.post('/project/single/device/relieve', userRequired, controller.project.singleDevice.deviceRelieve);
   router.post('/project/single/member', userRequired, controller.project.single.memberInfo);
   router.post('/project/single/member/search', userRequired, controller.project.singleMember.memberSearch);
@@ -240,6 +242,7 @@ module.exports = app => {
   router.post('/admin/project/single/device/add', adminRequired, controller.admin.project.singleDeviceAdd);
   router.post('/admin/project/single/device/recycle', adminRequired, controller.admin.project.singleDeviceRecycle);
   router.post('/admin/project/single/device/attention', adminRequired, controller.admin.project.singleDeviceAttention);
+  router.post('/admin/project/single/device/addAttention', adminRequired, controller.admin.project.singleAddDeviceAttention);
   router.post('/admin/project/single/device/relieve', adminRequired, controller.admin.project.singleDeviceRelieve);
   router.post('/admin/project/single/survey', adminRequired, controller.admin.project.singleSurvey);
   router.post('/admin/project/single/survey/search', adminRequired, controller.admin.project.singleSurveySearch);

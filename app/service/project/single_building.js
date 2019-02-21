@@ -1351,7 +1351,7 @@ class SingleBuildingService extends Service {
             buildingProperty: building.building_property,
             city: building.city,
             climaticProvince: building.climatic_province,
-            completionTime: building.completion_time,
+            completionTime: building.completion_time.getTime(),
             contact: building.contact,
             countNumber: building.count_number,
             createdOn: building.created_on,
@@ -1381,12 +1381,12 @@ class SingleBuildingService extends Service {
             number: building.number,
             participantOrganization: building.participant_organization,
             people: building.people,
-            projectTime: building.project_time,
+            projectTime: building.project_time.getTime(),
             province: building.province,
             remark: building.remark,
-            serviceTime: building.service_time,
+            serviceTime: building.service_time.getTime(),
             subject: building.subject,
-            time: building.time,
+            time: this.ctx.helper.dateFormatOther(building.time),
             type: building.type,
             unit: building.unit,
             updatedOn: building.updated_on,
@@ -1587,9 +1587,9 @@ class SingleBuildingService extends Service {
                             id: data.id,
                             climatic_province: data.climaticProvince,
                             image: image,
-                            latitude: data.latitude,
-                            longitude: data.longitude,
-                            building_class: data.buildingClass,
+                            latitude: data.latitude?data.latitude:null,
+                            longitude: data.longitude?data.longitude:null,
+                            building_class: data.buildingClass?data.buildingClass:null,
                             unit: data.unit,
                             subject: data.subject,
                             people: data.people,
@@ -1613,12 +1613,13 @@ class SingleBuildingService extends Service {
                             air_conditioning_area: data.aca == ''? null: data.aca,
                             height: data.height == ''? null: data.height,
                             building_property: data.buildingProperty,
-                            construction_use_number: data.cun == ''? null: data.cum,
+                            construction_use_number: data.cun == ''? null: data.cun,
                             count_number: data.countNumber == ''? null: data.countNumber,
                             number: data.number == ''? null: data.number,
                             updated_on: new Date()
                         });
                     } catch (error) {
+                        console.log(error)
                         conn.rollback();
                         lock.unlock()
                         .catch(function(err) {
@@ -1661,6 +1662,7 @@ class SingleBuildingService extends Service {
                             });
                         }
                     } catch (error) {
+                        console.log(error)
                         conn.rollback();
                         lock.unlock()
                         .catch(function(err) {

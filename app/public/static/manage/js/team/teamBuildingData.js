@@ -672,7 +672,10 @@ $("#submit_sheet_1").click(function(){
 		log = a_longitude;
 		lat = a_latitude;
 	}
-	
+	if(!$("#a5").val()){
+		alertokMsg(getLangStr("buildingName_msg"),getLangStr("alert_ok"));
+		return;
+	}
 	addLoading();
 	
 /*	console.log(cityname);

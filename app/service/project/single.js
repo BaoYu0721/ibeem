@@ -216,8 +216,11 @@ class SingleService extends Service {
                 async function transation() {
                     var result = null;
                     try {
+                        result = await app.mysql.query('select id from project where name = ? and id != ?', [name, projectId]);
+                        if(result.length) return -2;
                         result = await app.mysql.update('project', {id: projectId, name: name, des: describe, image: image});
                     } catch (error) {
+                        console.log(error)
                         lock.unlock()
                         .catch(function(err) {
                             console.error(err);

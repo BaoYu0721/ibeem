@@ -55,12 +55,12 @@ class DeviceService extends Service {
             const result = await this.service.utils.http.cocleanPost(this.app.config.deviceDataReqUrl.coclean.readDeviceRealtimeDataUrl, param);
             if(result == -1) return -1;
             if(result.result == 'success'){
-                const arr = result.result.data.split(',');
-                resultMap.tem = data.parseFloat(arr[1]),
-                resultMap.hum = data.parseFloat(arr[2]),
-                resultMap.pm = data.parseFloat(arr[3]),
-                resultMap.co2 = data.parseFloat(arr[4]),
-                resultMap.lightIntensity = data.parseFloat(arr[5])
+                const arr = result.data.split(',');
+                resultMap.tem = parseFloat(arr[1]),
+                resultMap.hum = parseFloat(arr[2]),
+                resultMap.pm = parseFloat(arr[3]),
+                resultMap.co2 = parseFloat(arr[4]),
+                resultMap.lightIntensity = parseFloat(arr[5])
             }
         }
         if(JSON.stringify(resultMap) == "{}"){
