@@ -859,9 +859,9 @@ $(function(){
 	        		     $(".contentTab").eq(0).siblings().removeClass("on");
 	        		 },300);
 	        		 
-	        		 alertokMsg(getLangStr("deviceList_relieve_ts"),getLangStr("alert_ok"));
-
-	        		 /*alertokMsg(getLangStr("deviceList_download_list"),getLangStr("alert_ok"));*/
+	        		 //alertokMsg(getLangStr("deviceList_relieve_ts"),getLangStr("alert_cancel"));
+					 alertMsg(getLangStr("deviceList_relieve_ts"),getLangStr("alert_no"),getLangStr("alert_yes"),"showConfirm");
+	        		 //alertokMsg(getLangStr("deviceList_download_list"),getLangStr("alert_ok"));
 	        	 }else{
 	        		 localStorage.setItem("checkedId",checkedId);
 					 localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
@@ -1078,7 +1078,7 @@ function showConfirm(){
 	deviceNameId = [];
 	localStorage.setItem("checkedId",checkedId);
 	localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	//window.location.href="/redirect?url=manage/new_compareDeviceData.jsp?to=download";
+	window.location.href="/device?item=download";
 }
 
 function getStatus(id){

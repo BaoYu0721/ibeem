@@ -64,19 +64,19 @@ class AnswerService extends Service {
                 para_list.push(endTime);
             }
             if (relation == 1) {
-                sql = sql + 'and answer_id in (select id from answer where survey_id=? and survey_relation_id in (select id from survey_relation where survey_id=? and project_id=?))';
+                sql = sql + ' and answer_id in (select id from answer where survey_id=? and survey_relation_id in (select id from survey_relation where survey_id=? and project_id=?))';
                 para_list.push(survey_id);
                 para_list.push(survey_id);
                 para_list.push(object_id);
             }
             else if (relation == 2) {
-                sql = sql + 'and answer_id in (select id from answer where survey_id=? and survey_relation_id in (select id from survey_relation where survey_id=? and building_id=?))';
+                sql = sql + ' and answer_id in (select id from answer where survey_id=? and survey_relation_id in (select id from survey_relation where survey_id=? and building_id=?))';
                 para_list.push(survey_id);
                 para_list.push(survey_id);
                 para_list.push(object_id);
             }
             else if (relation == 3) {
-                sql = sql + 'and answer_id in (select id from answer where survey_id=? and survey_relation_id in (select id from survey_relation where survey_id=? and building_point_id=?))';
+                sql = sql + ' and answer_id in (select id from answer where survey_id=? and survey_relation_id in (select id from survey_relation where survey_id=? and building_point_id=?))';
                 para_list.push(survey_id);
                 para_list.push(survey_id);
                 para_list.push(object_id);

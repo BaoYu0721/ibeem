@@ -217,10 +217,9 @@ class WorkOrder extends Subscription{
                 resData.pathname = './app/public/file/csv/';
                 resData.status = 'finish';
                 resData.url = url;
+            }else{
+                resData.status = 'failure';
             }
-            // }else{
-            //     resData.status = 'failure';
-            // }
         }else{
             resData.status = 'unfinish';
         }

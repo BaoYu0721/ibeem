@@ -219,7 +219,6 @@ $("#UpLoadFileButton").click(function(){
 	//var tid = project_info.projectID; // 项目ID	
 	var tid = project_info; // 项目ID	
 	var tname = $("#topBuildingName").find("input").val();
-
 	if($("#buildingClass").val()==""){
 		alertokMsg(getLangStr("import_building_messg1"),getLangStr("determine"));
 		return;

@@ -77,9 +77,15 @@ class ViewController extends Controller {
 
     async environmentDataAlign(){
         const { ctx } = this;
-        const reqData = ctx.request.body;
-        const result = await ctx.service.device.view.environmentDataAlign(reqData);
-        console.log(result);
+        const deviceId = ctx.request.body.deviceId;
+        var sTime = ctx.request.body.startTime;
+        var eTime = ctx.request.body.endTime;
+        const sWorkTime = ctx.request.body.startWorkTime;
+        const eWorkTime = ctx.request.body.endWorkTime;
+        const workDay = ctx.request.body.workDay;
+        const step = ctx.request.body.step;
+        console.log(ctx.request.body)
+        const result = await ctx.service.device.view.environmentDataAlign(deviceId, sTime, eTime, sWorkTime, eWorkTime, workDay, step);
         if(result == -1){
             return ctx.body = {
                 result: "error"

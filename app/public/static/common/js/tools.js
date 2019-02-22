@@ -233,16 +233,25 @@ function getUrlParam(name) {
 //添加alert,参数分别为：title-提示框中部文字，cancel-取消提示文字，ok-确认提示文字，cancelFun-点取消执行方法，okFunc-点确认执行方法
 function alertMsg(title,cancel,ok,okFuncName){
 	getComponent("/common/alert",
+			// function(result){
+			// 	if($("#alertBackground").length==0){
+			// 		$("body").prepend(result);
+			// 	}
+			// 	$('.segment.alert').modal('show');
+			// },
+			// {"-title-":title,"-cancel-":cancel,"-ok-":ok,"-okFunc-":okFuncName});
 			function(result){
-				if($("#alertBackground").length==0){
+				if($("#alertokBackground").length==0){
 					$("body").prepend(result);
+					$(".ui.modal.alertok").modal('setting', 'closable', false).modal('show');
 				}
-				$('.segment.alert').dimmer('show');
 			},
-			{"-title-":title,"-cancel-":cancel,"-ok-":ok,"-okFunc-":okFuncName});
+			{"-title-":title,"-cancel-":cancel,"-ok-":ok,"-okFunc-":okFuncName}
+			// {"-title-":title,"-ok-":ok,"-doScript-":cancel}
+	);
 }
 function removeAlert(){
-	$('.segment.alert').dimmer('hide');
+	$('.segment.alert').modal('hide');
 	setTimeout(function(){$('.segment.alert').remove();},100);
 }
 //添加alertOk,参数分别为：title-提示框中部文字，ok-底部提示文字

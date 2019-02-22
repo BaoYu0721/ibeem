@@ -683,20 +683,20 @@ init();
      			}
      			
      			// 获取参数筛选数据
-     			var min_tem=$("#min_tem").val();
-     			var max_tem=$("#max_tem").val();
+     			var min_tem=parseInt($("#min_tem_yc").val());
+     			var max_tem=parseInt($("#max_tem_yc").val());
      			
-     			var min_hum=$("#min_hum").val();
-     			var max_hum=$("#max_hum").val();
+     			var min_hum=parseInt($("#min_hum_yc").val());
+     			var max_hum=parseInt($("#max_hum_yc").val());
      			
-     			var min_pm25=$("#min_pm25").val();
-     			var max_pm25=$("#max_pm25").val();
+     			var min_pm25=parseInt($("#min_pm25_yc").val());
+     			var max_pm25=parseInt($("#max_pm25_yc").val());
      			
-     			var min_co2=$("#min_co2").val();
-     			var max_co2=$("#max_co2").val();
+     			var min_co2=parseInt($("#min_co2_yc").val());
+     			var max_co2=parseInt($("#max_co2_yc").val());
      			
-     			var min_sun=$("#min_sun").val();
-     			var max_sun=$("#max_sun").val();
+     			var min_sun=parseInt($("#min_sun_yc").val());
+     			var max_sun=parseInt($("#max_sun_yc").val());
      			
      			// 返回筛选之后的数据长度并且 计算平均值 
      			for(var i=0;i<tempTemperatureData_2.length;i++){
@@ -1818,7 +1818,7 @@ init();
 	 					 tempHumidityData_yc.push([timeUTC,(data[i].hum * 1).toFixed(1) * 1]);
 	 				  }
 	 				  
-	 				  if(data[i].pm25 < max_pm25_yc && data[i].pm25 > min_pm25_yc){
+	 				  if(data[i].pm < max_pm25_yc && data[i].pm > min_pm25_yc){
 	 					 tempPm25Data_yc.push([timeUTC,data[i].pm * 1]);
 	 				  }
 	 				  
@@ -2031,8 +2031,9 @@ init();
      	  
      	   /*点击设备名字  */
      	   $("body").on("click",".namelist span",function(){
-     		   var deviceId=$(this).attr("data-id");
-     		   window.location.href="/redirect?url=administrator/deviceList.jsp?deviceId="+deviceId;
+			var deviceId=$(this).attr("data-id");
+			localStorage.setItem("checkedId", deviceId);
+			window.location.href = "/admin/device?item=view";
      	   });
      	   
      	  /* 查看详情时下载表格 */

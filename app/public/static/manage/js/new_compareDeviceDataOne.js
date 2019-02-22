@@ -2571,11 +2571,11 @@ init();
 		    				
 		    				//console.log(timeUTC_dbt);
 							 
-							 dbtTimeDate_tem.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:data[i].tem,z:timeUTC_dbt});
-							 dbtTimeDate_hum.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:data[i].hum,z:timeUTC_dbt});
-							 dbtTimeDate_co2.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:data[i].co2,z:timeUTC_dbt});
-							 dbtTimeDate_pm25.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:data[i].pm,z:timeUTC_dbt});
-							 dbtTimeDate_sun.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:data[i].lightIntensity,z:timeUTC_dbt});
+							 dbtTimeDate_tem.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:parseFloat(data[i].tem),z:timeUTC_dbt});
+							 dbtTimeDate_hum.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:parseFloat(data[i].hum),z:timeUTC_dbt});
+							 dbtTimeDate_co2.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:parseFloat(data[i].co2),z:timeUTC_dbt});
+							 dbtTimeDate_pm25.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:parseFloat(data[i].pm),z:timeUTC_dbt});
+							 dbtTimeDate_sun.push({x:timeUTC_dbt - time_val * (dateNums_db - 1),y:parseFloat(data[i].lightIntensity),z:timeUTC_dbt});
 							 
 						 }
 					 }
@@ -2654,7 +2654,6 @@ init();
 		        }
     		   
     		   thisDbtPage++;
-    		   
 			   $("#dbt_show_" + dbtChartName +'_'+ dataNum).highcharts({
 			        chart: {
 			            type: 'spline'
@@ -2740,7 +2739,7 @@ init();
      	   /*点击设备名字  */
      	   $("body").on("click",".namelist span",function(){
      		   var deviceId=$(this).attr("data-id");
-     		   window.location.href="/redirect?url=manage/deviceList.jsp?deviceId="+deviceId;
+     		   window.location.href = "/device?item=view";
      	   });
      	   
      	  /* 查看详情时下载表格 */

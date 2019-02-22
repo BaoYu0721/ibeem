@@ -3273,7 +3273,7 @@ class ProjectService extends Service {
     async singleBuildingPointInfo(buildingId){
         var buildingPoint = null;
         try {
-            buildingPoint = await this.app.mysql.select('building_point', {building_id: buildingId});
+            buildingPoint = await this.app.mysql.select('building_point', { where: {building_id: buildingId}});
         } catch (error) {
             return -1;
         }

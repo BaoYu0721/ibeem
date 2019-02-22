@@ -428,6 +428,8 @@ class SingleBuildingService extends Service {
                             if(waterSaveDesign){
                                 buildingList[key].water_saving_design_id = parseInt(waterSaveDesign.insertId);
                             }
+                            buildingList[key].longitude = 116.46;
+                            buildingList[key].latitude = 39.92;
                             await conn.insert('building', buildingList[key]);
                             await conn.commit();
                         } catch (error) {
@@ -789,6 +791,8 @@ class SingleBuildingService extends Service {
                             if(waterSaveDesign){
                                 buildingList[key].water_saving_design_id = parseInt(waterSaveDesign.insertId);
                             }
+                            buildingList[key].longitude = 116.46;
+                            buildingList[key].latitude = 39.92;
                             await conn.insert('building', buildingList[key]);
                             await conn.commit();
                         } catch (error) {
@@ -826,6 +830,8 @@ class SingleBuildingService extends Service {
                         await app.mysql.insert('top_building', {
                             project_id: projectId,
                             name: buildingName,
+                            longitude: 116.46,
+                            latitude: 39.92,
                             created_on: new Date(),
                             updated_on: new Date()
                         });
@@ -1532,7 +1538,7 @@ class SingleBuildingService extends Service {
             thiEs: energyConsumption != null? energyConsumption.thi_es? energyConsumption.thi_es: '': '',
             thiAu: energyConsumption != null? energyConsumption.thi_au? energyConsumption.thi_au: '': '',
             thiDs: energyConsumption != null? energyConsumption.thi_ds? energyConsumption.thi_ds: '': '',
-            thiCommen: energyConsumption != null? energyConsumption.thi_commen? energyConsumption.thi_commen: '': '',
+            thiCommen: energyConsumption != null? energyConsumption.thi_comment? energyConsumption.thi_comment: '': '',
             fouEs: energyConsumption != null? energyConsumption.fou_es? energyConsumption.fou_es: '': '',
             fouAu: energyConsumption != null? energyConsumption.fou_au? energyConsumption.fou_au: '': '',
             fouDs: energyConsumption != null? energyConsumption.fou_ds? energyConsumption.fou_ds: '': '',
@@ -1546,7 +1552,7 @@ class SingleBuildingService extends Service {
             siteChpFs: energyConsumption != null? energyConsumption.site_chp_fs? energyConsumption.site_chp_fs: '': '',
             siteChpRp: energyConsumption != null? energyConsumption.site_chp_rp? energyConsumption.site_chp_rp: '': '',
             siteChpAfc: energyConsumption != null? energyConsumption.site_chp_afc? energyConsumption.site_chp_afc: '': '',
-            siteChpAeg: energyConsumption != null? energyConsumption.site_chp_age? energyConsumption.site_chp_age: '': '',
+            siteChpAeg: energyConsumption != null? energyConsumption.site_chp_aeg? energyConsumption.site_chp_aeg: '': '',
             siteChpAhg: energyConsumption != null? energyConsumption.site_chp_ahg? energyConsumption.site_chp_ahg: '': '',
             siteChpComment: energyConsumption != null? energyConsumption.site_chp_comment? energyConsumption.site_chp_comment: '': '',
             seuDesc: energyConsumption != null? energyConsumption.seu_desc? energyConsumption.seu_desc: '': '',
@@ -2277,6 +2283,7 @@ class SingleBuildingService extends Service {
         const redlock = this.service.utils.lock.lockInit();
         const conn = await app.mysql.beginTransaction();
         const ttl = 1000;
+        console.log(data)
         try {
             var resource = "ibeem_test:building_point";
             var res = await redlock.lock(resource, ttl).then(function(lock) {
@@ -2339,37 +2346,38 @@ class SingleBuildingService extends Service {
                         return transation();
                     });
                     if(res == -1) return res;
-                }
-                resource = "ibeem_test:survey_relation";
-                res = await redlock.lock(resource, ttl).then(function(lock) {
-                    async function transation() {
-                        try {
-                            const building = await app.mysql.get('building', {id: data.buildingID});
-                            await conn.insert('survey_relation', {
-                                building_id: data.buildingID,
-                                building_point_id: res.insertId,
-                                created_on: new Date(),
-                                updated_on: new Date(),
-                                project_id: building.project_id,
-                                relation: 3,
-                            });
-                        } catch (error) {
-                            conn.rollback();
+                    resource = "ibeem_test:survey_relation";
+                    res = await redlock.lock(resource, ttl).then(function(lock) {
+                        async function transation() {
+                            try {
+                                const building = await app.mysql.get('building', {id: data.buildingID});
+                                var test = await conn.insert('survey_relation', {
+                                    survey_id: data.surveyID,
+                                    building_id: data.buildingID,
+                                    building_point_id: res.insertId,
+                                    created_on: new Date(),
+                                    updated_on: new Date(),
+                                    project_id: building.project_id,
+                                    relation: 3,
+                                });
+                            } catch (error) {
+                                conn.rollback();
+                                lock.unlock()
+                                .catch(function(err) {
+                                    console.error(err);
+                                });
+                                return -1;
+                            }
                             lock.unlock()
                             .catch(function(err) {
                                 console.error(err);
                             });
-                            return -1;
+                            return 0;
                         }
-                        lock.unlock()
-                        .catch(function(err) {
-                            console.error(err);
-                        });
-                        return 0;
-                    }
-                    return transation();
-                });
-                if(res == -1) return res;
+                        return transation();
+                    });
+                    if(res == -1) return res;
+                }
             }
             if(data.deviceID != -1){
                 resource = "ibeem_test:device";
@@ -2826,7 +2834,7 @@ class SingleBuildingService extends Service {
     async buildingPointInfo(buildingId){
         var buildingPoint = null;
         try {
-            buildingPoint = await this.app.mysql.select('building_point', {building_id: buildingId});
+            buildingPoint = await this.app.mysql.select('building_point', { where: {building_id: buildingId}});
         } catch (error) {
             return -1;
         }
@@ -2964,6 +2972,7 @@ class SingleBuildingService extends Service {
         const redlock = this.service.utils.lock.lockInit();
         const resource = "ibeem_test:energy_consumption";
         var ttl = 1000;
+        console.log(data)
         try {
             const res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
@@ -3003,6 +3012,8 @@ class SingleBuildingService extends Service {
                             seu_aeu: data.seuAeu == ''? null: data.seuAeu,
                             seu_comment: data.seuComment,
                             oh_wd: data.ohWd == ''? null: data.ohWd,
+                            nwd: data.nwd == ''? null: data.nwd,
+                            oh_hd: data.ohHd == ''? null: data.ohHd,
                             nhd: data.nhd == ''? null: data.nhd,
                             updated_on: new Date(),
                             deleted: 0

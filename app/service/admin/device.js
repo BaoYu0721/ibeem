@@ -300,11 +300,11 @@ class DeviceService extends Service {
                     for(var key in result.data){
                         const dataMap = {
                             time: parseInt(result.data[key].time),
-                            tem: result.data[key].d1,
-                            hum: result.data[key].d2,
-                            pm: result.data[key].d3,
-                            co2: result.data[key].d4,
-                            lightIntensity: result.data[key].d5
+                            tem: parseFloat(result.data[key].d1),
+                            hum: parseFloat(result.data[key].d2),
+                            pm: parseFloat(result.data[key].d3),
+                            co2: parseFloat(result.data[key].d4),
+                            lightIntensity: parseFloat(result.data[key].d5)
                         };
                         const time = new Date(dataMap.time);
                         const hours = parseInt(time.getHours());
@@ -344,11 +344,11 @@ class DeviceService extends Service {
                 for(var key in result.data){
                     for(var i in result.data[key].dev_data){
                         const resultMap = {
-                            tem: result.data[key].dev_data[i].wd,
-                            hum: result.data[key].dev_data[i].sd,
-                            pm:  result.data[key].dev_data[i].pm25,
-                            co2: result.data[key].dev_data[i].co2,
-                            lightIntensity: result.data[key].dev_data[i].zd,
+                            tem: parseFloat(result.data[key].dev_data[i].wd),
+                            hum: parseFloat(result.data[key].dev_data[i].sd),
+                            pm:  parseFloat(result.data[key].dev_data[i].pm25),
+                            co2: parseFloat(result.data[key].dev_data[i].co2),
+                            lightIntensity: parseFloat(result.data[key].dev_data[i].zd),
                             time: parseInt(result.data[key].dev_data[i].time)
                         }
                         const time = new Date(resultMap.time);

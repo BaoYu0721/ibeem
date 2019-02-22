@@ -106,7 +106,6 @@ $(function(){
 	
 	$("#UpLoadFileButton").click(function(){
 		var formData = new FormData($("#fileUpLoad")[0]);
-
 		$.ajax({
 			url: "/common/upload",
 			type: "POST",
@@ -117,9 +116,10 @@ $(function(){
 			processData: false,
 			success: function(data) {
 				console.log(data);
-				console.log(data.imageList[0].imageurl);
-									
-				if(data.code == 200) {
+				if(data.code == 1003){
+					alertokMsg(getLangStr("image_msg_1"),getLangStr("alert_ok"));
+				}
+				else if(data.code == 200) {
 					
 					/*if(imageAll!=''||imageAll==null){
 						imageAll = data.imageList[0].imageurl;
@@ -684,8 +684,13 @@ $("#submit_sheet_1").click(function(){
 	console.log(lat);	
 	console.log(imageAll);
 	return;*/
-	
-	
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#a17").val()) && $("#a17").val())  {alertokMsg(getLangStr("building_base_msg_1"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#a20").val()) && $("#a20").val())  {alertokMsg(getLangStr("building_base_msg_2"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#a21").val()) && $("#a21").val())  {alertokMsg(getLangStr("building_base_msg_3"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#a23").val()) && $("#a23").val())  {alertokMsg(getLangStr("building_base_msg_4"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#a24").val()) && $("#a24").val())  {alertokMsg(getLangStr("building_base_msg_5"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#a25").val()) && $("#a25").val())  {alertokMsg(getLangStr("building_base_msg_6"),getLangStr("alert_ok")); removeLoading(); return;}
 	var json = {
 			"climaticProvince":$("#a26_hide").val(),
 			"image":imageAll,
@@ -748,7 +753,29 @@ $("#submit_sheet_1").click(function(){
 $("#submit_sheet_2").click(function(){
 	var json = {};
 	addLoading();
-	
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#b2").val()) && $("#b2").val())  {alertokMsg(getLangStr("building_design_msg_1"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b3").val()) && $("#b3").val())  {alertokMsg(getLangStr("building_design_msg_2"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b4").val()) && $("#b4").val())  {alertokMsg(getLangStr("building_design_msg_3"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b4").val()) && $("#b4").val())  {alertokMsg(getLangStr("building_design_msg_3"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b5").val()) && $("#b5").val())  {alertokMsg(getLangStr("building_design_msg_4"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b6").val()) && $("#b6").val())  {alertokMsg(getLangStr("building_design_msg_5"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b7").val()) && $("#b7").val())  {alertokMsg(getLangStr("building_design_msg_6"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b8").val()) && $("#b8").val())  {alertokMsg(getLangStr("building_design_msg_7"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b9").val()) && $("#b9").val())  {alertokMsg(getLangStr("building_design_msg_8"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b10").val()) && $("#b10").val())  {alertokMsg(getLangStr("building_design_msg_9"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b11").val()) && $("#b11").val())  {alertokMsg(getLangStr("building_design_msg_10"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b12").val()) && $("#b12").val())  {alertokMsg(getLangStr("building_design_msg_11"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b13").val()) && $("#b13").val())  {alertokMsg(getLangStr("building_design_msg_12"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b15").val()) && $("#b15").val())  {alertokMsg(getLangStr("building_design_msg_13"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b16").val()) && $("#b16").val())  {alertokMsg(getLangStr("building_design_msg_14"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b17").val()) && $("#b17").val())  {alertokMsg(getLangStr("building_design_msg_15"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b18").val()) && $("#b18").val())  {alertokMsg(getLangStr("building_design_msg_16"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b19").val()) && $("#b19").val())  {alertokMsg(getLangStr("building_design_msg_17"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b20").val()) && $("#b20").val())  {alertokMsg(getLangStr("building_design_msg_18"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b21").val()) && $("#b21").val())  {alertokMsg(getLangStr("building_design_msg_19"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b22").val()) && $("#b22").val())  {alertokMsg(getLangStr("building_design_msg_20"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b23").val()) && $("#b23").val())  {alertokMsg(getLangStr("building_design_msg_21"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(b_id==0){
 		json = {
 				"buildingID":buildingID,
@@ -829,7 +856,29 @@ $("#submit_sheet_2").click(function(){
 $("#submit_sheet_3").click(function(){
 	var json = {};
 	addLoading();	
-	
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#c23").val()) && $("#c23").val())  {alertokMsg(getLangStr("building_energy_msg_1"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c24").val()) && $("#c24").val())  {alertokMsg(getLangStr("building_energy_msg_2"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c25").val()) && $("#c25").val())  {alertokMsg(getLangStr("building_energy_msg_3"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c26").val()) && $("#c26").val())  {alertokMsg(getLangStr("building_energy_msg_4"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c27").val()) && $("#c27").val())  {alertokMsg(getLangStr("building_energy_msg_5"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c28").val()) && $("#c28").val())  {alertokMsg(getLangStr("building_energy_msg_6"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c30").val()) && $("#c30").val())  {alertokMsg(getLangStr("building_energy_msg_7"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c32").val()) && $("#c32").val())  {alertokMsg(getLangStr("building_energy_msg_8"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c33").val()) && $("#c33").val())  {alertokMsg(getLangStr("building_energy_msg_9"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c34").val()) && $("#c34").val())  {alertokMsg(getLangStr("building_energy_msg_10"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c35").val()) && $("#c35").val())  {alertokMsg(getLangStr("building_energy_msg_11"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c37").val()) && $("#c37").val())  {alertokMsg(getLangStr("building_energy_msg_12"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c38").val()) && $("#c38").val())  {alertokMsg(getLangStr("building_energy_msg_13"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c38").val()) && $("#c38").val())  {alertokMsg(getLangStr("building_energy_msg_13"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c46").val()) && $("#c46").val())  {alertokMsg(getLangStr("building_energy_msg_14"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c47").val()) && $("#c47").val())  {alertokMsg(getLangStr("building_energy_msg_15"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c48").val()) && $("#c48").val())  {alertokMsg(getLangStr("building_energy_msg_16"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c49").val()) && $("#c49").val())  {alertokMsg(getLangStr("building_energy_msg_17"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c50").val()) && $("#c50").val())  {alertokMsg(getLangStr("building_energy_msg_18"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c51").val()) && $("#c51").val())  {alertokMsg(getLangStr("building_energy_msg_19"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c52").val()) && $("#c52").val())  {alertokMsg(getLangStr("building_energy_msg_20"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#c53").val()) && $("#c53").val())  {alertokMsg(getLangStr("building_energy_msg_21"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(c_id==0){
 		json = {
 				"buildingID":buildingID,
@@ -966,7 +1015,8 @@ $("#submit_sheet_3").click(function(){
 $("#submit_sheet_4").click(function(){
 	var json = {};
 	addLoading();
-	
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#d12").val()) && $("#d12").val())  {alertokMsg(getLangStr("building_indoor_msg_1"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(d_id==0){
 		json = {
 				"buildingID":buildingID,
@@ -1031,7 +1081,16 @@ $("#submit_sheet_4").click(function(){
 $("#submit_sheet_5").click(function(){
 	var json = {};
 	addLoading();
-	
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#e2").val()) && $("#e2").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_1"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e3").val()) && $("#e3").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_2"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e4").val()) && $("#e4").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_3"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e5").val()) && $("#e5").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_4"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e6").val()) && $("#e6").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_5"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e7").val()) && $("#e7").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_6"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e8").val()) && $("#e8").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_7"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e9").val()) && $("#e9").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_8"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#e10").val()) && $("#e10").val())  {alertokMsg(getLangStr("building_indoor_parameter_msg_9"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(e_id==0){
 		json = {
 				"buildingID":buildingID,
@@ -1088,7 +1147,10 @@ $("#submit_sheet_5").click(function(){
 $("#submit_sheet_6").click(function(){
 	var json = {};
 	addLoading();
-	
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#f16").val()) && $("#f16").val())  {alertokMsg(getLangStr("building_water_msg_1"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#f17").val()) && $("#f17").val())  {alertokMsg(getLangStr("building_water_msg_2"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#f18").val()) && $("#f18").val())  {alertokMsg(getLangStr("building_water_msg_3"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(f_id==0){
 		json = {
 				"buildingID":buildingID,

@@ -58,6 +58,13 @@ class CommonController extends Controller {
         const file = ctx.request.files[0];
         const tmpfilepath = ctx.request.files[0].filepath;
         const filename = ctx.helper.crypto(file.filename + Date.now()).substring(8, 24) + '.' + file.filename.split('.')[file.filename.split('.').length - 1];
+        const fileArr = filename.split('.');
+        const fileType = fileArr[fileArr.length - 1];
+        if(fileType != 'png' || fileType != 'jpg' || fileType != 'bmp' || fileType != 'gif'){
+            return ctx.body = {
+                code: 1003
+            };
+        }
         const dir = path.join(config.baseDir, 'app/public/file/image');
         ctx.helper.mkdirSync(dir);
         const target = path.join(config.baseDir, 'app/public/file/image', filename);

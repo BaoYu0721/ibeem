@@ -114,7 +114,19 @@ class SingleController extends Controller {
         const { ctx } = this;
         const projectId = ctx.request.body.projectID;
         const name = ctx.request.body.name;
+        if(!name){
+            return ctx.body = {
+                messg: "项目名不能为空!",
+                code: 1007
+            };
+        }
         const describe = ctx.request.body.describe;
+        if(!describe){
+            return ctx.body = {
+                messg: "项目简介不能为空!",
+                code: 1009
+            };
+        }
         const image = ctx.request.body.image;
         const result = await ctx.service.project.single.projectUpdate(projectId, name, describe, image);
         if(result == -1){

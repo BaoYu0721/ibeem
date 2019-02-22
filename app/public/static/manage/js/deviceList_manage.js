@@ -770,7 +770,7 @@ $(function(){
     		     $(".contentTab").eq(0).siblings().removeClass("on");
     		 },300);
     		 
-			 alertokMsg(getLangStr("deviceList_relieve_ts"),getLangStr("alert_ok"));
+			 alertMsg(getLangStr("deviceList_relieve_ts"),getLangStr("alert_no"),getLangStr("alert_yes"),"showConfirm");
 
     		 /*alertokMsg(getLangStr("deviceList_download_list"),getLangStr("alert_ok"));*/
     	 }else{
@@ -962,7 +962,7 @@ function showConfirm(){
 	deviceNameId = [];
 	localStorage.setItem("checkedId",checkedId);
 	localStorage.setItem("deviceNameId",JSON.stringify(deviceNameId));
-	 window.location.href += "?item=download";
+	window.location.href="/device?item=download";
 }
 
 	 
