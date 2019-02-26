@@ -21,7 +21,6 @@ $(function(){
 	
 /*	pseID = point_detail.surveyID
 	pid = point_detail.id*/
-	
 	var pseID = point_detail.surveyID;
 	var pid = point_detail.id;
 	var devID = point_detail.deviceID;
@@ -39,7 +38,7 @@ $(function(){
 		type:"POST",
 		data:json,
 		success:function(data){
-			console.log(data);
+			//console.log(data);
 			//initData(data.suvery);
 		}
 	})

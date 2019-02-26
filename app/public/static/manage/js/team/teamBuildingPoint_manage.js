@@ -70,7 +70,7 @@ function getPointData(){
 			var endTime = point.endTime;
 			var imageAvatar = point.image;
 					
-			var deviceID = point.deviceID;//设备ID
+			var deviceID = point.deviceId;//设备ID
 			var surveyID = point.surveyID;//问卷ID
 
 			$all_id.push(deviceID);
@@ -81,7 +81,7 @@ function getPointData(){
 				deviceStatus = getLangStr("deviceList_notonline");
 			}
 
-			if(deviceID == -1){
+			if(deviceID == -1 || !deviceID){
 				deviceName = "<span>"+getLangStr("buildingPoint_no_device")+"</span>";
 				deviceStatus = "";
 			}

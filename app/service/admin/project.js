@@ -108,7 +108,7 @@ class ProjectService extends Service {
             var creator = null;
             try {
                 survey = await this.app.mysql.get('survey', {id: surveyIds[key].survey_id});
-                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id]);
+                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ? and project_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id, projectId]);
                 creator = await this.app.mysql.get('user', {id: survey.creator_id});
             } catch (error) {
                 return -1;
@@ -1412,7 +1412,7 @@ class ProjectService extends Service {
             var creator = null;
             try {
                 survey = await this.app.mysql.get('survey', {id: surveyIds[key].survey_id});
-                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id]);
+                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ? and project_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id, projectId]);
                 creator = await this.app.mysql.get('user', {id: survey.creator_id});
             } catch (error) {
                 return -1;
@@ -1985,7 +1985,7 @@ class ProjectService extends Service {
             buildingProperty: building.building_property,
             city: building.city,
             climaticProvince: building.climatic_province,
-            completionTime: building.completion_time,
+            completionTime: building.completion_time? building.completion_time.getTime(): '',
             contact: building.contact,
             countNumber: building.count_number,
             createdOn: building.created_on,
@@ -2015,12 +2015,12 @@ class ProjectService extends Service {
             number: building.number,
             participantOrganization: building.participant_organization,
             people: building.people,
-            projectTime: building.project_time,
+            projectTime: building.project_time? building.project_time.getTime(): '',
             province: building.province,
             remark: building.remark,
-            serviceTime: building.service_time,
+            serviceTime: building.service_time? building.service_time.getTime(): '',
             subject: building.subject,
-            time: building.time,
+            time: building.time? this.ctx.helper.dateFormatOther(building.time): '',
             type: building.type,
             unit: building.unit,
             updatedOn: building.updated_on,
@@ -3924,37 +3924,68 @@ class ProjectService extends Service {
     async singleAddDeviceAttention(dids, uid){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:device_attention";
         var ttl = 1000;
-        await redlock.lock(resource, ttl)
-        .then(async function(lock) {
-            const didArr = dids.split(',');
-            for(var i = 0; i < didArr.length; i++){
+        const didArr = dids.split(',');
+        let i = 0;
+        for(; i < didArr.length; i++){
+            const conn = await app.mysql.beginTransaction();
+            var resource = "ibeem_test:device_attention";
+            await redlock.lock(resource, ttl)
+            .then(async function(lock) {
                 const res = await app.mysql.get('device_attention', {
                     device_id: didArr[i],
                     user_id: uid
                 });
-                if(res) continue;
-                await app.mysql.insert('device_attention', {
+                if(res) return;
+                await conn.insert('device_attention', {
                     device_id: didArr[i],
                     user_id: uid,
                     created_on: new Date(),
                     updated_on: new Date(),
                     deleted: 0
                 });
-            }
-            lock.unlock();
-        })
-        .catch(function(err){
-            console.log(err);
-            return -1;
-        })
+                lock.unlock();
+            })
+            .catch(function(err){
+                console.log(err);
+                return -1;
+            });
+            resource = "ibeem_test:device";
+            await redlock.lock(resource, ttl)
+            .then(async function(lock) {
+                const res = await conn.select('device_attention', {where: {
+                    device_id: didArr[i]
+                }});
+                var gname = '';
+                for(var j in res){
+                    const user = await app.mysql.get('user', {id: res[j].user_id});
+                    if(j == res.length - 1){
+                        gname += user.name;
+                    }else{
+                        gname += user.name + ',';
+                    }
+                }
+                console.log(gname)
+                await conn.update('device',{
+                    id: didArr[i],
+                    gname: gname,
+                    updated_on: new Date()
+                });
+                await conn.commit();
+                lock.unlock();
+            })
+            .catch(function(err){
+                console.log(err);
+                return -1;
+            });
+        }
         return 0;
     }
 
     async singleDeviceRelieve(ids){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
+        const conn = await app.mysql.beginTransaction();
         const resource = "ibeem_test:device_attention";
         var ttl = 1000;
         try {
@@ -3962,8 +3993,10 @@ class ProjectService extends Service {
                 async function transation() {
                     try {
                         for(var key in ids){
-                            await app.mysql.delete('device_attention', {device_id: ids[key]});
+                            await conn.delete('device_attention', {device_id: ids[key]});
+                            await conn.update('device', {id: ids[key], gname: ''});
                         }
+                        await conn.commit();
                     } catch (error) {
                         lock.unlock()
                         .catch(function(err) {

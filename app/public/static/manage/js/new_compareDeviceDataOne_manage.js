@@ -1957,7 +1957,6 @@ init();
 
 	    		  name=deviceData.deviceName;
 	 			  data=deviceData.data;
-	 			  
 	    		  tempTemperature_yc={};
 	    		  tempHumidity_yc={};
 	    		  tempPm25_yc={};
@@ -1995,26 +1994,25 @@ init();
 	    				
 	    				timeUTC = Date.UTC(uy,um,ud,uh,umm,ums,umss); /*,umm,ums,umss*/
 	    				// console.log(timeUTC);
-	 				  
-	 				  if(data[i].tem < max_tem_yc && data[i].tem > min_tem_yc){
-	 					 tempTemperatureData_yc.push([timeUTC,(data[i].tem * 1).toFixed(1) * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].hum < max_hum_yc && data[i].hum > min_hum_yc){
-	 					 tempHumidityData_yc.push([timeUTC,(data[i].hum * 1).toFixed(1) * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].pm25 < max_pm25_yc && data[i].pm25 > min_pm25_yc){
-	 					 tempPm25Data_yc.push([timeUTC,data[i].pm * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].co2 < max_co2_yc && data[i].co2 > min_co2_yc){
-	 					 tempCo2Data_yc.push([timeUTC,data[i].co2 * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].sun < max_sun_yc && data[i].sun > min_sun_yc){
-	 					 tempSunshineData_yc.push([timeUTC,data[i].lightIntensity * 1]);
-	 				  }
+						if(data[i].tem < max_tem_yc && data[i].tem > min_tem_yc){
+							tempTemperatureData_yc.push([timeUTC,(data[i].tem * 1).toFixed(1) * 1]);
+						 }
+						 
+						 if(data[i].hum < max_hum_yc && data[i].hum > min_hum_yc){
+							tempHumidityData_yc.push([timeUTC,(data[i].hum * 1).toFixed(1) * 1]);
+						 }
+						 
+						 if(data[i].pm < max_pm25_yc && data[i].pm > min_pm25_yc){
+							tempPm25Data_yc.push([timeUTC,data[i].pm * 1]);
+						 }
+  
+						 if(data[i].co2 < max_co2_yc && data[i].co2 > min_co2_yc){
+							tempCo2Data_yc.push([timeUTC,data[i].co2 * 1]);
+						 }
+						 
+						 if(data[i].lightIntensity < max_sun_yc && data[i].lightIntensity > min_sun_yc){
+							tempSunshineData_yc.push([timeUTC,data[i].lightIntensity * 1]);
+						 }
  
 	 			  }
 	 			    

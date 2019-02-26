@@ -440,12 +440,12 @@ class SingleBuildingController extends Controller {
 
     async buildingPointSurveyDetail(){
         const { ctx } = this;
-        const surveyId = ctx.request.body.surveyID;
-        const startTime = ctx.request.body.beginTime;
+        const surveyID = ctx.request.body.surveyID;
+        const beginTime = ctx.request.body.beginTime;
         const endTime = ctx.request.body.endTime;
         const relation = ctx.request.body.relation;
-        const projectId = ctx.request.body.objectID;
-        const result = await ctx.service.project.singleBuilding.buildingPointSurveyDetail(surveyId, startTime, endTime, relation, projectId);
+        const objectID = ctx.request.body.objectID;
+        const result = await ctx.service.survey.statistics.surveyStatistics(surveyID, objectID, relation, beginTime, endTime);
         if(result == -1){
             return ctx.body = {
                 messg: "系统繁忙，请重试",

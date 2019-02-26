@@ -147,37 +147,68 @@ class SingleDeviceService extends Service {
     async addDeviceAttention(dids, uid){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:device_attention";
         var ttl = 1000;
-        await redlock.lock(resource, ttl)
-        .then(async function(lock) {
-            const didArr = dids.split(',');
-            for(var i = 0; i < didArr.length; i++){
+        const didArr = dids.split(',');
+        let i = 0;
+        for(; i < didArr.length; i++){
+            const conn = await app.mysql.beginTransaction();
+            var resource = "ibeem_test:device_attention";
+            await redlock.lock(resource, ttl)
+            .then(async function(lock) {
                 const res = await app.mysql.get('device_attention', {
                     device_id: didArr[i],
                     user_id: uid
                 });
-                if(res) continue;
-                await app.mysql.insert('device_attention', {
+                if(res) return;
+                await conn.insert('device_attention', {
                     device_id: didArr[i],
                     user_id: uid,
                     created_on: new Date(),
                     updated_on: new Date(),
                     deleted: 0
                 });
-            }
-            lock.unlock();
-        })
-        .catch(function(err){
-            console.log(err);
-            return -1;
-        })
+                lock.unlock();
+            })
+            .catch(function(err){
+                console.log(err);
+                return -1;
+            });
+            resource = "ibeem_test:device";
+            await redlock.lock(resource, ttl)
+            .then(async function(lock) {
+                const res = await conn.select('device_attention', {where: {
+                    device_id: didArr[i]
+                }});
+                var gname = '';
+                for(var j in res){
+                    const user = await app.mysql.get('user', {id: res[j].user_id});
+                    if(j == res.length - 1){
+                        gname += user.name;
+                    }else{
+                        gname += user.name + ',';
+                    }
+                }
+                console.log(gname)
+                await conn.update('device',{
+                    id: didArr[i],
+                    gname: gname,
+                    updated_on: new Date()
+                });
+                await conn.commit();
+                lock.unlock();
+            })
+            .catch(function(err){
+                console.log(err);
+                return -1;
+            });
+        }
         return 0;
     }
 
     async deviceRelieve(ids){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
+        const conn = await app.mysql.beginTransaction();
         const resource = "ibeem_test:device_attention";
         var ttl = 1000;
         try {
@@ -185,8 +216,10 @@ class SingleDeviceService extends Service {
                 async function transation() {
                     try {
                         for(var key in ids){
-                            await app.mysql.delete('device_attention', {device_id: ids[key]});
+                            await conn.delete('device_attention', {device_id: ids[key]});
+                            await conn.update('device', {id: ids[key], gname: ''});
                         }
+                        await conn.commit();
                     } catch (error) {
                         lock.unlock()
                         .catch(function(err) {

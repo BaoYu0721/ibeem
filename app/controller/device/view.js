@@ -84,7 +84,6 @@ class ViewController extends Controller {
         const eWorkTime = ctx.request.body.endWorkTime;
         const workDay = ctx.request.body.workDay;
         const step = ctx.request.body.step;
-        console.log(ctx.request.body)
         const result = await ctx.service.device.view.environmentDataAlign(deviceId, sTime, eTime, sWorkTime, eWorkTime, workDay, step);
         if(result == -1){
             return ctx.body = {

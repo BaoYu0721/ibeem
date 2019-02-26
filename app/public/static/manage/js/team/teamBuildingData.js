@@ -4,6 +4,8 @@ var teamID = $.cookie("teamid");
 var teamName = $.cookie("teamname");
 /*存放缓存中的，建筑id*/
 var buildingID = $.cookie("buildingid");
+/* 存放图片 */
+var imageAll;
 /*存放缓存中的，建筑name*/
 var buildingName = $.cookie("buildingname");
 $(".tit-buildingname").html(buildingName.length>8?buildingName.substring(0,8)+"..":buildingName);
@@ -103,7 +105,7 @@ $(function(){
 	$("body").on("click","#b-pic-add",function(){
 		$("#picUploadPopover").modal('show');	
 	});
-	
+
 	$("#UpLoadFileButton").click(function(){
 		var formData = new FormData($("#fileUpLoad")[0]);
 		$.ajax({
@@ -117,7 +119,7 @@ $(function(){
 			success: function(data) {
 				console.log(data);
 				if(data.code == 1003){
-					alertokMsg(getLangStr("image_msg_1"),getLangStr("alert_ok"));
+					alertokMsg(getLangStr("image_error"),getLangStr("alert_ok"));
 				}
 				else if(data.code == 200) {
 					
@@ -165,7 +167,9 @@ $(function(){
 				}
 			},
 			error: function(e) { // 
-				
+				if(e.status == 400){
+					alertokMsg(getLangStr("image_error"),getLangStr("alert_ok"));
+				}
 			}
 		});
 	});
@@ -319,12 +323,17 @@ function getBuildingInfo(bid){
 				isPicFull();
 				
 				// 公共建筑只显示公共建筑的信息、居住建筑只显示居住建筑的信息
+				console.log("----------------")
+				console.log(sheet_1)
 				if(sheet_1.buildingClass == 1){
 					$(".list_jz").hide();
 					$(".list_gg").show();
 				}else if(sheet_1.buildingClass == 2){
 					$(".list_gg").hide();
 					$(".list_jz").show();
+				}else{
+					$(".list_jz").hide();
+					$(".list_gg").show();
 				}
 				
 				// 基本信息

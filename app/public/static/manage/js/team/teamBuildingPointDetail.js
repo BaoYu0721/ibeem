@@ -135,7 +135,7 @@ $(function(){
 		d_status = getLangStr("teamBuilding_msg_2");
 	}
 
-	if(point_detail.deviceID == -1 || point_detail.deviceID == '' || point_detail.deviceID == undefined){
+	if(point_detail.deviceId == -1 || point_detail.deviceId == '' || point_detail.deviceId == undefined){
 		d_name = "<span class='button_add'>"+ getLangStr("teamBuilding_msg_3") +"</span>";
 		d_status = "";
 	}
@@ -143,7 +143,6 @@ $(function(){
 	if(point_detail.surveyID == -1 || point_detail.surveyID == '' || point_detail.surveyID == undefined){
 		s_title = "<span class='button_add'>"+ getLangStr("teamBuilding_msg_4") +"</span>";
 	}
-
 	$("#cdLink").html(d_name + d_status);
 	$("#cdSurveyTitle").html(s_title);
 	

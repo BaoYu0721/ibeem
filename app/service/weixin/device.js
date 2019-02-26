@@ -242,6 +242,7 @@ class DeviceService extends Service {
                     return transation();
                 });
                 if(res == -1) return -1;
+                resource = "ibeem_test:device";
                 res = await redlock.lock(resource, ttl).then(function(lock) {
                     async function transation() {
                         try {

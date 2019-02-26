@@ -73,18 +73,17 @@ function getPointData(){
 			var endTime = point.endTime;
 			var imageAvatar = point.image;
 					
-			var deviceID = point.deviceID;//设备ID
+			var deviceID = point.deviceId;//设备ID
 			var surveyID = point.surveyID;//问卷ID
 
 			$all_id.push(deviceID);
-			
+
 			if(deviceStatus==true){
 				deviceStatus = getLangStr("deviceList_online");
 			}else if(deviceStatus==false){
 				deviceStatus = getLangStr("deviceList_notonline");
 			}
-
-			if(deviceID == -1){
+			if(deviceID == -1 || !deviceID){
 				deviceName = "<span>"+getLangStr("buildingPoint_no_device")+"</span>";
 				deviceStatus = "";
 			}
@@ -108,7 +107,6 @@ function getPointData(){
 			}else{
 				endTime2=endTime;
 			}
-			
 			htmlStr += '<div class="ui card card_box" data-stime="'+ startTime +'" data-etime="'+ endTime +'" data-pointid="'+ pointID +'" data-deviceid="'+ deviceID +'" data-surveyid="'+ surveyID +'">'+
 							'<div class="image content_tz">'+
 							 		'<div class="uc_image_intro">'+

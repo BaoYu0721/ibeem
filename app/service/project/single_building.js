@@ -16,7 +16,8 @@ class SingleBuildingService extends Service {
                         await app.mysql.insert('building', {
                             source: 0, 
                             city: city,
-                            created_on: new Date(), 
+                            created_on: new Date(),
+                            updated_on: new Date(),
                             name: buildingName,
                             longitude: longitude,
                             latitude: latitude,
@@ -1357,7 +1358,7 @@ class SingleBuildingService extends Service {
             buildingProperty: building.building_property,
             city: building.city,
             climaticProvince: building.climatic_province,
-            completionTime: building.completion_time.getTime(),
+            completionTime: building.completion_time? building.completion_time.getTime(): '',
             contact: building.contact,
             countNumber: building.count_number,
             createdOn: building.created_on,
@@ -1387,12 +1388,12 @@ class SingleBuildingService extends Service {
             number: building.number,
             participantOrganization: building.participant_organization,
             people: building.people,
-            projectTime: building.project_time.getTime(),
+            projectTime: building.project_time? building.project_time.getTime(): '',
             province: building.province,
             remark: building.remark,
-            serviceTime: building.service_time.getTime(),
+            serviceTime: building.service_time? building.service_time.getTime(): '',
             subject: building.subject,
-            time: this.ctx.helper.dateFormatOther(building.time),
+            time: building.time? this.ctx.helper.dateFormatOther(building.time): '',
             type: building.type,
             unit: building.unit,
             updatedOn: building.updated_on,
@@ -1409,16 +1410,19 @@ class SingleBuildingService extends Service {
             return -1;
         }
         const buildingPointList = [];
+        console.log(buildingPoint)
         for(var key in buildingPoint){
             var sTime = buildingPoint[key].device_start_time;
             var eTime = buildingPoint[key].device_end_time;
             var survey = null;
             var answer = null;
             var device = null;
+            var result = null;
             try {
                 survey = await this.app.mysql.query('select * from building_point_survey where survey_id is not null and building_point_id = ?', [buildingPoint[key].id]);
                 if(survey.length != 0){
                     answer = await this.app.mysql.query('select * from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ? and building_point_id = ?) order by created_on desc', [survey[0].id, survey[0].id, buildingPoint[key].id]);
+                    result = await this.app.mysql.get('survey', {id: survey[0].survey_id});
                 }
                 device = await this.app.mysql.get('device', {id: buildingPoint[key].device_id});
             } catch (error) {
@@ -1431,9 +1435,9 @@ class SingleBuildingService extends Service {
                 positionDesc: buildingPoint[key].position_desc,
                 deviceName: device != null? device.name: '',
                 deviceId: device != null? device.id: '',
-                surveyTitle: survey.length != 0? survey.title != null? survey.title: '': '',
-                surveyID: survey.length != 0? survey.id != null? survey.id: '': '',
-                answerTime: answer != null? answer.created_on: '',
+                surveyTitle: result? result.title: '',
+                surveyID: survey? survey.length != 0? survey[0].survey_id != null? survey[0].survey_id: '': '': '',
+                answerTime: answer? answer.length != 0? answer[0].created_on != null? answer[0].created_on: '': '': '',
                 startTime: sTime != null? this.ctx.helper.dateFormatOther(sTime): '',
                 endTime: eTime != null? this.ctx.helper.dateFormatOther(eTime): '',
                 image: buildingPoint[key].image,
@@ -2655,10 +2659,6 @@ class SingleBuildingService extends Service {
             deviceName: device.name
         };
         return resData;
-    }
-
-    async buildingPointSurveyDetail(surveyId, startTime, endTime, relation, projectId){
-        return -1;
     }
 
     async buildingPointUpdate(data){

@@ -837,7 +837,7 @@ $("#addDeviceButton").click(function(){
 							.modal('hide');
 			 				var insertid = data.id;
 			 				devicelist.push({"id":insertid,"name":name,"userName":"","ownerName":"","gname":"","type":type,"statue":"false"}); 				
-			 				loadDeviceList(devicelist);
+			 				loadDeviceList(1);
 			 			}else{
 			 				var errorcode = data.code;
 							var errormsg = data.messg;

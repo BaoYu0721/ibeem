@@ -55,6 +55,7 @@ module.exports = app => {
   router.post('/device/page_list', userRequired, controller.device.index.pageList);
   router.post('/device/location', userRequired, controller.device.index.location);
   router.post('/device/parameter', userRequired, controller.device.index.parameter);
+  router.post('/device/parameter/save', userRequired, controller.device.index.parameterSave);
   router.post('/device/info', userRequired, controller.device.index.deviceInfo);
   router.post('/device/update', userRequired, controller.device.index.deviceUpdate);
   router.post('/device/assessment', userRequired, controller.device.assessment.index);

@@ -60,7 +60,7 @@ class CommonController extends Controller {
         const filename = ctx.helper.crypto(file.filename + Date.now()).substring(8, 24) + '.' + file.filename.split('.')[file.filename.split('.').length - 1];
         const fileArr = filename.split('.');
         const fileType = fileArr[fileArr.length - 1];
-        if(fileType != 'png' || fileType != 'jpg' || fileType != 'bmp' || fileType != 'gif'){
+        if(fileType != 'png' && fileType != 'jpg' && fileType != 'jpeg' && fileType != 'JPG' && fileType != "PNG"){
             return ctx.body = {
                 code: 1003
             };

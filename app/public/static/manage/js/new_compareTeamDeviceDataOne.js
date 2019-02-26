@@ -1633,7 +1633,7 @@ init();
     	function getDataParameter(){
     		// 用户输入的达标率
  		   $.ajax({
- 			   url:"/dataParameter/getByUser",
+ 			   url:"/device/parameter",
  			   type:"POST",
  			   dataType:"json",
  			   success:function(dd){
@@ -1662,7 +1662,18 @@ init();
 	       		     			$("#min_co2").val(cc.minCo2);
 	       		     			$("#max_co2").val(cc.maxCo2);
 	          		     		$("#min_sun").val(cc.minLight);
-	       		     			$("#max_sun").val(cc.maxLight);
+								$("#max_sun").val(cc.maxLight);
+									
+								$("#min_tem_yc").val(cc.minTem);
+	       		     			$("#max_tem_yc").val(cc.maxTem);
+	       		     			$("#min_hum_yc").val(cc.minHum);
+	       		     			$("#max_hum_yc").val(cc.maxHum);
+	       		     			$("#min_pm25_yc").val(cc.minPm25);
+	       		     			$("#max_pm25_yc").val(cc.maxPm25);
+	       		     			$("#min_co2_yc").val(cc.minCo2);
+	       		     			$("#max_co2_yc").val(cc.maxCo2);
+	          		     		$("#min_sun_yc").val(cc.minLight);
+	       		     			$("#max_sun_yc").val(cc.maxLight);
 	       		     			dbl_id = cc.id;
 	       				   }   					   
  				   }else{
@@ -1806,7 +1817,7 @@ init();
     	   $("#update_dblchart").click(function(){
     		   
     		   $.ajax({
-    			   url:"/dataParameter/saveOrUpdate",
+    			   url:"/device/parameter/save",
     			   type:"POST",
     			   data:{
 	    				  "id":dbl_id,
@@ -1814,15 +1825,51 @@ init();
 	    				  "maxTem":$("#max_tem").val(),
 	    				  "minHum":$("#min_hum").val(),
 	    				  "maxHum":$("#max_hum").val(),
-	    				  "minLight":$("#min_pm25").val(),
-	    				  "maxLight":$("#max_pm25").val(),
+	    				  "minLight":$("#min_sun").val(),
+	    				  "maxLight":$("#max_sun").val(),
 	    				  "minCo2":$("#min_co2").val(),
 	    				  "maxCo2":$("#max_co2").val(),
-	    				  "minPm25":$("#min_sun").val(),
-	    				  "maxPm25":$("#max_sun").val()
+	    				  "minPm25":$("#min_pm25").val(),
+	    				  "maxPm25":$("#max_pm25").val(),
     			   },
-    			   success:function(res){
-    				   console.log(res);
+    			   success:function(dd){
+						if(dd.dataParameter == null){ // 用户没有保存达标标准则为默认值
+							$("#min_tem").val(20);
+							$("#max_tem").val(25);
+							$("#min_hum").val(40);
+							$("#max_hum").val(60);
+							$("#min_pm25").val(300);
+							$("#max_pm25").val(500);
+							$("#min_co2").val(0);
+							$("#max_co2").val(1000);
+							$("#min_sun").val(0);
+							$("#max_sun").val(50);
+							dbl_id = -1;
+						}else{
+							var cc = dd.dataParameter;
+							$("#min_tem").val(cc.minTem);
+							$("#max_tem").val(cc.maxTem);
+							$("#min_hum").val(cc.minHum);
+							$("#max_hum").val(cc.maxHum);
+							$("#min_pm25").val(cc.minPm25);
+							$("#max_pm25").val(cc.maxPm25);
+							$("#min_co2").val(cc.minCo2);
+							$("#max_co2").val(cc.maxCo2);
+							$("#min_sun").val(cc.minLight);
+							$("#max_sun").val(cc.maxLight);
+								
+							$("#min_tem_yc").val(cc.minTem);
+							$("#max_tem_yc").val(cc.maxTem);
+							$("#min_hum_yc").val(cc.minHum);
+							$("#max_hum_yc").val(cc.maxHum);
+							$("#min_pm25_yc").val(cc.minPm25);
+							$("#max_pm25_yc").val(cc.maxPm25);
+							$("#min_co2_yc").val(cc.minCo2);
+							$("#max_co2_yc").val(cc.maxCo2);
+							$("#min_sun_yc").val(cc.minLight);
+							$("#max_sun_yc").val(cc.maxLight);
+							dbl_id = cc.id;
+						} 
     			   },
     			   error:function(err){
     				   console.log(err.status);
@@ -2259,25 +2306,25 @@ init();
 	    				timeUTC = Date.UTC(uy,um,ud,uh,umm,ums,umss); /*,umm,ums,umss*/
 	    				// console.log(timeUTC);
 	 				  
-	 				  if(data[i].tem < max_tem_yc && data[i].tem > min_tem_yc){
-	 					 tempTemperatureData_yc.push([timeUTC,(data[i].tem * 1).toFixed(1) * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].hum < max_hum_yc && data[i].hum > min_hum_yc){
-	 					 tempHumidityData_yc.push([timeUTC,(data[i].hum * 1).toFixed(1) * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].pm25 < max_pm25_yc && data[i].pm25 > min_pm25_yc){
-	 					 tempPm25Data_yc.push([timeUTC,data[i].pm * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].co2 < max_co2_yc && data[i].co2 > min_co2_yc){
-	 					 tempCo2Data_yc.push([timeUTC,data[i].co2 * 1]);
-	 				  }
-	 				  
-	 				  if(data[i].sun < max_sun_yc && data[i].sun > min_sun_yc){
-	 					 tempSunshineData_yc.push([timeUTC,data[i].lightIntensity * 1]);
-	 				  }
+						if(data[i].tem < max_tem_yc && data[i].tem > min_tem_yc){
+							tempTemperatureData_yc.push([timeUTC,(data[i].tem * 1).toFixed(1) * 1]);
+						 }
+						 
+						 if(data[i].hum < max_hum_yc && data[i].hum > min_hum_yc){
+							tempHumidityData_yc.push([timeUTC,(data[i].hum * 1).toFixed(1) * 1]);
+						 }
+						 
+						 if(data[i].pm < max_pm25_yc && data[i].pm > min_pm25_yc){
+							tempPm25Data_yc.push([timeUTC,data[i].pm * 1]);
+						 }
+  
+						 if(data[i].co2 < max_co2_yc && data[i].co2 > min_co2_yc){
+							tempCo2Data_yc.push([timeUTC,data[i].co2 * 1]);
+						 }
+						 
+						 if(data[i].lightIntensity < max_sun_yc && data[i].lightIntensity > min_sun_yc){
+							tempSunshineData_yc.push([timeUTC,data[i].lightIntensity * 1]);
+						 }
  
 	 			  }
 	 			    

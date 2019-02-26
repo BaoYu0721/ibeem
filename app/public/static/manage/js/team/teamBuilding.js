@@ -299,7 +299,6 @@ function UpLoadFile(ajaxUrl,type) {
 		processData: false,
 		success: function(data) {
 			console.log(data);
-	
 			if(data.code == 200) {
 				alertokMsg(getLangStr("import_building_messg2"),getLangStr("determine"),"window.location.reload()");
 			} else if(data.code == 1005)  {	
@@ -313,7 +312,9 @@ function UpLoadFile(ajaxUrl,type) {
 			}
 		},
 		error: function(e) { // 
-			
+			if(e.status == 400){
+				alertokMsg(getLangStr("import_building_messg4"),getLangStr("determine"));
+			}
 		}
 	});
 	

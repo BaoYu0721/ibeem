@@ -29,7 +29,7 @@ function UploadPhotoMethod(obj,func){
 	}
 	var te=/jpg|jpeg|png|JPG|PNG/g;
 	if(te.test(fileName)==false){
-		alert("图片格式错误")
+		alertokMsg(getLangStr("image_error"),getLangStr("determine"));
 	}else{
 		$form = obj.parent();
 		$img = $form.children(".portraitStyle");

@@ -89,7 +89,7 @@ class SingleService extends Service {
             var creator = null;
             try {
                 survey = await this.app.mysql.get('survey', {id: surveyIds[key].survey_id});
-                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id]);
+                answerCount = await this.app.mysql.query('select count(id) from answer where survey_id = ? and survey_relation_id in(select id from survey_relation where survey_id = ? and project_id = ?)', [surveyIds[key].survey_id, surveyIds[key].survey_id, projectId]);
                 creator = await this.app.mysql.get('user', {id: survey.creator_id});
             } catch (error) {
                 return -1;

@@ -5,6 +5,8 @@ var teamName = $.cookie("teamname");
 /*存放缓存中的，建筑id*/
 var buildingID = $.cookie("buildingid");
 /*存放缓存中的，建筑name*/
+/*存放图片*/
+var imageAll;
 var buildingName = $.cookie("buildingname");
 $(".tit-buildingname").html(buildingName.length>8?buildingName.substring(0,8)+"..":buildingName);
 $(".tit-teamname").html(teamName.length>8?teamName.substring(0,8)+"..":teamName);
@@ -118,7 +120,7 @@ $(function(){
 			success: function(data) {
 				console.log(data);
 				if(data.code == 1003){
-					alertokMsg(getLangStr("image_msg_1"),getLangStr("alert_ok"));
+					alertokMsg(getLangStr("image_error"),getLangStr("alert_ok"));
 				}					
 				else if(data.code == 200) {
 					
@@ -129,9 +131,9 @@ $(function(){
 					}*/
 					
 					if(imageAll==''||imageAll == null){
-						imageAll = data.imageList[0].imageurl;
+						imageAll = "/public/file/image/" + data.imageList[0].imageurl;
 					}else{
-						imageAll = imageAll + "," + data.imageList[0].imageurl;
+						imageAll = imageAll + "," + "/public/file/image/" + data.imageList[0].imageurl;
 					}
 					
 					var image_box = [];
@@ -166,7 +168,9 @@ $(function(){
 				}
 			},
 			error: function(e) { // 
-				
+				if(e.status == 400){
+					alertokMsg(getLangStr("image_error"),getLangStr("alert_ok"));
+				}
 			}
 		});
 	});

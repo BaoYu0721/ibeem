@@ -603,8 +603,8 @@
 														        <div class="text" id="c16">请选择 </div>
 														        <i class="dropdown icon" style="border:none"></i>
 														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
+														          	<div class="item" data-value="1">采用</div>
+														          	<div class="item" data-value="0">未采用</div>
 														        </div>
 													      </div>
 													</div>
@@ -615,21 +615,21 @@
 														        <div class="text" id="c17">请选择 </div>
 														        <i class="dropdown icon" style="border:none"></i>
 														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
+														          	<div class="item" data-value="1">采用</div>
+														          	<div class="item" data-value="0">未采用</div>
 														        </div>
 													      </div>
 													</div>												
 													<!-- 公共建筑独有项目  -->
 													<div class="ui labeled input list_gg">
-														  <a class="ui label"><spring:message code="Thermal_storage" /></a>
+														  <a class="ui label">蓄冷蓄热</a>
 														  <div class="ui selection dropdown">
 														        <input type="hidden" id="c18_hide">
 														        <div class="text" id="c18">请选择 </div>
 														        <i class="dropdown icon" style="border:none"></i>
 														        <div class="menu">
-														          	<div class="item" data-value="1"><spring:message code="information.use" /></div>
-														          	<div class="item" data-value="0"><spring:message code="information.not_used" /></div>
+														          	<div class="item" data-value="1">采用</div>
+														          	<div class="item" data-value="0">未采用</div>
 														        </div>
 													      </div>
 													</div>
@@ -810,132 +810,100 @@
 									<!-- 节能措施 -->
 									<!-- 室内环境措施  -->
 									<div class="ui tab segment" data-tab="four">
-											<div class="b-list">											
-													<div class="ui labeled input">
-														  <a class="ui label">建筑名称</a>
-														  <input type="text" placeholder="请填写" id="d17" class="input_disabled" disabled>
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">标识类型</a>
-														  <input type="text" placeholder="请在基本信息中选择..." id="d2_hide" class="input_disabled" disabled>
-														  <!--   
-														  <div class="ui selection dropdown">
-														        <input type="hidden" id="d2_hide">
-														        <div class="text" id="d2">请选择 </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">设计</div>
-														          	<div class="item">运行</div>
-														        </div>
-													      </div> 
-													      -->
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">星级</a>
-														  <input type="text" placeholder="请在基本信息中选择..." id="d1_hide" class="input_disabled" disabled>
-														  <!-- <div class="ui selection dropdown">
-														        <input type="hidden" id="d1_hide">
-														        <div class="text" id="d1">请选择 </div>
-														        <i class="dropdown icon" style="border:none"></i>
-														        <div class="menu">
-														          	<div class="item">无星级</div>
-															        <div class="item">LEED金级</div>
-															        <div class="item">LEED银级</div>
-															        <div class="item">LEED认证级</div>
-															        <div class="item">非绿建</div>
-															        <div class="item">一星级</div>
-															        <div class="item">二星级</div>
-															        <div class="item">三星级</div>
-															        <div class="item">设计一星</div>
-															        <div class="item">设计二星</div>
-															        <div class="item">设计三星</div>
-															        <div class="item">运行一星</div>
-															        <div class="item">运行二星</div>
-															        <div class="item">运行三星</div>
-														        </div>
-													      </div> -->
-													</div>
-													
-											</div>
-											<div class="b-title">	
-													<a class="ui teal label large">技术应用统计</a>
-													<div class="clear"></div>
-											</div>	
-											<div class="b-list">													
-													
-																									
-													<div class="ui labeled input">
-														  <a class="ui label">自然通风</a>
-														  <input type="text" placeholder="请填写" id="d3">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">自然采光</a>
-														  <input type="text" placeholder="请填写" id="d4">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">遮阳</a>
-														  <input type="text" placeholder="请填写" id="d5">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">改善自然采光</a>
-														  <input type="text" placeholder="请填写" id="d6">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">可调控空调末端</a>
-														  <input type="text" placeholder="请填写" id="d7">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">空气质量监控</a>
-														  <input type="text" placeholder="请填写" id="d8">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">无障碍设施</a>
-														  <input type="text" placeholder="请填写" id="d9">
-													</div>
-													
-											</div>
-											<div class="b-title">	
-													<a class="ui teal label large">具体措施统计</a>
-													<div class="clear"></div>
-											</div>		
-											<div class="b-list">
-			
-													<!-- 公共建筑专有 -->									
-													<div class="ui labeled input list_gg"> 
-														  <a class="ui label">自然通风措施</a>
-														  <input type="text" placeholder="请填写" id="d10">
-													</div>
-													
-													<!-- 居住建筑独有   -->
-													<div class="ui labeled input list_jz"> 
-														  <a class="ui label label-max">通风开口面积与房间地板面积比例</a>
-														  <input type="text" placeholder="请填写" id="d11">
-													</div>
-													
-													<div class="ui labeled input">
-														  <a class="ui label label-max">自然采光达标面积比例</a>
-														  <input type="text" placeholder="请填写" id="d12">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">遮阳形式</a>
-														  <input type="text" placeholder="请填写" id="d13">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">改善自然采光措施</a>
-														  <input type="text" placeholder="请填写" id="d14">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">空调末端调控手段</a>
-														  <input type="text" placeholder="请填写" id="d15">
-													</div>
-													<div class="ui labeled input">
-														  <a class="ui label">空气质量监控设计</a>
-														  <input type="text" placeholder="请填写" id="d16">
-													</div>
-											</div>
-											<div class="clearfix"></div>
-											<div class="ui teal label huge part-result-ok" id="submit_sheet_4">保存</div>
-									</div>
+										<div class="b-list">											
+												<div class="ui labeled input">
+													  <a class="ui label">建筑名称</a>
+													  <input type="text" placeholder="请填写" id="d17" class="input_disabled" disabled>
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">标识类型</a>
+													  <input type="text" placeholder="请在基本信息中选择..." id="d2_hide" class="input_disabled" disabled>
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">星级</a>
+													  <input type="text" placeholder="请在基本信息中选择..." id="d1_hide" class="input_disabled" disabled>
+												</div>
+												
+										</div>
+										<div class="b-title">	
+												<a class="ui teal label large">技术应用统计</a>
+												<div class="clear"></div>
+										</div>	
+										<div class="b-list">													
+												
+																								
+												<div class="ui labeled input">
+													  <a class="ui label">自然通风</a>
+													  <input type="text" placeholder="请填写" id="d3">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">自然采光</a>
+													  <input type="text" placeholder="请填写" id="d4">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">遮阳</a>
+													  <input type="text" placeholder="请填写" id="d5">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">改善自然采光</a>
+													  <input type="text" placeholder="请填写" id="d6">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">可调控空调末端</a>
+													  <input type="text" placeholder="请填写" id="d7">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">空气质量监控</a>
+													  <input type="text" placeholder="请填写" id="d8">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">无障碍设施</a>
+													  <input type="text" placeholder="请填写" id="d9">
+												</div>
+												
+										</div>
+										<div class="b-title">	
+												<a class="ui teal label large">具体措施统计</a>
+												<div class="clear"></div>
+										</div>		
+										<div class="b-list">
+		
+												<!-- 公共建筑专有 -->									
+												<div class="ui labeled input list_gg"> 
+													  <a class="ui label">自然通风措施</a>
+													  <input type="text" placeholder="请填写" id="d10">
+												</div>
+												
+												<!-- 居住建筑独有   -->
+												<div class="ui labeled input list_jz"> 
+													  <a class="ui label label-max">通风开口面积与房间地板面积比例</a>
+													  <input type="text" placeholder="请填写" id="d11">
+												</div>
+												
+												<div class="ui labeled input">
+													  <a class="ui label label-max">自然采光达标面积比例</a>
+													  <input type="text" placeholder="请填写" id="d12">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">遮阳形式</a>
+													  <input type="text" placeholder="请填写" id="d13">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">改善自然采光措施</a>
+													  <input type="text" placeholder="请填写" id="d14">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">空调末端调控手段</a>
+													  <input type="text" placeholder="请填写" id="d15">
+												</div>
+												<div class="ui labeled input">
+													  <a class="ui label">空气质量监控设计</a>
+													  <input type="text" placeholder="请填写" id="d16">
+												</div>
+										</div>
+										<div class="clearfix"></div>
+										<div class="ui teal label huge part-result-ok" id="submit_sheet_4"><spring:message code="btn.save" /></div>
+								</div>
 									<!-- 室内环境措施 -->
 									<!-- 室内环境参数设计 -->
 									<div class="ui tab segment" data-tab="five">

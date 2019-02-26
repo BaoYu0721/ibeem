@@ -683,20 +683,20 @@ init();
      			}
      			
      			// 获取参数筛选数据
-     			var min_tem=parseInt($("#min_tem_yc").val());
-     			var max_tem=parseInt($("#max_tem_yc").val());
+     			var min_tem=parseInt($("#min_tem").val());
+     			var max_tem=parseInt($("#max_tem").val());
      			
-     			var min_hum=parseInt($("#min_hum_yc").val());
-     			var max_hum=parseInt($("#max_hum_yc").val());
+     			var min_hum=parseInt($("#min_hum").val());
+     			var max_hum=parseInt($("#max_hum").val());
      			
-     			var min_pm25=parseInt($("#min_pm25_yc").val());
-     			var max_pm25=parseInt($("#max_pm25_yc").val());
+     			var min_pm25=parseInt($("#min_pm25").val());
+     			var max_pm25=parseInt($("#max_pm25").val());
      			
-     			var min_co2=parseInt($("#min_co2_yc").val());
-     			var max_co2=parseInt($("#max_co2_yc").val());
+     			var min_co2=parseInt($("#min_co2").val());
+     			var max_co2=parseInt($("#max_co2").val());
      			
-     			var min_sun=parseInt($("#min_sun_yc").val());
-     			var max_sun=parseInt($("#max_sun_yc").val());
+     			var min_sun=parseInt($("#min_sun").val());
+     			var max_sun=parseInt($("#max_sun").val());
      			
      			// 返回筛选之后的数据长度并且 计算平均值 
      			for(var i=0;i<tempTemperatureData_2.length;i++){

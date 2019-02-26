@@ -315,7 +315,6 @@ class ViewService extends Service {
                         temp.hum += parseFloat(daviceDataList[j].hum),
                         temp.pm += parseFloat(daviceDataList[j].pm),
                         temp.co2 += parseFloat(daviceDataList[j].co2),
-                        temp.time += daviceDataList[j].time,
                         temp.lightIntensity += parseFloat(daviceDataList[j].lightIntensity),
                         temp.count++;
                     }else{
@@ -324,7 +323,6 @@ class ViewService extends Service {
                             hum: parseFloat(daviceDataList[j].hum),
                             pm: parseFloat(daviceDataList[j].pm),
                             co2: parseFloat(daviceDataList[j].co2),
-                            time: daviceDataList[j].time,
                             lightIntensity: parseFloat(daviceDataList[j].lightIntensity),
                             count: 1
                         };
@@ -332,14 +330,13 @@ class ViewService extends Service {
                 }
             }
             if(temp){
-                console.log(temp)
                 const resultMap = {
-                    tem: temp.tem / temp.count,
-                    hum: temp.hum / temp.count,
-                    pm: temp.pm / temp.count,
-                    co2: temp.co2 / temp.count,
-                    time: temp.time / temp.count,
-                    lightIntensity: temp.lightIntensity / temp.count
+                    tem: (temp.tem / temp.count).toFixed(2),
+                    hum: (temp.hum / temp.count).toFixed(2),
+                    pm: (temp.pm / temp.count).toFixed(2),
+                    co2: (temp.co2 / temp.count).toFixed(2),
+                    time: i * 1000,
+                    lightIntensity: (temp.lightIntensity / temp.count).toFixed(2)
                 }
                 resultList.push(resultMap);
             }

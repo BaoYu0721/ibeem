@@ -376,7 +376,6 @@ init();
 
     				datum.d1 = (datum.tem * 1).toFixed(1);
     				tempTemperatureData.push([timeUTC,datum.d1 * 1]);
-    				
     				datum.d2 = (datum.hum * 1).toFixed(1);
     				tempHumidityData.push([timeUTC,datum.d2 * 1]);
     				
@@ -684,20 +683,20 @@ init();
      			}
      			
      			// 获取参数筛选数据
-     			var min_tem=parseInt($("#min_tem_yc").val());
-     			var max_tem=parseInt($("#max_tem_yc").val());
+     			var min_tem=parseInt($("#min_tem").val());
+     			var max_tem=parseInt($("#max_tem").val());
      			
-     			var min_hum=parseInt($("#min_hum_yc").val());
-     			var max_hum=parseInt($("#max_hum_yc").val());
+     			var min_hum=parseInt($("#min_hum").val());
+     			var max_hum=parseInt($("#max_hum").val());
      			
-     			var min_pm25=parseInt($("#min_pm25_yc").val());
-     			var max_pm25=parseInt($("#max_pm25_yc").val());
+     			var min_pm25=parseInt($("#min_pm25").val());
+     			var max_pm25=parseInt($("#max_pm25").val());
      			
-     			var min_co2=parseInt($("#min_co2_yc").val());
-     			var max_co2=parseInt($("#max_co2_yc").val());
+     			var min_co2=parseInt($("#min_co2").val());
+     			var max_co2=parseInt($("#max_co2").val());
      			
-     			var min_sun=parseInt($("#min_sun_yc").val());
-     			var max_sun=parseInt($("#max_sun_yc").val());
+     			var min_sun=parseInt($("#min_sun").val());
+     			var max_sun=parseInt($("#max_sun").val());
      			
      			// 返回筛选之后的数据长度并且 计算平均值 
      			for(var i=0;i<tempTemperatureData_2.length;i++){
@@ -1287,19 +1286,30 @@ init();
  				   //console.log(dd);
  				   if(dd.code == 200){
      				   if(dd.dataParameter == null){ // 用户没有保存达标标准则为默认值
-	       		     			$("#min_tem_yc").attr("value", 20);
-	       		     			$("#max_tem_yc").attr("value", 25);
-	       		     			$("#min_hum_yc").attr("value", 40);
-	       		     			$("#max_hum_yc").attr("value", 60);
-	       		     			$("#min_pm25_yc").attr("value", 300);
-	       		     			$("#max_pm25_yc").attr("value", 500);
-	       		     			$("#min_co2_yc").attr("value", 0);
-	       		     			$("#max_co2_yc").attr("value", 1000);
-	          		     		$("#min_sun_yc").attr("value", 0);
-	       		     			$("#max_sun_yc").attr("value", 50);
+	       		     			$("#min_tem").attr("value", 20);
+	       		     			$("#max_tem").attr("value", 25);
+	       		     			$("#min_hum").attr("value", 40);
+	       		     			$("#max_hum").attr("value", 60);
+	       		     			$("#min_pm25").attr("value", 300);
+	       		     			$("#max_pm25").attr("value", 500);
+	       		     			$("#min_co2").attr("value", 0);
+	       		     			$("#max_co2").attr("value", 1000);
+	          		     		$("#min_sun").attr("value", 0);
+	       		     			$("#max_sun").attr("value", 50);
 	       		     			dbl_id = -1;
 						}else{
 							var cc = dd.dataParameter;
+							$("#min_tem").attr("value", cc.minTem);
+							$("#max_tem").attr("value", cc.maxTem);
+							$("#min_hum").attr("value", cc.minHum);
+							$("#max_hum").attr("value", cc.maxHum);
+							$("#min_pm25").attr("value", cc.minPm25);
+							$("#max_pm25").attr("value", cc.maxPm25);
+							$("#min_co2").attr("value", cc.minCo2);
+							$("#max_co2").attr("value", cc.maxCo2);
+							$("#min_sun").attr("value", cc.minLight);
+							$("#max_sun").attr("value", cc.maxLight);
+
 							$("#min_tem_yc").attr("value", cc.minTem);
 							$("#max_tem_yc").attr("value", cc.maxTem);
 							$("#min_hum_yc").attr("value", cc.minHum);
@@ -1837,7 +1847,6 @@ init();
 
 	    		  name=deviceData.deviceName;
 	 			  data=deviceData.data;
-	 			  
 	    		  tempTemperature_yc={};
 	    		  tempHumidity_yc={};
 	    		  tempPm25_yc={};

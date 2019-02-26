@@ -79,6 +79,23 @@ class IndexController extends Controller {
     }
   }
 
+  async parameterSave(){
+    const { ctx } = this;
+    const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
+    const userId = user.split('^_^')[0];
+    const result = await ctx.service.device.index.parameterSave(ctx.request.body, userId);
+    if(result == -1){
+      return ctx.body = {
+        code: 1005,
+        messg: "跟新失败"
+      };
+    }
+    ctx.body = {
+      code: 200,
+      dataParameter: result
+    };
+  }
+
   async deviceInfo(){
     const { ctx } = this;
     const deviceId = ctx.request.body.deviceID;
