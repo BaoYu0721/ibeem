@@ -253,7 +253,7 @@ $("#surveyAnalysis").click(function(){
 		return false;
 	}
 	$.cookie("fxsurveyId",id);
-	window.location.href += "&to=analysis&relation=1&oid=" + teamID;
+	window.location.href += "&to=analysis&relation=1&objectID=" + teamID;
 });
 //点击下载答卷按钮
 $("#surveyExport").click(function(){
