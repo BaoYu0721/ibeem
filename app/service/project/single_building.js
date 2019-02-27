@@ -856,17 +856,19 @@ class SingleBuildingService extends Service {
     }
 
     async ibeemBuildingDelete(buildingId){
-        const { app } = this;
-        const redlock = this.service.utils.lock.lockInit();
-        var ttl = 2000;
+        const { ctx, app } = this;
         try {
             const conn = await app.mysql.beginTransaction();
             const building_point = await app.mysql.select('building_point', {where: {building_id: buildingId}});
             var res;
             for(var key in building_point){
+                console.log(building_point[key].id)
                 res = await ctx.service.project.singleBuilding.buildingPointDel(building_point[key].id);
+                console.log(res)
                 if(res == -1) return -1;
             }
+            const redlock = this.service.utils.lock.lockInit();
+            var ttl = 2000;
             var resource = "ibeem_test:key_parameter";
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
@@ -1045,6 +1047,7 @@ class SingleBuildingService extends Service {
             await conn.commit();
             return res;
         } catch (error) {
+            console.log(error);
             return -1;
         }
     }
@@ -2293,7 +2296,6 @@ class SingleBuildingService extends Service {
         const redlock = this.service.utils.lock.lockInit();
         const conn = await app.mysql.beginTransaction();
         const ttl = 1000;
-        console.log(data)
         try {
             var resource = "ibeem_test:building_point";
             var res = await redlock.lock(resource, ttl).then(function(lock) {
@@ -2394,11 +2396,12 @@ class SingleBuildingService extends Service {
                 res = await redlock.lock(resource, ttl).then(function(lock) {
                     async function transation() {
                         try {
-                            const result = await app.mysql.select('building_point', { where: {device_id: data.deviceID}});
+                            const result = await conn.select('building_point', { where: {device_id: data.deviceID}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){
                                 const building = await app.mysql.get('building', {id: result[j].building_id});
+                                console.log(building)
                                 if(j == result.length - 1){
                                     cname += result[j].name;
                                     bname += building.name;
@@ -2520,7 +2523,7 @@ class SingleBuildingService extends Service {
                 async function transation() {
                     try {
                         if(buildingPoint.device_id){
-                            const result = await app.mysql.select('building_point', { where: {device_id: buildingPoint.device_id}});
+                            const result = await conn.select('building_point', { where: {device_id: buildingPoint.device_id}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){

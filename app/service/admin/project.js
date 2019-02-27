@@ -1038,7 +1038,7 @@ class ProjectService extends Service {
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
-                        await conn.query('update device set project_id = ? where project_id = ?', [null, projectId]);
+                        await conn.query('update device set project_id = ?, pname = ?, cname = ?, bname = ? where project_id = ?', [null, null, null, null, projectId]);
                     } catch (error) {
                         conn.rollback();
                         lock.unlock()
@@ -1188,6 +1188,30 @@ class ProjectService extends Service {
                 return transation();
             });
             if(res == -1) return res;
+            resource = "ibeem_test:building_point";
+            res = await redlock.lock(resource, ttl).then(function(lock){
+                async function transation(){
+                    try {
+                        const result = await conn.select('building', {where:{project_id: projectId}});
+                        for(var key in result){
+                            await conn.delete('building_point', {building_id: result[key].id});
+                        } 
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
             resource = "ibeem_test:building";
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
@@ -1276,32 +1300,7 @@ class ProjectService extends Service {
                 return transation();
             });
             if(res == -1) return res;
-            resource = "ibeem_test:device";
-            res = await redlock.lock(resource, ttl).then(function(lock) {
-                async function transation() {
-                    try {
-                        const device = await conn.select('device', {project_id: projectId});
-                        for(var key in device){
-                            await conn.update('device', {id: device[key].id, project_id: null})
-                        }
-                    } catch (error) {
-                        conn.rollback();
-                        lock.unlock()
-                        .catch(function(err) {
-                            console.error(err);
-                        });
-                        return -1;
-                    }
-                    lock.unlock()
-                    .catch(function(err) {
-                        console.error(err);
-                    });
-                    return 0;
-                }
-                return transation();
-            });
-            if(res == -1) return res;
-            resource = "ibeem_test:device";
+            resource = "ibeem_test:project";
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
@@ -1592,13 +1591,21 @@ class ProjectService extends Service {
     }
 
     async singleBuildingDelete(buildingId){
-        const { app } = this;
-        const redlock = this.service.utils.lock.lockInit();
-        var ttl = 2000;
+        const { ctx, app } = this;
         try {
+            const building_point = await app.mysql.select('building_point', {where: {building_id: buildingId}});
+            var res;
+            for(var key in building_point){
+                console.log(building_point[key].id)
+                res = await ctx.service.project.singleBuilding.buildingPointDel(building_point[key].id);
+                console.log(res)
+                if(res == -1) return -1;
+            }
+            const redlock = this.service.utils.lock.lockInit();
+            var ttl = 2000;
             var resource = "ibeem_test:building";
             const conn = await app.mysql.beginTransaction();
-            var res = await redlock.lock(resource, ttl).then(function(lock) {
+            res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
                         await conn.delete('key_parameter', {building_id: buildingId});

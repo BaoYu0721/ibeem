@@ -344,9 +344,13 @@ class SingleBuildingController extends Controller {
         const { ctx, config } = this;
         const path = config.baseDir + "/app/public/file/point";
         const files = fs.readdirSync(path);
+        var   image = '';
+        if(files.length){
+            image = '/public/file/point/' + files[Math.floor(Math.random() * files.length)];
+        }
         ctx.body = {
             code: 200,
-            image: '/public/file/point/' + files[Math.floor(Math.random() * files.length)]
+            image: image
         };
     }
 
