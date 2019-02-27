@@ -374,7 +374,7 @@ class SurveyService extends Service {
         }
     }
 
-    async analysisSurvey(surveyID, zid, yid, type, startTime, endTime, relation, objectID){
+    async analysisSurvey(surveyID, zid, yid, type, beginTime, endTime, relation, objectID){
         var result = {};
         var is_no_data = 1;
         try {

@@ -73,7 +73,7 @@ module.exports = app => {
   router.get('/survey', userRequired, controller.survey.index.index);
   router.post('/survey/list', userRequired, controller.survey.index.surveyList);
   router.post('/survey/question_list', userRequired, controller.survey.index.questionList);
-  router.post('/survey/getSurveyByID', userRequired, controller.survey.mobile.getSurveyByID);
+  router.post('/survey/getSurveyByID', controller.survey.mobile.getSurveyByID);
   router.post('/survey/download/answer', userRequired, controller.survey.download.answer);
   router.post('/survey/download/question', userRequired, controller.survey.download.question);
   router.post('/survey/increase/commit', userRequired, controller.survey.increase.commit);
@@ -190,7 +190,7 @@ module.exports = app => {
   router.post('/admin/survey/list', adminRequired, controller.admin.survey.surveyList);
   router.post('/admin/survey/download/answer', adminRequired, controller.admin.survey.surveyDownloadAnswer);
   router.post('/admin/survey/download/question', adminRequired, controller.admin.survey.surveyDownloadQuestion);
-  router.post('/admin/survey/getSurveyById', adminRequired, controller.admin.survey.getSurveyById);
+  router.post('/admin/survey/getSurveyById', controller.admin.survey.getSurveyById);
   router.post('/admin/survey/getDimension', adminRequired, controller.admin.survey.getDimension);
   router.post('/admin/survey/analysisSurvey', adminRequired, controller.admin.survey.analysisSurvey);
   router.post('/admin/survey/statistics', adminRequired, controller.admin.survey.surveyStatistics);

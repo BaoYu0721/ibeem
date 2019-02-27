@@ -860,9 +860,15 @@ class SingleBuildingService extends Service {
         const redlock = this.service.utils.lock.lockInit();
         var ttl = 2000;
         try {
-            var resource = "ibeem_test:building";
             const conn = await app.mysql.beginTransaction();
-            var res = await redlock.lock(resource, ttl).then(function(lock) {
+            const building_point = await app.mysql.select('building_point', {where: {building_id: buildingId}});
+            var res;
+            for(var key in building_point){
+                res = await ctx.service.project.singleBuilding.buildingPointDel(building_point[key].id);
+                if(res == -1) return -1;
+            }
+            var resource = "ibeem_test:key_parameter";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
                         await conn.delete('key_parameter', {building_id: buildingId});

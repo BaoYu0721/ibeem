@@ -138,7 +138,7 @@ class SingleService extends Service {
                 ownerName: device[key].uname != null ? device[key].uname : '',
                 id: device[key].id,
                 name: device[key].name,
-                userName: user.name != null ? user.name : '',
+                userName: user? user.name != null ? user.name : '': '',
                 latitude: device[key].latitude,
                 longitude: device[key].longitude,
                 type: device[key].type,
@@ -352,6 +352,28 @@ class SingleService extends Service {
                 async function transation() {
                     try {
                         await conn.query('delete from building_point_survey where building_point_id in(select id from building_point where building_id in(select id from building where project_id = ?))', [projectId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:answer";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        await conn.query('update answer set survey_relation_id = ? where survey_relation_id in(select id from survey_relation where project_id = ?)', [null, projectId]);
                     } catch (error) {
                         conn.rollback();
                         lock.unlock()

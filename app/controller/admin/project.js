@@ -48,6 +48,32 @@ class IndexController extends Controller {
                     });
                 }
                 if(topBuildingName){
+                    if(op == "point"){
+                        if(go == 'detail'){
+                            return ctx.render('administrator/teamBuildingPointDetail.html', {
+                                projectName: projectName,
+                                buildingName: null,
+                                topBuildingName: topBuildingName
+                            });
+                        }
+                        return ctx.render('administrator/teamBuildingPoint.html', {
+                          projectName: projectName,
+                          buildingName: null,
+                          topBuildingName: topBuildingName
+                        });
+                    }else if(op == "survey"){
+                        return ctx.render('administrator/surveyListBuilding.html', {
+                          projectName: projectName,
+                          buildingName: null,
+                          topBuildingName: topBuildingName
+                        });
+                    }else if(op == "energy"){
+                        return ctx.render('administrator/teamBuildingConsumption.html', {
+                          projectName: projectName,
+                          buildingName: null,
+                          topBuildingName: topBuildingName
+                        });
+                    }
                     if(topBuildingName){
                         return ctx.render('administrator/teamBuildingTop.html', {
                           projectName: projectName,
