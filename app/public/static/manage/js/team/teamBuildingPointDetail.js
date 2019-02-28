@@ -125,7 +125,6 @@ $(function(){
 	var d_status;
 	var d_name = point_detail.deviceName;
 	var s_title = point_detail.surveyTitle; // 问卷名
-	
 	$("#glsb").html("&nbsp;&nbsp;:&nbsp;&nbsp;"+d_name);
 	$("#glwj").html("&nbsp;&nbsp;:&nbsp;&nbsp;"+s_title);
 	
@@ -135,7 +134,7 @@ $(function(){
 		d_status = getLangStr("teamBuilding_msg_2");
 	}
 
-	if(point_detail.deviceId == -1 || point_detail.deviceId == '' || point_detail.deviceId == undefined){
+	if(point_detail.deviceID == -1 || point_detail.deviceID == '' || point_detail.deviceID == undefined){
 		d_name = "<span class='button_add'>"+ getLangStr("teamBuilding_msg_3") +"</span>";
 		d_status = "";
 	}

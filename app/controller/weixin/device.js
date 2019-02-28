@@ -96,7 +96,6 @@ class DeviceController extends Controller {
         const startTime = ctx.request.body.startTime;
         const endTime = ctx.request.body.endTime;
         const result = await ctx.service.weixin.device.deviceHistory(deviceId, startTime, endTime);
-        console.log(result)
         if(result == -1 || result == null){
             return ctx.body = {
                 result: "error"

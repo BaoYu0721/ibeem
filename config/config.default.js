@@ -57,7 +57,7 @@ module.exports = appInfo => {
       cron: '0 30 4 * * *'
     },
     fileExtensions: [
-      '.xlsx',
+      '.xlsx'
     ],
   };
 

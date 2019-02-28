@@ -174,6 +174,8 @@ module.exports = app => {
   // admin & device
   router.get('/admin/device', adminRequired, controller.admin.device.index);
   router.post('/admin/device/list', adminRequired, controller.admin.device.deviceList);
+  router.post('/admin/device/research', adminRequired, controller.admin.device.deviceResearch);
+  router.post('/admin/device/export', adminRequired, controller.admin.device.deviceExport);
   router.post('/admin/device/download/history', adminRequired, controller.admin.device.deviceDownloadHistory);
   router.post('/admin/device/download/create_work_order', adminRequired, controller.admin.device.createWorkOrder);
   router.post('/admin/device/view/on_line_rate', adminRequired, controller.admin.device.deviceOnLineRate);

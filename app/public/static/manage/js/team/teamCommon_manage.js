@@ -29,6 +29,7 @@ function UploadPhotoMethod(obj,func){
 	var te=/jpg|jpeg|png|JPG|PNG/g;
 	if(te.test(fileName)==false){
 		alertokMsg(getLangStr("image_error"),getLangStr("determine"));
+		obj.val('');
 	}else{
 		$form = obj.parent();
 		$img = $form.children(".portraitStyle");

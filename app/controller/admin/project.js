@@ -393,12 +393,12 @@ class IndexController extends Controller {
                     code: 1001
                 };
             }
-            if(sheet1.length == 1){
+            if(sheet1.length <= 1){
                 return ctx.body = {
                     code: 1000
                 };
             }
-            const result = await ctx.service.admin.project.buildingImportType1(projectId, xlsx);
+            const result = await ctx.service.project.singleBuilding.buildingImportType1(projectId, xlsx);
             if(result == -1){
                 return ctx.body = {
                     code: 1005
@@ -419,7 +419,7 @@ class IndexController extends Controller {
                     code: 1000
                 };
             }
-            const result = await ctx.service.admin.project.buildingImportType2(projectId, xlsx);
+            const result = await ctx.service.project.singleBuilding.buildingImportType2(projectId, xlsx);
             if(result == -1){
                 return ctx.body = {
                     code: 1005
@@ -430,7 +430,7 @@ class IndexController extends Controller {
             }
         }else if(type == '3'){
             const buildingName = ctx.query.buildingName;
-            const result = await ctx.service.admin.project.buildingImportType3(projectId, xlsx, buildingName);
+            const result = await ctx.service.project.singleBuilding.buildingImportType3(projectId, xlsx, buildingName);
             if(result == -1){
                 return ctx.body = {
                     code: 1005

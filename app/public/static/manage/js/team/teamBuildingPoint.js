@@ -73,7 +73,7 @@ function getPointData(){
 			var endTime = point.endTime;
 			var imageAvatar = point.image;
 					
-			var deviceID = point.deviceId;//设备ID
+			var deviceID = point.deviceID;//设备ID
 			var surveyID = point.surveyID;//问卷ID
 
 			$all_id.push(deviceID);

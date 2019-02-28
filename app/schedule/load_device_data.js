@@ -27,7 +27,7 @@ class LoadDeviceData extends Subscription{
         const max_pm25  = parseFloat(standard.max_pm25);
         var devices;
         try {
-            devices = await this.app.mysql.query('select deviceid, type from device;');
+            devices = await this.app.mysql.query('select id, deviceid, type from device;');
         } catch (error) {
             console.log(error)
             return -1;
@@ -79,7 +79,7 @@ class LoadDeviceData extends Subscription{
                                                     new Date(),
                                                     new Date(),
                                                     0,
-                                                    devices[i].deviceid
+                                                    devices[i].id
                                                 ]);
                                             } catch (error) {
                                                 console.log(error);
@@ -125,7 +125,7 @@ class LoadDeviceData extends Subscription{
                         await app.mysql.insert("online_record", {
                             number: count,
                             time: new Date(),
-                            device_id: devices[i].deviceid
+                            device_id: devices[i].id
                         });
                         lock.unlock()
                         .catch(function(err){
@@ -177,7 +177,7 @@ class LoadDeviceData extends Subscription{
                     await redlock.lock(resource, ttl)
                     .then(async function(lock){
                         await app.mysql.insert("standard_rate", {
-                            device_id:  devices[i].deviceid,
+                            device_id:  devices[i].id,
                             user_id:    24,
                             tem:        tem_standard,
                             hun:        hum_standard,
@@ -230,7 +230,7 @@ class LoadDeviceData extends Subscription{
                                                     new Date(),
                                                     new Date(),
                                                     0,
-                                                    devices[i].deviceid
+                                                    devices[i].id
                                                 ]);
                                             } catch (error) {
                                                 console.log(error);
@@ -272,7 +272,7 @@ class LoadDeviceData extends Subscription{
                         await app.mysql.insert("online_record", {
                             number: count,
                             time: new Date(),
-                            device_id: devices[i].deviceid
+                            device_id: devices[i].id
                         });
                         lock.unlock()
                         .catch(function(err){
@@ -324,7 +324,7 @@ class LoadDeviceData extends Subscription{
                     await redlock.lock(resource, ttl)
                     .then(async function(lock){
                         await app.mysql.insert("standard_rate", {
-                            device_id:  devices[i].deviceid,
+                            device_id:  devices[i].id,
                             user_id:    24,
                             tem:        tem_standard,
                             hun:        hum_standard,

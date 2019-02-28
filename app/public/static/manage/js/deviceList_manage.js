@@ -324,7 +324,7 @@ function setTable(deviceList){
 		addLoading();
 		
 		$.ajax({
-			url:"/admin/searchDeviceByName",
+			url:"/admin/device/research",
 			type:"POST",
 			data:{"name": $search_value},
 			success:function(data){
@@ -403,7 +403,7 @@ function setTable(deviceList){
 		var formData = new FormData($("#fileUpLoad")[0]);
 
 		$.ajax({
-			url:"/admin/importDeviceByAdmin",
+			url:"/admin/device/export",
 			type: "POST",
 			data: formData,
 			async: false,
@@ -415,15 +415,18 @@ function setTable(deviceList){
 				removeLoading();
 
 				if(data.code == 200) {
-					alertokMsg("导入模板成功！","确定","window.location.href='/redirect?url=administrator/deviceList_manage.jsp\'");
-				} else if(data.code == 1001)  {	
-					alertokMsg("上传文件类型不对！","确定");
-				} else{
-					alertokMsg("文件模板格式错误！","确定");
+					alertokMsg("导入模板成功！","确定","window.location.reload()");
+				} else {	
+					alertokMsg(data.msg,"确定");
 				}
 			},
 			error: function(e) { // 
-				
+				removeLoading();
+				if(e.status == 400){
+					alertokMsg("文件类型错误(请导入xlxs格式文件)", "确定");
+				}else if(e.status == 413){
+					alertokMsg("文件过大", "确定");
+				}
 			}
 		});
 	});
@@ -801,6 +804,11 @@ $("#addDeviceButton").click(function(){
 		return false;
 	}else if(type==""){
 		$("#addDeviceError").html("请选择设备类型");
+		return false;
+	}
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test(id)){
+		$("#addDeviceError").html("设备id数据非法!请输入数字");
 		return false;
 	}
 	var dataJson = {"name":name,"deviceid":id,"type":type,"physicalId":mac};

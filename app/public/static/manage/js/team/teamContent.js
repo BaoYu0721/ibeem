@@ -68,6 +68,14 @@ $("#commitTeamUpdate").on("click",function(){
 	var name = $("#name").val();
 	var describe = $("#describe").val();
 	var image = $("#image").attr("src");
+	if(!name){
+		alertokMsg(getLangStr("project_name_null"),getLangStr("alert_ok"));
+		return;
+	}
+	if(!describe){
+		alertokMsg(getLangStr("project_dec_null"),getLangStr("alert_ok"));
+		return;
+	}
 	if(name.length>20){
 		alertokMsg(getLangStr("project_survey_nametoolong"),getLangStr("determine"));
 		return false;
@@ -90,10 +98,6 @@ $("#commitTeamUpdate").on("click",function(){
 				alertokMsg(getLangStr("unknown_error"),getLangStr("alert_ok"));
 			}else if(res.code == 1005){
 				alertokMsg(getLangStr("project_exist"),getLangStr("alert_ok"));
-			}else if(res.code == 1007){
-				alertokMsg(getLangStr("project_name_null"),getLangStr("alert_ok"));
-			}else if(res.code == 1009){
-				alertokMsg(getLangStr("project_dec_null"),getLangStr("alert_ok"));
 			}
 		}
 	})

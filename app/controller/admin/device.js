@@ -30,6 +30,68 @@ class IndexController extends Controller {
         }
     }
 
+    async deviceResearch(){
+        const { ctx } = this;
+        const str = ctx.request.body.name;
+        const device = await ctx.service.admin.device.deviceResearch(str);
+        if(device != -1){
+          ctx.body = {
+            list: device,
+            code: 200
+          };
+        }else{
+          ctx.body = {
+            messg: "系统繁忙，请重试",
+            code: 1005
+          };
+        }
+    }
+
+    async deviceExport(){
+        const { ctx } = this;
+        const filepath = ctx.request.files[0].filepath;
+        const fileCheck = filepath.split('.');
+        if(fileCheck[fileCheck.length - 1] != 'xlsx'){
+            return ctx.body = {
+                code: 1001,
+                msg: '文件格式错误!'
+            };
+        }
+        const xlsx = ctx.helper.parseXlsx(filepath);
+        if(xlsx[0].data.length <= 1){
+            return ctx.body = {
+                code: 1000,
+                msg: '文件无数据!'
+            };
+        }
+        const device_info = xlsx[0].data;
+        if(device_info[0].length != 5 || device_info[0][0] != '设备ID'){
+            return ctx.body = {
+                code: 1003,
+                msg: '文件模板错误'
+            };
+        }
+        for(var i = 1; i < device_info.length; ++i){
+            for(var j = 0; j < 5; ++j){
+                if(!device_info[i][j]){
+                    return ctx.body = {
+                        code: 1002,
+                        msg: '文件第' + (i + 1) + '行第' + (j + 1) + '列没有数据!'
+                    };
+                }
+            }
+        }
+        const result = await ctx.service.admin.device.deviceExport(xlsx[0].data);
+        if(result == -1){
+            return ctx.body = {
+                code: 1005
+            }
+        }
+        ctx.body = {
+            code: 200
+        }
+    }
+
     async deviceDownloadHistory(){
         const { ctx } = this;
         const result = await ctx.service.admin.device.deviceDownloadHistory();
@@ -102,7 +164,6 @@ class IndexController extends Controller {
         const sWorkTime = ctx.request.body.startWorkTime;
         const eWorkTime = ctx.request.body.endWorkTime;
         const workDay = ctx.request.body.workDay;
-        console.log(deviceId)
         const result = await ctx.service.admin.device.deviceEnvironment(deviceId, sTime, eTime, sWorkTime, eWorkTime, workDay);
         if(result == -1){
             return ctx.body = {

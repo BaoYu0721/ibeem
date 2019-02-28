@@ -46,8 +46,7 @@ class ProjectService extends Service {
     }
 
     async singleDeviceInfo(projectId){
-        var ibeemBuilding = null;
-        var topBuilding = null;
+        var device = null;
         var project = null;
         try {
             project = await this.app.mysql.get('project', {id: projectId});
@@ -58,35 +57,39 @@ class ProjectService extends Service {
             return -2;
         }
         try {
-            ibeemBuilding = await this.app.mysql.select('building', {where: {project_id: projectId}});
-            topBuilding = await this.app.mysql.select('top_building', {where: {project_id: projectId}});
+            device = await this.app.mysql.select('device', {where: {project_id: projectId}});
         } catch (error) {
             return -1;
         }
-        const buildingList = [];
-        for(var key in ibeemBuilding){
-            const buildingMap = {
-                name: ibeemBuilding[key].name,
-                id: ibeemBuilding[key].id,
-                city: ibeemBuilding[key].city,
-                longitude: ibeemBuilding[key].longitude,
-                latitude: ibeemBuilding[key].latitude,
-                type: 'ibeem'
-            };
-            buildingList.push(buildingMap);
+        const deviceList = [];
+        for(var key in device){
+            var user = null;
+            try {
+                user = await this.app.mysql.get('user', {id: device[key].owner_id});
+            } catch (error) {
+                return -1;
+            }
+            const deviceMap = {
+                pname: device[key].pname? device[key].pname: '',
+                gname: device[key].gname? device[key].gname: '',
+                cname: device[key].cname? device[key].cname: '',
+                bname: device[key].bname? device[key].bname: '',
+                ownerName: device[key].uname != null ? device[key].uname : '',
+                id: device[key].id,
+                name: device[key].name,
+                userName: user? user.name != null ? user.name : '': '',
+                latitude: device[key].latitude,
+                longitude: device[key].longitude,
+                type: device[key].type,
+                address: device[key].address,
+                status: device[key].Online_status,
+                warning: device[key].warning_sign,
+                description: device[key].des,
+                memo: device[key].memo
+            }
+            deviceList.push(deviceMap);
         }
-        for(var key in topBuilding){
-            const buildingMap = {
-                name: topBuilding[key].name,
-                id: topBuilding[key].id,
-                city: '',
-                longitude: '',
-                latitude: '',
-                type: 'top'
-            };
-            buildingList.push(buildingMap);
-        }
-        return buildingList;
+        return deviceList;
     }
 
     async singleSurveyInfo(projectId){
@@ -137,7 +140,7 @@ class ProjectService extends Service {
             const resultMap = {
                 name: building[key].name,
                 id: building[key].id,
-                city: building[key].city,
+                city: building[key].city?building[key].city:'',
                 longitude: building[key].longitude,
                 latitude: building[key].latitude
             };
@@ -367,7 +370,7 @@ class ProjectService extends Service {
                 contact: sheet1[i][3]? sheet1[i][3]: null,
                 name: sheet1[i][4]? sheet1[i][4]: null,
                 type: sheet1[i][5]? sheet1[i][5]: null,
-                address: sheet1[i][6]? sheet1[i][6]: null,
+                city: sheet1[i][6]? sheet1[i][6]: null,
                 application_unit: sheet1[i][7]? sheet1[i][7]: null,
                 participant_organization: sheet1[i][8]? sheet1[i][8]: null,
                 time: sheet1[i][9]? new Date(sheet1[i][9]): null,
@@ -732,7 +735,7 @@ class ProjectService extends Service {
                 contact: sheet1[i][3]? sheet1[i][3]: null,
                 name: sheet1[i][4]? sheet1[i][4]: null,
                 type: sheet1[i][5]? sheet1[i][5]: null,
-                address: sheet1[i][6]? sheet1[i][6]: null,
+                city: sheet1[i][6]? sheet1[i][6]: null,
                 application_unit: sheet1[i][7]? sheet1[i][7]: null,
                 participant_organization: sheet1[i][8]? sheet1[i][8]: null,
                 time: sheet1[i][9]? new Date(sheet1[i][9]): null,
@@ -1692,6 +1695,28 @@ class ProjectService extends Service {
                 return transation();
             });
             if(res == -1) return res;
+            resource = "ibeem_test:answer"
+            res = await redlock.lock(resource, ttl).then(function(lock){
+                async function transation(){
+                    try {
+                        await conn.query('update answer set survey_relation_id = ? where survey_id in(select survey_id from survey_relation where building_id = ?)', [null, buildingId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
             resource = "ibeem_test:survey";
             res = await redlock.lock(resource, ttl).then(function(lock){
                 async function transation(){
@@ -1718,7 +1743,7 @@ class ProjectService extends Service {
             res = await redlock.lock(resource, ttl).then(function(lock){
                 async function transation(){
                     try {
-                        await conn.query('update survey_relation set building_id = ? where building_id = ?', [null, buildingId]);
+                        await conn.delete('survey_relation', {building_id: buildingId});
                     } catch (error) {
                         conn.rollback();
                         lock.unlock()
@@ -2255,9 +2280,9 @@ class ProjectService extends Service {
                             id: data.id,
                             climatic_province: data.climaticProvince,
                             image: image,
-                            latitude: data.latitude,
-                            longitude: data.longitude,
-                            building_class: data.buildingClass,
+                            latitude: data.latitude?data.latitude:null,
+                            longitude: data.longitude?data.longitude:null,
+                            building_class: data.buildingClass?data.buildingClass:null,
                             unit: data.unit,
                             subject: data.subject,
                             people: data.people,
@@ -2281,12 +2306,13 @@ class ProjectService extends Service {
                             air_conditioning_area: data.aca == ''? null: data.aca,
                             height: data.height == ''? null: data.height,
                             building_property: data.buildingProperty,
-                            construction_use_number: data.cun == ''? null: data.cum,
+                            construction_use_number: data.cun == ''? null: data.cun,
                             count_number: data.countNumber == ''? null: data.countNumber,
                             number: data.number == ''? null: data.number,
                             updated_on: new Date()
                         });
                     } catch (error) {
+                        console.log(error)
                         conn.rollback();
                         lock.unlock()
                         .catch(function(err) {
@@ -2307,13 +2333,13 @@ class ProjectService extends Service {
             res = await redlock.lock(resource, ttl).then(function(lock){
                 async function transation(){
                     try {
-                        const buildingPoint = await app.mysql.select('building_point', { where:{building_id: data.id}});
+                        const buildingPoint = await conn.select('building_point', { where:{building_id: data.id}});
                         for(var i in buildingPoint){
-                            const result = await app.mysql.select('building_point', { where: {device_id: buildingPoint[i].device_id}});
+                            const result = await conn.select('building_point', { where: {device_id: buildingPoint[i].device_id}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){
-                                const building = await app.mysql.get('building', {id: result[j].building_id});
+                                const building = await conn.get('building', {id: result[j].building_id});
                                 if(j == result.length - 1){
                                     cname += result[j].name;
                                     bname += building.name;
@@ -2329,6 +2355,7 @@ class ProjectService extends Service {
                             });
                         }
                     } catch (error) {
+                        console.log(error)
                         conn.rollback();
                         lock.unlock()
                         .catch(function(err) {
@@ -3021,7 +3048,7 @@ class ProjectService extends Service {
                 async function transation() {
                     try {
                         if(buildingPoint.device_id){
-                            const result = await app.mysql.select('building_point', { where: {device_id: buildingPoint.device_id}});
+                            const result = await conn.select('building_point', { where: {device_id: buildingPoint.device_id}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){
@@ -3261,7 +3288,7 @@ class ProjectService extends Service {
                 async function transation() {
                     try {
                         if(data.deviceID){
-                            const result = await app.mysql.select('building_point', { where: {device_id: data.deviceID}});
+                            const result = await conn.select('building_point', { where: {device_id: data.deviceID}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){
@@ -3364,8 +3391,12 @@ class ProjectService extends Service {
     async singleBuildingPointSurveyRelevant(projectId){
         var surveys = null;
         try {
-            surveys = await this.app.mysql.query('select * from survey where project_id = ?', [projectId]);
+            const project = await this.app.mysql.get('project', {id: projectId});
+            console.log(projectId)
+            console.log(project)
+            surveys       = await this.app.mysql.query('select * from survey where creator_id = ? or creator_id in(select user_id from user_project where (role = 0 or role = 1) and project_id = ?) or creator_id in(select creator_id from project where id = ?)', [project.creator_id, projectId, projectId]);
         } catch (error) {
+            console.log(error)
             return -1;
         }
         const resultList = [];

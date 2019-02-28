@@ -6,7 +6,7 @@ class DeviceService extends Service {
     async deviceList(page, pageSize){
         var device = null;
         try {
-            device = await this.app.mysql.query('select * from device order by id desc');
+            device = await this.app.mysql.query('select * from device order by id');
         } catch (error) {
             return -1;
         }
@@ -18,7 +18,7 @@ class DeviceService extends Service {
                 gname: gname == null? '': gname,
                 cname: cname,
                 bname: bname,
-                ownerName: ownerName,
+                ownerName: ownerName? ownerName: '',
                 id: id,
                 name: deviceName,
                 latitude: latitude,
@@ -35,24 +35,28 @@ class DeviceService extends Service {
         if(device.length > (page - 1) * pageSize && device.length >= page * pageSize){
             for(var i = (page - 1) * pageSize; i < page * pageSize; ++i){
                 var dataCount = null;
+                var user      = null;
                 try {
                     dataCount = await this.app.mysql.query('select count(id) from device_data where device_id = ?', [device[i].id]);
+                    user      = await this.app.mysql.get('user', device[i].owner_id);
                 } catch (error) {
                     console.log(error);
                     return -1;
                 }
-                addDeviceMap(dataCount[0]['count(id)'], device[i].pname, device[i].gname, device[i].cname, device[i].bname, device[i].uname, device[i].id, device[i].name, device[i].latitude, 
+                addDeviceMap(dataCount[0]['count(id)'], device[i].pname, device[i].gname, device[i].cname, device[i].bname, user.name, device[i].id, device[i].name, device[i].latitude, 
                     device[i].longitude, device[i].type, device[i].address, device[i].Online_status, device[i].warning_sign, device[i].des, device[i].memo);
             }
         }else if(device.length > (page - 1) * pageSize && device.length < page * pageSize){
             for(var i = (page - 1) * pageSize; i < device.length; ++i){
                 var dataCount = null;
+                var user      = null;
                 try {
                     dataCount = await this.app.mysql.query('select count(id) from device_data where device_id = ?', [device[i].id]);
+                    user      = await this.app.mysql.get('user', device[i].owner_id);
                 } catch (error) {
                     return -1;
                 }
-                addDeviceMap(dataCount[0]['count(id)'], device[i].pname, device[i].gname, device[i].cname, device[i].bname, device[i].uname, device[i].id, device[i].name, device[i].latitude, 
+                addDeviceMap(dataCount[0]['count(id)'], device[i].pname, device[i].gname, device[i].cname, device[i].bname, user.name, device[i].id, device[i].name, device[i].latitude, 
                     device[i].longitude, device[i].type, device[i].address, device[i].Online_status, device[i].warning_sign, device[i].des, device[i].memo);
             }
         }
@@ -64,6 +68,81 @@ class DeviceService extends Service {
             pageSize: pageSize
         };
         return deviceData;
+    }
+
+    async deviceResearch(str){
+        const sqlStr = '%' + str + '%';
+        const deviceList = [];
+        try {
+            const device = await this.app.mysql.query('select * from device where name like ? or type like ? or uname like ? or address like ?', [sqlStr.toUpperCase(), sqlStr.toLowerCase(), sqlStr, sqlStr]);
+            for(var key in device){
+                const user = await this.app.mysql.get('user', { id: device[key].owner_id });
+                const data_count = await this.app.mysql.query('select count(id) from device_data where device_id = ?', [device[key].id]);
+                const deviceMap = {
+                    pname: device[key].pname == null? '': device[key].pname,
+                    gname: device[key].gname == null? '': device[key].gname,
+                    cname: device[key].cname == null? '': device[key].cname,
+                    bname: device[key].bname == null? '': device[key].bname,
+                    ownerName: user?user.name == null? '': user.name: '',
+                    id: device[key].id,
+                    deviceName: device[key].name == null? '': device[key].name,
+                    userName: device[key].uname ? device[key].uname : '',
+                    latitude: device[key].latitude == null? '': device[key].latitude,
+                    longitude: device[key].longitude == null? '': device[key].longitude,
+                    type: device[key].type == null? '': device[key].type,
+                    address: device[key].address == null? '': device[key].address,
+                    status: device[key].Online_status == null? '': device[key].Online_status,
+                    waining: device[key].warning_sign == null? '': device[key].warning_sign,
+                    description: device[key].des == null? '': device[key].des,
+                    memo: device[key].memo == null? '': device[key].memo,
+                    dataCount: data_count[0]['count(id)']
+                };
+                deviceList.push(deviceMap);
+            }
+        } catch (error) {
+            console.log(error)
+            return -1;
+        }
+        return deviceList;
+    }
+
+    async deviceExport(data){
+        const { ctx, app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:device";
+        var ttl = 1000;
+        await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            for(var i = 1; i < data.length; ++i){
+                const did     = data[i][0];
+                const name    = data[i][1];
+                const mac     = data[i][2];
+                const type    = data[i][3];
+                const address = data[i][4];
+                const qcode   = ctx.helper.qrcode(did);
+                await app.mysql.insert('device', {
+                    deviceid:    did,
+                    name:        name,
+                    physical_id: mac,
+                    type:        type,
+                    address:     address,
+                    QR_code:     qcode,
+                    longitude:   116.33261,
+                    latitude:    40.014392,
+                    owner_id:    24,
+                    created_on:  new Date(),
+                    updated_on:  new Date()
+                });
+            }
+            lock.unlock()
+            .catch(function(err){
+                console.log(err)
+            })
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
     }
 
     async deviceDownloadHistory(){
@@ -176,7 +255,6 @@ class DeviceService extends Service {
             workOrderMap.type = 2;
         }else if(isCoclean){
             const result = await this.service.utils.http.cocleanPost(app.config.deviceDataReqUrl.coclean.createExportOrder, paraJson);
-            console.log(result)
             if(result.result == 'success'){
                 workOrderMap.work_id = result.data;
             }else{
@@ -261,20 +339,12 @@ class DeviceService extends Service {
             return null;
         }
         const daviceDataList = [];
-        var sTimeHours = null;
-        var sTimeMinutes = null;
-        var eTimeHours = null;
-        var eTimeMinutes = null;
-        var sTimes = null;
-        var eTimes = null;
-        if(sWorkTime && eWorkTime){
-            sTimeHours = sWorkTime.split(':')[0];
-            sTimeMinutes = sWorkTime.split(':')[1];
-            eTimeHours = eWorkTime.split(':')[0];
-            eTimeMinutes = eWorkTime.split(':')[1];
-            sTimes = sTimeHours * 60 + sTimeMinutes;
-            eTimes = eTimeHours * 60 + eTimeMinutes;
-        }
+        var sTimeHours = parseInt(sWorkTime.split(':')[0]);
+        var sTimeMinutes = parseInt(sWorkTime.split(':')[1]);
+        var eTimeHours = parseInt(eWorkTime.split(':')[0]);
+        var eTimeMinutes = parseInt(eWorkTime.split(':')[1]);
+        var sTimes = sTimeHours * 60 + sTimeMinutes;
+        var eTimes = eTimeHours * 60 + eTimeMinutes;
         if(device.type == "coclean"){
             const dayTime = 24 * 60 * 60;
             sTime = parseInt(sTime);
@@ -312,21 +382,21 @@ class DeviceService extends Service {
                         const dTimes = hours * 60 + minutes;
                         if(workDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(dataMap);
-                                }
+                                daviceDataList.push(dataMap);
                             }
                         }else if(workDay == 1){
                             if(time.getDay() != 0 && time.getDay() != 6){
-                                daviceDataList.push(dataMap);
-                            }
-                        }else if(workDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     daviceDataList.push(dataMap);
                                 }
-                            }else{
+                            }
+                        }else if(workDay == 2){
+                            if(time.getDay() == 0 || time.getDay() == 6){
                                 daviceDataList.push(dataMap);
+                            }else{
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    daviceDataList.push(dataMap);
+                                }
                             }
                         }else{
                             if(sWorkTime && eWorkTime){
@@ -357,21 +427,21 @@ class DeviceService extends Service {
                         const dTimes = hours * 60 + minutes;
                         if(workDay == 0){
                             if(time.getDay() == 0 || time.getDay() == 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(resultMap);
-                                }
+                                daviceDataList.push(resultMap);
                             }
                         }else if(workDay == 1){
                             if(time.getDay() != 0 && time.getDay() != 6){
-                                daviceDataList.push(resultMap);
-                            }
-                        }else if(workDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
                                 if(dTimes > sTimes && dTimes < eTimes){
                                     daviceDataList.push(resultMap);
                                 }
-                            }else{
+                            }
+                        }else if(workDay == 2){
+                            if(time.getDay() == 0 || time.getDay() == 6){
                                 daviceDataList.push(resultMap);
+                            }else{
+                                if(dTimes > sTimes && dTimes < eTimes){
+                                    daviceDataList.push(resultMap);
+                                }
                             }
                         }
                     }

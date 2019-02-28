@@ -63,7 +63,7 @@ class SingleBuildingController extends Controller {
                     code: 1001
                 };
             }
-            if(sheet1.length == 1){
+            if(sheet1.length <= 1){
                 return ctx.body = {
                     code: 1000
                 };

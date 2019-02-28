@@ -3,13 +3,13 @@ $("head").append($("<link rel='shortcut icon' href='/public/static/common/img/fa
 //添加上传图片监听
  var uploadImg="";
  $(".portraitForm").each(function(){
-	$form =$(this); 
+	$form =$(this);
  	$(this).change(function(){
  		 UploadPhotoMethod($(this).children(".eportrait"),function(){
  			 //成功后去掉添加框
  			 $form.parent().parent().children(".addicon").css("display","none");
  			 $form.parent().parent().children("span").css("display","none");
- 		 });
+		  });
  	});
  });
 // 删除图片方法
@@ -22,7 +22,7 @@ $("head").append($("<link rel='shortcut icon' href='/public/static/common/img/fa
 //上传图片方法，增加一个回调函数
 function UploadPhotoMethod(obj,func){
 	var getFile=obj.val();
-  	var fileName=getFileName(getFile)
+	var fileName=getFileName(getFile)
 	function getFileName(o){
 	    var pos=o.lastIndexOf(".");
 	    return o.substring(pos+1);  
@@ -30,6 +30,7 @@ function UploadPhotoMethod(obj,func){
 	var te=/jpg|jpeg|png|JPG|PNG/g;
 	if(te.test(fileName)==false){
 		alertokMsg(getLangStr("image_error"),getLangStr("determine"));
+		obj.val('');
 	}else{
 		$form = obj.parent();
 		$img = $form.children(".portraitStyle");

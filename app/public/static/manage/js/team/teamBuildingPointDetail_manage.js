@@ -780,7 +780,7 @@ $(function(){
 		   		type:"post",
 		   		url:"/admin/project/single/building/point_survey_relevant",
 		   		dataType:"json",
-		   		data:{},
+		   		data:{projectID:teamID},
 		   		success:function(data){
 		   			console.log(data);
 		   			if(data.code==200){

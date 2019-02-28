@@ -188,7 +188,6 @@ class SingleDeviceService extends Service {
                         gname += user.name + ',';
                     }
                 }
-                console.log(gname)
                 await conn.update('device',{
                     id: didArr[i],
                     gname: gname,

@@ -264,7 +264,7 @@ class SingleBuildingService extends Service {
                 contact: sheet1[i][3]? sheet1[i][3]: null,
                 name: sheet1[i][4]? sheet1[i][4]: null,
                 type: sheet1[i][5]? sheet1[i][5]: null,
-                address: sheet1[i][6]? sheet1[i][6]: null,
+                city: sheet1[i][6]? sheet1[i][6]: null,
                 application_unit: sheet1[i][7]? sheet1[i][7]: null,
                 participant_organization: sheet1[i][8]? sheet1[i][8]: null,
                 time: sheet1[i][9]? new Date(sheet1[i][9]): null,
@@ -629,7 +629,7 @@ class SingleBuildingService extends Service {
                 contact: sheet1[i][3]? sheet1[i][3]: null,
                 name: sheet1[i][4]? sheet1[i][4]: null,
                 type: sheet1[i][5]? sheet1[i][5]: null,
-                address: sheet1[i][6]? sheet1[i][6]: null,
+                city: sheet1[i][6]? sheet1[i][6]: null,
                 application_unit: sheet1[i][7]? sheet1[i][7]: null,
                 participant_organization: sheet1[i][8]? sheet1[i][8]: null,
                 time: sheet1[i][9]? new Date(sheet1[i][9]): null,
@@ -957,6 +957,28 @@ class SingleBuildingService extends Service {
                 return transation();
             });
             if(res == -1) return res;
+            resource = "ibeem_test:answer"
+            res = await redlock.lock(resource, ttl).then(function(lock){
+                async function transation(){
+                    try {
+                        await conn.query('update answer set survey_relation_id = ? where survey_id in(select survey_id from survey_relation where building_id = ?)', [null, buildingId]);
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
             resource = "ibeem_test:survey";
             res = await redlock.lock(resource, ttl).then(function(lock){
                 async function transation(){
@@ -983,7 +1005,7 @@ class SingleBuildingService extends Service {
             res = await redlock.lock(resource, ttl).then(function(lock){
                 async function transation(){
                     try {
-                        await conn.query('update survey_relation set building_id = ? where building_id = ?', [null, buildingId]);
+                        await conn.delete('survey_relation', {building_id: buildingId});
                     } catch (error) {
                         conn.rollback();
                         lock.unlock()
@@ -1419,7 +1441,6 @@ class SingleBuildingService extends Service {
             return -1;
         }
         const buildingPointList = [];
-        console.log(buildingPoint)
         for(var key in buildingPoint){
             var sTime = buildingPoint[key].device_start_time;
             var eTime = buildingPoint[key].device_end_time;
@@ -1443,7 +1464,7 @@ class SingleBuildingService extends Service {
                 id: buildingPoint[key].id,
                 positionDesc: buildingPoint[key].position_desc,
                 deviceName: device != null? device.name: '',
-                deviceId: device != null? device.id: '',
+                deviceID: device != null? device.id: '',
                 surveyTitle: result? result.title: '',
                 surveyID: survey? survey.length != 0? survey[0].survey_id != null? survey[0].survey_id: '': '': '',
                 answerTime: answer? answer.length != 0? answer[0].created_on != null? answer[0].created_on: '': '': '',
@@ -1659,13 +1680,13 @@ class SingleBuildingService extends Service {
             res = await redlock.lock(resource, ttl).then(function(lock){
                 async function transation(){
                     try {
-                        const buildingPoint = await app.mysql.select('building_point', { where:{building_id: data.id}});
+                        const buildingPoint = await conn.select('building_point', { where:{building_id: data.id}});
                         for(var i in buildingPoint){
-                            const result = await app.mysql.select('building_point', { where: {device_id: buildingPoint[i].device_id}});
+                            const result = await conn.select('building_point', { where: {device_id: buildingPoint[i].device_id}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){
-                                const building = await app.mysql.get('building', {id: result[j].building_id});
+                                const building = await conn.get('building', {id: result[j].building_id});
                                 if(j == result.length - 1){
                                     cname += result[j].name;
                                     bname += building.name;
@@ -2796,7 +2817,7 @@ class SingleBuildingService extends Service {
                 async function transation() {
                     try {
                         if(data.deviceID){
-                            const result = await app.mysql.select('building_point', { where: {device_id: data.deviceID}});
+                            const result = await conn.select('building_point', { where: {device_id: data.deviceID}});
                             var cname = '';
                             var bname = '';
                             for(var j in result){
