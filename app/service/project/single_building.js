@@ -863,9 +863,7 @@ class SingleBuildingService extends Service {
             const building_point = await app.mysql.select('building_point', {where: {building_id: buildingId}});
             var res;
             for(var key in building_point){
-                console.log(building_point[key].id)
                 res = await ctx.service.project.singleBuilding.buildingPointDel(building_point[key].id);
-                console.log(res)
                 if(res == -1) return -1;
             }
             const redlock = this.service.utils.lock.lockInit();
@@ -1194,7 +1192,6 @@ class SingleBuildingService extends Service {
             } catch (error) {
                 return -1;
             }
-            console.log(energy_consumption);
             const buildingMap = {
                 name: building.name,
                 id: building.id,
@@ -1736,7 +1733,6 @@ class SingleBuildingService extends Service {
         } catch (error) {
             return -1;
         }
-        console.log(data)
         const row = {
             land_area: data.landArea == ''? null: data.landArea,
             building_area: data.buildingArea == ''? null: data.buildingArea,
@@ -2425,7 +2421,6 @@ class SingleBuildingService extends Service {
                             var bname = '';
                             for(var j in result){
                                 const building = await app.mysql.get('building', {id: result[j].building_id});
-                                console.log(building)
                                 if(j == result.length - 1){
                                     cname += result[j].name;
                                     bname += building.name;
@@ -2821,7 +2816,6 @@ class SingleBuildingService extends Service {
                     try {
                         if(data.deviceID){
                             const result = await conn.select('building_point', { where: {device_id: data.deviceID}});
-                            console.log(result)
                             var cname = '';
                             var bname = '';
                             for(var j in result){
@@ -2841,7 +2835,6 @@ class SingleBuildingService extends Service {
                             });
                         }
                     } catch (error) {
-                        console.log(error);
                         conn.rollback();
                         lock.unlock()
                         .catch(function(err) {
@@ -3006,7 +2999,6 @@ class SingleBuildingService extends Service {
         const redlock = this.service.utils.lock.lockInit();
         const resource = "ibeem_test:energy_consumption";
         var ttl = 1000;
-        console.log(data)
         try {
             const res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {

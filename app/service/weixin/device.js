@@ -35,7 +35,7 @@ class DeviceService extends Service {
         const ttl      = 1000;
         const resource = "ibeem_test:device";
         await redlock.lock(resource, ttl)
-        .then(function(lock){
+        .then(async function(lock){
             await app.mysql.update('device', {
                 id:           data.id,
                 longitude:    data.longitude,

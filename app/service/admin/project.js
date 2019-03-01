@@ -1613,9 +1613,7 @@ class ProjectService extends Service {
             const building_point = await app.mysql.select('building_point', {where: {building_id: buildingId}});
             var res;
             for(var key in building_point){
-                console.log(building_point[key].id)
                 res = await ctx.service.project.singleBuilding.buildingPointDel(building_point[key].id);
-                console.log(res)
                 if(res == -1) return -1;
             }
             const redlock = this.service.utils.lock.lockInit();
@@ -1863,7 +1861,6 @@ class ProjectService extends Service {
             } catch (error) {
                 return -1;
             }
-            console.log(energy_consumption);
             const buildingMap = {
                 name: building.name,
                 id: building.id,
@@ -3407,8 +3404,6 @@ class ProjectService extends Service {
         var surveys = null;
         try {
             const project = await this.app.mysql.get('project', {id: projectId});
-            console.log(projectId)
-            console.log(project)
             surveys       = await this.app.mysql.query('select * from survey where creator_id = ? or creator_id in(select user_id from user_project where (role = 0 or role = 1) and project_id = ?) or creator_id in(select creator_id from project where id = ?)', [project.creator_id, projectId, projectId]);
         } catch (error) {
             console.log(error)
@@ -4046,7 +4041,6 @@ class ProjectService extends Service {
                         gname += user.name + ',';
                     }
                 }
-                console.log(gname)
                 await conn.update('device',{
                     id: didArr[i],
                     gname: gname,

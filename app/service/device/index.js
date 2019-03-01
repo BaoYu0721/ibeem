@@ -104,7 +104,6 @@ class IndexService extends Service {
 
     async parameterSave(parameter, uid){
         const { app } = this;
-        console.log(parameter)
         try {
             if(parameter.id == -1 || !parameter){
                 await app.mysql.insert('data_parameter', {

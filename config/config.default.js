@@ -88,14 +88,14 @@ module.exports = appInfo => {
     url: "http://apis.map.qq.com/ws/location/v1/ip",
     key: "JLWBZ-4353U-5PKVK-4EEN7-27ZKO-64FLV"
   };
-  
+
   //mysql
   exports.mysql = {
     client: {
-      host: '192.168.0.188',
+      host: '123.57.62.130',
       port: 3306,
       user: 'root',
-      password: 'root',
+      password: 'google@0112',
       database: 'ibeem_test',
     },
     app: true,
@@ -124,6 +124,6 @@ module.exports = appInfo => {
       ticketApi: "%scgi-bin/ticket/getticket?access_token=%s&type=jsapi"
     }
   }
-  
+
   return config;
 };

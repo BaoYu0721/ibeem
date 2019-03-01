@@ -625,7 +625,6 @@ class DeviceService extends Service {
         const redlock = this.service.utils.lock.lockInit();
         const resource = "ibeem_test:device";
         var ttl = 1000;
-        console.log(data)
         try {
             const res =  await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
