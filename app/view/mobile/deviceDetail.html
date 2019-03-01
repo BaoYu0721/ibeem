@@ -28,8 +28,8 @@
 <!-- <script type="text/javascript" src="static/common/js/tools.js"></script> -->
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src="/public/static/common/js/weixin/weixin.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=THK4l29Nn9su15oUi0KrzhAl3GkU9SQs"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=THK4l29Nn9su15oUi0KrzhAl3GkU9SQs&amp;services=&amp;t=20170220193356"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA&amp;services=&amp;t=20170220193356"></script>
 <style>
 	body{
 		background:#f4f4f4;
@@ -245,7 +245,7 @@ function getLocation(){
 }
 
 function getBaiduAddress(lat,lon){
-   var baiduGeocodingApi = 'http://api.map.baidu.com/geocoder/v2/?ak=THK4l29Nn9su15oUi0KrzhAl3GkU9SQscallback=showAddress&location='+lat+','+lon+'&output=json';
+   var baiduGeocodingApi = 'http://api.map.baidu.com/geocoder/v2/?ak=X801GQtwy97L2GGcTYqeQ9l85uGsT8eA&callback=showAddress&location='+lat+','+lon+'&output=json';
    var script = document.createElement('script');
    script.type = 'text/javascript';
    script.src = baiduGeocodingApi;
@@ -515,7 +515,7 @@ function ajaxFileUpload(fileid) {
 			$.ajax({
 		        type: "post",
 		        dataType: "json",
-		        url: '/device/updateDevice',
+		        url: '/weixin/device/info_update',
 		        data: {
 		        	id:device_id,
 		        	longitude:lon,
@@ -537,12 +537,10 @@ function ajaxFileUpload(fileid) {
 		});
 		
 		 //上传照片
-		/*$(".portraitForm input").change(function(){
-       		uploadImg($(this).parent()); 
-       		 /* ajaxFileUpload($(this).attr("id")) */ 
-       		 /* 添加关闭按钮 */
-       		 /*
-       	 }); */
+			// $(".portraitForm input").change(function(){
+			// 		uploadImg($(this).parent()); 
+			// 		ajaxFileUpload($(this).attr("id"))
+			// });
        	if(localStorage.getItem("login_type") == "user" && $.cookie("login_type") == "user"  ){
        		$(".img-panel").click(function(event){
     			if($(event.target).hasClass("close")){
@@ -741,7 +739,7 @@ function ajaxFileUpload(fileid) {
 	</div>
 	</li>
 </ul>
-<div class="refresh" style="display:none;"><spring:message code='mobiledetail_msg_4' /></div>
+<div class="refresh" style="display:none;">刷新</div>
 <!--底部导航  -->
 <ul class="footer clearfix">
 	<li class="current" id="devicetab">

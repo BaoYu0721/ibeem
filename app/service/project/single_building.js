@@ -101,31 +101,32 @@ class SingleBuildingService extends Service {
         const sheet4 = xlsx[3].data;
         const sheet5 = xlsx[4].data;
         const sheet6 = xlsx[5].data;
+        var   reg    = /^\d+(.\d+)?$/;
         for(var i = 1; i < sheet2.length; ++i){
             if(sheet2[i].length){
                 const designIndicatorsMap = {
-                    land_area: sheet2[i][1]? sheet2[i][1]: null,
-                    building_area: sheet2[i][2]? sheet2[i][2]: null,
-                    subsurface_area: sheet2[i][3]? sheet2[i][3]: null,
-                    ground_floor_area: sheet2[i][4]? sheet2[i][4]: null,
-                    gas: sheet2[i][5]? sheet2[i][5]: null,
-                    municipal_heating: sheet2[i][6]? sheet2[i][6]: null,
-                    electric_power: sheet2[i][7]? sheet2[i][7]: null,
-                    coal: sheet2[i][8]? sheet2[i][8]: null,
-                    ubadtec: sheet2[i][9]? sheet2[i][9]: null,
-                    deer: sheet2[i][10]? sheet2[i][10]: null,
-                    thermal_performance_improvement: sheet2[i][11]? sheet2[i][11]: null,
-                    hvaacsdec: sheet2[i][12]? sheet2[i][12]: null,
-                    hvaacsdectr: sheet2[i][13]? sheet2[i][13]: null,
-                    total_water: sheet2[i][14]? sheet2[i][14]: null,
-                    non_conventional_water: sheet2[i][15]? sheet2[i][15]: null,
-                    non_traditional_water_availability: sheet2[i][16]? sheet2[i][16]: null,
-                    building_life_hot_water: sheet2[i][17]? sheet2[i][17]: null,
-                    renewable_heat_capacity: sheet2[i][18]? sheet2[i][18]: null,
-                    tpohwgbre: sheet2[i][19]? sheet2[i][19]: null,
-                    building_electric_consumption: sheet2[i][20]? sheet2[i][20]: null,
-                    renewable_capacity: sheet2[i][21]? sheet2[i][21]: null,
-                    renewable_energy_generates_electricity: sheet2[i][22]? sheet2[i][22]: null,
+                    land_area: sheet2[i][1]? reg.test(sheet2[i][1])? sheet2[i][1]: null: null,
+                    building_area: sheet2[i][2]? reg.test(sheet2[i][2])? sheet2[i][2]: null: null,
+                    subsurface_area: sheet2[i][3]? reg.test(sheet2[i][3])? sheet2[i][3]: null: null,
+                    ground_floor_area: sheet2[i][4]? reg.test(sheet2[i][4])? sheet2[i][4]: null: null,
+                    gas: sheet2[i][5]? reg.test(sheet2[i][5])? sheet2[i][5]: null: null,
+                    municipal_heating: sheet2[i][6]? reg.test(sheet2[i][6])? sheet2[i][6]: null: null,
+                    electric_power: sheet2[i][7]? reg.test(sheet2[i][7])? sheet2[i][7]: null: null,
+                    coal: sheet2[i][8]? reg.test(sheet2[i][8])? sheet2[i][8]: null: null,
+                    ubadtec: sheet2[i][9]? reg.test(sheet2[i][9])? sheet2[i][9]: null: null,
+                    deer: sheet2[i][10]? reg.test(sheet2[i][10])? sheet2[i][10]: null: null,
+                    thermal_performance_improvement: sheet2[i][11]? reg.test(sheet2[i][11])? sheet2[i][11]: null: null,
+                    hvaacsdec: sheet2[i][12]? reg.test(sheet2[i][12])? sheet2[i][12]: null: null,
+                    hvaacsdectr: sheet2[i][13]? reg.test(sheet2[i][13])? sheet2[i][13]: null: null,
+                    total_water: sheet2[i][14]? reg.test(sheet2[i][14])? sheet2[i][14]: null: null,
+                    non_conventional_water: sheet2[i][15]? reg.test(sheet2[i][15])? sheet2[i][15]: null: null,
+                    non_traditional_water_availability: sheet2[i][16]? reg.test(sheet2[i][16])? sheet2[i][16]: null: null,
+                    building_life_hot_water: sheet2[i][17]? reg.test(sheet2[i][17])? sheet2[i][17]: null: null,
+                    renewable_heat_capacity: sheet2[i][18]? reg.test(sheet2[i][18])? sheet2[i][18]: null: null,
+                    tpohwgbre: sheet2[i][19]? reg.test(sheet2[i][19])? sheet2[i][19]: null: null,
+                    building_electric_consumption: sheet2[i][20]? reg.test(sheet2[i][20])? sheet2[i][20]: null: null,
+                    renewable_capacity: sheet2[i][21]? reg.test(sheet2[i][21])? sheet2[i][21]: null: null,
+                    renewable_energy_generates_electricity: sheet2[i][22]? reg.test(sheet2[i][22])? sheet2[i][22]: null: null,
                     created_on: new Date(),
                     updated_on: new Date()
                 };
@@ -135,44 +136,44 @@ class SingleBuildingService extends Service {
         for(var i = 2; i < sheet3.length; ++i){
             if(sheet3[i].length){
                 const energyConservationMeasureMap = {
-                    owccbo: sheet3[i][3]? sheet3[i][3]: null,
-                    cool_storage_heatstorage: sheet3[i][4]? sheet3[i][4]: null,
-                    exhaust_heat_recovery: sheet3[i][5]? sheet3[i][5]: null,
-                    adjustable_wind_ratio: sheet3[i][6]? sheet3[i][6]: null,
-                    partial_condition_energy_saving: sheet3[i][7]? sheet3[i][7]: null,
-                    er_standard: sheet3[i][8]? sheet3[i][8]: null,
-                    ws_standard: sheet3[i][9]? sheet3[i][9]: null,
-                    whwhu: sheet3[i][10]? sheet3[i][10]: null,
-                    itemized_metering: sheet3[i][11]? sheet3[i][11]: null,
-                    cchp: sheet3[i][12]? sheet3[i][12]: null,
-                    renewable_energy_use: sheet3[i][13]? sheet3[i][13]: null,
-                    lighting_target_value: sheet3[i][14]? sheet3[i][14]: null,
-                    lighting_control: sheet3[i][15]? sheet3[i][15]: null,
-                    egceas: sheet3[i][16]? sheet3[i][16]: null,
-                    energy_saving_electrical_equipment: sheet3[i][17]? sheet3[i][17]: null,
+                    owccbo: sheet3[i][3]? reg.test(sheet3[i][3])? sheet3[i][3]: null: null,
+                    cool_storage_heatstorage: sheet3[i][4]? reg.test(sheet3[i][4])? sheet3[i][4]: null: null,
+                    exhaust_heat_recovery: sheet3[i][5]? reg.test(sheet3[i][5])? sheet3[i][5]: null: null,
+                    adjustable_wind_ratio: sheet3[i][6]? reg.test(sheet3[i][6])? sheet3[i][6]: null: null,
+                    partial_condition_energy_saving: sheet3[i][7]? reg.test(sheet3[i][7])? sheet3[i][7]: null: null,
+                    er_standard: sheet3[i][8]? reg.test(sheet3[i][8])? sheet3[i][8]: null: null,
+                    ws_standard: sheet3[i][9]? reg.test(sheet3[i][9])? sheet3[i][9]: null: null,
+                    whwhu: sheet3[i][10]? reg.test(sheet3[i][10])? sheet3[i][10]: null: null,
+                    itemized_metering: sheet3[i][11]? reg.test(sheet3[i][11])? sheet3[i][11]: null: null,
+                    cchp: sheet3[i][12]? reg.test(sheet3[i][12])? sheet3[i][12]: null: null,
+                    renewable_energy_use: sheet3[i][13]? reg.test(sheet3[i][13])? sheet3[i][13]: null: null,
+                    lighting_target_value: sheet3[i][14]? reg.test(sheet3[i][14])? sheet3[i][14]: null: null,
+                    lighting_control: sheet3[i][15]? reg.test(sheet3[i][15])? sheet3[i][15]: null: null,
+                    egceas: sheet3[i][16]? reg.test(sheet3[i][16])? sheet3[i][16]: null: null,
+                    energy_saving_electrical_equipment: sheet3[i][17]? reg.test(sheet3[i][17])? sheet3[i][17]: null: null,
                     cold_source_form: sheet3[i][18]? sheet3[i][18]: null,
                     tfotds: sheet3[i][19]? sheet3[i][19]: null,
                     end_system: sheet3[i][20]? sheet3[i][20]: null,
-                    total_capacity: sheet3[i][21]? sheet3[i][21]: null,
-                    refrigerating_quantity_indicator: sheet3[i][22]? sheet3[i][22]: null,
-                    total_heat: sheet3[i][23]? sheet3[i][23]: null,
-                    calorimetric_index: sheet3[i][24]? sheet3[i][24]: null,
-                    cop: sheet3[i][25]? sheet3[i][25]: null,
-                    eer: sheet3[i][26]? sheet3[i][26]: null,
+                    total_capacity: sheet3[i][21]? reg.test(sheet3[i][21])? sheet3[i][21]: null: null,
+                    refrigerating_quantity_indicator: sheet3[i][22]? reg.test(sheet3[i][22])? sheet3[i][22]: null: null,
+                    total_heat: sheet3[i][23]? reg.test(sheet3[i][23])? sheet3[i][23]: null: null,
+                    calorimetric_index: sheet3[i][24]? reg.test(sheet3[i][24])? sheet3[i][24]: null: null,
+                    cop: sheet3[i][25]? reg.test(sheet3[i][25])? sheet3[i][25]: null: null,
+                    eer: sheet3[i][26]? reg.test(sheet3[i][26])? sheet3[i][26]: null: null,
                     iplv: sheet3[i][27]? sheet3[i][27]: null,
-                    boiler_thermal_efficiency: sheet3[i][28]? sheet3[i][28]: null,
+                    boiler_thermal_efficiency: sheet3[i][28]? reg.test(sheet3[i][28])? sheet3[i][28]: null: null,
                     ws: sheet3[i][29]? sheet3[i][29]: null,
-                    exterior_wall_K: sheet3[i][30]? sheet3[i][30]: null,
-                    roof_K: sheet3[i][31]? sheet3[i][31]: null,
-                    exterior_window_K: sheet3[i][32]? sheet3[i][32]: null,
-                    exterior_window_SC: sheet3[i][33]? sheet3[i][33]: null,
-                    skylight_K: sheet3[i][34]? sheet3[i][34]: null,
-                    skylight_SC: sheet3[i][35]? sheet3[i][35]: null,
+                    exterior_wall_K: sheet3[i][30]? reg.test(sheet3[i][30])? sheet3[i][30]: null: null,
+                    roof_K: sheet3[i][31]? reg.test(sheet3[i][31])? sheet3[i][31]: null: null,
+                    exterior_window_K: sheet3[i][32]? reg.test(sheet3[i][32])? sheet3[i][32]: null: null,
+                    exterior_window_SC: sheet3[i][33]? reg.test(sheet3[i][33])? sheet3[i][33]: null: null,
+                    skylight_K: sheet3[i][34]? reg.test(sheet3[i][34])? sheet3[i][34]: null: null,
+                    skylight_SC: sheet3[i][35]? reg.test(sheet3[i][35])? sheet3[i][35]: null: null,
                     building_orientation: sheet3[i][36]? sheet3[i][36]: null,
-                    wwr: sheet3[i][37]? sheep[i][37]: null,
-                    skylight_proportion: sheet3[i][38]? sheet3[i][38]: null,
-                    owcoar: sheet3[i][39]? sheet3[i][39]: null,
-                    tcwcoar: sheet3[i][40]? sheet3[i][40]: null,
+                    wwr: sheet3[i][37]? reg.test(sheet3[i][37])? sheet3[i][37]: null: null,
+                    skylight_proportion: sheet3[i][38]? reg.test(sheet3[i][38])? sheet3[i][38]: null: null,
+                    owcoar: sheet3[i][39]? reg.test(sheet3[i][39])? sheet3[i][39]: null: null,
+                    tcwcoar: sheet3[i][40]? reg.test(sheet3[i][40])? sheet3[i][40]: null: null,
                     dohss: sheet3[i][41]? sheet3[i][41]: null,
                     exhaust_heat_recovery_form: sheet3[i][42]? sheet3[i][42]: null,
                     nwats: sheet3[i][43]? sheet3[i][43]: null,
@@ -180,10 +181,10 @@ class SingleBuildingService extends Service {
                     whwhsd: sheet3[i][45]? sheet3[i][45]: null,
                     cchp_system_design: sheet3[i][46]? sheet3[i][46]: null,
                     renewable_energy_use_form: sheet3[i][47]? sheet3[i][47]: null,
-                    acscwst: sheet3[i][48]? sheet3[i][48]: null,
-                    accwrt: sheet3[i][49]? sheet3[i][49]: null,
-                    achawst: sheet3[i][50]? sheet3[i][50]: null,
-                    achwrt: sheet3[i][51]? sheet3[i][51]: null,
+                    acscwst: sheet3[i][48]? reg.test(sheet3[i][48])? sheet3[i][48]: null: null,
+                    accwrt: sheet3[i][49]? reg.test(sheet3[i][49])? sheet3[i][49]: null: null,
+                    achawst: sheet3[i][50]? reg.test(sheet3[i][50])? sheet3[i][50]: null: null,
+                    achwrt: sheet3[i][51]? reg.test(sheet3[i][51])? sheet3[i][51]: null: null,
                     created_on: new Date(),
                     updated_on: new Date()
                 };
@@ -201,7 +202,7 @@ class SingleBuildingService extends Service {
                     air_quality_control: sheet4[i][8]? sheet4[i][8]: null,
                     accessibility_facilities: sheet4[i][9]? sheet4[i][9]: null,
                     natural_ventilation_measures: sheet4[i][10]? sheet4[i][10]: null,
-                    natural_lighting_standard_area_ratio: sheet4[i][11]? sheet4[i][11]: null,
+                    natural_lighting_standard_area_ratio: sheet4[i][11]? reg.test(sheet4[i][11])? sheet4[i][11]: null: null,
                     shading_form: sheet4[i][12]? sheet4[i][12]: null,
                     improve_natural_lighting_measures: sheet4[i][13]? sheet4[i][13]: null,
                     air_conditioning_terminal_control_means: sheet4[i][14]? sheet4[i][14]: null,
@@ -216,12 +217,12 @@ class SingleBuildingService extends Service {
             if(sheet5[i].length){
                 const indoorEenvironmentParameterDesignMap = {
                     function_room: sheet5[i][0]? sheet5[i][0]: null,
-                    summer_temperature: sheet5[i][1]? sheet5[i][1]: null,
-                    summer_humidity: sheet5[i][2]? sheet5[i][2]: null,
-                    winter_temperature: sheet5[i][3]? sheet5[i][3]: null,
-                    winter_humidity: sheet5[i][4]? sheet5[i][4]: null,
-                    fresh_air_volume: sheet5[i][5]? sheet5[i][5]: null,
-                    standard_values_of_illumination: sheet5[i][6]? sheet5[i][6]: null,
+                    summer_temperature: sheet5[i][1]? reg.test(sheet5[i][1])? sheet5[i][1]: null: null,
+                    summer_humidity: sheet5[i][2]? reg.test(sheet5[i][2])? sheet5[i][2]: null: null,
+                    winter_temperature: sheet5[i][3]? reg.test(sheet5[i][3])? sheet5[i][3]: null: null,
+                    winter_humidity: sheet5[i][4]? reg.test(sheet5[i][4])? sheet5[i][4]: null: null,
+                    fresh_air_volume: sheet5[i][5]? reg.test(sheet5[i][5])? sheet5[i][5]: null: null,
+                    standard_values_of_illumination: sheet5[i][6]? reg.test(sheet5[i][6])? sheet5[i][6]: null: null,
                     ugr: sheet5[i][7]? sheet5[i][7]: null,
                     u0: sheet5[i][8]? sheet5[i][8]: null,
                     ra: sheet5[i][9]? sheet5[i][9]: null
@@ -244,9 +245,9 @@ class SingleBuildingService extends Service {
                     unconventional_sources_of_water: sheet6[i][12]? sheet6[i][12]: null,
                     non_traditional_sources_of_water_use: sheet6[i][13]? sheet6[i][13]: null,
                     form_of_water_saving_irrigation: sheet6[i][14]? sheet6[i][14]: null,
-                    rain_water_return: sheet6[i][15]? sheet6[i][15]: null,
-                    water_and_water_consumption: sheet6[i][16]? sheet6[i][16]: null,
-                    non_traditional_water_availability: sheet6[i][17]? sheet6[i][17]: null,
+                    rain_water_return: sheet6[i][15]? reg.test(sheet6[i][15])? sheet6[i][15]: null: null,
+                    water_and_water_consumption: sheet6[i][16]? reg.test(sheet6[i][16])? sheet6[i][16]: null: null,
+                    non_traditional_water_availability: sheet6[i][17]? reg.test(sheet6[i][17])? sheet6[i][17]: null: null,
                     created_on: new Date(),
                     updated_on: new Date()
                 };
@@ -254,9 +255,6 @@ class SingleBuildingService extends Service {
             }
         }
         for(var i = 1; i < sheet1.length; ++i){
-            if(!sheet1[i][4].toString().replace(/^\s+|\s+$/g, '')){
-                continue;
-            }
             const buildingMap = {
                 unit: sheet1[i][0]? sheet1[i][0]: null,
                 subject: sheet1[i][1]? sheet1[i][1]: null,
@@ -274,12 +272,12 @@ class SingleBuildingService extends Service {
                 project_time: sheet1[i][13]? new Date(sheet1[i][13]): null,
                 completion_time: sheet1[i][14]? new Date(sheet1[i][14]): null,
                 service_time: sheet1[i][15]? new Date(sheet1[i][15]): null,
-                building_area: sheet1[i][16]? sheet1[i][16]: null,
-                air_conditioning_area: sheet1[i][17]? sheet1[i][17]: null,
-                height: sheet1[i][18]? sheet1[i][18]: null,
+                building_area: sheet1[i][16]? reg.test(sheet1[i][16])? sheet1[i][16]: null: null,
+                air_conditioning_area: sheet1[i][17]? reg.test(sheet1[i][17])? sheet1[i][17]: null: null,
+                height: sheet1[i][18]? reg.test(sheet1[i][18])? sheet1[i][18]: null: null,
                 building_orientation: sheet1[i][19]? sheet1[i][19]: null,
                 building_property: sheet1[i][20]? sheet1[i][20]: null,
-                construction_use_number: sheet1[i][21]? sheet1[i][21]: null,
+                construction_use_number: sheet1[i][21]? reg.test(sheet1[i][21])? sheet1[i][21]: null: null,
                 remark: sheet1[i][22]? sheet1[i][22]: null,
                 project_id: parseInt(projectId),
                 created_on: new Date(),
@@ -303,6 +301,7 @@ class SingleBuildingService extends Service {
                                 designIndicators = await conn.insert('design_indicators', designIndicatorsList[key]);
                             }
                         } catch (error) {
+                            console.log(error)
                             conn.rollback();
                             lock.unlock()
                             .catch(function(err) {
@@ -326,6 +325,7 @@ class SingleBuildingService extends Service {
                                 energyConservationMeasure = await conn.insert('energy_conservation_measure', energyConservationMeasureList[key]);
                             }
                         } catch (error) {
+                            console.log(error)
                             conn.rollback();
                             lock.unlock()
                             .catch(function(err) {
@@ -349,6 +349,7 @@ class SingleBuildingService extends Service {
                                 indoorEnvironment = await conn.insert('indoor_environment', indoorEnvironmentList[key]);
                             }
                         } catch (error) {
+                            console.log(error)
                             conn.rollback();
                             lock.unlock()
                             .catch(function(err) {
@@ -372,6 +373,7 @@ class SingleBuildingService extends Service {
                                 indoorEenvironmentParameterDesign = await conn.insert('indoor_environment_parameter_design', indoorEenvironmentParameterDesignList[key]);
                             }
                         } catch (error) {
+                            console.log(error)
                             conn.rollback();
                             lock.unlock()
                             .catch(function(err) {
@@ -395,6 +397,7 @@ class SingleBuildingService extends Service {
                                 waterSaveDesign = await conn.insert('water_saving_design', waterSaveDesignList[key]);
                             }
                         } catch (error) {
+                            console.log(error)
                             conn.rollback();
                             lock.unlock()
                             .catch(function(err) {
@@ -472,31 +475,32 @@ class SingleBuildingService extends Service {
         const sheet4 = xlsx[3].data;
         const sheet5 = xlsx[4].data;
         const sheet6 = xlsx[5].data;
+        var   reg    = /^\d+(.\d+)?$/;
         for(var i = 1; i < sheet2.length; ++i){
             if(sheet2[i].length){
                 const designIndicatorsMap = {
-                    land_area: sheet2[i][1]? sheet2[i][1]: null,
-                    building_area: sheet2[i][2]? sheet2[i][2]: null,
-                    subsurface_area: sheet2[i][3]? sheet2[i][3]: null,
-                    ground_floor_area: sheet2[i][4]? sheet2[i][4]: null,
-                    gas: sheet2[i][5]? sheet2[i][5]: null,
-                    municipal_heating: sheet2[i][6]? sheet2[i][6]: null,
-                    electric_power: sheet2[i][7]? sheet2[i][7]: null,
-                    coal: sheet2[i][8]? sheet2[i][8]: null,
-                    ubadtec: sheet2[i][9]? sheet2[i][9]: null,
-                    deer: sheet2[i][10]? sheet2[i][10]: null,
-                    thermal_performance_improvement: sheet2[i][11]? sheet2[i][11]: null,
-                    hvaacsdec: sheet2[i][12]? sheet2[i][12]: null,
-                    hvaacsdectr: sheet2[i][13]? sheet2[i][13]: null,
-                    total_water: sheet2[i][14]? sheet2[i][14]: null,
-                    non_conventional_water: sheet2[i][15]? sheet2[i][15]: null,
-                    non_traditional_water_availability: sheet2[i][16]? sheet2[i][16]: null,
-                    building_life_hot_water: sheet2[i][17]? sheet2[i][17]: null,
-                    renewable_heat_capacity: sheet2[i][18]? sheet2[i][18]: null,
-                    tpohwgbre: sheet2[i][19]? sheet2[i][19]: null,
-                    building_electric_consumption: sheet2[i][20]? sheet2[i][20]: null,
-                    renewable_capacity: sheet2[i][21]? sheet2[i][21]: null,
-                    renewable_energy_generates_electricity: sheet2[i][22]? sheet2[i][22]: null,
+                    land_area: sheet2[i][1]? reg.test(sheet2[i][1])? sheet2[i][1]: null: null,
+                    building_area: sheet2[i][2]? reg.test(sheet2[i][2])? sheet2[i][2]: null: null,
+                    subsurface_area: sheet2[i][3]? reg.test(sheet2[i][3])? sheet2[i][3]: null: null,
+                    ground_floor_area: sheet2[i][4]? reg.test(sheet2[i][4])? sheet2[i][4]: null: null,
+                    gas: sheet2[i][5]? reg.test(sheet2[i][5])? sheet2[i][5]: null: null,
+                    municipal_heating: sheet2[i][6]? reg.test(sheet2[i][6])? sheet2[i][6]: null: null,
+                    electric_power: sheet2[i][7]? reg.test(sheet2[i][7])? sheet2[i][7]: null: null,
+                    coal: sheet2[i][8]? reg.test(sheet2[i][8])? sheet2[i][8]: null: null,
+                    ubadtec: sheet2[i][9]? reg.test(sheet2[i][9])? sheet2[i][9]: null: null,
+                    design_energy_efficiency_ratio: sheet2[i][10]? reg.test(sheet2[i][10])? sheet2[i][10]: null: null,
+                    thermal_performance_improvement: sheet2[i][11]? reg.test(sheet2[i][11])? sheet2[i][11]: null: null,
+                    hvaacsdec: sheet2[i][12]? reg.test(sheet2[i][12])? sheet2[i][12]: null: null,
+                    hvaacsdectr: sheet2[i][13]? reg.test(sheet2[i][13])? sheet2[i][13]: null: null,
+                    total_water: sheet2[i][14]? reg.test(sheet2[i][14])? sheet2[i][14]: null: null,
+                    non_conventional_water: sheet2[i][15]? reg.test(sheet2[i][15])? sheet2[i][15]: null: null,
+                    non_traditional_water_availability: sheet2[i][16]? reg.test(sheet2[i][16])? sheet2[i][16]: null: null,
+                    building_life_hot_water: sheet2[i][17]? reg.test(sheet2[i][17])? sheet2[i][17]: null: null,
+                    renewable_heat_capacity: sheet2[i][18]? reg.test(sheet2[i][18])? sheet2[i][18]: null: null,
+                    tpohwgbre: sheet2[i][19]? reg.test(sheet2[i][19])? sheet2[i][19]: null: null,
+                    building_electric_consumption: sheet2[i][20]? reg.test(sheet2[i][20])? sheet2[i][20]: null: null,
+                    renewable_capacity: sheet2[i][21]? reg.test(sheet2[i][21])? sheet2[i][21]: null: null,
+                    renewable_energy_generates_electricity: sheet2[i][22]? reg.test(sheet2[i][22])? sheet2[i][22]: null: null,
                     created_on: new Date(),
                     updated_on: new Date()
                 };
@@ -506,41 +510,41 @@ class SingleBuildingService extends Service {
         for(var i = 2; i < sheet3.length; ++i){
             if(sheet3[i].length){
                 const energyConservationMeasureMap = {
-                    owccbo: sheet3[i][3]? sheet3[i][3]: null,
-                    exhaust_heat_recovery: sheet3[i][4]? sheet3[i][4]: null,
-                    adjustable_wind_ratio: sheet3[i][5]? sheet3[i][5]: null,
-                    partial_condition_energy_saving: sheet3[i][6]? sheet3[i][6]: null,
-                    er_standard: sheet3[i][7]? sheet3[i][7]: null,
-                    ws_standard: sheet3[i][8]? sheet3[i][8]: null,
-                    whwhu: sheet3[i][9]? sheet3[i][9]: null,
-                    itemized_metering: sheet3[i][10]? sheet3[i][10]: null,
-                    cchp: sheet3[i][11]? sheet3[i][11]: null,
-                    renewable_energy_use: sheet3[i][12]? sheet3[i][12]: null,
-                    lighting_target_value: sheet3[i][13]? sheet3[i][13]: null,
-                    lighting_control: sheet3[i][14]? sheet3[i][14]: null,
-                    egceas: sheet3[i][15]? sheet3[i][15]: null,
-                    energy_saving_electrical_equipment: sheet3[i][16]? sheet3[i][16]: null,
+                    owccbo: sheet3[i][3]? reg.test(sheet3[i][3])? sheet3[i][3]: null: null,
+                    exhaust_heat_recovery: sheet3[i][4]? reg.test(sheet3[i][4])? sheet3[i][4]: null: null,
+                    adjustable_wind_ratio: sheet3[i][5]? reg.test(sheet3[i][5])? sheet3[i][5]: null: null,
+                    partial_condition_energy_saving: sheet3[i][6]? reg.test(sheet3[i][6])? sheet3[i][6]: null: null,
+                    er_standard: sheet3[i][7]? reg.test(sheet3[i][7])? sheet3[i][7]: null: null,
+                    ws_standard: sheet3[i][8]? reg.test(sheet3[i][8])? sheet3[i][8]: null: null,
+                    whwhu: sheet3[i][9]? reg.test(sheet3[i][9])? sheet3[i][9]: null: null,
+                    itemized_metering: sheet3[i][10]? reg.test(sheet3[i][10])? sheet3[i][10]: null: null,
+                    cchp: sheet3[i][11]? reg.test(sheet3[i][11])? sheet3[i][11]: null: null,
+                    renewable_energy_use: sheet3[i][12]? reg.test(sheet3[i][12])? sheet3[i][12]: null: null,
+                    lighting_target_value: sheet3[i][13]? reg.test(sheet3[i][13])? sheet3[i][13]: null: null,
+                    lighting_control: sheet3[i][14]? reg.test(sheet3[i][14])? sheet3[i][14]: null: null,
+                    egceas: sheet3[i][15]? reg.test(sheet3[i][15])? sheet3[i][15]: null: null,
+                    energy_saving_electrical_equipment: sheet3[i][16]? reg.test(sheet3[i][16])? sheet3[i][16]: null: null,
                     cold_source_form: sheet3[i][17]? sheet3[i][17]: null,
                     tfotds: sheet3[i][18]? sheet3[i][18]: null,
                     end_system: sheet3[i][19]? sheet3[i][19]: null,
                     ventilation_ventilation_form: sheet3[i][20]? sheet3[i][20]: null,
-                    total_capacity: sheet3[i][21]? sheet3[i][21]: null,
-                    refrigerating_quantity_indicator: sheet3[i][22]? sheet3[i][22]: null,
-                    total_heat: sheet3[i][23]? sheet3[i][23]: null,
-                    calorimetric_index: sheet3[i][24]? sheet3[i][24]: null,
-                    cop: sheet3[i][25]? sheet3[i][25]: null,
-                    eer: sheet3[i][26]? sheet3[i][26]: null,
+                    total_capacity: sheet3[i][21]? reg.test(sheet3[i][21])? sheet3[i][22]: null: null,
+                    refrigerating_quantity_indicator: sheet3[i][22]? reg.test(sheet3[i][22])? sheet3[i][22]: null: null,
+                    total_heat: sheet3[i][23]? reg.test(sheet3[i][23])? sheet3[i][23]: null: null,
+                    calorimetric_index: sheet3[i][24]? reg.test(sheet3[i][24])? sheet3[i][24]: null: null,
+                    cop: sheet3[i][25]? reg.test(sheet3[i][25])? sheet3[i][25]: null: null,
+                    eer: sheet3[i][26]? reg.test(sheet3[i][26])? sheet3[i][26]: null: null,
                     iplv: sheet3[i][27]? sheet3[i][27]: null,
-                    boiler_thermal_efficiency: sheet3[i][28]? sheet3[i][28]: null,
+                    boiler_thermal_efficiency: sheet3[i][28]? reg.test(sheet3[i][28])? sheet3[i][28]: null: null,
                     ws: sheet3[i][29]? sheet3[i][29]: null,
-                    exterior_wall_K: sheet3[i][30]? sheet3[i][30]: null,
-                    roof_K: sheet3[i][31]? sheet3[i][31]: null,
-                    exterior_window_K: sheet3[i][32]? sheet3[i][32]: null,
-                    exterior_window_SC: sheet3[i][33]? sheet3[i][33]: null,
+                    exterior_wall_K: sheet3[i][30]? reg.test(sheet3[i][30])? sheet3[i][30]: null: null,
+                    roof_K: sheet3[i][31]? reg.test(sheet3[i][31])? sheet3[i][31]: null: null,
+                    exterior_window_K: sheet3[i][32]? reg.test(sheet3[i][32])? sheet3[i][32]: null: null,
+                    exterior_window_SC: sheet3[i][33]? reg.test(sheet3[i][33])? sheet3[i][33]: null: null,
                     building_orientation: sheet3[i][34]? sheet3[i][34]: null,
-                    owcoar: sheet3[i][35]? sheet3[i][35]: null,
-                    tcwcoar: sheet3[i][36]? sheet3[i][36]: null,
-                    dohss: sheet3[i][37]? sheet3[i][37]: null,
+                    owcoar: sheet3[i][35]? reg.test(sheet3[i][35])? sheet3[i][35]: null: null,
+                    tcwcoar: sheet3[i][36]? reg.test(sheet3[i][36])? sheet3[i][36]: null: null,
+                    dohss: sheet3[i][37]? reg.test(sheet3[i][37])? sheet3[i][37]: null: null,
                     exhaust_heat_recovery_form: sheet3[i][38]? sheet3[i][38]: null,
                     nwats: sheet3[i][39]? sheet3[i][39]: null,
                     potwcesm: sheet3[i][40]? sheet3[i][40]: null,
@@ -564,7 +568,7 @@ class SingleBuildingService extends Service {
                     air_quality_control: sheet4[i][8]? sheet4[i][8]: null,
                     accessibility_facilities: sheet4[i][9]? sheet4[i][9]: null,
                     natural_ventilation_measures: sheet4[i][10]? sheet4[i][10]: null,
-                    natural_lighting_standard_area_ratio: sheet4[i][11]? sheet4[i][11]: null,
+                    natural_lighting_standard_area_ratio: sheet4[i][11]? reg.test(sheet4[i][11])? sheet4[i][11]: null: null,
                     shading_form: sheet4[i][12]? sheet4[i][12]: null,
                     improve_natural_lighting_measures: sheet4[i][13]? sheet4[i][13]: null,
                     air_conditioning_terminal_control_means: sheet4[i][14]? sheet4[i][14]: null,
@@ -579,12 +583,12 @@ class SingleBuildingService extends Service {
             if(sheet5[i].length){
                 const indoorEenvironmentParameterDesignMap = {
                     function_room: sheet5[i][0]? sheet5[i][0]: null,
-                    summer_temperature: sheet5[i][1]? sheet5[i][1]: null,
-                    summer_humidity: sheet5[i][2]? sheet5[i][2]: null,
-                    winter_temperature: sheet5[i][3]? sheet5[i][3]: null,
-                    winter_humidity: sheet5[i][4]? sheet5[i][4]: null,
-                    fresh_air_volume: sheet5[i][5]? sheet5[i][5]: null,
-                    standard_values_of_illumination: sheet5[i][6]? sheet5[i][6]: null,
+                    summer_temperature: sheet5[i][1]? reg.test(sheet5[i][1])? sheet5[i][1]: null: null,
+                    summer_humidity: sheet5[i][2]? reg.test(sheet5[i][2])? sheet5[i][2]: null: null,
+                    winter_temperature: sheet5[i][3]? reg.test(sheet5[i][3])? sheet5[i][3]: null: null,
+                    winter_humidity: sheet5[i][4]? reg.test(sheet5[i][4])? sheet5[i][4]: null: null,
+                    fresh_air_volume: sheet5[i][5]? reg.test(sheet5[i][5])? sheet5[i][5]: null: null,
+                    standard_values_of_illumination: sheet5[i][6]? reg.test(sheet5[i][6])? sheet5[i][6]: null: null,
                     ugr: sheet5[i][7]? sheet5[i][7]: null,
                     u0: sheet5[i][8]? sheet5[i][8]: null,
                     ra: sheet5[i][9]? sheet5[i][9]: null,
@@ -609,9 +613,9 @@ class SingleBuildingService extends Service {
                     unconventional_sources_of_water: sheet6[i][12]? sheet6[i][12]: null,
                     non_traditional_sources_of_water_use: sheet6[i][13]? sheet6[i][13]: null,
                     form_of_water_saving_irrigation: sheet6[i][14]? sheet6[i][14]: null,
-                    rain_water_return: sheet6[i][15]? sheet6[i][15]: null,
-                    water_and_water_consumption: sheet6[i][16]? sheet6[i][16]: null,
-                    non_traditional_water_availability: sheet6[i][17]? sheet6[i][17]: null,
+                    rain_water_return: sheet6[i][15]? reg.test(sheet6[i][15])? sheet6[i][15]: null: null,
+                    water_and_water_consumption: sheet6[i][16]? reg.test(sheet6[i][16])? sheet6[i][16]: null: null,
+                    non_traditional_water_availability: sheet6[i][17]? reg.test(sheet6[i][17])? sheet6[i][17]: null: null,
                     created_on: new Date(),
                     updated_on: new Date()
                 };
@@ -619,9 +623,6 @@ class SingleBuildingService extends Service {
             }
         }
         for(var i = 1; i < sheet1.length; ++i){
-            if(!sheet1[i][4].toString().replace(/^\s+|\s+$/g, '')){
-                continue;
-            }
             const buildingMap = {
                 unit: sheet1[i][0]? sheet1[i][0]: null,
                 subject: sheet1[i][1]? sheet1[i][1]: null,
@@ -639,10 +640,10 @@ class SingleBuildingService extends Service {
                 project_time: sheet1[i][13]? new Date(sheet1[i][13]): null,
                 completion_time: sheet1[i][14]? new Date(sheet1[i][14]): null,
                 service_time: sheet1[i][15]? new Date(sheet1[i][15]): null,
-                building_area: sheet1[i][16]? sheet1[i][16]: null,
+                building_area: sheet1[i][16]? reg.test(sheet1[i][16])? sheet1[i][16]: null: null,
                 building_orientation: sheet1[i][17]? sheet1[i][17]: null,
-                count_number: sheet1[i][18]? sheet1[i][18]: null,
-                number: sheet1[i][19]? sheet1[i][19]: null,
+                count_number: sheet1[i][18]? reg.test(sheet1[i][18])? sheet1[i][18]: null: null,
+                number: sheet1[i][19]? reg.test(sheet1[i][19])? sheet1[i][19]: null: null,
                 remark: sheet1[i][20]? sheet1[i][20]: null,
                 project_id: parseInt(projectId),
                 created_on: new Date(),
@@ -1735,6 +1736,7 @@ class SingleBuildingService extends Service {
         } catch (error) {
             return -1;
         }
+        console.log(data)
         const row = {
             land_area: data.landArea == ''? null: data.landArea,
             building_area: data.buildingArea == ''? null: data.buildingArea,
@@ -1748,6 +1750,7 @@ class SingleBuildingService extends Service {
             design_energy_efficiency_ratio: data.deer == ''? null: data.deer,
             thermal_performance_improvement: data.tpi == ''? null: data.tpi,
             hvaacsdec: data.hvaacsdec == ''? null: data.hvaacsdec,
+            hvaacsdectr: data.hvaacsdectr? data.hvaacsdectr: null,
             total_water: data.totalWater == ''? null: data.totalWater,
             non_conventional_water: data.ncw == ''? null: data.ncw,
             non_traditional_water_availability: data.ntwa == ''? null: data.ntwa,
@@ -2770,7 +2773,7 @@ class SingleBuildingService extends Service {
             });
             if(res == -1) return res;
             resource = "ibeem_test:survey_relation";
-            const buildingPoint = await app.mysql.get('building_point', {id: data.buildingPointID});
+            const buildingPoint = await conn.get('building_point', {id: data.buildingPointID});
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
@@ -2818,10 +2821,11 @@ class SingleBuildingService extends Service {
                     try {
                         if(data.deviceID){
                             const result = await conn.select('building_point', { where: {device_id: data.deviceID}});
+                            console.log(result)
                             var cname = '';
                             var bname = '';
                             for(var j in result){
-                                const building = await app.mysql.get('building', {id: result[j].building_id});
+                                const building = await conn.get('building', {id: result[j].building_id});
                                 if(j == result.length - 1){
                                     cname += result[j].name;
                                     bname += building.name;

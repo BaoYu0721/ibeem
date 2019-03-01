@@ -17,7 +17,7 @@ class ViewService extends Service {
         const resultList = [];
         for(var key in onlineRecord){
             const resultMap = {
-                time: onlineRecord[key].time.getTime(),
+                time: onlineRecord[key].time.getTime() - 24 * 60 * 1000,
                 onlineRate: Math.floor(onlineRecord[key].number / 288.0 * 100) / 100
             };
             resultList.push(resultMap);
@@ -168,7 +168,7 @@ class ViewService extends Service {
         const resultList = [];
         for(var key in rateData){
             const resultMap = {
-                time: rateData[key].time.getTime(),
+                time: rateData[key].time.getTime() - 24 * 60 * 1000,
                 tem: parseFloat(rateData[key].tem).toFixed(3),
                 hum: parseFloat(rateData[key].tem).toFixed(3),
                 light: parseFloat(rateData[key].light).toFixed(3),

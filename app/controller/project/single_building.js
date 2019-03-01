@@ -68,6 +68,13 @@ class SingleBuildingController extends Controller {
                     code: 1000
                 };
             }
+            for(var i = 1; i < sheet1.length; ++i){
+                if(!sheet1[i][4]){
+                    return ctx.body = {
+                        code: 1003
+                    };
+                }
+            }
             const result = await ctx.service.project.singleBuilding.buildingImportType1(projectId, xlsx);
             if(result == -1){
                 return ctx.body = {

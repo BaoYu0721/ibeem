@@ -55,7 +55,8 @@ $(document).ready(function(){
 	        success: function (data) {
 	        	removeLoading();
 	            if (data.status == 0) {
-	            	localStorage.setItem("login_type","user");
+					localStorage.setItem("login_type","user");
+					$.cookie("login_type", "user")
 	            	var timestamp = Date.parse(new Date());
 	            	timestamp = timestamp / 1000;
 	            	window.location.href = "/weixin/device?timestamp="+timestamp;

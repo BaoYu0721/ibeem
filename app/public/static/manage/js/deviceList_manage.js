@@ -403,7 +403,7 @@ function setTable(deviceList){
 		var formData = new FormData($("#fileUpLoad")[0]);
 
 		$.ajax({
-			url:"/admin/device/export",
+			url:"/admin/device/import",
 			type: "POST",
 			data: formData,
 			async: false,

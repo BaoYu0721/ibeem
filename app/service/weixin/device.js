@@ -29,6 +29,34 @@ class DeviceService extends Service {
         return resultList;
     }
 
+    async infoUpdate(data){
+        const { app }  = this;
+        const redlock  = this.service.utils.lock.lockInit();
+        const ttl      = 1000;
+        const resource = "ibeem_test:device";
+        await redlock.lock(resource, ttl)
+        .then(function(lock){
+            await app.mysql.update('device', {
+                id:           data.id,
+                longitude:    data.longitude,
+                address:      data.address,
+                des:          data.describe,
+                warning_sign: data.warning_sign,
+                image:        data.image,
+                memo:         data.memo
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err)
+                return -1;
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        })
+    }
+
     async deviceRealtimeData(deviceId){
         var device = null;
         try {

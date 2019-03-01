@@ -106,7 +106,7 @@ class DeviceService extends Service {
         return deviceList;
     }
 
-    async deviceExport(data){
+    async deviceImport(data){
         const { ctx, app } = this;
         const redlock = this.service.utils.lock.lockInit();
         const resource = "ibeem_test:device";
@@ -316,8 +316,8 @@ class DeviceService extends Service {
         const resultList = [];
         for(var key in onlineRecord){
             const resultMap = {
-                time: onlineRecord[key].time.getTime(),
-                onlineRecord: Math.round(onlineRecord[key].number / 288, 2)
+                time: onlineRecord[key].time.getTime() - 24 * 60 * 1000,
+                onlineRate: Math.round(onlineRecord[key].number / 288, 2)
             };
             resultList.push(resultMap);
         }

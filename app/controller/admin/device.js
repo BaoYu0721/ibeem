@@ -47,7 +47,7 @@ class IndexController extends Controller {
         }
     }
 
-    async deviceExport(){
+    async deviceImport(){
         const { ctx } = this;
         const filepath = ctx.request.files[0].filepath;
         const fileCheck = filepath.split('.');
@@ -81,7 +81,7 @@ class IndexController extends Controller {
                 }
             }
         }
-        const result = await ctx.service.admin.device.deviceExport(xlsx[0].data);
+        const result = await ctx.service.admin.device.deviceImport(xlsx[0].data);
         if(result == -1){
             return ctx.body = {
                 code: 1005

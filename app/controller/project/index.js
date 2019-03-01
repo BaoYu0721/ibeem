@@ -161,7 +161,7 @@ class IndexController extends Controller {
     valueMap[5] = building['type'];
     valueMap[6] = building['address'];
     valueMap[7] = building['application_unit'];
-    valueMap[8] = building['participant_origanization'];
+    valueMap[8] = building['participant_organization'];
     valueMap[9] = building['time'] == null? '': ctx.helper.dateFormat(building['time']);
     valueMap[10] = building['adoption_standard'];
     valueMap[11] = building['level'];

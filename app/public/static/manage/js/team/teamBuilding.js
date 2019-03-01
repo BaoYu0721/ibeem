@@ -309,6 +309,8 @@ function UpLoadFile(ajaxUrl,type) {
 				alertokMsg(getLangStr("import_building_messg5"),getLangStr("determine"));
 			}else if(data.code == 1000){
 				alertokMsg(getLangStr("import_building_messg7"),getLangStr("determine"));
+			}else if(data.code == 1003){
+				alertokMsg(getLangStr("import_building_messg8"),getLangStr("determine"));
 			}
 		},
 		error: function(e) { // 

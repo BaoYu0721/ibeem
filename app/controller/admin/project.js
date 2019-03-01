@@ -374,6 +374,48 @@ class IndexController extends Controller {
         }
     }
 
+    async singleBuildingExport(){
+        const { ctx } = this;
+        const buildingId = ctx.query.buildingId;
+        const building = await ctx.service.admin.project.singleBuildingExport(buildingId);
+        const filename = new Date().getTime().toString() + '.xlsx';
+        ctx.set("Content-Disposition", "attachment;filename=" + filename);
+        if(building == -1){
+            return ctx.body = {
+                messg: "系统繁忙请重试"
+            };
+        }
+        const data = [];
+        const keyMap = ["调研测试主体单位","所在课题","填写人","联系方式","建筑名称","建筑类型","地理位置","申报单位","参与单位","申报时间","采用标准","星级","标识类别","立项时间","竣工时间","运营时间","建筑面积(m2)","空调面积(m2)","建筑高度(m)","建筑朝向","建筑性质","建筑使用人数"];
+        const valueMap = [];
+        valueMap[0] = building['unit'];
+        valueMap[1] = building['subject'];
+        valueMap[2] = building['people'];
+        valueMap[3] = building['contact'];
+        valueMap[4] = building['name'];
+        valueMap[5] = building['type'];
+        valueMap[6] = building['address'];
+        valueMap[7] = building['application_unit'];
+        valueMap[8] = building['participant_organization'];
+        valueMap[9] = building['time'] == null? '': ctx.helper.dateFormat(building['time']);
+        valueMap[10] = building['adoption_standard'];
+        valueMap[11] = building['level'];
+        valueMap[12] = building['identifying'];
+        valueMap[13] = building['project_time'] == null? '': ctx.helper.dateFormat(building['project_time']);
+        valueMap[14] = building['completion_time'] == null? '': ctx.helper.dateFormat(building['completion_time']);
+        valueMap[15] = building['service_time'] == null? '': ctx.helper.dateFormat(building['service_time']);
+        valueMap[16] = building['building_area'] == null? '': building['building_area'];
+        valueMap[17] = building['air_conditioning_area'] == null? '': building['air_conditioning_area'];
+        valueMap[18] = building['height'] == null? '': building['height'];
+        valueMap[19] = building['building_orientation'];
+        valueMap[20] = building['building_property'];
+        valueMap[21] = building['construction_use_number'] == null? '': building['construction_use_number'];
+        valueMap[22] = building['remark'];
+        data.push(keyMap);
+        data.push(valueMap);
+        ctx.body = ctx.helper.xlsxData(data);
+    }
+
     async singleBuildingImport(){
         const { ctx } = this;
         const projectId = ctx.query.projectID;
@@ -397,6 +439,13 @@ class IndexController extends Controller {
                 return ctx.body = {
                     code: 1000
                 };
+            }
+            for(var i = 1; i < sheet1.length; ++i){
+                if(!sheet1[i][4]){
+                    return ctx.body = {
+                        code: 1003
+                    };
+                }
             }
             const result = await ctx.service.project.singleBuilding.buildingImportType1(projectId, xlsx);
             if(result == -1){

@@ -239,7 +239,7 @@ $("#buildTempOut").click(function(){
 
 // 导出模板方法
 function downLoadBuilding(bid){
-	window.location.href= "/admin/exportBuilding?buildingID=" + bid; 
+	window.location.href= "/admin/project/single/building/export?buildingId=" + bid; 
 	/*$.ajax({
 		url:"/admin/exportBuilding",
 		type:"POST",
@@ -772,6 +772,7 @@ $("#submit_sheet_2").click(function(){
 	if(!reg.test($("#b11").val()) && $("#b11").val())  {alertokMsg(getLangStr("building_design_msg_10"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(!reg.test($("#b12").val()) && $("#b12").val())  {alertokMsg(getLangStr("building_design_msg_11"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(!reg.test($("#b13").val()) && $("#b13").val())  {alertokMsg(getLangStr("building_design_msg_12"),getLangStr("alert_ok")); removeLoading(); return;}
+	if(!reg.test($("#b14").val()) && $("#b14").val())  {alertokMsg(getLangStr("building_design_msg_22"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(!reg.test($("#b15").val()) && $("#b15").val())  {alertokMsg(getLangStr("building_design_msg_13"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(!reg.test($("#b16").val()) && $("#b16").val())  {alertokMsg(getLangStr("building_design_msg_14"),getLangStr("alert_ok")); removeLoading(); return;}
 	if(!reg.test($("#b17").val()) && $("#b17").val())  {alertokMsg(getLangStr("building_design_msg_15"),getLangStr("alert_ok")); removeLoading(); return;}

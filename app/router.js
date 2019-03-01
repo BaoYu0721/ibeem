@@ -152,6 +152,7 @@ module.exports = app => {
   // weixin
   router.get('/weixin/index', controller.weixin.user.index);
   router.get('/weixin/device', userRequired, controller.weixin.device.index);
+  router.post('/weixin/device/info_update', userRequired, controller.weixin.device.infoUpdate);
   router.post('/weixin/getTicket', controller.weixin.index.getTicket);
   router.post('/weixin/login', controller.sign.login.loginAuth);
   router.post('/weixin/device/list', userRequired, controller.weixin.device.deviceList);
@@ -175,7 +176,7 @@ module.exports = app => {
   router.get('/admin/device', adminRequired, controller.admin.device.index);
   router.post('/admin/device/list', adminRequired, controller.admin.device.deviceList);
   router.post('/admin/device/research', adminRequired, controller.admin.device.deviceResearch);
-  router.post('/admin/device/export', adminRequired, controller.admin.device.deviceExport);
+  router.post('/admin/device/import', adminRequired, controller.admin.device.deviceImport);
   router.post('/admin/device/download/history', adminRequired, controller.admin.device.deviceDownloadHistory);
   router.post('/admin/device/download/create_work_order', adminRequired, controller.admin.device.createWorkOrder);
   router.post('/admin/device/view/on_line_rate', adminRequired, controller.admin.device.deviceOnLineRate);
@@ -213,6 +214,7 @@ module.exports = app => {
   router.post('/admin/project/single/edit', adminRequired, controller.admin.project.singleEdit);
   router.post('/admin/project/single/delete', adminRequired, controller.admin.project.singleDelete);
   router.post('/admin/project/single/building', adminRequired, controller.admin.project.singleBuilding);
+  router.get('/admin/project/single/building/export', adminRequired, controller.admin.project.singleBuildingExport);
   router.post('/admin/project/single/building/add', adminRequired, controller.admin.project.singleBuildingAdd);
   router.post('/admin/project/single/building/import', adminRequired, controller.admin.project.singleBuildingImport);
   router.post('/admin/project/single/building/delete', adminRequired, controller.admin.project.singleBuildingDelete);

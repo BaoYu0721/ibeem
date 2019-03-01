@@ -340,6 +340,7 @@ var ch ={
 		"import_building_messg5":"文件格式不对",
 		"import_building_messg6":"请先选择文件",
 		"import_building_messg7":"导入模板建筑没有数据",
+		"import_building_messg8":"请检查是否存在建筑名为空的数据",
 //设备列表 && 项目设备列表
 		"deviceList_list":"设备列表",
 		"deviceList_del_ok":"删除成功",
@@ -765,6 +766,7 @@ var ch ={
 		"building_design_msg_19": "建筑用电量数据非法!",
 		"building_design_msg_20": "可再生发电量数据非法!",
 		"building_design_msg_21": "可再生能源产生发电比例数据非法!",
+		"building_design_msg_22": "供暖、通风与空调系统设计能耗降低幅度数据非法!",
 		"building_energy_msg_1": "总制冷量数据非法!",
 		"building_energy_msg_2": "制冷量指标数据非法!",
 		"building_energy_msg_3": "总制热量数据非法!",
@@ -1144,6 +1146,7 @@ var en ={
 		"import_building_messg5":"The file is incorrect.",
 		"import_building_messg6":"Please select a file first",
 		"import_building_messg7":"Import template building without data",
+		"import_building_messg8":"Please check if there is data with empty building name",
 //设备列表 && 项目设备列表
 		"deviceList_list":"Device List",
 		"deviceList_del_ok":"Delete successfully",
@@ -1565,6 +1568,7 @@ var en ={
 		"building_design_msg_19": "Building electricity consumption data is illegal!",
 		"building_design_msg_20": "Illegal power generation data!",
 		"building_design_msg_21": "Renewable energy generates illegal power generation data!",
+		"building_design_msg_22": "Heating, ventilation and air conditioning system design energy consumption reduction data illegal!",
 		"building_energy_msg_1": "Illegal cooling data!",
 		"building_energy_msg_2": "Illegal cooling capacity data!",
 		"building_energy_msg_3": "Total heat data is illegal!",

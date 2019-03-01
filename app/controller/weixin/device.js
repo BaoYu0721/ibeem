@@ -56,6 +56,20 @@ class DeviceController extends Controller {
         };
     }
 
+    async infoUpdate(){
+        const { ctx } = this;
+        const result = await ctx.service.weixin.device.infoUpdate(ctx.request.body);
+        if(result == -1){
+            return ctx.body = {
+                code: 1003,
+                messg: "设备信息跟新失败!"
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
     async deviceRealtimeData(){
         const { ctx } = this;
         const deviceId = ctx.request.body.deviceId;
