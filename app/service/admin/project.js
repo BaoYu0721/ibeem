@@ -3826,6 +3826,107 @@ class ProjectService extends Service {
         return topBuilding;
     }
 
+    async singleTopBuildingUpdate(data){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_building";
+        var ttl = 1000;
+        const dataMap = {
+            id:     data.id,
+            name:   data.name,
+            project_id: data.projectID,
+            organisation_name: data.organisationName,
+            organisation_addressline_1: data.organisationAddressline1,
+            organisation_addressline_2: data.organisationAddressline2,
+            organisation_addressline_3: data.organisationAddressline3,
+            organisation_addressline_4: data.organisationAddressline4,
+            organisation_city: data.organisationCity,
+            organisation_postcode: data.organisationPostcode,
+            organisation_country: data.organisationCountry,
+            sector_type: data.sectorType,
+            site_number: data.siteNumber,
+            site_addressline_1: data.siteAddressline1,
+            site_addressline_2: data.siteAddressline2,
+            site_addressline_3: data.siteAddressline3,
+            site_addressline_4: data.siteAddressline4,
+            site_city: data.siteCity,
+            site_postcode: data.sitePostcode,
+            site_country: data.siteCountry,
+            number_of_buildings: data.numberOfBuildings,
+            urban_context: data.urbanContext,
+            swimming_pool: data.swimmingPool,
+            pool_type: data.poolType,
+            primary_activity_type: data.primaryActivityType,
+            tenancy_type: data.tenancyType,
+            architectural_drawing_availability: data.architecturalDrawingAvailability,
+            construction_phase: data.constructionPhase,
+            construction_date: data.constructionDate,
+            refurbishment_date: data.refurbishmentDate,
+            refurbishment_details: data.refurbishmentDetails,
+            structure_type: data.structureType,
+            gross_internal_area: data.grossInternalArea,
+            building_footprint_area: data.buildingFootprintArea,
+            average_height: data.averageHeight,
+            number_of_storeys: data.numberOfStoreys,
+            perimeter_lengths: data.perimeterLengths,
+            exposed_perimeter_lengths: data.exposedPerimeterLengths,
+            air_permeability: data.airPermeability,
+            glazing_to_external_wall_percentage: data.glazingToExternalWallPercentage,
+            door_to_external_wall_percentage: data.doorToExternalWallPercentage,
+            roof_type: data.roofType,
+            primary_ventilation_strategy: data.primaryVentilationStrategy,
+            primary_heating_type: data.primaryHeatingType,
+            main_heating_fuel: data.mainHeatingFuel,
+            main_heating_system_efficiency: data.mainHeatingSystemEfficiency,
+            lighting_capacity: data.lightingCapacity,
+            lighting_control_type: data.lightingControlType,
+            chillers: data.chillers,
+            chiller_capacity: data.chillerCapacity,
+            cooling_type: data.coolingType,
+            annual_occupancy_hours: data.annualOccupancyHours,
+            number_of_occupants: data.numberOfOccupants,
+            activity_type_1: data.activityType1,
+            activity_type_1_floor_area: data.activityType1FloorArea,
+            activity_type_2: data.activityType2,
+            activity_type_2_floor_area: data.activityType2FloorArea,
+            server_room: data.serverRoom,
+            sustainability_certification_type: data.sustainabilityCertificationType,
+            sustainability_certification_rating: data.sustainabilityCertificationRating,
+            catering_kitchen : data.cateringKitchen,
+            number_of_meals_served: data.numberOfMealsServed,
+            number_of_lifts: data.numberOfLifts,
+            lift_type: data.liftType,
+            parameter_type: data.parameterType,
+            supplier: data.supplier,
+            record_type: data.recordType,
+            metering_level: data.meteringLevel,
+            monitoring_period: data.monitoringPeriod,
+            monitoring_start_date: data.monitoringStartDate,
+            monitoring_end_date: data.monitoringEndDate,
+            fuel_type: data.fuelType,
+            fuel_type_unit: data.fuelTypeUnit,
+            fuel_type_consumption: data.fuelTypeConsumption,
+            end_use_type: data.endUseType,
+            bms: data.bms,
+            deleted: data.deleted,
+            sub_metering: data.subMetering,  
+        };
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            app.mysql.update('top_building', dataMap);
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
+    }
+
     async singleTopBuildingRoomInfo(buildingId){
         var topRoom = null;
         try {

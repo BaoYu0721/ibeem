@@ -469,6 +469,29 @@ $("#submit_sheet_1,#submit_sheet_2,#submit_sheet_3,#submit_sheet_6,#submit_sheet
 	///building/updateTopBuilding
 	//参数：Long projectID
 	//projectID = teamID;
+	var reg = /^\d+(.\d+)?$/;
+	if(!reg.test($("#a7_hide").val()) && $("#a7_hide").val())  {alertokMsg(getLangStr("top_building_base_msg_1"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#b5").val()) && $("#b5").val())  {alertokMsg(getLangStr("top_building_base_msg_2"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c5").val()) && $("#c5").val())  {alertokMsg(getLangStr("top_building_base_msg_3"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c6").val()) && $("#c6").val())  {alertokMsg(getLangStr("top_building_base_msg_4"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c9").val()) && $("#c9").val())  {alertokMsg(getLangStr("top_building_base_msg_5"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c10").val()) && $("#c10").val())  {alertokMsg(getLangStr("top_building_base_msg_6"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c11").val()) && $("#c11").val())  {alertokMsg(getLangStr("top_building_base_msg_7"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c12").val()) && $("#c12").val())  {alertokMsg(getLangStr("top_building_base_msg_8"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c13").val()) && $("#c13").val())  {alertokMsg(getLangStr("top_building_base_msg_9"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c15").val()) && $("#c15").val())  {alertokMsg(getLangStr("top_building_base_msg_10"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c16").val()) && $("#c16").val())  {alertokMsg(getLangStr("top_building_base_msg_11"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c17").val()) && $("#c17").val())  {alertokMsg(getLangStr("top_building_base_msg_12"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c22").val()) && $("#c22").val())  {alertokMsg(getLangStr("top_building_base_msg_13"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c23").val()) && $("#c23").val())  {alertokMsg(getLangStr("top_building_base_msg_14"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c25").val()) && $("#c25").val())  {alertokMsg(getLangStr("top_building_base_msg_15"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c27").val()) && $("#c27").val())  {alertokMsg(getLangStr("top_building_base_msg_16"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c28").val()) && $("#c28").val())  {alertokMsg(getLangStr("top_building_base_msg_17"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c30").val()) && $("#c30").val())  {alertokMsg(getLangStr("top_building_base_msg_18"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c39").val()) && $("#c39").val())  {alertokMsg(getLangStr("top_building_base_msg_19"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c35").val()) && $("#c35").val())  {alertokMsg(getLangStr("top_building_base_msg_20"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c36").val()) && $("#c36").val())  {alertokMsg(getLangStr("top_building_base_msg_21"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#g8").val()) && $("#g8").val())  {alertokMsg(getLangStr("top_building_base_msg_22"),getLangStr("alert_ok"));removeLoading(); return;}
 	var jsonPost = {
 			buildingID:buildingIDs,
 			energyID:energyIDs,
@@ -556,7 +579,7 @@ $("#submit_sheet_1,#submit_sheet_2,#submit_sheet_3,#submit_sheet_6,#submit_sheet
 	}
 	
 	$.ajax({
-		url:"/building/updateTopBuilding",
+		url:"/project/single/topBuilding/update",
 		data:jsonPost,
 		type:"POST",
 		success:function(e){

@@ -1358,6 +1358,19 @@
       "POST"
     ],
     "paramNames": [],
+    "path": "/project/single/topBuilding/update",
+    "regexp": "/^\\/project\\/single\\/topBuilding\\/update(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
     "path": "/project/single/topBuilding/room_info",
     "regexp": "/^\\/project\\/single\\/topBuilding\\/room_info(?:\\/(?=$))?$/",
     "stack": [
@@ -2676,6 +2689,19 @@
     "paramNames": [],
     "path": "/admin/project/single/topBuilding",
     "regexp": "/^\\/admin\\/project\\/single\\/topBuilding(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/topBuilding/update",
+    "regexp": "/^\\/admin\\/project\\/single\\/topBuilding\\/update(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
       "wrappedController"

@@ -999,6 +999,20 @@ class IndexController extends Controller {
         };
     }
 
+    async singleTopBuildingUpdate(){
+        const { ctx } = this;
+        const result = await ctx.service.admin.project.singleTopBuildingUpdate(ctx.request.body);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
     async singleTopBuildingRoomInfo(){
         const { ctx } = this;
         const buildingId = ctx.request.body.buildingId;

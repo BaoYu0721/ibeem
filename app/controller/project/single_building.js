@@ -565,6 +565,20 @@ class SingleBuildingController extends Controller {
         };
     }
 
+    async topBuildingUpdate(){
+        const { ctx } = this;
+        const result = await ctx.service.project.singleBuilding.topBuildingUpdate(ctx.request.body);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
     async topBuildingRoomInfo(){
         const { ctx } = this;
         const buildingId = ctx.request.body.buildingId;

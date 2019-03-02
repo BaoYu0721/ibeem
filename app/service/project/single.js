@@ -82,6 +82,8 @@ class SingleService extends Service {
         if(project == null){
             return -2;
         }
+        console.log(projectId)
+        console.log(surveyIds)
         const surveyList = [];
         for(var key in surveyIds){
             var survey = null;

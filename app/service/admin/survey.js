@@ -848,7 +848,7 @@ class SurveyService extends Service {
                         [surveyID, objectID]);
                 }
                 else if (relation == 2) {
-                    list = await this.app.mysql,query('select * from building_point_survey where survey_id=? and building_point_id in (select id from building_point where building_id=?)',
+                    list = await this.app.mysql.query('select * from building_point_survey where survey_id=? and building_point_id in (select id from building_point where building_id=?)',
                         [surveyID, objectID]);
                 }
                 

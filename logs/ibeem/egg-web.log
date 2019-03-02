@@ -1061,3 +1061,865 @@ hostname: DESKTOP-BK3T6KS
 2019-03-02 16:03:38,465 INFO 9088 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:03:38 GMT+0800 (中国标准时间)
 2019-03-02 16:03:38,467 INFO 9088 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:03:38 GMT+0800 (中国标准时间)
 2019-03-02 16:03:38,495 INFO 9088 [egg:core] dump config after ready, 26ms
+2019-03-02 16:13:09,771 INFO 12732 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:13:09,809 INFO 12732 [egg-multipart] file mode enable
+2019-03-02 16:13:09,809 INFO 12732 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:13:09,921 INFO 12732 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:13:09,924 INFO 12732 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:13:10,183 INFO 12732 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:13:10,186 INFO 12732 [egg-security] use methodnoallow middleware
+2019-03-02 16:13:10,186 INFO 12732 [egg-security] use noopen middleware
+2019-03-02 16:13:10,187 INFO 12732 [egg-security] use nosniff middleware
+2019-03-02 16:13:10,188 INFO 12732 [egg-security] use xssProtection middleware
+2019-03-02 16:13:10,188 INFO 12732 [egg-security] use xframe middleware
+2019-03-02 16:13:10,189 INFO 12732 [egg-security] use dta middleware
+2019-03-02 16:13:10,189 INFO 12732 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:13:10,242 INFO 12732 [egg:core] dump config after load, 19ms
+2019-03-02 16:13:10,258 INFO 12732 [egg-redis] client connect success
+2019-03-02 16:13:10,266 INFO 12732 [egg-watcher:application] watcher start success
+2019-03-02 16:13:10,267 INFO 12732 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:13:10 GMT+0800 (中国标准时间)
+2019-03-02 16:13:10,270 INFO 12732 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:13:09 GMT+0800 (中国标准时间)
+2019-03-02 16:13:10,295 INFO 12732 [egg:core] dump config after ready, 23ms
+2019-03-02 16:19:14,782 INFO 10344 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:19:14,822 INFO 10344 [egg-multipart] file mode enable
+2019-03-02 16:19:14,822 INFO 10344 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:19:14,942 INFO 10344 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:19:14,945 INFO 10344 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:19:15,215 INFO 10344 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:19:15,217 INFO 10344 [egg-security] use methodnoallow middleware
+2019-03-02 16:19:15,218 INFO 10344 [egg-security] use noopen middleware
+2019-03-02 16:19:15,219 INFO 10344 [egg-security] use nosniff middleware
+2019-03-02 16:19:15,219 INFO 10344 [egg-security] use xssProtection middleware
+2019-03-02 16:19:15,220 INFO 10344 [egg-security] use xframe middleware
+2019-03-02 16:19:15,220 INFO 10344 [egg-security] use dta middleware
+2019-03-02 16:19:15,220 INFO 10344 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:19:15,282 INFO 10344 [egg:core] dump config after load, 25ms
+2019-03-02 16:19:15,295 INFO 10344 [egg-redis] client connect success
+2019-03-02 16:19:15,305 INFO 10344 [egg-watcher:application] watcher start success
+2019-03-02 16:19:15,306 INFO 10344 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:19:15 GMT+0800 (中国标准时间)
+2019-03-02 16:19:15,307 INFO 10344 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:19:14 GMT+0800 (中国标准时间)
+2019-03-02 16:19:15,338 INFO 10344 [egg:core] dump config after ready, 28ms
+2019-03-02 16:19:28,651 INFO 6620 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:19:28,696 INFO 6620 [egg-multipart] file mode enable
+2019-03-02 16:19:28,696 INFO 6620 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:19:28,821 INFO 6620 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:19:28,823 INFO 6620 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:19:29,117 INFO 6620 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:19:29,120 INFO 6620 [egg-security] use methodnoallow middleware
+2019-03-02 16:19:29,121 INFO 6620 [egg-security] use noopen middleware
+2019-03-02 16:19:29,122 INFO 6620 [egg-security] use nosniff middleware
+2019-03-02 16:19:29,122 INFO 6620 [egg-security] use xssProtection middleware
+2019-03-02 16:19:29,123 INFO 6620 [egg-security] use xframe middleware
+2019-03-02 16:19:29,123 INFO 6620 [egg-security] use dta middleware
+2019-03-02 16:19:29,123 INFO 6620 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:19:29,182 INFO 6620 [egg:core] dump config after load, 19ms
+2019-03-02 16:19:29,194 INFO 6620 [egg-redis] client connect success
+2019-03-02 16:19:29,202 INFO 6620 [egg-watcher:application] watcher start success
+2019-03-02 16:19:29,203 INFO 6620 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:19:29 GMT+0800 (中国标准时间)
+2019-03-02 16:19:29,206 INFO 6620 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:19:28 GMT+0800 (中国标准时间)
+2019-03-02 16:19:29,232 INFO 6620 [egg:core] dump config after ready, 24ms
+2019-03-02 16:19:41,015 INFO 13644 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:19:41,049 INFO 13644 [egg-multipart] file mode enable
+2019-03-02 16:19:41,049 INFO 13644 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:19:41,179 INFO 13644 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:19:41,183 INFO 13644 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:19:41,459 INFO 13644 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:19:41,463 INFO 13644 [egg-security] use methodnoallow middleware
+2019-03-02 16:19:41,463 INFO 13644 [egg-security] use noopen middleware
+2019-03-02 16:19:41,464 INFO 13644 [egg-security] use nosniff middleware
+2019-03-02 16:19:41,465 INFO 13644 [egg-security] use xssProtection middleware
+2019-03-02 16:19:41,465 INFO 13644 [egg-security] use xframe middleware
+2019-03-02 16:19:41,466 INFO 13644 [egg-security] use dta middleware
+2019-03-02 16:19:41,466 INFO 13644 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:19:41,522 INFO 13644 [egg:core] dump config after load, 21ms
+2019-03-02 16:19:41,535 INFO 13644 [egg-redis] client connect success
+2019-03-02 16:19:41,544 INFO 13644 [egg-watcher:application] watcher start success
+2019-03-02 16:19:41,545 INFO 13644 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:19:41 GMT+0800 (中国标准时间)
+2019-03-02 16:19:41,548 INFO 13644 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:19:41 GMT+0800 (中国标准时间)
+2019-03-02 16:19:41,576 INFO 13644 [egg:core] dump config after ready, 26ms
+2019-03-02 16:51:34,595 INFO 13460 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:51:34,634 INFO 13460 [egg-multipart] file mode enable
+2019-03-02 16:51:34,634 INFO 13460 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:51:34,758 INFO 13460 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:51:34,761 INFO 13460 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:51:35,050 INFO 13460 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:51:35,052 INFO 13460 [egg-security] use methodnoallow middleware
+2019-03-02 16:51:35,053 INFO 13460 [egg-security] use noopen middleware
+2019-03-02 16:51:35,054 INFO 13460 [egg-security] use nosniff middleware
+2019-03-02 16:51:35,054 INFO 13460 [egg-security] use xssProtection middleware
+2019-03-02 16:51:35,055 INFO 13460 [egg-security] use xframe middleware
+2019-03-02 16:51:35,055 INFO 13460 [egg-security] use dta middleware
+2019-03-02 16:51:35,055 INFO 13460 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:51:35,114 INFO 13460 [egg:core] dump config after load, 20ms
+2019-03-02 16:51:35,126 INFO 13460 [egg-redis] client connect success
+2019-03-02 16:51:35,134 INFO 13460 [egg-watcher:application] watcher start success
+2019-03-02 16:51:35,135 INFO 13460 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:51:35 GMT+0800 (中国标准时间)
+2019-03-02 16:51:35,138 INFO 13460 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:51:34 GMT+0800 (中国标准时间)
+2019-03-02 16:51:35,167 INFO 13460 [egg:core] dump config after ready, 28ms
+2019-03-02 16:51:36,437 INFO 11132 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:51:36,473 INFO 11132 [egg-multipart] file mode enable
+2019-03-02 16:51:36,473 INFO 11132 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:51:36,591 INFO 11132 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:51:36,594 INFO 11132 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:51:36,874 INFO 11132 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:51:36,877 INFO 11132 [egg-security] use methodnoallow middleware
+2019-03-02 16:51:36,878 INFO 11132 [egg-security] use noopen middleware
+2019-03-02 16:51:36,879 INFO 11132 [egg-security] use nosniff middleware
+2019-03-02 16:51:36,879 INFO 11132 [egg-security] use xssProtection middleware
+2019-03-02 16:51:36,879 INFO 11132 [egg-security] use xframe middleware
+2019-03-02 16:51:36,880 INFO 11132 [egg-security] use dta middleware
+2019-03-02 16:51:36,880 INFO 11132 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:51:36,939 INFO 11132 [egg:core] dump config after load, 20ms
+2019-03-02 16:51:36,952 INFO 11132 [egg-redis] client connect success
+2019-03-02 16:51:36,960 INFO 11132 [egg-watcher:application] watcher start success
+2019-03-02 16:51:36,961 INFO 11132 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:51:36 GMT+0800 (中国标准时间)
+2019-03-02 16:51:36,964 INFO 11132 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:51:36 GMT+0800 (中国标准时间)
+2019-03-02 16:51:36,993 INFO 11132 [egg:core] dump config after ready, 27ms
+2019-03-02 16:52:20,854 INFO 8360 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:52:20,898 INFO 8360 [egg-multipart] file mode enable
+2019-03-02 16:52:20,898 INFO 8360 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:52:21,020 INFO 8360 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:52:21,023 INFO 8360 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:52:21,293 INFO 8360 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:52:21,296 INFO 8360 [egg-security] use methodnoallow middleware
+2019-03-02 16:52:21,297 INFO 8360 [egg-security] use noopen middleware
+2019-03-02 16:52:21,298 INFO 8360 [egg-security] use nosniff middleware
+2019-03-02 16:52:21,298 INFO 8360 [egg-security] use xssProtection middleware
+2019-03-02 16:52:21,299 INFO 8360 [egg-security] use xframe middleware
+2019-03-02 16:52:21,299 INFO 8360 [egg-security] use dta middleware
+2019-03-02 16:52:21,299 INFO 8360 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:52:21,359 INFO 8360 [egg:core] dump config after load, 21ms
+2019-03-02 16:52:21,371 INFO 8360 [egg-redis] client connect success
+2019-03-02 16:52:21,380 INFO 8360 [egg-watcher:application] watcher start success
+2019-03-02 16:52:21,381 INFO 8360 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:52:21 GMT+0800 (中国标准时间)
+2019-03-02 16:52:21,384 INFO 8360 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:52:20 GMT+0800 (中国标准时间)
+2019-03-02 16:52:21,411 INFO 8360 [egg:core] dump config after ready, 25ms
+2019-03-02 16:55:39,824 INFO 8784 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:55:39,861 INFO 8784 [egg-multipart] file mode enable
+2019-03-02 16:55:39,861 INFO 8784 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:55:39,987 INFO 8784 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:55:39,991 INFO 8784 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:55:40,282 INFO 8784 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:55:40,285 INFO 8784 [egg-security] use methodnoallow middleware
+2019-03-02 16:55:40,286 INFO 8784 [egg-security] use noopen middleware
+2019-03-02 16:55:40,287 INFO 8784 [egg-security] use nosniff middleware
+2019-03-02 16:55:40,287 INFO 8784 [egg-security] use xssProtection middleware
+2019-03-02 16:55:40,288 INFO 8784 [egg-security] use xframe middleware
+2019-03-02 16:55:40,288 INFO 8784 [egg-security] use dta middleware
+2019-03-02 16:55:40,288 INFO 8784 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:55:40,345 INFO 8784 [egg:core] dump config after load, 20ms
+2019-03-02 16:55:40,357 INFO 8784 [egg-redis] client connect success
+2019-03-02 16:55:40,365 INFO 8784 [egg-watcher:application] watcher start success
+2019-03-02 16:55:40,366 INFO 8784 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:55:40 GMT+0800 (中国标准时间)
+2019-03-02 16:55:40,369 INFO 8784 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:55:39 GMT+0800 (中国标准时间)
+2019-03-02 16:55:40,423 INFO 8784 [egg:core] dump config after ready, 52ms
+2019-03-02 16:56:22,199 INFO 9024 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:56:22,235 INFO 9024 [egg-multipart] file mode enable
+2019-03-02 16:56:22,235 INFO 9024 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:56:22,369 INFO 9024 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:56:22,371 INFO 9024 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:56:22,624 INFO 9024 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:56:22,627 INFO 9024 [egg-security] use methodnoallow middleware
+2019-03-02 16:56:22,627 INFO 9024 [egg-security] use noopen middleware
+2019-03-02 16:56:22,628 INFO 9024 [egg-security] use nosniff middleware
+2019-03-02 16:56:22,629 INFO 9024 [egg-security] use xssProtection middleware
+2019-03-02 16:56:22,629 INFO 9024 [egg-security] use xframe middleware
+2019-03-02 16:56:22,630 INFO 9024 [egg-security] use dta middleware
+2019-03-02 16:56:22,630 INFO 9024 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:56:22,689 INFO 9024 [egg:core] dump config after load, 19ms
+2019-03-02 16:56:22,701 INFO 9024 [egg-redis] client connect success
+2019-03-02 16:56:22,709 INFO 9024 [egg-watcher:application] watcher start success
+2019-03-02 16:56:22,709 INFO 9024 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:56:22 GMT+0800 (中国标准时间)
+2019-03-02 16:56:22,713 INFO 9024 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:56:22 GMT+0800 (中国标准时间)
+2019-03-02 16:56:22,739 INFO 9024 [egg:core] dump config after ready, 25ms
+2019-03-02 16:57:03,498 INFO 5088 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:57:03,535 INFO 5088 [egg-multipart] file mode enable
+2019-03-02 16:57:03,535 INFO 5088 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:57:03,657 INFO 5088 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:57:03,660 INFO 5088 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:57:03,930 INFO 5088 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:57:03,932 INFO 5088 [egg-security] use methodnoallow middleware
+2019-03-02 16:57:03,933 INFO 5088 [egg-security] use noopen middleware
+2019-03-02 16:57:03,934 INFO 5088 [egg-security] use nosniff middleware
+2019-03-02 16:57:03,934 INFO 5088 [egg-security] use xssProtection middleware
+2019-03-02 16:57:03,935 INFO 5088 [egg-security] use xframe middleware
+2019-03-02 16:57:03,935 INFO 5088 [egg-security] use dta middleware
+2019-03-02 16:57:03,935 INFO 5088 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:57:03,995 INFO 5088 [egg:core] dump config after load, 23ms
+2019-03-02 16:57:04,007 INFO 5088 [egg-redis] client connect success
+2019-03-02 16:57:04,015 INFO 5088 [egg-watcher:application] watcher start success
+2019-03-02 16:57:04,015 INFO 5088 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:57:04 GMT+0800 (中国标准时间)
+2019-03-02 16:57:04,019 INFO 5088 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:57:03 GMT+0800 (中国标准时间)
+2019-03-02 16:57:04,068 INFO 5088 [egg:core] dump config after ready, 48ms
+2019-03-02 16:57:08,569 INFO 8632 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:57:08,611 INFO 8632 [egg-multipart] file mode enable
+2019-03-02 16:57:08,611 INFO 8632 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:57:08,734 INFO 8632 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:57:08,737 INFO 8632 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:57:09,033 INFO 8632 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:57:09,036 INFO 8632 [egg-security] use methodnoallow middleware
+2019-03-02 16:57:09,037 INFO 8632 [egg-security] use noopen middleware
+2019-03-02 16:57:09,038 INFO 8632 [egg-security] use nosniff middleware
+2019-03-02 16:57:09,039 INFO 8632 [egg-security] use xssProtection middleware
+2019-03-02 16:57:09,039 INFO 8632 [egg-security] use xframe middleware
+2019-03-02 16:57:09,040 INFO 8632 [egg-security] use dta middleware
+2019-03-02 16:57:09,040 INFO 8632 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:57:09,134 INFO 8632 [egg:core] dump config after load, 46ms
+2019-03-02 16:57:09,146 INFO 8632 [egg-redis] client connect success
+2019-03-02 16:57:09,156 INFO 8632 [egg-watcher:application] watcher start success
+2019-03-02 16:57:09,158 INFO 8632 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:57:09 GMT+0800 (中国标准时间)
+2019-03-02 16:57:09,160 INFO 8632 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:57:08 GMT+0800 (中国标准时间)
+2019-03-02 16:57:09,221 INFO 8632 [egg:core] dump config after ready, 59ms
+2019-03-02 16:59:11,356 INFO 6664 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:59:11,396 INFO 6664 [egg-multipart] file mode enable
+2019-03-02 16:59:11,396 INFO 6664 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:59:11,529 INFO 6664 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:59:11,532 INFO 6664 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:59:11,822 INFO 6664 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:59:11,825 INFO 6664 [egg-security] use methodnoallow middleware
+2019-03-02 16:59:11,825 INFO 6664 [egg-security] use noopen middleware
+2019-03-02 16:59:11,826 INFO 6664 [egg-security] use nosniff middleware
+2019-03-02 16:59:11,827 INFO 6664 [egg-security] use xssProtection middleware
+2019-03-02 16:59:11,827 INFO 6664 [egg-security] use xframe middleware
+2019-03-02 16:59:11,828 INFO 6664 [egg-security] use dta middleware
+2019-03-02 16:59:11,828 INFO 6664 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:59:11,893 INFO 6664 [egg:core] dump config after load, 22ms
+2019-03-02 16:59:11,906 INFO 6664 [egg-redis] client connect success
+2019-03-02 16:59:11,915 INFO 6664 [egg-watcher:application] watcher start success
+2019-03-02 16:59:11,916 INFO 6664 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:59:11 GMT+0800 (中国标准时间)
+2019-03-02 16:59:11,919 INFO 6664 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:59:11 GMT+0800 (中国标准时间)
+2019-03-02 16:59:11,947 INFO 6664 [egg:core] dump config after ready, 26ms
+2019-03-02 16:59:26,884 INFO 8560 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:59:26,919 INFO 8560 [egg-multipart] file mode enable
+2019-03-02 16:59:26,919 INFO 8560 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:59:27,068 INFO 8560 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:59:27,070 INFO 8560 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:59:27,388 INFO 8560 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:59:27,390 INFO 8560 [egg-security] use methodnoallow middleware
+2019-03-02 16:59:27,391 INFO 8560 [egg-security] use noopen middleware
+2019-03-02 16:59:27,392 INFO 8560 [egg-security] use nosniff middleware
+2019-03-02 16:59:27,392 INFO 8560 [egg-security] use xssProtection middleware
+2019-03-02 16:59:27,393 INFO 8560 [egg-security] use xframe middleware
+2019-03-02 16:59:27,393 INFO 8560 [egg-security] use dta middleware
+2019-03-02 16:59:27,393 INFO 8560 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:59:27,454 INFO 8560 [egg:core] dump config after load, 22ms
+2019-03-02 16:59:27,467 INFO 8560 [egg-redis] client connect success
+2019-03-02 16:59:27,475 INFO 8560 [egg-watcher:application] watcher start success
+2019-03-02 16:59:27,476 INFO 8560 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:59:27 GMT+0800 (中国标准时间)
+2019-03-02 16:59:27,479 INFO 8560 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:59:27 GMT+0800 (中国标准时间)
+2019-03-02 16:59:27,509 INFO 8560 [egg:core] dump config after ready, 28ms
+2019-03-02 16:59:56,457 INFO 1060 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:59:56,495 INFO 1060 [egg-multipart] file mode enable
+2019-03-02 16:59:56,495 INFO 1060 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:59:56,633 INFO 1060 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:59:56,636 INFO 1060 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:59:56,898 INFO 1060 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:59:56,902 INFO 1060 [egg-security] use methodnoallow middleware
+2019-03-02 16:59:56,902 INFO 1060 [egg-security] use noopen middleware
+2019-03-02 16:59:56,904 INFO 1060 [egg-security] use nosniff middleware
+2019-03-02 16:59:56,905 INFO 1060 [egg-security] use xssProtection middleware
+2019-03-02 16:59:56,905 INFO 1060 [egg-security] use xframe middleware
+2019-03-02 16:59:56,905 INFO 1060 [egg-security] use dta middleware
+2019-03-02 16:59:56,905 INFO 1060 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:59:56,965 INFO 1060 [egg:core] dump config after load, 19ms
+2019-03-02 16:59:56,976 INFO 1060 [egg-redis] client connect success
+2019-03-02 16:59:56,985 INFO 1060 [egg-watcher:application] watcher start success
+2019-03-02 16:59:56,985 INFO 1060 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:59:56 GMT+0800 (中国标准时间)
+2019-03-02 16:59:56,988 INFO 1060 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:59:56 GMT+0800 (中国标准时间)
+2019-03-02 16:59:57,014 INFO 1060 [egg:core] dump config after ready, 24ms
+2019-03-02 16:59:59,338 INFO 8612 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 16:59:59,376 INFO 8612 [egg-multipart] file mode enable
+2019-03-02 16:59:59,376 INFO 8612 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 16:59:59,519 INFO 8612 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 16:59:59,522 INFO 8612 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 16:59:59,814 INFO 8612 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 16:59:59,816 INFO 8612 [egg-security] use methodnoallow middleware
+2019-03-02 16:59:59,817 INFO 8612 [egg-security] use noopen middleware
+2019-03-02 16:59:59,818 INFO 8612 [egg-security] use nosniff middleware
+2019-03-02 16:59:59,819 INFO 8612 [egg-security] use xssProtection middleware
+2019-03-02 16:59:59,820 INFO 8612 [egg-security] use xframe middleware
+2019-03-02 16:59:59,821 INFO 8612 [egg-security] use dta middleware
+2019-03-02 16:59:59,821 INFO 8612 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 16:59:59,884 INFO 8612 [egg:core] dump config after load, 25ms
+2019-03-02 16:59:59,897 INFO 8612 [egg-redis] client connect success
+2019-03-02 16:59:59,907 INFO 8612 [egg-watcher:application] watcher start success
+2019-03-02 16:59:59,908 INFO 8612 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 16:59:59 GMT+0800 (中国标准时间)
+2019-03-02 16:59:59,911 INFO 8612 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 16:59:59 GMT+0800 (中国标准时间)
+2019-03-02 16:59:59,941 INFO 8612 [egg:core] dump config after ready, 28ms
+2019-03-02 17:00:08,894 INFO 16912 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:00:08,934 INFO 16912 [egg-multipart] file mode enable
+2019-03-02 17:00:08,934 INFO 16912 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:00:09,072 INFO 16912 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:00:09,075 INFO 16912 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:00:09,346 INFO 16912 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:00:09,348 INFO 16912 [egg-security] use methodnoallow middleware
+2019-03-02 17:00:09,349 INFO 16912 [egg-security] use noopen middleware
+2019-03-02 17:00:09,350 INFO 16912 [egg-security] use nosniff middleware
+2019-03-02 17:00:09,350 INFO 16912 [egg-security] use xssProtection middleware
+2019-03-02 17:00:09,351 INFO 16912 [egg-security] use xframe middleware
+2019-03-02 17:00:09,352 INFO 16912 [egg-security] use dta middleware
+2019-03-02 17:00:09,352 INFO 16912 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:00:09,411 INFO 16912 [egg:core] dump config after load, 20ms
+2019-03-02 17:00:09,423 INFO 16912 [egg-redis] client connect success
+2019-03-02 17:00:09,432 INFO 16912 [egg-watcher:application] watcher start success
+2019-03-02 17:00:09,433 INFO 16912 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:00:09 GMT+0800 (中国标准时间)
+2019-03-02 17:00:09,436 INFO 16912 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:00:08 GMT+0800 (中国标准时间)
+2019-03-02 17:00:09,463 INFO 16912 [egg:core] dump config after ready, 24ms
+2019-03-02 17:00:49,416 INFO 14116 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:00:49,456 INFO 14116 [egg-multipart] file mode enable
+2019-03-02 17:00:49,456 INFO 14116 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:00:49,580 INFO 14116 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:00:49,582 INFO 14116 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:00:49,859 INFO 14116 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:00:49,862 INFO 14116 [egg-security] use methodnoallow middleware
+2019-03-02 17:00:49,863 INFO 14116 [egg-security] use noopen middleware
+2019-03-02 17:00:49,864 INFO 14116 [egg-security] use nosniff middleware
+2019-03-02 17:00:49,864 INFO 14116 [egg-security] use xssProtection middleware
+2019-03-02 17:00:49,865 INFO 14116 [egg-security] use xframe middleware
+2019-03-02 17:00:49,865 INFO 14116 [egg-security] use dta middleware
+2019-03-02 17:00:49,865 INFO 14116 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:00:49,927 INFO 14116 [egg:core] dump config after load, 21ms
+2019-03-02 17:00:49,939 INFO 14116 [egg-redis] client connect success
+2019-03-02 17:00:49,950 INFO 14116 [egg-watcher:application] watcher start success
+2019-03-02 17:00:49,950 INFO 14116 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:00:49 GMT+0800 (中国标准时间)
+2019-03-02 17:00:49,953 INFO 14116 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:00:49 GMT+0800 (中国标准时间)
+2019-03-02 17:00:49,981 INFO 14116 [egg:core] dump config after ready, 26ms
+2019-03-02 17:01:09,269 INFO 8936 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:01:09,307 INFO 8936 [egg-multipart] file mode enable
+2019-03-02 17:01:09,307 INFO 8936 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:01:09,434 INFO 8936 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:01:09,437 INFO 8936 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:01:09,690 INFO 8936 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:01:09,693 INFO 8936 [egg-security] use methodnoallow middleware
+2019-03-02 17:01:09,694 INFO 8936 [egg-security] use noopen middleware
+2019-03-02 17:01:09,695 INFO 8936 [egg-security] use nosniff middleware
+2019-03-02 17:01:09,695 INFO 8936 [egg-security] use xssProtection middleware
+2019-03-02 17:01:09,695 INFO 8936 [egg-security] use xframe middleware
+2019-03-02 17:01:09,696 INFO 8936 [egg-security] use dta middleware
+2019-03-02 17:01:09,696 INFO 8936 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:01:09,755 INFO 8936 [egg:core] dump config after load, 24ms
+2019-03-02 17:01:09,767 INFO 8936 [egg-redis] client connect success
+2019-03-02 17:01:09,776 INFO 8936 [egg-watcher:application] watcher start success
+2019-03-02 17:01:09,776 INFO 8936 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:01:09 GMT+0800 (中国标准时间)
+2019-03-02 17:01:09,780 INFO 8936 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:01:09 GMT+0800 (中国标准时间)
+2019-03-02 17:01:09,805 INFO 8936 [egg:core] dump config after ready, 24ms
+2019-03-02 17:17:32,985 INFO 10920 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:17:33,025 INFO 10920 [egg-multipart] file mode enable
+2019-03-02 17:17:33,025 INFO 10920 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:17:33,147 INFO 10920 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:17:33,150 INFO 10920 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:17:33,456 INFO 10920 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:17:33,459 INFO 10920 [egg-security] use methodnoallow middleware
+2019-03-02 17:17:33,460 INFO 10920 [egg-security] use noopen middleware
+2019-03-02 17:17:33,461 INFO 10920 [egg-security] use nosniff middleware
+2019-03-02 17:17:33,462 INFO 10920 [egg-security] use xssProtection middleware
+2019-03-02 17:17:33,462 INFO 10920 [egg-security] use xframe middleware
+2019-03-02 17:17:33,463 INFO 10920 [egg-security] use dta middleware
+2019-03-02 17:17:33,463 INFO 10920 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:17:33,535 INFO 10920 [egg:core] dump config after load, 21ms
+2019-03-02 17:17:33,548 INFO 10920 [egg-redis] client connect success
+2019-03-02 17:17:33,558 INFO 10920 [egg-watcher:application] watcher start success
+2019-03-02 17:17:33,558 INFO 10920 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:17:33 GMT+0800 (中国标准时间)
+2019-03-02 17:17:33,562 INFO 10920 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:17:33 GMT+0800 (中国标准时间)
+2019-03-02 17:17:33,590 INFO 10920 [egg:core] dump config after ready, 26ms
+2019-03-02 17:17:35,266 INFO 16564 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:17:35,341 INFO 16564 [egg-multipart] file mode enable
+2019-03-02 17:17:35,341 INFO 16564 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:17:35,529 INFO 16564 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:17:35,532 INFO 16564 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:17:35,873 INFO 16564 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:17:35,876 INFO 16564 [egg-security] use methodnoallow middleware
+2019-03-02 17:17:35,877 INFO 16564 [egg-security] use noopen middleware
+2019-03-02 17:17:35,878 INFO 16564 [egg-security] use nosniff middleware
+2019-03-02 17:17:35,879 INFO 16564 [egg-security] use xssProtection middleware
+2019-03-02 17:17:35,879 INFO 16564 [egg-security] use xframe middleware
+2019-03-02 17:17:35,879 INFO 16564 [egg-security] use dta middleware
+2019-03-02 17:17:35,879 INFO 16564 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:17:35,997 INFO 16564 [egg:core] dump config after load, 48ms
+2019-03-02 17:17:36,010 INFO 16564 [egg-redis] client connect success
+2019-03-02 17:17:36,025 INFO 16564 [egg-watcher:application] watcher start success
+2019-03-02 17:17:36,026 INFO 16564 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:17:36 GMT+0800 (中国标准时间)
+2019-03-02 17:17:36,028 INFO 16564 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:17:35 GMT+0800 (中国标准时间)
+2019-03-02 17:17:36,155 INFO 16564 [egg:core] dump config after ready, 125ms
+2019-03-02 17:17:51,660 INFO 1276 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:17:51,696 INFO 1276 [egg-multipart] file mode enable
+2019-03-02 17:17:51,696 INFO 1276 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:17:51,822 INFO 1276 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:17:51,825 INFO 1276 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:17:52,092 INFO 1276 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:17:52,095 INFO 1276 [egg-security] use methodnoallow middleware
+2019-03-02 17:17:52,096 INFO 1276 [egg-security] use noopen middleware
+2019-03-02 17:17:52,097 INFO 1276 [egg-security] use nosniff middleware
+2019-03-02 17:17:52,097 INFO 1276 [egg-security] use xssProtection middleware
+2019-03-02 17:17:52,097 INFO 1276 [egg-security] use xframe middleware
+2019-03-02 17:17:52,098 INFO 1276 [egg-security] use dta middleware
+2019-03-02 17:17:52,098 INFO 1276 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:17:52,162 INFO 1276 [egg:core] dump config after load, 23ms
+2019-03-02 17:17:52,174 INFO 1276 [egg-redis] client connect success
+2019-03-02 17:17:52,182 INFO 1276 [egg-watcher:application] watcher start success
+2019-03-02 17:17:52,184 INFO 1276 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:17:52 GMT+0800 (中国标准时间)
+2019-03-02 17:17:52,186 INFO 1276 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:17:51 GMT+0800 (中国标准时间)
+2019-03-02 17:17:52,212 INFO 1276 [egg:core] dump config after ready, 24ms
+2019-03-02 17:18:59,684 INFO 9008 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:18:59,721 INFO 9008 [egg-multipart] file mode enable
+2019-03-02 17:18:59,721 INFO 9008 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:18:59,845 INFO 9008 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:18:59,847 INFO 9008 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:19:00,113 INFO 9008 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:19:00,116 INFO 9008 [egg-security] use methodnoallow middleware
+2019-03-02 17:19:00,116 INFO 9008 [egg-security] use noopen middleware
+2019-03-02 17:19:00,117 INFO 9008 [egg-security] use nosniff middleware
+2019-03-02 17:19:00,118 INFO 9008 [egg-security] use xssProtection middleware
+2019-03-02 17:19:00,118 INFO 9008 [egg-security] use xframe middleware
+2019-03-02 17:19:00,119 INFO 9008 [egg-security] use dta middleware
+2019-03-02 17:19:00,119 INFO 9008 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:19:00,175 INFO 9008 [egg:core] dump config after load, 19ms
+2019-03-02 17:19:00,187 INFO 9008 [egg-redis] client connect success
+2019-03-02 17:19:00,196 INFO 9008 [egg-watcher:application] watcher start success
+2019-03-02 17:19:00,196 INFO 9008 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:19:00 GMT+0800 (中国标准时间)
+2019-03-02 17:19:00,199 INFO 9008 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:18:59 GMT+0800 (中国标准时间)
+2019-03-02 17:19:00,225 INFO 9008 [egg:core] dump config after ready, 24ms
+2019-03-02 17:24:21,022 INFO 15116 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:24:21,057 INFO 15116 [egg-multipart] file mode enable
+2019-03-02 17:24:21,057 INFO 15116 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:24:21,179 INFO 15116 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:24:21,182 INFO 15116 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:24:21,453 INFO 15116 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:24:21,456 INFO 15116 [egg-security] use methodnoallow middleware
+2019-03-02 17:24:21,457 INFO 15116 [egg-security] use noopen middleware
+2019-03-02 17:24:21,458 INFO 15116 [egg-security] use nosniff middleware
+2019-03-02 17:24:21,458 INFO 15116 [egg-security] use xssProtection middleware
+2019-03-02 17:24:21,459 INFO 15116 [egg-security] use xframe middleware
+2019-03-02 17:24:21,459 INFO 15116 [egg-security] use dta middleware
+2019-03-02 17:24:21,459 INFO 15116 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:24:21,524 INFO 15116 [egg:core] dump config after load, 24ms
+2019-03-02 17:24:21,538 INFO 15116 [egg-redis] client connect success
+2019-03-02 17:24:21,551 INFO 15116 [egg-watcher:application] watcher start success
+2019-03-02 17:24:21,553 INFO 15116 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:24:21 GMT+0800 (中国标准时间)
+2019-03-02 17:24:21,554 INFO 15116 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:24:21 GMT+0800 (中国标准时间)
+2019-03-02 17:24:21,598 INFO 15116 [egg:core] dump config after ready, 42ms
+2019-03-02 17:25:12,609 INFO 11556 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:25:12,646 INFO 11556 [egg-multipart] file mode enable
+2019-03-02 17:25:12,646 INFO 11556 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:25:12,766 INFO 11556 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:25:12,769 INFO 11556 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:25:13,046 INFO 11556 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:25:13,049 INFO 11556 [egg-security] use methodnoallow middleware
+2019-03-02 17:25:13,050 INFO 11556 [egg-security] use noopen middleware
+2019-03-02 17:25:13,051 INFO 11556 [egg-security] use nosniff middleware
+2019-03-02 17:25:13,051 INFO 11556 [egg-security] use xssProtection middleware
+2019-03-02 17:25:13,052 INFO 11556 [egg-security] use xframe middleware
+2019-03-02 17:25:13,052 INFO 11556 [egg-security] use dta middleware
+2019-03-02 17:25:13,052 INFO 11556 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:25:13,111 INFO 11556 [egg:core] dump config after load, 19ms
+2019-03-02 17:25:13,123 INFO 11556 [egg-redis] client connect success
+2019-03-02 17:25:13,132 INFO 11556 [egg-watcher:application] watcher start success
+2019-03-02 17:25:13,133 INFO 11556 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:25:13 GMT+0800 (中国标准时间)
+2019-03-02 17:25:13,137 INFO 11556 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:25:12 GMT+0800 (中国标准时间)
+2019-03-02 17:25:13,163 INFO 11556 [egg:core] dump config after ready, 24ms
+2019-03-02 17:25:14,419 INFO 7120 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:25:14,455 INFO 7120 [egg-multipart] file mode enable
+2019-03-02 17:25:14,455 INFO 7120 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:25:14,580 INFO 7120 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:25:14,583 INFO 7120 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:25:14,838 INFO 7120 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:25:14,841 INFO 7120 [egg-security] use methodnoallow middleware
+2019-03-02 17:25:14,841 INFO 7120 [egg-security] use noopen middleware
+2019-03-02 17:25:14,843 INFO 7120 [egg-security] use nosniff middleware
+2019-03-02 17:25:14,843 INFO 7120 [egg-security] use xssProtection middleware
+2019-03-02 17:25:14,843 INFO 7120 [egg-security] use xframe middleware
+2019-03-02 17:25:14,844 INFO 7120 [egg-security] use dta middleware
+2019-03-02 17:25:14,844 INFO 7120 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:25:14,903 INFO 7120 [egg:core] dump config after load, 21ms
+2019-03-02 17:25:14,915 INFO 7120 [egg-redis] client connect success
+2019-03-02 17:25:14,926 INFO 7120 [egg-watcher:application] watcher start success
+2019-03-02 17:25:14,928 INFO 7120 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:25:14 GMT+0800 (中国标准时间)
+2019-03-02 17:25:14,929 INFO 7120 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:25:14 GMT+0800 (中国标准时间)
+2019-03-02 17:25:14,958 INFO 7120 [egg:core] dump config after ready, 27ms
+2019-03-02 17:25:22,683 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:25:28,031 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:26:34,950 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:28:11,230 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = '', `organisation_addressline_1` = '123', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = '', `organisation_addressline_1` = '123', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:58:44,004 INFO 16336 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:58:44,077 INFO 16336 [egg-multipart] file mode enable
+2019-03-02 17:58:44,077 INFO 16336 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:58:44,188 INFO 16336 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:58:44,191 INFO 16336 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:58:44,477 INFO 16336 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:58:44,480 INFO 16336 [egg-security] use methodnoallow middleware
+2019-03-02 17:58:44,481 INFO 16336 [egg-security] use noopen middleware
+2019-03-02 17:58:44,482 INFO 16336 [egg-security] use nosniff middleware
+2019-03-02 17:58:44,482 INFO 16336 [egg-security] use xssProtection middleware
+2019-03-02 17:58:44,483 INFO 16336 [egg-security] use xframe middleware
+2019-03-02 17:58:44,483 INFO 16336 [egg-security] use dta middleware
+2019-03-02 17:58:44,483 INFO 16336 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:58:44,544 INFO 16336 [egg:core] dump config after load, 20ms
+2019-03-02 17:58:44,556 INFO 16336 [egg-redis] client connect success
+2019-03-02 17:58:44,565 INFO 16336 [egg-watcher:application] watcher start success
+2019-03-02 17:58:44,565 INFO 16336 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:58:44 GMT+0800 (中国标准时间)
+2019-03-02 17:58:44,568 INFO 16336 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:58:44 GMT+0800 (中国标准时间)
+2019-03-02 17:58:44,595 INFO 16336 [egg:core] dump config after ready, 25ms
+2019-03-02 17:58:45,986 INFO 8728 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 17:58:46,022 INFO 8728 [egg-multipart] file mode enable
+2019-03-02 17:58:46,022 INFO 8728 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 17:58:46,142 INFO 8728 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 17:58:46,145 INFO 8728 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 17:58:46,405 INFO 8728 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 17:58:46,408 INFO 8728 [egg-security] use methodnoallow middleware
+2019-03-02 17:58:46,408 INFO 8728 [egg-security] use noopen middleware
+2019-03-02 17:58:46,410 INFO 8728 [egg-security] use nosniff middleware
+2019-03-02 17:58:46,410 INFO 8728 [egg-security] use xssProtection middleware
+2019-03-02 17:58:46,410 INFO 8728 [egg-security] use xframe middleware
+2019-03-02 17:58:46,411 INFO 8728 [egg-security] use dta middleware
+2019-03-02 17:58:46,411 INFO 8728 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 17:58:46,468 INFO 8728 [egg:core] dump config after load, 19ms
+2019-03-02 17:58:46,480 INFO 8728 [egg-redis] client connect success
+2019-03-02 17:58:46,488 INFO 8728 [egg-watcher:application] watcher start success
+2019-03-02 17:58:46,489 INFO 8728 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 17:58:46 GMT+0800 (中国标准时间)
+2019-03-02 17:58:46,492 INFO 8728 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 17:58:46 GMT+0800 (中国标准时间)
+2019-03-02 17:58:46,519 INFO 8728 [egg:core] dump config after ready, 24ms
+2019-03-02 18:01:16,276 INFO 10952 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:01:16,317 INFO 10952 [egg-multipart] file mode enable
+2019-03-02 18:01:16,317 INFO 10952 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:01:16,440 INFO 10952 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:01:16,443 INFO 10952 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:01:16,706 INFO 10952 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:01:16,709 INFO 10952 [egg-security] use methodnoallow middleware
+2019-03-02 18:01:16,709 INFO 10952 [egg-security] use noopen middleware
+2019-03-02 18:01:16,710 INFO 10952 [egg-security] use nosniff middleware
+2019-03-02 18:01:16,711 INFO 10952 [egg-security] use xssProtection middleware
+2019-03-02 18:01:16,711 INFO 10952 [egg-security] use xframe middleware
+2019-03-02 18:01:16,712 INFO 10952 [egg-security] use dta middleware
+2019-03-02 18:01:16,712 INFO 10952 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:01:16,772 INFO 10952 [egg:core] dump config after load, 19ms
+2019-03-02 18:01:16,784 INFO 10952 [egg-redis] client connect success
+2019-03-02 18:01:16,792 INFO 10952 [egg-watcher:application] watcher start success
+2019-03-02 18:01:16,792 INFO 10952 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:01:16 GMT+0800 (中国标准时间)
+2019-03-02 18:01:16,796 INFO 10952 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:01:16 GMT+0800 (中国标准时间)
+2019-03-02 18:01:16,822 INFO 10952 [egg:core] dump config after ready, 25ms
+2019-03-02 18:01:18,514 INFO 11852 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:01:18,555 INFO 11852 [egg-multipart] file mode enable
+2019-03-02 18:01:18,555 INFO 11852 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:01:18,672 INFO 11852 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:01:18,675 INFO 11852 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:01:18,962 INFO 11852 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:01:18,965 INFO 11852 [egg-security] use methodnoallow middleware
+2019-03-02 18:01:18,965 INFO 11852 [egg-security] use noopen middleware
+2019-03-02 18:01:18,967 INFO 11852 [egg-security] use nosniff middleware
+2019-03-02 18:01:18,967 INFO 11852 [egg-security] use xssProtection middleware
+2019-03-02 18:01:18,968 INFO 11852 [egg-security] use xframe middleware
+2019-03-02 18:01:18,968 INFO 11852 [egg-security] use dta middleware
+2019-03-02 18:01:18,968 INFO 11852 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:01:19,030 INFO 11852 [egg:core] dump config after load, 22ms
+2019-03-02 18:01:19,042 INFO 11852 [egg-redis] client connect success
+2019-03-02 18:01:19,051 INFO 11852 [egg-watcher:application] watcher start success
+2019-03-02 18:01:19,051 INFO 11852 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:01:19 GMT+0800 (中国标准时间)
+2019-03-02 18:01:19,055 INFO 11852 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:01:18 GMT+0800 (中国标准时间)
+2019-03-02 18:01:19,088 INFO 11852 [egg:core] dump config after ready, 30ms
+2019-03-02 18:02:27,087 INFO 7452 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:02:27,124 INFO 7452 [egg-multipart] file mode enable
+2019-03-02 18:02:27,124 INFO 7452 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:02:27,267 INFO 7452 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:02:27,270 INFO 7452 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:02:27,543 INFO 7452 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:02:27,545 INFO 7452 [egg-security] use methodnoallow middleware
+2019-03-02 18:02:27,546 INFO 7452 [egg-security] use noopen middleware
+2019-03-02 18:02:27,547 INFO 7452 [egg-security] use nosniff middleware
+2019-03-02 18:02:27,547 INFO 7452 [egg-security] use xssProtection middleware
+2019-03-02 18:02:27,548 INFO 7452 [egg-security] use xframe middleware
+2019-03-02 18:02:27,548 INFO 7452 [egg-security] use dta middleware
+2019-03-02 18:02:27,548 INFO 7452 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:02:27,602 INFO 7452 [egg:core] dump config after load, 19ms
+2019-03-02 18:02:27,615 INFO 7452 [egg-redis] client connect success
+2019-03-02 18:02:27,624 INFO 7452 [egg-watcher:application] watcher start success
+2019-03-02 18:02:27,624 INFO 7452 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:02:27 GMT+0800 (中国标准时间)
+2019-03-02 18:02:27,627 INFO 7452 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:02:27 GMT+0800 (中国标准时间)
+2019-03-02 18:02:27,719 INFO 7452 [egg:core] dump config after ready, 90ms
+2019-03-02 18:23:32,025 INFO 5088 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:23:32,066 INFO 5088 [egg-multipart] file mode enable
+2019-03-02 18:23:32,066 INFO 5088 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:23:32,197 INFO 5088 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:23:32,200 INFO 5088 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:23:32,499 INFO 5088 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:23:32,502 INFO 5088 [egg-security] use methodnoallow middleware
+2019-03-02 18:23:32,503 INFO 5088 [egg-security] use noopen middleware
+2019-03-02 18:23:32,504 INFO 5088 [egg-security] use nosniff middleware
+2019-03-02 18:23:32,505 INFO 5088 [egg-security] use xssProtection middleware
+2019-03-02 18:23:32,505 INFO 5088 [egg-security] use xframe middleware
+2019-03-02 18:23:32,506 INFO 5088 [egg-security] use dta middleware
+2019-03-02 18:23:32,506 INFO 5088 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:23:32,576 INFO 5088 [egg:core] dump config after load, 26ms
+2019-03-02 18:23:32,588 INFO 5088 [egg-redis] client connect success
+2019-03-02 18:23:32,596 INFO 5088 [egg-watcher:application] watcher start success
+2019-03-02 18:23:32,597 INFO 5088 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:23:32 GMT+0800 (中国标准时间)
+2019-03-02 18:23:32,600 INFO 5088 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:23:32 GMT+0800 (中国标准时间)
+2019-03-02 18:23:32,626 INFO 5088 [egg:core] dump config after ready, 24ms
+2019-03-02 18:23:34,009 INFO 4856 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:23:34,043 INFO 4856 [egg-multipart] file mode enable
+2019-03-02 18:23:34,043 INFO 4856 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:23:34,166 INFO 4856 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:23:34,169 INFO 4856 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:23:34,437 INFO 4856 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:23:34,440 INFO 4856 [egg-security] use methodnoallow middleware
+2019-03-02 18:23:34,440 INFO 4856 [egg-security] use noopen middleware
+2019-03-02 18:23:34,441 INFO 4856 [egg-security] use nosniff middleware
+2019-03-02 18:23:34,442 INFO 4856 [egg-security] use xssProtection middleware
+2019-03-02 18:23:34,442 INFO 4856 [egg-security] use xframe middleware
+2019-03-02 18:23:34,443 INFO 4856 [egg-security] use dta middleware
+2019-03-02 18:23:34,443 INFO 4856 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:23:34,495 INFO 4856 [egg:core] dump config after load, 19ms
+2019-03-02 18:23:34,507 INFO 4856 [egg-redis] client connect success
+2019-03-02 18:23:34,516 INFO 4856 [egg-watcher:application] watcher start success
+2019-03-02 18:23:34,516 INFO 4856 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:23:34 GMT+0800 (中国标准时间)
+2019-03-02 18:23:34,519 INFO 4856 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:23:34 GMT+0800 (中国标准时间)
+2019-03-02 18:23:34,550 INFO 4856 [egg:core] dump config after ready, 29ms
+2019-03-02 18:23:41,024 INFO 6836 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:23:41,059 INFO 6836 [egg-multipart] file mode enable
+2019-03-02 18:23:41,059 INFO 6836 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:23:41,184 INFO 6836 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:23:41,187 INFO 6836 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:23:41,455 INFO 6836 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:23:41,458 INFO 6836 [egg-security] use methodnoallow middleware
+2019-03-02 18:23:41,459 INFO 6836 [egg-security] use noopen middleware
+2019-03-02 18:23:41,460 INFO 6836 [egg-security] use nosniff middleware
+2019-03-02 18:23:41,460 INFO 6836 [egg-security] use xssProtection middleware
+2019-03-02 18:23:41,461 INFO 6836 [egg-security] use xframe middleware
+2019-03-02 18:23:41,462 INFO 6836 [egg-security] use dta middleware
+2019-03-02 18:23:41,462 INFO 6836 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:23:41,524 INFO 6836 [egg:core] dump config after load, 21ms
+2019-03-02 18:23:41,536 INFO 6836 [egg-redis] client connect success
+2019-03-02 18:23:41,545 INFO 6836 [egg-watcher:application] watcher start success
+2019-03-02 18:23:41,545 INFO 6836 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:23:41 GMT+0800 (中国标准时间)
+2019-03-02 18:23:41,548 INFO 6836 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:23:41 GMT+0800 (中国标准时间)
+2019-03-02 18:23:41,575 INFO 6836 [egg:core] dump config after ready, 24ms
+2019-03-02 18:24:02,196 INFO 14316 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:24:02,233 INFO 14316 [egg-multipart] file mode enable
+2019-03-02 18:24:02,233 INFO 14316 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:24:02,362 INFO 14316 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:24:02,365 INFO 14316 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:24:02,622 INFO 14316 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:24:02,625 INFO 14316 [egg-security] use methodnoallow middleware
+2019-03-02 18:24:02,625 INFO 14316 [egg-security] use noopen middleware
+2019-03-02 18:24:02,626 INFO 14316 [egg-security] use nosniff middleware
+2019-03-02 18:24:02,627 INFO 14316 [egg-security] use xssProtection middleware
+2019-03-02 18:24:02,627 INFO 14316 [egg-security] use xframe middleware
+2019-03-02 18:24:02,627 INFO 14316 [egg-security] use dta middleware
+2019-03-02 18:24:02,628 INFO 14316 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:24:02,688 INFO 14316 [egg:core] dump config after load, 19ms
+2019-03-02 18:24:02,700 INFO 14316 [egg-redis] client connect success
+2019-03-02 18:24:02,708 INFO 14316 [egg-watcher:application] watcher start success
+2019-03-02 18:24:02,709 INFO 14316 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:24:02 GMT+0800 (中国标准时间)
+2019-03-02 18:24:02,712 INFO 14316 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:24:02 GMT+0800 (中国标准时间)
+2019-03-02 18:24:02,738 INFO 14316 [egg:core] dump config after ready, 24ms
+2019-03-02 18:26:42,720 ERROR 14316 nodejs.ServerNoResponseError: server 127.0.0.1:11345 no response in 20001ms, maybe the socket is end on the other side. (address: 127.0.0.1:11345)
+    at Timeout._heartbeatTimer.setInterval [as _onTimeout] (D:\Code\github\ibeem\node_modules\_tcp-base@3.1.0@tcp-base\lib\base.js:427:21)
+    at ontimeout (timers.js:498:11)
+    at tryOnTimeout (timers.js:323:5)
+    at Timer.listOnTimeout (timers.js:290:5)
+name: "ServerNoResponseError"
+pid: 14316
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 18:33:52,781 WARN 14316 [ClusterClient:Watcher] follower closed, and try to init it again
+2019-03-02 18:33:54,250 INFO 17368 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:33:54,295 INFO 17368 [egg-multipart] file mode enable
+2019-03-02 18:33:54,295 INFO 17368 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:33:54,410 INFO 17368 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:33:54,413 INFO 17368 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:33:54,740 INFO 17368 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:33:54,743 INFO 17368 [egg-security] use methodnoallow middleware
+2019-03-02 18:33:54,744 INFO 17368 [egg-security] use noopen middleware
+2019-03-02 18:33:54,745 INFO 17368 [egg-security] use nosniff middleware
+2019-03-02 18:33:54,745 INFO 17368 [egg-security] use xssProtection middleware
+2019-03-02 18:33:54,746 INFO 17368 [egg-security] use xframe middleware
+2019-03-02 18:33:54,746 INFO 17368 [egg-security] use dta middleware
+2019-03-02 18:33:54,746 INFO 17368 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:33:54,807 INFO 17368 [egg:core] dump config after load, 23ms
+2019-03-02 18:33:54,819 INFO 17368 [egg-redis] client connect success
+2019-03-02 18:33:54,828 INFO 17368 [egg-watcher:application] watcher start success
+2019-03-02 18:33:54,828 INFO 17368 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:33:54 GMT+0800 (中国标准时间)
+2019-03-02 18:33:54,831 INFO 17368 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:33:54 GMT+0800 (中国标准时间)
+2019-03-02 18:33:54,864 INFO 17368 [egg:core] dump config after ready, 31ms
+2019-03-02 18:33:56,282 INFO 10920 [egg:logger] init all loggers with options: {"dir":"D:\\Code\\github\\ibeem\\logs\\ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-02 18:33:56,320 INFO 10920 [egg-multipart] file mode enable
+2019-03-02 18:33:56,320 INFO 10920 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-02 18:33:56,442 INFO 10920 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-02 18:33:56,445 INFO 10920 [egg-mysql] connecting root@192.168.0.188:3306/ibeem_test
+2019-03-02 18:33:56,700 INFO 10920 [egg-static] starting static serve /public/ -> D:\Code\github\ibeem\app\public
+2019-03-02 18:33:56,703 INFO 10920 [egg-security] use methodnoallow middleware
+2019-03-02 18:33:56,704 INFO 10920 [egg-security] use noopen middleware
+2019-03-02 18:33:56,705 INFO 10920 [egg-security] use nosniff middleware
+2019-03-02 18:33:56,705 INFO 10920 [egg-security] use xssProtection middleware
+2019-03-02 18:33:56,706 INFO 10920 [egg-security] use xframe middleware
+2019-03-02 18:33:56,706 INFO 10920 [egg-security] use dta middleware
+2019-03-02 18:33:56,706 INFO 10920 [egg-security] compose 6 middlewares into one security middleware
+2019-03-02 18:33:56,771 INFO 10920 [egg:core] dump config after load, 27ms
+2019-03-02 18:33:56,783 INFO 10920 [egg-redis] client connect success
+2019-03-02 18:33:56,791 INFO 10920 [egg-watcher:application] watcher start success
+2019-03-02 18:33:56,792 INFO 10920 [egg-redis] instance[0] status OK, redis server currentTime: Sat Mar 02 2019 18:33:56 GMT+0800 (中国标准时间)
+2019-03-02 18:33:56,795 INFO 10920 [egg-mysql] instance[0] status OK, rds currentTime: Sat Mar 02 2019 18:33:56 GMT+0800 (中国标准时间)
+2019-03-02 18:33:56,828 INFO 10920 [egg:core] dump config after ready, 31ms

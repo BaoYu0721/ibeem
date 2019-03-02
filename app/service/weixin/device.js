@@ -34,7 +34,7 @@ class DeviceService extends Service {
         const redlock  = this.service.utils.lock.lockInit();
         const ttl      = 1000;
         const resource = "ibeem_test:device";
-        await redlock.lock(resource, ttl)
+        var res = await redlock.lock(resource, ttl)
         .then(async function(lock){
             await app.mysql.update('device', {
                 id:           data.id,
@@ -48,13 +48,14 @@ class DeviceService extends Service {
             lock.unlock()
             .catch(function(err){
                 console.log(err)
-                return -1;
             });
         })
         .catch(function(err){
             console.log(err);
             return -1;
-        })
+        });
+        if(res == -1) return -1;
+        return 0;
     }
 
     async deviceRealtimeData(deviceId){

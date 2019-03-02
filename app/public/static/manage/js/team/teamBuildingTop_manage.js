@@ -556,7 +556,7 @@ $("#submit_sheet_1,#submit_sheet_2,#submit_sheet_3,#submit_sheet_6,#submit_sheet
 	}
 	
 	$.ajax({
-		url:"/building/updateTopBuilding",
+		url:"/admin/project/single/topBuilding/update",
 		data:jsonPost,
 		type:"POST",
 		success:function(e){
