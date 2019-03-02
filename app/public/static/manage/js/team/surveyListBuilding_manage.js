@@ -245,7 +245,8 @@ $("#surveyReport").click(function(){
 	$.cookie("gxbuildingName",buildingName);
 	$.cookie("gxpointId","");
 	$.cookie("gxpointName","");
-	window.location.href="/redirect?url=administrator/surveyReportBuilding.jsp?relation=2"
+	//window.location.href="/redirect?url=administrator/surveyReportBuilding.jsp?relation=2"
+	window.location.href += "&to=statistics&relation=2";
 })
 //点击问卷分析按钮
 $("#surveyAnalysis").click(function(){
@@ -260,7 +261,8 @@ $("#surveyAnalysis").click(function(){
 		return false;
 	}
 	$.cookie("fxsurveyId",id);
-	window.location.href="/redirect?url=administrator/surveyAnalysisBuilding.jsp?relation=2&objectID="+buildingID;
+	//window.location.href="/redirect?url=administrator/surveyAnalysisBuilding.jsp?relation=2&objectID="+buildingID;
+	window.location.href += "&to=analysis&relation=2&objectID="+buildingID;
 });
 //点击下载答卷按钮
 $("#surveyExport").click(function(){
@@ -295,13 +297,13 @@ $("#exportExcel").click(function(){
 	var answerList ;
 	var questionList;
 	var id = $("#datatable_body").find(".ui.checkbox.checked").data("id");
-	var url="/admin/exportSurvey";
+	var url="/admin/survey/download/answer";
 	var json={"surveyID":id,"startTime":start,"endTime":end,"relation":2,"objectID":buildingID};
 	var successFunc = function(data){
 		answerList = data.list;
 	};
 	sentJsonSync(url,json,successFunc);
-	url = "/admin/getSurveyByID";
+	url = "/admin/survey/download/question";
 	json={"surveyID":id};
 	successFunc = function(data){
 		questionList = data.list;

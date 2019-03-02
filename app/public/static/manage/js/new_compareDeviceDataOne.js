@@ -1268,7 +1268,7 @@ init();
     	        				   endTime:endTime,
     	        				   startWorkTime:startTime_hour,
     	        				   endWorkTime:endTime_hour,
-    	        				   workDay:isWorkDay
+								   workDay:isWorkDay,
     	        			   },
     	        			   success:function(data){
 
@@ -2849,7 +2849,7 @@ init();
 								endTime:endTimeStamp2,
 								startWorkTime:startTime_hour,
 								endWorkTime:endTime_hour,
-								workDay:workDay
+								workDay:workDay,
 	 	     			   },
 	 	     			   success:function(data){
 	 	     				  

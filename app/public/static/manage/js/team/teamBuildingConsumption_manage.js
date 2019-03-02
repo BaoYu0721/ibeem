@@ -97,42 +97,56 @@ function getBuildingConsumption(){
 getBuildingConsumption();
 //项目下能耗详细信息修改
 $("#commitBuildingUpdate").on("click",function(){
-	
+	var reg = /^\d+(.\d+)?$/;
 	var aeu    = $("#1_annual_ele_usage").val();
+	if(!reg.test(aeu) && aeu) {alertokMsg(getLangStr("aue_msg"),getLangStr("alert_ok")); return;}
 	var elecDs    = $("#1_data_source").val();
 	var elecComment    = $("#1_comment").val();
 	var secEs    = $("#2_source").val();
 	var secAu    = $("#2_annual_usage").val();
+	if(!reg.test(secAu) && secAu) {alertokMsg(getLangStr("secAu_msg"),getLangStr("alert_ok")); return;}
 	var secDs    = $("#2_data_source").val();
 	var secComment    = $("#2_comment").val();
 	var thiEs    = $("#3_source").val();
 	var thiAu    = $("#3_annual_ele_usage").val();
+	if(!reg.test(thiAu) && thiAu) {alertokMsg(getLangStr("thiAu_msg"),getLangStr("alert_ok")); return;}
 	var thiDs    = $("#3_data_source").val();
 	var thiComment    = $("#3_comment").val();
 	var fouEs    = $("#4_source").val();
 	var fouAu    = $("#4_annual_ele_usage").val();
+	if(!reg.test(fouAu) && fouAu) {alertokMsg(getLangStr("fouAu_msg"),getLangStr("alert_ok")); return;}
 	var fouDs    = $("#4_data_source").val();
 	var fouComment    = $("#4_comment").val();
 	var siteSource    = $("#5_source").val();
 	var siteAu    = $("#5_annual_usage").val();
+	if(!reg.test(siteAu) && siteAu) {alertokMsg(getLangStr("siteAu_msg"),getLangStr("alert_ok")); return;}
 	var siteSd    = $("#5_sys_desc").val();
 	var siteDs    = $("#5_data_source").val();
 	var siteComment    = $("#5_comment").val();
 	var siteChpMm    = $("#6_manufacturer_model").val();
 	var siteChpFs    = $("#6_fuel_source").val();
 	var siteChpRp    = $("#6_rated_power").val();
+	if(!reg.test(siteChpRp) && siteChpRp) {alertokMsg(getLangStr("siteChpRp_msg"),getLangStr("alert_ok")); return;}
 	var siteChpAfc    = $("#6_annual_fuel_consumption").val();
+	if(!reg.test(siteChpAfc) && siteChpAfc) {alertokMsg(getLangStr("siteChpAfc_msg"),getLangStr("alert_ok")); return;}
 	var siteChpAeg    = $("#6_annual_ele_generation").val();
+	if(!reg.test(siteChpAeg) && siteChpAeg) {alertokMsg(getLangStr("siteChpAeg_msg"),getLangStr("alert_ok")); return;}
 	var siteChpAhg    = $("#6_annual_heat_generation").val();
+	if(!reg.test(siteChpAhg) && siteChpAhg) {alertokMsg(getLangStr("siteChpAhg_msg"),getLangStr("alert_ok")); return;}
 	var siteChpComment    = $("#6_comment").val();
 	var seuDesc    = $("#7_description").val();
 	var seuPs    = $("#7_primary_source").val();
 	var seuAeu    = $("#7_annual_ele_usage").val();
+	if(!reg.test(seuAeu) && seuAeu) {alertokMsg(getLangStr("seuAeu_msg"),getLangStr("alert_ok")); return;}
 	var seuComment    = $("#7_comment").val();
 	var ohWd    = $("#8_working_occ_hour").val();
+	if(!reg.test(ohWd) && ohWd) {alertokMsg(getLangStr("ohWd_msg"),getLangStr("alert_ok")); return;}
 	var nwd    = $("#8_working_num").val();
+	if(!reg.test(nwd) && nwd) {alertokMsg(getLangStr("nwd_msg"),getLangStr("alert_ok")); return;}
 	var ohHd    = $("#8_holiday_occ_hour").val();
+	if(!reg.test(ohHd) && ohHd) {alertokMsg(getLangStr("ohHd_msg"),getLangStr("alert_ok")); return;}
 	var nhd   = $("#8_holiday_num").val();
+	if(!reg.test(nhd) && nhd) {alertokMsg(getLangStr("nhd_msg"),getLangStr("alert_ok")); return;}
 	
 	var url="/admin/project/single/building/energy_update";
 	var json={"id":consumptionID,"buildingID":buildingID,"aeu":aeu,"elecDs":elecDs,"elecComment":elecComment,"secEs":secEs,"secAu":secAu,"secDs":secDs,"secComment":secComment,"thiEs":thiEs,"thiAu":thiAu,"thiDs":thiDs,"thiComment":thiComment,"fouEs":fouEs,"fouAu":fouAu,"fouDs":fouDs,"fouComment":fouComment,"siteSource":siteSource,"siteAu":siteAu,"siteSd":siteSd,"siteDs":siteDs,"siteComment":siteComment,"siteChpMm":siteChpMm,"siteChpFs":siteChpFs,"siteChpRp":siteChpRp,"siteChpAfc":siteChpAfc,"siteChpAeg":siteChpAeg,"siteChpAhg":siteChpAhg,"siteChpComment":siteChpComment,"seuDesc":seuDesc,"seuPs":seuPs,"seuAeu":seuAeu,"seuComment":seuComment,"ohWd":ohWd,"nwd":nwd,"ohHd":ohHd,"nhd":nhd};

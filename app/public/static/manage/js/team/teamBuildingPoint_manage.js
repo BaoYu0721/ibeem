@@ -584,7 +584,8 @@ $('#searchDevice').keyup(function(event){
 });
 //添加测点时，点击关联问卷，弹出问卷列表
 $("#link-survey a").click(function(){
-	
+	alertokMsg("暂不支持该功能!", "确定");
+	return;
 	$('.addPointListBox').css("display","none");
 	$('.addSurveyListBox').css("display","block");
 	if(surveyList.length==0){

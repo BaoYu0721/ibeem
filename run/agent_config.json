@@ -73,7 +73,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "/home/kang/Code/ibeem/node_modules/_egg-onerror@2.1.0@egg-onerror/lib/onerror_page.mustache"
+      "templatePath": "D:\\Code\\github\\ibeem\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -85,14 +85,14 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "/home/kang/Code/ibeem/node_modules/_egg-watcher@3.1.0@egg-watcher/lib/event-sources/default",
-        "development": "/home/kang/Code/ibeem/node_modules/_egg-watcher@3.1.0@egg-watcher/lib/event-sources/development"
+        "default": "D:\\Code\\github\\ibeem\\node_modules\\_egg-watcher@3.1.0@egg-watcher\\lib\\event-sources\\default",
+        "development": "D:\\Code\\github\\ibeem\\node_modules\\_egg-watcher@3.1.0@egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "/home/kang/Code/ibeem/logs/ibeem/egg-schedule.log"
+        "file": "D:\\Code\\github\\ibeem\\logs\\ibeem\\egg-schedule.log"
       }
     },
     "schedule": {
@@ -134,14 +134,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "/home/kang/Code/ibeem/app/public",
+      "dir": "D:\\Code\\github\\ibeem\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "/home/kang/Code/ibeem/app/view",
+      "root": "D:\\Code\\github\\ibeem\\app\\view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "ejs",
@@ -150,7 +150,7 @@
       }
     },
     "ejs": {
-      "root": "/home/kang/Code/ibeem/app/view",
+      "root": "D:\\Code\\github\\ibeem\\app\\view",
       "cache": false,
       "debug": false,
       "compileDebug": true,
@@ -177,10 +177,10 @@
       "app": true,
       "agent": false,
       "client": {
-        "host": "123.57.62.130",
+        "host": "192.168.0.188",
         "port": 3306,
         "user": "root",
-        "password": "<String len: 11>",
+        "password": "<String len: 4>",
         "database": "ibeem_test"
       }
     },
@@ -248,9 +248,9 @@
       "author": "ibeem",
       "license": "MIT"
     },
-    "baseDir": "/home/kang/Code/ibeem",
-    "HOME": "/home/kang",
-    "rundir": "/home/kang/Code/ibeem/run",
+    "baseDir": "D:\\Code\\github\\ibeem",
+    "HOME": "C:\\Users\\Hello",
+    "rundir": "D:\\Code\\github\\ibeem\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -280,7 +280,7 @@
       }
     },
     "logger": {
-      "dir": "/home/kang/Code/ibeem/logs/ibeem",
+      "dir": "D:\\Code\\github\\ibeem\\logs\\ibeem",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -407,8 +407,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-session@3.1.0@egg-session",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-session@3.1.0@egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -420,8 +420,8 @@
         "session"
       ],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-security@2.4.3@egg-security",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-security@2.4.3@egg-security",
       "version": "2.4.3"
     },
     "jsonp": {
@@ -433,8 +433,8 @@
         "security"
       ],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-jsonp@2.0.0@egg-jsonp",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -446,8 +446,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-onerror@2.1.0@egg-onerror",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-onerror@2.1.0@egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -457,8 +457,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-i18n@2.0.0@egg-i18n",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-i18n@2.0.0@egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -468,8 +468,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-watcher@3.1.0@egg-watcher",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-watcher@3.1.0@egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -479,8 +479,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-schedule@3.6.0@egg-schedule",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-schedule@3.6.0@egg-schedule",
       "version": "3.6.0"
     },
     "multipart": {
@@ -492,8 +492,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-multipart@2.4.0@egg-multipart",
       "version": "2.4.0"
     },
     "development": {
@@ -507,8 +507,8 @@
       "env": [
         "local"
       ],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-development@2.4.2@egg-development",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-development@2.4.2@egg-development",
       "version": "2.4.2"
     },
     "logrotator": {
@@ -520,8 +520,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-logrotator@3.0.5@egg-logrotator",
       "version": "3.0.5"
     },
     "static": {
@@ -531,8 +531,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-static@2.2.0@egg-static",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-static@2.2.0@egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -542,8 +542,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/node_modules/_egg@2.19.0@egg/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-view@2.1.2@egg-view",
+      "from": "D:\\Code\\github\\ibeem\\node_modules\\_egg@2.19.0@egg\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-view@2.1.2@egg-view",
       "version": "2.1.2"
     },
     "ejs": {
@@ -555,8 +555,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-view-ejs@2.0.0@egg-view-ejs",
+      "from": "D:\\Code\\github\\ibeem\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-view-ejs@2.0.0@egg-view-ejs",
       "version": "2.0.0"
     },
     "redis": {
@@ -566,8 +566,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-redis@2.3.0@egg-redis",
+      "from": "D:\\Code\\github\\ibeem\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-redis@2.3.0@egg-redis",
       "version": "2.3.0"
     },
     "mysql": {
@@ -577,8 +577,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "/home/kang/Code/ibeem/config/plugin.js",
-      "path": "/home/kang/Code/ibeem/node_modules/_egg-mysql@3.0.0@egg-mysql",
+      "from": "D:\\Code\\github\\ibeem\\config\\plugin.js",
+      "path": "D:\\Code\\github\\ibeem\\node_modules\\_egg-mysql@3.0.0@egg-mysql",
       "version": "3.0.0"
     }
   }

@@ -991,7 +991,7 @@ init();
     	        				   endTime:endTime,
     	        				   startWorkTime:startTime_hour,
     	        				   endWorkTime:endTime_hour,
-    	        				   workDay:isWorkDay
+    	        				   workDay:2
     	        			   },
     	        			   success:function(data){
 

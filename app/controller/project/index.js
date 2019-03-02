@@ -37,6 +37,17 @@ class IndexController extends Controller {
             buildingName: buildingName
           });
         }else if(operation == "survey"){
+          if(to == "analysis"){
+            return ctx.render('manage/surveyAnalysisBuilding.html', {
+              project_name: projectName,
+              buildingName: buildingName
+            });
+          }else if(to == "statistics"){
+            return ctx.render('manage/surveyReportBuilding.html', {
+              project_name: projectName,
+              buildingName: buildingName
+            });
+          }
           return ctx.render('manage/surveyListBuilding.html', {
             project_name: projectName,
             buildingName: buildingName
@@ -67,6 +78,19 @@ class IndexController extends Controller {
             topBuildingName: topBuildingName
           });
         }else if(operation == "survey"){
+          if(to == "analysis"){
+            return ctx.render('manage/surveyAnalysisBuilding.html', {
+              project_name: projectName,
+              buildingName: null,
+              topBuildingName: topBuildingName
+            });
+          }else if(to == "statistics"){
+            return ctx.render('manage/surveyReportBuilding.html', {
+              project_name: projectName,
+              buildingName: null,
+              topBuildingName: topBuildingName
+            });
+          }
           return ctx.render('manage/surveyListBuilding.html', {
             project_name: projectName,
             buildingName: null,
@@ -159,7 +183,7 @@ class IndexController extends Controller {
     valueMap[3] = building['contact'];
     valueMap[4] = building['name'];
     valueMap[5] = building['type'];
-    valueMap[6] = building['address'];
+    valueMap[6] = building['city'];
     valueMap[7] = building['application_unit'];
     valueMap[8] = building['participant_organization'];
     valueMap[9] = building['time'] == null? '': ctx.helper.dateFormat(building['time']);

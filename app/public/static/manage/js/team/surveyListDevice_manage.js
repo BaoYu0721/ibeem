@@ -426,7 +426,7 @@ $("#gotoReport").click(function(){
 	$.cookie("gxbuildingName",buildingname==undefined?null:buildingname);
 	$.cookie("gxpointId",pointid==undefined?null:pointid);
 	$.cookie("gxpointName",pointname==undefined?null:pointname);
-	window.location.href="/redirect?url=administrator/surveyReport_manage.jsp"
+	window.location.href="/admin/survey?item=statistics"
 })
 //删除问卷
 $("#surveyDelete").click(function(){

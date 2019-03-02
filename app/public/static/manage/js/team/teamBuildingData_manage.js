@@ -340,7 +340,7 @@ function getBuildingInfo(bid){
 				$("#a5").val(sheet_1.name);
 				$("#a6").html(sheet_1.type);
 				$("#a6_hide").val(sheet_1.type);
-				$("#a7").val(sheet_1.address);
+				$("#a7").val(sheet_1.city);
 				$("#a7_pro").val(sheet_1.province);
 				$("#a8").val(sheet_1.applicationUnit);
 				$("#a9").val(sheet_1.participantOrganization);

@@ -1,35 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="surveyRep.title" /></title>
-<base href="<%=basePath%>" />
-	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    <link rel="stylesheet" href="/static/common/css/base.css" />
-    <link rel="stylesheet" href="/static/common/css/dataTables.semanticui.min.css"/>
-    <link rel="stylesheet" href="/static/manage/css/frameStyle.css" />
-    <link rel="stylesheet" href="/static/manage/css/home.css">
-    <link rel="stylesheet" href="/static/common/css/jquery.datetimepicker.css"/>
-    <link rel="stylesheet" href="/static/manage/css/team/surveyReport.css">
+<title>统计问卷</title>
+	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    <link rel="stylesheet" href="/public/static/common/css/base.css" />
+    <link rel="stylesheet" href="/public/static/common/css/dataTables.semanticui.min.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/frameStyle.css" />
+    <link rel="stylesheet" href="/public/static/manage/css/home.css">
+    <link rel="stylesheet" href="/public/static/common/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="/public/static/manage/css/team/surveyReport.css">
     
     
-    <script src="/static/common/js/jquery.min.js"></script>
-    <script src="/static/common/js/jquery.cookie.js"></script>    
-     <script src="/static/common/js/jquery.dataTables.min.js"></script>
-     <script src="/static/common/js/jquery.datetimepicker.full.min.js"></script>
-    <script src="/static/common/js/dataTables.semanticui.min.js"></script>
-    <script src="/static/common/js/semantic.min.js"></script>
-    <script src="/static/common/js/highcharts.js"></script>
+    <script src="/public/static/common/js/jquery.min.js"></script>
+    <script src="/public/static/common/js/jquery.cookie.js"></script>    
+     <script src="/public/static/common/js/jquery.dataTables.min.js"></script>
+     <script src="/public/static/common/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="/public/static/common/js/dataTables.semanticui.min.js"></script>
+    <script src="/public/static/common/js/semantic.min.js"></script>
+    <script src="/public/static/common/js/highcharts.js"></script>
     <!-- <script src="/static/common/js/exporting.js"></script> -->
     <!-- 全局工具脚本-->
-    <script src="/static/common/js/tools.js"></script> 
+    <script src="/public/static/common/js/tools.js"></script> 
 </head>
 <body>
 <div class="clearfix" style="height:100%;" >
@@ -37,13 +29,23 @@
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu">
             <div class="titleTit">
-        	<a class="tit-teamname" href="/redirect?url=manage/teamContent.jsp"></a>
-        	<a class="tit-buildingname" href="/redirect?url=manage/teamBuildingContent.jsp" style="border:none;"></a>
-        	</div>
-            <a class="item" href="/redirect?url=manage/teamBuildingData.jsp"><spring:message code="surveyListBuilding.navinfo" /></a>
-            <a class="item" href="/redirect?url=manage/teamBuildingPoint.jsp"><spring:message code="surveyListBuilding.navpoint" /></a>
-            <a class="item on" href="/redirect?url=manage/surveyListBuilding.jsp"><spring:message code="surveyListBuilding.navsurvey" /></a>
-            <a class="item" href="/redirect?url=manage/teamBuildingConsumption.jsp"><spring:message code="surveyListBuilding.navconsume" /></a>
+        		<% if(buildingName){ %>
+					<a class="tit-buildingname" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
+				<% }else if(topBuildingName){ %>
+					<a class="tit-buildingname" href=<%="?project_name=" + project_name + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
+				<% } %>
+			</div>
+				<% if(buildingName){ %>
+					<a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName%>>建筑信息</a>
+					<a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=point"%>>建筑测点</a>
+					<a class="item on" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=survey"%>>建筑问卷</a>
+					<a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&building_name=" + buildingName + "&op=energy"%>>建筑能耗</a>
+				<% }else if(topBuildingName){ %>
+					<a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&top_building_name=" + topBuildingName%>>建筑信息</a>
+					<a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&top_building_name=" + topBuildingName + "&op=point"%>>建筑测点</a>
+					<a class="item on" href=<%="?project_name=" + project_name + "&item=building" + "&top_building_name=" + topBuildingName + "&op=survey"%>>建筑问卷</a>
+					<a class="item" href=<%="?project_name=" + project_name + "&item=building" + "&top_building_name=" + topBuildingName + "&op=energy"%>>建筑能耗</a>
+				<% } %>
             <!-- <a class="teamTitleTit" href="/views/manage/teamBuildingContent.jsp" style="display:block;">建筑名称</a> -->
         </div>
         <!--内容区--> 
@@ -52,15 +54,15 @@
                 <div class="sixteen wide column content-team" style="position:static;overflow-y:scroll">
                 	<div class="container" style="position:static;">
                 		<div class="top">
-                			<span><spring:message code="surveyRep.title" /></span>
+                			<span>问卷统计:</span>
                 			<div class="ui form top-form">
-							  <input id="startTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="<spring:message code="survey.starttime" />"/>
-							  <input id="endTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="<spring:message code="survey.endtime" />"/>
+							  <input id="startTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷开始时间"/>
+							  <input id="endTime" class="some_class" style="width:10rem;height:1.7142rem;" placeholder="问卷结束时间"/>
 							  <div class="field team">
 							      <div class="ui selection dropdown" id="dropdownTeam">
 							          <input type="hidden" name="gender">
 							          <i class="dropdown icon"></i>
-							          <div class="default text"><spring:message code="surveyRep.sourceProj" /></div>
+							          <div class="default text">来源项目</div>
 							          <div class="menu">
 							          </div>
 							      </div>
@@ -69,7 +71,7 @@
 							      <div class="ui selection dropdown" id="dropdownBuilding">
 							          <input type="hidden" name="gender">
 							          <i class="dropdown icon"></i>
-							          <div class="default text"><spring:message code="surveyRep.sourceBuiding" /></div>
+							          <div class="default text">来源建筑</div>
 							          <div class="menu">
 							          </div>
 							      </div>
@@ -78,17 +80,17 @@
 							      <div class="ui selection dropdown" id="dropdownPoint">
 							          <input type="hidden" name="gender">
 							          <i class="dropdown icon"></i>
-							          <div class="default text"><spring:message code="surveyRep.sourcePoint" /></div>
+							          <div class="default text">来源测点</div>
 							          <div class="menu">
 							          </div>
 							      </div>
 							  </div>
-							  <button class="refresh" id="refresh"><spring:message code="surveyRep.refresh" /></button>
+							  <button class="refresh" id="refresh">更新报告</button>
 							</div>
                 		</div>
                 		<div class="bottom">
                 			<div class="bottom-container">
-                				<button id="downloadReport" class="downloadReport"><spring:message code="surveyRep.download" /></button>
+                				<button id="downloadReport" class="downloadReport">下载报告</button>
                 			</div>
                 		</div>
                 	</div>
@@ -97,8 +99,8 @@
         </div>
     </div>
 </div>
-<script src="/static/manage/js/team/teamCommon.js"></script>
-<script src="/static/manage/js/team/surveyReport.js"></script>
+<script src="/public/static/manage/js/team/teamCommon.js"></script>
+<script src="/public/static/manage/js/team/surveyReport.js"></script>
 <script>
 $("#team").addClass("active");
 </script>

@@ -139,3 +139,888 @@
 2019-03-01 22:43:00,018 INFO 6466 [Job#1551451380017866457438034715] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
 2019-03-01 22:43:00,024 INFO 5296 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59983ms at 2019-03-01 22:44:00.007
 2019-03-01 22:43:00,035 INFO 6466 [Job#1551451380017866457438034715] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-02 12:35:42,201 INFO 16548 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:35:42,201 INFO 16548 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:35:42,201 INFO 16548 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:35:42,201 INFO 16548 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:35:42,201 INFO 16548 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:35:42,201 INFO 16548 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 12:35:43,457 INFO 12336 [Timer] D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 57256545ms at 2019-03-03 04:30:00.002
+2019-03-02 12:35:43,458 INFO 12336 [Timer] D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js next time will execute after 41056542ms at 2019-03-03 00:00:00.000
+2019-03-02 12:35:43,458 INFO 12336 [Timer] D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 41057542ms at 2019-03-03 00:00:01.000
+2019-03-02 12:35:43,458 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\load_device_data.js next time will execute after 41056542ms at 2019-03-03 00:00:00.000
+2019-03-02 12:35:43,459 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\weixin.js next time will execute after 1456542ms at 2019-03-02 13:00:00.001
+2019-03-02 12:35:43,459 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 16541ms at 2019-03-02 12:36:00.000
+2019-03-02 12:36:00,003 INFO 16548 [Job#155150136000210136446241833941] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:36:00,011 INFO 16548 [Job#155150136000210136446241833941] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 12:36:00,006 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:37:00.004
+2019-03-02 12:37:00,005 INFO 16548 [Job#155150142000610137046267307162] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:37:00,010 INFO 16548 [Job#155150142000610137046267307162] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 12:37:00,008 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59994ms at 2019-03-02 12:38:00.002
+2019-03-02 12:38:00,005 INFO 16548 [Job#155150148000310137646246356383] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:38:00,010 INFO 16548 [Job#155150148000310137646246356383] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:38:00,010 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59992ms at 2019-03-02 12:39:00.001
+2019-03-02 12:39:00,004 INFO 16548 [Job#155150154000410138246244505714] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:39:00,009 INFO 16548 [Job#155150154000410138246244505714] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:39:00,006 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 12:40:00.001
+2019-03-02 12:40:00,004 INFO 16548 [Job#155150160000410138846254756585] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:40:00,009 INFO 16548 [Job#155150160000410138846254756585] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:40:00,013 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59992ms at 2019-03-02 12:41:00.005
+2019-03-02 12:41:00,006 INFO 16548 [Job#155150166000610139446267092266] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:41:00,011 INFO 16548 [Job#155150166000610139446267092266] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:41:00,007 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59994ms at 2019-03-02 12:42:00.001
+2019-03-02 12:42:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:43:00.000
+2019-03-02 12:42:00,001 INFO 16548 [Job#155150172000110140046218211397] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:42:00,006 INFO 16548 [Job#155150172000110140046218211397] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:42:14,200 INFO 14860 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:42:14,201 INFO 14860 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:42:14,201 INFO 14860 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:42:14,201 INFO 14860 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:42:14,201 INFO 14860 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:42:14,201 INFO 14860 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 12:43:00,000 INFO 14860 [Job#155150178000110140646219815098] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:43:00,007 INFO 14860 [Job#155150178000110140646219815098] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 12:43:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:44:00.000
+2019-03-02 12:43:19,667 INFO 13236 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:43:19,667 INFO 13236 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:43:19,667 INFO 13236 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:43:19,667 INFO 13236 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:43:19,667 INFO 13236 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:43:19,667 INFO 13236 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 12:44:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 12:45:00.000
+2019-03-02 12:44:00,002 INFO 13236 [Job#155150184000110141246227949089] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:44:00,008 INFO 13236 [Job#155150184000110141246227949089] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 12:45:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:46:00.001
+2019-03-02 12:45:00,003 INFO 13236 [Job#1551501900002101418462308678210] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:45:00,007 INFO 13236 [Job#1551501900002101418462308678210] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 12:46:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:47:00.001
+2019-03-02 12:46:00,003 INFO 13236 [Job#1551501960002101424462340367311] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:46:00,007 INFO 13236 [Job#1551501960002101424462340367311] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 12:47:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:48:00.001
+2019-03-02 12:47:00,001 INFO 13236 [Job#1551502020002101430462291069512] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:47:00,006 INFO 13236 [Job#1551502020002101430462291069512] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:48:00,013 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 12:49:00.008
+2019-03-02 12:48:00,002 INFO 13236 [Job#1551502080001101436462241707513] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:48:00,006 INFO 13236 [Job#1551502080001101436462241707513] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 12:49:00,010 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59991ms at 2019-03-02 12:50:00.001
+2019-03-02 12:49:00,008 INFO 13236 [Job#1551502140009101442462974311214] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:49:00,013 INFO 13236 [Job#1551502140009101442462974311214] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:50:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 12:51:00.001
+2019-03-02 12:50:00,003 INFO 13236 [Job#1551502200003101448462401468415] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:50:00,008 INFO 13236 [Job#1551502200003101448462401468415] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:51:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:52:00.002
+2019-03-02 12:51:00,003 INFO 13236 [Job#1551502260002101454462332477116] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:51:00,008 INFO 13236 [Job#1551502260002101454462332477116] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:52:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 12:53:00.001
+2019-03-02 12:52:00,002 INFO 13236 [Job#1551502320003101460462353421517] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:52:00,007 INFO 13236 [Job#1551502320003101460462353421517] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:53:00,000 INFO 13236 [Job#1551502380000101466462144555218] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:53:00,005 INFO 13236 [Job#1551502380000101466462144555218] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:53:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 60000ms at 2019-03-02 12:54:00.001
+2019-03-02 12:54:00,003 INFO 13236 [Job#1551502440002101472462342003119] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:54:00,007 INFO 13236 [Job#1551502440002101472462342003119] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 12:54:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 12:55:00.000
+2019-03-02 12:55:00,004 INFO 13236 [Job#1551502500002101478462351144220] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:55:00,008 INFO 13236 [Job#1551502500002101478462351144220] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 12:55:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:56:00.001
+2019-03-02 12:56:00,001 INFO 13236 [Job#1551502560002101484462241771721] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:56:00,006 INFO 13236 [Job#1551502560002101484462241771721] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:56:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:57:00.001
+2019-03-02 12:56:58,777 INFO 3288 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:56:58,777 INFO 3288 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:56:58,777 INFO 3288 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:56:58,777 INFO 3288 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:56:58,777 INFO 3288 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:56:58,777 INFO 3288 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 12:57:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:58:00.001
+2019-03-02 12:57:00,002 INFO 3288 [Job#1551502620002101490462293795822] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:57:00,009 INFO 3288 [Job#1551502620002101490462293795822] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 12:57:04,350 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:57:04,350 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:57:04,350 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:57:04,350 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:57:04,350 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:57:04,350 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 12:57:11,566 INFO 14536 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:57:11,566 INFO 14536 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:57:11,566 INFO 14536 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:57:11,566 INFO 14536 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:57:11,566 INFO 14536 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:57:11,566 INFO 14536 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 12:58:00,002 INFO 14536 [Job#1551502680002101496462288407423] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:58:00,009 INFO 14536 [Job#1551502680002101496462288407423] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 12:58:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 12:59:00.001
+2019-03-02 12:59:00,003 INFO 14536 [Job#1551502740002101502462326543424] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 12:59:00,008 INFO 14536 [Job#1551502740002101502462326543424] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 12:59:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:00:00.001
+2019-03-02 12:59:07,391 INFO 16412 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 12:59:07,391 INFO 16412 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 12:59:07,391 INFO 16412 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 12:59:07,391 INFO 16412 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 12:59:07,391 INFO 16412 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 12:59:07,391 INFO 16412 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:00:00,003 INFO 16412 [Job#155150280000210150846240047411] D:\Code\github\ibeem\app\schedule\weixin.js executing by app
+2019-03-02 13:00:00,021 INFO 16412 [Job#1551502800016101508463790948925] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:00:00,028 INFO 16412 [Job#1551502800016101508463790948925] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 13:00:00,341 INFO 16412 [Job#155150280000210150846240047411] D:\Code\github\ibeem\app\schedule\weixin.js execute succeed, used 337ms
+2019-03-02 13:00:00,016 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\weixin.js next time will execute after 3599998ms at 2019-03-02 14:00:00.014
+2019-03-02 13:00:00,018 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59984ms at 2019-03-02 13:01:00.002
+2019-03-02 13:00:18,432 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:00:18,432 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:00:18,432 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:00:18,432 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:00:18,432 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:00:18,432 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:00:26,396 INFO 16188 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:00:26,396 INFO 16188 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:00:26,396 INFO 16188 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:00:26,396 INFO 16188 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:00:26,396 INFO 16188 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:00:26,396 INFO 16188 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:01:00,002 INFO 16188 [Job#1551502860003101514462424337226] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:01:00,010 INFO 16188 [Job#1551502860003101514462424337226] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 13:01:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:02:00.001
+2019-03-02 13:02:00,004 INFO 16188 [Job#1551502920003101520462408075727] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:02:00,009 INFO 16188 [Job#1551502920003101520462408075727] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:02:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:03:00.001
+2019-03-02 13:03:00,003 INFO 16188 [Job#1551502980003101526462387420028] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:03:00,008 INFO 16188 [Job#1551502980003101526462387420028] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:03:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:04:00.000
+2019-03-02 13:04:00,002 INFO 16188 [Job#1551503040002101532462306272629] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:04:00,007 INFO 16188 [Job#1551503040002101532462306272629] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:04:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:05:00.001
+2019-03-02 13:05:00,002 INFO 16188 [Job#1551503100002101538462273140130] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:05:00,007 INFO 16188 [Job#1551503100002101538462273140130] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:05:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:06:00.001
+2019-03-02 13:06:00,003 INFO 16188 [Job#1551503160003101544462394508431] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:06:00,008 INFO 16188 [Job#1551503160003101544462394508431] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:06:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:07:00.000
+2019-03-02 13:07:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:08:00.001
+2019-03-02 13:07:00,004 INFO 16188 [Job#1551503220003101550462392583932] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:07:00,008 INFO 16188 [Job#1551503220003101550462392583932] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:08:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:09:00.001
+2019-03-02 13:08:00,002 INFO 16188 [Job#1551503280002101556462331996033] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:08:00,007 INFO 16188 [Job#1551503280002101556462331996033] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:09:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:10:00.002
+2019-03-02 13:09:00,003 INFO 16188 [Job#1551503340002101562462322309634] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:09:00,007 INFO 16188 [Job#1551503340002101562462322309634] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:10:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:11:00.001
+2019-03-02 13:10:00,004 INFO 16188 [Job#1551503400004101568462470235235] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:10:00,009 INFO 16188 [Job#1551503400004101568462470235235] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:11:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:12:00.001
+2019-03-02 13:11:00,003 INFO 16188 [Job#1551503460002101574462371094336] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:11:00,007 INFO 16188 [Job#1551503460002101574462371094336] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:12:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:13:00.001
+2019-03-02 13:12:00,004 INFO 16188 [Job#1551503520003101580462362883337] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:12:00,008 INFO 16188 [Job#1551503520003101580462362883337] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:13:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:14:00.000
+2019-03-02 13:13:00,001 INFO 16188 [Job#1551503580001101586462145934438] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:13:00,006 INFO 16188 [Job#1551503580001101586462145934438] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:14:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:15:00.000
+2019-03-02 13:14:00,002 INFO 16188 [Job#1551503640001101592462248956339] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:14:00,006 INFO 16188 [Job#1551503640001101592462248956339] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:15:00,003 INFO 16188 [Job#1551503700002101598462308678240] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:15:00,007 INFO 16188 [Job#1551503700002101598462308678240] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:15:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:16:00.001
+2019-03-02 13:16:00,003 INFO 16188 [Job#1551503760002101604462302135141] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:16:00,007 INFO 16188 [Job#1551503760002101604462302135141] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:16:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:17:00.001
+2019-03-02 13:17:00,001 INFO 16188 [Job#1551503820001101610462181953542] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:17:00,006 INFO 16188 [Job#1551503820001101610462181953542] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:17:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:18:00.000
+2019-03-02 13:18:00,001 INFO 16188 [Job#1551503880001101616462198728343] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:18:00,005 INFO 16188 [Job#1551503880001101616462198728343] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:18:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 13:19:00.001
+2019-03-02 13:19:00,002 INFO 16188 [Job#1551503940002101622462319743744] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:19:00,007 INFO 16188 [Job#1551503940002101622462319743744] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:19:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:20:00.000
+2019-03-02 13:20:00,003 INFO 16188 [Job#1551504000002101628462378503445] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:20:00,008 INFO 16188 [Job#1551504000002101628462378503445] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:20:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:21:00.001
+2019-03-02 13:21:00,003 INFO 16188 [Job#1551504060002101634462409326646] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:21:00,007 INFO 16188 [Job#1551504060002101634462409326646] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:21:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:22:00.000
+2019-03-02 13:22:00,001 INFO 16188 [Job#1551504120001101640462218165247] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:22:00,006 INFO 16188 [Job#1551504120001101640462218165247] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:22:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 13:23:00.002
+2019-03-02 13:23:00,004 INFO 16188 [Job#1551504180004101646462461703548] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:23:00,009 INFO 16188 [Job#1551504180004101646462461703548] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:23:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:24:00.000
+2019-03-02 13:24:00,002 INFO 16188 [Job#1551504240002101652462377124249] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:24:00,006 INFO 16188 [Job#1551504240002101652462377124249] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:24:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:25:00.000
+2019-03-02 13:25:00,002 INFO 16188 [Job#1551504300002101658462315734550] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:25:00,007 INFO 16188 [Job#1551504300002101658462315734550] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:25:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:26:00.000
+2019-03-02 13:26:00,001 INFO 16188 [Job#1551504360001101664462214572951] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:26:00,006 INFO 16188 [Job#1551504360001101664462214572951] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:26:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:27:00.000
+2019-03-02 13:27:00,003 INFO 16188 [Job#1551504420001101670462326735952] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:27:00,009 INFO 16188 [Job#1551504420001101670462326735952] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:27:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:28:00.000
+2019-03-02 13:28:00,003 INFO 16188 [Job#1551504480002101676462294854253] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:28:00,007 INFO 16188 [Job#1551504480002101676462294854253] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:28:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:29:00.001
+2019-03-02 13:29:00,003 INFO 16188 [Job#1551504540003101682462404772154] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:29:00,008 INFO 16188 [Job#1551504540003101682462404772154] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:29:00,007 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:30:00.003
+2019-03-02 13:30:00,005 INFO 16188 [Job#1551504600004101688462541086855] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:30:00,011 INFO 16188 [Job#1551504600004101688462541086855] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 13:30:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:31:00.000
+2019-03-02 13:31:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:32:00.000
+2019-03-02 13:31:00,001 INFO 16188 [Job#1551504660001101694462240232156] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:31:00,006 INFO 16188 [Job#1551504660001101694462240232156] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:32:00,000 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 60000ms at 2019-03-02 13:33:00.000
+2019-03-02 13:32:00,000 INFO 16188 [Job#1551504720000101700462128357857] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:32:00,005 INFO 16188 [Job#1551504720000101700462128357857] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:33:00,009 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 13:34:00.004
+2019-03-02 13:33:00,003 INFO 16188 [Job#1551504780003101706462457662258] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:33:00,007 INFO 16188 [Job#1551504780003101706462457662258] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:34:00,006 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59994ms at 2019-03-02 13:35:00.000
+2019-03-02 13:34:00,006 INFO 16188 [Job#1551504840006101712462654500759] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:34:00,011 INFO 16188 [Job#1551504840006101712462654500759] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:35:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:36:00.000
+2019-03-02 13:35:00,001 INFO 16188 [Job#1551504900001101718462230802360] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:35:00,006 INFO 16188 [Job#1551504900001101718462230802360] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:36:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:37:00.000
+2019-03-02 13:36:00,000 INFO 16188 [Job#1551504960001101724462181857361] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:36:00,005 INFO 16188 [Job#1551504960001101724462181857361] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:37:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:38:00.000
+2019-03-02 13:37:00,001 INFO 16188 [Job#1551505020001101730462206169562] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:37:00,006 INFO 16188 [Job#1551505020001101730462206169562] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:38:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:39:00.002
+2019-03-02 13:38:00,001 INFO 16188 [Job#1551505080001101736462188368463] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:38:00,006 INFO 16188 [Job#1551505080001101736462188368463] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:39:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:40:00.000
+2019-03-02 13:39:00,004 INFO 16188 [Job#1551505140004101742462471646564] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:39:00,009 INFO 16188 [Job#1551505140004101742462471646564] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:40:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:41:00.000
+2019-03-02 13:40:00,000 INFO 16188 [Job#1551505200001101748462220217965] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:40:00,005 INFO 16188 [Job#1551505200001101748462220217965] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:41:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 13:42:00.000
+2019-03-02 13:41:00,001 INFO 16188 [Job#1551505260001101754462195841666] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:41:00,006 INFO 16188 [Job#1551505260001101754462195841666] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:42:00,003 INFO 16188 [Job#1551505320001101760462301782267] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:42:00,007 INFO 16188 [Job#1551505320001101760462301782267] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:42:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 13:43:00.001
+2019-03-02 13:43:00,002 INFO 16188 [Job#1551505380002101766462336486468] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:43:00,006 INFO 16188 [Job#1551505380002101766462336486468] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:43:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:44:00.001
+2019-03-02 13:44:00,003 INFO 16188 [Job#1551505440003101772462352042369] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:44:00,008 INFO 16188 [Job#1551505440003101772462352042369] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:44:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:45:00.000
+2019-03-02 13:45:00,003 INFO 16188 [Job#1551505500002101778462329430170] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:45:00,007 INFO 16188 [Job#1551505500002101778462329430170] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:45:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:46:00.000
+2019-03-02 13:46:00,002 INFO 16188 [Job#1551505560002101784462299921971] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:46:00,006 INFO 16188 [Job#1551505560002101784462299921971] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:46:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:47:00.001
+2019-03-02 13:47:00,001 INFO 16188 [Job#1551505620001101790462220442472] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:47:00,006 INFO 16188 [Job#1551505620001101790462220442472] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:47:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:48:00.000
+2019-03-02 13:48:00,002 INFO 16188 [Job#1551505680001101796462242958473] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:48:00,006 INFO 16188 [Job#1551505680001101796462242958473] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:48:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:49:00.000
+2019-03-02 13:49:00,003 INFO 16188 [Job#1551505740002101802462345467174] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:49:00,007 INFO 16188 [Job#1551505740002101802462345467174] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:49:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:50:00.000
+2019-03-02 13:49:07,930 INFO 4132 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:49:07,930 INFO 4132 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:49:07,930 INFO 4132 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:49:07,930 INFO 4132 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:49:07,930 INFO 4132 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:49:07,930 INFO 4132 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:49:11,186 INFO 17280 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:49:11,186 INFO 17280 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:49:11,186 INFO 17280 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:49:11,186 INFO 17280 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:49:11,186 INFO 17280 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:49:11,186 INFO 17280 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:50:00,000 INFO 17280 [Job#1551505800000101808462127427675] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:50:00,008 INFO 17280 [Job#1551505800000101808462127427675] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 13:50:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 60000ms at 2019-03-02 13:51:00.004
+2019-03-02 13:51:00,005 INFO 17280 [Job#1551505860005101814462613478076] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:51:00,010 INFO 17280 [Job#1551505860005101814462613478076] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:51:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 13:52:00.000
+2019-03-02 13:52:00,002 INFO 17280 [Job#1551505920002101820462286418877] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:52:00,007 INFO 17280 [Job#1551505920002101820462286418877] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:52:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:53:00.000
+2019-03-02 13:53:00,003 INFO 17280 [Job#1551505980001101826462254633478] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:53:00,007 INFO 17280 [Job#1551505980001101826462254633478] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:53:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:54:00.000
+2019-03-02 13:54:00,003 INFO 17280 [Job#1551506040002101832462322951179] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:54:00,007 INFO 17280 [Job#1551506040002101832462322951179] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 13:54:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:55:00.000
+2019-03-02 13:54:21,123 INFO 13240 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:54:21,123 INFO 13240 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:54:21,123 INFO 13240 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:54:21,123 INFO 13240 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:54:21,123 INFO 13240 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:54:21,123 INFO 13240 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:54:39,404 INFO 8288 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:54:39,404 INFO 8288 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:54:39,404 INFO 8288 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:54:39,404 INFO 8288 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:54:39,404 INFO 8288 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:54:39,404 INFO 8288 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:54:43,870 INFO 14328 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:54:43,870 INFO 14328 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:54:43,870 INFO 14328 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:54:43,870 INFO 14328 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:54:43,870 INFO 14328 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:54:43,870 INFO 14328 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:55:00,004 INFO 14328 [Job#1551506100004101838462602893580] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:55:00,012 INFO 14328 [Job#1551506100004101838462602893580] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 13:55:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 13:56:00.000
+2019-03-02 13:55:00,363 INFO 6524 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 13:55:00,363 INFO 6524 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 13:55:00,363 INFO 6524 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 13:55:00,363 INFO 6524 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 13:55:00,363 INFO 6524 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 13:55:00,363 INFO 6524 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 13:56:00,002 INFO 6524 [Job#1551506160001101844462230513781] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:56:00,010 INFO 6524 [Job#1551506160001101844462230513781] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 8ms
+2019-03-02 13:56:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 13:57:00.000
+2019-03-02 13:57:00,001 INFO 6524 [Job#1551506220001101850462211686282] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:57:00,006 INFO 6524 [Job#1551506220001101850462211686282] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:57:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 13:58:00.000
+2019-03-02 13:58:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 13:59:00.000
+2019-03-02 13:58:00,001 INFO 6524 [Job#1551506280002101856462260952083] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:58:00,006 INFO 6524 [Job#1551506280002101856462260952083] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 13:59:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:00:00.001
+2019-03-02 13:59:00,002 INFO 6524 [Job#1551506340001101862462294533584] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 13:59:00,006 INFO 6524 [Job#1551506340001101862462294533584] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:00:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:01:00.001
+2019-03-02 14:00:00,015 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\weixin.js next time will execute after 3599985ms at 2019-03-02 15:00:00.000
+2019-03-02 14:00:00,003 INFO 6524 [Job#1551506400002101868462366668185] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:00:00,007 INFO 6524 [Job#1551506400002101868462366668185] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:00:00,015 INFO 6524 [Job#155150640001510186846360264212] D:\Code\github\ibeem\app\schedule\weixin.js executing by app
+2019-03-02 14:00:00,406 INFO 6524 [Job#155150640001510186846360264212] D:\Code\github\ibeem\app\schedule\weixin.js execute succeed, used 391ms
+2019-03-02 14:01:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:02:00.001
+2019-03-02 14:01:00,002 INFO 6524 [Job#1551506460002101874462322149386] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:01:00,008 INFO 6524 [Job#1551506460002101874462322149386] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:01:13,876 INFO 5948 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:01:13,876 INFO 5948 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:01:13,876 INFO 5948 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:01:13,876 INFO 5948 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:01:13,876 INFO 5948 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:01:13,876 INFO 5948 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:02:00,007 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59994ms at 2019-03-02 14:03:00.001
+2019-03-02 14:02:00,004 INFO 5948 [Job#1551506520005101880462590384787] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:02:00,013 INFO 5948 [Job#1551506520005101880462590384787] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 8ms
+2019-03-02 14:03:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:04:00.000
+2019-03-02 14:03:00,003 INFO 5948 [Job#1551506580003101886462381807088] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:03:00,008 INFO 5948 [Job#1551506580003101886462381807088] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:04:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:05:00.001
+2019-03-02 14:04:00,001 INFO 5948 [Job#1551506640001101892462161586589] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:04:00,007 INFO 5948 [Job#1551506640001101892462161586589] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 14:05:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:06:00.000
+2019-03-02 14:05:00,002 INFO 5948 [Job#1551506700003101898462399062990] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:05:00,007 INFO 5948 [Job#1551506700003101898462399062990] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:06:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:07:00.000
+2019-03-02 14:06:00,001 INFO 5948 [Job#1551506760001101904462203379091] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:06:00,006 INFO 5948 [Job#1551506760001101904462203379091] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:07:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:08:00.000
+2019-03-02 14:07:00,001 INFO 5948 [Job#1551506820001101910462221693392] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:07:00,006 INFO 5948 [Job#1551506820001101910462221693392] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:08:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:09:00.000
+2019-03-02 14:08:00,002 INFO 5948 [Job#1551506880001101916462211076893] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:08:00,006 INFO 5948 [Job#1551506880001101916462211076893] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:09:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:10:00.000
+2019-03-02 14:09:00,001 INFO 5948 [Job#1551506940001101922462225862994] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:09:00,006 INFO 5948 [Job#1551506940001101922462225862994] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:10:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:11:00.000
+2019-03-02 14:10:00,000 INFO 5948 [Job#1551507000001101928462215503095] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:10:00,005 INFO 5948 [Job#1551507000001101928462215503095] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:11:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:12:00.000
+2019-03-02 14:11:00,001 INFO 5948 [Job#1551507060001101934462230545896] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:11:00,006 INFO 5948 [Job#1551507060001101934462230545896] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:12:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:13:00.000
+2019-03-02 14:12:00,001 INFO 5948 [Job#1551507120001101940462169733397] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:12:00,006 INFO 5948 [Job#1551507120001101940462169733397] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:13:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:14:00.001
+2019-03-02 14:13:00,002 INFO 5948 [Job#1551507180001101946462292544998] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:13:00,007 INFO 5948 [Job#1551507180001101946462292544998] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:14:00,003 INFO 5948 [Job#1551507240002101952462345884199] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:14:00,007 INFO 5948 [Job#1551507240002101952462345884199] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:14:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:15:00.001
+2019-03-02 14:15:00,002 INFO 5948 [Job#15515073000021019584622517788100] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:15:00,007 INFO 5948 [Job#15515073000021019584622517788100] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:15:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:16:00.000
+2019-03-02 14:16:00,003 INFO 5948 [Job#15515073600021019644622999861101] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:16:00,007 INFO 5948 [Job#15515073600021019644622999861101] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:16:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:17:00.001
+2019-03-02 14:17:00,003 INFO 5948 [Job#15515074200021019704622982220102] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:17:00,007 INFO 5948 [Job#15515074200021019704622982220102] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:17:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:18:00.001
+2019-03-02 14:17:47,887 INFO 11988 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:17:47,887 INFO 11988 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:17:47,887 INFO 11988 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:17:47,887 INFO 11988 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:17:47,887 INFO 11988 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:17:47,887 INFO 11988 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:18:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:19:00.001
+2019-03-02 14:18:00,002 INFO 11988 [Job#15515074800021019764623094800103] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:18:00,010 INFO 11988 [Job#15515074800021019764623094800103] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 14:18:02,155 INFO 10972 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:18:02,155 INFO 10972 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:18:02,155 INFO 10972 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:18:02,155 INFO 10972 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:18:02,155 INFO 10972 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:18:02,155 INFO 10972 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:18:13,589 INFO 4284 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:18:13,589 INFO 4284 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:18:13,589 INFO 4284 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:18:13,589 INFO 4284 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:18:13,589 INFO 4284 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:18:13,589 INFO 4284 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:18:21,360 INFO 7760 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:18:21,360 INFO 7760 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:18:21,360 INFO 7760 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:18:21,360 INFO 7760 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:18:21,360 INFO 7760 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:18:21,360 INFO 7760 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:18:28,292 INFO 12316 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:18:28,292 INFO 12316 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:18:28,292 INFO 12316 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:18:28,292 INFO 12316 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:18:28,292 INFO 12316 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:18:28,292 INFO 12316 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:19:00,002 INFO 12316 [Job#15515075400021019824623389240104] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:19:00,010 INFO 12316 [Job#15515075400021019824623389240104] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 8ms
+2019-03-02 14:19:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:20:00.001
+2019-03-02 14:20:00,003 INFO 12316 [Job#15515076000021019884623933216105] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:20:00,008 INFO 12316 [Job#15515076000021019884623933216105] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:20:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:21:00.001
+2019-03-02 14:21:00,002 INFO 12316 [Job#15515076600021019944623372562106] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:21:00,006 INFO 12316 [Job#15515076600021019944623372562106] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:21:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:22:00.001
+2019-03-02 14:22:00,002 INFO 12316 [Job#15515077200011020004621798367107] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:22:00,007 INFO 12316 [Job#15515077200011020004621798367107] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:22:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:23:00.001
+2019-03-02 14:23:00,001 INFO 12316 [Job#15515077800011020064622334966108] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:23:00,006 INFO 12316 [Job#15515077800011020064622334966108] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:23:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:24:00.000
+2019-03-02 14:24:00,003 INFO 12316 [Job#15515078400021020124623765148109] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:24:00,007 INFO 12316 [Job#15515078400021020124623765148109] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:24:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:25:00.001
+2019-03-02 14:25:00,003 INFO 12316 [Job#15515079000031020184623872596110] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:25:00,008 INFO 12316 [Job#15515079000031020184623872596110] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:25:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:26:00.000
+2019-03-02 14:26:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:27:00.000
+2019-03-02 14:26:00,002 INFO 12316 [Job#15515079600011020244622537353111] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:26:00,007 INFO 12316 [Job#15515079600011020244622537353111] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:27:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:28:00.001
+2019-03-02 14:27:00,003 INFO 12316 [Job#15515080200021020304623474236112] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:27:00,007 INFO 12316 [Job#15515080200021020304623474236112] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:28:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 14:29:00.000
+2019-03-02 14:28:00,005 INFO 12316 [Job#15515080800031020364625041054113] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:28:00,010 INFO 12316 [Job#15515080800031020364625041054113] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:29:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:30:00.001
+2019-03-02 14:29:00,004 INFO 12316 [Job#15515081400031020424624315218114] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:29:00,008 INFO 12316 [Job#15515081400031020424624315218114] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:30:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:31:00.000
+2019-03-02 14:30:00,001 INFO 12316 [Job#15515082000021020484623035463115] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:30:00,006 INFO 12316 [Job#15515082000021020484623035463115] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:31:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 14:32:00.000
+2019-03-02 14:31:00,004 INFO 12316 [Job#15515082600021020544623489632116] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:31:00,009 INFO 12316 [Job#15515082600021020544623489632116] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:32:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:33:00.000
+2019-03-02 14:32:00,001 INFO 12316 [Job#15515083200011020604622102749117] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:32:00,006 INFO 12316 [Job#15515083200011020604622102749117] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:33:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:34:00.000
+2019-03-02 14:33:00,001 INFO 12316 [Job#15515083800011020664622014866118] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:33:00,006 INFO 12316 [Job#15515083800011020664622014866118] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:34:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:35:00.000
+2019-03-02 14:34:00,004 INFO 12316 [Job#15515084400021020724624100322119] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:34:00,008 INFO 12316 [Job#15515084400021020724624100322119] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:34:29,557 INFO 868 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:34:29,557 INFO 868 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:34:29,557 INFO 868 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:34:29,557 INFO 868 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:34:29,557 INFO 868 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:34:29,557 INFO 868 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:34:44,031 INFO 16656 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:34:44,031 INFO 16656 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:34:44,031 INFO 16656 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:34:44,031 INFO 16656 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:34:44,031 INFO 16656 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:34:44,031 INFO 16656 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:35:00,003 INFO 16656 [Job#15515085000021020784623241058120] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:35:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:36:00.000
+2019-03-02 14:35:00,009 INFO 16656 [Job#15515085000021020784623241058120] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 14:36:00,001 INFO 16656 [Job#15515085600011020844621902607121] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:36:00,006 INFO 16656 [Job#15515085600011020844621902607121] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:36:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:37:00.000
+2019-03-02 14:36:21,312 INFO 14204 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:36:21,312 INFO 14204 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:36:21,312 INFO 14204 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:36:21,312 INFO 14204 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:36:21,312 INFO 14204 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:36:21,312 INFO 14204 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:36:36,151 INFO 1408 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:36:36,151 INFO 1408 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:36:36,151 INFO 1408 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:36:36,151 INFO 1408 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:36:36,151 INFO 1408 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:36:36,151 INFO 1408 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:37:00,002 INFO 1408 [Job#15515086200021020904622962334122] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:37:00,007 INFO 1408 [Job#15515086200021020904622962334122] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:37:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:38:00.001
+2019-03-02 14:38:00,001 INFO 1408 [Job#15515086800011020964621918323123] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:38:00,006 INFO 1408 [Job#15515086800011020964621918323123] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:38:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:39:00.000
+2019-03-02 14:39:00,000 INFO 1408 [Job#15515087400011021024622094731124] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:39:00,005 INFO 1408 [Job#15515087400011021024622094731124] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:39:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:40:00.000
+2019-03-02 14:40:00,002 INFO 1408 [Job#15515088000021021084622822491125] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:40:00,007 INFO 1408 [Job#15515088000021021084622822491125] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:40:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:41:00.001
+2019-03-02 14:41:00,003 INFO 1408 [Job#15515088600031021144623611513126] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:41:00,008 INFO 1408 [Job#15515088600031021144623611513126] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:41:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:42:00.000
+2019-03-02 14:42:00,005 INFO 1408 [Job#15515089200041021204625301816127] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:42:00,009 INFO 1408 [Job#15515089200041021204625301816127] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:42:00,006 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 14:43:00.001
+2019-03-02 14:42:41,797 INFO 14828 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:42:41,797 INFO 14828 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:42:41,797 INFO 14828 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:42:41,797 INFO 14828 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:42:41,797 INFO 14828 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:42:41,797 INFO 14828 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:43:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:44:00.000
+2019-03-02 14:43:00,002 INFO 14828 [Job#15515089800021021264623153175128] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:43:00,008 INFO 14828 [Job#15515089800021021264623153175128] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:43:41,420 INFO 2372 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:43:41,420 INFO 2372 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:43:41,420 INFO 2372 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:43:41,420 INFO 2372 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:43:41,420 INFO 2372 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:43:41,420 INFO 2372 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:44:00,002 INFO 2372 [Job#15515090400011021324622192557129] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:44:00,008 INFO 2372 [Job#15515090400011021324622192557129] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 14:44:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:45:00.001
+2019-03-02 14:45:00,003 INFO 2372 [Job#15515091000021021384623414899130] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:45:00,007 INFO 2372 [Job#15515091000021021384623414899130] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:45:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:46:00.000
+2019-03-02 14:46:00,003 INFO 2372 [Job#15515091600021021444623826409131] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:46:00,007 INFO 2372 [Job#15515091600021021444623826409131] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:46:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:47:00.000
+2019-03-02 14:47:00,002 INFO 2372 [Job#15515092200011021504621766613132] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:47:00,006 INFO 2372 [Job#15515092200011021504621766613132] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:47:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 14:48:00.000
+2019-03-02 14:48:00,021 INFO 2372 [Job#15515092800191021564640463226133] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:48:00,026 INFO 2372 [Job#15515092800191021564640463226133] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:48:00,021 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59980ms at 2019-03-02 14:49:00.001
+2019-03-02 14:49:00,002 INFO 2372 [Job#15515093400021021624622925449134] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:49:00,006 INFO 2372 [Job#15515093400021021624622925449134] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:49:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:50:00.000
+2019-03-02 14:50:00,001 INFO 2372 [Job#15515094000011021684622486676135] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:50:00,006 INFO 2372 [Job#15515094000011021684622486676135] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:50:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:51:00.000
+2019-03-02 14:51:00,002 INFO 2372 [Job#15515094600021021744623344657136] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:51:00,006 INFO 2372 [Job#15515094600021021744623344657136] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:51:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:52:00.001
+2019-03-02 14:52:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:53:00.000
+2019-03-02 14:52:00,003 INFO 2372 [Job#15515095200011021804622394944137] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:52:00,007 INFO 2372 [Job#15515095200011021804622394944137] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 14:52:41,539 INFO 8832 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:52:41,539 INFO 8832 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:52:41,539 INFO 8832 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:52:41,539 INFO 8832 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:52:41,539 INFO 8832 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:52:41,539 INFO 8832 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:52:43,516 INFO 11964 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:52:43,516 INFO 11964 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:52:43,516 INFO 11964 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:52:43,516 INFO 11964 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:52:43,516 INFO 11964 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:52:43,516 INFO 11964 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:53:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 14:54:00.001
+2019-03-02 14:53:00,001 INFO 11964 [Job#15515095800011021864622325664138] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:53:00,008 INFO 11964 [Job#15515095800011021864622325664138] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 14:54:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:55:00.001
+2019-03-02 14:54:00,003 INFO 11964 [Job#15515096400021021924622901714139] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:54:00,008 INFO 11964 [Job#15515096400021021924622901714139] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:54:45,258 INFO 10956 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:54:45,258 INFO 10956 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:54:45,258 INFO 10956 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:54:45,258 INFO 10956 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:54:45,258 INFO 10956 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:54:45,258 INFO 10956 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:55:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:56:00.001
+2019-03-02 14:55:00,002 INFO 10956 [Job#15515097000011021984622219820140] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:55:00,009 INFO 10956 [Job#15515097000011021984622219820140] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 14:56:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:57:00.001
+2019-03-02 14:56:00,003 INFO 10956 [Job#15515097600021022044623453067141] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:56:00,008 INFO 10956 [Job#15515097600021022044623453067141] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:57:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:58:00.000
+2019-03-02 14:57:00,002 INFO 10956 [Job#15515098200021022104622922562142] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:57:00,007 INFO 10956 [Job#15515098200021022104622922562142] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 14:57:15,361 INFO 9072 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 14:57:15,361 INFO 9072 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 14:57:15,361 INFO 9072 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 14:57:15,362 INFO 9072 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 14:57:15,362 INFO 9072 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 14:57:15,362 INFO 9072 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 14:58:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 14:59:00.000
+2019-03-02 14:58:00,002 INFO 9072 [Job#15515098800011022164622079977143] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:58:00,008 INFO 9072 [Job#15515098800011022164622079977143] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 14:59:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:00:00.001
+2019-03-02 14:59:00,003 INFO 9072 [Job#15515099400021022224623520102144] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 14:59:00,008 INFO 9072 [Job#15515099400021022224623520102144] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:00:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\weixin.js next time will execute after 3599998ms at 2019-03-02 16:00:00.000
+2019-03-02 15:00:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:01:00.000
+2019-03-02 15:00:00,003 INFO 9072 [Job#155151000000210222846226438393] D:\Code\github\ibeem\app\schedule\weixin.js executing by app
+2019-03-02 15:00:00,020 INFO 9072 [Job#15515100000021022284623502141145] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:00:00,024 INFO 9072 [Job#15515100000021022284623502141145] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:00:00,358 INFO 9072 [Job#155151000000210222846226438393] D:\Code\github\ibeem\app\schedule\weixin.js execute succeed, used 355ms
+2019-03-02 15:01:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 15:02:00.000
+2019-03-02 15:01:00,001 INFO 9072 [Job#15515100600001022344620802788146] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:01:00,006 INFO 9072 [Job#15515100600001022344620802788146] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:01:41,847 INFO 16064 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:01:41,847 INFO 16064 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:01:41,847 INFO 16064 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:01:41,847 INFO 16064 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:01:41,847 INFO 16064 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:01:41,847 INFO 16064 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:02:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:03:00.000
+2019-03-02 15:02:00,002 INFO 16064 [Job#15515101200021022404623046689147] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:02:00,010 INFO 16064 [Job#15515101200021022404623046689147] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 15:03:00,000 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 60000ms at 2019-03-02 15:04:00.000
+2019-03-02 15:03:00,001 INFO 16064 [Job#15515101800001022464621399686148] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:03:00,006 INFO 16064 [Job#15515101800001022464621399686148] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:04:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:05:00.000
+2019-03-02 15:04:00,002 INFO 16064 [Job#15515102400021022524623191985149] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:04:00,007 INFO 16064 [Job#15515102400021022524623191985149] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:04:53,281 INFO 2772 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:04:53,281 INFO 2772 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:04:53,281 INFO 2772 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:04:53,281 INFO 2772 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:04:53,281 INFO 2772 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:04:53,281 INFO 2772 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:05:00,000 INFO 2772 [Job#15515103000001022584621228090150] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:05:00,008 INFO 2772 [Job#15515103000001022584621228090150] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 15:05:00,000 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 60000ms at 2019-03-02 15:06:00.000
+2019-03-02 15:06:00,002 INFO 2772 [Job#15515103600021022644622957844151] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:06:00,007 INFO 2772 [Job#15515103600021022644622957844151] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:06:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:07:00.000
+2019-03-02 15:07:00,001 INFO 2772 [Job#15515104200011022704622283647152] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:07:00,006 INFO 2772 [Job#15515104200011022704622283647152] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:07:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:08:00.000
+2019-03-02 15:07:22,567 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:07:22,567 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:07:22,567 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:07:22,567 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:07:22,567 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:07:22,567 INFO 16796 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:08:00,004 INFO 16796 [Job#15515104800031022764624485852153] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:08:00,009 INFO 16796 [Job#15515104800031022764624485852153] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:08:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 15:09:00.001
+2019-03-02 15:08:21,876 INFO 16964 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:08:21,876 INFO 16964 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:08:21,876 INFO 16964 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:08:21,876 INFO 16964 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:08:21,876 INFO 16964 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:08:21,876 INFO 16964 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:09:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:10:00.003
+2019-03-02 15:09:00,003 INFO 16964 [Job#15515105400021022824623548648154] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:09:00,009 INFO 16964 [Job#15515105400021022824623548648154] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 15:09:07,189 INFO 1600 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:09:07,189 INFO 1600 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:09:07,189 INFO 1600 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:09:07,189 INFO 1600 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:09:07,189 INFO 1600 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:09:07,189 INFO 1600 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:10:00,004 INFO 1600 [Job#15515106000041022884625036564155] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:10:00,009 INFO 1600 [Job#15515106000041022884625036564155] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:10:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 15:11:00.000
+2019-03-02 15:10:23,005 INFO 9360 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:10:23,005 INFO 9360 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:10:23,005 INFO 9360 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:10:23,005 INFO 9360 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:10:23,005 INFO 9360 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:10:23,005 INFO 9360 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:11:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:12:00.001
+2019-03-02 15:11:00,000 INFO 9360 [Job#15515106600011022944621631581156] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:11:00,008 INFO 9360 [Job#15515106600011022944621631581156] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 7ms
+2019-03-02 15:12:00,002 INFO 9360 [Job#15515107200031023004623605098157] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:12:00,007 INFO 9360 [Job#15515107200031023004623605098157] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:12:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 15:13:00.000
+2019-03-02 15:13:00,001 INFO 9360 [Job#15515107800011023064622417075158] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:13:00,006 INFO 9360 [Job#15515107800011023064622417075158] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:13:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:14:00.000
+2019-03-02 15:13:59,999 INFO 9360 [Job#15515108399991023124620385504159] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:14:00,004 INFO 9360 [Job#15515108399991023124620385504159] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:13:59,999 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 60001ms at 2019-03-02 15:15:00.000
+2019-03-02 15:15:00,001 INFO 9360 [Job#15515109000011023184622057846160] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:15:00,006 INFO 9360 [Job#15515109000011023184622057846160] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:15:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 15:16:00.000
+2019-03-02 15:16:00,001 INFO 9360 [Job#15515109600011023244622483469161] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:16:00,006 INFO 9360 [Job#15515109600011023244622483469161] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:16:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:17:00.000
+2019-03-02 15:17:00,002 INFO 9360 [Job#15515110200011023304622755136162] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:17:00,006 INFO 9360 [Job#15515110200011023304622755136162] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:17:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:18:00.000
+2019-03-02 15:18:00,002 INFO 9360 [Job#15515110800031023364623603495163] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:18:00,007 INFO 9360 [Job#15515110800031023364623603495163] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:18:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:19:00.000
+2019-03-02 15:19:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:20:00.001
+2019-03-02 15:19:00,003 INFO 9360 [Job#15515111400021023424623690736164] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:19:00,009 INFO 9360 [Job#15515111400021023424623690736164] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:20:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:21:00.000
+2019-03-02 15:20:00,003 INFO 9360 [Job#15515112000031023484623660907165] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:20:00,008 INFO 9360 [Job#15515112000031023484623660907165] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:21:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:22:00.001
+2019-03-02 15:21:00,002 INFO 9360 [Job#15515112600021023544623156382166] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:21:00,007 INFO 9360 [Job#15515112600021023544623156382166] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:22:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 15:23:00.000
+2019-03-02 15:22:00,004 INFO 9360 [Job#15515113200031023604624375197167] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:22:00,009 INFO 9360 [Job#15515113200031023604624375197167] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:23:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 15:24:00.000
+2019-03-02 15:23:00,004 INFO 9360 [Job#15515113800041023664625343513168] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:23:00,008 INFO 9360 [Job#15515113800041023664625343513168] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:24:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:25:00.001
+2019-03-02 15:24:00,003 INFO 9360 [Job#15515114400021023724623467501169] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:24:00,008 INFO 9360 [Job#15515114400021023724623467501169] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:25:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:26:00.000
+2019-03-02 15:25:00,003 INFO 9360 [Job#15515115000031023784623728904170] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:25:00,008 INFO 9360 [Job#15515115000031023784623728904170] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:26:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:27:00.001
+2019-03-02 15:26:00,002 INFO 9360 [Job#15515115600031023844623734998171] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:26:00,007 INFO 9360 [Job#15515115600031023844623734998171] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:27:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:28:00.000
+2019-03-02 15:27:00,001 INFO 9360 [Job#15515116200011023904622154389172] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:27:00,006 INFO 9360 [Job#15515116200011023904622154389172] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:28:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:29:00.000
+2019-03-02 15:28:00,001 INFO 9360 [Job#15515116800011023964622496619173] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:28:00,006 INFO 9360 [Job#15515116800011023964622496619173] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:29:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:30:00.001
+2019-03-02 15:29:00,002 INFO 9360 [Job#15515117400021024024622989597174] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:29:00,006 INFO 9360 [Job#15515117400021024024622989597174] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:30:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:31:00.000
+2019-03-02 15:30:00,001 INFO 9360 [Job#15515118000011024084621680975175] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:30:00,006 INFO 9360 [Job#15515118000011024084621680975175] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:31:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:32:00.000
+2019-03-02 15:31:00,001 INFO 9360 [Job#15515118600011024144622376983176] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:31:00,006 INFO 9360 [Job#15515118600011024144622376983176] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:32:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 15:33:00.000
+2019-03-02 15:32:00,001 INFO 9360 [Job#15515119200001024204621295445177] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:32:00,006 INFO 9360 [Job#15515119200001024204621295445177] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:33:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:34:00.000
+2019-03-02 15:33:00,003 INFO 9360 [Job#15515119800031024264624227656178] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:33:00,008 INFO 9360 [Job#15515119800031024264624227656178] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:34:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:35:00.000
+2019-03-02 15:34:00,001 INFO 9360 [Job#15515120400021024324622565578179] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:34:00,006 INFO 9360 [Job#15515120400021024324622565578179] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:35:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:36:00.000
+2019-03-02 15:35:00,000 INFO 9360 [Job#15515121000011024384621645373180] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:35:00,005 INFO 9360 [Job#15515121000011024384621645373180] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:36:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:37:00.000
+2019-03-02 15:36:00,002 INFO 9360 [Job#15515121600011024444622359663181] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:36:00,006 INFO 9360 [Job#15515121600011024444622359663181] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:37:00,004 INFO 9360 [Job#15515122200021024504624097435182] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:37:00,008 INFO 9360 [Job#15515122200021024504624097435182] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:37:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 15:38:00.000
+2019-03-02 15:38:00,001 INFO 9360 [Job#15515122800011024564621997546183] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:38:00,006 INFO 9360 [Job#15515122800011024564621997546183] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:38:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:39:00.000
+2019-03-02 15:39:00,003 INFO 9360 [Job#15515123400021024624623186532184] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:39:00,007 INFO 9360 [Job#15515123400021024624623186532184] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:39:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:40:00.001
+2019-03-02 15:40:00,002 INFO 9360 [Job#15515124000011024684622601501185] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:40:00,007 INFO 9360 [Job#15515124000011024684622601501185] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:40:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:41:00.001
+2019-03-02 15:41:00,003 INFO 9360 [Job#15515124600021024744624086209186] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:41:00,008 INFO 9360 [Job#15515124600021024744624086209186] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:41:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:42:00.001
+2019-03-02 15:42:00,002 INFO 9360 [Job#15515125200021024804622945656187] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:42:00,007 INFO 9360 [Job#15515125200021024804622945656187] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:42:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:43:00.001
+2019-03-02 15:43:00,001 INFO 9360 [Job#15515125800011024864622673347188] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:43:00,006 INFO 9360 [Job#15515125800011024864622673347188] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:43:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 15:44:00.000
+2019-03-02 15:44:00,002 INFO 9360 [Job#15515126400021024924623084216189] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:44:00,006 INFO 9360 [Job#15515126400021024924623084216189] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:44:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:45:00.000
+2019-03-02 15:45:00,002 INFO 9360 [Job#15515127000021024984623085499190] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:45:00,006 INFO 9360 [Job#15515127000021024984623085499190] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:45:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:46:00.001
+2019-03-02 15:46:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:47:00.001
+2019-03-02 15:46:00,003 INFO 9360 [Job#15515127600021025044623273132191] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:46:00,008 INFO 9360 [Job#15515127600021025044623273132191] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:46:20,746 INFO 9588 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 15:46:20,746 INFO 9588 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 15:46:20,746 INFO 9588 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 15:46:20,746 INFO 9588 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 15:46:20,746 INFO 9588 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 15:46:20,746 INFO 9588 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 15:47:00,005 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 15:48:00.000
+2019-03-02 15:47:00,002 INFO 9588 [Job#15515128200021025104623286282192] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:47:00,008 INFO 9588 [Job#15515128200021025104623286282192] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 6ms
+2019-03-02 15:48:00,001 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 15:49:00.000
+2019-03-02 15:48:00,001 INFO 9588 [Job#15515128800011025164621490776193] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:48:00,006 INFO 9588 [Job#15515128800011025164621490776193] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:49:00,001 INFO 9588 [Job#15515129400011025224622402321194] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:49:00,006 INFO 9588 [Job#15515129400011025224622402321194] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:49:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59999ms at 2019-03-02 15:50:00.001
+2019-03-02 15:50:00,005 INFO 9588 [Job#15515130000031025284624888382195] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:50:00,011 INFO 9588 [Job#15515130000031025284624888382195] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:50:00,008 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59993ms at 2019-03-02 15:51:00.001
+2019-03-02 15:51:00,003 INFO 9588 [Job#15515130600021025344623894727196] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:51:00,007 INFO 9588 [Job#15515130600021025344623894727196] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:51:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:52:00.002
+2019-03-02 15:52:00,003 INFO 9588 [Job#15515131200031025404624138490197] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:52:00,008 INFO 9588 [Job#15515131200031025404624138490197] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:52:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 15:53:00.001
+2019-03-02 15:53:00,005 INFO 9588 [Job#15515131800041025464625323306198] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:53:00,010 INFO 9588 [Job#15515131800041025464625323306198] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:53:00,006 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59995ms at 2019-03-02 15:54:00.001
+2019-03-02 15:54:00,001 INFO 9588 [Job#15515132400021025524622802926199] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:54:00,006 INFO 9588 [Job#15515132400021025524622802926199] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:54:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:55:00.000
+2019-03-02 15:55:00,002 INFO 9588 [Job#15515133000011025584622405208200] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:55:00,007 INFO 9588 [Job#15515133000011025584622405208200] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:55:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:56:00.000
+2019-03-02 15:56:00,000 INFO 9588 [Job#15515133600011025644621643770201] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:56:00,005 INFO 9588 [Job#15515133600011025644621643770201] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:56:00,002 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:57:00.000
+2019-03-02 15:57:00,003 INFO 9588 [Job#15515134200021025704623493160202] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:57:00,007 INFO 9588 [Job#15515134200021025704623493160202] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:57:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 15:58:00.001
+2019-03-02 15:58:00,004 INFO 9588 [Job#15515134800031025764624551283203] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:58:00,009 INFO 9588 [Job#15515134800031025764624551283203] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 15:58:00,006 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 15:59:00.002
+2019-03-02 15:59:00,003 INFO 9588 [Job#15515135400041025824624518889204] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 15:59:00,007 INFO 9588 [Job#15515135400041025824624518889204] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 15:59:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 16:00:00.000
+2019-03-02 16:00:00,002 INFO 9588 [Job#155151360000110258846224077744] D:\Code\github\ibeem\app\schedule\weixin.js executing by app
+2019-03-02 16:00:00,019 INFO 9588 [Job#15515136000031025884624584640205] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 16:00:00,023 INFO 9588 [Job#15515136000031025884624584640205] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 16:00:00,345 INFO 9588 [Job#155151360000110258846224077744] D:\Code\github\ibeem\app\schedule\weixin.js execute succeed, used 343ms
+2019-03-02 16:00:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\weixin.js next time will execute after 3599998ms at 2019-03-02 17:00:00.001
+2019-03-02 16:00:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59997ms at 2019-03-02 16:01:00.000
+2019-03-02 16:01:00,002 INFO 9588 [Job#15515136600021025944623205456206] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 16:01:00,007 INFO 9588 [Job#15515136600021025944623205456206] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 5ms
+2019-03-02 16:01:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 16:02:00.001
+2019-03-02 16:02:00,009 INFO 9588 [Job#15515137200081026004629815278207] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 16:02:00,014 INFO 9588 [Job#15515137200081026004629815278207] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 16:02:00,012 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59990ms at 2019-03-02 16:03:00.001
+2019-03-02 16:03:00,004 INFO 9588 [Job#15515137800041026064624879401208] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 16:03:00,008 INFO 9588 [Job#15515137800041026064624879401208] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 4ms
+2019-03-02 16:03:00,004 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59996ms at 2019-03-02 16:04:00.000
+2019-03-02 16:03:36,024 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 16:03:36,024 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 16:03:36,024 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 16:03:36,024 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 16:03:36,024 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 16:03:36,024 INFO 13644 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 16:03:37,963 INFO 9088 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-multipart@2.4.0@egg-multipart\app\schedule\clean_tmpdir.js
+2019-03-02 16:03:37,963 INFO 9088 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\clean_log.js
+2019-03-02 16:03:37,963 INFO 9088 [egg-schedule]: register schedule D:\Code\github\ibeem\node_modules\_egg-logrotator@3.0.5@egg-logrotator\app\schedule\rotate_by_file.js
+2019-03-02 16:03:37,963 INFO 9088 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\load_device_data.js
+2019-03-02 16:03:37,963 INFO 9088 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\weixin.js
+2019-03-02 16:03:37,963 INFO 9088 [egg-schedule]: register schedule D:\Code\github\ibeem\app\schedule\work_order.js
+2019-03-02 16:04:00,003 INFO 12336 [Timer] D:\Code\github\ibeem\app\schedule\work_order.js next time will execute after 59998ms at 2019-03-02 16:05:00.001
+2019-03-02 16:04:00,003 INFO 9088 [Job#15515138400021026124623053104209] D:\Code\github\ibeem\app\schedule\work_order.js executing by app
+2019-03-02 16:04:00,011 INFO 9088 [Job#15515138400021026124623053104209] D:\Code\github\ibeem\app\schedule\work_order.js execute succeed, used 8ms
