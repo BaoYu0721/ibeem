@@ -152,17 +152,19 @@ class ProjectService extends Service {
     async singleEdit(projectId, name, describe, image){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:project";
+        const conn = await app.mysql.beginTransaction();
         var ttl = 1000;
         try {
-            const res = await redlock.lock(resource, ttl).then(function(lock) {
+            var resource = "ibeem_test:project";
+            var res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     var result = null;
                     try {
-                        result = await app.mysql.query('select id from project where name = ? and id != ?', [name, projectId]);
+                        result = await conn.query('select id from project where name = ? and id != ?', [name, projectId]);
                         if(result.length) return -2;
-                        result = await app.mysql.update('project', {id: projectId, name: name, des: describe, image: image});
+                        result = await conn.update('project', {id: projectId, name: name, des: describe, image: image});
                     } catch (error) {
+                        console.log(error)
                         lock.unlock()
                         .catch(function(err) {
                             console.error(err);
@@ -185,7 +187,38 @@ class ProjectService extends Service {
                 }
                 return transation();
             });
-            return res;
+            if(res == -1) return -1;
+            resource = "ibeem_test:device";
+            res = await redlock.lock(resource, ttl).then(function(lock){
+                async function transation(){
+                    try {
+                        const devices = await conn.select('device', { where:{project_id: projectId}});
+                        for(var i in devices){
+                            await conn.update('device', {
+                                id: devices[i].id,
+                                pname: name
+                            });
+                        }
+                    } catch (error) {
+                        console.log(error)
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return -1;
+            await conn.commit();
+            return 0;
         } catch (error) {
             return -1;
         }
@@ -3823,7 +3856,93 @@ class ProjectService extends Service {
         } catch (error) {
             return -1;
         }
-        return topBuilding;
+        const topBuildingMap = {
+            activityType1: topBuilding.activity_type_1,
+            activityType1FloorArea: topBuilding.activity_type_1_floor_area,
+            activityType2: topBuilding.activity_type_2,
+            activityType2FloorArea: topBuilding.activity_type_2_floor_area,
+            airPermeability: topBuilding.air_permeability,
+            annualOccupancyHours: topBuilding.annual_occupancy_hours,
+            architecturalDrawingAvailability: topBuilding.architectural_drawing_availability,
+            averageHeight: topBuilding.average_height,
+            bms: topBuilding.bms,
+            buildingFootprintArea: topBuilding.building_footprint_area,
+            buildingID: topBuilding.id,
+            cateringKitchen: topBuilding.catering_kitchen,
+            chillerCapacity: topBuilding.chiller_capacity,
+            chillers: topBuilding.chillers,
+            constructionDate: topBuilding.construction_date,
+            constructionPhase: topBuilding.construction_phase,
+            coolingType: topBuilding.cooling_type,
+            createdOn: topBuilding.created_on,
+            deleted: topBuilding.deleted,
+            doorToExternalWallPercentage: topBuilding.door_to_external_wall_percentage,
+            endUseType: topBuilding.end_use_type,
+            energyID: topBuilding.energy_id,
+            equipmentID: topBuilding.equipment_id,
+            exposedPerimeterLengths: topBuilding.exposed_perimeter_lengths,
+            fileUrl: topBuilding.file_url,
+            fuelType: topBuilding.fuel_type,
+            fuelTypeConsumption: topBuilding.fuel_type_consumption,
+            fuelTypeUnit: topBuilding.fuel_type_unit,
+            glazingToExternalWallPercentage: topBuilding.glazing_to_external_wall_percentage,
+            grossInternalArea: topBuilding.gross_internal_area,
+            id: topBuilding.id,
+            liftType: topBuilding.lift_type,
+            lightingCapacity: topBuilding.lighting_capacity,
+            lightingControlType: topBuilding.lighting_control_type,
+            mainHeatingFuel: topBuilding.main_heating_fuel,
+            mainHeatingSystemEfficiency: topBuilding.main_heating_system_efficiency,
+            meteringLevel: topBuilding.metering_level,
+            monitoringEndDate: topBuilding.monitoring_end_date,
+            monitoringPeriod: topBuilding.monitoring_period,
+            monitoringStartDate: topBuilding.monitoring_start_date,
+            name: topBuilding.name,
+            numberOfBuildings: topBuilding.number_of_buildings,
+            numberOfLifts: topBuilding.number_of_lifts,
+            numberOfMealsServed: topBuilding.number_of_meals_served,
+            numberOfOccupants: topBuilding.number_of_occupants,
+            numberOfStoreys: topBuilding.number_of_storeys,
+            organisationAddressline1: topBuilding.organisation_addressline_1,
+            organisationAddressline2: topBuilding.organisation_addressline_2,
+            organisationAddressline3: topBuilding.organisation_addressline_3,
+            organisationAddressline4: topBuilding.organisation_addressline_4,
+            organisationCity: topBuilding.organisation_city,
+            organisationCountry: topBuilding.organisation_country,
+            organisationName: topBuilding.organisation_name,
+            organisationPostcode: topBuilding.organisation_postcode,
+            parameterType: topBuilding.parameter_type,
+            perimeterLengths: topBuilding.perimeter_lengths,
+            poolType: topBuilding.pool_type,
+            primaryActivityType: topBuilding.primary_activity_type,
+            primaryHeatingType: topBuilding.primary_heating_type,
+            primaryVentilationStrategy: topBuilding.primary_ventilation_strategy,
+            projectId: topBuilding.project_id,
+            recordType: topBuilding.record_type,
+            refurbishmentDate: topBuilding.refurbishment_date,
+            refurbishmentDetails: topBuilding.refurbishment_details,
+            roofType: topBuilding.roof_type,
+            sectorType: topBuilding.sector_type,
+            serverRoom: topBuilding.server_room,
+            siteAddressline1: topBuilding.site_addressline_1,
+            siteAddressline2: topBuilding.site_addressline_2,
+            siteAddressline3: topBuilding.site_addressline_3,
+            siteAddressline4: topBuilding.site_addressline_4,
+            siteCity: topBuilding.site_city,
+            siteCountry: topBuilding.site_country,
+            siteNumber: topBuilding.site_number,
+            sitePostcode: topBuilding.site_postcode,
+            structureType: topBuilding.structure_type,
+            subMetering: topBuilding.sub_metering,
+            supplier: topBuilding.supplier,
+            sustainabilityCertificationRating: topBuilding.sustainability_certification_rating,
+            sustainabilityCertificationType: topBuilding.sustainability_certification_type,
+            swimmingPool: topBuilding.swimming_pool,
+            tenancyType: topBuilding.tenancy_type,
+            updatedOn: topBuilding.updated_on,
+            urbanContext: topBuilding.urban_context,
+        }
+        return topBuildingMap;
     }
 
     async singleTopBuildingUpdate(data){
@@ -3932,6 +4051,7 @@ class ProjectService extends Service {
         try {
             topRoom = await this.app.mysql.select('top_room', {where: {top_building_id: buildingId}});
         } catch (error) {
+            console.log(error)
             return -1;
         }
         const topRoomList = [];
@@ -3943,10 +4063,11 @@ class ProjectService extends Service {
                 roomType: topRoom[key].room_type
             };
             const topElementList = [];
-            const topElement = null;
+            var   topElement = null;
             try {
                 topElement = await this.app.mysql.select('top_element', {where: {top_room_id: topRoom[key].id}});
             } catch (error) {
+                console.log(error)
                 return -1;
             }
             for(var j in topElement){
@@ -3962,6 +4083,84 @@ class ProjectService extends Service {
             topRoomList.push(topRoomMap);
         }
         return topRoomList;
+    }
+
+    async topBuildingRoomAdd(buildingId, roomType, floorLocation, grossInternalArea){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_room";
+        var ttl = 1000;
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            await app.mysql.insert('top_room', {
+                top_building_id:     buildingId,
+                room_type:           roomType,
+                floor_location:      floorLocation,
+                gross_internal_area: grossInternalArea,
+                created_on:          new Date(),
+                updated_on:          new Date()
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
+    }
+
+    async singleTopBuildingRoomEdit(roomId, roomType, floorLocation, grossInternalArea){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_room";
+        var ttl = 1000;
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            await app.mysql.update('top_room', {
+                id:                  roomId,
+                room_type:           roomType,
+                floor_location:      floorLocation,
+                gross_internal_area: grossInternalArea,
+                updated_on:          new Date()
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
+    }
+
+    async singleTopBuildingRoomDel(roomId){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_room";
+        var ttl = 1000;
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            res = await app.mysql.delete('top_room', {
+                id: roomId
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
     }
 
     async singleSurveySearch(projectId){

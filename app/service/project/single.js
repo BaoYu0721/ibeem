@@ -82,8 +82,6 @@ class SingleService extends Service {
         if(project == null){
             return -2;
         }
-        console.log(projectId)
-        console.log(surveyIds)
         const surveyList = [];
         for(var key in surveyIds){
             var survey = null;
@@ -211,16 +209,17 @@ class SingleService extends Service {
     async projectUpdate(projectId, name, describe, image){
         const { app } = this;
         const redlock = this.service.utils.lock.lockInit();
-        const resource = "ibeem_test:project";
+        const conn = await app.mysql.beginTransaction();
         var ttl = 1000;
         try {
-            const res = await redlock.lock(resource, ttl).then(function(lock) {
+            var resource = "ibeem_test:project";
+            var res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     var result = null;
                     try {
-                        result = await app.mysql.query('select id from project where name = ? and id != ?', [name, projectId]);
+                        result = await conn.query('select id from project where name = ? and id != ?', [name, projectId]);
                         if(result.length) return -2;
-                        result = await app.mysql.update('project', {id: projectId, name: name, des: describe, image: image});
+                        result = await conn.update('project', {id: projectId, name: name, des: describe, image: image});
                     } catch (error) {
                         console.log(error)
                         lock.unlock()
@@ -245,7 +244,38 @@ class SingleService extends Service {
                 }
                 return transation();
             });
-            return res;
+            if(res == -1) return -1;
+            resource = "ibeem_test:device";
+            res = await redlock.lock(resource, ttl).then(function(lock){
+                async function transation(){
+                    try {
+                        const devices = await conn.select('device', { where:{project_id: projectId}});
+                        for(var i in devices){
+                            await conn.update('device', {
+                                id: devices[i].id,
+                                pname: name
+                            });
+                        }
+                    } catch (error) {
+                        console.log(error)
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return -1;
+            await conn.commit();
+            return 0;
         } catch (error) {
             return -1;
         }

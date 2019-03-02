@@ -1029,6 +1029,57 @@ class IndexController extends Controller {
         };
     }
 
+    async singleTopBuildingRoomAdd(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.topBuildingID;
+        const roomType = ctx.request.body.roomType;
+        const floorLocation = ctx.request.body.floorLocation;
+        const grossInternalArea = ctx.request.body.grossInternalArea;
+        const result = await ctx.service.admin.project.topBuildingRoomAdd(buildingId, roomType, floorLocation, grossInternalArea);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async singleTopBuildingRoomEdit(){
+        const { ctx } = this;
+        const roomId = ctx.request.body.topRoomID;
+        const roomType = ctx.request.body.roomType;
+        const floorLocation = ctx.request.body.floorLocation;
+        const grossInternalArea = ctx.request.body.grossInternalArea;
+        const result = await ctx.service.admin.project.singleTopBuildingRoomEdit(roomId, roomType, floorLocation, grossInternalArea);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async singleTopBuildingRoomDel(){
+        const { ctx } = this;
+        const roomId = ctx.request.body.topRoomID;
+        const result = await ctx.service.admin.project.singleTopBuildingRoomDel(roomId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
     async singleSurveySearch(){
         const { ctx } = this;
         const projectId = ctx.request.body.projectID;

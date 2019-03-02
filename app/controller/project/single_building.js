@@ -579,6 +579,20 @@ class SingleBuildingController extends Controller {
         };
     }
 
+    async topBuildingExport(){
+        const { ctx } = this;
+        const buildingId = ctx.query.topBuildingID;
+        const result = await ctx.service.project.singleBuilding.topBuildingInfo(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        const filename = new Date().getTime().toString() + '.xlsx';
+        ctx.set("Content-Disposition", "attachment;filename=" + filename);
+    }
+
     async topBuildingRoomInfo(){
         const { ctx } = this;
         const buildingId = ctx.request.body.buildingId;
@@ -591,6 +605,57 @@ class SingleBuildingController extends Controller {
         }
         ctx.body = {
             result: result,
+            code: 200
+        };
+    }
+
+    async topBuildingRoomAdd(){
+        const { ctx } = this;
+        const buildingId = ctx.request.body.topBuildingID;
+        const roomType = ctx.request.body.roomType;
+        const floorLocation = ctx.request.body.floorLocation;
+        const grossInternalArea = ctx.request.body.grossInternalArea;
+        const result = await ctx.service.project.singleBuilding.topBuildingRoomAdd(buildingId, roomType, floorLocation, grossInternalArea);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async topBuildingRoomEdit(){
+        const { ctx } = this;
+        const roomId = ctx.request.body.topRoomID;
+        const roomType = ctx.request.body.roomType;
+        const floorLocation = ctx.request.body.floorLocation;
+        const grossInternalArea = ctx.request.body.grossInternalArea;
+        const result = await ctx.service.project.singleBuilding.topBuildingRoomEdit(roomId, roomType, floorLocation, grossInternalArea);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
+            code: 200
+        };
+    }
+
+    async topBuildingRoomDel(){
+        const { ctx } = this;
+        const roomId = ctx.request.body.topRoomID;
+        const result = await ctx.service.project.singleBuilding.topBuildingRoomDel(roomId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        ctx.body = {
             code: 200
         };
     }

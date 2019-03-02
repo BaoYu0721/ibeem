@@ -337,7 +337,7 @@ $("body").on("click","#roomBox a",function(){
 		$('#delRoomOk').modal('show');
 		$("#removeRoom").click(function(){
 			$.ajax({
-				url:"/building/deleteTopRoom",
+				url:"/project/single/topBuilding/room_del",
 				data:{topRoomID:$thisID},
 				type:"POST",
 				success:function(e){
@@ -395,7 +395,7 @@ $("#subRoom").click(function(){
 	
 	if(type=="addRoom"){
 		$.ajax({
-			url:"/building/addTopRoom",
+			url:"/project/single/topBuilding/room_add",
 			data:{topBuildingID:id,roomType:v_1,floorLocation:v_2,grossInternalArea:v_3},
 			type:"POST",
 			success:function(e){
@@ -446,7 +446,7 @@ $("#subRoom").click(function(){
 		});
 	}else if(type=="updateRoom"){
 		$.ajax({
-			url:"/building/updateTopRoom",
+			url:"/project/single/topBuilding/room_edit",
 			data:{topRoomID:id,roomType:v_1,floorLocation:v_2,grossInternalArea:v_3},
 			type:"POST",
 			success:function(e){
@@ -479,6 +479,7 @@ $("#submit_sheet_1,#submit_sheet_2,#submit_sheet_3,#submit_sheet_6,#submit_sheet
 	if(!reg.test($("#c11").val()) && $("#c11").val())  {alertokMsg(getLangStr("top_building_base_msg_7"),getLangStr("alert_ok"));removeLoading(); return;}
 	if(!reg.test($("#c12").val()) && $("#c12").val())  {alertokMsg(getLangStr("top_building_base_msg_8"),getLangStr("alert_ok"));removeLoading(); return;}
 	if(!reg.test($("#c13").val()) && $("#c13").val())  {alertokMsg(getLangStr("top_building_base_msg_9"),getLangStr("alert_ok"));removeLoading(); return;}
+	if(!reg.test($("#c14").val()) && $("#c14").val())  {alertokMsg(getLangStr("top_building_base_msg_23"),getLangStr("alert_ok"));removeLoading(); return;}
 	if(!reg.test($("#c15").val()) && $("#c15").val())  {alertokMsg(getLangStr("top_building_base_msg_10"),getLangStr("alert_ok"));removeLoading(); return;}
 	if(!reg.test($("#c16").val()) && $("#c16").val())  {alertokMsg(getLangStr("top_building_base_msg_11"),getLangStr("alert_ok"));removeLoading(); return;}
 	if(!reg.test($("#c17").val()) && $("#c17").val())  {alertokMsg(getLangStr("top_building_base_msg_12"),getLangStr("alert_ok"));removeLoading(); return;}

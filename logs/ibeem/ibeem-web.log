@@ -1,576 +1,98 @@
-2019-03-02 13:56:44,859 ERROR 6524 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyAnalysisBuilding.html:6
-    4| <meta charset="UTF-8">
-    5| <title>问卷分析</title>
- >> 6| <base href="<%=basePath%>" />
-    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
-    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
+2019-03-03 01:40:54,081 ERROR 12453 [-/::1/-/2ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir '/home/kang/Code/ibeem/app/public/file/point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (/home/kang/Code/ibeem/app/controller/project/single_building.js:353:26)
+    at Object.callFn (/home/kang/Code/ibeem/node_modules/_egg-core@4.14.1@egg-core/lib/utils/index.js:44:21)
+    at Object.classControllerMiddleware (/home/kang/Code/ibeem/node_modules/_egg-core@4.14.1@egg-core/lib/loader/mixin/controller.js:87:20)
+    at Object.callFn (/home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/utils.js:12:21)
+    at wrappedController (/home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/egg_router.js:322:18)
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /home/kang/Code/ibeem/app/middleware/user_required.js:15:11
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/router.js:190:18
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/router.js:195:33)
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@4.1.0@koa-compose/index.js:42:32)
+errno: -2
+code: "ENOENT"
+syscall: "scandir"
+path: "/home/kang/Code/ibeem/app/public/file/point"
+name: "ENOENTError"
+pid: 12453
+hostname: ubuntu
 
-basePath is not defined
-    4| <meta charset="UTF-8">
-    5| <title>问卷分析</title>
- >> 6| <base href="<%=basePath%>" />
-    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
-    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
+2019-03-03 01:45:24,921 ERROR 12604 [-/::1/-/2ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir '/home/kang/Code/ibeem/app/public/file/point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (/home/kang/Code/ibeem/app/controller/project/single_building.js:353:26)
+    at Object.callFn (/home/kang/Code/ibeem/node_modules/_egg-core@4.14.1@egg-core/lib/utils/index.js:44:21)
+    at Object.classControllerMiddleware (/home/kang/Code/ibeem/node_modules/_egg-core@4.14.1@egg-core/lib/loader/mixin/controller.js:87:20)
+    at Object.callFn (/home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/utils.js:12:21)
+    at wrappedController (/home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/egg_router.js:322:18)
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /home/kang/Code/ibeem/app/middleware/user_required.js:15:11
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at next (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:45:18)
+    at /home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/router.js:190:18
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:44:32)
+    at /home/kang/Code/ibeem/node_modules/_koa-compose@3.2.1@koa-compose/index.js:36:12
+    at dispatch (/home/kang/Code/ibeem/node_modules/_@eggjs_router@2.0.0@@eggjs/router/lib/router.js:195:33)
+    at dispatch (/home/kang/Code/ibeem/node_modules/_koa-compose@4.1.0@koa-compose/index.js:42:32)
+errno: -2
+code: "ENOENT"
+syscall: "scandir"
+path: "/home/kang/Code/ibeem/app/public/file/point"
+name: "ENOENTError"
+pid: 12604
+hostname: ubuntu
 
-basePath is not defined
-    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:11:25)
-    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+2019-03-03 02:00:57,401 ERROR 12604 [-/::1/-/1ms GET /common/questionDX] nodejs.AssertionError [ERR_ASSERTION]: Can't find common/components/questionDx.html from /home/kang/Code/ibeem/app/view
+    at Map.resolve (/home/kang/Code/ibeem/node_modules/_egg-view@2.1.2@egg-view/lib/view_manager.js:74:5)
     at <anonymous>
-path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyAnalysisBuilding.html"
-pid: 6524
-hostname: DESKTOP-BK3T6KS
+generatedMessage: false
+name: "AssertionError [ERR_ASSERTION]"
+code: "ERR_ASSERTION"
+actual: undefined
+expected: true
+operator: "=="
+pid: 12604
+hostname: ubuntu
 
-2019-03-02 13:58:58,050 ERROR 6524 [-/127.0.0.1/-/1ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyAnalysisBuilding.html:6
-    4| <meta charset="UTF-8">
-    5| <title>问卷分析</title>
- >> 6| <base href="<%=basePath%>" />
-    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
-    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
-
-basePath is not defined
-    4| <meta charset="UTF-8">
-    5| <title>问卷分析</title>
- >> 6| <base href="<%=basePath%>" />
-    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
-    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
-    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
-
-basePath is not defined
-    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:11:25)
-    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+2019-03-03 02:09:23,961 ERROR 12604 [-/::1/-/2ms GET /common/questionDX] nodejs.AssertionError [ERR_ASSERTION]: Can't find common/components/questionDx.html from /home/kang/Code/ibeem/app/view
+    at Map.resolve (/home/kang/Code/ibeem/node_modules/_egg-view@2.1.2@egg-view/lib/view_manager.js:74:5)
     at <anonymous>
-path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyAnalysisBuilding.html"
-pid: 6524
-hostname: DESKTOP-BK3T6KS
+generatedMessage: false
+name: "AssertionError [ERR_ASSERTION]"
+code: "ERR_ASSERTION"
+actual: undefined
+expected: true
+operator: "=="
+pid: 12604
+hostname: ubuntu
 
-2019-03-02 13:59:50,169 ERROR 6524 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyAnalysisBuilding.html:6
-    4| <meta charset="UTF-8">
-    5| <title>问卷分析</title>
- >> 6| <base href="<%=basePath%>" />
-    7| 	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
-    8| 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
-    9|     <link rel="stylesheet" href="/public/static/common/css/base.css" />
-
-basePath is not defined
-    4| <meta charset="UTF-8">
-    5| <title>问卷分析</title>
- >> 6| <base href="<%=basePath%>" />
-    7| 	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
-    8| 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
-    9|     <link rel="stylesheet" href="/public/static/common/css/base.css" />
-
-basePath is not defined
-    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:11:25)
-    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+2019-03-03 02:10:27,072 ERROR 12604 [-/::1/-/2ms GET /common/questionDX] nodejs.AssertionError [ERR_ASSERTION]: Can't find common/components/questionDx.html from /home/kang/Code/ibeem/app/view
+    at Map.resolve (/home/kang/Code/ibeem/node_modules/_egg-view@2.1.2@egg-view/lib/view_manager.js:74:5)
     at <anonymous>
-path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyAnalysisBuilding.html"
-pid: 6524
-hostname: DESKTOP-BK3T6KS
+generatedMessage: false
+name: "AssertionError [ERR_ASSERTION]"
+code: "ERR_ASSERTION"
+actual: undefined
+expected: true
+operator: "=="
+pid: 12604
+hostname: ubuntu
 
-2019-03-02 14:21:38,676 ERROR 12316 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.SyntaxError: Invalid or unexpected token in D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html while compiling ejs
-
-If the above error is not helpful, you may want to try EJS-Lint:
-https://github.com/RyanZim/EJS-Lint
-Or, if you meant to create an async function, pass async: true as an option.
-
-If the above error is not helpful, you may want to try EJS-Lint:
-https://github.com/RyanZim/EJS-Lint
-Or, if you meant to create an async function, pass async: true as an option.
-    at new Function (<anonymous>)
-    at Template.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12)
-    at Object.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:389:16)
-    at handleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:212:18)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:16)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+2019-03-03 02:10:30,177 ERROR 12604 [-/::1/-/2ms GET /common/questionDX] nodejs.AssertionError [ERR_ASSERTION]: Can't find common/components/questionDx.html from /home/kang/Code/ibeem/app/view
+    at Map.resolve (/home/kang/Code/ibeem/node_modules/_egg-view@2.1.2@egg-view/lib/view_manager.js:74:5)
     at <anonymous>
-
-pid: 12316
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 14:25:53,147 ERROR 12316 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.SyntaxError: Invalid or unexpected token in D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html while compiling ejs
-
-If the above error is not helpful, you may want to try EJS-Lint:
-https://github.com/RyanZim/EJS-Lint
-Or, if you meant to create an async function, pass async: true as an option.
-
-If the above error is not helpful, you may want to try EJS-Lint:
-https://github.com/RyanZim/EJS-Lint
-Or, if you meant to create an async function, pass async: true as an option.
-    at new Function (<anonymous>)
-    at Template.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12)
-    at Object.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:389:16)
-    at handleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:212:18)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:16)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
-    at <anonymous>
-
-pid: 12316
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 14:26:48,339 ERROR 12316 [-/127.0.0.1/-/1ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.SyntaxError: Invalid or unexpected token in D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html while compiling ejs
-
-If the above error is not helpful, you may want to try EJS-Lint:
-https://github.com/RyanZim/EJS-Lint
-Or, if you meant to create an async function, pass async: true as an option.
-
-If the above error is not helpful, you may want to try EJS-Lint:
-https://github.com/RyanZim/EJS-Lint
-Or, if you meant to create an async function, pass async: true as an option.
-    at new Function (<anonymous>)
-    at Template.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12)
-    at Object.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:389:16)
-    at handleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:212:18)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:16)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
-    at <anonymous>
-
-pid: 12316
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 14:30:14,490 ERROR 12316 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html:33
-    31|             <div class="titleTit">
-    32|         		<% if(buildingName){ %>
- >> 33| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
-    34| 				<% }else if(topBuildingName){ %>
-    35| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
-    36| 				<% } %>
-
-projectName is not defined
-    31|             <div class="titleTit">
-    32|         		<% if(buildingName){ %>
- >> 33| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
-    34| 				<% }else if(topBuildingName){ %>
-    35| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
-    36| 				<% } %>
-
-projectName is not defined
-    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:14:44)
-    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
-    at <anonymous>
-path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyReportBuilding.html"
-pid: 12316
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 14:34:51,195 ERROR 16656 [-/127.0.0.1/-/3ms GET /admin/project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\administrator\surveyAnalysisBuilding.html:79
-    77|             <div class="titleTit">
-    78| 							<% if(buildingName){ %>
- >> 79| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
-    80| 							<% }else if(topBuildingName){ %>
-    81| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
-    82| 							<% } %>
-
-projectName is not defined
-    77|             <div class="titleTit">
-    78| 							<% if(buildingName){ %>
- >> 79| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
-    80| 							<% }else if(topBuildingName){ %>
-    81| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
-    82| 							<% } %>
-
-projectName is not defined
-    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:14:44)
-    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
-    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
-    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
-    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
-    at new Promise (<anonymous>)
-    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
-    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
-    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
-    at <anonymous>
-path: "D:\\Code\\github\\ibeem\\app\\view\\administrator\\surveyAnalysisBuilding.html"
-pid: 16656
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 14:59:27,228 ERROR 9072 [-/127.0.0.1/-/2ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9072
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:00:22,209 ERROR 9072 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9072
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:13:29,594 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:16:22,846 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:16:57,939 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:17:07,283 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:17:44,379 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:19:29,074 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:22:50,692 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:25:19,382 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:26:03,233 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:26:10,470 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 15:26:15,697 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
-    at Object.fs.readdirSync (fs.js:904:18)
-    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-errno: -4058
-code: "ENOENT"
-syscall: "scandir"
-path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
-name: "ENOENTError"
-pid: 9360
-hostname: DESKTOP-BK3T6KS
-
-2019-03-02 17:24:19,494 ERROR 9008 [-/127.0.0.1/-/27ms POST /project/single/topBuilding/update] nodejs.TypeError: ctx.service.project.singleBuilding.topBuildingUpdate is not a function
-    at SingleBuildingController.topBuildingUpdate (D:\Code\github\ibeem\app\controller\project\single_building.js:570:65)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
-    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
-    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
-    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
-    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
-    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
-    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
-    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
-    at D:\Code\github\ibeem\node_modules\_egg-development@2.4.2@egg-development\app\middleware\egg_loader_trace.js:9:56
-
-pid: 9008
-hostname: DESKTOP-BK3T6KS
+generatedMessage: false
+name: "AssertionError [ERR_ASSERTION]"
+code: "ERR_ASSERTION"
+actual: undefined
+expected: true
+operator: "=="
+pid: 12604
+hostname: ubuntu
 

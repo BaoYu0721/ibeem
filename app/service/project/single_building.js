@@ -3129,7 +3129,7 @@ class SingleBuildingService extends Service {
             exposedPerimeterLengths: topBuilding.exposed_perimeter_lengths,
             fileUrl: topBuilding.file_url,
             fuelType: topBuilding.fuel_type,
-            fuelTypeConsumption: topBuilding.fuelTypeConsumption,
+            fuelTypeConsumption: topBuilding.fuel_type_consumption,
             fuelTypeUnit: topBuilding.fuel_type_unit,
             glazingToExternalWallPercentage: topBuilding.glazing_to_external_wall_percentage,
             grossInternalArea: topBuilding.gross_internal_area,
@@ -3297,6 +3297,7 @@ class SingleBuildingService extends Service {
         try {
             topRoom = await this.app.mysql.select('top_room', {where: {top_building_id: buildingId}});
         } catch (error) {
+            console.log(error);
             return -1;
         }
         const topRoomList = [];
@@ -3308,10 +3309,11 @@ class SingleBuildingService extends Service {
                 roomType: topRoom[key].room_type
             };
             const topElementList = [];
-            const topElement = null;
+            var   topElement = null;
             try {
                 topElement = await this.app.mysql.select('top_element', {where: {top_room_id: topRoom[key].id}});
             } catch (error) {
+                console.log(error)
                 return -1;
             }
             for(var j in topElement){
@@ -3327,6 +3329,84 @@ class SingleBuildingService extends Service {
             topRoomList.push(topRoomMap);
         }
         return topRoomList;
+    }
+
+    async topBuildingRoomAdd(buildingId, roomType, floorLocation, grossInternalArea){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_room";
+        var ttl = 1000;
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            await app.mysql.insert('top_room', {
+                top_building_id:     buildingId,
+                room_type:           roomType,
+                floor_location:      floorLocation,
+                gross_internal_area: grossInternalArea,
+                created_on:          new Date(),
+                updated_on:          new Date()
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
+    }
+
+    async topBuildingRoomEdit(roomId, roomType, floorLocation, grossInternalArea){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_room";
+        var ttl = 1000;
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            await app.mysql.update('top_room', {
+                id:                  roomId,
+                room_type:           roomType,
+                floor_location:      floorLocation,
+                gross_internal_area: grossInternalArea,
+                updated_on:          new Date()
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
+    }
+
+    async topBuildingRoomDel(roomId){
+        const { app } = this;
+        const redlock = this.service.utils.lock.lockInit();
+        const resource = "ibeem_test:top_room";
+        var ttl = 1000;
+        var res = await redlock.lock(resource, ttl)
+        .then(async function(lock){
+            await app.mysql.delete('top_room', {
+                id: roomId
+            });
+            lock.unlock()
+            .catch(function(err){
+                console.log(err);
+            });
+        })
+        .catch(function(err){
+            console.log(err);
+            return -1;
+        });
+        if(res == -1) return -1;
+        return 0;
     }
 }
 

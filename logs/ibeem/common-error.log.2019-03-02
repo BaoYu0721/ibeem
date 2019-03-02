@@ -1,0 +1,834 @@
+2019-03-02 13:49:11,552 ERROR 12336 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onread (net.js:622:25)
+errno: "ECONNRESET"
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 13:56:44,859 ERROR 6524 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyAnalysisBuilding.html:6
+    4| <meta charset="UTF-8">
+    5| <title>问卷分析</title>
+ >> 6| <base href="<%=basePath%>" />
+    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
+    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
+
+basePath is not defined
+    4| <meta charset="UTF-8">
+    5| <title>问卷分析</title>
+ >> 6| <base href="<%=basePath%>" />
+    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
+    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
+
+basePath is not defined
+    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:11:25)
+    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyAnalysisBuilding.html"
+pid: 6524
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 13:58:58,050 ERROR 6524 [-/127.0.0.1/-/1ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyAnalysisBuilding.html:6
+    4| <meta charset="UTF-8">
+    5| <title>问卷分析</title>
+ >> 6| <base href="<%=basePath%>" />
+    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
+    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
+
+basePath is not defined
+    4| <meta charset="UTF-8">
+    5| <title>问卷分析</title>
+ >> 6| <base href="<%=basePath%>" />
+    7| 	<link rel='shortcut icon' href='/static/common/img/favicon.ico'>
+    8| 	<link rel="stylesheet"  href="/static/common/css/semantic.min.css" />
+    9|     <link rel="stylesheet" href="/static/common/css/base.css" />
+
+basePath is not defined
+    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:11:25)
+    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyAnalysisBuilding.html"
+pid: 6524
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 13:59:50,169 ERROR 6524 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyAnalysisBuilding.html:6
+    4| <meta charset="UTF-8">
+    5| <title>问卷分析</title>
+ >> 6| <base href="<%=basePath%>" />
+    7| 	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+    8| 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    9|     <link rel="stylesheet" href="/public/static/common/css/base.css" />
+
+basePath is not defined
+    4| <meta charset="UTF-8">
+    5| <title>问卷分析</title>
+ >> 6| <base href="<%=basePath%>" />
+    7| 	<link rel='shortcut icon' href='/public/static/common/img/favicon.ico'>
+    8| 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
+    9|     <link rel="stylesheet" href="/public/static/common/css/base.css" />
+
+basePath is not defined
+    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:11:25)
+    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyAnalysisBuilding.html"
+pid: 6524
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:21:38,676 ERROR 12316 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.SyntaxError: Invalid or unexpected token in D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass async: true as an option.
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass async: true as an option.
+    at new Function (<anonymous>)
+    at Template.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12)
+    at Object.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:389:16)
+    at handleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:212:18)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:16)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+
+pid: 12316
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:25:53,147 ERROR 12316 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.SyntaxError: Invalid or unexpected token in D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass async: true as an option.
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass async: true as an option.
+    at new Function (<anonymous>)
+    at Template.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12)
+    at Object.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:389:16)
+    at handleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:212:18)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:16)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+
+pid: 12316
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:26:48,339 ERROR 12316 [-/127.0.0.1/-/1ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.SyntaxError: Invalid or unexpected token in D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass async: true as an option.
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass async: true as an option.
+    at new Function (<anonymous>)
+    at Template.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12)
+    at Object.compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:389:16)
+    at handleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:212:18)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:16)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+
+pid: 12316
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:30:14,490 ERROR 12316 [-/127.0.0.1/-/2ms GET /project?project_name=123&item=building&building_name=123123&op=survey&to=statistics&relation=2] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\manage\surveyReportBuilding.html:33
+    31|             <div class="titleTit">
+    32|         		<% if(buildingName){ %>
+ >> 33| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
+    34| 				<% }else if(topBuildingName){ %>
+    35| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
+    36| 				<% } %>
+
+projectName is not defined
+    31|             <div class="titleTit">
+    32|         		<% if(buildingName){ %>
+ >> 33| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
+    34| 				<% }else if(topBuildingName){ %>
+    35| 					<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
+    36| 				<% } %>
+
+projectName is not defined
+    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:14:44)
+    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+path: "D:\\Code\\github\\ibeem\\app\\view\\manage\\surveyReportBuilding.html"
+pid: 12316
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:34:51,194 ERROR 16656 [-/127.0.0.1/-/3ms GET /admin/project?project_name=123&item=building&building_name=123123&op=survey&to=analysis&relation=2&objectID=7036] nodejs.ReferenceError: D:\Code\github\ibeem\app\view\administrator\surveyAnalysisBuilding.html:79
+    77|             <div class="titleTit">
+    78| 							<% if(buildingName){ %>
+ >> 79| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
+    80| 							<% }else if(topBuildingName){ %>
+    81| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
+    82| 							<% } %>
+
+projectName is not defined
+    77|             <div class="titleTit">
+    78| 							<% if(buildingName){ %>
+ >> 79| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&building_name=" + buildingName%> style="border:none;"></a>
+    80| 							<% }else if(topBuildingName){ %>
+    81| 								<a class="tit-buildingname" href=<%="?project_name=" + projectName + "&item=building&top_building_name=" + topBuildingName%> style="border:none;"></a>
+    82| 							<% } %>
+
+projectName is not defined
+    at eval (eval at compile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:618:12), <anonymous>:14:44)
+    at returnedFn (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:653:17)
+    at tryHandleCache (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:251:36)
+    at Object.exports.renderFile (D:\Code\github\ibeem\node_modules\_ejs@2.6.1@ejs\lib\ejs.js:482:10)
+    at Promise (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:16:11)
+    at new Promise (<anonymous>)
+    at EjsView.[EjsView#_render] (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:15:12)
+    at EjsView.render (D:\Code\github\ibeem\node_modules\_egg-view-ejs@2.0.0@egg-view-ejs\lib\view.js:28:36)
+    at ContextView.[contextView#render] (D:\Code\github\ibeem\node_modules\_egg-view@2.1.2@egg-view\lib\context_view.js:70:23)
+    at <anonymous>
+path: "D:\\Code\\github\\ibeem\\app\\view\\administrator\\surveyAnalysisBuilding.html"
+pid: 16656
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:52:44,019 ERROR 12336 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onread (net.js:622:25)
+errno: "ECONNRESET"
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 14:59:27,228 ERROR 9072 [-/127.0.0.1/-/2ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9072
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:00:22,209 ERROR 9072 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9072
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:07:50,781 ERROR 16796 nodejs.unhandledRejectionError: transaction was commit or rollback
+    at RDSTransaction.proto._check (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\transaction.js:50:11)
+    at RDSTransaction.proto.rollback (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\transaction.js:34:8)
+    at proto.rollback.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSTransaction.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSTransaction.createPromise [as rollback] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at transation (D:\Code\github\ibeem\app\service\project\single_building.js:2736:30)
+    at <anonymous>
+    at runMicrotasksCallback (internal/process/next_tick.js:122:5)
+    at _combinedTickCallback (internal/process/next_tick.js:132:7)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+name: "unhandledRejectionError"
+pid: 16796
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:13:29,594 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:16:22,846 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:16:57,939 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:17:07,283 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:17:44,379 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:19:29,074 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:22:50,692 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:25:19,382 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:26:03,233 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:26:10,470 ERROR 9360 [-/127.0.0.1/-/0ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 15:26:15,697 ERROR 9360 [-/127.0.0.1/-/1ms POST /project/single/building/point_image] nodejs.ENOENTError: ENOENT: no such file or directory, scandir 'D:\Code\github\ibeem\app\public\file\point'
+    at Object.fs.readdirSync (fs.js:904:18)
+    at SingleBuildingController.buildingPointImage (D:\Code\github\ibeem\app\controller\project\single_building.js:353:26)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+errno: -4058
+code: "ENOENT"
+syscall: "scandir"
+path: "D:\\Code\\github\\ibeem\\app\\public\\file\\point"
+name: "ENOENTError"
+pid: 9360
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 16:03:38,450 ERROR 12336 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onread (net.js:622:25)
+errno: "ECONNRESET"
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:17:36,043 ERROR 12336 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onread (net.js:622:25)
+errno: "ECONNRESET"
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:24:19,494 ERROR 9008 [-/127.0.0.1/-/27ms POST /project/single/topBuilding/update] nodejs.TypeError: ctx.service.project.singleBuilding.topBuildingUpdate is not a function
+    at SingleBuildingController.topBuildingUpdate (D:\Code\github\ibeem\app\controller\project\single_building.js:570:65)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\Code\github\ibeem\node_modules\_egg-core@4.14.1@egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\app\middleware\user_required.js:15:11
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at D:\Code\github\ibeem\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (D:\Code\github\ibeem\node_modules\_@eggjs_router@2.0.0@@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\Code\github\ibeem\node_modules\_koa-compose@4.1.0@koa-compose\index.js:42:32)
+    at D:\Code\github\ibeem\node_modules\_egg-development@2.4.2@egg-development\app\middleware\egg_loader_trace.js:9:56
+
+pid: 9008
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:25:22,683 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:25:28,031 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:26:34,950 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = 'qwe', `organisation_addressline_1` = '', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 17:28:11,230 ERROR 7120 nodejs.unhandledRejectionError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '' for column 'site_number' at row 1
+    at Query.Sequence._packetToError (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:278:23)
+    at Parser.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:91:28)
+    at Socket.<anonymous> (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Connection.js:502:10)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:601:20)
+    --------------------
+    at Pool.query (D:\Code\github\ibeem\node_modules\_mysql@2.16.0@mysql\lib\Pool.js:199:23)
+    at D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:29:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:12:10)
+    at Pool.ret [as query] (D:\Code\github\ibeem\node_modules\_pify@2.3.0@pify\index.js:56:34)
+    at RDSClient.proto._query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\client.js:34:20)
+    at RDSClient.proto.query (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:54:29)
+    at proto.query.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    at D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:54:5
+    at new Promise (<anonymous>)
+    at RDSClient.co (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:50:10)
+    at RDSClient.createPromise [as query] (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:30:15)
+    at RDSClient.proto.update (D:\Code\github\ibeem\node_modules\_ali-rds@3.3.0@ali-rds\lib\operator.js:173:21)
+    at proto.update.next (<anonymous>)
+    at onFulfilled (D:\Code\github\ibeem\node_modules\_co@4.6.0@co\index.js:65:19)
+    sql: UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = '', `organisation_addressline_1` = '123', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'
+code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
+errno: 1366
+sqlMessage: "Incorrect integer value: '' for column 'site_number' at row 1"
+sqlState: "HY000"
+index: 0
+sql: "UPDATE `top_building` SET `name` = '111222', `project_id` = '256', `organisation_name` = '', `organisation_addressline_1` = '123', `organisation_addressline_2` = '', `organisation_addressline_3` = '', `organisation_addressline_4` = '', `organisation_city` = '', `organisation_postcode` = '', `organisation_country` = '', `sector_type` = '', `site_number` = '', `site_addressline_1` = '', `site_addressline_2` = '', `site_addressline_3` = '', `site_addressline_4` = '', `site_city` = '', `site_postcode` = '', `site_country` = '', `number_of_buildings` = '', `urban_context` = '', `swimming_pool` = '', `pool_type` = '', `primary_activity_type` = '', `tenancy_type` = '', `architectural_drawing_availability` = '', `construction_phase` = '', `construction_date` = '', `refurbishment_date` = '', `refurbishment_details` = '', `structure_type` = '', `gross_internal_area` = '', `building_footprint_area` = '', `average_height` = '', `number_of_storeys` = '', `perimeter_lengths` = '', `exposed_perimeter_lengths` = '', `air_permeability` = '', `glazing_to_external_wall_percentage` = '', `door_to_external_wall_percentage` = '', `roof_type` = '', `primary_ventilation_strategy` = '', `primary_heating_type` = '', `main_heating_fuel` = '', `main_heating_system_efficiency` = '', `lighting_capacity` = '', `lighting_control_type` = '', `chillers` = '', `chiller_capacity` = '', `cooling_type` = '', `annual_occupancy_hours` = '', `number_of_occupants` = '', `activity_type_1` = '', `activity_type_1_floor_area` = '', `activity_type_2` = '', `activity_type_2_floor_area` = '', `server_room` = '', `sustainability_certification_type` = '', `sustainability_certification_rating` = '', `catering_kitchen` = '', `number_of_meals_served` = '', `number_of_lifts` = '', `lift_type` = '', `parameter_type` = '', `supplier` = '', `record_type` = '', `metering_level` = '', `monitoring_period` = '', `monitoring_start_date` = '', `monitoring_end_date` = '', `fuel_type` = '', `fuel_type_unit` = '', `fuel_type_consumption` = '', `end_use_type` = '', `bms` = '', `deleted` = '', `sub_metering` = '' WHERE `id` = '18'"
+name: "unhandledRejectionError"
+pid: 7120
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 18:01:19,056 ERROR 12336 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onread (net.js:622:25)
+errno: "ECONNRESET"
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 18:26:42,720 ERROR 14316 nodejs.ServerNoResponseError: server 127.0.0.1:11345 no response in 20001ms, maybe the socket is end on the other side. (address: 127.0.0.1:11345)
+    at Timeout._heartbeatTimer.setInterval [as _onTimeout] (D:\Code\github\ibeem\node_modules\_tcp-base@3.1.0@tcp-base\lib\base.js:427:21)
+    at ontimeout (timers.js:498:11)
+    at tryOnTimeout (timers.js:323:5)
+    at Timer.listOnTimeout (timers.js:290:5)
+name: "ServerNoResponseError"
+pid: 14316
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 18:33:52,784 ERROR 12336 nodejs.ClusterClientNoResponseError: client no response in 470064ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (D:\Code\github\ibeem\node_modules\_cluster-client@3.0.1@cluster-client\lib\leader.js:77:23)
+    at ontimeout (timers.js:498:11)
+    at tryOnTimeout (timers.js:323:5)
+    at Timer.listOnTimeout (timers.js:290:5)
+name: "ClusterClientNoResponseError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
+2019-03-02 18:33:56,780 ERROR 12336 nodejs.unhandledExceptionError: read ECONNRESET
+    at TCP.onread (net.js:622:25)
+errno: "ECONNRESET"
+code: "ECONNRESET"
+syscall: "read"
+name: "unhandledExceptionError"
+pid: 12336
+hostname: DESKTOP-BK3T6KS
+
