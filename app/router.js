@@ -86,7 +86,7 @@ module.exports = app => {
   router.get('/survey/mobileSurvey', controller.survey.mobile.index);
   router.post('/survey/answerSurvey', controller.survey.mobile.answerSurvey);
   router.post('/survey/updateSurvey', userRequired, controller.survey.increase.updateSurvey);
-  router.post('/survey/getDimension', userRequired, controller.survey.analyze.getDimension);
+  router.post('/survey/getDimension', controller.survey.analyze.getDimension);
   router.post('/survey/analysisSurvey', userRequired, controller.survey.analyze.analysisSurvey);
 
   // project
@@ -157,7 +157,10 @@ module.exports = app => {
 
   // weixin
   router.get('/weixin/index', controller.weixin.user.index);
-  router.get('/weixin/device', userRequired, controller.weixin.device.index);
+  router.get('/weixin/device', controller.weixin.device.index);
+  router.get('/weixin/survey', controller.weixin.survey.index);
+  router.get('/weixin/survey/answer', controller.weixin.survey.answer);
+  router.get('/weixin/survey/dimension', controller.weixin.survey.dimension);
   router.post('/weixin/device/info_update', userRequired, controller.weixin.device.infoUpdate);
   router.post('/weixin/getTicket', controller.weixin.index.getTicket);
   router.post('/weixin/login', controller.sign.login.loginAuth);
@@ -167,6 +170,7 @@ module.exports = app => {
   router.post('/weixin/device/history', userRequired, controller.weixin.device.deviceHistory);
   router.post('/weixin/device/evaluation', userRequired, controller.weixin.device.deviceEvaluation);
   router.post('/weixin/device/addAttention', userRequired, controller.weixin.device.deviceAddAttention);
+  router.post('/weixin/survey/release', controller.weixin.survey.releaseSurvey);
 
   // admin & login
   router.get('/admin', controller.admin.login.index);

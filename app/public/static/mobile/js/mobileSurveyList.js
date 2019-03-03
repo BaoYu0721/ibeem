@@ -23,18 +23,21 @@
 	}
 	$("#chooseLanguage>a").click(function(){
 		$(this).addClass("active").siblings("a").removeClass("active");
+		console.log($(this).data("value"))
 		if($(this).data("value")=="language_ch"){
 			window.localStorage.setItem("language","ch");
 			setLanguageCookie();
-			window.location.href="/global/mobilesurvey/language?language=zh_cn";
+			window.location.href="/weixin/survey";
+			//window.location.href="/global/mobilesurvey/language?language=zh_cn";
 		}else if($(this).data("value")=="language_en"){
 			window.localStorage.setItem("language","en");
 			setLanguageCookie();
-			window.location.href="/global/mobilesurvey/language?language=en";
+			window.location.href="/weixin/survey";
+			//window.location.href="/global/mobilesurvey/language?language=en";
 		}
 	})
 //获取问卷列表
-var url="/survey/getReleaseSurvey";
+var url="/weixin/survey/release";
 var json={};
 var successFunc = function(data){
 	var list = data.list;
@@ -67,12 +70,12 @@ $("#surveyList").on("click",".answer",function(){
 	$.cookie("surveyProjectId","");
 	$.cookie("surveyBuildingId","");
 	$.cookie("surveyPointId","");
-	window.location.href="/survey/mobileSurvey";
+	window.location.href="/weixin/survey/answer";
 })
 $("#surveyList").on("click",".choose",function(){
 	var surveyId = $(this).data("id");
 	$.cookie("surveyId",surveyId);
-	window.location.href="open?url=mobile/mobileSurveyTree.jsp";
+	window.location.href="/weixin/survey/dimension";
 })
 
 //列表点击显示隐藏弹出框

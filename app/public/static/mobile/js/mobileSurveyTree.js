@@ -133,5 +133,5 @@ $("#projectList").on("click",".answer",function(){
 		$.cookie("surveyBuildingId","");
 		$.cookie("surveyPointId",id);
 	}
-	window.location.href="/survey/mobileSurvey";
+	window.location.href="/weixin/survey/answer";
 })

@@ -36,6 +36,7 @@ $("#chooseLanguage>a").click(function(){
 		window.location.reload();
 	}
 })
+
 $(document).ready(function(){
 	$("#submit").html(getLangStr("mobileSurvey_submit"));
 })

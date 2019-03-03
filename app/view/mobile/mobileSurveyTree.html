@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title><spring:message code="mobileSurvey_survey" /></title>
+	<title>问卷</title>
 	<link rel="stylesheet"  href="/public/static/common/css/semantic.min.css" />
 	<link rel="stylesheet" href="/public/static/common/css/jquery-ui-1.10.1.css">
 	<link rel="stylesheet" href="/public/static/mobile/css/mobileSurveyTree.css">
@@ -25,12 +25,26 @@
 	</div>
 <div class="container" style="width:90%;margin:0 auto;padding-top:1rem;">
 	<div class="ui left icon input">
-	  <input placeholder="<spring:message code="mobileSurvey_search" />" type="search" class="search" id="search">
+	  <input placeholder="搜索维度" type="search" class="search" id="search">
 	  <i class="search icon"></i>
 	</div>
 	<div class="ui list" id="projectList">
 	</div>
 </div>
 	<script src="/public/static/mobile/js/mobileSurveyTree.js"></script>
+	<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+	<script>
+	$(function(){
+		jQuery.i18n.properties({
+      name: 'i18n',
+      path: '/public/i18n/',
+      mode: 'map',
+      language: window.localStorage.getItem("language"),
+      callback: function() {
+        $("title").html($.i18n.prop("wx_survey"));
+      }
+    })
+	})
+	</script>
 </body>
 </html>
