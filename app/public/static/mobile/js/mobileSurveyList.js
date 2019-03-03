@@ -23,19 +23,14 @@
 	}
 	$("#chooseLanguage>a").click(function(){
 		$(this).addClass("active").siblings("a").removeClass("active");
-		console.log($(this).data("value"))
 		if($(this).data("value")=="language_ch"){
 			window.localStorage.setItem("language","ch");
 			setLanguageCookie();
-			setLanguage();
-			//window.location.href="/weixin/survey";
-			//window.location.href="/global/mobilesurvey/language?language=zh_cn";
+			window.location.href = "/weixin/survey";
 		}else if($(this).data("value")=="language_en"){
 			window.localStorage.setItem("language","en");
 			setLanguageCookie();
-			setLanguage();
-			//window.location.href="/weixin/survey";
-			//window.location.href="/global/mobilesurvey/language?language=en";
+			window.location.href = "/weixin/survey";
 		}
 	})
 //获取问卷列表
@@ -88,15 +83,15 @@ $("#surveyList").on("click",".item",function(){
 	$(this).find(".dim").transition('scale');
 })
 
-var setLanguage = function(){
-    jQuery.i18n.properties({
-		name: 'i18n',
-		path: '/public/i18n/',
-		mode: 'map',
-		language: window.localStorage.getItem("language"),
-		callback: function() {
-		  $("title").html($.i18n.prop("wx_survey"));
-		  $("#survey_list").html($.i18n.prop("wx_survey_list"));
-		}
-	  })
-}
+// var setLanguage = function(){
+//     jQuery.i18n.properties({
+// 			name: 'i18n',
+// 			path: '/public/i18n/',
+// 			mode: 'map',
+// 			language: window.localStorage.getItem("language"),
+// 			callback: function() {
+// 				$("title").html($.i18n.prop("wx_survey"));
+// 				$("#survey_list").html($.i18n.prop("wx_survey_list"));
+// 			}
+// 	  })
+// }

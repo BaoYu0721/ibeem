@@ -29,27 +29,13 @@ $("#chooseLanguage>a").click(function(){
 	if($(this).data("value")=="language_ch"){
 		window.localStorage.setItem("language","ch");
 		setLanguageCookie();
-		setLanguage()
-		//window.location.reload();
+		window.location.href = "/weixin/survey/answer";
 	}else if($(this).data("value")=="language_en"){
 		window.localStorage.setItem("language","en");
 		setLanguageCookie();
-		setLanguage();
-		//window.location.reload();
+		window.location.href = "/weixin/survey/answer";
 	}
 })
-
-var setLanguage = function(){
-	jQuery.i18n.properties({
-		name: 'i18n',
-		path: '/public/i18n/',
-		mode: 'map',
-		language: window.localStorage.getItem("language"),
-		callback: function() {
-			$("title").html($.i18n.prop("wx_survey"));
-		}
-	})
-}
 
 $(document).ready(function(){
 	$("#submit").html(getLangStr("mobileSurvey_submit"));

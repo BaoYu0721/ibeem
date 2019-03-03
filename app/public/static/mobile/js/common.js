@@ -137,7 +137,7 @@ $(function(){
 		$(".return_to_list_float_btn").click(function(){
 			var timestamp = Date.parse(new Date());
 		 	timestamp = timestamp / 1000;
-			window.location.href = "/weixin?url=mobile/list.jsp?timestamp="+timestamp;
+			window.location.href = "/weixin/device?timestamp="+timestamp;
 		});
 	}else{
 		$(".return_to_list_float_btn").html(getLangStr("mobilehome_4"));

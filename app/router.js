@@ -161,15 +161,15 @@ module.exports = app => {
   router.get('/weixin/survey', controller.weixin.survey.index);
   router.get('/weixin/survey/answer', controller.weixin.survey.answer);
   router.get('/weixin/survey/dimension', controller.weixin.survey.dimension);
-  router.post('/weixin/device/info_update', userRequired, controller.weixin.device.infoUpdate);
+  router.post('/weixin/device/info_update', controller.weixin.device.infoUpdate);
   router.post('/weixin/getTicket', controller.weixin.index.getTicket);
   router.post('/weixin/login', controller.sign.login.loginAuth);
-  router.post('/weixin/device/list', userRequired, controller.weixin.device.deviceList);
-  router.post('/weixin/device/realtime_data', userRequired, controller.weixin.device.deviceRealtimeData);
-  router.post('/weinxin/device/detail', userRequired, controller.weixin.device.deviceDetail);
-  router.post('/weixin/device/history', userRequired, controller.weixin.device.deviceHistory);
-  router.post('/weixin/device/evaluation', userRequired, controller.weixin.device.deviceEvaluation);
-  router.post('/weixin/device/addAttention', userRequired, controller.weixin.device.deviceAddAttention);
+  router.post('/weixin/device/list', controller.weixin.device.deviceList);
+  router.post('/weixin/device/realtime_data', controller.weixin.device.deviceRealtimeData);
+  router.post('/weinxin/device/detail', controller.weixin.device.deviceDetail);
+  router.post('/weixin/device/history', controller.weixin.device.deviceHistory);
+  router.post('/weixin/device/evaluation', controller.weixin.device.deviceEvaluation);
+  router.post('/weixin/device/addAttention', controller.weixin.device.deviceAddAttention);
   router.post('/weixin/survey/release', controller.weixin.survey.releaseSurvey);
 
   // admin & login

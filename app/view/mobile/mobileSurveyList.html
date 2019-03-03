@@ -43,5 +43,19 @@
 </div>
   <script src="/public/static/mobile/js/mobileSurveyList.js"></script>
   <script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+  <script>
+  $(function(){
+    jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				$("title").html($.i18n.prop("wx_survey"));
+				$("#survey_list").html($.i18n.prop("wx_survey_list"));
+			}
+	  })
+  })
+  </script>
 </body>
 </html>
