@@ -20,6 +20,7 @@ module.exports = app => {
   router.get('/common/leftpanel', userRequired, controller.common.leftpanel);
   router.get('/common/admin/leftpanel', adminRequired, controller.common.adminLeftpanel);
   router.get('/common/team_list_item', controller.common.teamListItem);
+  router.get('/common/optionIMG', controller.common.optionIMG);
   router.get('/common/questionDX', controller.common.questionDx);
   router.get('/common/questionDDX', controller.common.questionDDX);
   router.get('/common/questionTK', controller.common.questionTK);

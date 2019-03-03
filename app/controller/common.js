@@ -33,7 +33,7 @@ class CommonController extends Controller {
         await this.ctx.render('common/components/teamList_item.html');
     }
     async questionDx() {
-        await this.ctx.render('common/components/questionDx.html');
+        await this.ctx.render('common/components/questionDX.html');
     }
     async questionDDX() {
         await this.ctx.render('common/components/questionDDX.html');
@@ -49,6 +49,9 @@ class CommonController extends Controller {
     }
     async questionDL() {
         await this.ctx.render('common/components/questionDL.html');
+    }
+    async optionIMG(){
+        await this.ctx.render('common/components/optionIMG.html');
     }
     async memberList() {
         await this.ctx.render('common/components/memberList_item.html');

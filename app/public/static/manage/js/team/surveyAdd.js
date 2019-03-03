@@ -168,7 +168,7 @@ $(".container").on("click","i.image.icon",function(){
 	if(!index){
 		$(this).attr("data-index",image_index);
 		var imgUrl = i_image.attr("data-img");
-		getComponent("/static/manage/components/optionIMG.html",
+		getComponent("/common/optionIMG",
 				function(resultHTML){
 					$("body").prepend(resultHTML);
 					//添加上传图片监听

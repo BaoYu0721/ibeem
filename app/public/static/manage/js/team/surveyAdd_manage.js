@@ -168,7 +168,7 @@ $(".container").on("click","i.image.icon",function(){
 	if(!index){
 		$(this).attr("data-index",image_index);
 		var imgUrl = i_image.attr("data-img");
-		getComponent("/static/manage/components/optionIMG.html",
+		getComponent("/common/optionIMG",
 				function(resultHTML){
 					$("body").prepend(resultHTML);
 					//添加上传图片监听
@@ -215,7 +215,7 @@ function addquestion(){
 	//点击新增单选题	
 	if($(this).hasClass("dx")){
 		$this = $(this);
-		getComponent("/static/manage/components/questionDX.html",
+		getComponent("/common/questionDX",
 				function(resultHTML){
 					$root.append(resultHTML);
 					add_index++;
@@ -228,7 +228,7 @@ function addquestion(){
 	//点击新增多选题
 	else if($(this).hasClass("ddx")){
 			$this = $(this);
-			getComponent("/static/manage/components/questionDDX.html",
+			getComponent("/common/questionDDX",
 					function(resultHTML){
 						$root.append(resultHTML);
 						add_index++;
@@ -241,7 +241,7 @@ function addquestion(){
 	//点击新增填空题
 	else if($(this).hasClass("tk")){
 			$this = $(this);
-			getComponent("/static/manage/components/questionTK.html",
+			getComponent("/common/questionTK",
 					function(resultHTML){
 						$root.append(resultHTML);
 						add_index++;
@@ -254,7 +254,7 @@ function addquestion(){
 	//点击新增量表题
 	else if($(this).hasClass("lb")){
 			$this = $(this);
-			getComponent("/static/manage/components/questionLB.html",
+			getComponent("/common/questionLB",
 					function(resultHTML){
 						$root.append(resultHTML);
 						add_index++;
@@ -267,7 +267,7 @@ function addquestion(){
 	//点击新增折线题
 	    else if($(this).hasClass("ht")){
 			$this = $(this);
-			getComponent("/static/manage/components/questionZX.html",
+			getComponent("/common/questionZX",
 					function(resultHTML){
 						$root.append(resultHTML);
 						add_index++;
@@ -280,7 +280,7 @@ function addquestion(){
 	//点击新增段落
 	    else if($(this).hasClass("dl")){
 			$this = $(this);
-			getComponent("/static/manage/components/questionDL.html",
+			getComponent("/common/questionDL",
 					function(resultHTML){
 						$root.append(resultHTML);
 						add_index++;
