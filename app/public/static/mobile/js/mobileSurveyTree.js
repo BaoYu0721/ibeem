@@ -135,3 +135,14 @@ $("#projectList").on("click",".answer",function(){
 	}
 	window.location.href="/weixin/survey/answer";
 })
+$(function(){
+    jQuery.i18n.properties({
+		name: 'i18n',
+		path: '/public/i18n/',
+		mode: 'map',
+		language: window.localStorage.getItem("language"),
+		callback: function() {
+		  $("title").html($.i18n.prop("wx_survey"));
+		}
+	  })
+})

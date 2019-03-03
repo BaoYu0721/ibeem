@@ -27,12 +27,14 @@
 		if($(this).data("value")=="language_ch"){
 			window.localStorage.setItem("language","ch");
 			setLanguageCookie();
-			window.location.href="/weixin/survey";
+			setLanguage();
+			//window.location.href="/weixin/survey";
 			//window.location.href="/global/mobilesurvey/language?language=zh_cn";
 		}else if($(this).data("value")=="language_en"){
 			window.localStorage.setItem("language","en");
 			setLanguageCookie();
-			window.location.href="/weixin/survey";
+			setLanguage();
+			//window.location.href="/weixin/survey";
 			//window.location.href="/global/mobilesurvey/language?language=en";
 		}
 	})
@@ -85,3 +87,16 @@ $("#surveyList").on("click",".item",function(){
 	});
 	$(this).find(".dim").transition('scale');
 })
+
+var setLanguage = function(){
+    jQuery.i18n.properties({
+		name: 'i18n',
+		path: '/public/i18n/',
+		mode: 'map',
+		language: window.localStorage.getItem("language"),
+		callback: function() {
+		  $("title").html($.i18n.prop("wx_survey"));
+		  $("#survey_list").html($.i18n.prop("wx_survey_list"));
+		}
+	  })
+}
