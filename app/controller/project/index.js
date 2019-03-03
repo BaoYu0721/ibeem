@@ -174,9 +174,8 @@ class IndexController extends Controller {
         messg: "系统繁忙请重试"
       };
     }
-    const data = [];
-    const keyMap = ["调研测试主体单位","所在课题","填写人","联系方式","建筑名称","建筑类型","地理位置","申报单位","参与单位","申报时间","采用标准","星级","标识类别","立项时间","竣工时间","运营时间","建筑面积(m2)","空调面积(m2)","建筑高度(m)","建筑朝向","建筑性质","建筑使用人数"];
-    const valueMap = [];
+    var keyMap = ["调研测试主体单位","所在课题","填写人","联系方式","建筑名称","建筑类型","地理位置","申报单位","参与单位","申报时间","采用标准","星级","标识类别","立项时间","竣工时间","运营时间","建筑面积(m2)","空调面积(m2)","建筑高度(m)","建筑朝向","建筑性质","建筑使用人数"];
+    var valueMap = [];
     valueMap[0] = building['unit'];
     valueMap[1] = building['subject'];
     valueMap[2] = building['people'];
@@ -200,9 +199,16 @@ class IndexController extends Controller {
     valueMap[20] = building['building_property'];
     valueMap[21] = building['construction_use_number'] == null? '': building['construction_use_number'];
     valueMap[22] = building['remark'];
-    data.push(keyMap);
-    data.push(valueMap);
-    ctx.body = ctx.helper.xlsxData(data);
+    var dataList = [];
+    dataList.push(keyMap);
+    dataList.push(valueMap);
+    var dataMap = {
+      name: 'sheet',
+      data: dataList
+    }
+    var xlsx_data = [];
+    xlsx_data.push(dataMap);
+    ctx.body = ctx.helper.xlsxData(xlsx_data);
   }
 }
 

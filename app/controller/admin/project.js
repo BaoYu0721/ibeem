@@ -1013,6 +1013,67 @@ class IndexController extends Controller {
         };
     }
 
+    async singleTopBuildingExport(){
+        const { ctx } = this;
+        const buildingId = ctx.query.topBuildingID;
+        const result = await ctx.service.admin.project.singleTopBuilding(buildingId);
+        if(result == -1){
+            return ctx.body = {
+                messg: "系统繁忙，请重试",
+                code: 1005
+            };
+        }
+        const filename = new Date().getTime().toString() + '.xlsx';
+        ctx.set("Content-Disposition", "attachment;filename=" + filename);
+        const sheet = [];
+
+        const sheet_title_1 = ["机构名称", "地址1", "地址2", "地址3", "地址4", "城市", "邮编", "国家", "部门类型", "地址号码"];
+        const sheet_data_1 = [];
+        sheet_data_1[0] = result["organisationName"];
+        sheet_data_1[1] = result["organisationAddressline1"];
+        sheet_data_1[2] = result["organisationAddressline2"];
+        sheet_data_1[3] = result["organisationAddressline3"];
+        sheet_data_1[4] = result["organisationAddressline4"];
+        sheet_data_1[5] = result["organisationCity"];
+        sheet_data_1[6] = result["organisationPostcode"];
+        sheet_data_1[7] = result["organisationCountry"];
+        sheet_data_1[8] = result["sectorType"];
+        sheet_data_1[9] = result["siteNumber"];
+        const sheet_map_1 = [];
+        sheet_map_1.push(sheet_title_1);
+        sheet_map_1.push(sheet_data_1);
+        const sheet1 = {
+            name: "sheet1",
+            data: sheet_map_1
+        };
+        sheet.push(sheet1);
+
+        const sheet_title_2 = ["地址1", "地址2", "地址3", "地址4", "城市", "邮编", "国家", "建筑数量", "城市文脉", "游泳池", "游池类型"];
+        const sheet_data_2 = [];
+        sheet_data_2[0] = result["siteAddressline1"];
+        sheet_data_2[1] = result["siteAddressline2"];
+        sheet_data_2[2] = result["siteAddressline3"];
+        sheet_data_2[3] = result["siteAddressline4"];
+        sheet_data_2[4] = result["siteCity"];
+        sheet_data_2[5] = result["sitePostcode"];
+        sheet_data_2[6] = result["siteCountry"];
+        sheet_data_2[7] = result["numberOfBuildings"];
+        sheet_data_2[8] = result["urbanContext"];
+        sheet_data_2[9] = result["swimmingPool"];
+        sheet_data_2[10] = result["poolType"];
+        const sheet_map_2 = [];
+        sheet_map_2.push(sheet_title_2);
+        sheet_map_2.push(sheet_data_2);
+        const sheet2 = {
+            name: "sheet2",
+            data: sheet_map_2
+        };
+        sheet.push(sheet2);
+
+        //const sheet_title_3 = ["主要活动类型", "租赁型", "建筑图纸的可用性", "施工阶段", "施工日期", "翻新日期", "翻新的细节", "结构类型", "总内部区域", "建筑占地面积", "平均高度", "层", "周长", "外部周边长度", "透气性", "玻璃外墙的百分比", "大门外墙的百分比", "楼层类型", "原发性通气策略", "一次加热型", "主要的取暖燃料", "主供暖系统效率", "照明容量", "照明控制方式", "冷水机组", "冷却型", "每年的入住时间", "居住人数", "活动类型1", "活动类型1楼面积", "活动类型2", "活动类型2楼面积", "服务器机房", "可持续性认证类型", "可持续性认证评级", "餐饮厨房", "用餐次数", "电梯数量", "升降式", "冷水机组容量", "辅助计量", "删除"];
+        ctx.body = ctx.helper.xlsxData(sheet);
+    }
+
     async singleTopBuildingRoomInfo(){
         const { ctx } = this;
         const buildingId = ctx.request.body.buildingId;

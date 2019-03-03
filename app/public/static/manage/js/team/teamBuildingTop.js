@@ -86,7 +86,7 @@ $("#buildTempOut").click(function(){
 
 // 导出模板方法
 function downLoadBuilding(bid){
-	window.location.href= "/building/exportTopBuilding?topBuildingID=" + bid; 
+	window.location.href= "/project/single/topBuilding/export?topBuildingID=" + bid; 
 }
 
 // 默认数据加载

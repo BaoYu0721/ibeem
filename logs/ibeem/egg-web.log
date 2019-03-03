@@ -1196,3 +1196,459 @@
 2019-03-03 01:42:59,086 INFO 12604 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 01:42:59 GMT+0800 (CST)
 2019-03-03 01:42:59,089 INFO 12604 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 01:42:59 GMT+0800 (CST)
 2019-03-03 01:42:59,097 INFO 12604 [egg:core] dump config after ready, 6ms
+2019-03-03 15:18:28,707 INFO 5186 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:18:28,730 INFO 5186 [egg-multipart] file mode enable
+2019-03-03 15:18:28,730 INFO 5186 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:18:28,799 INFO 5186 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:18:28,802 INFO 5186 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:18:28,983 INFO 5186 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:18:28,985 INFO 5186 [egg-security] use methodnoallow middleware
+2019-03-03 15:18:28,986 INFO 5186 [egg-security] use noopen middleware
+2019-03-03 15:18:28,986 INFO 5186 [egg-security] use nosniff middleware
+2019-03-03 15:18:28,987 INFO 5186 [egg-security] use xssProtection middleware
+2019-03-03 15:18:28,987 INFO 5186 [egg-security] use xframe middleware
+2019-03-03 15:18:28,987 INFO 5186 [egg-security] use dta middleware
+2019-03-03 15:18:28,987 INFO 5186 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:18:29,028 INFO 5186 [egg:core] dump config after load, 6ms
+2019-03-03 15:18:29,064 INFO 5186 [egg-redis] client connect success
+2019-03-03 15:18:29,072 INFO 5186 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:18:29 GMT+0800 (CST)
+2019-03-03 15:18:29,074 INFO 5186 [egg-watcher:application] watcher start success
+2019-03-03 15:18:29,083 INFO 5186 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:18:29 GMT+0800 (CST)
+2019-03-03 15:18:29,093 INFO 5186 [egg:core] dump config after ready, 8ms
+2019-03-03 15:28:12,637 INFO 6334 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:28:12,670 INFO 6334 [egg-multipart] file mode enable
+2019-03-03 15:28:12,670 INFO 6334 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:28:12,758 INFO 6334 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:28:12,761 INFO 6334 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:28:12,963 INFO 6334 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:28:12,965 INFO 6334 [egg-security] use methodnoallow middleware
+2019-03-03 15:28:12,965 INFO 6334 [egg-security] use noopen middleware
+2019-03-03 15:28:12,967 INFO 6334 [egg-security] use nosniff middleware
+2019-03-03 15:28:12,967 INFO 6334 [egg-security] use xssProtection middleware
+2019-03-03 15:28:12,968 INFO 6334 [egg-security] use xframe middleware
+2019-03-03 15:28:12,969 INFO 6334 [egg-security] use dta middleware
+2019-03-03 15:28:12,969 INFO 6334 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:28:13,015 INFO 6334 [egg:core] dump config after load, 14ms
+2019-03-03 15:28:13,065 INFO 6334 [egg-redis] client connect success
+2019-03-03 15:28:13,078 INFO 6334 [egg-watcher:application] watcher start success
+2019-03-03 15:28:13,078 INFO 6334 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:28:13 GMT+0800 (CST)
+2019-03-03 15:28:13,095 INFO 6334 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:28:13 GMT+0800 (CST)
+2019-03-03 15:28:13,109 INFO 6334 [egg:core] dump config after ready, 11ms
+2019-03-03 15:28:33,524 INFO 6377 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:28:33,550 INFO 6377 [egg-multipart] file mode enable
+2019-03-03 15:28:33,550 INFO 6377 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:28:33,616 INFO 6377 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:28:33,619 INFO 6377 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:28:33,773 INFO 6377 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:28:33,775 INFO 6377 [egg-security] use methodnoallow middleware
+2019-03-03 15:28:33,776 INFO 6377 [egg-security] use noopen middleware
+2019-03-03 15:28:33,776 INFO 6377 [egg-security] use nosniff middleware
+2019-03-03 15:28:33,776 INFO 6377 [egg-security] use xssProtection middleware
+2019-03-03 15:28:33,776 INFO 6377 [egg-security] use xframe middleware
+2019-03-03 15:28:33,777 INFO 6377 [egg-security] use dta middleware
+2019-03-03 15:28:33,777 INFO 6377 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:28:33,809 INFO 6377 [egg:core] dump config after load, 6ms
+2019-03-03 15:28:33,847 INFO 6377 [egg-redis] client connect success
+2019-03-03 15:28:33,856 INFO 6377 [egg-watcher:application] watcher start success
+2019-03-03 15:28:33,857 INFO 6377 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:28:33 GMT+0800 (CST)
+2019-03-03 15:28:33,875 INFO 6377 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:28:33 GMT+0800 (CST)
+2019-03-03 15:28:33,888 INFO 6377 [egg:core] dump config after ready, 10ms
+2019-03-03 15:29:35,878 INFO 6403 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:29:35,917 INFO 6403 [egg-multipart] file mode enable
+2019-03-03 15:29:35,917 INFO 6403 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:29:36,015 INFO 6403 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:29:36,018 INFO 6403 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:29:36,195 INFO 6403 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:29:36,197 INFO 6403 [egg-security] use methodnoallow middleware
+2019-03-03 15:29:36,198 INFO 6403 [egg-security] use noopen middleware
+2019-03-03 15:29:36,198 INFO 6403 [egg-security] use nosniff middleware
+2019-03-03 15:29:36,198 INFO 6403 [egg-security] use xssProtection middleware
+2019-03-03 15:29:36,199 INFO 6403 [egg-security] use xframe middleware
+2019-03-03 15:29:36,199 INFO 6403 [egg-security] use dta middleware
+2019-03-03 15:29:36,199 INFO 6403 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:29:36,239 INFO 6403 [egg:core] dump config after load, 6ms
+2019-03-03 15:29:36,250 INFO 6403 [egg-redis] client connect success
+2019-03-03 15:29:36,258 INFO 6403 [egg-watcher:application] watcher start success
+2019-03-03 15:29:36,258 INFO 6403 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:29:36 GMT+0800 (CST)
+2019-03-03 15:29:36,295 INFO 6403 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:29:36 GMT+0800 (CST)
+2019-03-03 15:29:36,305 INFO 6403 [egg:core] dump config after ready, 8ms
+2019-03-03 15:30:18,271 INFO 6417 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:30:18,297 INFO 6417 [egg-multipart] file mode enable
+2019-03-03 15:30:18,297 INFO 6417 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:30:18,361 INFO 6417 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:30:18,364 INFO 6417 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:30:18,525 INFO 6417 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:30:18,527 INFO 6417 [egg-security] use methodnoallow middleware
+2019-03-03 15:30:18,527 INFO 6417 [egg-security] use noopen middleware
+2019-03-03 15:30:18,527 INFO 6417 [egg-security] use nosniff middleware
+2019-03-03 15:30:18,528 INFO 6417 [egg-security] use xssProtection middleware
+2019-03-03 15:30:18,528 INFO 6417 [egg-security] use xframe middleware
+2019-03-03 15:30:18,528 INFO 6417 [egg-security] use dta middleware
+2019-03-03 15:30:18,528 INFO 6417 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:30:18,561 INFO 6417 [egg:core] dump config after load, 5ms
+2019-03-03 15:30:18,598 INFO 6417 [egg-redis] client connect success
+2019-03-03 15:30:18,608 INFO 6417 [egg-watcher:application] watcher start success
+2019-03-03 15:30:18,608 INFO 6417 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:30:18 GMT+0800 (CST)
+2019-03-03 15:30:18,617 INFO 6417 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:30:18 GMT+0800 (CST)
+2019-03-03 15:30:18,627 INFO 6417 [egg:core] dump config after ready, 8ms
+2019-03-03 15:30:50,830 INFO 6433 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:30:50,855 INFO 6433 [egg-multipart] file mode enable
+2019-03-03 15:30:50,855 INFO 6433 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:30:50,920 INFO 6433 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:30:50,923 INFO 6433 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:30:51,077 INFO 6433 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:30:51,079 INFO 6433 [egg-security] use methodnoallow middleware
+2019-03-03 15:30:51,080 INFO 6433 [egg-security] use noopen middleware
+2019-03-03 15:30:51,080 INFO 6433 [egg-security] use nosniff middleware
+2019-03-03 15:30:51,080 INFO 6433 [egg-security] use xssProtection middleware
+2019-03-03 15:30:51,080 INFO 6433 [egg-security] use xframe middleware
+2019-03-03 15:30:51,081 INFO 6433 [egg-security] use dta middleware
+2019-03-03 15:30:51,081 INFO 6433 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:30:51,113 INFO 6433 [egg:core] dump config after load, 5ms
+2019-03-03 15:30:51,151 INFO 6433 [egg-redis] client connect success
+2019-03-03 15:30:51,160 INFO 6433 [egg-watcher:application] watcher start success
+2019-03-03 15:30:51,160 INFO 6433 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:30:51 GMT+0800 (CST)
+2019-03-03 15:30:51,174 INFO 6433 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:30:51 GMT+0800 (CST)
+2019-03-03 15:30:51,181 INFO 6433 [egg:core] dump config after ready, 6ms
+2019-03-03 15:34:14,438 INFO 6668 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:34:14,463 INFO 6668 [egg-multipart] file mode enable
+2019-03-03 15:34:14,463 INFO 6668 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:34:14,527 INFO 6668 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:34:14,530 INFO 6668 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:34:14,681 INFO 6668 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:34:14,683 INFO 6668 [egg-security] use methodnoallow middleware
+2019-03-03 15:34:14,683 INFO 6668 [egg-security] use noopen middleware
+2019-03-03 15:34:14,684 INFO 6668 [egg-security] use nosniff middleware
+2019-03-03 15:34:14,684 INFO 6668 [egg-security] use xssProtection middleware
+2019-03-03 15:34:14,684 INFO 6668 [egg-security] use xframe middleware
+2019-03-03 15:34:14,684 INFO 6668 [egg-security] use dta middleware
+2019-03-03 15:34:14,684 INFO 6668 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:34:14,723 INFO 6668 [egg:core] dump config after load, 6ms
+2019-03-03 15:34:14,762 INFO 6668 [egg-redis] client connect success
+2019-03-03 15:34:14,771 INFO 6668 [egg-watcher:application] watcher start success
+2019-03-03 15:34:14,771 INFO 6668 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:34:14 GMT+0800 (CST)
+2019-03-03 15:34:14,782 INFO 6668 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:34:14 GMT+0800 (CST)
+2019-03-03 15:34:14,790 INFO 6668 [egg:core] dump config after ready, 6ms
+2019-03-03 15:34:25,646 INFO 6681 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:34:25,670 INFO 6681 [egg-multipart] file mode enable
+2019-03-03 15:34:25,670 INFO 6681 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:34:25,734 INFO 6681 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:34:25,737 INFO 6681 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:34:25,887 INFO 6681 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:34:25,889 INFO 6681 [egg-security] use methodnoallow middleware
+2019-03-03 15:34:25,889 INFO 6681 [egg-security] use noopen middleware
+2019-03-03 15:34:25,889 INFO 6681 [egg-security] use nosniff middleware
+2019-03-03 15:34:25,890 INFO 6681 [egg-security] use xssProtection middleware
+2019-03-03 15:34:25,890 INFO 6681 [egg-security] use xframe middleware
+2019-03-03 15:34:25,890 INFO 6681 [egg-security] use dta middleware
+2019-03-03 15:34:25,890 INFO 6681 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:34:25,922 INFO 6681 [egg:core] dump config after load, 6ms
+2019-03-03 15:34:25,933 INFO 6681 [egg-redis] client connect success
+2019-03-03 15:34:25,939 INFO 6681 [egg-watcher:application] watcher start success
+2019-03-03 15:34:25,942 INFO 6681 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:34:25 GMT+0800 (CST)
+2019-03-03 15:34:25,958 INFO 6681 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:34:25 GMT+0800 (CST)
+2019-03-03 15:34:25,966 INFO 6681 [egg:core] dump config after ready, 6ms
+2019-03-03 15:35:55,950 INFO 6743 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:35:55,975 INFO 6743 [egg-multipart] file mode enable
+2019-03-03 15:35:55,975 INFO 6743 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:35:56,041 INFO 6743 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:35:56,044 INFO 6743 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:35:56,193 INFO 6743 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:35:56,195 INFO 6743 [egg-security] use methodnoallow middleware
+2019-03-03 15:35:56,195 INFO 6743 [egg-security] use noopen middleware
+2019-03-03 15:35:56,195 INFO 6743 [egg-security] use nosniff middleware
+2019-03-03 15:35:56,196 INFO 6743 [egg-security] use xssProtection middleware
+2019-03-03 15:35:56,196 INFO 6743 [egg-security] use xframe middleware
+2019-03-03 15:35:56,196 INFO 6743 [egg-security] use dta middleware
+2019-03-03 15:35:56,196 INFO 6743 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:35:56,228 INFO 6743 [egg:core] dump config after load, 6ms
+2019-03-03 15:35:56,264 INFO 6743 [egg-redis] client connect success
+2019-03-03 15:35:56,274 INFO 6743 [egg-watcher:application] watcher start success
+2019-03-03 15:35:56,275 INFO 6743 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:35:56 GMT+0800 (CST)
+2019-03-03 15:35:56,294 INFO 6743 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:35:56 GMT+0800 (CST)
+2019-03-03 15:35:56,312 INFO 6743 [egg:core] dump config after ready, 13ms
+2019-03-03 15:37:04,172 INFO 6816 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:37:04,207 INFO 6816 [egg-multipart] file mode enable
+2019-03-03 15:37:04,207 INFO 6816 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:37:04,295 INFO 6816 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:37:04,301 INFO 6816 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:37:04,513 INFO 6816 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:37:04,518 INFO 6816 [egg-security] use methodnoallow middleware
+2019-03-03 15:37:04,519 INFO 6816 [egg-security] use noopen middleware
+2019-03-03 15:37:04,520 INFO 6816 [egg-security] use nosniff middleware
+2019-03-03 15:37:04,521 INFO 6816 [egg-security] use xssProtection middleware
+2019-03-03 15:37:04,521 INFO 6816 [egg-security] use xframe middleware
+2019-03-03 15:37:04,521 INFO 6816 [egg-security] use dta middleware
+2019-03-03 15:37:04,521 INFO 6816 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:37:04,569 INFO 6816 [egg:core] dump config after load, 14ms
+2019-03-03 15:37:04,626 INFO 6816 [egg-redis] client connect success
+2019-03-03 15:37:04,641 INFO 6816 [egg-watcher:application] watcher start success
+2019-03-03 15:37:04,641 INFO 6816 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:37:04 GMT+0800 (CST)
+2019-03-03 15:37:04,652 INFO 6816 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:37:04 GMT+0800 (CST)
+2019-03-03 15:37:04,662 INFO 6816 [egg:core] dump config after ready, 6ms
+2019-03-03 15:39:02,042 INFO 6920 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:39:02,067 INFO 6920 [egg-multipart] file mode enable
+2019-03-03 15:39:02,067 INFO 6920 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:39:02,132 INFO 6920 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:39:02,134 INFO 6920 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:39:02,286 INFO 6920 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:39:02,288 INFO 6920 [egg-security] use methodnoallow middleware
+2019-03-03 15:39:02,289 INFO 6920 [egg-security] use noopen middleware
+2019-03-03 15:39:02,289 INFO 6920 [egg-security] use nosniff middleware
+2019-03-03 15:39:02,289 INFO 6920 [egg-security] use xssProtection middleware
+2019-03-03 15:39:02,289 INFO 6920 [egg-security] use xframe middleware
+2019-03-03 15:39:02,290 INFO 6920 [egg-security] use dta middleware
+2019-03-03 15:39:02,290 INFO 6920 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:39:02,321 INFO 6920 [egg:core] dump config after load, 9ms
+2019-03-03 15:39:02,356 INFO 6920 [egg-redis] client connect success
+2019-03-03 15:39:02,365 INFO 6920 [egg-watcher:application] watcher start success
+2019-03-03 15:39:02,366 INFO 6920 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:39:02 GMT+0800 (CST)
+2019-03-03 15:39:02,376 INFO 6920 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:39:02 GMT+0800 (CST)
+2019-03-03 15:39:02,388 INFO 6920 [egg:core] dump config after ready, 8ms
+2019-03-03 15:40:33,152 INFO 7037 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 15:40:33,177 INFO 7037 [egg-multipart] file mode enable
+2019-03-03 15:40:33,177 INFO 7037 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 15:40:33,241 INFO 7037 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 15:40:33,244 INFO 7037 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 15:40:33,401 INFO 7037 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 15:40:33,404 INFO 7037 [egg-security] use methodnoallow middleware
+2019-03-03 15:40:33,404 INFO 7037 [egg-security] use noopen middleware
+2019-03-03 15:40:33,404 INFO 7037 [egg-security] use nosniff middleware
+2019-03-03 15:40:33,404 INFO 7037 [egg-security] use xssProtection middleware
+2019-03-03 15:40:33,405 INFO 7037 [egg-security] use xframe middleware
+2019-03-03 15:40:33,405 INFO 7037 [egg-security] use dta middleware
+2019-03-03 15:40:33,405 INFO 7037 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 15:40:33,433 INFO 7037 [egg:core] dump config after load, 6ms
+2019-03-03 15:40:33,444 INFO 7037 [egg-redis] client connect success
+2019-03-03 15:40:33,454 INFO 7037 [egg-watcher:application] watcher start success
+2019-03-03 15:40:33,455 INFO 7037 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 15:40:33 GMT+0800 (CST)
+2019-03-03 15:40:33,467 INFO 7037 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 15:40:33 GMT+0800 (CST)
+2019-03-03 15:40:33,484 INFO 7037 [egg:core] dump config after ready, 13ms
+2019-03-03 17:03:41,774 INFO 7634 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:03:41,798 INFO 7634 [egg-multipart] file mode enable
+2019-03-03 17:03:41,798 INFO 7634 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:03:41,857 INFO 7634 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:03:41,860 INFO 7634 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:03:42,006 INFO 7634 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:03:42,008 INFO 7634 [egg-security] use methodnoallow middleware
+2019-03-03 17:03:42,008 INFO 7634 [egg-security] use noopen middleware
+2019-03-03 17:03:42,009 INFO 7634 [egg-security] use nosniff middleware
+2019-03-03 17:03:42,009 INFO 7634 [egg-security] use xssProtection middleware
+2019-03-03 17:03:42,009 INFO 7634 [egg-security] use xframe middleware
+2019-03-03 17:03:42,009 INFO 7634 [egg-security] use dta middleware
+2019-03-03 17:03:42,009 INFO 7634 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:03:42,049 INFO 7634 [egg:core] dump config after load, 7ms
+2019-03-03 17:03:42,088 INFO 7634 [egg-redis] client connect success
+2019-03-03 17:03:42,098 INFO 7634 [egg-watcher:application] watcher start success
+2019-03-03 17:03:42,098 INFO 7634 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:03:42 GMT+0800 (CST)
+2019-03-03 17:03:42,109 INFO 7634 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:03:42 GMT+0800 (CST)
+2019-03-03 17:03:42,119 INFO 7634 [egg:core] dump config after ready, 8ms
+2019-03-03 17:08:09,683 INFO 7727 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:08:09,709 INFO 7727 [egg-multipart] file mode enable
+2019-03-03 17:08:09,709 INFO 7727 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:08:09,773 INFO 7727 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:08:09,776 INFO 7727 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:08:09,932 INFO 7727 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:08:09,934 INFO 7727 [egg-security] use methodnoallow middleware
+2019-03-03 17:08:09,934 INFO 7727 [egg-security] use noopen middleware
+2019-03-03 17:08:09,935 INFO 7727 [egg-security] use nosniff middleware
+2019-03-03 17:08:09,935 INFO 7727 [egg-security] use xssProtection middleware
+2019-03-03 17:08:09,935 INFO 7727 [egg-security] use xframe middleware
+2019-03-03 17:08:09,936 INFO 7727 [egg-security] use dta middleware
+2019-03-03 17:08:09,936 INFO 7727 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:08:09,967 INFO 7727 [egg:core] dump config after load, 9ms
+2019-03-03 17:08:10,004 INFO 7727 [egg-redis] client connect success
+2019-03-03 17:08:10,014 INFO 7727 [egg-watcher:application] watcher start success
+2019-03-03 17:08:10,014 INFO 7727 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:08:10 GMT+0800 (CST)
+2019-03-03 17:08:10,028 INFO 7727 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:08:10 GMT+0800 (CST)
+2019-03-03 17:08:10,036 INFO 7727 [egg:core] dump config after ready, 6ms
+2019-03-03 17:08:49,329 INFO 7743 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:08:49,355 INFO 7743 [egg-multipart] file mode enable
+2019-03-03 17:08:49,355 INFO 7743 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:08:49,420 INFO 7743 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:08:49,423 INFO 7743 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:08:49,573 INFO 7743 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:08:49,575 INFO 7743 [egg-security] use methodnoallow middleware
+2019-03-03 17:08:49,576 INFO 7743 [egg-security] use noopen middleware
+2019-03-03 17:08:49,576 INFO 7743 [egg-security] use nosniff middleware
+2019-03-03 17:08:49,576 INFO 7743 [egg-security] use xssProtection middleware
+2019-03-03 17:08:49,576 INFO 7743 [egg-security] use xframe middleware
+2019-03-03 17:08:49,577 INFO 7743 [egg-security] use dta middleware
+2019-03-03 17:08:49,577 INFO 7743 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:08:49,610 INFO 7743 [egg:core] dump config after load, 10ms
+2019-03-03 17:08:49,647 INFO 7743 [egg-redis] client connect success
+2019-03-03 17:08:49,657 INFO 7743 [egg-watcher:application] watcher start success
+2019-03-03 17:08:49,657 INFO 7743 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:08:49 GMT+0800 (CST)
+2019-03-03 17:08:49,672 INFO 7743 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:08:49 GMT+0800 (CST)
+2019-03-03 17:08:49,680 INFO 7743 [egg:core] dump config after ready, 6ms
+2019-03-03 17:09:27,574 INFO 7765 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:09:27,608 INFO 7765 [egg-multipart] file mode enable
+2019-03-03 17:09:27,608 INFO 7765 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:09:27,697 INFO 7765 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:09:27,702 INFO 7765 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:09:27,922 INFO 7765 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:09:27,924 INFO 7765 [egg-security] use methodnoallow middleware
+2019-03-03 17:09:27,925 INFO 7765 [egg-security] use noopen middleware
+2019-03-03 17:09:27,925 INFO 7765 [egg-security] use nosniff middleware
+2019-03-03 17:09:27,925 INFO 7765 [egg-security] use xssProtection middleware
+2019-03-03 17:09:27,925 INFO 7765 [egg-security] use xframe middleware
+2019-03-03 17:09:27,926 INFO 7765 [egg-security] use dta middleware
+2019-03-03 17:09:27,926 INFO 7765 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:09:27,978 INFO 7765 [egg:core] dump config after load, 11ms
+2019-03-03 17:09:28,021 INFO 7765 [egg-redis] client connect success
+2019-03-03 17:09:28,031 INFO 7765 [egg-watcher:application] watcher start success
+2019-03-03 17:09:28,032 INFO 7765 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:09:28 GMT+0800 (CST)
+2019-03-03 17:09:28,043 INFO 7765 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:09:28 GMT+0800 (CST)
+2019-03-03 17:09:28,055 INFO 7765 [egg:core] dump config after ready, 10ms
+2019-03-03 17:42:37,620 INFO 8239 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:42:37,645 INFO 8239 [egg-multipart] file mode enable
+2019-03-03 17:42:37,645 INFO 8239 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:42:37,708 INFO 8239 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:42:37,711 INFO 8239 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:42:37,862 INFO 8239 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:42:37,864 INFO 8239 [egg-security] use methodnoallow middleware
+2019-03-03 17:42:37,864 INFO 8239 [egg-security] use noopen middleware
+2019-03-03 17:42:37,865 INFO 8239 [egg-security] use nosniff middleware
+2019-03-03 17:42:37,865 INFO 8239 [egg-security] use xssProtection middleware
+2019-03-03 17:42:37,865 INFO 8239 [egg-security] use xframe middleware
+2019-03-03 17:42:37,865 INFO 8239 [egg-security] use dta middleware
+2019-03-03 17:42:37,865 INFO 8239 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:42:37,894 INFO 8239 [egg:core] dump config after load, 5ms
+2019-03-03 17:42:37,904 INFO 8239 [egg-redis] client connect success
+2019-03-03 17:42:37,911 INFO 8239 [egg-watcher:application] watcher start success
+2019-03-03 17:42:37,911 INFO 8239 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:42:37 GMT+0800 (CST)
+2019-03-03 17:42:38,061 INFO 8239 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:42:38 GMT+0800 (CST)
+2019-03-03 17:42:38,083 INFO 8239 [egg:core] dump config after ready, 16ms
+2019-03-03 17:45:14,021 INFO 8283 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:45:14,054 INFO 8283 [egg-multipart] file mode enable
+2019-03-03 17:45:14,054 INFO 8283 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:45:14,137 INFO 8283 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:45:14,140 INFO 8283 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:45:14,347 INFO 8283 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:45:14,351 INFO 8283 [egg-security] use methodnoallow middleware
+2019-03-03 17:45:14,351 INFO 8283 [egg-security] use noopen middleware
+2019-03-03 17:45:14,352 INFO 8283 [egg-security] use nosniff middleware
+2019-03-03 17:45:14,352 INFO 8283 [egg-security] use xssProtection middleware
+2019-03-03 17:45:14,353 INFO 8283 [egg-security] use xframe middleware
+2019-03-03 17:45:14,353 INFO 8283 [egg-security] use dta middleware
+2019-03-03 17:45:14,353 INFO 8283 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:45:14,399 INFO 8283 [egg:core] dump config after load, 9ms
+2019-03-03 17:45:14,446 INFO 8283 [egg-redis] client connect success
+2019-03-03 17:45:14,457 INFO 8283 [egg-watcher:application] watcher start success
+2019-03-03 17:45:14,457 INFO 8283 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:45:14 GMT+0800 (CST)
+2019-03-03 17:45:14,468 INFO 8283 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:45:14 GMT+0800 (CST)
+2019-03-03 17:45:14,481 INFO 8283 [egg:core] dump config after ready, 11ms
+2019-03-03 17:45:54,722 INFO 8302 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:45:54,747 INFO 8302 [egg-multipart] file mode enable
+2019-03-03 17:45:54,747 INFO 8302 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:45:54,810 INFO 8302 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:45:54,813 INFO 8302 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:45:54,958 INFO 8302 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:45:54,960 INFO 8302 [egg-security] use methodnoallow middleware
+2019-03-03 17:45:54,961 INFO 8302 [egg-security] use noopen middleware
+2019-03-03 17:45:54,961 INFO 8302 [egg-security] use nosniff middleware
+2019-03-03 17:45:54,961 INFO 8302 [egg-security] use xssProtection middleware
+2019-03-03 17:45:54,961 INFO 8302 [egg-security] use xframe middleware
+2019-03-03 17:45:54,962 INFO 8302 [egg-security] use dta middleware
+2019-03-03 17:45:54,962 INFO 8302 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:45:54,993 INFO 8302 [egg:core] dump config after load, 9ms
+2019-03-03 17:45:55,034 INFO 8302 [egg-redis] client connect success
+2019-03-03 17:45:55,043 INFO 8302 [egg-watcher:application] watcher start success
+2019-03-03 17:45:55,044 INFO 8302 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:45:55 GMT+0800 (CST)
+2019-03-03 17:45:55,056 INFO 8302 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:45:55 GMT+0800 (CST)
+2019-03-03 17:45:55,066 INFO 8302 [egg:core] dump config after ready, 8ms
+2019-03-03 17:47:48,079 INFO 8356 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:47:48,103 INFO 8356 [egg-multipart] file mode enable
+2019-03-03 17:47:48,103 INFO 8356 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:47:48,169 INFO 8356 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:47:48,172 INFO 8356 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:47:48,323 INFO 8356 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:47:48,325 INFO 8356 [egg-security] use methodnoallow middleware
+2019-03-03 17:47:48,325 INFO 8356 [egg-security] use noopen middleware
+2019-03-03 17:47:48,325 INFO 8356 [egg-security] use nosniff middleware
+2019-03-03 17:47:48,326 INFO 8356 [egg-security] use xssProtection middleware
+2019-03-03 17:47:48,326 INFO 8356 [egg-security] use xframe middleware
+2019-03-03 17:47:48,326 INFO 8356 [egg-security] use dta middleware
+2019-03-03 17:47:48,326 INFO 8356 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:47:48,358 INFO 8356 [egg:core] dump config after load, 6ms
+2019-03-03 17:47:48,393 INFO 8356 [egg-redis] client connect success
+2019-03-03 17:47:48,402 INFO 8356 [egg-watcher:application] watcher start success
+2019-03-03 17:47:48,403 INFO 8356 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:47:48 GMT+0800 (CST)
+2019-03-03 17:47:48,417 INFO 8356 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:47:48 GMT+0800 (CST)
+2019-03-03 17:47:48,427 INFO 8356 [egg:core] dump config after ready, 8ms
+2019-03-03 17:47:59,467 INFO 8368 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:47:59,492 INFO 8368 [egg-multipart] file mode enable
+2019-03-03 17:47:59,492 INFO 8368 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:47:59,555 INFO 8368 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:47:59,558 INFO 8368 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:47:59,716 INFO 8368 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:47:59,718 INFO 8368 [egg-security] use methodnoallow middleware
+2019-03-03 17:47:59,718 INFO 8368 [egg-security] use noopen middleware
+2019-03-03 17:47:59,718 INFO 8368 [egg-security] use nosniff middleware
+2019-03-03 17:47:59,719 INFO 8368 [egg-security] use xssProtection middleware
+2019-03-03 17:47:59,719 INFO 8368 [egg-security] use xframe middleware
+2019-03-03 17:47:59,719 INFO 8368 [egg-security] use dta middleware
+2019-03-03 17:47:59,719 INFO 8368 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:47:59,757 INFO 8368 [egg:core] dump config after load, 9ms
+2019-03-03 17:47:59,812 INFO 8368 [egg-redis] client connect success
+2019-03-03 17:47:59,825 INFO 8368 [egg-watcher:application] watcher start success
+2019-03-03 17:47:59,826 INFO 8368 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:47:59 GMT+0800 (CST)
+2019-03-03 17:47:59,847 INFO 8368 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:47:59 GMT+0800 (CST)
+2019-03-03 17:47:59,855 INFO 8368 [egg:core] dump config after ready, 6ms
+2019-03-03 17:48:44,588 INFO 8423 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:48:44,611 INFO 8423 [egg-multipart] file mode enable
+2019-03-03 17:48:44,611 INFO 8423 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:48:44,670 INFO 8423 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:48:44,673 INFO 8423 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:48:44,825 INFO 8423 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:48:44,827 INFO 8423 [egg-security] use methodnoallow middleware
+2019-03-03 17:48:44,828 INFO 8423 [egg-security] use noopen middleware
+2019-03-03 17:48:44,828 INFO 8423 [egg-security] use nosniff middleware
+2019-03-03 17:48:44,828 INFO 8423 [egg-security] use xssProtection middleware
+2019-03-03 17:48:44,828 INFO 8423 [egg-security] use xframe middleware
+2019-03-03 17:48:44,829 INFO 8423 [egg-security] use dta middleware
+2019-03-03 17:48:44,829 INFO 8423 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:48:44,859 INFO 8423 [egg:core] dump config after load, 5ms
+2019-03-03 17:48:44,895 INFO 8423 [egg-redis] client connect success
+2019-03-03 17:48:44,904 INFO 8423 [egg-watcher:application] watcher start success
+2019-03-03 17:48:44,905 INFO 8423 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:48:44 GMT+0800 (CST)
+2019-03-03 17:48:44,917 INFO 8423 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:48:44 GMT+0800 (CST)
+2019-03-03 17:48:44,930 INFO 8423 [egg:core] dump config after ready, 9ms
+2019-03-03 17:49:50,500 INFO 8479 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:49:50,535 INFO 8479 [egg-multipart] file mode enable
+2019-03-03 17:49:50,535 INFO 8479 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:49:50,622 INFO 8479 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:49:50,625 INFO 8479 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:49:50,799 INFO 8479 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:49:50,800 INFO 8479 [egg-security] use methodnoallow middleware
+2019-03-03 17:49:50,801 INFO 8479 [egg-security] use noopen middleware
+2019-03-03 17:49:50,801 INFO 8479 [egg-security] use nosniff middleware
+2019-03-03 17:49:50,801 INFO 8479 [egg-security] use xssProtection middleware
+2019-03-03 17:49:50,802 INFO 8479 [egg-security] use xframe middleware
+2019-03-03 17:49:50,802 INFO 8479 [egg-security] use dta middleware
+2019-03-03 17:49:50,802 INFO 8479 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:49:50,834 INFO 8479 [egg:core] dump config after load, 5ms
+2019-03-03 17:49:50,870 INFO 8479 [egg-redis] client connect success
+2019-03-03 17:49:50,879 INFO 8479 [egg-watcher:application] watcher start success
+2019-03-03 17:49:50,879 INFO 8479 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:49:50 GMT+0800 (CST)
+2019-03-03 17:49:50,887 INFO 8479 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:49:50 GMT+0800 (CST)
+2019-03-03 17:49:50,898 INFO 8479 [egg:core] dump config after ready, 9ms
+2019-03-03 17:49:59,531 INFO 8502 [egg:logger] init all loggers with options: {"dir":"/home/kang/Code/ibeem/logs/ibeem","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ibeem-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-03-03 17:49:59,561 INFO 8502 [egg-multipart] file mode enable
+2019-03-03 17:49:59,561 INFO 8502 [egg-multipart] will save temporary files to "./tmp", cleanup job cron: "0 30 4 * * *"
+2019-03-03 17:49:59,631 INFO 8502 [egg-redis] server connecting redis://:***@127.0.0.1:6379/0
+2019-03-03 17:49:59,634 INFO 8502 [egg-mysql] connecting root@123.57.62.130:3306/ibeem_test
+2019-03-03 17:49:59,797 INFO 8502 [egg-static] starting static serve /public/ -> /home/kang/Code/ibeem/app/public
+2019-03-03 17:49:59,799 INFO 8502 [egg-security] use methodnoallow middleware
+2019-03-03 17:49:59,799 INFO 8502 [egg-security] use noopen middleware
+2019-03-03 17:49:59,800 INFO 8502 [egg-security] use nosniff middleware
+2019-03-03 17:49:59,800 INFO 8502 [egg-security] use xssProtection middleware
+2019-03-03 17:49:59,800 INFO 8502 [egg-security] use xframe middleware
+2019-03-03 17:49:59,800 INFO 8502 [egg-security] use dta middleware
+2019-03-03 17:49:59,800 INFO 8502 [egg-security] compose 6 middlewares into one security middleware
+2019-03-03 17:49:59,833 INFO 8502 [egg:core] dump config after load, 6ms
+2019-03-03 17:49:59,872 INFO 8502 [egg-redis] client connect success
+2019-03-03 17:49:59,882 INFO 8502 [egg-watcher:application] watcher start success
+2019-03-03 17:49:59,883 INFO 8502 [egg-redis] instance[0] status OK, redis server currentTime: Sun Mar 03 2019 17:49:59 GMT+0800 (CST)
+2019-03-03 17:49:59,893 INFO 8502 [egg-mysql] instance[0] status OK, rds currentTime: Sun Mar 03 2019 17:49:59 GMT+0800 (CST)
+2019-03-03 17:49:59,901 INFO 8502 [egg:core] dump config after ready, 6ms

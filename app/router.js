@@ -126,7 +126,7 @@ module.exports = app => {
   router.post('/project/single/building/save_water_info', userRequired, controller.project.singleBuilding.buildingSaveWaterInfo);
   router.post('/project/single/topBuilding', userRequired, controller.project.singleBuilding.topBuildingInfo);
   router.post('/project/single/topBuilding/update', userRequired, controller.project.singleBuilding.topBuildingUpdate);
-  router.post('/project/single/topBuilding/export', userRequired, controller.project.singleBuilding.topBuildingExport)
+  router.get('/project/single/topBuilding/export', userRequired, controller.project.singleBuilding.topBuildingExport)
   router.post('/project/single/topBuilding/room_info', userRequired, controller.project.singleBuilding.topBuildingRoomInfo);
   router.post('/project/single/topBuilding/room_add', userRequired, controller.project.singleBuilding.topBuildingRoomAdd);
   router.post('/project/single/topBuilding/room_edit', userRequired, controller.project.singleBuilding.topBuildingRoomEdit);
@@ -247,6 +247,7 @@ module.exports = app => {
   router.post('/admin/project/single/building/save_water_info', adminRequired, controller.admin.project.singleBuildingSaveWaterInfo);
   router.post('/admin/project/single/topBuilding', adminRequired, controller.admin.project.singleTopBuilding);
   router.post('/admin/project/single/topBuilding/update', adminRequired, controller.admin.project.singleTopBuildingUpdate);
+  router.get('/admin/project/single/topBuilding/export', adminRequired, controller.admin.project.singleTopBuildingExport)
   router.post('/admin/project/single/topBuilding/room_info', adminRequired, controller.admin.project.singleTopBuildingRoomInfo);
   router.post('/admin/project/single/topBuilding/room_add', adminRequired, controller.admin.project.singleTopBuildingRoomAdd);
   router.post('/admin/project/single/topBuilding/room_edit', adminRequired, controller.admin.project.singleTopBuildingRoomEdit);

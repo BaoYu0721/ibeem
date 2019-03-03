@@ -1368,7 +1368,8 @@
   {
     "name": null,
     "methods": [
-      "POST"
+      "HEAD",
+      "GET"
     ],
     "paramNames": [],
     "path": "/project/single/topBuilding/export",
@@ -2754,6 +2755,20 @@
     "paramNames": [],
     "path": "/admin/project/single/topBuilding/update",
     "regexp": "/^\\/admin\\/project\\/single\\/topBuilding\\/update(?:\\/(?=$))?$/",
+    "stack": [
+      "anonymous",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/admin/project/single/topBuilding/export",
+    "regexp": "/^\\/admin\\/project\\/single\\/topBuilding\\/export(?:\\/(?=$))?$/",
     "stack": [
       "anonymous",
       "wrappedController"

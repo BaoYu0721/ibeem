@@ -47,7 +47,7 @@ exports.parseXlsx = filename => {
 
 //生成xlsx数据
 exports.xlsxData = data => {
-  return xlsx.build([{data: data}]);
+  return xlsx.build(data);
 }
 
 //生成xlsx文件

@@ -776,3 +776,611 @@
 2019-03-03 02:13:00,007 INFO 3769 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 02:14:00.003
 2019-03-03 02:13:00,007 INFO 12604 [Job#15515503800032176893304891357] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
 2019-03-03 02:13:00,019 INFO 12604 [Job#15515503800032176893304891357] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 15:18:29,100 INFO 5175 [Timer] /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 47490903ms at 2019-03-04 04:30:00.003
+2019-03-03 15:18:29,100 INFO 5175 [Timer] /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js next time will execute after 31290900ms at 2019-03-04 00:00:00.000
+2019-03-03 15:18:29,101 INFO 5175 [Timer] /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 31291900ms at 2019-03-04 00:00:01.001
+2019-03-03 15:18:29,101 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/load_device_data.js next time will execute after 31290899ms at 2019-03-04 00:00:00.000
+2019-03-03 15:18:29,101 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/weixin.js next time will execute after 2490899ms at 2019-03-03 16:00:00.000
+2019-03-03 15:18:29,102 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 30899ms at 2019-03-03 15:19:00.001
+2019-03-03 15:18:28,730 INFO 5186 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:18:28,730 INFO 5186 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:18:28,730 INFO 5186 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:18:28,730 INFO 5186 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:18:28,730 INFO 5186 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:18:28,730 INFO 5186 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:19:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:20:00.006
+2019-03-03 15:19:00,006 INFO 5186 [Job#155159754000310515385699361] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:19:00,022 INFO 5186 [Job#155159754000310515385699361] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 15:20:00,015 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 15:21:00.008
+2019-03-03 15:20:00,008 INFO 5186 [Job#155159760000610575421075712] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:20:00,022 INFO 5186 [Job#155159760000610575421075712] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 15:21:00,016 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59990ms at 2019-03-03 15:22:00.006
+2019-03-03 15:21:00,011 INFO 5186 [Job#155159766001010635453290563] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:21:00,103 INFO 5186 [Job#155159766001010635453290563] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 92ms
+2019-03-03 15:22:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 15:23:00.001
+2019-03-03 15:22:00,006 INFO 5186 [Job#155159772000610695415374734] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:22:00,018 INFO 5186 [Job#155159772000610695415374734] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 15:23:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 15:24:00.007
+2019-03-03 15:23:00,004 INFO 5186 [Job#155159778000310755381560955] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:23:00,131 INFO 5186 [Job#155159778000310755381560955] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 127ms
+2019-03-03 15:24:00,010 INFO 5186 [Job#155159784000810815441304606] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:24:00,027 INFO 5186 [Job#155159784000810815441304606] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 15:24:00,017 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59991ms at 2019-03-03 15:25:00.008
+2019-03-03 15:25:00,010 INFO 5186 [Job#155159790000810875437044337] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:25:00,026 INFO 5186 [Job#155159790000810875437044337] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:25:00,015 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59992ms at 2019-03-03 15:26:00.007
+2019-03-03 15:26:00,015 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59991ms at 2019-03-03 15:27:00.006
+2019-03-03 15:26:00,010 INFO 5186 [Job#155159796000810935438079898] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:26:00,026 INFO 5186 [Job#155159796000810935438079898] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:27:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 15:28:00.002
+2019-03-03 15:27:00,008 INFO 5186 [Job#155159802000710995422638569] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:27:00,022 INFO 5186 [Job#155159802000710995422638569] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 15:28:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 15:29:00.006
+2019-03-03 15:28:00,004 INFO 5186 [Job#1551598080003110553818632310] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:28:00,019 INFO 5186 [Job#1551598080003110553818632310] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:28:12,670 INFO 6334 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:28:12,670 INFO 6334 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:28:12,670 INFO 6334 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:28:12,670 INFO 6334 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:28:12,670 INFO 6334 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:28:12,670 INFO 6334 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:28:33,549 INFO 6377 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:28:33,549 INFO 6377 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:28:33,549 INFO 6377 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:28:33,549 INFO 6377 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:28:33,549 INFO 6377 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:28:33,549 INFO 6377 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:29:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 15:30:00.003
+2019-03-03 15:29:00,008 INFO 6377 [Job#1551598140006111154190033011] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:29:00,024 INFO 6377 [Job#1551598140006111154190033011] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:29:35,917 INFO 6403 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:29:35,917 INFO 6403 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:29:35,917 INFO 6403 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:29:35,917 INFO 6403 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:29:35,917 INFO 6403 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:29:35,917 INFO 6403 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:30:00,012 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:31:00.008
+2019-03-03 15:30:00,007 INFO 6403 [Job#1551598200004111753941773812] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:30:00,044 INFO 6403 [Job#1551598200004111753941773812] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 31ms
+2019-03-03 15:30:18,296 INFO 6417 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:30:18,296 INFO 6417 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:30:18,296 INFO 6417 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:30:18,296 INFO 6417 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:30:18,296 INFO 6417 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:30:18,296 INFO 6417 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:30:50,855 INFO 6433 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:30:50,855 INFO 6433 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:30:50,855 INFO 6433 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:30:50,855 INFO 6433 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:30:50,855 INFO 6433 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:30:50,855 INFO 6433 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:31:00,012 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59991ms at 2019-03-03 15:32:00.003
+2019-03-03 15:31:00,009 INFO 6433 [Job#1551598260008112354411817813] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:31:00,027 INFO 6433 [Job#1551598260008112354411817813] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:32:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:33:00.006
+2019-03-03 15:32:00,005 INFO 6433 [Job#1551598320003112953887506914] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:32:00,020 INFO 6433 [Job#1551598320003112953887506914] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:33:00,013 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 15:34:00.006
+2019-03-03 15:33:00,008 INFO 6433 [Job#1551598380006113554211732815] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:33:00,024 INFO 6433 [Job#1551598380006113554211732815] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:34:00,008 INFO 6433 [Job#1551598440007114154219192616] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:34:00,023 INFO 6433 [Job#1551598440007114154219192616] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:34:00,017 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 15:35:00.010
+2019-03-03 15:34:14,463 INFO 6668 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:34:14,463 INFO 6668 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:34:14,463 INFO 6668 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:34:14,463 INFO 6668 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:34:14,463 INFO 6668 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:34:14,463 INFO 6668 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:34:25,669 INFO 6681 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:34:25,670 INFO 6681 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:34:25,670 INFO 6681 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:34:25,670 INFO 6681 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:34:25,670 INFO 6681 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:34:25,670 INFO 6681 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:35:00,012 INFO 6681 [Job#1551598500011114754635354217] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:35:00,035 INFO 6681 [Job#1551598500011114754635354217] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 21ms
+2019-03-03 15:35:00,015 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59989ms at 2019-03-03 15:36:00.004
+2019-03-03 15:35:55,975 INFO 6743 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:35:55,975 INFO 6743 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:35:55,975 INFO 6743 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:35:55,975 INFO 6743 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:35:55,975 INFO 6743 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:35:55,975 INFO 6743 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:36:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:37:00.002
+2019-03-03 15:36:00,006 INFO 6743 [Job#1551598560004115353965845718] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:36:00,043 INFO 6743 [Job#1551598560004115353965845718] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 35ms
+2019-03-03 15:37:00,005 INFO 6743 [Job#1551598620004115953924096519] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:37:00,021 INFO 6743 [Job#1551598620004115953924096519] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:37:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:38:00.005
+2019-03-03 15:37:04,206 INFO 6816 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:37:04,206 INFO 6816 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:37:04,206 INFO 6816 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:37:04,206 INFO 6816 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:37:04,206 INFO 6816 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:37:04,206 INFO 6816 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:38:00,007 INFO 6816 [Job#1551598680005116554083115220] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:38:00,028 INFO 6816 [Job#1551598680005116554083115220] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 15:38:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:39:00.004
+2019-03-03 15:39:00,005 INFO 6816 [Job#1551598740004117153993938721] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:39:00,020 INFO 6816 [Job#1551598740004117153993938721] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 15:39:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:40:00.004
+2019-03-03 15:39:02,066 INFO 6920 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:39:02,066 INFO 6920 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:39:02,066 INFO 6920 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:39:02,066 INFO 6920 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:39:02,066 INFO 6920 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:39:02,066 INFO 6920 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:40:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:41:00.002
+2019-03-03 15:40:00,006 INFO 6920 [Job#1551598800004117754013170322] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:40:00,020 INFO 6920 [Job#1551598800004117754013170322] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 15:40:33,177 INFO 7037 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 15:40:33,177 INFO 7037 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 15:40:33,177 INFO 7037 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 15:40:33,177 INFO 7037 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 15:40:33,177 INFO 7037 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 15:40:33,177 INFO 7037 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 15:41:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:42:00.003
+2019-03-03 15:41:00,005 INFO 7037 [Job#1551598860003118353889296323] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:41:00,025 INFO 7037 [Job#1551598860003118353889296323] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 15:42:00,013 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:43:00.008
+2019-03-03 15:42:00,006 INFO 7037 [Job#1551598920004118953948988224] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:42:00,032 INFO 7037 [Job#1551598920004118953948988224] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 25ms
+2019-03-03 15:43:00,013 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59990ms at 2019-03-03 15:44:00.003
+2019-03-03 15:43:00,011 INFO 7037 [Job#1551598980010119554536850725] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:43:00,022 INFO 7037 [Job#1551598980010119554536850725] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 11ms
+2019-03-03 15:44:00,016 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:45:00.010
+2019-03-03 15:44:00,006 INFO 7037 [Job#1551599040005120154019300526] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:44:00,023 INFO 7037 [Job#1551599040005120154019300526] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:45:00,016 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59988ms at 2019-03-03 15:46:00.004
+2019-03-03 15:45:00,013 INFO 7037 [Job#1551599100012120754770635227] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:45:00,032 INFO 7037 [Job#1551599100012120754770635227] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 15:46:00,020 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 15:47:00.014
+2019-03-03 15:46:00,007 INFO 7037 [Job#1551599160006121354118253828] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:46:00,023 INFO 7037 [Job#1551599160006121354118253828] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:47:00,017 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59986ms at 2019-03-03 15:48:00.003
+2019-03-03 15:47:00,015 INFO 7037 [Job#1551599220014121954968975429] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:47:00,030 INFO 7037 [Job#1551599220014121954968975429] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:48:00,014 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:49:00.010
+2019-03-03 15:48:00,005 INFO 7037 [Job#1551599280004122553924946830] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:48:00,023 INFO 7037 [Job#1551599280004122553924946830] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 15:49:00,015 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59989ms at 2019-03-03 15:50:00.004
+2019-03-03 15:49:00,012 INFO 7037 [Job#1551599340011123154656380931] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:49:00,027 INFO 7037 [Job#1551599340011123154656380931] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 15:50:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 15:51:00.005
+2019-03-03 15:50:00,007 INFO 7037 [Job#1551599400005123754022846732] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:50:00,023 INFO 7037 [Job#1551599400005123754022846732] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 15:51:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:52:00.006
+2019-03-03 15:51:00,006 INFO 7037 [Job#1551599460005124354043068033] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:51:00,021 INFO 7037 [Job#1551599460005124354043068033] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 15:52:00,007 INFO 7037 [Job#1551599520006124954144916834] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:52:00,021 INFO 7037 [Job#1551599520006124954144916834] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 15:52:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 15:53:00.003
+2019-03-03 15:53:00,004 INFO 7037 [Job#1551599580003125553880361335] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:53:00,017 INFO 7037 [Job#1551599580003125553880361335] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 15:53:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:54:00.003
+2019-03-03 15:54:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:55:00.005
+2019-03-03 15:54:00,006 INFO 7037 [Job#1551599640004126153949895636] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:54:00,023 INFO 7037 [Job#1551599640004126153949895636] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 15:55:00,012 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 15:56:00.006
+2019-03-03 15:55:00,008 INFO 7037 [Job#1551599700006126754147045937] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:55:00,030 INFO 7037 [Job#1551599700006126754147045937] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 22ms
+2019-03-03 15:56:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59992ms at 2019-03-03 15:57:00.003
+2019-03-03 15:56:00,009 INFO 7037 [Job#1551599760007127354257411538] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:56:00,029 INFO 7037 [Job#1551599760007127354257411538] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 20ms
+2019-03-03 15:57:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 15:58:00.001
+2019-03-03 15:57:00,005 INFO 7037 [Job#1551599820004127953985716939] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:57:00,021 INFO 7037 [Job#1551599820004127953985716939] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 15:58:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 15:59:00.004
+2019-03-03 15:58:00,003 INFO 7037 [Job#1551599880001128553697954840] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:58:00,020 INFO 7037 [Job#1551599880001128553697954840] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 15:59:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:00:00.004
+2019-03-03 15:59:00,006 INFO 7037 [Job#1551599940005129154024037741] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 15:59:00,020 INFO 7037 [Job#1551599940005129154024037741] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 16:00:00,012 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/weixin.js next time will execute after 3599997ms at 2019-03-03 17:00:00.008
+2019-03-03 16:00:00,019 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59987ms at 2019-03-03 16:01:00.006
+2019-03-03 16:00:00,004 INFO 7037 [Job#155160000000212975374037411] /home/kang/Code/ibeem/app/schedule/weixin.js executing by app
+2019-03-03 16:00:00,044 INFO 7037 [Job#1551600000012129754744781442] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:00:00,054 INFO 7037 [Job#1551600000012129754744781442] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 10ms
+2019-03-03 16:00:04,452 INFO 7037 [Job#155160000000212975374037411] /home/kang/Code/ibeem/app/schedule/weixin.js execute succeed, used 4447ms
+2019-03-03 16:01:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 16:02:00.001
+2019-03-03 16:01:00,007 INFO 7037 [Job#1551600060007130354223783543] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:01:00,017 INFO 7037 [Job#1551600060007130354223783543] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 10ms
+2019-03-03 16:02:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 16:03:00.005
+2019-03-03 16:02:00,004 INFO 7037 [Job#1551600120001130953670412444] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:02:00,091 INFO 7037 [Job#1551600120001130953670412444] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 85ms
+2019-03-03 16:03:00,016 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:04:00.010
+2019-03-03 16:03:00,007 INFO 7037 [Job#1551600180006131554119436345] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:03:00,063 INFO 7037 [Job#1551600180006131554119436345] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 56ms
+2019-03-03 16:04:00,016 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59988ms at 2019-03-03 16:05:00.004
+2019-03-03 16:04:00,012 INFO 7037 [Job#1551600240010132154583358046] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:04:00,106 INFO 7037 [Job#1551600240010132154583358046] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 93ms
+2019-03-03 16:05:00,005 INFO 7037 [Job#1551600300004132753968105247] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:05:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:06:00.002
+2019-03-03 16:05:00,063 INFO 7037 [Job#1551600300004132753968105247] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 58ms
+2019-03-03 16:06:00,004 INFO 7037 [Job#1551600360002133353776186348] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:06:00,023 INFO 7037 [Job#1551600360002133353776186348] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 16:06:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 16:07:00.004
+2019-03-03 16:07:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:08:00.002
+2019-03-03 16:07:00,007 INFO 7037 [Job#1551600420006133954175148149] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:07:00,021 INFO 7037 [Job#1551600420006133954175148149] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 16:08:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:09:00.003
+2019-03-03 16:08:00,005 INFO 7037 [Job#1551600480003134553881800950] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:08:00,022 INFO 7037 [Job#1551600480003134553881800950] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 16:09:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:10:00.004
+2019-03-03 16:09:00,007 INFO 7037 [Job#1551600540005135154019762551] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:09:00,019 INFO 7037 [Job#1551600540005135154019762551] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:10:00,012 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:11:00.006
+2019-03-03 16:10:00,007 INFO 7037 [Job#1551600600006135754139104952] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:10:00,020 INFO 7037 [Job#1551600600006135754139104952] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:11:00,013 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59992ms at 2019-03-03 16:12:00.004
+2019-03-03 16:11:00,009 INFO 7037 [Job#1551600660007136354282671053] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:11:00,048 INFO 7037 [Job#1551600660007136354282671053] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 39ms
+2019-03-03 16:12:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 16:13:00.004
+2019-03-03 16:12:00,008 INFO 7037 [Job#1551600720006136954176033854] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:12:00,054 INFO 7037 [Job#1551600720006136954176033854] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 46ms
+2019-03-03 16:13:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:14:00.004
+2019-03-03 16:13:00,006 INFO 7037 [Job#1551600780005137554022574255] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:13:00,064 INFO 7037 [Job#1551600780005137554022574255] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 58ms
+2019-03-03 16:14:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:15:00.004
+2019-03-03 16:14:00,007 INFO 7037 [Job#1551600840005138154094652256] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:14:00,075 INFO 7037 [Job#1551600840005138154094652256] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 68ms
+2019-03-03 16:15:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:16:00.003
+2019-03-03 16:15:00,006 INFO 7037 [Job#1551600900004138753972846757] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:15:00,067 INFO 7037 [Job#1551600900004138753972846757] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 61ms
+2019-03-03 16:16:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:17:00.004
+2019-03-03 16:16:00,004 INFO 7037 [Job#1551600960003139353855066158] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:16:00,025 INFO 7037 [Job#1551600960003139353855066158] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 16:17:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:18:00.004
+2019-03-03 16:17:00,007 INFO 7037 [Job#1551601020006139954119578059] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:17:00,068 INFO 7037 [Job#1551601020006139954119578059] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 61ms
+2019-03-03 16:18:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:19:00.002
+2019-03-03 16:18:00,005 INFO 7037 [Job#1551601080005140554040664260] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:18:00,023 INFO 7037 [Job#1551601080005140554040664260] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 16:19:00,004 INFO 7037 [Job#1551601140002141153790759861] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:19:00,018 INFO 7037 [Job#1551601140002141153790759861] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 16:19:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:20:00.004
+2019-03-03 16:20:00,006 INFO 7037 [Job#1551601200004141753979184762] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:20:00,018 INFO 7037 [Job#1551601200004141753979184762] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:20:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:21:00.004
+2019-03-03 16:21:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:22:00.005
+2019-03-03 16:21:00,008 INFO 7037 [Job#1551601260006142354165549063] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:21:00,115 INFO 7037 [Job#1551601260006142354165549063] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 107ms
+2019-03-03 16:22:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:23:00.004
+2019-03-03 16:22:00,008 INFO 7037 [Job#1551601320006142954146774064] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:22:00,121 INFO 7037 [Job#1551601320006142954146774064] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 113ms
+2019-03-03 16:23:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 16:24:00.001
+2019-03-03 16:23:00,007 INFO 7037 [Job#1551601380006143554185875965] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:23:00,126 INFO 7037 [Job#1551601380006143554185875965] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 119ms
+2019-03-03 16:24:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:25:00.001
+2019-03-03 16:24:00,003 INFO 7037 [Job#1551601440002144153789374966] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:24:00,015 INFO 7037 [Job#1551601440002144153789374966] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:25:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:26:00.004
+2019-03-03 16:25:00,005 INFO 7037 [Job#1551601500002144753735144867] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:25:00,018 INFO 7037 [Job#1551601500002144753735144867] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 16:26:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:27:00.004
+2019-03-03 16:26:00,006 INFO 7037 [Job#1551601560004145353996050368] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:26:00,041 INFO 7037 [Job#1551601560004145353996050368] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 35ms
+2019-03-03 16:27:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:28:00.004
+2019-03-03 16:27:00,006 INFO 7037 [Job#1551601620004145953997013969] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:27:00,056 INFO 7037 [Job#1551601620004145953997013969] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 50ms
+2019-03-03 16:28:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:29:00.004
+2019-03-03 16:28:00,006 INFO 7037 [Job#1551601680005146554022399570] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:28:00,054 INFO 7037 [Job#1551601680005146554022399570] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 48ms
+2019-03-03 16:29:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:30:00.002
+2019-03-03 16:29:00,006 INFO 7037 [Job#1551601740006147154145226271] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:29:00,017 INFO 7037 [Job#1551601740006147154145226271] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 11ms
+2019-03-03 16:30:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:31:00.004
+2019-03-03 16:30:00,007 INFO 7037 [Job#1551601800004147753990004572] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:30:00,020 INFO 7037 [Job#1551601800004147753990004572] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:31:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:32:00.000
+2019-03-03 16:31:00,006 INFO 7037 [Job#1551601860005148354093049073] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:31:00,017 INFO 7037 [Job#1551601860005148354093049073] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 11ms
+2019-03-03 16:32:00,002 INFO 7037 [Job#1551601920000148953587450674] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:32:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 16:33:00.003
+2019-03-03 16:32:00,079 INFO 7037 [Job#1551601920000148953587450674] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 77ms
+2019-03-03 16:33:00,005 INFO 7037 [Job#1551601980003149553881466875] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:33:00,086 INFO 7037 [Job#1551601980003149553881466875] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 81ms
+2019-03-03 16:33:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:34:00.003
+2019-03-03 16:34:00,005 INFO 7037 [Job#1551602040004150153921412876] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:34:00,100 INFO 7037 [Job#1551602040004150153921412876] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 94ms
+2019-03-03 16:34:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:35:00.003
+2019-03-03 16:35:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:36:00.004
+2019-03-03 16:35:00,006 INFO 7037 [Job#1551602100005150754021711477] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:35:00,027 INFO 7037 [Job#1551602100005150754021711477] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 21ms
+2019-03-03 16:36:00,011 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:37:00.005
+2019-03-03 16:36:00,007 INFO 7037 [Job#1551602160005151354067238378] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:36:00,025 INFO 7037 [Job#1551602160005151354067238378] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 18ms
+2019-03-03 16:37:00,012 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59992ms at 2019-03-03 16:38:00.003
+2019-03-03 16:37:00,009 INFO 7037 [Job#1551602220007151954286800779] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:37:00,030 INFO 7037 [Job#1551602220007151954286800779] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 20ms
+2019-03-03 16:38:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:39:00.003
+2019-03-03 16:38:00,006 INFO 7037 [Job#1551602280005152554021557480] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:38:00,027 INFO 7037 [Job#1551602280005152554021557480] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 21ms
+2019-03-03 16:39:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 16:40:00.003
+2019-03-03 16:39:00,006 INFO 7037 [Job#1551602340005153154022156681] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:39:00,021 INFO 7037 [Job#1551602340005153154022156681] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 16:40:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:41:00.004
+2019-03-03 16:40:00,006 INFO 7037 [Job#1551602400005153754020536582] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:40:00,023 INFO 7037 [Job#1551602400005153754020536582] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 16:41:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:42:00.001
+2019-03-03 16:41:00,006 INFO 7037 [Job#1551602460005154354056825783] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:41:00,024 INFO 7037 [Job#1551602460005154354056825783] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 18ms
+2019-03-03 16:42:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:43:00.003
+2019-03-03 16:42:00,003 INFO 7037 [Job#1551602520002154953743865084] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:42:00,019 INFO 7037 [Job#1551602520002154953743865084] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 16:43:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:44:00.001
+2019-03-03 16:43:00,005 INFO 7037 [Job#1551602580003155553887676685] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:43:00,019 INFO 7037 [Job#1551602580003155553887676685] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 16:44:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:45:00.004
+2019-03-03 16:44:00,003 INFO 7037 [Job#1551602640002156153717742686] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:44:00,016 INFO 7037 [Job#1551602640002156153717742686] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 16:45:00,006 INFO 7037 [Job#1551602700004156753979996587] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:45:00,021 INFO 7037 [Job#1551602700004156753979996587] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 16:45:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:46:00.003
+2019-03-03 16:46:00,005 INFO 7037 [Job#1551602760003157353863461288] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:46:00,014 INFO 7037 [Job#1551602760003157353863461288] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 9ms
+2019-03-03 16:46:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:47:00.002
+2019-03-03 16:47:00,005 INFO 7037 [Job#1551602820002157953761215089] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:47:00,018 INFO 7037 [Job#1551602820002157953761215089] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 16:47:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:48:00.004
+2019-03-03 16:48:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:49:00.001
+2019-03-03 16:48:00,005 INFO 7037 [Job#1551602880005158554021376190] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:48:00,015 INFO 7037 [Job#1551602880005158554021376190] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 10ms
+2019-03-03 16:49:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 16:50:00.005
+2019-03-03 16:49:00,005 INFO 7037 [Job#1551602940003159153816814491] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:49:00,018 INFO 7037 [Job#1551602940003159153816814491] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 16:50:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59993ms at 2019-03-03 16:51:00.001
+2019-03-03 16:50:00,008 INFO 7037 [Job#1551603000007159754284372592] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:50:00,017 INFO 7037 [Job#1551603000007159754284372592] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 9ms
+2019-03-03 16:51:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:52:00.002
+2019-03-03 16:51:00,005 INFO 7037 [Job#1551603060002160353782407893] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:51:00,014 INFO 7037 [Job#1551603060002160353782407893] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 9ms
+2019-03-03 16:52:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:53:00.003
+2019-03-03 16:52:00,005 INFO 7037 [Job#1551603120003160953893588694] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:52:00,018 INFO 7037 [Job#1551603120003160953893588694] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 16:53:00,008 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:54:00.003
+2019-03-03 16:53:00,006 INFO 7037 [Job#1551603180005161554019828095] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:53:00,018 INFO 7037 [Job#1551603180005161554019828095] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:54:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:55:00.001
+2019-03-03 16:54:00,005 INFO 7037 [Job#1551603240004162153954026296] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:54:00,017 INFO 7037 [Job#1551603240004162153954026296] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:55:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:56:00.001
+2019-03-03 16:55:00,003 INFO 7037 [Job#1551603300001162753680288897] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:55:00,019 INFO 7037 [Job#1551603300001162753680288897] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 16:56:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 16:57:00.004
+2019-03-03 16:56:00,004 INFO 7037 [Job#1551603360001163353696694198] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:56:00,018 INFO 7037 [Job#1551603360001163353696694198] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:57:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 16:58:00.001
+2019-03-03 16:57:00,005 INFO 7037 [Job#1551603420004163953995093599] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:57:00,017 INFO 7037 [Job#1551603420004163953995093599] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:58:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 16:59:00.003
+2019-03-03 16:58:00,004 INFO 7037 [Job#15516034800011645537127529100] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:58:00,020 INFO 7037 [Job#15516034800011645537127529100] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 16:59:00,004 INFO 7037 [Job#15516035400031651538444202101] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 16:59:00,017 INFO 7037 [Job#15516035400031651538444202101] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 16:59:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:00:00.003
+2019-03-03 17:00:00,003 INFO 7037 [Job#15516036000031657538347073102] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:00:00,010 INFO 7037 [Job#155160360000916575448555382] /home/kang/Code/ibeem/app/schedule/weixin.js executing by app
+2019-03-03 17:00:00,013 INFO 7037 [Job#15516036000031657538347073102] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 10ms
+2019-03-03 17:00:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:01:00.004
+2019-03-03 17:00:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/weixin.js next time will execute after 3599991ms at 2019-03-03 18:00:00.001
+2019-03-03 17:00:04,996 INFO 7037 [Job#155160360000916575448555382] /home/kang/Code/ibeem/app/schedule/weixin.js execute succeed, used 4986ms
+2019-03-03 17:01:00,005 INFO 7037 [Job#15516036600041663539299780103] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:01:00,020 INFO 7037 [Job#15516036600041663539299780103] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:01:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:02:00.005
+2019-03-03 17:02:00,010 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59994ms at 2019-03-03 17:03:00.004
+2019-03-03 17:02:00,008 INFO 7037 [Job#15516037200061669541547030104] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:02:00,023 INFO 7037 [Job#15516037200061669541547030104] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 17:03:00,009 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 17:04:00.004
+2019-03-03 17:03:00,006 INFO 7037 [Job#15516037800051675540254758105] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:03:00,022 INFO 7037 [Job#15516037800051675540254758105] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 16ms
+2019-03-03 17:03:41,797 INFO 7634 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:03:41,797 INFO 7634 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:03:41,797 INFO 7634 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:03:41,797 INFO 7634 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:03:41,797 INFO 7634 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:03:41,797 INFO 7634 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:04:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 17:05:00.001
+2019-03-03 17:04:00,006 INFO 7634 [Job#15516038400051681540193041106] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:04:00,022 INFO 7634 [Job#15516038400051681540193041106] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:05:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:06:00.002
+2019-03-03 17:05:00,003 INFO 7634 [Job#15516039000011687537133798107] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:05:00,027 INFO 7634 [Job#15516039000011687537133798107] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 23ms
+2019-03-03 17:06:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:07:00.002
+2019-03-03 17:06:00,004 INFO 7634 [Job#15516039600031693538243322108] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:06:00,023 INFO 7634 [Job#15516039600031693538243322108] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 17:07:00,004 INFO 7634 [Job#15516040200031699538371970109] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:07:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:08:00.002
+2019-03-03 17:07:00,066 INFO 7634 [Job#15516040200031699538371970109] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 62ms
+2019-03-03 17:08:00,005 INFO 7634 [Job#15516040800041705539495898110] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:08:00,024 INFO 7634 [Job#15516040800041705539495898110] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 18ms
+2019-03-03 17:08:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:09:00.003
+2019-03-03 17:08:09,708 INFO 7727 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:08:09,708 INFO 7727 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:08:09,708 INFO 7727 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:08:09,708 INFO 7727 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:08:09,708 INFO 7727 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:08:09,708 INFO 7727 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:08:49,355 INFO 7743 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:08:49,355 INFO 7743 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:08:49,355 INFO 7743 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:08:49,355 INFO 7743 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:08:49,355 INFO 7743 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:08:49,355 INFO 7743 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:09:00,006 INFO 7743 [Job#15516041400041711539220162111] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:09:00,043 INFO 7743 [Job#15516041400041711539220162111] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 33ms
+2019-03-03 17:09:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:10:00.002
+2019-03-03 17:09:27,607 INFO 7765 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:09:27,607 INFO 7765 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:09:27,607 INFO 7765 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:09:27,607 INFO 7765 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:09:27,607 INFO 7765 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:09:27,607 INFO 7765 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:10:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:11:00.002
+2019-03-03 17:10:00,005 INFO 7765 [Job#15516042000021717537799100112] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:10:00,019 INFO 7765 [Job#15516042000021717537799100112] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 17:11:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:12:00.002
+2019-03-03 17:11:00,005 INFO 7765 [Job#15516042600031723538795118113] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:11:00,066 INFO 7765 [Job#15516042600031723538795118113] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 61ms
+2019-03-03 17:12:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:13:00.001
+2019-03-03 17:12:00,004 INFO 7765 [Job#15516043200031729538889458114] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:12:00,077 INFO 7765 [Job#15516043200031729538889458114] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 73ms
+2019-03-03 17:13:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:14:00.003
+2019-03-03 17:13:00,003 INFO 7765 [Job#15516043800021735537145138115] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:13:00,086 INFO 7765 [Job#15516043800021735537145138115] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 83ms
+2019-03-03 17:14:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:15:00.002
+2019-03-03 17:14:00,005 INFO 7765 [Job#15516044400041741539345416116] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:14:00,090 INFO 7765 [Job#15516044400041741539345416116] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 85ms
+2019-03-03 17:15:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:16:00.002
+2019-03-03 17:15:00,003 INFO 7765 [Job#15516045000021747537661256117] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:15:00,024 INFO 7765 [Job#15516045000021747537661256117] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 17:16:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:17:00.003
+2019-03-03 17:16:00,005 INFO 7765 [Job#15516045600031753538702893118] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:16:00,023 INFO 7765 [Job#15516045600031753538702893118] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 18ms
+2019-03-03 17:17:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:18:00.002
+2019-03-03 17:17:00,005 INFO 7765 [Job#15516046200041759539471335119] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:17:00,028 INFO 7765 [Job#15516046200041759539471335119] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 22ms
+2019-03-03 17:18:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:19:00.001
+2019-03-03 17:18:00,005 INFO 7765 [Job#15516046800031765538825824120] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:18:00,022 INFO 7765 [Job#15516046800031765538825824120] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 17:19:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:20:00.001
+2019-03-03 17:19:00,004 INFO 7765 [Job#15516047400031771538167808121] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:19:00,017 INFO 7765 [Job#15516047400031771538167808121] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 17:20:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:21:00.003
+2019-03-03 17:20:00,004 INFO 7765 [Job#15516048000031777538198343122] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:20:00,019 INFO 7765 [Job#15516048000031777538198343122] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:21:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:22:00.003
+2019-03-03 17:21:00,005 INFO 7765 [Job#15516048600041783539427311123] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:21:00,020 INFO 7765 [Job#15516048600041783539427311123] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:22:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:23:00.003
+2019-03-03 17:22:00,005 INFO 7765 [Job#15516049200031789538841800124] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:22:00,049 INFO 7765 [Job#15516049200031789538841800124] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 44ms
+2019-03-03 17:23:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:24:00.003
+2019-03-03 17:23:00,005 INFO 7765 [Job#15516049800041795539554672125] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:23:00,056 INFO 7765 [Job#15516049800041795539554672125] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 50ms
+2019-03-03 17:24:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:25:00.001
+2019-03-03 17:24:00,005 INFO 7765 [Job#15516050400041801539405775126] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:24:00,063 INFO 7765 [Job#15516050400041801539405775126] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 58ms
+2019-03-03 17:25:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:26:00.003
+2019-03-03 17:25:00,003 INFO 7765 [Job#15516051000021807537285990127] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:25:00,016 INFO 7765 [Job#15516051000021807537285990127] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 13ms
+2019-03-03 17:26:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:27:00.001
+2019-03-03 17:26:00,004 INFO 7765 [Job#15516051600031813538969186128] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:26:00,016 INFO 7765 [Job#15516051600031813538969186128] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 17:27:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:28:00.002
+2019-03-03 17:27:00,003 INFO 7765 [Job#15516052200011819536779055129] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:27:00,018 INFO 7765 [Job#15516052200011819536779055129] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 15ms
+2019-03-03 17:28:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:29:00.002
+2019-03-03 17:28:00,004 INFO 7765 [Job#15516052800031825538347056130] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:28:00,019 INFO 7765 [Job#15516052800031825538347056130] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:29:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:30:00.003
+2019-03-03 17:29:00,005 INFO 7765 [Job#15516053400031831538706905131] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:29:00,019 INFO 7765 [Job#15516053400031831538706905131] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:30:00,004 INFO 7765 [Job#15516054000031837538712320132] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:30:00,014 INFO 7765 [Job#15516054000031837538712320132] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 10ms
+2019-03-03 17:30:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:31:00.001
+2019-03-03 17:31:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:32:00.002
+2019-03-03 17:31:00,004 INFO 7765 [Job#15516054600021843537858876133] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:31:00,119 INFO 7765 [Job#15516054600021843537858876133] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 115ms
+2019-03-03 17:32:00,006 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:33:00.003
+2019-03-03 17:32:00,005 INFO 7765 [Job#15516055200031849538735100134] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:32:00,115 INFO 7765 [Job#15516055200031849538735100134] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 110ms
+2019-03-03 17:33:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 17:34:00.002
+2019-03-03 17:33:00,005 INFO 7765 [Job#15516055800041855539429745135] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:33:00,123 INFO 7765 [Job#15516055800041855539429745135] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 118ms
+2019-03-03 17:34:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:35:00.000
+2019-03-03 17:34:00,004 INFO 7765 [Job#15516056400041861539235232136] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:34:00,115 INFO 7765 [Job#15516056400041861539235232136] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 111ms
+2019-03-03 17:35:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59999ms at 2019-03-03 17:36:00.003
+2019-03-03 17:35:00,002 INFO 7765 [Job#15516057000011867536298861137] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:35:00,019 INFO 7765 [Job#15516057000011867536298861137] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 17ms
+2019-03-03 17:36:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:37:00.001
+2019-03-03 17:36:00,005 INFO 7765 [Job#15516057600031873539079856138] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:36:00,023 INFO 7765 [Job#15516057600031873539079856138] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 18ms
+2019-03-03 17:37:00,003 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:38:00.001
+2019-03-03 17:37:00,002 INFO 7765 [Job#15516058200021879537593079139] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:37:00,021 INFO 7765 [Job#15516058200021879537593079139] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 17:38:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:39:00.003
+2019-03-03 17:38:00,003 INFO 7765 [Job#15516058800021885537285805140] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:38:00,025 INFO 7765 [Job#15516058800021885537285805140] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 22ms
+2019-03-03 17:39:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59995ms at 2019-03-03 17:40:00.002
+2019-03-03 17:39:00,004 INFO 7765 [Job#15516059400041891539175966141] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:39:00,015 INFO 7765 [Job#15516059400041891539175966141] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 11ms
+2019-03-03 17:40:00,007 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59996ms at 2019-03-03 17:41:00.002
+2019-03-03 17:40:00,004 INFO 7765 [Job#15516060000031897538488601142] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:40:00,016 INFO 7765 [Job#15516060000031897538488601142] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 12ms
+2019-03-03 17:41:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:42:00.001
+2019-03-03 17:41:00,004 INFO 7765 [Job#15516060600031903538534663143] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:41:00,132 INFO 7765 [Job#15516060600031903538534663143] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 128ms
+2019-03-03 17:42:00,002 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59999ms at 2019-03-03 17:43:00.001
+2019-03-03 17:42:00,001 INFO 7765 [Job#15516061200011909536594074144] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:42:00,031 INFO 7765 [Job#15516061200011909536594074144] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 30ms
+2019-03-03 17:42:37,644 INFO 8239 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:42:37,644 INFO 8239 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:42:37,644 INFO 8239 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:42:37,644 INFO 8239 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:42:37,644 INFO 8239 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:42:37,644 INFO 8239 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:43:00,003 INFO 8239 [Job#15516061800011915537105903145] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:43:00,143 INFO 8239 [Job#15516061800011915537105903145] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 138ms
+2019-03-03 17:43:00,003 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:44:00.001
+2019-03-03 17:44:00,004 INFO 8239 [Job#15516062400011921536482288146] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:44:00,045 INFO 8239 [Job#15516062400011921536482288146] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 40ms
+2019-03-03 17:44:00,005 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:45:00.003
+2019-03-03 17:45:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:46:00.001
+2019-03-03 17:45:14,053 INFO 8283 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:45:14,053 INFO 8283 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:45:14,053 INFO 8283 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:45:14,053 INFO 8283 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:45:14,053 INFO 8283 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:45:14,053 INFO 8283 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:45:54,746 INFO 8302 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:45:54,746 INFO 8302 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:45:54,746 INFO 8302 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:45:54,746 INFO 8302 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:45:54,746 INFO 8302 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:45:54,746 INFO 8302 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:46:00,002 INFO 8302 [Job#15516063600011933536404734148] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:46:00,022 INFO 8302 [Job#15516063600011933536404734148] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 17:46:00,002 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59999ms at 2019-03-03 17:47:00.001
+2019-03-03 17:47:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:48:00.002
+2019-03-03 17:47:00,003 INFO 8302 [Job#15516064200021939537292201149] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:47:00,023 INFO 8302 [Job#15516064200021939537292201149] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 19ms
+2019-03-03 17:47:48,102 INFO 8356 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:47:48,102 INFO 8356 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:47:48,102 INFO 8356 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:47:48,102 INFO 8356 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:47:48,102 INFO 8356 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:47:48,102 INFO 8356 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:48:00,004 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59997ms at 2019-03-03 17:49:00.001
+2019-03-03 17:47:59,492 INFO 8368 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:47:59,492 INFO 8368 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:47:59,492 INFO 8368 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:47:59,492 INFO 8368 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:47:59,492 INFO 8368 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:47:59,492 INFO 8368 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:48:00,004 INFO 8368 [Job#15516064800021945537880247150] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:48:00,032 INFO 8368 [Job#15516064800021945537880247150] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 25ms
+2019-03-03 17:48:44,610 INFO 8423 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:48:44,610 INFO 8423 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:48:44,610 INFO 8423 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:48:44,611 INFO 8423 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:48:44,611 INFO 8423 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:48:44,611 INFO 8423 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:49:00,003 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59998ms at 2019-03-03 17:50:00.001
+2019-03-03 17:49:00,003 INFO 8423 [Job#15516065400021951537794986151] /home/kang/Code/ibeem/app/schedule/work_order.js executing by app
+2019-03-03 17:49:00,020 INFO 8423 [Job#15516065400021951537794986151] /home/kang/Code/ibeem/app/schedule/work_order.js execute succeed, used 14ms
+2019-03-03 17:49:50,534 INFO 8479 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:49:50,534 INFO 8479 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:49:50,534 INFO 8479 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:49:50,534 INFO 8479 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:49:50,534 INFO 8479 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:49:50,534 INFO 8479 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
+2019-03-03 17:50:00,002 INFO 5175 [Timer] /home/kang/Code/ibeem/app/schedule/work_order.js next time will execute after 59999ms at 2019-03-03 17:51:00.001
+2019-03-03 17:49:59,561 INFO 8502 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-multipart@2.4.0@egg-multipart/app/schedule/clean_tmpdir.js
+2019-03-03 17:49:59,561 INFO 8502 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/clean_log.js
+2019-03-03 17:49:59,561 INFO 8502 [egg-schedule]: register schedule /home/kang/Code/ibeem/node_modules/_egg-logrotator@3.0.5@egg-logrotator/app/schedule/rotate_by_file.js
+2019-03-03 17:49:59,561 INFO 8502 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/load_device_data.js
+2019-03-03 17:49:59,561 INFO 8502 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/weixin.js
+2019-03-03 17:49:59,561 INFO 8502 [egg-schedule]: register schedule /home/kang/Code/ibeem/app/schedule/work_order.js
