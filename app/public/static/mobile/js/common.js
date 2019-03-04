@@ -139,7 +139,15 @@ $(function(){
 		 	timestamp = timestamp / 1000;
 			window.location.href = "/weixin/device?timestamp="+timestamp;
 		});
-	}else{
+	}
+	else if($.cookie("login_type") == "device"){
+		$(".return_to_list_float_btn").html(getLangStr("mobilehome_4"));
+		$(".return_to_list_float_btn").show();
+		$(".return_to_list_float_btn").click(function(){
+			window.location.href = "/weixin/index";
+		});
+	}
+	else{
 		$(".return_to_list_float_btn").html(getLangStr("mobilehome_4"));
 		$(".return_to_list_float_btn").show();
 		$(".return_to_list_float_btn").click(function(){

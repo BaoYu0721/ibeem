@@ -540,12 +540,14 @@ function sendAnswer(){
 	var toStringAnswer = JSON.stringify({"surveyID":surveyId,"objectID":objectID,"relation":relation,"list":answer});
 	var json = {"answer":toStringAnswer};
 	function func(data){
-		if(window.location.href.indexOf("role=user") != -1){
-			window.location.href="/survey/mobileSurveySuccess?role=user&surveyID=" + surveyId;
-		}
-		else if(window.location.href.indexOf("role=admin") != -1){
-			window.location.href="/survey/mobileSurveySuccess?role=admin&surveyID=" + surveyId;
-		}
+		console.log(window.location.href);
+		// if(window.location.href.indexOf("role=user") != -1){
+		// 	window.location.href="/survey/mobileSurveySuccess?role=user&surveyID=" + surveyId;
+		// }
+		// else if(window.location.href.indexOf("role=admin") != -1){
+		// 	window.location.href="/survey/mobileSurveySuccess?role=admin&surveyID=" + surveyId;
+		// }
+		window.location.href = "/weixin/survey_success";
 	}
 	function errorfunc(data){
 		var errorcode = data.code;

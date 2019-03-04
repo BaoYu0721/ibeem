@@ -15,6 +15,10 @@ class SurveyController extends Controller {
         await this.ctx.render('mobile/mobileSurveyTree.html');
     }
 
+    async surveySuccess(){
+        await this.ctx.render('mobile/mobileSurveySuccess.html');
+    }
+
     async releaseSurvey(){
         const result = await this.ctx.service.weixin.survey.releaseSurvey();
         if(result == -1){

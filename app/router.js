@@ -161,6 +161,7 @@ module.exports = app => {
   router.get('/weixin/survey', controller.weixin.survey.index);
   router.get('/weixin/survey/answer', controller.weixin.survey.answer);
   router.get('/weixin/survey/dimension', controller.weixin.survey.dimension);
+  router.get('/weixin/survey_success', controller.weixin.survey.surveySuccess);
   router.post('/weixin/device/info_update', controller.weixin.device.infoUpdate);
   router.post('/weixin/getTicket', controller.weixin.index.getTicket);
   router.post('/weixin/login', controller.sign.login.loginAuth);
@@ -171,6 +172,7 @@ module.exports = app => {
   router.post('/weixin/device/evaluation', controller.weixin.device.deviceEvaluation);
   router.post('/weixin/device/addAttention', controller.weixin.device.deviceAddAttention);
   router.post('/weixin/survey/release', controller.weixin.survey.releaseSurvey);
+  router.get('/device/qrcodelogin', controller.weixin.device.qrcodeLogin);
 
   // admin & login
   router.get('/admin', controller.admin.login.index);

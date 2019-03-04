@@ -156,6 +156,27 @@ class DeviceController extends Controller {
             messg: result
         };
     }
+
+    async qrcodeLogin(){
+        const { ctx } = this;
+        const token = ctx.query.token;
+        const arr = token.split('<==>');
+        const did = arr[0];
+        const device = await ctx.service.weixin.device.qrcodeLogin(did);
+        if(device == -1 || !device){
+            ctx.redirect('/weixin/index');
+        }
+        else{
+            const opt = {
+                httpOnly: false,
+                sing: false
+            };
+            ctx.cookies.set('device_id', device.id, opt);
+            ctx.cookies.set('device_name', device.name, opt);
+            ctx.cookies.set('login_type', 'device', opt);
+            ctx.redirect('/weixin/device?did=' + device.id + "&item=realtime" + "&timestamp=" + Date.parse(new Date()));
+        }
+    }
 }
 
 module.exports = DeviceController;

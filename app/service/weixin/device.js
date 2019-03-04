@@ -312,6 +312,19 @@ class DeviceService extends Service {
         }
         return 1;
     }
+
+    async qrcodeLogin(did){
+        try {
+            const device = await this.app.mysql.query('select id, name from device where id = ?', [did]);
+            const deviceMap = {
+                id: device[0].id,
+                name: device[0].name
+            };
+            return deviceMap;
+        } catch (error) {
+            return -1;
+        }
+    }
 }
 
 module.exports = DeviceService;

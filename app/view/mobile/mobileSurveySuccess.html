@@ -59,20 +59,22 @@
                   }
             	changeFontsize();//进入页面时先执行一次
             	$("#jxdt").click(function(){
-					if(window.location.href.indexOf("role=user") != -1){
-						window.location.href="/survey/mobileSurvey?role=user&surveyId=" + getQueryString("surveyID");	
-					}
-					else if(window.location.href.indexOf("role=admin") != -1){
-						window.location.href="/survey/mobileSurvey?role=admin&surveyId=" + getQueryString("surveyID");	
-					}
+					// if(window.location.href.indexOf("role=user") != -1){
+					// 	window.location.href="/survey/mobileSurvey?role=user&surveyId=" + getQueryString("surveyID");	
+					// }
+					// else if(window.location.href.indexOf("role=admin") != -1){
+					// 	window.location.href="/survey/mobileSurvey?role=admin&surveyId=" + getQueryString("surveyID");	
+					// }
+									window.location.href = "/weixin/survey/answer"
             	});
             	$("#fhlb").click(function(){
-            		if(window.location.href.indexOf("role=user") != -1){
-						window.location.href="/survey";	
-					}
-					else if(window.location.href.indexOf("role=admin") != -1){
-						window.location.href="/admin/survey";	
-					}
+          //   		if(window.location.href.indexOf("role=user") != -1){
+					// 	window.location.href="/survey";	
+					// }
+					// else if(window.location.href.indexOf("role=admin") != -1){
+					// 	window.location.href="/admin/survey";	
+					// }
+					window.location.href = "/weixin/survey"
             	});
             	</script>
             	
