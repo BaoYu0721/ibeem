@@ -4246,7 +4246,31 @@ class ProjectService extends Service {
                 async function transation() {
                     try {
                         for(var key in ids){
-                            await conn.update('device', {id: ids[key], project_id: null, owner_id: 24, pname: null, gname: null});
+                            await conn.update('device', {id: ids[key], project_id: null, building_id: null, bname: null, cname: null, owner_id: 24, pname: null, gname: null});
+                        }
+                    } catch (error) {
+                        conn.rollback();
+                        lock.unlock()
+                        .catch(function(err) {
+                            console.error(err);
+                        });
+                        return -1;
+                    }
+                    lock.unlock()
+                    .catch(function(err) {
+                        console.error(err);
+                    });
+                    return 0;
+                }
+                return transation();
+            });
+            if(res == -1) return res;
+            resource = "ibeem_test:building_point";
+            res = await redlock.lock(resource, ttl).then(function(lock) {
+                async function transation() {
+                    try {
+                        for(var key in ids){
+                            await conn.query('update building_point set device_id = ? where device_id = ?', [null, ids[key]]);
                         }
                     } catch (error) {
                         conn.rollback();

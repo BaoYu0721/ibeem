@@ -173,6 +173,7 @@ module.exports = app => {
   router.post('/weixin/device/addAttention', controller.weixin.device.deviceAddAttention);
   router.post('/weixin/survey/release', controller.weixin.survey.releaseSurvey);
   router.get('/device/qrcodelogin', controller.weixin.device.qrcodeLogin);
+  router.post('/weixin/downloadMediaFromWx', controller.weixin.device.downloadMediaFromWx);
 
   // admin & login
   router.get('/admin', controller.admin.login.index);

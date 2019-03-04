@@ -581,7 +581,7 @@ function ajaxFileUpload(fileid) {
                 	var json={"mediaId":mediaId};
                 	var successFunc = function(data){
                 		/* alert("getImageUrl:"+data.url);  */
-                		var imgurl = data.url;
+										var imgurl = data.url;
                 		$this.children(".upload_img").attr("src", imgurl); 
                         $this.children(".close").css("display","block");
                         $this.children(".upload_img").attr("data-hasimg","has");
@@ -739,7 +739,7 @@ function ajaxFileUpload(fileid) {
 	</div>
 	</li>
 </ul>
-<div class="refresh" style="display:none;">刷新</div>
+<div class="refresh" style="display:none;">更新</div>
 <!--底部导航  -->
 <ul class="footer clearfix">
 	<li class="current" id="devicetab">

@@ -40,6 +40,19 @@ class WenxinService extends Service {
         }
         return WexinData.ticket_ob.ticket;
     }
+
+    async uploadImage(media_id){
+        const { ctx } = this;
+        const url = ctx.helper.formatUpload(ctx.app.config.wexin.apiUrl.uploadApi, ctx.app.config.wexin.apiDomain, WexinData.base_token.access_token, media_id);
+        const result = await ctx.service.utils.http.weixinUpload(url);
+        if(result.errcode){
+            return -1;
+        }else{
+            const filename = result.name.split('"')[1];
+            ctx.helper.write_file(filename, result.data);
+            return "/public/file/image/" + filename;
+        }
+    }
 }
 
 module.exports = WenxinService;

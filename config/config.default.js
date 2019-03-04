@@ -121,7 +121,8 @@ module.exports = appInfo => {
     apiDomain: "https://api.weixin.qq.com/",
     apiUrl: {
       accessTokenApi: "%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
-      ticketApi: "%scgi-bin/ticket/getticket?access_token=%s&type=jsapi"
+      ticketApi: "%scgi-bin/ticket/getticket?access_token=%s&type=jsapi",
+      uploadApi: "%scgi-bin/media/get?access_token=%s&media_id=%s"
     }
   }
 

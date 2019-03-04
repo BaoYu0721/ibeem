@@ -93,6 +93,16 @@ exports.formatTicket = (ticketApi, apiDomain, accessToken) => {
   return util.format(ticketApi, apiDomain, accessToken);
 }
 
+//格式化upload地址
+exports.formatUpload = (uploadApi, apiDomain, accessToken, media_id) => {
+  return util.format(uploadApi, apiDomain, accessToken, media_id);
+}
+
+exports.write_file = (name, data) => {
+  const filename = './app/public/file/image/' + name;
+  fs.writeFileSync(filename, data);
+}
+
 //跟新access_token
 exports.updateWeixinJson = data => {
   const filepath = __dirname + '/../../weixin.json';

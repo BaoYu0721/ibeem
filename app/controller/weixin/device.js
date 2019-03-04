@@ -177,6 +177,22 @@ class DeviceController extends Controller {
             ctx.redirect('/weixin/device?did=' + device.id + "&item=realtime" + "&timestamp=" + Date.parse(new Date()));
         }
     }
+
+    async downloadMediaFromWx(){
+        const { ctx } = this;
+        const mediaId = ctx.request.body.mediaId;
+        const result = await ctx.service.utils.weixin.uploadImage(mediaId);
+        if(result == -1){
+            return ctx.body = {
+                code: 1005,
+                messg: "系统繁忙"
+            }
+        }
+        ctx.body = {
+            code: 200,
+            url: result
+        }
+    }
 }
 
 module.exports = DeviceController;

@@ -63,6 +63,22 @@ class HttpService extends Service {
             const result = await ctx.curl(url);
             return JSON.parse(result.data.toString());
         } catch (error) {
+            console.log(error)
+            return -1;
+        }
+    }
+
+    async weixinUpload(url){
+        const { ctx } = this;
+        try {
+            const result = await ctx.curl(url);
+            const filename = result.headers['content-disposition'].split('=')[1];
+            return {
+                data: result.data,
+                name: filename
+            };
+        } catch (error) {
+            console.log(error);
             return -1;
         }
     }

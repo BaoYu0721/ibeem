@@ -275,10 +275,10 @@ class DeviceService extends Service {
                 res = await redlock.lock(resource, ttl).then(function(lock) {
                     async function transation() {
                         try {
-                            const deviceAttentionList = await app.mysql.select('device_attention', {where: {device_id: deviceId}});
+                            const deviceAttentionList = await conn.select('device_attention', {where: {device_id: deviceId}});
                             var gname = '';
                             for(var i in deviceAttentionList){
-                                const user = await app.mysql.get('user', {id: deviceAttentionList[i].user_id});
+                                const user = await conn.get('user', {id: deviceAttentionList[i].user_id});
                                 if(i == deviceAttentionList.length - 1){
                                     gname += user.name;
                                 }else{
