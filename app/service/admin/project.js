@@ -4323,7 +4323,7 @@ class ProjectService extends Service {
     async singleDeviceAttention(projectId){
         var userProject = null;
         try {
-            userProject = await this.app.mysql.select('user_project', {project_id: projectId, role: 2});
+            userProject = await this.app.mysql.select('user_project', {where:{project_id: projectId, role: 2}});
         } catch (error) {
             return -1;
         }

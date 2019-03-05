@@ -7,7 +7,7 @@ class IndexService extends Service {
         var device = null;
         var user = null;
         try {
-            device = await this.app.mysql.select('device', {where: {owner_id: userId}});
+            device = await this.app.mysql.query('select * from device where owner_id = ? or id in(select device_id from device_attention where user_id = ?) or project_id in(select project_id from user_project where role = 1 and user_id = ?) or project_id in(select id from project where creator_id = ?)', [userId, userId, userId, userId]);
             user = await this.app.mysql.get('user', { id: userId });
         } catch (error) {
             return -1;
