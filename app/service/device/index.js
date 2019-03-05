@@ -104,20 +104,21 @@ class IndexService extends Service {
 
     async parameterSave(parameter, uid){
         const { app } = this;
+        console.log(parseFloat(parameter.minTem))
         try {
             if(parameter.id == -1 || !parameter){
                 await app.mysql.insert('data_parameter', {
                     user_id:   uid,
-                    min_tem:   parameter.minTem,
-                    max_tem:   parameter.maxTem,
-                    min_hum:   parameter.minHum,
-                    max_hum:   parameter.maxHum,
-                    min_light: parameter.minLight,
-                    max_light: parameter.maxLight,
-                    min_co2:   parameter.minCo2,
-                    max_co2:   parameter.maxCo2,
-                    min_pm25:  parameter.minPm25,
-                    max_pm25:  parameter.maxPm25,
+                    min_tem:   parseFloat(parameter.minTem),
+                    max_tem:   parseFloat(parameter.maxTem),
+                    min_hum:   parseFloat(parameter.minHum),
+                    max_hum:   parseFloat(parameter.maxHum),
+                    min_light: parseFloat(parameter.minLight),
+                    max_light: parseFloat(parameter.maxLight),
+                    min_co2:   parseFloat(parameter.minCo2),
+                    max_co2:   parseFloat(parameter.maxCo2),
+                    min_pm25:  parseFloat(parameter.minPm25),
+                    max_pm25:  parseFloat(parameter.maxPm25),
                     created_on:new Date(),
                     updated_on:new Date()
                 });
@@ -126,16 +127,16 @@ class IndexService extends Service {
                 await app.mysql.update('data_parameter', {
                     id:        parameter.id,
                     user_id:   uid,
-                    min_tem:   parameter.minTem,
-                    max_tem:   parameter.maxTem,
-                    min_hum:   parameter.minHum,
-                    max_hum:   parameter.maxHum,
-                    min_light: parameter.minLight,
-                    max_light: parameter.maxLight,
-                    min_co2:   parameter.minCo2,
-                    max_co2:   parameter.maxCo2,
-                    min_pm25:  parameter.minPm25,
-                    max_pm25:  parameter.maxPm25,
+                    min_tem:   parseFloat(parameter.minTem),
+                    max_tem:   parseFloat(parameter.maxTem),
+                    min_hum:   parseFloat(parameter.minHum),
+                    max_hum:   parseFloat(parameter.maxHum),
+                    min_light: parseFloat(parameter.minLight),
+                    max_light: parseFloat(parameter.maxLight),
+                    min_co2:   parseFloat(parameter.minCo2),
+                    max_co2:   parseFloat(parameter.maxCo2),
+                    min_pm25:  parseFloat(parameter.minPm25),
+                    max_pm25:  parseFloat(parameter.maxPm25),
                     created_on:new Date(),
                     updated_on:new Date()
                 });

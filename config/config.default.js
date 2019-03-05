@@ -92,10 +92,10 @@ module.exports = appInfo => {
   //mysql
   exports.mysql = {
     client: {
-      host: '123.57.62.130',
+      host: '192.168.0.188',
       port: 3306,
       user: 'root',
-      password: 'google@0112',
+      password: 'root',
       database: 'ibeem_test',
     },
     app: true,

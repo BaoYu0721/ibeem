@@ -78,7 +78,7 @@ function putQuestion(question,$root){
 	var questionID = question.questionID;//题目ID
 	var title = question.title;//题目内容
 	var type = question.type;//题目类型 type问题类型 0填空、1单选、2多选、3多点、4滑条
-	var setting = eval('(' + question.setting + ')'); ;//选项
+	var setting = eval('(' + question.setting + ')');//选项
 	var num = question.questionorder;//题号
 	if(type==0){//放置填空题
 		getComponent("/common/questionTK",

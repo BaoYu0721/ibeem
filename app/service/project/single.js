@@ -361,7 +361,7 @@ class SingleService extends Service {
             res = await redlock.lock(resource, ttl).then(function(lock) {
                 async function transation() {
                     try {
-                        await conn.query('update device set project_id = ?, pname = ?, cname = ?, bname = ? where project_id = ?', [null, null, null, null, projectId]);
+                        await conn.query('update device set project_id = ?, pname = ?, cname = ?, bname = ?, gname = ? where project_id = ?', [null, null, null, null, null, projectId]);
                     } catch (error) {
                         conn.rollback();
                         lock.unlock()

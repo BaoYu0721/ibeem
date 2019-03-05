@@ -2546,12 +2546,13 @@ class SurveyService extends Service {
                                     var paragraph = json_obj.dl;
                                     for(var i in paragraph){
                                         var question = paragraph[i].questionList;
+                                        console.log(question)
                                         for(var j in question){
                                             await conn.insert('question', {
                                                 created_on: new Date(), 
                                                 required: question[j].required, 
                                                 sequence: question[j].sequence, 
-                                                setting: question[j].setting,
+                                                setting: JSON.stringify(question[j].setting),
                                                 survey_id: surveyID, 
                                                 title: question[j].title, 
                                                 type: question[j].type, 
