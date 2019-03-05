@@ -122,7 +122,7 @@ function UploadPhotoMethod(obj,func){
 				alert(getLangStr("survey_imgerror"));
 				return;
 			}
-			uploadImg=json.imageList[0].imageurl;
+			uploadImg= '/public/file/image/' + json.imageList[0].imageurl;
 			$img.attr("src",uploadImg);
 			$addr.val(uploadImg);
 			func();

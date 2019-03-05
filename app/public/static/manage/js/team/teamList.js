@@ -80,7 +80,7 @@ $('#searchTeam').keyup(function(event){
 		 //先清空添加页的数据
 			 $(".addteam input").val("");
 			 $(".addteam textarea").val("");
-			 $(".portraitStyle").attr("src","http://www.ibeem.cn/file/project/项目 3.jpg");
+			 $(".portraitStyle").attr("src","/public/file/image/default/项目.jpg");
 			 $(".addlogo").children("span").css("display","block");
 			 $(".addlogo").children(".addicon").css("display","block");
 			 $(".error h4").html("");
