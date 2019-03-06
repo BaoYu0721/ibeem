@@ -122,7 +122,10 @@ module.exports = appInfo => {
     apiUrl: {
       accessTokenApi: "%scgi-bin/token?grant_type=client_credential&appid=%s&secret=%s",
       ticketApi: "%scgi-bin/ticket/getticket?access_token=%s&type=jsapi",
-      uploadApi: "%scgi-bin/media/get?access_token=%s&media_id=%s"
+      uploadApi: "%scgi-bin/media/get?access_token=%s&media_id=%s",
+      oauth2AccessTokenApi: "%ssns/oauth2/accesstoken?appid=%s&secret=%s&code=%s&grant_type=authorization_code",
+      oauth2RefreshAccessTokenApi: "%ssns/oauth2/refresh_token?appid=%s&refresh_token=%s&grant_type=refresh_token",
+      getUserInfoApi: "%ssns/userinfo?access_token=%s&openid=%s&lang=zh_CN"
     }
   }
 

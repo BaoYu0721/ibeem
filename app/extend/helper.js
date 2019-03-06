@@ -98,12 +98,28 @@ exports.formatUpload = (uploadApi, apiDomain, accessToken, media_id) => {
   return util.format(uploadApi, apiDomain, accessToken, media_id);
 }
 
+//格式化获取用户信息url
+exports.formatGetUserAccessToken = (oauth2AccessTokenApi, apiDomain, appId, appScrect, code) => {
+  return util.format(oauth2AccessTokenApi, apiDomain, appId, appScrect, code);
+}
+
+//刷新获取用户信息access_token
+exports.formatGetUserRefreshAccessToken = (oauth2RefreshAccessTokenApi, apiDomain, appId, refreshToken) => {
+  return util.format(oauth2RefreshAccessTokenApi, apiDomain, appId, refreshToken);
+}
+
+//获取用户信息
+exports.formatGetUserInfo = (getUserInfoApi, apiDomain, accessToken, openId) => {
+  return util.format(getUserInfoApi, apiDomain, accessToken, openId);
+}
+
+//微信上传图片
 exports.write_file = (name, data) => {
   const filename = './app/public/file/image/' + name;
   fs.writeFileSync(filename, data);
 }
 
-//跟新access_token
+//跟新基础access_token
 exports.updateWeixinJson = data => {
   const filepath = __dirname + '/../../weixin.json';
   fs.writeFile(filepath, JSON.stringify(data), function(err){

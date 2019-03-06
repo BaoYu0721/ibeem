@@ -174,6 +174,7 @@ module.exports = app => {
   router.post('/weixin/survey/release', controller.weixin.survey.releaseSurvey);
   router.get('/device/qrcodelogin', controller.weixin.device.qrcodeLogin);
   router.post('/weixin/downloadMediaFromWx', controller.weixin.device.downloadMediaFromWx);
+  router.post('/weixin/getUser', controller.weixin.user.getUser);
 
   // admin & login
   router.get('/admin', controller.admin.login.index);

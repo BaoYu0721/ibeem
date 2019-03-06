@@ -864,36 +864,37 @@
 		        	code:code
 		        },
 		        success: function (data) {
-		        	//alert(JSON.stringify(data));
-		        	//更新用户绑定微信账户的信息，并且更新用户在使用的设备的微信绑定信息；
-		        	var openid = data.openid;
-		        	var wechatName = data.nickname;
-		        	$("#profile_wechat").html(getLangStr("mobilelist_4")+wechatName+getLangStr("mobilelist_5"));
-		        	$.ajax({
-		    	        type: "post",
-		    	        dataType: "json",
-		    	        url: '/user/bindWechat',
-		    	        data:{
-	        				   openid:openid,
-	        				   wechatName:wechatName
-	        			   },
-		    	        success: function (data) {
-		    	        	if(data.code == 200){
-		    	        		alert(getLangStr("mobilelist_6"));
-		    	        	}else{
-		    	        		alert(getLangStr("mobilelist_7"));
-		    	        		$("#profile_wechat").html(getLangStr("mobilelist_8"));
-		    	        	}
-		    	        },
-		    	        error:function (XMLHttpRequest, textStatus, errorThrown) 
-		    	        { 
+		        	// //alert(JSON.stringify(data));
+		        	// //更新用户绑定微信账户的信息，并且更新用户在使用的设备的微信绑定信息；
+		        	// var openid = data.openid;
+		        	// var wechatName = data.nickname;
+		        	// $("#profile_wechat").html(getLangStr("mobilelist_4")+wechatName+getLangStr("mobilelist_5"));
+		        	// $.ajax({
+		    	    //     type: "post",
+		    	    //     dataType: "json",
+		    	    //     url: '/user/bindWechat',
+		    	    //     data:{
+	        		// 		   openid:openid,
+	        		// 		   wechatName:wechatName
+	        		// 	   },
+		    	    //     success: function (data) {
+					if(data.code == 200){
+						alert(getLangStr("mobilelist_6"));
+					}else{
+						alert(getLangStr("mobilelist_7"));
+						$("#profile_wechat").html(getLangStr("mobilelist_8"));
+					}
+		    	    //     },
+		    	    //     error:function (XMLHttpRequest, textStatus, errorThrown) 
+		    	    //     { 
 		    	        	
-		    	       	} 
-		    	    });
+		    	    //    	} 
+		    	    // });
 		        },
 		        error:function (XMLHttpRequest, textStatus, errorThrown) 
 		        { 
-		        	alert(getLangStr("mobilelist_9"));
+					//alert(getLangStr("mobilelist_9"));
+					alert(getLangStr("mobilelist_7"));
 		       	} 
 		    });
 		}
