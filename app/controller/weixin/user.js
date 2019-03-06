@@ -28,7 +28,9 @@ class UserController extends Controller {
                 code: 1005
             }
         }
-        ctx.body = result;
+        ctx.body = {
+            code: 200
+        };
     }
 }
 
