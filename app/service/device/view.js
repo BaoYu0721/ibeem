@@ -109,40 +109,38 @@ class ViewService extends Service {
                 sTime += dayTime;
             }
         }else if(device.type == "ibeem"){
-            const param = "q=" + deviceId + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
+            const param = "q=" + device.deviceid + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
             const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getDeviceData, param);
             if(result != -1){
-                for(var key in result.data){
-                    for(var i in result.data[key].dev_data){
-                        const resultMap = {
-                            tem: parseFloat(result.data[key].dev_data[i].wd),
-                            hum: parseFloat(result.data[key].dev_data[i].sd),
-                            pm:  parseFloat(result.data[key].dev_data[i].pm25),
-                            co2: parseFloat(result.data[key].dev_data[i].co2),
-                            lightIntensity: parseFloat(result.data[key].dev_data[i].zd),
-                            time: parseInt(result.data[key].dev_data[i].time)
+                for(var i in result.data[0].dev_data){
+                    const resultMap = {
+                        tem: parseFloat(result.data[0].dev_data[i].wd),
+                        hum: parseFloat(result.data[0].dev_data[i].sd),
+                        pm:  parseFloat(result.data[0].dev_data[i].pm25),
+                        co2: parseFloat(result.data[0].dev_data[i].co2),
+                        lightIntensity: parseFloat(result.data[0].dev_data[i].zd),
+                        time: parseInt(new Date(result.data[0].dev_data[i].cur_time).getTime())
+                    }
+                    const time = new Date(resultMap.time);
+                    const hours = parseInt(time.getHours());
+                    const minutes = parseInt(time.getMinutes());
+                    const dTimes = hours * 60 + minutes;
+                    if(workDay == 0){
+                        if(time.getDay() == 0 || time.getDay() == 6){
+                            daviceDataList.push(resultMap);
                         }
-                        const time = new Date(resultMap.time);
-                        const hours = parseInt(time.getHours());
-                        const minutes = parseInt(time.getMinutes());
-                        const dTimes = hours * 60 + minutes;
-                        if(workDay == 0){
-                            if(time.getDay() == 0 || time.getDay() == 6){
+                    }else if(workDay == 1){
+                        if(time.getDay() != 0 && time.getDay() != 6){
+                            if(dTimes > sTimes && dTimes < eTimes){
                                 daviceDataList.push(resultMap);
                             }
-                        }else if(workDay == 1){
-                            if(time.getDay() != 0 && time.getDay() != 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(resultMap);
-                                }
-                            }
-                        }else if(workDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
+                        }
+                    }else if(workDay == 2){
+                        if(time.getDay() == 0 || time.getDay() == 6){
+                            daviceDataList.push(resultMap);
+                        }else{
+                            if(dTimes > sTimes && dTimes < eTimes){
                                 daviceDataList.push(resultMap);
-                            }else{
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(resultMap);
-                                }
                             }
                         }
                     }
@@ -265,40 +263,38 @@ class ViewService extends Service {
                 sTime += dayTime;
             }
         }else if(device.type == "ibeem"){
-            const param = "q=" + deviceId + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
+            const param = "q=" + device.deviceid + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
             const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getDeviceData, param);
             if(result != -1){
-                for(var key in result.data){
-                    for(var i in result.data[key].dev_data){
-                        const resultMap = {
-                            tem: result.data[key].dev_data[i].wd,
-                            hum: result.data[key].dev_data[i].sd,
-                            pm:  result.data[key].dev_data[i].pm25,
-                            co2: result.data[key].dev_data[i].co2,
-                            lightIntensity: result.data[key].dev_data[i].zd,
-                            time: parseInt(result.data[key].dev_data[i].time)
+                for(var i in result.data[0].dev_data){
+                    const resultMap = {
+                        tem: result.data[0].dev_data[i].wd,
+                        hum: result.data[0].dev_data[i].sd,
+                        pm:  result.data[0].dev_data[i].pm25,
+                        co2: result.data[0].dev_data[i].co2,
+                        lightIntensity: result.data[0].dev_data[i].zd,
+                        time: parseInt(new Date(result.data[0].dev_data[i].cur_time).getTime())
+                    }
+                    const time = new Date(resultMap.time);
+                    const hours = parseInt(time.getHours());
+                    const minutes = parseInt(time.getMinutes());
+                    const dTimes = hours * 60 + minutes;
+                    if(workDay == 0){
+                        if(time.getDay() == 0 || time.getDay() == 6){
+                            daviceDataList.push(resultMap);
                         }
-                        const time = new Date(resultMap.time);
-                        const hours = parseInt(time.getHours());
-                        const minutes = parseInt(time.getMinutes());
-                        const dTimes = hours * 60 + minutes;
-                        if(workDay == 0){
-                            if(time.getDay() == 0 || time.getDay() == 6){
+                    }else if(workDay == 1){
+                        if(time.getDay() != 0 && time.getDay() != 6){
+                            if(dTimes > sTimes && dTimes < eTimes){
                                 daviceDataList.push(resultMap);
                             }
-                        }else if(workDay == 1){
-                            if(time.getDay() != 0 && time.getDay() != 6){
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(resultMap);
-                                }
-                            }
-                        }else if(workDay == 2){
-                            if(time.getDay() == 0 || time.getDay() == 6){
+                        }
+                    }else if(workDay == 2){
+                        if(time.getDay() == 0 || time.getDay() == 6){
+                            daviceDataList.push(resultMap);
+                        }else{
+                            if(dTimes > sTimes && dTimes < eTimes){
                                 daviceDataList.push(resultMap);
-                            }else{
-                                if(dTimes > sTimes && dTimes < eTimes){
-                                    daviceDataList.push(resultMap);
-                                }
                             }
                         }
                     }

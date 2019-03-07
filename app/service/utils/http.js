@@ -31,6 +31,7 @@ class HttpService extends Service {
             });
             return JSON.parse(result.data.toString());
         } catch (error) {
+            console.log(error);
             return -1;
         }
     }
@@ -42,6 +43,7 @@ class HttpService extends Service {
             const result = await ctx.curl(reqUrl);
             return JSON.parse(result.data.toString());
         } catch (error) {
+            console.log(error);
             return -1;
         }
     }
@@ -53,6 +55,7 @@ class HttpService extends Service {
             const result = await ctx.curl(reqUrl);
             return JSON.parse(result.data.toString());
         } catch (error) {
+            console.log(error);
             return -1;
         }
     }
