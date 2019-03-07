@@ -182,6 +182,7 @@ $(".surveylist").on("click",".release-to-wx",function(){
 		var successFunc = function(data){
 			$this.data("change",getLangStr("cancelRelease"));
 			$this.data("html",getLangStr("viewWxYes"));
+			$this.data("state",1);
 			$this.html(getLangStr("viewWxYes"));
 			$this.removeClass("hoveractive");
 		}
@@ -196,6 +197,7 @@ $(".surveylist").on("click",".release-to-wx",function(){
 		var successFunc = function(data){
 			$this.data("change",getLangStr("doRelease"));
 			$this.data("html",getLangStr("viewWxNo"));
+			$this.data("state",0);
 			$this.html(getLangStr("viewWxNo"));
 			$this.removeClass("hoveractive");
 		}
