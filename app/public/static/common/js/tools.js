@@ -49,7 +49,7 @@ function sentJson(url,dataJson,successFunc,errorFunc){
 // 	 					alertokMsg("error!errorcode:"+errorcode+","+errormsg,"OK");
 						if(errorcode == 4005){
 							alertokMsg(errormsg,"ok");
-							setTimeout(() => {
+							setTimeout(function(){
 								window.history.back();
 							}, 3000);
 						}else{
