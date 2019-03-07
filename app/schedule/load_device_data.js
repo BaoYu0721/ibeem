@@ -4,7 +4,7 @@ class LoadDeviceData extends Subscription{
     static get schedule(){
         return {
             type: 'worker',
-            cron: '0 * * * * *',
+            cron: '0 0 0 * * *',
         };
     }
 
