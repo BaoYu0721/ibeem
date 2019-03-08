@@ -63,9 +63,11 @@ class ProjectService extends Service {
         }
         const deviceList = [];
         for(var key in device){
-            var user = null;
+            var owner = null;
+            var user  = null;
             try {
-                user = await this.app.mysql.get('user', {id: device[key].owner_id});
+                owner = await this.app.mysql.get('user', {id: device[key].owner_id});
+                user  = await this.app.mysql.get('user', {id: device[key].user_id});
             } catch (error) {
                 return -1;
             }
@@ -74,7 +76,7 @@ class ProjectService extends Service {
                 gname: device[key].gname? device[key].gname: '',
                 cname: device[key].cname? device[key].cname: '',
                 bname: device[key].bname? device[key].bname: '',
-                ownerName: device[key].uname != null ? device[key].uname : '',
+                ownerName: owner? owner.name != null ? owner.name : '': '',
                 id: device[key].id,
                 name: device[key].name,
                 userName: user? user.name != null ? user.name : '': '',

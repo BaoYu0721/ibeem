@@ -62,7 +62,7 @@
 		<div class="qrcode-weidu-container">>
 			<div id="qrcode_weidu" class="qrcode-weidu"></div>
 		</div>
-		<span>扫描进入答题</span>
+		<span id="qrcode-answer">扫描进入答题</span>
 	</div>
 	<button class="gotoReport transition hidden" id="gotoReport">进入统计页面</button>
 	<div class="container " style="width:20rem;height:35rem;margin:0 auto;padding-top:1rem;position:relative;background-color:white;border-radius:.2857rem;">
@@ -172,6 +172,8 @@
 				$(".endtime-span").html($.i18n.prop("survey_list_endtime"));
 				$("#exportExcel").html($.i18n.prop("survey_list_downloadexcel"));
 				$("#downloadqr").html($.i18n.prop("survey_list_qrdownload"));
+				$("#qrcode-answer").html($.i18n.prop("survey_list_answer"));
+				$("#gotoReport").html($.i18n.prop("survey_list_tongji"));
 				let i = 1;
 				$("#datatable th").each(function(){
 					if(i == 2)

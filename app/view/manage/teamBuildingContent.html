@@ -37,10 +37,10 @@
      <div class="fl mainleft"></div>
     <div class="fl main">
         <div class="ui top demo horizontal inverted sidebar labeled icon menu visible  " id="topmenu" style="padding-left:10rem;">
-        <div class="teamTitleTit">
-        	<a class="tit-teamname" href=<%="?project_name=" + project_name%>></a>
-        	<a class="tit-buildingname" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName%> style="border:none;color:#47B390;"></a>
-        </div>
+						<div class="teamTitleTit">
+							<a class="tit-teamname" href=<%="?project_name=" + project_name%>></a>
+							<a class="tit-buildingname" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName%> style="border:none;color:#47B390;"></a>
+						</div>
             <a class="item" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName + "&op=info" %>>建筑信息</a>
             <a class="item" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName + "&op=point" %>>建筑测点</a>
             <a class="item" href=<%="?project_name=" + project_name + "&item=building&building_name=" + buildingName + "&op=survey" %>>建筑问卷</a>
@@ -105,7 +105,7 @@
 		                	<!-- 右侧三维模型 -->
 		                	<div class="five wide column mainright">
 		                		<div class="building-slider">
-			                		<div class="ui label huge label-2">建筑三维模型</div>
+			                		<div class="ui label huge label-2" id="3d-modal">建筑三维模型</div>
 			                		<div id="" class="slider-3d"></div>
 			                	</div>
 		                	</div>
@@ -120,5 +120,44 @@
 <script src="/public/static/manage/js/team/selectCity.js"></script>
 <script src="/public/static/manage/js/team/teamCommon.js"></script>
 <script src="/public/static/manage/js/team/teamBuildingContent.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+		$(function(){
+			// 选择语言
+			$('.language.ui.dropdown').dropdown();
+			jQuery.i18n.properties({
+				name: 'i18n',
+				path: '/public/i18n/',
+				mode: 'map',
+				language: window.localStorage.getItem("language"),
+				callback: function() {
+					if(window.localStorage.getItem("language") == 'ch') return;
+					$("title").html($.i18n.prop("project_building_homepage"));
+					var i = 1;
+					$("#topmenu .item").each(function(){
+						if(i == 1) $(this).html($.i18n.prop("project_building_info"));
+						if(i == 2) $(this).html($.i18n.prop("project_building_point"));
+						if(i == 3) $(this).html($.i18n.prop("project_building_survey"));
+						if(i == 4) $(this).html($.i18n.prop("project_building_energe"));
+						i++;
+					});
+					i = 1;
+					$("table tr .str").each(function(){
+						if(i == 1) $(this).html($.i18n.prop("main_buildingname"));
+						if(i == 2) $(this).html($.i18n.prop("project_building_city"));
+						if(i == 3) $(this).html($.i18n.prop("project_building_gross_area"));
+						if(i == 4) $(this).html($.i18n.prop("project_building_height"));
+						if(i == 5) $(this).html($.i18n.prop("project_building_wwr"));
+						if(i == 6) $(this).html($.i18n.prop("project_building_point_num"));
+						if(i == 7) $(this).html($.i18n.prop("project_building_subjective"));
+						if(i == 8) $(this).html($.i18n.prop("project_building_power"));
+						i++;
+					});
+					$("#part-result-ok").html($.i18n.prop("top_update"));
+					$("#3d-modal").html($.i18n.prop("project_building_3dmodal"));
+				}
+			})
+		});
+	</script>
 </body>
 </html>

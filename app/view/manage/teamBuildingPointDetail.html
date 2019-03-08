@@ -66,7 +66,7 @@
 	<i class="green close icon"></i>
 		<div class="container">
 			<div class="top">
-				<span>修改信息测点</span>
+				<span id="edit-point-info-tit">修改信息测点</span>
 			</div>
 			<div class="bottom">
 				<div class="addpoint">
@@ -100,7 +100,7 @@
 					  		<input class="form_control form_datetime" type="text" value="" placeholder="结束时间" id="end_t">
 					  	</div>
 					  
-	               		<div class="datasource-option" id="link-device"><a href="javascript:void(0)">关联设备</a><a id="glsb"></a>
+	               		<div class="datasource-option" id="link-device"><a href="javascript:void(0)" class="link_device">关联设备</a><a id="glsb"></a>
 	               			<div class="addPointListBox" >
 		     	                    <div class="tit">设备列表</div>
 	     	                   	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingm"/>  	
@@ -124,7 +124,7 @@
 	               		</div>
 	               		
 	               		<!-- <div class="datasource-option on" id="input-device"><a href="javascript:void(0)">手动上传</a></div> -->
-	               		<div class="datasource-option" id="link-survey"><a href="javascript:void(0)">关联问卷</a><a id="glwj"></a>
+	               		<div class="datasource-option" id="link-survey"><a href="javascript:void(0)" class="link_survey">关联问卷</a><a id="glwj"></a>
 	               			<div class="addSurveyListBox" >  
 		     	                    <div  class="tit">问卷列表</div>  
 	     	                   	    <img src="/public/static/manage/img/team/loding.gif"  id="loadingmSurvey"/>  	
@@ -181,7 +181,7 @@
                 <div class="sixteen wide column content-team">
                 	<!-- 测点信息 -->
                 	<div class="content-box">
-                			<div class="tb-box-head">
+                			<div class="tb-box-head" id="point-info">
 									<div class="tb-box-head-l">
 										  <a class="ui label tb-lab button_add" >测点信息</a><span class="tb-intro button_add">点击修改</span>
 	                					  <br /><br />
@@ -227,5 +227,53 @@
 <script src="/public/static/manage/js/team/teamCommon.js"></script>
 <script src="/public/static/manage/js/team/teamBuildingPointDetail.js"></script>
 <script src="/public/static/manage/js/team/teamBuildingPointDetailSurvey.js"></script>
+<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+<script>
+		$(function(){
+			// 选择语言
+			$('.language.ui.dropdown').dropdown();
+			jQuery.i18n.properties({
+				name: 'i18n',
+				path: '/public/i18n/',
+				mode: 'map',
+				language: window.localStorage.getItem("language"),
+				callback: function() {
+					if(window.localStorage.getItem("language") == 'ch') return;
+					$("title").html($.i18n.prop("project_building_pointlist"));
+					$("#point-info a").html($.i18n.prop("teamBuidling_msg_7"));
+					$("#point-info .tb-intro").html($.i18n.prop("teamBuilding_msg_8"));
+					$(".tb-box-body .button_add").html($.i18n.prop("associated_device"));
+					$("#cdLink").html($.i18n.prop("teamBuilding_msg_3"));
+					$(".tb-box-foot .button_add").html($.i18n.prop("teamBuilding_msg_13"));
+					$("#cdSurveyTitle").html($.i18n.prop("teamBuilding_msg_4"));
+					$("#edit-point-info-tit").html($.i18n.prop("teamBuilding_msg_14"));
+					$("#link-device .link_device").html($.i18n.prop("associated_device"));
+					$("#link-survey .link_survey").html($.i18n.prop("teamBuilding_msg_3"));
+					$("#submit").html($.i18n.prop("top_update"));
+					$("#start_t").attr("placeholder", "Start Time");
+					$("#end_t").attr("placeholder", "End Time");
+					$(".addPointListBox .tit").html($.i18n.prop("wx_devicelist_title"));
+					$("#searchDevice").attr("placeholder", "Search");
+					$("#link-device .confirmBtn").html($.i18n.prop("device_confirm"));
+					var i = 1;
+					$("#point-info strong").each(function(){
+						if(i == 1) $(this).html('<i class="database icon"></i>' + $.i18n.prop("teamBuilding_msg_9") + ':');
+						if(i == 2) $(this).html('<i class="bar chart icon"></i>' + $.i18n.prop("teamBuilding_msg_10") + ':');
+						if(i == 3) $(this).html('<i class="calendar icon"></i>' + $.i18n.prop("teamBuilding_msg_11") + ':');
+						if(i == 4) $(this).html('<i class="calendar icon"></i>' + $.i18n.prop("teamBuilding_msg_12") + ':');
+						i++;
+					})
+					i = 1;
+					$("#topmenu .item").each(function(){
+						if(i == 1) $(this).html($.i18n.prop("project_building_info"));
+						if(i == 2) $(this).html($.i18n.prop("project_building_point"));
+						if(i == 3) $(this).html($.i18n.prop("project_building_survey"));
+						if(i == 4) $(this).html($.i18n.prop("project_building_energe"));
+						i++;
+					});
+				}
+			})
+		});
+	</script>
 </body>
 </html>

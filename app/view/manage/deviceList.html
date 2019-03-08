@@ -89,7 +89,7 @@
 			                </div>
 			                <div class="five wide column mainright" id="device_list_map">
 			                	<div class="map">
-			                		<div class="tit">地图</div>
+			                		<div class="tit">设备位置</div>
 			                		 <div class="mapdata" id="container"></div>
 			                	</div>
 			                </div>
@@ -280,7 +280,45 @@
     <script src="/public/static/manage/js/getDeviceInfo.js"></script>
     <script src="/public/static/manage/js/customFrame.js"></script>
     <script src="/public/static/manage/js/deviceList.js"></script>
-    <!--<script src="/public/static/manage/js/home.js"></script>-->
-    
+	<!--<script src="/public/static/manage/js/home.js"></script>-->
+	<script src="/public/static/common/js/jquery.i18n.properties.js"></script>
+	<script>
+	$(function(){
+		// 选择语言
+		$('.language.ui.dropdown').dropdown();
+		jQuery.i18n.properties({
+			name: 'i18n',
+			path: '/public/i18n/',
+			mode: 'map',
+			language: window.localStorage.getItem("language"),
+			callback: function() {
+				if(window.localStorage.getItem("language") == 'ch') return;
+				$("title").html($.i18n.prop("deviceList_list"));
+				$(".tit").html($.i18n.prop("device_location"));
+				$("#submitDeviceInfo").html($.i18n.prop("device_confirm"));
+				$("#editDeviceBack").html($.i18n.prop("device_cancel"));
+				$("#editDeviceInfo").html($.i18n.prop("surveyAdd_dxx3"));
+				$("#editDeviceShow").html($.i18n.prop("device_view"));
+				$("#editDeviceDownload").html($.i18n.prop("device_download"));
+				$("#editDeviceEvaluation").html($.i18n.prop("wx_evaluation"));
+				let i = 1;
+				$(".myform .clearfix .fl.left").each(function(){
+					if(i == 1) $(this).html($.i18n.prop("deviceList_owner"));
+					if(i == 2) $(this).html($.i18n.prop("deviceList_concern"));
+					if(i == 3) $(this).html($.i18n.prop("deviceList_type"));
+					if(i == 4) $(this).html($.i18n.prop("device_address"));
+					if(i == 5) $(this).html($.i18n.prop("device_detail_address"));
+					if(i == 6) $(this).html($.i18n.prop("device_detail_info"));
+					if(i == 7) $(this).html($.i18n.prop("device_online"));
+					if(i == 8) $(this).html($.i18n.prop("device_error"));
+					if(i == 9) $(this).html($.i18n.prop("device_source"));
+					if(i == 10) $(this).html($.i18n.prop("device_weixin"));
+					if(i == 11) $(this).html($.i18n.prop("device_qrcode"));
+					i++;
+				});
+			}
+		})
+	});
+	</script>
 </body>
 </html>

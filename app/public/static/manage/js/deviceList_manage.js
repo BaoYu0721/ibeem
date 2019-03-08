@@ -839,7 +839,7 @@ $("#addDeviceButton").click(function(){
 			 				$("#addDeviceId").val("");
 			 				$("#addDeviceName").val("");
 			 				$("#addDeviceMac").val("");
-			 				$("#addDeviceType").val("");
+			 				//$("#addDeviceType").val("coclean");
 			 				$('.basic.test.modal.adddevice')
 							.modal('setting', 'closable', false)
 							.modal('hide');
