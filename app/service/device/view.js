@@ -7,7 +7,7 @@ class ViewService extends Service {
         var onlineRecord = null;
         var device = null;
         sTime += " 00:00:00";
-        eTime += " 24:00:00"; 
+        eTime += " 23:59:59"; 
         try {
             onlineRecord = await this.app.mysql.query('select * from online_record where device_id = ? and time >= ? and time <= ?', [deviceId, sTime, eTime]);
             device = await this.app.mysql.get('device', {id: deviceId});
