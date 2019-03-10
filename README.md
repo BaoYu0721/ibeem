@@ -4,7 +4,7 @@
 
 <!-- add docs here for user -->
 
-see /doc/ibeem技术文档.docx for more detail.
+see /doc/ibeem技术文档.pdf for more detail.
 
 ### Environment Dependencies
 
