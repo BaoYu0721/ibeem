@@ -240,11 +240,11 @@ class DownloadService extends Service {
                 var envData = [];
                 envData.push(result.data[key].dev_id);
                 envData.push(result.data[key].dev_data[i].cur_time);
-                envData.push(result.data[key].dev_data[i].wd? result.data[key].dev_data[i].wd: '');
-                envData.push(result.data[key].dev_data[i].sd? result.data[key].dev_data[i].sd: '');
-                envData.push(result.data[key].dev_data[i].zd? result.data[key].dev_data[i].zd: '');
-                envData.push(result.data[key].dev_data[i].co2? result.data[key].dev_data[i].co2: '');
-                envData.push(result.data[key].dev_data[i].pm25? result.data[key].dev_data[i].pm25: '');
+                envData.push(result.data[key].dev_data[i].wd);
+                envData.push(result.data[key].dev_data[i].sd);
+                envData.push(result.data[key].dev_data[i].zd);
+                envData.push(result.data[key].dev_data[i].co2);
+                envData.push( result.data[key].dev_data[i].pm25);
                 const time = new Date(result.data[key].dev_data[i].time);
                 const hours = parseInt(time.getHours());
                 const minutes = parseInt(time.getMinutes());
