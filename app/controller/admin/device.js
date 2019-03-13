@@ -15,7 +15,7 @@ class IndexController extends Controller {
     async deviceList(){
         const { ctx } = this;
         const page = parseInt(ctx.request.body.pageNo);
-        const pageSize = 50;
+        const pageSize = 30;
         const device = await ctx.service.admin.device.deviceList(page, pageSize);
         if(device != -1){
             return ctx.body = {

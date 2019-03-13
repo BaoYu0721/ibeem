@@ -28,7 +28,7 @@ class IndexController extends Controller {
     const user = ctx.cookies.get(ctx.app.config.auth_cookie_name);
     const userId = user.split('^_^')[0];
     const page = parseInt(ctx.request.body.pageNo);
-    const pageSize = 50;
+    const pageSize = 30;
     const device = await ctx.service.device.index.pageList(userId, page, pageSize);
     if(device != -1){
       return ctx.body = {
