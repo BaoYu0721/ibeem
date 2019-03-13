@@ -356,7 +356,7 @@ class DownloadService extends Service {
         const workOrderMap = {
             estimate_time: -1,
             percent: 0,
-            device_name: cocleanName == ''?ibeemName: cocleanName + ',' + ibeemName,
+            device_name: cocleanName == ''?ibeemName: cocleanName + ((ibeemName == '')? '': (',' + ibeemName)),
             user_id: userId,
             url: '',
             path: '',
