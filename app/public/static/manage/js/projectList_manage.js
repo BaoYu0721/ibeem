@@ -172,7 +172,18 @@ function loadDeviceList(){
      						lat:deviceList[i].latitude,
      						lon:deviceList[i].longitude
      					});     				
-
+						 if(window.localStorage.getItem('language') == 'ch'){
+							if(deviceList[i].status == '1')
+								deviceList[i].status = '在线';
+							else
+								 deviceList[i].status = '不在线';
+						}
+						else if(window.localStorage.getItem('language') == 'en'){
+						   if(deviceList[i].status == '1')
+							   deviceList[i].status = 'Online';
+						   else
+							   deviceList[i].status = 'Not online';
+						}
      					str += '<tr data-id='+deviceList[i].id+' data-name='+deviceList[i].name+' >' 
 							      +'<td class="collapsing firstColumn" data-type="'+deviceList[i].type+'" data-uname="'+deviceList[i].gname+'" data-oname="'+deviceList[i].ownerName+'">'
 					        	  +'<div class="ui fitted  checkbox" id="'+deviceList[i].id+'">'
@@ -186,7 +197,7 @@ function loadDeviceList(){
 							      +"<td class='normalColumn'>"+deviceList[i].bname+"</td>"
 							      +"<td class='normalColumn'>"+deviceList[i].cname+"</td>"
 							      +"<td class='normalColumn'>"+$thismemo+"</td>"
-							      +"<td class='smallColumn' style='text-align:center;' id='dev-"+ deviceList[i].id +"'>"+ "—" +"</td>"
+							      +"<td class='smallColumn' style='text-align:center;' id='dev-"+ deviceList[i].id +"'>"+ deviceList[i].status +"</td>"
 							      /*+"<td class='normalColumn' ></td>"*/
 							      +"</tr>";
      				}	
@@ -237,9 +248,9 @@ function loadDeviceList(){
 	 				// 所有状态拼接
 	     			str = str1 + str2;*/
      				
-					for(var i=0;i<loadListId.length;i++){
-						getStatus(loadListId[i]) 
-					}
+					// for(var i=0;i<loadListId.length;i++){
+					// 	getStatus(loadListId[i]) 
+					// }
 	     			/***********************   经纬度距离计算设备数量 2017.05.19 by LiHuYong *******************/
      			    function getRad(d){
      			        return d * Math.PI/180.0;
