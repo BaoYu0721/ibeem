@@ -481,7 +481,7 @@ function search_device(){
      				$("#example tbody").html(str);
 
      				$('#example').DataTable({
-     			        "lengthMenu": [50], 
+     			        "lengthMenu": [30], 
      			        //"bPaginate" : false,
      			        "bLengthChange": false,
      			        "bFilter": false,
