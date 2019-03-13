@@ -13,6 +13,10 @@ exports.crypto = str => {
   return crypto.createHash("md5").update(str).digest('hex');
 }
 
+exports.sleep = ms => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 exports.dateFormat = date => {
   return moment(date).format('YYYY-MM-DD HH:mm:ss');
 }

@@ -1,9 +1,9 @@
 var devicelist = [];
 var datatable;
+var selected_ID = [];
 function loadDeviceList(page){
 	addLoading();
-	
-	selected_ID = [];
+
 	thisIdList = [];
 	loadListId = [];
 	
@@ -85,9 +85,9 @@ function loadDeviceList(page){
 						 });
 						 
 						 //自动获取设备状态
-						for(var i=0;i<loadListId.length;i++){
-							getStatus(loadListId[i]) 
-						}
+						// for(var i=0;i<loadListId.length;i++){
+						// 	getStatus(loadListId[i]) 
+						// }
 	    			}
 	     		},
 	     		error:function(){
@@ -163,7 +163,18 @@ function setTable(deviceList){
 		}else{
 			$thismemo = deviceList[i].memo;
 		}
-			
+		if(window.localStorage.getItem('language') == 'ch'){
+			if(deviceList[i].status == '1')
+				deviceList[i].status = '在线';
+			else
+				 deviceList[i].status = '不在线';
+		}
+		else if(window.localStorage.getItem('language') == 'en'){
+		   if(deviceList[i].status == '1')
+			   deviceList[i].status = 'Online';
+		   else
+			   deviceList[i].status = 'Not online';
+		}
 		str += '<tr data-id='+deviceList[i].id+' data-name='+deviceList[i].name+' >' 
 			      +'<td class="collapsing firstColumn" data-type="'+deviceList[i].type+'" data-uname="'+deviceList[i].gname+'" data-oname="'+deviceList[i].ownerName+'">'
 		    	  +'<div class="ui fitted  checkbox" id="'+deviceList[i].id+'">'
@@ -179,7 +190,7 @@ function setTable(deviceList){
 			      +"<td class='normalColumn'>"+deviceList[i].pname+"</td>"
 			      +"<td class='normalColumn'>"+ $thismemo +"</td>"
 			      +"<td class='normalColumn'>"+deviceList[i].dataCount+"</td>"
-			      +"<td class='smallColumn' style='text-align:center;' id='dev-"+ deviceList[i].id +"'>"+ "—" +"</td>"
+			      +"<td class='smallColumn' style='text-align:center;' id='dev-"+ deviceList[i].id +"'>"+ deviceList[i].status +"</td>"
 			      +"</tr>";
 	}	
 		/*// 状态判断 在线的排在前面
@@ -351,7 +362,18 @@ function setTable(deviceList){
      					}else{
      						$thismemo = deviceList[i].memo;
      					}
-     					
+     					if(window.localStorage.getItem('language') == 'ch'){
+							if(deviceList[i].status == '1')
+								deviceList[i].status = '在线';
+							else
+								 deviceList[i].status = '不在线';
+						}
+						else if(window.localStorage.getItem('language') == 'en'){
+						   if(deviceList[i].status == '1')
+							   deviceList[i].status = 'Online';
+						   else
+							   deviceList[i].status = 'Not online';
+						}
      					str += '<tr data-id='+deviceList[i].id+' data-name='+deviceList[i].deviceName+' >' 
      						      +'<td class="collapsing firstColumn" data-type="'+deviceList[i].type+'" data-uname="'+deviceList[i].gname+'" data-oname="'+deviceList[i].ownerName+'">'
      					    	  +'<div class="ui fitted  checkbox" id="'+deviceList[i].id+'">'
@@ -365,7 +387,7 @@ function setTable(deviceList){
      						      +"<td class='normalColumn'>"+deviceList[i].pname+"</td>"
      						      +"<td class='normalColumn'>"+ $thismemo +"</td>"
      						     +"<td class='normalColumn'>"+deviceList[i].dataCount+"</td>"
-     						      +"<td class='smallColumn' style='text-align:center;' id='dev-"+ deviceList[i].id +"'>"+ "—" +"</td>"
+     						      +"<td class='smallColumn' style='text-align:center;' id='dev-"+ deviceList[i].id +"'>"+ deviceList[i].status +"</td>"
      						      +"</tr>";
      					
      					

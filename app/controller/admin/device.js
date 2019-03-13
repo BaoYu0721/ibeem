@@ -124,8 +124,8 @@ class IndexController extends Controller {
         const result = await ctx.service.admin.device.createWorkOrder(deviceIds, sTime, eTime, d1, d2, d3, d4, d5, workDay, startWorkTime, endWorkTime, step);
         if(result != -1){
             return ctx.body = {
-                workOrder: result,
-                code: 200
+                code: 200,
+                filepath: result
             };
         }else{
             return ctx.body = {

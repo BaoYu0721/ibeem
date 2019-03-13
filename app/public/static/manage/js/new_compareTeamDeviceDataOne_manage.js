@@ -2789,53 +2789,62 @@ init();
  	    	 				   step:$step
  	    	 			   },
  	    	 			   success:function(data){
- 	    						removeLoading();
+								removeLoading();
+								if(data.code == 200){
+										window.location.href = data.filepath;
+								}
+								if(data.code==1005){
+									alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
+								}else if(data.code==1001){
+									alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
+								}
+ 	    						// removeLoading();
 
- 	    						// 清华接口 系统繁忙
- 	    						if(data.code==1005){
- 	    							alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
- 	    						}else if(data.code==1001){
- 	    							alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
- 	    						}
+ 	    						// // 清华接口 系统繁忙
+ 	    						// if(data.code==1005){
+ 	    						// 	alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
+ 	    						// }else if(data.code==1001){
+ 	    						// 	alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
+ 	    						// }
  	    						
- 	    						if(data.code==200){
+ 	    						// if(data.code==200){
  	    							
- 	    							var workOrderStatus='';
- 	    							if(data.workOrder.status=="finish"){
- 	    								workOrderStatus = getLangStr("devicedata_result6");
- 	 	  							}else if(data.workOrder.status=="failure"){
- 	 	  								workOrderStatus = getLangStr("devicedata_result8");
- 	 	  							}else{
- 	    								workOrderStatus = getLangStr("devicedata_result7");
- 	    							}
+ 	    						// 	var workOrderStatus='';
+ 	    						// 	if(data.workOrder.status=="finish"){
+ 	    						// 		workOrderStatus = getLangStr("devicedata_result6");
+ 	 	  						// 	}else if(data.workOrder.status=="failure"){
+ 	 	  						// 		workOrderStatus = getLangStr("devicedata_result8");
+ 	 	  						// 	}else{
+ 	    						// 		workOrderStatus = getLangStr("devicedata_result7");
+ 	    						// 	}
  	    							
 
- 	    							var nameStr = data.workOrder.deviceName;
- 	    	  						var nameArr = nameStr.split(",");
- 	    	  						var nameRes = '';
+ 	    						// 	var nameStr = data.workOrder.deviceName;
+ 	    	  					// 	var nameArr = nameStr.split(",");
+ 	    	  					// 	var nameRes = '';
  	    	  						
- 	    	  						for(var k=0;k<nameArr.length;k++){
- 	    	  							if(k!=0 && k%4 == 0 ){
- 	    	  								nameRes += "<br />" + nameArr[k] + ",";
- 	    	  							}else if(k == nameArr.length - 1){
- 	    	  								nameRes += nameArr[k];
- 	    	  							}else{
- 	    	  								nameRes += nameArr[k] + ",";
- 	    	  							}
- 	    	  						}
+ 	    	  					// 	for(var k=0;k<nameArr.length;k++){
+ 	    	  					// 		if(k!=0 && k%4 == 0 ){
+ 	    	  					// 			nameRes += "<br />" + nameArr[k] + ",";
+ 	    	  					// 		}else if(k == nameArr.length - 1){
+ 	    	  					// 			nameRes += nameArr[k];
+ 	    	  					// 		}else{
+ 	    	  					// 			nameRes += nameArr[k] + ",";
+ 	    	  					// 		}
+ 	    	  					// 	}
  	    							
- 	    							var $str = '<tr><td style="display:none"></td>'+
-												'<td style="border-right:1px solid #cccccc;">' + data.workOrder.workid + '</td>'+
-												'<td style="border-right:1px solid #cccccc;">' + nameRes + '</td>'+
-												'<td style="border-right:1px solid #cccccc;">'+ data.workOrder.startTime +'<br />'+ data.workOrder.endTime +'</td>'+
-												'<td style="border-right:1px solid #cccccc;">'+ data.workOrder.time +'</td>'+
-												'<td style="border-right:1px solid #cccccc;">'+ workOrderStatus +'</td>'+
-												'<td><a href="'+ data.workOrder.url +'" target="_blank">'+ getLangStr("deviceList_download") +'</a></td></tr>';
+ 	    						// 	var $str = '<tr><td style="display:none"></td>'+
+								// 				'<td style="border-right:1px solid #cccccc;">' + data.workOrder.workid + '</td>'+
+								// 				'<td style="border-right:1px solid #cccccc;">' + nameRes + '</td>'+
+								// 				'<td style="border-right:1px solid #cccccc;">'+ data.workOrder.startTime +'<br />'+ data.workOrder.endTime +'</td>'+
+								// 				'<td style="border-right:1px solid #cccccc;">'+ data.workOrder.time +'</td>'+
+								// 				'<td style="border-right:1px solid #cccccc;">'+ workOrderStatus +'</td>'+
+								// 				'<td><a href="'+ data.workOrder.url +'" target="_blank">'+ getLangStr("deviceList_download") +'</a></td></tr>';
 								
- 	    							$("#download_history").prepend($str);
- 	    							downloadHistory();
+ 	    						// 	$("#download_history").prepend($str);
+ 	    						// 	downloadHistory();
  	    							
- 	    						}
+ 	    						// }
  	    	 				     	 
  	    	 			   },
  	    	 			   error:function(){

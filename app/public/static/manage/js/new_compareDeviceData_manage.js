@@ -2385,17 +2385,25 @@ init();
  	    	 			   },
  	    	 			   success:function(data){
  	    	 				 
-								 removeLoading();
- 	    						// 清华接口 系统繁忙
- 	    						if(data.code==1005){
+								removeLoading();
+								if(data.code == 200){
+										window.location.href = data.filepath;
+								}
+								if(data.code==1005){
 									alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
 								}else if(data.code==1001){
 									alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
-								}else if(data.code == 200){
-									alertokMsg(getLangStr("check_download_s"),getLangStr("alert_ok"));
 								}
+ 	    						// 清华接口 系统繁忙
+ 	    						// if(data.code==1005){
+								// 	alertokMsg(getLangStr("check_err_01"),getLangStr("alert_ok"));
+								// }else if(data.code==1001){
+								// 	alertokMsg(getLangStr("check_err_02"),getLangStr("alert_ok"));
+								// }else if(data.code == 200){
+								// 	alertokMsg(getLangStr("check_download_s"),getLangStr("alert_ok"));
+								// }
  	    						
- 	    						if(data.code==200){
+ 	    						// if(data.code==200){
 									// var workOrderStatus='';
  	    							// if(data.workOrder.status=="finish"){
  	    							// 	workOrderStatus = getLangStr("devicedata_result6");
@@ -2443,7 +2451,7 @@ init();
  		 	  						
  	    							// $("#download_history").prepend($str);
  	    							// downloadHistory();
- 	    						}
+ 	    						//}
  	    	 				     	 
  	    	 			   },
  	    	 			   error:function(){

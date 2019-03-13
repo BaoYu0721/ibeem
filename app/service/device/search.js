@@ -7,7 +7,16 @@ class SearchService extends Service {
         const sqlStr = '%' + str + '%';
         const deviceList = [];
         try {
-            const device = await this.app.mysql.query('select * from device where name like ? or type like ? or uname like ? or address like ?', [sqlStr.toUpperCase(), sqlStr.toLowerCase(), sqlStr, sqlStr]);
+            var device;
+            if(str == "在线" || str == "不在线" || str.toLowerCase() == "not online" || str.toLowerCase() == "online"){
+                if(str == "在线" || str.toLowerCase() == "online")
+                    device = await this.app.mysql.query('select * from device where Online_status = 1');
+                else
+                    device = await this.app.mysql.query('select * from device where Online_status = 0');
+            }
+            else{
+                device = await this.app.mysql.query('select * from device where name like ? or type like ? or uname like ? or address like ? or pname like ? or bname like ? or gname like ? or cname like ? or memo like ?', [sqlStr.toUpperCase(), sqlStr.toLowerCase(), sqlStr, sqlStr, sqlStr, sqlStr, sqlStr, sqlStr, sqlStr]);
+            }
             for(var key in device){
                 const user = await this.app.mysql.get('user', { id: device[key].owner_id });
                 const deviceMap = {
@@ -26,7 +35,8 @@ class SearchService extends Service {
                     status: device[key].Online_status == null? '': device[key].Online_status,
                     waining: device[key].warning_sign == null? '': device[key].warning_sign,
                     description: device[key].des == null? '': device[key].des,
-                    memo: device[key].memo == null? '': device[key].memo
+                    memo: device[key].memo == null? '': device[key].memo,
+                    status: device[key].Online_status
                 };
                 deviceList.push(deviceMap);
             }

@@ -1,5 +1,4 @@
 'use strict';
-
 const Controller = require('egg').Controller;
 
 class DownloadController extends Controller {
@@ -39,10 +38,10 @@ class DownloadController extends Controller {
         const step = ctx.request.body.step;
         const result = await ctx.service.device.download.createWorkOrder(userId, deviceIds, sTime, eTime, d1, d2, d3, d4, d5, workDay, startWorkTime, endWorkTime, step);
         if(result != -1){
-            return ctx.body = {
-                workOrder: result,
-                code: 200
-            };
+          return ctx.body = {
+            code: 200,
+            filepath: result
+          };
         }else{
             return ctx.body = {
                 messg: "系统繁忙请重试",

@@ -8,6 +8,7 @@ class IndexService extends Service {
         try {
             building = await this.app.mysql.query('select * from building where project_id in(select id from project where creator_id = ?) or project_id in(select project_id from user_project where role = 1 and user_id = ?)', [userId, userId]);
         } catch (error) {
+            console.log(error);
             return -1;
         }
         const buildingList = []
@@ -20,6 +21,7 @@ class IndexService extends Service {
                 deviceCount = await this.app.mysql.query('select count(id) from building_point where building_id = ?', [building[key].id]);
                 project = await this.app.mysql.get('project', {id: building[key].project_id});
             } catch (error) {
+                console.log(error);
                 return -1;
             }
             const buildingData = {
