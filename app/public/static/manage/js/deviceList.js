@@ -287,7 +287,7 @@ function loadDeviceList(page){
 	     				
 	     				$("#example tbody").html(str);
 	     				$('#example').DataTable({
-		     			        "lengthMenu": [50], 
+		     			        "lengthMenu": [30], 
 		     			        "bPaginate" : false,
 		     			        "bFilter": false,
 		     			        "oLanguage": {
