@@ -105,7 +105,7 @@ function sentJson2(url,dataJson,successFunc,errorFunc,errorFunc1){
  			if(errorFunc1){
  				errorFunc1();
  			}else{
- 				alertokMsg("network busy，Please retry！网络繁忙，请重试！","OK");
+				alertokMsg("数据加载异常,请重新刷新页面!","OK");
 // 				alertokMsg("系统出错，请联系管理员！","确定");
  			}
  			
@@ -147,7 +147,7 @@ function sentJsonSync(url,dataJson,successFunc,errorFunc){
  		error:function(data){
  			linkNum--;
  			removeLoading();
- 			alertokMsg("network busy，Please retry！网络繁忙，请重试！","OK");
+ 			alertokMsg("数据加载异常,请重新刷新页面!","OK");
 // 			alertokMsg("系统出错，请联系管理员！","确定");
 // 			alert("err data:"+JSON.stringify(data));
 // 			alert("error!");
