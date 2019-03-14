@@ -1005,7 +1005,7 @@ class DeviceService extends Service {
                             uname: '',
                             owner_id: 24
                         });
-                        const qrCode = ctx.helper.qrcode(data.deviceid);
+                        const qrCode = ctx.helper.qrcode(result.insertId);
                         if(result.insertId){
                             await app.mysql.update('device', {
                                 id: result.insertId,
