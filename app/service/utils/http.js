@@ -21,7 +21,7 @@ class HttpService extends Service {
         try {
             const result = await ctx.curl(url, {
                 method: 'POST',
-                timeout: 30000,
+                timeout: 1000 * 60 * 1,
                 data: {
                     appId: ctx.app.config.deviceDataReqUrl.coclean.appId,
                     time: time,
