@@ -77,7 +77,7 @@ class CheckDeviceStatus extends Subscription{
                 ibeem_status.device_id = ibeem[key].id;
                 status.push(ibeem_status);
             }
-            console.log(status);
+
             for(var key in status){
                 await this.app.mysql.update('device', {id: status[key].device_id, Online_status: status[key].online_status});
             }
