@@ -135,7 +135,7 @@ class DeviceService extends Service {
         const resultList = [];
         if(device){
             if(device.type == "ibeem"){
-                const param = "q=" + deviceId + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
+                const param = "q=" + device.deviceid + "&s=" + this.ctx.helper.dateFormat(new Date(sTime * 1000)) + "&e=" + this.ctx.helper.dateFormat(new Date(eTime * 1000));
                 const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getDeviceData, param);
                 if(result != -1){
                     for(var key in result.data){
