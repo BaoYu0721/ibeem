@@ -67,7 +67,7 @@ class DeviceService extends Service {
         }
         const resultMap = {};
         if(device.type == 'ibeem'){
-            const param = "q=" + deviceId;
+            const param = "q=" + device.deviceid;
             const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getRealtimeData, param);
             if(result == -1) return -1;
             if(result.data.length){
@@ -146,7 +146,7 @@ class DeviceService extends Service {
                                 pm:  result.data[key].dev_data[i].pm25,
                                 co2: result.data[key].dev_data[i].co2,
                                 lightIntensity: result.data[key].dev_data[i].zd,
-                                time: parseInt(result.data[key].dev_data[i].time)
+                                time: new Date(result.data[key].dev_data[i].cur_time).getTime()
                             }
                             resultList.push(resultMap);
                         }
