@@ -71,11 +71,11 @@ class DeviceService extends Service {
             const result = await this.service.utils.http.ibeemGet(this.app.config.deviceDataReqUrl.ibeem.getRealtimeData, param);
             if(result == -1) return -1;
             if(result.data.length){
-                resultMap.tem = result.data.wd,
-                resultMap.hum = result.data.sd,
-                resultMap.pm = result.data.pm25,
-                resultMap.co2 = result.data.co2,
-                resultMap.lightIntensity = result.data.zd
+                resultMap.tem = result.data[0].wd,
+                resultMap.hum = result.data[0].sd,
+                resultMap.pm = result.data[0].pm25,
+                resultMap.co2 = result.data[0].co2,
+                resultMap.lightIntensity = result.data[0].zd
             }
         }else if(device.type == 'coclean'){
             var param = {
